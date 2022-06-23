@@ -1,0 +1,12 @@
+name: "validate-pr"
+on: ["pull_request"]
+jobs:
+  doc-validator:
+    runs-on: "ubuntu-latest"
+    container:
+      image: "jdbgrafana/doc-validator:latest"
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
+      - name: "Run doc-validator"
+        run: "doc-validator docs/sources"

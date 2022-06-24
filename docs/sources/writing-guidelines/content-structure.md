@@ -32,7 +32,7 @@ Use the following guidelines when you create the directory.
 
 **(E)**: Nest reference files directly in the main topic directory; do not add them to subdirectories.
 
-![Documentation directory structure](../images/directory-structure.png)
+![Documentation directory structure](./directory-structure.png)
 
 ## Topic types
 

@@ -102,7 +102,7 @@ For more guidance, refer to [Lists](https://developers.google.com/style/lists) i
 
 When referencing another document, use "Refer to" rather than alternatives such as "See" or "Check out."
 
-Always give the reader some idea of what to expect in the reference. Avoid blind references, such as, "Refer to [this file]({{< relref "path to file" >}})."
+Always give the reader some idea of what to expect in the reference. Avoid blind references, such as, "Refer to [this file]."
 
 When possible, use the exact title of the page or section you are linking to as the link text.
 

@@ -2,7 +2,7 @@
 title: "Documentation templates"
 menuTitle: "Templates"
 description: “Learn more about Grafana Mimir’s microservices-based architecture”
-aliases: ["/docs/writers-toolkit/latest/templates/"]
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/templates/"]
 weight: 100
 Keywords:
     - template

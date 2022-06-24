@@ -32,7 +32,7 @@ Use the following guidelines when you create the directory.
 
 **(E)**: Nest reference files directly in the main topic directory; do not add them to subdirectories.
 
-![Documentation directory structure](./directory-structure.png)
+Directory structure image here
 
 ## Topic types
 
@@ -86,7 +86,7 @@ A _concept_ topic includes the following elements:
 - **(C)** Body content: Add as much content as required to thoroughly explain the concept.
   - The body of a concept can contain various heading levels, visuals, and text.
 
-![Concept topic](../images/concept-topic.png)
+Concept topic structure image here
 
 ### Tasks
 
@@ -136,7 +136,7 @@ A _task_ topic includes the following elements:
 - Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value._ or _Save and quit the program._
 - If a sentence is not telling the reader to do something, then it is not a step.
 
-![Task topic](../images/task-topic.png)
+Task structure image here
 
 #### Task types
 
@@ -199,13 +199,13 @@ A reference topic includes the following elements:
 
 - Reference topics appear in the TOC as follows:
 
-![Reference TOC](../images/reference-toc.png)
+Reference TOC image here
 
 **(B)** Intro: Add an introduction that describes the purpose of the content in the topic, in the form of one or two sentences.
 
 **(C)** Body content: Reference topics provide look-up information and so are typically formatted as a table or a list.
 
-![Reference topic](../images/reference-topic.png)
+Reference topic image here
 
 #### Reference topic types
 

@@ -9,7 +9,7 @@ keywords:
     - keyword 2
     - keyword 3
 ---
-<! --- Refer to [Metadata]({{< relref "../metadata/" >}}) for more information about how to populate metadata. -->
+<! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Task title
 <! --- The task title is required. The task title contains a verb plus an object. For example: "Create a dashboard". -->

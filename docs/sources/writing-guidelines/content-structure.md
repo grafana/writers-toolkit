@@ -21,7 +21,7 @@ Use the following guidelines when you create the directory.
 - This topic includes an overview of what’s covered in the topic area.
 - Use the following short code to display child topic links on a page; remove any introductory phrase or sentence, such as “This section includes the following topics.” This will eliminate future bugs and manual bugs.
 
-`{{< section >}}`
+  `{{< section >}}`
 
 **(B)**: Create a directory for each topic.
 
@@ -34,21 +34,9 @@ Use the following guidelines when you create the directory.
 
 **(E)**: Nest reference files directly in the main topic directory; do not add them to subdirectories.
 
-![Documentation directory structure](../images/directory-structure.png)
+![Documentation directory structure](../../images/directory-structure.png)
 
-### Metadata
-
-Each topic includes metadata that includes the topic title, keywords, a description, and its position within the table of contents:
-
-| Metadata                                     | Description                                                                                                                                                                                                                                                                                         |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`                                      | Enter the topic title. The topic title appears in the TOC.                                                                                                                                                                                                                                          |
-| `description`                                | Describe the contents of the topic.                                                                                                                                                                                                                                                                 |
-| `aliases`                                    | Redirect content from an old URL to a new URL. As a best practice, when you create a topic, add                                                                                                                                                                                                     |
-| its old website path to the alias attribute. |
-| `weight`                                     | Determine the placement of the topic within the TOC, with smaller numbers placing the topic higher in the guide. We recommend that you increments of `100` for index files and increments of `10` for all other content files, because doing so eliminates much of the need to reweigh other files. |
-
-### Topic types
+## Topic types
 
 Technical content comprises three types of topics:
 
@@ -58,7 +46,7 @@ Technical content comprises three types of topics:
 
 Use the following guidelines when you write concept, task, and reference topics.
 
-#### Concepts
+### Concepts
 
 Concepts provide content that helps users to understand _what_ a feature is and _why_ it is important. The information in the topic supports you in completing related tasks, and it and can include the following types of content:
 
@@ -73,7 +61,7 @@ Concept topics do not include:
 - Step-by-step instructions
 - Reference information, such as lookup tables or lists of values
 
-## Concept topic examples
+#### Concept topic examples
 
 Refer to the following topics for concept topic examples:
 
@@ -81,7 +69,7 @@ Refer to the following topics for concept topic examples:
 - [Deployment modes](https://grafana.com/docs/loki/next/fundamentals/architecture/deployment-modes/)
 - [Best practices for managing dashboards](https://grafana.com/docs/grafana/latest/best-practices/best-practices-for-managing-dashboards/)
 
-## Concept topic file naming conventions
+#### Concept topic file naming conventions
 
 Use the following naming conventions when you name concept files:
 
@@ -91,7 +79,7 @@ Use the following naming conventions when you name concept files:
 
 For example, `about-grafana-panels.md`.
 
-## Concept topic structure
+#### Concept topic structure
 
 A _concept_ topic includes the following elements:
 
@@ -100,13 +88,13 @@ A _concept_ topic includes the following elements:
 - **(C)** Body content: Add as much content as required to thoroughly explain the concept.
   - The body of a concept can contain various heading levels, visuals, and text.
 
-![Concept topic](../images/concept-topic.png)
+![Concept topic](../../images/concept-topic.png)
 
-#### Tasks
+### Tasks
 
 A _task_ topic lists the steps to take to produce an intended outcome. Tasks tell you _how_ to do something.
 
-##### Task topic examples
+#### Task topic examples
 
 Refer to the following topics for task topic examples:
 
@@ -114,7 +102,7 @@ Refer to the following topics for task topic examples:
 - [Install Grafana plugins](https://grafana.com/docs/grafana/latest/plugins/installation/)
 - [Create a playlist](https://grafana.com/docs/grafana/v7.5/dashboards/playlist/#create-a-playlist/)
 
-## Task topic file naming convention
+#### Task topic file naming convention
 
 Use the following naming convention when you name task files:
 
@@ -124,7 +112,7 @@ Use the following naming convention when you name task files:
 
 For example, `change-password.md`.
 
-## Task topic structure
+#### Task topic structure
 
 A _task_ topic includes the following elements:
 
@@ -150,38 +138,38 @@ A _task_ topic includes the following elements:
 - Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value._ or _Save and quit the program._
 - If a sentence is not telling the reader to do something, then it is not a step.
 
-![Task topic](../images/task-topic.png)
+![Task topic](../../images/task-topic.png)
 
-### Task types
+#### Task types
 
 In most cases, each topic only contain one task. If you have several very short, related tasks, then you might combine them into one topic.
 
-## One-step task
+##### One-step task
 
 Some tasks are so short that they only contain one step.
 
 Write one-step tasks as simple sentences, not as unordered lists or numbered lists.
 
-## Group short tasks
+##### Group short tasks
 
 You can group short tasks into a single topic. What constitutes _short_ is a judgment call based on the number of steps and how long individual steps are.
 
 1. Use your judgment.
 1. Ask your coworkers or someone on the Docs Squad for advice if you aren't sure.
 
-## Next steps
+##### Next steps
 
 If the task you are writing leads naturally to one or more other tasks, then include links after the task to help the reader figure out where to go next.
 
 Thanks to internet search engines, every page in the documentation could be page one. Pretend you are explaining your task to a new Grafana user.
 
-## Testing
+##### Testing
 
 It is a best practice to have someone else test the task you have written. If they can successfully complete the task using _only_ what the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
 
 New users or people from other teams are very helpful for these tests.
 
-#### References
+### References
 
 The _reference_ topic type is for storing reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
 
@@ -189,13 +177,13 @@ Often reference topics are linked from _task_ topics, because they contain infor
 
 > **Note:** Do not include steps or conceptual information in reference topics.
 
-## Reference topic example
+#### Reference topic example
 
-Refer to the following topics for concept topic examples:
+Refer to the following topics for a reference topic example:
 
 - [Grafana CLI](https://grafana.com/docs/grafana/latest/administration/cli/)
 
-## Reference topic file naming conventions
+#### Reference topic file naming conventions
 
 Use the following naming conventions when you name reference files:
 
@@ -205,7 +193,7 @@ Use the following naming conventions when you name reference files:
 
 For example, `reference-calculation-types.md`.
 
-## Reference topic structure
+#### Reference topic structure
 
 A reference topic includes the following elements:
 
@@ -213,19 +201,19 @@ A reference topic includes the following elements:
 
 - Reference topics appear in the TOC as follows:
 
-![Reference TOC](../images/reference-toc.png)
+![Reference TOC](../../images/reference-toc.png)
 
 **(B)** Intro: Add an introduction that describes the purpose of the content in the topic, in the form of one or two sentences.
 
 **(C)** Body content: Reference topics provide look-up information and so are typically formatted as a table or a list.
 
-![Reference topic](../images/reference-topic.png)
+![Reference topic](../../images/reference-topic.png)
 
-## Reference topic types
+#### Reference topic types
 
 The body content of a reference topic is _generally_ formatted as lists, or tables.
 
-## Lists
+##### Lists
 
 Lists of commands or parameters are often organized in reference topics. The information you need to present dictates the format:
 
@@ -235,13 +223,13 @@ Lists of commands or parameters are often organized in reference topics. The inf
 
 To see an example of a reference topic formatted as a list, refer to [Configuration](https://grafana.com/docs/grafana/latest/installation/configuration/).
 
-## Tables
+##### Tables
 
 If you have a large list of things to store in a table, then you are probably dealing with reference information.
 
 To see an example of a reference topic that contains a table, refer to [Glossary](https://grafana.com/docs/grafana/latest/guides/glossary/).
 
-### Empty Markdown table
+###### Empty Markdown table
 
 Although you might not need a heading for each table, headings are a good way to chunk information if you have several tables.
 
@@ -256,7 +244,7 @@ Tables make the content easy to skim. Use headings or introductory paragraphs to
 |     |     |     |     |     |     |
 ```
 
-## API documentation
+##### API documentation
 
 API documentation is always a reference topic rather than a task topic, but it has its own rules.
 
@@ -283,6 +271,6 @@ However, sometimes we need to use headings as numbered steps. This is mostly in 
 
 If that is the case, then use the following format for headings:
 
-##### Step 1. Install the software
+#### Step 1. Install the software
 
-##### Step 2. Run the software
+#### Step 2. Run the software

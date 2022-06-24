@@ -1,5 +1,6 @@
 ---
 title: "Grafana technical writing style guide"
+menuTitle: "Style guide"
 description: "Grafana technical writing style guide"
 aliases: []
 weight: 100

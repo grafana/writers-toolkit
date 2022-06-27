@@ -10,3 +10,13 @@ jobs:
         uses: "actions/checkout@v3"
       - name: "Run doc-validator"
         run: "doc-validator docs/sources"
+
+  vale-linter:
+    runs-on: "ubuntu-latest"
+    container:
+      image: "grafana/vale"
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
+      - name: "Run Vale linter"
+        run: "vale --config /etc/vale/.vale.ini ./docs/sources"

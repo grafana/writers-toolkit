@@ -138,7 +138,7 @@ Include images in a document using the following syntax:
 - \!\[Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")
 - \!\[Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")
 
-This follows the format of "!", alt text wrapped in "[]" and the link URL wrapped in "()".
+This follows the format of "!", alt text wrapped in "[]" and the link URL wrapped in "()."
 
 You can also use HTML such as the following:
 
@@ -156,4 +156,4 @@ You can include comments that will not appear in published markdown using the fo
 
 \[comment]: <> (Comment text to display)
 
-The word "comment" wrapped in "[]" followed by a ":", a space, "<>", and then the comment itself wrapped in "()".
+The word "comment" wrapped in "[]" followed by a ":," a space, "<>," and then the comment itself wrapped in "()."

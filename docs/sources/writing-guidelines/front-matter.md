@@ -1,5 +1,5 @@
 ---
-title: "Topic front matter"
+title: "Front matter"
 menuTitle: "Front matter"
 description: “Learn about how we build front matter to properly enable the publication and search of our technical documentation”
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/front-matter"]
@@ -9,7 +9,7 @@ Keywords:
     - alias
 ---
 
-# Topic front matter
+# Front matter
 
 Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the LH sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
 

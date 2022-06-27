@@ -1,5 +1,5 @@
 ---
-title: "Task title"
+title: "Template for tasks"
 menuTitle: "Task"
 description: “Use this template when you write a task topic.”
 aliases: ["/docs/writers-toolkit/latest/templates/task-template"]
@@ -12,7 +12,7 @@ keywords:
 <! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Task title
-<! --- The task title is required. The task title contains a verb plus an object. For example: "Create a dashboard". -->
+<! --- The task title is required. The task title succinctly describes the goal to be accomplished as the result of following the instruction. The task title contains a verb and an object. For example: "Create a dashboard". -->
 
 Add an introduction to the task.
 

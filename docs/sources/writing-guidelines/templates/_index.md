@@ -12,17 +12,17 @@ Keywords:
 
 # Documentation templates
 
-This section provides you with a collection of templates to help you write your documentation.
+This section provides you with a collection of templates to help you write your documentation in the correct format, style, tone, and structure.
 Choose from concept, task, or reference and get started quickly.
 
-Although we don’t distinguish between different types of content when we create new topics in Markdown, it is important to follow a clearly defined structure so our documentation has a consistent look and feel to our users.
+We don’t distinguish between different types of content when we create new topics in Markdown. However, to ensure our documentation has a consistent look and feel for our users, please follow this clearly defined structure.
 
 We write three core documentation types:
 
 **Concept:** Describes how and why something works. Concepts answer the question "what is it?". When readers read concepts, they are learning about a topic. Use concepts to help the reader understand a technology, before they start using it.
 
-**Task:** Gives specific instructions about how to get something done. Tasks answer the question "how do I do it?". When readers read tasks, they are doing something. Tasks tend to have a specific goal and consist of a set of numbered steps that the reader can follow to achieve that goal.
+**Task:** Gives specific instructions about how to get something done to answer the question "how do I do <insert task>?". When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content will typically include numbered steps that the reader can follow to achieve that goal.
 
-**Reference:** Contains structured information or specifications that users need to make a product work. Reference material answers the question "what else do I need to know?" When readers read references, they are fact-checking. Reference sections should comprehensively catalog data such as functions and their parameters, return codes and error messages. They are often presented as tables, bulleted lists, or sample scripts.
+**Reference:** Contains structured information or specifications that users need to make a product work. Reference material answers the question "what else do I need to know?" When readers read references, they are fact-checking. Reference sections should comprehensively catalog data such as functions and their parameters, return codes, and error messages. They are often presented as tables, bulleted lists, or sample scripts.
 
-Our templates follow these documentation types, and you should find that your information naturally fits into them as you write.
+Our templates follow these documentation types. Your information will naturally fit into these types as you write.

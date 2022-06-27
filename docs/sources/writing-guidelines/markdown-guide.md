@@ -1,3 +1,10 @@
+---
+title: "Markdown style guide"
+description: "Includes guidelines for writing technical documentation in Markdown."
+aliases: []
+weight: 20
+---
+
 # Markdown style guide
 
 This guide for Markdown style helps keep contributions consistent across all documentation created for Grafana products. Refer to the guide and update its sections as needed when a Subject Matter Expert answers a question on Markdown style, or a decision is made about how to apply Markdown.
@@ -92,11 +99,11 @@ Will publish as:
 
 To avoid inconsistent list numbering, use repetitive list numbering:
 
-\1. First
+1. First
 
-\1. Second
+1. Second
 
-\1. Third
+1. Third
 
 The list above will always display as:
 

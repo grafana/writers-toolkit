@@ -14,8 +14,6 @@ At Grafana Labs, we write technical documentation with this mission in mind: dev
 
 **Respect.** Speak as though you are speaking to a friend. Use inclusive language. Be sympathetic, kind, and considerate. Don’t patronize, condescend, or mislead. Above all, don’t market or sell, but communicate useful information with real value.
 
-To do this, content should be:
-
 **Clarify.** Use language that’s easy for everyone to understand.
 
 Only write and publish content that’s relevant to users. Ask yourself:

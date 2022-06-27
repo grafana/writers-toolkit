@@ -12,7 +12,9 @@ keywords:
 <! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Task title
+<!-- vale Grafana.Quotes = NO -->
 <! --- The task title is required. The task title succinctly describes the goal to be accomplished as the result of following the instruction. The task title contains a verb and an object. For example: "Create a dashboard". -->
+<!-- vale Grafana.Quotes = YES -->
 
 Add an introduction to the task.
 

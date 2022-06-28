@@ -13,15 +13,10 @@ We're glad you're here to help make our technical documentation even better. We 
 
 This toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
 
-## What is the Grafana Technical Writing Contributor’s Toolkit?
-
-We want to help you contribute to our documentation and enable you to write clearly, concisely, and consistently.
-
 This toolkit consists of two guides:
 
 * Style Guide
 * Writing Guide
-
 
 ## Iteration is our friend
 

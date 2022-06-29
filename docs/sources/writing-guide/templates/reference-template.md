@@ -14,7 +14,7 @@ keywords:
 
 # Reference title
 <!-- vale Grafana.Quotes = NO -->
-<! --- The reference title is required.  Use a noun-based title. -->
+<! --- The reference title is required. Use a noun-based title. -->
 <!-- vale Grafana.Quotes = YES -->
 
 Add an introduction to the reference.

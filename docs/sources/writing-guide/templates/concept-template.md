@@ -11,7 +11,6 @@ keywords:
 ---
 <! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
 
-
 # Concept title
 <!-- vale Grafana.Quotes = NO -->
 <! --- The concept title is required. Use a noun-based title that includes the name of the product or feature. For example: "Alerting fundamentals". -->
@@ -23,7 +22,7 @@ Add an introduction to the concept.
 
 ## Sections
 
-<! --- Add sections replacing **Sections** with H2 titles for each section.
+<! --- Add sections replacing **Sections** with H2 titles for each section. Concept topics or sections explain what and why. They do not explain how. If you are a new user, you might look for concept information to learn about what Grafana is, why it might be useful to you, and what the general workflow is.
 
 -->
 

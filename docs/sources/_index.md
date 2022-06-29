@@ -8,7 +8,9 @@ weight: 100
 
 # Grafana Technical Writing Contributor's Toolkit
 
+<!-- vale Grafana.Exclamation = NO -->
 Welcome!
+<!-- vale Grafana.Exclamation = YES -->
 We're glad you're here to help make our technical documentation even better. We develop content that leads our users to success using Grafana products. We want to empower everyone to create content experiences that are consistent and apply Grafana’s voice and tone; so that our documentation is truly a reflection of who we are.
 
 This toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.

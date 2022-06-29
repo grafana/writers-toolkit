@@ -21,26 +21,6 @@ Add an introduction to the concept.
 
 <! --- The introduction is required. Add an introduction to the concept to summarize the purpose or main point of the feature.
 
-## Overview
-
-<! --- The Overview section is optional. Use the Overview section to include the following:
-* Why do users care about or need this information?
-* Briefly describe the product or feature and why it was introduced.
-* Describe its capabilities or workflow.
-* Introduce the key personas involved.
-* Add multimedia content such as videos or diagrams to support the text.
-
--->
-
-## Features
-
-<! --- The Features section is optional. If you are creating an index file for a brand new feature or product, use the concept template. Include the following information:
-* Describe up to four key benefits or features.
-* What is the problem each of the benefits or features is trying to solve?
-
-
--->
-
 ## Sections
 
 <! --- Add sections replacing **Sections** with H2 titles for each section.

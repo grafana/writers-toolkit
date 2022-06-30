@@ -50,28 +50,6 @@ While you might not need a heading for each table, headings are a good way to ch
 |     |     |     |     |     |     |
 |     |     |     |     |     |     |
 
-### Empty HTML table
-
-And here is intro text, similar to the paragraph in the previous section. Do not add local styling to the table. The website CSS will take care of that for you.
-
-<table>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-</table>
-
 ## API documentation
 
 API documentation is always a reference topic rather than a task topic, but it has its own rules.

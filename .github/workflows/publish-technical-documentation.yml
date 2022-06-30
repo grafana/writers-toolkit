@@ -25,6 +25,7 @@ jobs:
       uses: "actions/checkout@v3"
 
     - name: "Clone website-sync Action"
+      # GH_BOT_ACCESS_TOKEN expires and must be updated in the grafanabot GitHub account.
       run: "git clone --single-branch --no-tags --depth 1 -b master 'https://grafanabot:${{ secrets.GH_BOT_ACCESS_TOKEN }}@github.com/grafana/website-sync' ./.github/actions/website-sync"
 
     - name: "Publish to website repository"

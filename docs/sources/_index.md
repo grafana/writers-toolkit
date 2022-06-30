@@ -5,6 +5,10 @@ cascade:
     render: false
     list: false
 
+  public_docs: true
+  search_section: Grafana writers' toolkit
+  search_type: doc
+
 title: "Grafana Technical Writing Contributor's Toolkit"
 menuTitle: "Contributor's Toolkit"
 description: "Grafana Technical Writing Contributor's Toolkit"

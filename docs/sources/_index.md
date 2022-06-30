@@ -1,4 +1,10 @@
 ---
+cascade:
+  # Remove this to publish the content.
+  _build:
+    render: false
+    list: false
+
 title: "Grafana Technical Writing Contributor's Toolkit"
 menuTitle: "Contributor's Toolkit"
 description: "Grafana Technical Writing Contributor's Toolkit"
@@ -23,5 +29,4 @@ This toolkit consists of two guides:
 ## Iteration is our friend
 
 This is just a start. We will continue to share our guidelines and seek feedback and iterate. Our hope is that these pages and our understanding continues and evolves over time. We will expand to include Design, Internationalization, Accessibility; the list goes on.
-
 

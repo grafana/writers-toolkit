@@ -41,7 +41,7 @@ This area can also include decisions that the user should make or permissions th
 
 For example: To create a dashboard: -->
 
-1. Step 1 
+1. Step 1
 1. Step 2
 1. Step 3
 

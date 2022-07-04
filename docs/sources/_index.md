@@ -1,10 +1,5 @@
 ---
 cascade:
-  # Remove this to publish the content.
-  _build:
-    render: false
-    list: false
-
   public_docs: true
   search_section: Grafana writers' toolkit
   search_type: doc

@@ -1,15 +1,18 @@
 name: "validate-pr"
-on: ["pull_request"]
+on:
+  pull_request:
+    paths: ["docs/sources/**"]
+  workflow_dispatch:
 jobs:
   doc-validator:
     runs-on: "ubuntu-latest"
     container:
-      image: "jdbgrafana/doc-validator:latest"
+      image: "grafana/doc-validator:latest"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3"
-      - name: "Run doc-validator"
-        run: "doc-validator docs/sources"
+      - name: "Run doc-validator tool"
+        run: "doc-validator ./docs/sources"
 
   vale-linter:
     runs-on: "ubuntu-latest"

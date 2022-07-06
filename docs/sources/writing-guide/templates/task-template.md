@@ -1,5 +1,5 @@
 ---
-title: "Template for tasks"
+title: "Task title"
 menuTitle: "Task"
 description: “Use this template when you write a task topic.”
 aliases: ["/docs/writers-toolkit/latest/templates/task-template"]

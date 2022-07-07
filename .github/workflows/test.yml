@@ -22,4 +22,4 @@ jobs:
       - name: "Checkout code"
         uses: "actions/checkout@v3"
       - name: "Run Vale linter"
-        run: "vale --config /etc/vale/.vale.ini ./docs/sources"
+        run: "vale --config /etc/vale/.vale.ini --output line ./docs/sources"

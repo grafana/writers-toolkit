@@ -1,5 +1,5 @@
 ---
-title: "Contribute to documenation"
+title: "Contribute to documentation"
 menuTitle: "Contribute to documenation"
 description: "This section describes the different ways of contributing to documentation."
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/contribute-documentation/"]

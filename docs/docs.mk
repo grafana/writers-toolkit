@@ -1,4 +1,9 @@
-SHELL = /usr/bin/env bash
+.ONESHELL:
+.DELETE_ON_ERROR:
+export SHELL     := bash
+export SHELLOPTS := pipefail:errexit
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rule
 
 DOCS_IMAGE   = grafana/docs-base:latest
 DOCS_PROJECT = writers-toolkit
@@ -9,8 +14,6 @@ DOCS_DIR     = sources
 DOCS_HOST_PORT    = 3002
 DOCS_LISTEN_PORT  = 3002
 DOCS_BASE_URL    ?= "localhost:$(DOCS_HOST_PORT)"
-
-DOCS_VERSION = next
 
 HUGO_REFLINKSERRORLEVEL ?= WARNING
 DOCS_DOCKER_CONTAINER = $(DOCS_PROJECT)-docs
@@ -27,13 +30,22 @@ docs-pull:
 docs: ## Serve documentation locally.
 docs: docs-pull
 	@echo "Documentation will be served at:"
-	@echo "http://$(DOCS_BASE_URL)/docs/$(DOCS_PROJECT)/$(DOCS_VERSION)/"
+	@echo "http://$(DOCS_BASE_URL)/docs/$(DOCS_PROJECT)/"
 	@echo ""
 	@if [[ -z $${NON_INTERACTIVE} ]]; then \
 		read -p "Press a key to continue"; \
 	fi
+	sed -i'' \
+		-e 's/render: false/render: true/' \
+		-e 's/list: false/list: true/' \
+		sources/_index.md
+	trap "sed -i'' \
+		-e 's/render: true/render: false/' \
+		-e 's/list: true/list: false/' \
+		sources/_index.md" \
+		EXIT
 	docker run -it --name $(DOCS_DOCKER_CONTAINER) \
-		-v $(CURDIR)/$(DOCS_DIR):/hugo/content/docs/$(DOCS_PROJECT)/$(DOCS_VERSION):ro,z \
+		-v $(CURDIR)/$(DOCS_DIR):/hugo/content/docs/$(DOCS_PROJECT)/:rw,z \
 		-e HUGO_REFLINKSERRORLEVEL=$(HUGO_REFLINKSERRORLEVEL) \
 		-p $(DOCS_HOST_PORT):$(DOCS_LISTEN_PORT) \
 		--rm $(DOCS_IMAGE) \

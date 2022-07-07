@@ -1,5 +1,5 @@
 ---
-title: "Template for concepts"
+title: "Concept title"
 menuTitle: "Concept"
 description: “Use this template when you write a concept topic.”
 aliases: ["/docs/writers-toolkit/latest/templates/concept-template"]

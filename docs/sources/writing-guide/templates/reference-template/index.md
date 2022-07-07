@@ -1,5 +1,5 @@
 ---
-title: "Template for references"
+title: "Reference title"
 menuTitle: "Reference"
 description: “Use this template when you write a reference topic.”
 aliases: ["/docs/writers-toolkit/latest/templates/reference-template"]

@@ -9,7 +9,7 @@ Keywords:
     -
 ---
 
-# About Grafana Documentation
+# About Grafana documentation
 
 ## Location
 

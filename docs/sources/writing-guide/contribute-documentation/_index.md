@@ -11,6 +11,8 @@ Keywords:
     - review documentation
 ---
 
+# Contribute to documentation
+
 How can I contribute to Grafana's documentation?
 
 There are a number of different ways to contribute to documentation at Grafana Labs. Choose the one that applies best and learn how you can engage with the documentation team and help us by contributing your ideas.

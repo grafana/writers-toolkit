@@ -9,7 +9,7 @@ keywords:
     - keyword 2
     - keyword 3
 ---
-<! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
+<! --- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 
 
 # Reference title

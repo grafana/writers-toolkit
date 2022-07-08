@@ -54,6 +54,3 @@ Write steps so that they contain one action, or possibly two related actions, su
 
 If a sentence does not tell the reader to do something, then it is not a step.
 -->
-
-
-

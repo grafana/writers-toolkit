@@ -27,13 +27,14 @@ GitHub captures your request as an Issue logged against the repository.
 
 ### Before you begin:
 
-Create a GitHub account.
+- Create a GitHub account.
 
-To request a change, complete the following steps:
+**To request a change:**
 
 1. From a topic on the documentation website, click **Request doc changes**.
 
     The Issue title auto-populates with the location of the file for which you are requesting a change.
+
 2. Click **Submit new issue**.
 
 ## Edit a topic
@@ -46,16 +47,17 @@ Small changes might include:
 * Providing an example
 
 ### Before you begin:
-Create a GitHub account.
 
-To edit a topic, complete the following steps:
+- Create a GitHub account.
+
+**To edit a topic:**
 
 1. From a topic on the documentation website, click **Edit this page** (pencil icon).
-1. Enter your changes.
-1. Change the branch name, if required.
+2. Enter your changes.
+3. Change the branch name, if required.
    The branch name is auto-populated.
 
-1. Click **Propose changes**.
+4. Click **Propose changes**.
 
     A PR is created and then goes through the PR review and approval workflow.
 
@@ -69,9 +71,9 @@ use the concept, task, and reference templates to help structure your content
 
 ## Review your changes
 
-Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work.
+Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git](https://github.com/grafana/writers-toolkit/blob/main/docs/sources/writing-guide/using-git/index.md).
 
-To view a local build:
+**To view a local build:**
 
 1. Install Docker.
 1. Run Docker.

@@ -8,6 +8,7 @@ Keywords:
     - frequently asked questions
 ---
 
+# Frequently Asked Questions (FAQs)
 Here are some of the common questions that come up. We hope it helps you find an answer.
 
 

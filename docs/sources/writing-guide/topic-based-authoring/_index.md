@@ -12,19 +12,21 @@ Keywords:
     - task
 ---
 
+# Topic-based authoring
+
 What is topic-based authoring?
 
 The Documentation Squad at Grafana Labs uses topic-based authoring. Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts.
 
 Why is topic-based authoring important?
 
-* Writing that isn’t topic-based is difficult to reuse.
+- Writing that isn’t topic-based is difficult to reuse.
 If everyone frequently copies information to multiple locations and makes small modifications, the result is rework, increases errors, and this multiplies the costs associated with maintenance and translation.
 
-* Writing that isn’t topic-based is difficult for readers to understand.
+- Writing that isn’t topic-based is difficult for readers to understand.
 Content, structure, terminology, and writing style differs and can confuse and frustrate readers.
 
-* Writing that is topic-based is more consistent and user-friendly.
+- Writing that is topic-based is more consistent and user-friendly.
 Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
 
 ## Topic types

@@ -69,7 +69,7 @@ use the concept, task, and reference templates to help structure your content
 
 ## Review your changes
 
-Prior to pushing your changes, you can view a local build of the documentation so that you can review your work.
+Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work.
 
 To view a local build:
 

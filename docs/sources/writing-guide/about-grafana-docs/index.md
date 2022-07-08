@@ -30,9 +30,9 @@ We write our technical documentation using Markdown. For more information, refer
 
 We're thrilled that you are considering contributing to the documentation. You can contribute content in the following ways:
 
-- Request a change [Request a change]({{< relref "../contribute-documentation/#request-a-change.md" >}})
-- Edit a topic [Edit a topic]({{< relref "../contribute-documentation/#edit-a-topic.md" >}})
-- Create a topic [Create a topic]({{< relref "../contribute-documentation/#create-a-topic.md" >}})
+- Request a change [Request a change]({{< relref "../contribute-documentation/#request-a-change" >}})
+- Edit a topic [Edit a topic]({{< relref "../contribute-documentation/#edit-a-topic" >}})
+- Create a topic [Create a topic]({{< relref "../contribute-documentation/#create-a-topic" >}})
 
 ## Join our community
 

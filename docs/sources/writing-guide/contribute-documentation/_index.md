@@ -53,7 +53,7 @@ To edit a topic, complete the following steps:
 1. From a topic on the documentation website, click **Edit this page** (pencil icon).
 1. Enter your changes.
 1. Change the branch name, if required.
-   The branch name is auto-populated, but you can change it.
+   The branch name is auto-populated.
 
 2. Click **Propose changes**.
 

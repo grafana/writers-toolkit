@@ -35,4 +35,4 @@ Write a topic
 
 ## Join our community
 
-For general discussions on documentation, you’re welcome to join the #docs channel on our public Grafana Slack team.
+For general discussions about documentation, you’re welcome to join the #docs channel on our public Grafana Slack team.

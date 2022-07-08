@@ -55,7 +55,7 @@ To edit a topic, complete the following steps:
 1. Change the branch name, if required.
    The branch name is auto-populated.
 
-2. Click **Propose changes**.
+1. Click **Propose changes**.
 
     A PR is created and then goes through the PR review and approval workflow.
 

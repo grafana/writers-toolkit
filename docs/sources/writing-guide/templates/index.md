@@ -21,6 +21,10 @@ We write three core documentation types:
 
 **Concept:** Describes how and why something works. Concepts answer the question "what is it?". When readers read concepts, they are learning about a topic. Use concepts to help the reader understand a technology, before they start using it.
 
+[Path to template]({{< relref "../../../static/templates/concept-template.md/" >}})
+
+[Path to template]({{< relref "../../../static/templates/concept-template.md/" >}})
+
 **Task:** Gives specific instructions about how to get something done to answer the question "how do I do <insert task>?". When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content will typically include numbered steps that the reader can follow to achieve that goal.
 
 **Reference:** Contains structured information or specifications that users need to make a product work. Reference material answers the question "what else do I need to know?" When readers read references, they are fact-checking. Reference sections should comprehensively catalog data such as functions and their parameters, return codes, and error messages. They are often presented as tables, bulleted lists, or sample scripts.

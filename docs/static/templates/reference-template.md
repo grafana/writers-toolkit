@@ -9,19 +9,18 @@ keywords:
     - keyword 2
     - keyword 3
 ---
-<! --- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
-
+<!-- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Reference title
 <!-- vale Grafana.Quotes = NO -->
-<! --- The reference title is required. Use a noun-based title. -->
+<!-- The reference title is required. Use a noun-based title. -->
 <!-- vale Grafana.Quotes = YES -->
 
 Add an introduction to the reference.
 
-<! --- The introduction is required. Include reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
+<!-- The introduction is required. Include reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
 
-Often reference topics are linked from _task_ topics, because they contain information the user needs in order to perform a task.
+Often reference topics are linked from _task_ topics, because they contain information the user needs in order to perform a task. -->
 
 ## Lists
 

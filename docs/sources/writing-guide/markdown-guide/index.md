@@ -21,6 +21,36 @@ In Markdown, the number of "#" symbols creates different heading levels, similar
 
 Start your document with a single `#` for the title of the page. Add the sub-headings with two `##`.
 
+<!-- Moved this content here from the content-structure MD file, needs to be woven in. -->
+
+## Headings
+
+Write headings in sentence case, not title case:
+
+- This is sentence case
+- This is Title Case
+
+### Heading don'ts
+
+- Avoid stacked headings, which is following one heading with another heading without any content in between the two headings
+- Avoid skipping heading levels. For example, an h1 should be followed by an h2 rather than an h3.
+- Avoid having just one lower-level heading. For example, h1, h2, h2, h3, h3, h2, h2 is a good order. Do not go h1, h2, h3, h2, h3, h2.
+- Avoid using hyphens in headings.
+- Do not include parenthetical words like (Important!) in headings.
+
+### Step-by-step headings
+
+In most cases, headings do not contain step numbers.
+
+However, sometimes we need to use headings as numbered steps. This is mostly in cases where each step is complex or a series of other procedures. For example, in [Getting started with Grafana and Prometheus](https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/).
+
+If that is the case, then use the following format for headings:
+
+#### Step 1. Install the software
+
+#### Step 2. Run the software
+
+
 ## Bold and emphasis
 
 - Make text **bold** using two asterisks.

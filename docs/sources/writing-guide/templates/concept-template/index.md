@@ -1,5 +1,5 @@
 ---
-title: "Template for concepts"
+title: "Concept title"
 menuTitle: "Concept"
 description: “Use this template when you write a concept topic.”
 aliases: ["/docs/writers-toolkit/latest/templates/concept-template"]
@@ -9,7 +9,7 @@ keywords:
     - keyword 2
     - keyword 3
 ---
-<! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
+<! --- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Concept title
 <!-- vale Grafana.Quotes = NO -->

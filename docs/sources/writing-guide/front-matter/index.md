@@ -38,3 +38,55 @@ Here’s a correctly built example (note that few to none of our files yet use t
 | [aliases] | Provides an HTML redirect from the pages in the list to the current page. Described in detail in https://github.com/grafana/technical-documentation/blob/main/docs/hugo/index.md  |   |
 | [weight] | The [weight] determine the placement of the topic within the left hand sidebar of our website, with smaller numbers placing the topic higher in the guide. <br><br>Pages with the same weight have lexicographic ordering. | We recommend that you use increments of `100` for index files and for all other content files, because doing so eliminates much of the need to re-order existing topics when new topics are added. <br><br>Weights are per web directory. |
 | [keywords] | Keywords are used by the website to link to related pages in the “related content” sections. https://github.com/grafana/website/blob/master/config/_default/config.yaml#L85 <br><br>They do not appear in the resulting HTML source for the page and have no effect on SEO. <br><br>Ideally, use single terms as opposed to phrases. |   |
+
+## About Hugo aliases
+
+Technical writers use [Hugo aliases](https://gohugo.io/content-management/urls/#aliases) to create redirects to the current page from other URLs.
+
+If you specify `aliases` in the frontmatter, Hugo creates a directory that matches the alias entry that contains a single `.html` file.
+
+## Example
+
+The following example file `intended-url.md` contains the alias `/original-url` within its YAML frontmatter:
+
+```markdown
+---
+aliases:
+    - /original-url/
+---
+```
+
+Assuming a `baseURL` of `grafana.com`, the auto-generated alias `.html` file found at `https://grafana.com/original-url/` contains something like the following:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+    const destination = 'https://grafana.com/intended-url/';
+    console.log(window.location.search)
+    document.head.innerHTML = `<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`;
+    </script>
+    <title>https://grafana.com/intended-url/</title>
+    <link rel="canonical" href="https://grafana.com/intended-url/"/>
+    <meta name="robots" content="noindex">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url={{ safeURL .Permalink }}"/>
+    </noscript>
+  </head>
+</html>
+```
+
+The `http-equiv="refresh"` `meta` tag attribute, injected by JavaScript, performs an HTML redirect.
+For more detail about HTML redirects, refer to [HTML redirections](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections#html_redirections).
+
+> **Note:** The redirect relies on first party JavaScript support which is common but not necessarily universal.
+
+## Guideline
+
+To allow content to be easily moved, include an `aliases` entry that refers to the initial published website directory.
+Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
+
+> **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
+> For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.

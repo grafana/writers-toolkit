@@ -1,5 +1,5 @@
 ---
-title: "Template for tasks"
+title: "Task title"
 menuTitle: "Task"
 description: “Use this template when you write a task topic.”
 aliases: ["/docs/writers-toolkit/latest/templates/task-template"]
@@ -9,7 +9,7 @@ keywords:
     - keyword 2
     - keyword 3
 ---
-<! --- Refer to [Topic front matter]({{< relref "../front-matter/" >}}) for more information about how to populate front matter. -->
+<! --- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Task title
 <!-- vale Grafana.Quotes = NO -->
@@ -54,6 +54,3 @@ Write steps so that they contain one action, or possibly two related actions, su
 
 If a sentence does not tell the reader to do something, then it is not a step.
 -->
-
-
-

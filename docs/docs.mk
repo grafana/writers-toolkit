@@ -36,10 +36,12 @@ docs: docs-pull
 		read -p "Press a key to continue"; \
 	fi
 	sed -i'' \
-		's/render: false/render: true/; s/list: false/list: true/' \
+		's/render: false/render: true/
+		 s/list: false/list: true/' \
 		sources/_index.md
 	trap "sed -i'' \
-		's/render: true/render: false/; s/list: true/list: false/' \
+		's/render: true/render: false/
+		 s/list: true/list: false/' \
 		sources/_index.md" \
 		EXIT
 	docker run -it --name $(DOCS_DOCKER_CONTAINER) \

@@ -35,11 +35,11 @@ docs: docs-pull
 	@if [[ -z $${NON_INTERACTIVE} ]]; then \
 		read -p "Press a key to continue"; \
 	fi
-	sed -i'' \
+	sed -i \
 		-e 's/render: false/render: true/' \
 		-e 's/list: false/list: true/' \
 		sources/_index.md
-	trap "sed -i'' \
+	trap "sed -i \
 		-e 's/render: true/render: false/' \
 		-e 's/list: true/list: false/' \
 		sources/_index.md" \

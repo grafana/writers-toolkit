@@ -76,7 +76,6 @@ A _concept_ topic includes the following elements:
 
 ![Concept structure](concept.png)
 
-
 ### Write a concept topic
 
 Complete the following steps to write a concept topic.
@@ -106,6 +105,7 @@ Complete the following steps to write a concept topic.
    For more information about the kinds of content you can add to a concept topic, refer to [Concept](#concept).
 
 
+++++++++++++++++++NEEDS WORK+++++++++++++
 
 **Task**
 Provides procedural information, typically providing step-by-step instructions for
@@ -113,7 +113,7 @@ accomplishing a goal.
 
 **Task:** Gives specific instructions about how to get something done to answer the question "how do I do <insert task>?". When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content will typically include numbered steps that the reader can follow to achieve that goal.
 
-++++++++++++++++++NEEDS WORK+++++++++++++
+
 ### Tasks
 
 A _task_ topic lists the steps to take to produce an intended outcome. Tasks tell you _how_ to do something.

@@ -39,6 +39,26 @@ Here’s a correctly built example (note that few to none of our files yet use t
 | [weight] | The [weight] determine the placement of the topic within the left hand sidebar of our website, with smaller numbers placing the topic higher in the guide. <br><br>Pages with the same weight have lexicographic ordering. | We recommend that you use increments of `100` for index files and for all other content files, because doing so eliminates much of the need to re-order existing topics when new topics are added. <br><br>Weights are per web directory. |
 | [keywords] | Keywords are used by the website to link to related pages in the “related content” sections. https://github.com/grafana/website/blob/master/config/_default/config.yaml#L85 <br><br>They do not appear in the resulting HTML source for the page and have no effect on SEO. <br><br>Ideally, use single terms as opposed to phrases. |   |
 
+## [Title] v [MenuTitle] example
+
+   ```
+   ---
+   title: "About Grafana Mimir architecture"
+   menuTitle: "Architecture"
+   ---
+   ```
+
+## Description example
+
+On Twitter:
+
+![Twitter description](twitter.png)
+
+For example:
+- “Add a panel using these steps.”
+- “Understand the configuration options provided by…”
+- “Learn more about hash rings and their usage”
+
 ## About Hugo aliases
 
 Technical writers use [Hugo aliases](https://gohugo.io/content-management/urls/#aliases) to create redirects to the current page from other URLs.

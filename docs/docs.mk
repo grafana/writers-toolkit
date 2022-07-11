@@ -35,13 +35,11 @@ docs: docs-pull
 	@if [[ -z $${NON_INTERACTIVE} ]]; then \
 		read -p "Press a key to continue"; \
 	fi
-	sed -i \
-		-e 's/render: false/render: true/' \
-		-e 's/list: false/list: true/' \
+	sed -i'' \
+		's/render: false/render: true/; s/list: false/list: true/' \
 		sources/_index.md
-	trap "sed -i \
-		-e 's/render: true/render: false/' \
-		-e 's/list: true/list: false/' \
+	trap "sed -i'' \
+		's/render: true/render: false/; s/list: true/list: false/' \
 		sources/_index.md" \
 		EXIT
 	docker run -it --name $(DOCS_DOCKER_CONTAINER) \

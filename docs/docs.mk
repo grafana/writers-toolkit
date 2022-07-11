@@ -40,4 +40,4 @@ docs: docs-pull
 		-e HUGO_REFLINKSERRORLEVEL=$(HUGO_REFLINKSERRORLEVEL) \
 		-p $(DOCS_HOST_PORT):$(DOCS_LISTEN_PORT) \
 		--rm $(DOCS_IMAGE) \
-		make server
+		make server BUILD_DRAFTS=true

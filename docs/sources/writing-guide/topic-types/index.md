@@ -18,7 +18,7 @@ We categorize our documentation into concept, task, and reference topic types. A
 
 If you are interested making use of our topic templates, refer to [Templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
 
-## Concept
+## Concepts
 
 Concepts provide overview and background information that helps end users understand essential information about a product, interface, or task.
 

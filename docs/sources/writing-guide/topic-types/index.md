@@ -1,37 +1,20 @@
 ---
-title: "Write topic-based content"
-menuTitle: "Write topic-based content"
-description: "This section describes the concept of topic-based authoring."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/topic-based-authoring/"]
-weight: 100
+title: "Topic types"
+menuTitle: "Topic types"
+description: "This section describes the topic types we use at Grafana."
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/topic-types/"]
+weight: 300
 Keywords:
-    - topic-based authoring
     - topic types
     - template
     - concept
     - task
+    - reference
 ---
-
-# Write topic-based content
-
-What is topic-based authoring?
-
-The Documentation Squad at Grafana Labs uses topic-based authoring. Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts.
-
-Why is topic-based authoring important?
-
-- Writing that isn’t topic-based is difficult to reuse.
-If everyone frequently copies information to multiple locations and makes small modifications, the result is rework, increases errors, and this multiplies the costs associated with maintenance and translation.
-
-- Writing that isn’t topic-based is difficult for readers to understand.
-Content, structure, terminology, and writing style differs and can confuse and frustrate readers.
-
-- Writing that is topic-based is more consistent and user-friendly.
-Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
 
 ## Topic types
 
-We categorize our documentation into concept, task, and reference topic types. All content must be placed into topics that are based on one of these basic topic types. Avoid mixing topic types within a single topic file. 
+We categorize our documentation into concept, task, and reference topic types. All content must be placed into topics that are based on one of these basic topic types. Avoid mixing topic types within a single topic file.
 
 If you are interested making use of our topic templates, refer to [Templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
 
@@ -97,7 +80,7 @@ Complete the following steps to write a concept topic.
 
 1. Within the feature directory, create an `_index.md` file.
 1. Add front matter to the `_index` file.
-   
+
    For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
 
 1. Add your content to the [concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md).
@@ -203,7 +186,7 @@ But do not randomly combine content into the same markdown file. When you combin
 
 Consider the following guidelines when you combine multiple task topics:
 
-- When you have documented more than one approach to accomplishing the same user goal. 
+- When you have documented more than one approach to accomplishing the same user goal.
 
   In the [Assign RBAC roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/assign-rbac-roles/) topic, a user can choose to use the user interface or provisioning to assign roles. In this case, you do not need to create two task topic files. Each task can exist with a more general topic title.
 

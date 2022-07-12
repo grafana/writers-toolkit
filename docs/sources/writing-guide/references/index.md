@@ -3,6 +3,7 @@ title: "About Hugo references"
 menuTitle: "About Hugo references"
 description: "Understand how Hugo determines references, the different types of references, and how to use them."
 aliases: []
+weight: 400
 keywords:
   - Hugo
   - references

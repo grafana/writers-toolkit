@@ -37,23 +37,11 @@ Concept topics do not include:
 - Step-by-step instructions
 - Reference information, such as lookup tables or lists of values
 
-### Concept topic examples
-
-Refer to the following topics for concept topic examples:
-
-- [Permissions overview](https://grafana.com/docs/grafana/latest/permissions/overview/)
-- [Deployment modes](https://grafana.com/docs/loki/next/fundamentals/architecture/deployment-modes/)
-- [Best practices for managing dashboards](https://grafana.com/docs/grafana/latest/best-practices/best-practices-for-managing-dashboards/)
-
-### Concept template
-
-When you are ready to write, make a copy of the [Concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md) and begin adding your content.
-
 ### Concept topic structure
 
 A _concept_ topic includes the following elements:
 
-- **Topic title:** Begin concept titles with the word _About_ followed by a noun. For example, _About Grafana panels_.
+- **Topic title:** Title concept topics with a noun, for example, *Grafana panels*. This naming convention helps readers distinguish between conceptual topics and tasks that begin with a verb.
 - **Introduction:** Add an introduction that explains what to expect in this topic.
 - **Body:** Add as much content as required to thoroughly explain the concept. The body of a concept can contain various sections, visuals, and text.
 
@@ -87,19 +75,74 @@ Complete the following steps to write a concept topic.
 
    For more information about the kinds of content you can add to a concept topic, refer to [Concepts](#concepts).
 
+### Concept topic examples
 
-++++++++++++++++++NEEDS WORK+++++++++++++
+Refer to the following topics for concept topic examples:
 
-**Task**
-Provides procedural information, typically providing step-by-step instructions for
-accomplishing a goal.
+- [Permissions overview](https://grafana.com/docs/grafana/latest/permissions/overview/)
+- [Deployment modes](https://grafana.com/docs/loki/next/fundamentals/architecture/deployment-modes/)
+- [Best practices for managing dashboards](https://grafana.com/docs/grafana/latest/best-practices/best-practices-for-managing-dashboards/)
 
-**Task:** Gives specific instructions about how to get something done to answer the question "how do I do <insert task>?". When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content will typically include numbered steps that the reader can follow to achieve that goal.
+### Concept template
 
+When you are ready to write, make a copy of the [Concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md) and begin adding your content.
 
-### Tasks
+## Tasks
 
-A _task_ topic lists the steps to take to produce an intended outcome. Tasks tell you _how_ to do something.
+A _task_ topic lists the steps to take to produce an intended outcome. Tasks tell a user _how_ to do something.
+
+When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content will typically include numbered steps that the reader can follow to achieve that goal. 
+
+### Task structure
+
+A _task_ topic includes the following elements:
+
+**Topic title:** Write a task topic with a verb + object combination.
+
+**Introduction:** Add an introduction to describe what the task is and why it’s important to the end user.
+
+- This section of a task topic might include conceptual material. However, limit that conceptual information to only the task at hand.
+- If you find yourself writing a long introduction, consider creating a concept topic, and then write a shorter form of that concept in the task introduction. Finally, link to the longer concept topic for more information.
+
+**Before you begin: (optional)** Add links to tasks to be completed before the current task. The links might sometimes be unrelated to the product, such as “Have this thing at hand”.
+
+- This section can also include decisions that the user should make or permissions they might need to verify before they start the task.
+- Do not include this section if there are no prerequisites.
+
+**Stem sentence: (optional)** The stem sentence introduces the steps and provides a visual cue to users who scan content that the steps are about to begin. Include a stem sentence only when you include a before you begin section.
+
+**Steps:** Numbered steps that provide a directive to the user.
+
+- Steps explicitly tell the user what to do and formatted using `1.` in Markdown so they get numbered automatically.
+- Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value._ or _Save and quit the program._
+- If a sentence does not tell the reader to do something, then it is not a step.
+
+![Task structure](task.png)
+
+### Write a task topic
+
+Complete the following steps to write a concept topic.
+
+1. Review the information architecture of the Grafana Labs product documentation and determine the feature to which you want to add task documentation.
+1. Within the feature directory, create a task directory that conforms to the following naming convention:
+   
+   - Begin the directory name with a verb, followed by an object.
+   - Use lowercase letters.
+   - Add a hyphen between words.
+  <br>
+  <br>
+  For example:
+     - manage-dashboard-permissions
+     - manage-organization-users
+<br>
+<br>
+
+1. Within the task directory, create an `index.md` file.
+1. Add front matter to the `index` file.
+
+   For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
+
+1. Add your content to the [task template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md).
 
 #### Task topic examples
 
@@ -108,44 +151,6 @@ Refer to the following topics for task topic examples:
 - [Change your Grafana password](https://grafana.com/docs/grafana/latest/manage-users/user-admin/change-your-password/)
 - [Install Grafana plugins](https://grafana.com/docs/grafana/latest/plugins/installation/)
 - [Create a playlist](https://grafana.com/docs/grafana/v7.5/dashboards/playlist/#create-a-playlist/)
-
-#### Task topic file naming convention
-
-Use the following naming convention when you name task directories:
-
-- Use lowercase letters.
-- Add a hyphen between words.
-- Begin the directory name with a verb, followed by an object.
-
-For example, `change-password`.
-
-#### Task topic structure
-
-A _task_ topic includes the following elements:
-
-**(A)** Topic title: Verb + object
-
-- The ideal length is between seven and 12 words.
-
-**(B)** Intro: Add an introduction to describe what the task is and why it’s important to the end user.
-
-- This section of a task topic may include conceptual material. However, limit that conceptual information to only the task at hand.
-- If you find yourself writing a long introduction, consider creating a concept topic, and then write a shorter form of that concept in the task introduction. Finally, link to the longer concept topic for more information.
-
-**(C)** Before you begin: Add links to tasks to be completed before the current task. The links might sometimes be unrelated to the product, such as “Have this thing at hand”.
-
-- This area can also include decisions that the user should make or permissions they might need to verify they have before they begin.
-- Style this section as an H2.
-
-**(D)** Stem sentence: Introduces the steps and provides a visual cue to users who scan content that the steps are about to begin. Style the stem sentence in **bold** text.
-
-**(E)** Steps: Numbered steps that provide a directive to the user.
-
-- Steps explicitly tell the user what to do and formatted using `1.` in Markdown so they get numbered automatically.
-- Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value._ or _Save and quit the program._
-- If a sentence is not telling the reader to do something, then it is not a step.
-
-Task structure image here
 
 #### Task types
 
@@ -172,23 +177,21 @@ Thanks to internet search engines, every page in the documentation could be page
 
 ##### Testing
 
-It is a best practice to have someone else test the task you have written. If they can successfully complete the task using _only_ what the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
+It is a best practice to have someone else test the task you have written. If they can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
 
 New users or people from other teams are very helpful for these tests.
 
-+++++++++++++++++++++++++++
+### When to combine tasks into a single topic
 
+In some cases task topics are standalone and are not combined with any other content. In other cases, it is appropriate to combine multiple task topics into a single markdown file. Combining tasks into a single topic limits the number of entries in the table of contents, which reduces user scrolling and clicking, and provides for a nicer user experience with the documentation.
 
-### When to combine tasks
-In some cases task topics are standalone and are not combined with any other content. In other cases, it is appropriate to combine multiple task topics into a single markdown file. Combining tasks into a single topic limits the number of entries in the table of contents, which reduces user scrolling and clicking and provides for a nicer user experience with the documentation.
-
-But do not randomly combine content into the same markdown file. When you combine content without a good reason can inadvertently hide content from the user and make it harder for them to find.
+Do not randomly combine content into the same markdown file. When you combine content without a good reason, you can inadvertently hide content from the user which makes it more difficult for them to find it.
 
 Consider the following guidelines when you combine multiple task topics:
 
 - When you have documented more than one approach to accomplishing the same user goal.
 
-  In the [Assign RBAC roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/assign-rbac-roles/) topic, a user can choose to use the user interface or provisioning to assign roles. In this case, you do not need to create two task topic files. Each task can exist with a more general topic title.
+  In the [Assign RBAC roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/assign-rbac-roles/) topic, a user can choose to use the user interface or provisioning to assign roles. In this case, you do not need to create two task topic files. Each task can exist within a more general topic title.
 
 - When tasks that are likely to be completed at approximately the same time.
 
@@ -205,6 +208,8 @@ Consider the following guidelines when you combine multiple task topics:
   Consider combining tasks when the user should start at the beginning, complete the first task, and then continue completing the remaining tasks in order.
 
   The [Activate a Grafana Enterprise license from AWS Marketplace on EKS](https://grafana.com/docs/grafana/latest/administration/enterprise-licensing/activate-aws-marketplace-license/activate-license-on-eks/) acts as a mini tutorial that guides the user through all tasks necessary to activate their license.
+
+
 
 +++++++++++++++++++NEEDS WORK+++++++++++++++++
 **Reference**

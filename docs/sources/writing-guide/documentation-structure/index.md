@@ -1,52 +1,54 @@
 ---
-title: "Content structure and naming conventions"
-description: "Content structure and naming conventions"
+title: "Documentation structure"
+description: "How organize concepts and tasks in the repository."
 aliases: []
 weight: 400
+menuTitle: "Documentation structure"
 ---
 
-# Content structure and naming conventions
+# Documentation structure
 
-Due to our robust documentation contribution model, it is important that contributors have the same understanding when it comes to building out the documentation in any of Grafana Lab’s many repositories.
+The help documentation for each product is logically organized which makes content findable - either by navigating the table of contents or searching via Google or the doc site search feature.
 
-This topic addresses how to structure and name document folders and files, title topics, and includes information about specific topic types.
+The way in which we organize content is referred to as the information architecture (IA). The IA for the help docs of each product does vary, so it is important that you understand the structure of the help docs before you start contributing.
 
-## Directory structure
+In general, the IA determines how content is:
+- Titled 
+- Grouped
+- Combined (or not combined) with other related content
 
-Use the following guidelines when you create the directory.
+The following examples are based on the Grafana OSS and Enterprise docs.
 
-**(A)**: Nest an `_index.md` file below the main topic directory:
+## Information architecture
 
-- This file serves as the topic area home page.
-- This topic includes an overview of what’s covered in the topic area.
-- Use the `{{< section >}}` short code to display child topic links on a page; remove any introductory phrase or sentence, such as “This section includes the following topics.” This will eliminate future bugs and manual bugs.
+The information architecture consists of the following levels.
 
-**(B)**: Create a directory for each topic.
+![Grafana table of contents](grafana-toc.png)
 
-**(C)**: Add an `_index.md` file:
+**Topic area:** The topic area is the top-most level of the table of contents. The topic area represents major groupings of features and functionality. When you contribute to the docs, first identify which topic area you are contributing to.
 
-- Functionally, the `_index.md` file creates pretty URLs. For example, `eat-pie.html` ends up as `eat-pie/`, and you do not have to remember the file extension (`.htm` or `.html` or something else).
-- Content-wise, use the `_index.md` file to provide an overview of what’s covered in that section and links to child pages.
+> Note: Do not create new topic areas. If it is not obvious to you which topic area you should add your docs to, reach out to the Docs Squad.
 
-**(D)**: Add one concept topic and all related task topics to a directory or subdirectory.
+**Feature:** Each topic area contains one or more features that Grafana customers use. In the image above, Grafana includes features that customers can use to manage their users. 
 
-**(E)**: Nest reference files directly in the main topic directory; do not add them to subdirectories.
+The feature level in the table of contents serves two purposes:
 
-Directory structure image here
+1. It provides a place for you to include supporting conceptual information.
 
-## Topic types
+1. It helps to organize related child topics. In this example, the user management feature docs include task topics on how to manage server users, user preferences, and organization users.
 
-Technical content comprises three types of topics:
+**Task:** This level of the information architecture includes step-by-step guidelines that users follow to complete a task or group of tasks.
 
-- Concept
-- Task
-- Reference
+## Feature directory structure
+The feature directory exists within the topic area directory.
 
-Use the following guidelines when you write concept, task, and reference topics.
+The following image shows the user management documentation as it is structured in the repository.
 
+- The user-management feature directory contains an `_index.md` file that contains the contents of a concept.
+- The user-management feature includes four task topics, each with its own directory and `index.md` file.
 
+For more information about how to write concepts, refer to [Concepts]({{< relref "../topic-types/#concepts" >}}). For more information about how to write tasks, refer to [Tasks]({{< relref "../topic-types/#tasks" >}}).
 
+![Feature directory structure](feature-directory.png)
 
-
-
-
+> **Note:** If a directory contains multiple pages or subdirectories, then it’s a branch bundle and the index filename must be `_index.md`. If a directory contains only one page, then it’s a leaf bundle and the content filename must be `index.md`.

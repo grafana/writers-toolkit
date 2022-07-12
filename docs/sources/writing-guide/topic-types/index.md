@@ -18,7 +18,7 @@ We categorize our documentation into concept, task, and reference topic types. A
 
 If you are interested making use of our topic templates, refer to [Templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
 
-## Concept
+## Concepts
 
 Concepts provide overview and background information that helps end users understand essential information about a product, interface, or task.
 
@@ -85,7 +85,7 @@ Complete the following steps to write a concept topic.
 
 1. Add your content to the [concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md).
 
-   For more information about the kinds of content you can add to a concept topic, refer to [Concept](#concept).
+   For more information about the kinds of content you can add to a concept topic, refer to [Concepts](#concepts).
 
 
 ++++++++++++++++++NEEDS WORK+++++++++++++
@@ -284,7 +284,7 @@ To see an example of a reference topic that contains a table, refer to [Glossary
 
 Although you might not need a heading for each table, headings are a good way to chunk information if you have several tables.
 
-Tables make the content easy to skim. Use headings or introductory paragraphs to explain to the reader what the information in the table is used for.
+Tables make the content easy to skim. Use headings or introductory paragraphs to explain to the reader the information contained in the table.
 
 ```
 |     |     |     |     |     |     |

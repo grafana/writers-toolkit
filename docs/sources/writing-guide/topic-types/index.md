@@ -284,7 +284,7 @@ To see an example of a reference topic that contains a table, refer to [Glossary
 
 Although you might not need a heading for each table, headings are a good way to chunk information if you have several tables.
 
-Tables make the content easy to skim. Use headings or introductory paragraphs to explain to the reader what the information in the table is used for.
+Tables make the content easy to skim. Use headings or introductory paragraphs to explain to the reader the information contained in the table.
 
 ```
 |     |     |     |     |     |     |

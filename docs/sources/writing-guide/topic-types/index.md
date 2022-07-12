@@ -85,7 +85,7 @@ Complete the following steps to write a concept topic.
 
 1. Add your content to the [concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md).
 
-   For more information about the kinds of content you can add to a concept topic, refer to [Concept](#concept).
+   For more information about the kinds of content you can add to a concept topic, refer to [Concepts](#concepts).
 
 
 ++++++++++++++++++NEEDS WORK+++++++++++++

@@ -12,7 +12,7 @@ Keywords:
     - reference
 ---
 
-## Topic types
+# Topic types
 
 We categorize our documentation into concept, task, and reference topic types. All content must be placed into topics that are based on one of these basic topic types. Avoid mixing topic types within a single topic file.
 

@@ -61,13 +61,11 @@ Small changes might include:
 
     A PR is created and then goes through the PR review and approval workflow.
 
-## Create a topic
+## Testing
 
-PLACEHOLDER
-decide whether your topic is a concept, task, or reference
-add frontmatter
-write a clear title
-use the concept, task, and reference templates to help structure your content
+It is a best practice to have someone else test the task you have written. If they can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
+
+New users or people from other teams are very helpful for these tests.
 
 ## Review your changes
 

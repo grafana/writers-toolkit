@@ -3,7 +3,7 @@ title: "Links and cross references"
 menuTitle: "Links and cross references"
 description: "Understand how Hugo determines references, the different types of references, and how to use them."
 aliases: []
-weight: 600
+weight: 500
 keywords:
   - Hugo
   - references

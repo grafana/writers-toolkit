@@ -1,12 +1,13 @@
 ---
-title: "About the type/docs label workflow"
-menuTitle: "About the `type/docs` label workflow"
+title: "type/docs label workflow"
+menuTitle: "`type/docs` label workflow"
 description: "How `type/docs` label workflow automation works."
 aliases: ["/about-the-type-docs-label-workflow/"]
+weight: 200
 keywords:
 ---
 
-# About the type/docs label workflow
+# type/docs label workflow
 
 There are many Grafana code repositories, and only one Docs Squad.
 When a docs-related issue or pull request comes up in one of the repos, there needs to be an easy, automated way to notify the docs team.

@@ -3,7 +3,7 @@ title: "Documentation tooling and workflows"
 menuTitle: "Documentation tooling and workflows"
 description: "How to use documentation tools and understand our workflows."
 aliases: []
-weight: 800
+weight: 700
 keywords:
   - git
 ---

@@ -3,7 +3,7 @@ title: "Topic types"
 menuTitle: "Topic types"
 description: "This section describes the topic types we use at Grafana."
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/topic-types/"]
-weight: 300
+weight: 200
 Keywords:
     - topic types
     - template
@@ -105,14 +105,12 @@ A _task_ topic includes the following elements:
 - If you find yourself writing a long introduction, consider creating a concept topic, and then write a shorter form of that concept in the task introduction. Finally, link to the longer concept topic for more information.
 
 **Before you begin: (optional)** Add links to tasks to be completed before the current task. The links might sometimes be unrelated to the product, such as “Have this thing at hand”.
-
 - This section can also include decisions that the user should make or permissions they might need to verify before they start the task.
 - Do not include this section if there are no prerequisites.
 
 **Stem sentence: (optional)** The stem sentence introduces the steps and provides a visual cue to users who scan content that the steps are about to begin. Include a stem sentence only when you include a before you begin section.
 
 **Steps:** Numbered steps that provide a directive to the user.
-
 - Steps explicitly tell the user what to do and formatted using `1.` in Markdown so they get numbered automatically.
 - Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value._ or _Save and quit the program._
 - If a sentence does not tell the reader to do something, then it is not a step.
@@ -121,7 +119,7 @@ A _task_ topic includes the following elements:
 
 ### Write a task topic
 
-Complete the following steps to write a concept topic.
+Complete the following steps to write a task topic.
 
 1. Review the information architecture of the Grafana Labs product documentation and determine the feature to which you want to add task documentation.
 1. Within the feature directory, create a task directory that conforms to the following naming convention:
@@ -144,7 +142,7 @@ Complete the following steps to write a concept topic.
 
 1. Add your content to the [task template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md).
 
-#### Task topic examples
+### Task topic examples
 
 Refer to the following topics for task topic examples:
 
@@ -152,34 +150,9 @@ Refer to the following topics for task topic examples:
 - [Install Grafana plugins](https://grafana.com/docs/grafana/latest/plugins/installation/)
 - [Create a playlist](https://grafana.com/docs/grafana/v7.5/dashboards/playlist/#create-a-playlist/)
 
-#### Task types
+### Task template
 
-In most cases, each topic only contain one task. If you have several very short, related tasks, then you might combine them into one topic.
-
-##### One-step task
-
-Some tasks are so short that they only contain one step.
-
-Write one-step tasks as simple sentences, not as unordered lists or numbered lists.
-
-##### Group short tasks
-
-You can group short tasks into a single topic. What constitutes _short_ is a judgment call based on the number of steps and how long individual steps are.
-
-1. Use your judgment.
-1. Ask your coworkers or someone on the Docs Squad for advice if you aren't sure.
-
-##### Next steps
-
-If the task you are writing leads naturally to one or more other tasks, then include links after the task to help the reader figure out where to go next.
-
-Thanks to internet search engines, every page in the documentation could be page one. Pretend you are explaining your task to a new Grafana user.
-
-##### Testing
-
-It is a best practice to have someone else test the task you have written. If they can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
-
-New users or people from other teams are very helpful for these tests.
+When you are ready to write, make a copy of the [Task template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md) and begin adding your content.
 
 ### When to combine tasks into a single topic
 
@@ -209,97 +182,57 @@ Consider the following guidelines when you combine multiple task topics:
 
   The [Activate a Grafana Enterprise license from AWS Marketplace on EKS](https://grafana.com/docs/grafana/latest/administration/enterprise-licensing/activate-aws-marketplace-license/activate-license-on-eks/) acts as a mini tutorial that guides the user through all tasks necessary to activate their license.
 
+## References
 
+Reference topics provides look-up information that users might need to refer to when completing a task. References should comprehensively catalog data such as functions and their parameters, return codes, and error messages. They are often presented as tables, bulleted lists, or sample scripts.
 
-+++++++++++++++++++NEEDS WORK+++++++++++++++++
-**Reference**
-Provides "look-up" information that users might need to refer to when completing a task.
+Reference topics are also designed for API information.
 
-**Reference:** Contains structured information or specifications that users need to make a product work. Reference material answers the question "what else do I need to know?" When readers read references, they are fact-checking. Reference sections should comprehensively catalog data such as functions and their parameters, return codes, and error messages. They are often presented as tables, bulleted lists, or sample scripts.
-
-Our templates follow these documentation types. Your information will naturally fit into these types as you write.
-
-The _reference_ topic type is for storing reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
-
-Often reference topics are linked from _task_ topics, because they contain information the you need in order to perform a task.
+Often reference topics are linked from _task_ topics, because they contain information the user needs to perform a task.
 
 > **Note:** Do not include steps or conceptual information in reference topics.
 
-### References
+### Reference structure
 
-The _reference_ topic type is for storing reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
+- **Topic title:** Title reference topics with a qualifier + noun, for example, *Grafana CLI*. This naming convention helps readers distinguish between reference topics and tasks that begin with a verb.
+- **Introduction:** Add an introduction that explains what to expect in this topic.
+- **Body:** Reference topics provide look-up information and so are typically formatted as a table or a list.
 
-Often reference topics are linked from _task_ topics, because they contain information the you need in order to perform a task.
+![Reference structure](reference.png)
 
-> **Note:** Do not include steps or conceptual information in reference topics.
+### Write a reference topic
 
-#### Reference topic example
+Complete the following steps to write a task topic.
+
+1. Review the information architecture of the Grafana Labs product documentation and determine the feature to which you want to add reference documentation.
+1. Within the feature directory, create a reference directory that conforms to the following naming convention:
+   
+   - Begin the directory name with a qualifier followed by an noun.
+   - Use lowercase letters.
+   - Add a hyphen between words.
+  <br>
+  <br>
+  For example:
+     - xxx
+     - xxx
+<br>
+<br>
+
+1. Within the reference directory, create an `index.md` file.
+1. Add front matter to the `index` file.
+
+   For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
+
+1. Add your content to the [reference template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/reference-template.md).
+
+### Reference topic example
 
 Refer to the following topics for a reference topic example:
 
+- [Calculation types](https://grafana.com/docs/grafana/next/panels/calculation-types/)
+- [Standard field definitions](https://grafana.com/docs/grafana/next/panels/standard-field-definitions/)
 - [Grafana CLI](https://grafana.com/docs/grafana/latest/administration/cli/)
 
-#### Reference topic file naming conventions
+### Reference template
 
-Use the following naming conventions when you name reference files:
-
-- Use lowercase letters.
-- Add a hyphen between words.
-- Begin reference topic file names with `reference` followed by a qualifier + noun, where possible.
-
-For example, `reference-calculation-types.md`.
-
-#### Reference topic structure
-
-A reference topic includes the following elements:
-
-**(A)** Reference topic naming convention: `Reference:` + qualifier + noun.
-
-- Reference topics appear in the TOC as follows:
-
-Reference TOC image here
-
-**(B)** Intro: Add an introduction that describes the purpose of the content in the topic, in the form of one or two sentences.
-
-**(C)** Body content: Reference topics provide look-up information and so are typically formatted as a table or a list.
-
-Reference topic image here
-
-#### Reference topic types
-
-The body content of a reference topic is _generally_ formatted as lists, or tables.
-
-##### Lists
-
-Lists of commands or parameters are often organized in reference topics. The information you need to present dictates the format:
-
-- They might
-- be in
-- unordered lists
-
-To see an example of a reference topic formatted as a list, refer to [Configuration](https://grafana.com/docs/grafana/latest/installation/configuration/).
-
-##### Tables
-
-If you have a large list of things to store in a table, then you are probably dealing with reference information.
-
-To see an example of a reference topic that contains a table, refer to [Glossary](https://grafana.com/docs/grafana/latest/guides/glossary/).
-
-###### Empty Markdown table
-
-Although you might not need a heading for each table, headings are a good way to chunk information if you have several tables.
-
-Tables make the content easy to skim. Use headings or introductory paragraphs to explain to the reader the information contained in the table.
-
-```
-|     |     |     |     |     |     |
-| :-- | :-- | :-: | :-: | --: | --: |
-|     |     |     |     |     |     |
-|     |     |     |     |     |     |
-|     |     |     |     |     |     |
-|     |     |     |     |     |     |
-```
-
-##### API documentation
-
-API documentation is always a reference topic rather than a task topic, but it has its own rules.
+When you are ready to write, make a copy of the [Reference template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md) and begin adding your content.

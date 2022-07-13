@@ -1,9 +1,9 @@
 ---
 title: "About Grafana documentation"
-menuTitle: "Grafana Documentation"
+menuTitle: "About Grafana documentation"
 description: “Learn about Grafana's documentation”
 aliases:
-weight: 200
+weight: 100
 Keywords:
     -
     -
@@ -38,7 +38,6 @@ Content, structure, terminology, and writing style differs and can confuse and f
 
 - Writing that is topic-based is more consistent and user-friendly.
 Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
-
 
 ## Markdown
 

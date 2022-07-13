@@ -7,8 +7,7 @@ weight: 20
 
 # Writing conventions
 
-This section includes a non-exaustive list of technical writing techniques and styles to consider when you write 
-technical content. For questions you might have that are not addressed in these guidelines topic, refer to 
+This section includes a non-exhaustive list of technical writing techniques and styles to consider when you write technical content. For questions you might have that are not addressed in these guidelines topic, refer to
 [Google developer documentation style guide](https://developers.google.com/style).
 
 ## Focus on user goals
@@ -17,7 +16,7 @@ Before you begin writing, clearly identify the goal of the user, and write conte
 
 - Do not document implementation details, specifications, or back end system operations that have no clear consequence to the user.
   - Providing unnecessary information can lead to bloated content that forces the user to determine which content is relevant.
-- Avoid marketing clichés and hyperbole. 
+- Avoid marketing clichés and hyperbole.
   - Instead, use evidence-based or quantifiable language to focus and refine the information, and to offer value propositions.
 
 ## Address users clearly
@@ -46,8 +45,8 @@ When you write in _active voice_, you identify the subject of the sentence and t
 
 Effective technical communication is simple and direct.
 
-- Don't use a long word where a short word will do, for example, “use,” not “utilize.” 
-  - When possible, "use" and its variants (utilize, make use of) as an imperative should be replaced with a more descriptive action. 
+- Don't use a long word where a short word will do, for example, “use,” not “utilize.”
+  - When possible, "use" and its variants (utilize, make use of) as an imperative should be replaced with a more descriptive action.
 - Write short sentences that are fewer than 25 words.
   - If it is possible to cut a word without losing meaning, do so (typical culprits: there is; there are; in order to; it is important to; keep in mind).
   - If you find yourself writing long sentences, consider writing smaller complete phrases or change the format, such as using a bulleted list.

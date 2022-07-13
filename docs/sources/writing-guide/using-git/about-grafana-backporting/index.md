@@ -1,9 +1,14 @@
 ---
-title: "About Grafana backporting"
-description: "How and when to backport in the `grafana/grafana` repository."
+title: "Backporting"
+menuTitle: "Backporting"
+description: "How and when to backport."
+aliases: []
+weight: 810
+keywords:
+  - backporting
 ---
 
-# About Grafana backporting
+# Backporting
 
 The `grafana/grafana` repository has multiple long-lived branches.
 The `main` branch has the most recent code and documentation.

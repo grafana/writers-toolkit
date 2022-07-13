@@ -1,9 +1,9 @@
 ---
-title: "About Hugo references"
-menuTitle: "About Hugo references"
+title: "Links and cross references"
+menuTitle: "Links and cross references"
 description: "Understand how Hugo determines references, the different types of references, and how to use them."
 aliases: []
-weight: 400
+weight: 600
 keywords:
   - Hugo
   - references
@@ -11,10 +11,10 @@ keywords:
   - ref
 ---
 
-# About Hugo references
+# Links and cross references
 
 References are hyperlinks between pages.
-Hugo supports several types of references, and the references themselves can have different forms.
+Hugo supports several types of references and the references themselves can have different forms.
 
 You can split references into one of two categories:
 

@@ -13,7 +13,7 @@ The help documentation for each product is logically organized which makes conte
 The way in which we organize content is referred to as the information architecture (IA). The IA for the help docs of each product does vary, so it is important that you understand the structure of the help docs before you start contributing.
 
 In general, the IA determines how content is:
-- Titled 
+- Titled
 - Grouped
 - Combined (or not combined) with other related content
 
@@ -29,7 +29,7 @@ The information architecture consists of the following levels.
 
 > Note: Do not create new topic areas. If it is not obvious to you which topic area you should add your docs to, reach out to the Docs Squad.
 
-**Feature:** Each topic area contains one or more features that Grafana customers use. In the image above, Grafana includes features that customers can use to manage their users. 
+**Feature:** Each topic area contains one or more features that Grafana customers use. In the image above, Grafana includes features that customers can use to manage their users.
 
 The feature level in the table of contents serves two purposes:
 
@@ -52,3 +52,7 @@ For more information about how to write concepts, refer to [Concepts]({{< relref
 ![Feature directory structure](feature-directory.png)
 
 > **Note:** If a directory contains multiple pages or subdirectories, then it’s a branch bundle and the index filename must be `_index.md`. If a directory contains only one page, then it’s a leaf bundle and the content filename must be `index.md`.
+
+## Useful links
+
+- [Page bundles](https://gohugo.io/content-management/page-bundles/)

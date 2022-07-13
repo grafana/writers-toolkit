@@ -1,27 +1,35 @@
 ---
-title: "Using git"
-menuTitle: "Using git"
-description: "How to use git to contribute changes to a repository."
+title: "Documentation tooling and workflows"
+menuTitle: "Documentation tooling and workflows"
+description: "How to use documentation tools and understand our workflows."
 aliases: []
+weight: 800
 keywords:
   - git
 ---
 
-# Using git
+# Documentation tooling and workflows
+
+This section provides an overview of the documentation tools we use at Grafana and highlights some of the key processes we use to create documentation.
+
+## Using git
 
 This document explains how to use the `git` command line tool to contribute changes to a Grafana Labs repository.
 If you are unfamiliar with `git`, refer to [The Git & Github Bootcamp](https://grafanalabs.udemy.com/course/git-and-github-bootcamp/learn/lecture/24877520%23overview) or [Git and GitHub for Writers](https://grafanalabs.udemy.com/course/git-and-github-for-writers/#overview).
 
 Although processes for contributing changes to a repository differ for each repository, at Grafana there is a generally consistent workflow defined below.
 
-1. [Create a local repository](#creating-a-local-repository)
-1. [Download updated references from the remote repository](#downloading-updated-references-from-the-remote-repository)
-1. [Create a new branch from the main remote branch](#creating-a-new-branch-from-the-main-remote-branch)
-1. [Commit changes to your branch](#committing-changes-to-your-branch)
-1. [Push changes to the remote repository](#pushing-changes-to-the-remote-repository)
-1. Open a pull request for review
+- [Documentation tooling and workflows](#documentation-tooling-and-workflows)
+  - [Using git](#using-git)
+    - [Creating a local repository](#creating-a-local-repository)
+    - [Downloading updated references from the remote repository](#downloading-updated-references-from-the-remote-repository)
+    - [Creating a new branch from the main remote branch](#creating-a-new-branch-from-the-main-remote-branch)
+    - [Committing changes to your branch](#committing-changes-to-your-branch)
+    - [Staging files and directories](#staging-files-and-directories)
+    - [Staging individual areas within files](#staging-individual-areas-within-files)
+    - [Pushing changes to the remote repository](#pushing-changes-to-the-remote-repository)
 
-## Creating a local repository
+### Creating a local repository
 
 Creating a local repository is only necessary when first contributing to a new repository.
 To create a local repository from a remote repository, use `git clone` with the URL of the repository.
@@ -62,7 +70,7 @@ cd mimir
 
 For a full list of Grafana repositories, refer to [Grafana Labs](https://github.com/orgs/grafana/repositories).
 
-## Downloading updated references from the remote repository
+### Downloading updated references from the remote repository
 
 Before contributing changes to a new repository, it's **critical** to have an up-to-date copy of the remote references so that your changes aren't out of date.
 To fetch the updated references from the remote repository, use `git fetch`.
@@ -86,7 +94,7 @@ From github.com:grafana/mimir
  * [new branch]          threaded-reader                  -> origin/threaded-reader
 ```
 
-## Creating a new branch from the main remote branch
+### Creating a new branch from the main remote branch
 
 By convention, the remote repository in GitHub is the source of truth for a repository's history.
 The main branch of a repository is typically called `main` and occasionally called `master`.
@@ -137,7 +145,7 @@ Alternatively, you can use `git status` to check your current branch and underst
 
 To understand the output of `git status`, refer to [Git - git-status Documentation](https://git-scm.com/docs/git-status#_output).
 
-## Committing changes to your branch
+### Committing changes to your branch
 
 Committing changes has two steps: staging and committing.
 You can stage whole files and directories, or you can stage individual areas within files.
@@ -193,7 +201,7 @@ For example:
 git commit -s -m "Use American English spellings"
 ```
 
-## Pushing changes to the remote repository
+### Pushing changes to the remote repository
 
 Pushing changes to the remote repository allows other people to look at your commits and review them.
 It's also the first step in getting your changes incorporated into the main branch.

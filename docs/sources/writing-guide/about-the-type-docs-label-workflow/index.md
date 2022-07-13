@@ -8,7 +8,7 @@ keywords:
 
 # About the type/docs label workflow
 
-There are many Grafana code repos, and only one docs team.
+There are many Grafana code repositories, and only one Docs Squad.
 When a docs-related issue or pull request comes up in one of the repos, there needs to be an easy, automated way to notify the docs team.
 
 This workflow makes all issues with the `type/docs` label visible in the [Technical documentation project](https://github.com/orgs/grafana/projects/69) which is an organization wide GitHub Project.

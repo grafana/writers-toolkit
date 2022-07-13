@@ -3,7 +3,7 @@ title: "About Grafana documentation"
 menuTitle: "Grafana Documentation"
 description: “Learn about Grafana's documentation”
 aliases:
-weight: 100
+weight: 200
 Keywords:
     -
     -

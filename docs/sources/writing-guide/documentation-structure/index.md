@@ -2,7 +2,7 @@
 title: "Documentation structure"
 description: "How organize concepts and tasks in the repository."
 aliases: []
-weight: 400
+weight: 300
 menuTitle: "Documentation structure"
 ---
 

@@ -3,7 +3,7 @@ title: "Frequently asked questions"
 menuTitle: "Frequently asked questions"
 description: "This section looks at some of the frequently asked questions about writing documentation."
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/frequently-asked-questions/"]
-weight: 100
+weight: 800
 Keywords:
     - frequently asked questions
 ---

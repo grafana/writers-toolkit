@@ -2,7 +2,7 @@
 title: "Markdown style guide"
 description: "Includes guidelines for writing technical documentation in Markdown."
 aliases: []
-weight: 20
+weight: 400
 ---
 
 # Markdown style guide

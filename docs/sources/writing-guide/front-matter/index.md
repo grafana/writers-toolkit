@@ -3,7 +3,7 @@ title: "Front matter"
 menuTitle: "Front matter"
 description: “Learn about how we build front matter to properly enable the publication and search of our technical documentation”
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/front-matter"]
-weight: 100
+weight: 600
 Keywords:
     - front matter
     - alias

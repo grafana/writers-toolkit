@@ -1,9 +1,9 @@
 ---
 title: "About Grafana documentation"
-menuTitle: "Grafana Documentation"
+menuTitle: "About Grafana documentation"
 description: “Learn about Grafana's documentation”
 aliases:
-weight: 200
+weight: 100
 Keywords:
     -
     -
@@ -26,7 +26,7 @@ Every repository contains a `docs/sources` directory, which is where our documen
 
 The Documentation Squad at Grafana Labs uses topic-based authoring. Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts. The topic types we use at Grafana are concept, reference, and task.
 
-For more information on topic types, refer to xxx.
+For more information on topic types, refer to [Topic types]({{< relref "../topic-types/" >}}).
 
 Why is topic-based authoring important?
 
@@ -39,7 +39,6 @@ Content, structure, terminology, and writing style differs and can confuse and f
 - Writing that is topic-based is more consistent and user-friendly.
 Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
 
-
 ## Markdown
 
 We write our technical documentation using Markdown. For more information, refer to the [Markdown style guide]({{< relref "../markdown-guide/" >}}).
@@ -48,9 +47,9 @@ We write our technical documentation using Markdown. For more information, refer
 
 We're thrilled that you are considering contributing to the documentation. You can contribute content in the following ways:
 
-- Request a change [Request a change]({{< relref "../contribute-documentation/#request-a-change" >}})
-- Edit a topic [Edit a topic]({{< relref "../contribute-documentation/#edit-a-topic" >}})
-- Create a topic [Create a topic]({{< relref "../contribute-documentation/#create-a-topic" >}})
+- [Request a change]({{< relref "../contribute-documentation/#request-a-change" >}})
+- [Edit a topic]({{< relref "../contribute-documentation/#edit-a-topic" >}})
+- [Create a topic]({{< relref "../topic-types/" >}})
 
 ## Join our community
 

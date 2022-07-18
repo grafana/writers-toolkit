@@ -5,7 +5,7 @@ aliases: []
 weight: 20
 ---
 
-# Writing conventions
+# Style conventions
 
 This section includes a non-exhaustive list of technical writing techniques and styles to consider when you write technical content. For questions you might have that are not addressed in these guidelines topic, refer to
 [Google developer documentation style guide](https://developers.google.com/style).

@@ -1,6 +1,6 @@
 ---
-title: "About Grafana documentation"
-menuTitle: "About Grafana documentation"
+title: "Grafana Lab's documentation"
+menuTitle: "Grafana Lab'sdocumentation"
 description: “Learn about Grafana's documentation”
 aliases:
 weight: 100
@@ -9,7 +9,7 @@ Keywords:
     -
 ---
 
-# About Grafana documentation
+# Grafana Lab's documentation
 
 All Grafana Enterprise and OSS documentation is located in the Grafana open source project GitHub repository: https://github.com/grafana/tree/main/docs/sources.
 

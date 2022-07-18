@@ -1,6 +1,6 @@
 ---
-title: "Writing conventions"
-description: "Writing conventions"
+title: "Style conventions"
+description: "Style conventions"
 aliases: []
 weight: 20
 ---

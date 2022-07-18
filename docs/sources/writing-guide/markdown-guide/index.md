@@ -1,15 +1,22 @@
 ---
 title: "Markdown style guide"
+menuTitle: "Markdown style guide"
 description: "Includes guidelines for writing technical documentation in Markdown."
-aliases: []
-weight: 400
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/markdown-guide/"]
+weight: 500
+keywords:
+  - Markdown
+  - heading
+  - bold
+  - tables
+  - lists
 ---
 
 # Markdown style guide
 
 This guide for Markdown style helps keep contributions consistent across all documentation created for Grafana products. Refer to the guide and update its sections as needed when a Subject Matter Expert answers a question on Markdown style, or a decision is made about how to apply Markdown.
 
-## Headers
+## Headings
 
 In Markdown, the number of "#" symbols creates different heading levels, similar to HTML heading levels:
 
@@ -21,10 +28,6 @@ In Markdown, the number of "#" symbols creates different heading levels, similar
 
 Start your document with a single `#` for the title of the page. Add the sub-headings with two `##`.
 
-<!-- Moved this content here from the content-structure MD file, needs to be woven in. -->
-
-## Headings
-
 Write headings in sentence case, not title case:
 
 - This is sentence case
@@ -32,24 +35,11 @@ Write headings in sentence case, not title case:
 
 ### Heading don'ts
 
-- Avoid stacked headings, which is following one heading with another heading without any content in between the two headings
+- Avoid stacked headings, which is following one heading with another heading without any content between the two headings.
 - Avoid skipping heading levels. For example, an h1 should be followed by an h2 rather than an h3.
-- Avoid having just one lower-level heading. For example, h1, h2, h2, h3, h3, h2, h2 is a good order. Do not go h1, h2, h3, h2, h3, h2.
+- Avoid having just one lower-level heading. For example, h1, h2, h2, h3, h3, h2, h2 is a valid order. Do not use h1, h2, h3, h2, h3, h2.
 - Avoid using hyphens in headings.
 - Do not include parenthetical words like (Important!) in headings.
-
-### Step-by-step headings
-
-In most cases, headings do not contain step numbers.
-
-However, sometimes we need to use headings as numbered steps. This is mostly in cases where each step is complex or a series of other procedures. For example, in [Getting started with Grafana and Prometheus](https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/).
-
-If that is the case, then use the following format for headings:
-
-#### Step 1. Install the software
-
-#### Step 2. Run the software
-
 
 ## Bold and emphasis
 
@@ -63,15 +53,17 @@ If that is the case, then use the following format for headings:
 
 ## Links and references
 
-Create links to other website by wrapping the display text in square brackets, and the web URL in curved brackets.
+For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references/" >}}).
+
+If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curved brackets.
 
 \[text to display](www.website.com)
 
-**Example:** For more information on including emoji in GitHub-flavored markdown, refer to the [webfx page on emoji](https://www.webfx.com/tools/emoji-cheat-sheet/) for a list of emoji.
+**Example:** For more information on including emoji in GitHub-flavored markdown, refer to the [webfx page on emoji](https://www.webfx.com/tools/emoji-cheat-sheet/) for a list of emoji. 
 
 ## Block quotes
 
-Include block quotes inside text using right-facing arrows:
+Include block quotes inside text using a right angle bracket:
 
 **Example**
 
@@ -123,9 +115,7 @@ Will publish as:
 | ------------- | ------------- |
 | Cell one data | Cell two data |
 
-## Lists
-
-### Numbered lists
+## Numbered lists
 
 To avoid inconsistent list numbering, use repetitive list numbering:
 
@@ -141,7 +131,7 @@ The list above will always display as:
 2. Second
 3. Third
 
-### Unordered lists
+## Unordered lists
 
 Build a list of points - an unordered or unnumbered list - by using "\-" (hyphen) characters.
 

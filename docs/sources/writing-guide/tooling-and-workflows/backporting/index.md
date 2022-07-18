@@ -2,7 +2,7 @@
 title: "Backporting"
 menuTitle: "Backporting"
 description: "How and when to backport."
-aliases: []
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/backporting/"]
 weight: 100
 keywords:
   - backporting

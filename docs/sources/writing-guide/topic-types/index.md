@@ -3,7 +3,7 @@ title: "Topic types"
 menuTitle: "Topic types"
 description: "This section describes the topic types we use at Grafana."
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/topic-types/"]
-weight: 200
+weight: 400
 Keywords:
     - topic types
     - template
@@ -24,7 +24,7 @@ Concepts provide overview and background information that helps end users unders
 
 Concepts answer the question "what is it?". When readers read concepts, they are learning about a feature. Use concepts to help the reader understand a technology, before they start using it.
 
-The information in the topic supports the user in completing related tasks, and it and can include the following types of content:
+Concepts can include the following types of content:
 
 - Feature overviews with descriptions of the benefits and clearly defined terms that are specific to Grafana
 - Architectural diagrams that help users understand system components
@@ -43,7 +43,7 @@ A _concept_ topic includes the following elements:
 
 - **Topic title:** Title concept topics with a noun, for example, *Grafana panels*. This naming convention helps readers distinguish between conceptual topics and tasks that begin with a verb.
 - **Introduction:** Add an introduction that explains what to expect in this topic.
-- **Body:** Add as much content as required to thoroughly explain the concept. The body of a concept can contain various sections, visuals, and text.
+- **Body:** Add as much content as required to thoroughly explain the concept. The body of a concept can contain sections, visuals, and text.
 
 ![Concept structure](concept.png)
 
@@ -71,7 +71,7 @@ Complete the following steps to write a concept topic.
 
    For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
 
-1. Add your content to the [concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md).
+1. Make a copy of the [concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md) and add the content.
 
    For more information about the kinds of content you can add to a concept topic, refer to [Concepts](#concepts).
 
@@ -79,7 +79,7 @@ Complete the following steps to write a concept topic.
 
 Refer to the following topics for concept topic examples:
 
-- [Permissions overview](https://grafana.com/docs/grafana/latest/permissions/overview/)
+- [Roles and permissions](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/)
 - [Deployment modes](https://grafana.com/docs/loki/next/fundamentals/architecture/deployment-modes/)
 - [Best practices for managing dashboards](https://grafana.com/docs/grafana/latest/best-practices/best-practices-for-managing-dashboards/)
 
@@ -89,15 +89,15 @@ When you are ready to write, make a copy of the [Concept template](https://githu
 
 ## Tasks
 
-A _task_ topic lists the steps to take to produce an intended outcome. Tasks tell a user _how_ to do something.
+A _task_ topic lists the steps a user takes to produce an intended outcome. Tasks tell a user _how_ to do something.
 
-When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content will typically include numbered steps that the reader can follow to achieve that goal. 
+When readers read tasks, they are looking for action-oriented documentation to achieve a specific goal. This type of content includes numbered steps that the reader can follow to achieve that goal. 
 
 ### Task structure
 
 A _task_ topic includes the following elements:
 
-**Topic title:** Write a task topic with a verb + object combination.
+**Topic title:** Write a task topic title with a verb + object combination.
 
 **Introduction:** Add an introduction to describe what the task is and why it’s important to the end user.
 
@@ -111,7 +111,7 @@ A _task_ topic includes the following elements:
 **Stem sentence: (optional)** The stem sentence introduces the steps and provides a visual cue to users who scan content that the steps are about to begin. Include a stem sentence only when you include a before you begin section.
 
 **Steps:** Numbered steps that provide a directive to the user.
-- Steps explicitly tell the user what to do and formatted using `1.` in Markdown so they get numbered automatically.
+- Steps explicitly tell the user what to do and are formatted using `1.` in Markdown so they get numbered automatically.
 - Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value._ or _Save and quit the program._
 - If a sentence does not tell the reader to do something, then it is not a step.
 
@@ -124,7 +124,7 @@ Complete the following steps to write a task topic.
 1. Review the information architecture of the Grafana Labs product documentation and determine the feature to which you want to add task documentation.
 1. Within the feature directory, create a task directory that conforms to the following naming convention:
    
-   - Begin the directory name with a verb, followed by an object.
+   - Begin the directory name with a verb followed by an object.
    - Use lowercase letters.
    - Add a hyphen between words.
   <br>
@@ -140,15 +140,15 @@ Complete the following steps to write a task topic.
 
    For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
 
-1. Add your content to the [task template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md).
+1. Make a copy of the [Task template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md) and add the content.
 
 ### Task topic examples
 
 Refer to the following topics for task topic examples:
 
-- [Change your Grafana password](https://grafana.com/docs/grafana/latest/manage-users/user-admin/change-your-password/)
-- [Install Grafana plugins](https://grafana.com/docs/grafana/latest/plugins/installation/)
-- [Create a playlist](https://grafana.com/docs/grafana/v7.5/dashboards/playlist/#create-a-playlist/)
+- [Create a service account](https://grafana.com/docs/grafana/latest/administration/service-accounts/#create-a-service-account-in-grafana)
+- [Create an organization](https://grafana.com/docs/grafana/latest/administration/organization-management/#create-an-organization)
+- [Create a dashboard and add a panel](https://grafana.com/docs/grafana/latest/dashboards/add-organize-panels/#create-a-dashboard-and-add-a-panel)
 
 ### Task template
 
@@ -156,9 +156,9 @@ When you are ready to write, make a copy of the [Task template](https://github.c
 
 ### When to combine tasks into a single topic
 
-In some cases task topics are standalone and are not combined with any other content. In other cases, it is appropriate to combine multiple task topics into a single markdown file. Combining tasks into a single topic limits the number of entries in the table of contents, which reduces user scrolling and clicking, and provides for a nicer user experience with the documentation.
+In some cases task topics are standalone and are not combined with any other content. In other cases, it is appropriate to combine multiple task topics into a single markdown file. Combining tasks into a single topic limits the number of entries in the table of contents, which reduces user scrolling and clicking, and provides for a more enjoyable user experience.
 
-Do not randomly combine content into the same markdown file. When you combine content without a good reason, you can inadvertently hide content from the user which makes it more difficult for them to find it.
+> **Note:** Do not randomly combine content into the same markdown file. When you combine content without a good reason, you can inadvertently hide content from the user.
 
 Consider the following guidelines when you combine multiple task topics:
 
@@ -168,7 +168,7 @@ Consider the following guidelines when you combine multiple task topics:
 
 - When tasks that are likely to be completed at approximately the same time.
 
-  When a user is likely to complete a group of tasks at the same time, it is more helpful for the user to have all task documentation available on the same page instead of navigating the table of contents to find other, related tasks.
+  When a user is likely to complete a group of tasks at the same time, it is helpful for the user to have all task documentation available on the same page.
 
   In the [Data source management](https://grafana.com/docs/grafana/latest/administration/data-source-management/) topic, it is likely that an Admin user is going to add a data source and enable permissions in rapid succession.
 
@@ -184,11 +184,11 @@ Consider the following guidelines when you combine multiple task topics:
 
 ## References
 
-Reference topics provides look-up information that users might need to refer to when completing a task. References should comprehensively catalog data such as functions and their parameters, return codes, and error messages. They are often presented as tables, bulleted lists, or sample scripts.
+Reference topics provide look-up information that users might need to refer to when completing a task. References should comprehensively catalog data such as functions and their parameters, return codes, and error messages. They are often presented as tables, bulleted lists, or sample scripts.
 
 Reference topics are also designed for API information.
 
-Often reference topics are linked from _task_ topics, because they contain information the user needs to perform a task.
+Reference topics are often linked from _task_ topics, because they contain information the user needs to perform a task.
 
 > **Note:** Do not include steps or conceptual information in reference topics.
 
@@ -213,8 +213,8 @@ Complete the following steps to write a task topic.
   <br>
   <br>
   For example:
-     - xxx
-     - xxx
+     - calculation-types
+     - standard-field-definitions
 <br>
 <br>
 
@@ -223,14 +223,14 @@ Complete the following steps to write a task topic.
 
    For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
 
-1. Add your content to the [reference template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/reference-template.md).
+1. Make a copy of the [Reference template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/reference-template.md) and add the content.
 
 ### Reference topic example
 
 Refer to the following topics for a reference topic example:
 
-- [Calculation types](https://grafana.com/docs/grafana/next/panels/calculation-types/)
-- [Standard field definitions](https://grafana.com/docs/grafana/next/panels/standard-field-definitions/)
+- [Calculation types](https://grafana.com/docs/grafana/latest/panels/calculation-types/)
+- [Standard field definitions](https://grafana.com/docs/grafana/latest/panels/standard-field-definitions/)
 - [Grafana CLI](https://grafana.com/docs/grafana/latest/administration/cli/)
 
 ### Reference template

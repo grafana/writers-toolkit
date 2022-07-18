@@ -1,14 +1,17 @@
 ---
 title: "Documentation structure"
-description: "How organize concepts and tasks in the repository."
-aliases: []
+description: "How to organize concepts and tasks in the repository."
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/documentation-structure/"]
 weight: 300
 menuTitle: "Documentation structure"
+Keywords:
+    - information architecture
+    - structure
 ---
 
 # Documentation structure
 
-The help documentation for each product is logically organized which makes content findable - either by navigating the table of contents or searching via Google or the doc site search feature.
+The Docs Squad makes very intentional decisions about how we organize and structure product documentation. Well-structured content enables users to find what they need, quickly and reliably.
 
 The way in which we organize content is referred to as the information architecture (IA). The IA for the help docs of each product does vary, so it is important that you understand the structure of the help docs before you start contributing.
 
@@ -27,7 +30,7 @@ The information architecture consists of the following levels.
 
 **Topic area:** The topic area is the top-most level of the table of contents. The topic area represents major groupings of features and functionality. When you contribute to the docs, first identify which topic area you are contributing to.
 
-> Note: Do not create new topic areas. If it is not obvious to you which topic area you should add your docs to, reach out to the Docs Squad.
+> **Note:** Do not create new topic areas. If it is not obvious to you which topic area you should add your docs to, reach out to the Docs Squad.
 
 **Feature:** Each topic area contains one or more features that Grafana customers use. In the image above, Grafana includes features that customers can use to manage their users.
 

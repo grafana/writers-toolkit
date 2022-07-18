@@ -2,10 +2,14 @@
 title: "Documentation tooling and workflows"
 menuTitle: "Documentation tooling and workflows"
 description: "How to use documentation tools and understand our workflows."
-aliases: []
-weight: 700
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/tooling-and-workflows"]
+weight: 800
 keywords:
   - git
+  - repository
+  - github
+  - review
+  - approve
 ---
 
 # Documentation tooling and workflows

@@ -1,12 +1,12 @@
 ---
 title: "Grafana Lab's documentation"
-menuTitle: "Grafana Lab'sdocumentation"
+menuTitle: "Grafana Lab's documentation"
 description: “Learn about Grafana's documentation”
-aliases:
+aliases: ["/docs/writers-toolkit/latest/writing-guidelines/about-grafana-docs/"]
 weight: 100
 Keywords:
-    -
-    -
+    - Grafana
+    - documentation
 ---
 
 # Grafana Lab's documentation
@@ -16,11 +16,11 @@ All Grafana Enterprise and OSS documentation is located in the Grafana open sour
 These are the other Grafana OSS project repositories:
 
 - Grafana Agent: https://github.com/grafana/agent
--  Loki: https://github.com/grafana/loki
--  Tempo: https://github.com/grafana/tempo
+- Loki: https://github.com/grafana/loki
+- Tempo: https://github.com/grafana/tempo
 - Mimir: https://github.com/grafana/mimir
 
-Every repository contains a `docs/sources` directory, which is where our documentation is stored.
+Every repository contains a `docs/sources` directory, which is where we store our documentation.
 
 ## Topic-based authoring
 
@@ -30,13 +30,11 @@ For more information on topic types, refer to [Topic types]({{< relref "../topic
 
 Why is topic-based authoring important?
 
-- Writing that isn’t topic-based is difficult to reuse.
-If everyone frequently copies information to multiple locations and makes small modifications, the result is rework, increases errors, and this multiplies the costs associated with maintenance and translation.
+- **Writing that isn’t topic-based is difficult to reuse.** If everyone frequently copies information to multiple locations and makes small modifications, the result is rework and increases in errors, which multiplies the costs associated with maintenance and translation.
 
-- Writing that isn’t topic-based is difficult for readers to understand.
-Content, structure, terminology, and writing style differs and can confuse and frustrate readers.
+- **Writing that isn’t topic-based is difficult for readers to understand.** Content, structure, terminology, and writing style differs and can confuse and frustrate readers.
 
-- Writing that is topic-based is more consistent and user-friendly.
+- **Writing that is topic-based is more consistent and user-friendly.**
 Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
 
 ## Markdown
@@ -53,4 +51,4 @@ We're thrilled that you are considering contributing to the documentation. You c
 
 ## Join our community
 
-For general discussions about documentation, you’re welcome to join the #docs channel on our public Grafana Slack team.
+For general discussions about documentation, you’re welcome to join the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel on our public Grafana Slack team.

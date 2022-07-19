@@ -1,91 +1,80 @@
 ---
-title: "Markdown style guide"
-menuTitle: "Markdown style guide"
-description: "Includes guidelines for writing technical documentation in Markdown."
+title: "Markdown guide"
+menuTitle: "Markdown guide"
+description: "Guidelines for writing technical documentation in Markdown."
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/markdown-guide/"]
 weight: 500
 keywords:
   - Markdown
-  - heading
+  - headings
   - bold
   - tables
   - lists
 ---
 
-# Markdown style guide
+# Markdown guide
 
-This guide for Markdown style helps keep contributions consistent across all documentation created for Grafana products. Refer to the guide and update its sections as needed when a Subject Matter Expert answers a question on Markdown style, or a decision is made about how to apply Markdown.
+This Markdown guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown syntax, or a decision is made about how to apply Markdown.
+
+**Write in sentence case** throughout all technical documentation, be it long-form text or microcopy within a UI:
+
+- This is sentence case
+- This is Headline Case
 
 ## Headings
 
-In Markdown, the number of "#" symbols creates different heading levels, similar to HTML heading levels:
+Similar to HTML headings (`<h1>`, `<h2>`, and `<h3>`), in Markdown, `#` symbols (or *hash tags*) create different heading levels:
 
 **Example**
 
-- \# is \<h1>.
-- \#\# is \<h2>.
-- \#\#\# is \<h3>.
+- \# is a parent heading.
+- \#\# is a child heading.
+- \#\#\# is a child’s child heading.
 
-Start your document with a single `#` for the title of the page. Add the sub-headings with two `##`.
-
-Write headings in sentence case, not title case:
-
-- This is sentence case
-- This is Title Case
+For the title of the page, use one `#`. For each child heading, use two `##` symbols.
 
 ### Heading don'ts
 
-- Avoid stacked headings, which is following one heading with another heading without any content between the two headings.
-- Avoid skipping heading levels. For example, an h1 should be followed by an h2 rather than an h3.
-- Avoid having just one lower-level heading. For example, h1, h2, h2, h3, h3, h2, h2 is a valid order. Do not use h1, h2, h3, h2, h3, h2.
+- Avoid stacked headings; do not follow a heading with another without any content between the two.
+- Avoid skipping heading levels. For example, after a single `#`, use `##`, rather than `###`.
+- Avoid having just one child-level heading:
+  - Valid: `#`, `##`, `##`, `###`, `###`, `##`, `##`
+  - Invalid: `#`, `##`, `###`, `##`, `###`, `##`
 - Avoid using hyphens in headings.
-- Do not include parenthetical words like (Important!) in headings.
+- With the exception of `(Optional) `, do not include parenthesized words such as (Important).
 
 ## Bold and emphasis
 
-- Make text **bold** using two asterisks.
+- Make text **bold** using two asterisks. For example:
 
-**Example:** It is `**important**` to use GitHub-flavored Markdown emoji consistently.
+  > **Note:** It is important to use GitHub-flavored Markdown emojis consistently.
 
-- Make text `_emphasized_` using single ` _underscores_`. Do not use the single asterisk, it can be easily confused with bold.
+- To emphasize text, use single ` _underscores_`. Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
 
-**Example:** GitHub-flavored markdown emoji should _only_ appear in specific cases.
+  **For example:** The distributor only passes _valid_ data to the ingesters.
 
 ## Links and references
 
 For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references/" >}}).
 
-If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curved brackets.
+If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
 
-\[text to display](www.website.com)
+\[Link text to display](https://website.com)
 
-**Example:** For more information on including emoji in GitHub-flavored markdown, refer to the [webfx page on emoji](https://www.webfx.com/tools/emoji-cheat-sheet/) for a list of emoji. 
+**Example:** For more information about including emojis in GitHub-flavored markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/). 
 
 ## Block quotes
 
-Include block quotes inside text using a right angle bracket:
+Include block quotes within text by using a right-angle bracket:
 
-**Example**
+**Example**:
 
-> Any important information
-> about emoji can be separated into
-> a blockquote.
+> Any important information about emojis
+> can be separated into a blockquote.
 
 ## Code blocks
 
-Code blocks written with markdown can show off syntax highlighting specific to different languages. Use three back tics to create a code block:
-
-```
-function testNum(a) {
-  if (a > 0) {
-    return "positive";
-  } else {
-    return "NOT positive";
-  }
-}
-```
-
-Write the name of the language after the first set of back tics, no spaces, to show specific syntax highlighting. For example; "\```javascript" produces the following:
+Code blocks within Markdown can highlight syntax that is specific to a language. Use three back tics to create a code block. For example, ` ``` ` immediately followed by `javascript` produces the following highlights:
 
 ```javascript
 function testNum(a) {
@@ -99,9 +88,9 @@ function testNum(a) {
 
 ## Tables
 
-Construct a table by typing the table headings, and separating them with a "|" character. Then, add a second line of dashes ("-") separated by another "|" character. When constructing the table cells, separate each cell data with another "|".
+Construct a table by separating the table headings by a `|` (pipe) character. Then, add a second line of dashes (`-`) separated by another `|` character. When constructing the table cells, separate each cell’s data with a `|`.
 
-**Example**
+**Example**:
 
 Heading one | Heading two
 
@@ -109,7 +98,7 @@ Heading one | Heading two
 
 Cell one data| Cell two data
 
-Will publish as:
+Displays as follows:
 
 | Heading one   | Heading two   |
 | ------------- | ------------- |
@@ -117,15 +106,13 @@ Will publish as:
 
 ## Numbered lists
 
-To avoid inconsistent list numbering, use repetitive list numbering:
+Use repetitive list numbering, to avoid inconsistent list numbering:
 
 1. First
-
 1. Second
-
 1. Third
 
-The list above will always display as:
+The preceding list displays as:
 
 1. First
 2. Second
@@ -133,34 +120,40 @@ The list above will always display as:
 
 ## Unordered lists
 
-Build a list of points - an unordered or unnumbered list - by using "\-" (hyphen) characters.
+Build a list of unordered points by using a hyphen (`-`):
 
-**Example**
-
-- First
+- First item
 - Another item
-- The last list item
+- The final list item
+
+> **Note:** If might be tempting to number a list because the verbiage that precedes it includes a number.
+> Remember that if list items do not need to be performed in a particular order, use an unordered list.
+> 
+> **Example:**
+> 
+> There are three ways to ingest data:
+> - First way
+> - Second way
+> - Third way
 
 ## Images
 
-_Do not_ use image shortcodes at this time.
-
-Include images in a document using the following syntax:
+_Do not_ use image shortcodes at this time. Instead, include images in a document using the following syntax:
 
 ```
 ![Alt text](link to image, starting with /static/img/docs/ if it is to an internal image "Title of image in sentence case")
 ```
 
-> **Note:** Alt text does not appear when the user hovers the mouse over the image, but title text does.
+> **Note:** Alt(ernative) text does not appear when the user hovers their cursor over the image. The title text does.
+> 
+> **Examples:**
+> 
+> - `![Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
+> - `![Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
 
-**Examples:**
+This follows the format `![alt text](URL)`.
 
-- \!\[Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")
-- \!\[Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")
-
-This follows the format of "!", alt text wrapped in "[]" and the link URL wrapped in "()."
-
-You can also use HTML such as the following:
+Within Markdown, HTML is valid and to be used sparingly:
 
 ```
 <img src="example.png"
@@ -168,12 +161,10 @@ You can also use HTML such as the following:
      style="float: left; margin-right: 5px;" />
 ```
 
-In most cases, use the markdown syntax rather than the HTML syntax. Only use the HTML if you need to change the image in ways unsupported by Markdown.
+In most cases, use Markdown syntax rather than HTML syntax. Only use the HTML if you need to change the image in ways that Markdown does not supported.
 
 ## Comments
 
-You can include comments that will not appear in published markdown using the following syntax:
+You can include comments that do not display in published output:
 
-\[comment]: <> (Comment text to display)
-
-The word "comment" wrapped in "[]" followed by a ":," a space, "<>," and then the comment itself wrapped in "()."
+`[comment]: <> (Comment text to display)`

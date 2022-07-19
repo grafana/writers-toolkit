@@ -1,8 +1,10 @@
 ---
 title: "Inclusive writing"
 description: "Inclusive writing"
-aliases: []
-weight: 40
+aliases: ["/docs/writers-toolkit/latest/style-guide/style-conventions/inclusive-writing"]
+weight: 500
+Keywords:
+    - inclusive writing
 ---
 
 # Inclusive writing
@@ -14,10 +16,10 @@ When writing for Grafana, always use inclusive terminology and phrasing. Avoid a
 When writing about people, be compassionate, inclusive, and respectful.
 
 First and foremost, no matter the context, we always make sure to view people as people. When context and word count permits, we refer to them as people or people who [...].
-							
+
 With that in mind, there are important distinctions between the ways that different people interact with our product and, thus, how we refer to those people.
 
-- Users are every person who uses our products, whether or not they use a commercial version of one of our products. Customers are people and companies who pay to use our products.		
+- Users are every person who uses our products, whether or not they use a commercial version of one of our products. Customers are people and companies who pay to use our products.
 - Visitors are people who visit our website for any reason, whether it's as a potential user, customer, or employee. We appreciate all interest in our hard work.
 - Our customers (and users) often have their own customers (and users). Generally speaking, we refer to these customers of our customers as users, because it does an okay job of encapsulating all the ways our various customers might interact with the people using their products.
 - Employees are people who work at Grafana Labs.
@@ -29,39 +31,39 @@ Consider the following best practices to ensure inclusivity in your writing.
 - Groups/Audiences: Don’t refer to a group or audience as “it.” Instead, use “they.”
 - Age: Don’t refer to someone’s age unless it’s relevant. Don’t use age-related words to describe people. Avoid: young, old, elderly.
 - Hearing: Do use the adjectives “deaf,” “partially deaf,” or “hard of hearing” when describing a person with hearing loss.
-- Vision: Do use the adjective “blind” or “low vision” when describing a person with limited vision.	
+- Vision: Do use the adjective “blind” or “low vision” when describing a person with limited vision.
 
-## Writing for international audiences 
+## Writing for international audiences
 
 Consider the following guidelines when you write for an international audience.
 
-### Avoid acronyms					
+### Avoid acronyms
 
 If you use an acronym, first write out each word in the acronym on first use, and then continue using just the acronym.
-							
-- **Example**: Grafana Cloud is software as a service, also known as SaaS. Using SaaS typically requires setting up an account. 
 
-### Avoid idioms					
+- **Example**: Grafana Cloud is software as a service, also known as SaaS. Using SaaS typically requires setting up an account.
+
+### Avoid idioms
 
 Understanding idioms typically requires cultural context. Grafana’s users are all around the world, and many are non-native English speakers. Therefore, avoid idioms and idiomatic puns.
-							
-For example, some common American English idioms: 
+
+For example, some common American English idioms:
 - “Costs an arm and a leg”
 - “Hit the nail on the head”
 - “Bite off more than you can chew”
-							
+
 Not sure you believe us? Here are some British idioms that you probably won’t understand, despite your perfect handle on the English language.
 
-- “A few sandwiches short of a picnic” 
-- “Chuffed to bits” 
+- “A few sandwiches short of a picnic”
+- “Chuffed to bits”
 - “Over-egg the pudding”
 
 ### Avoid Cultural References
 Cultural references are references that relate to the culture of a community, country, continent, and so on.
 
 **Examples:**
-- “Her ambition is a clear reflection of the American dream.” 
-- “I'm so glad you came to help like a good samaritan.” 
+- “Her ambition is a clear reflection of the American dream.”
+- “I'm so glad you came to help like a good samaritan.”
 - “They grew up in a typical nuclear family.”
 
 ## Avoid charged language

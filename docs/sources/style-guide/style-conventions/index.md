@@ -1,8 +1,10 @@
 ---
 title: "Style conventions"
 description: "Style conventions"
-aliases: []
-weight: 20
+aliases: ["/docs/writers-toolkit/latest/style-guide/style-conventions/"]
+weight: 200
+Keywords:
+    - style conventions
 ---
 
 # Style conventions

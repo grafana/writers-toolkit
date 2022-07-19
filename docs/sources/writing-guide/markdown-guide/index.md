@@ -14,7 +14,7 @@ keywords:
 
 # Markdown style guide
 
-This Markdown style guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown style, or a decision is made about how to apply Markdown.
+This Markdown guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown syntax, or a decision is made about how to apply Markdown.
 
 **Write in sentence case** throughout all technical documentation, be it long-form text or microcopy within a UI:
 

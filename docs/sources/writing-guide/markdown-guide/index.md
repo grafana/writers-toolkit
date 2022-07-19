@@ -12,7 +12,7 @@ keywords:
   - lists
 ---
 
-# Markdown style guide
+# Markdown guide
 
 This Markdown guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown syntax, or a decision is made about how to apply Markdown.
 

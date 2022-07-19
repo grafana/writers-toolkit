@@ -1,27 +1,30 @@
 ---
 title: "Capitalization and punctuation"
 description: "Capitalization and punctuaton"
-aliases: []
-weight: 50
+aliases: ["/docs/writers-toolkit/latest/style-guide/capitalization-punctuation"]
+weight: 400
+Keywords:
+    - capitalization
+    - punctuation
 ---
 
 This section includes capitalization and punctuation guidelines.
 
 ## Capitalization
 
-Consult the following capitalization guidelines when you write. 
+Consult the following capitalization guidelines when you write.
 
-### Sentence-case capitalization 
+### Sentence-case capitalization
 
-Use sentence-case capitalization to capitalize the first word of a sentence, the first word of a heading, and all proper nouns. 
+Use sentence-case capitalization to capitalize the first word of a sentence, the first word of a heading, and all proper nouns.
 
 This style is primarily lowercase and is considered the quickest form to read.
 
-### All caps capitalization 
+### All caps capitalization
 
 Use all-caps capitalization exclusively for abbreviations, such as `API`, `HTTP`, `ID`, `JSON`, `SQL`, or `URL`.
 
-### Capitalizing proper nouns 
+### Capitalizing proper nouns
 
 The names of people, places, and products take initial capitals because they are proper nouns.
 

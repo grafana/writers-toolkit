@@ -23,16 +23,6 @@ If you are unfamiliar with `git`, refer to [The Git & Github Bootcamp](https://g
 
 Although processes for contributing changes to a repository differ for each repository, at Grafana there is a generally consistent workflow defined below.
 
-- [Documentation tooling and workflows](#documentation-tooling-and-workflows)
-  - [Using git](#using-git)
-    - [Creating a local repository](#creating-a-local-repository)
-    - [Downloading updated references from the remote repository](#downloading-updated-references-from-the-remote-repository)
-    - [Creating a new branch from the main remote branch](#creating-a-new-branch-from-the-main-remote-branch)
-    - [Committing changes to your branch](#committing-changes-to-your-branch)
-    - [Staging files and directories](#staging-files-and-directories)
-    - [Staging individual areas within files](#staging-individual-areas-within-files)
-    - [Pushing changes to the remote repository](#pushing-changes-to-the-remote-repository)
-
 ### Creating a local repository
 
 Creating a local repository is only necessary when first contributing to a new repository.

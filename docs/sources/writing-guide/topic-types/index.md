@@ -1,7 +1,7 @@
 ---
 title: "Topic types"
 menuTitle: "Topic types"
-description: "This section describes the topic types we use at Grafana."
+description: "Topic types that we use at Grafana Labs."
 aliases: ["/docs/writers-toolkit/latest/writing-guidelines/topic-types/"]
 weight: 400
 Keywords:
@@ -14,7 +14,7 @@ Keywords:
 
 # Topic types
 
-We categorize our documentation into concept, task, and reference topic types. All content must be placed into topics that are based on one of these basic topic types. Avoid mixing topic types within a single topic file.
+Grafana Labs documentation fits into topic types: concept, task, and reference. All content must be placed into topics that are based on one of these basic topic types. Avoid mixing topic types within a single topic file.
 
 If you are interested making use of our topic templates, refer to [Templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
 
@@ -156,9 +156,9 @@ When you are ready to write, make a copy of the [Task template](https://github.c
 
 ### When to combine tasks into a single topic
 
-In some cases task topics are standalone and are not combined with any other content. In other cases, it is appropriate to combine multiple task topics into a single markdown file. Combining tasks into a single topic limits the number of entries in the table of contents, which reduces user scrolling and clicking, and provides for a more enjoyable user experience.
+In some cases task topics are standalone and are not combined with any other content. In other cases, it is appropriate to combine multiple task topics into a single Markdown file. Combining tasks into a single topic limits the number of entries in the table of contents, which reduces user scrolling and clicking, and provides for a more enjoyable user experience.
 
-> **Note:** Do not randomly combine content into the same markdown file. When you combine content without a good reason, you can inadvertently hide content from the user.
+> **Note:** Do not randomly combine content into the same Markdown file. When you combine content without a good reason, you can inadvertently hide content from the user.
 
 Consider the following guidelines when you combine multiple task topics:
 

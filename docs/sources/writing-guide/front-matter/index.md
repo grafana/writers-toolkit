@@ -25,7 +25,7 @@ Here’s a correctly built example:
     aliases:
       - /docs/mimir/latest/old-architecture/
     weight: 100
-    Keywords:
+    keywords:
       - Mimir
       - microservices
       - architecture
@@ -44,17 +44,17 @@ The following table describes each front matter element in detail.
         <tr>
             <td align="left" valign="top">[title]</td>
             <td align="left" valign="top">Required. <br><br>The [title] displays as the H1 on the page. <br><br>The [title] becomes the document title element. Often browsers display this in the tab for the page.</td>
-            <td align="left" valign="top">Does not need to precisely match the menuTitle. The title should be optimized for search engines.</td>
+            <td align="left" valign="top">Does not need to precisely match the menuTitle. The title should be optimized for search engines. <br><br>May be surrounded by double quote marks (<code>"</code>). Do not use smart quotes.</td>
         </tr>
         <tr>
             <td align="left" valign="top">[menuTitle]</td>
             <td align="left" valign="top">The [menuTitle] is useful for having a distinct sidebar entry perhaps in the case that the title is too long to display nicely in the sidebar as the title on the website in the left-hand sidebar.<br><br>Note: Not all repos support [menuTitle].</td>
-            <td align="left" valign="top">Does not need to precisely match the title. The menuTitle does not need to be optimized for search engines.</td>
+            <td align="left" valign="top">Does not need to precisely match the title. The menuTitle does not need to be optimized for search engines. <br><br>May be surrounded by double quote marks (<code>"</code>). Do not use smart quotes.</td>
         </tr>
         <tr>
             <td align="left" valign="top">[description]</td>
             <td align="left" valign="top">The [description] text displays as a clue to users about what the page should include on social (Twitter and the like), though not as much by a search engine.</td>
-            <td align="left" valign="top">The number of characters vary by media, but use them wisely. <br><br>Provide enough information to guide users to the content by describing what content is provided using the link. Often, this doesn’t need to be original prose - you can often scan the first few paragraphs to pluck the appropriate terms/phrases into the description. <br><br>It won't cause harm if it's too long, it will simply truncate in the displayed media. </td>
+            <td align="left" valign="top">The number of characters vary by media, but use them wisely. <br><br>Provide enough information to guide users to the content by describing what content is provided using the link. Often, this doesn’t need to be original prose - you can often scan the first few paragraphs to pluck the appropriate terms/phrases into the description. <br><br>It won't cause harm if it's too long, it will simply truncate in the displayed media.  <br><br>May be surrounded by double quote marks (<code>"</code>). Do not use smart quotes.</td>
         </tr>
         <tr>
             <td align="left" valign="top">[aliases]</td>
@@ -71,7 +71,7 @@ The following table describes each front matter element in detail.
         <tr>
             <td align="left" valign="top">[keywords]</td>
             <td align="left" valign="top">Keywords are used by the website to link to related pages in the “related content” sections. https://github.com/grafana/website/blob/master/config/_default/config.yaml#L85 <br><br>They do not appear in the resulting HTML source for the page and have no effect on SEO.</td>
-            <td align="left" valign="top">Ideally, use single terms as opposed to phrases.</a>.
+            <td align="left" valign="top">Ideally, use single terms as opposed to phrases.</a>
             </td>
         </tr>
     </tbody>
@@ -93,6 +93,7 @@ On Twitter:
 ![Twitter description](twitter.png)
 
 For example:
+
 - Add a panel using these steps.
 - Understand the configuration options provided by…
 - Learn more about hash rings and their usage

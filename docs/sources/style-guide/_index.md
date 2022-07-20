@@ -1,12 +1,13 @@
 ---
-title: "Style guide"
-menuTitle: "Style guide"
-description: "Style guide"
-aliases: ["/docs/writers-toolkit/latest/style-guide/"]
+title: Style guide
+menuTitle: Style guide
+description: Style guide
+aliases:
+  - /docs/writers-toolkit/latest/style-guide/
 weight: 100
-Keywords:
-    - Grafana
-    - style guide
+keywords:
+  - Grafana
+  - style guide
 ---
 
 # Style guide

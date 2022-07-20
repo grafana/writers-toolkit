@@ -1,8 +1,9 @@
 ---
-title: "Links and cross references"
-menuTitle: "Links and cross references"
-description: "Understand how Hugo determines references, the different types of references, and how to use them."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/references/"]
+title: Links and cross references
+menuTitle: Links and cross references
+description: Understand how Hugo determines references, the different types of references, and how to use them.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/references/
 weight: 600
 keywords:
   - Hugo

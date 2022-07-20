@@ -1,10 +1,11 @@
 ---
-title: "Inclusive writing"
-description: "Inclusive writing"
-aliases: ["/docs/writers-toolkit/latest/style-guide/style-conventions/inclusive-writing"]
+title: Inclusive writing
+description: Inclusive writing
+aliases:
+  - /docs/writers-toolkit/latest/style-guide/style-conventions/inclusive-writing/
 weight: 500
-Keywords:
-    - inclusive writing
+keywords:
+  - inclusive writing
 ---
 
 # Inclusive writing

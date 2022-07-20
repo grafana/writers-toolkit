@@ -1,12 +1,13 @@
 ---
-title: "Front matter"
-menuTitle: "Front matter"
-description: “Learn about how we build front matter to properly enable the publication and search of our technical documentation”
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/front-matter"]
+title: Front matter
+menuTitle: Front matter
+description: Learn about how we build front matter to properly enable the publication and search of our technical documentation.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/front-matter/
 weight: 700
-Keywords:
-    - front matter
-    - alias
+keywords:
+  - front matter
+  - alias
 ---
 
 # Front matter
@@ -15,18 +16,19 @@ Grafana technical documentation includes front matter to help organize the conte
 
 We use YAML for all front matter.
 
-Here’s a correctly built example (note that few to none of our files yet use this):
+Here’s a correctly built example:
 
     ---
-    title: "About Grafana Mimir architecture"
-    menuTitle: "Architecture"
-    description: “Learn more about Grafana Mimir’s microservices-based architecture”
-    aliases: ["/docs/mimir/latest/old-architecture/"]
+    title: About Grafana Mimir architecture
+    menuTitle: Architecture
+    description: Learn more about Grafana Mimir’s microservices-based architecture.
+    aliases:
+      - /docs/mimir/latest/old-architecture/
     weight: 100
     Keywords:
-        - Mimir
-        - microservices
-        - architecture
+      - Mimir
+      - microservices
+      - architecture
     ---
 
 The following table describes each front matter element in detail.
@@ -79,8 +81,8 @@ The following table describes each front matter element in detail.
 
    ```
    ---
-   title: "About Grafana Mimir architecture"
-   menuTitle: "Architecture"
+   title: About Grafana Mimir architecture
+   menuTitle: Architecture
    ---
    ```
 
@@ -91,9 +93,9 @@ On Twitter:
 ![Twitter description](twitter.png)
 
 For example:
-- “Add a panel using these steps.”
-- “Understand the configuration options provided by…”
-- “Learn more about hash rings and their usage”
+- Add a panel using these steps.
+- Understand the configuration options provided by…
+- Learn more about hash rings and their usage
 
 ## Hugo aliases
 
@@ -108,7 +110,7 @@ The following example file `intended-url.md` contains the alias `/original-url` 
 ```markdown
 ---
 aliases:
-    - /original-url/
+  - /original-url/
 ---
 ```
 

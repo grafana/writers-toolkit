@@ -1,12 +1,13 @@
 ---
-title: "Writing guide"
-menuTitle: "Writing guide"
-description: “Learn about Grafana’s technical documentation writing guidelines”
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/"]
+title: Writing guide
+menuTitle: Writing guide
+description: Learn about Grafana’s technical documentation writing guidelines.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/
 weight: 200
 Keywords:
-    - writing
-    - guidelines
+  - writing
+  - guidelines
 ---
 
 # Writing guide

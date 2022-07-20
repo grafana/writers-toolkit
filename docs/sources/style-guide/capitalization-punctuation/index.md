@@ -1,11 +1,12 @@
 ---
-title: "Capitalization and punctuation"
-description: "Capitalization and punctuaton"
-aliases: ["/docs/writers-toolkit/latest/style-guide/capitalization-punctuation"]
+title: Capitalization and punctuation
+description: Capitalization and punctuaton
+aliases:
+  - /docs/writers-toolkit/latest/style-guide/capitalization-punctuation/
 weight: 400
-Keywords:
-    - capitalization
-    - punctuation
+keywords:
+  - capitalization
+  - punctuation
 ---
 
 This section includes capitalization and punctuation guidelines.

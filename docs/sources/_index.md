@@ -5,11 +5,17 @@ cascade:
   search_section: Grafana writers' toolkit
   search_type: doc
 
-title: "Grafana Technical Writing Contributor's Toolkit"
-menuTitle: "Contributor's Toolkit"
-description: "Grafana Technical Writing Contributor's Toolkit"
-aliases: []
+title: Grafana Technical Writing Contributor's Toolkit
+menuTitle: Contributor's Toolkit
+description: Grafana Technical Writing Contributor's Toolkit.
+aliases:
+  - /docs/writers-toolkit/latest/
 weight: 100
+keywords:
+  - writing guide
+  - style guide
+  - Grafana
+  - documentation
 ---
 
 # Grafana Technical Writing Contributor's Toolkit

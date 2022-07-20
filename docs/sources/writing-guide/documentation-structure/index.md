@@ -1,12 +1,13 @@
 ---
-title: "Documentation structure"
-description: "How to organize concepts and tasks in the repository."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/documentation-structure/"]
+title: Documentation structure
+description: How to organize concepts and tasks in the repository.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/documentation-structure/
 weight: 300
-menuTitle: "Documentation structure"
-Keywords:
-    - information architecture
-    - structure
+menuTitle: Documentation structure
+keywords:
+  - information architecture
+  - structure
 ---
 
 # Documentation structure

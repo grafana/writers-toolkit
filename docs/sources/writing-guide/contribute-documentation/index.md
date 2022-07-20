@@ -1,14 +1,15 @@
 ---
-title: "Contribute to documentation"
-menuTitle: "Contribute to documenation"
-description: "This section describes the different ways of contributing to documentation."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/contribute-documentation/"]
+title: Contribute to documentation
+menuTitle: Contribute to documenation
+description: This section describes the different ways of contributing to documentation.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/contribute-documentation/
 weight: 200
-Keywords:
-    - contribute
-    - request change
-    - edit documentation
-    - review documentation
+keywords:
+  - contribute
+  - request change
+  - edit documentation
+  - review documentation
 ---
 
 # Contribute to documentation

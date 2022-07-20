@@ -1,12 +1,13 @@
 ---
-title: "Grafana Lab's documentation"
-menuTitle: "Grafana Lab's documentation"
-description: “Learn about Grafana's documentation”
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/about-grafana-docs/"]
+title: Grafana Lab's documentation
+menuTitle: Grafana Lab's documentation
+description: Learn about Grafana's documentation
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/about-grafana-docs/
 weight: 100
-Keywords:
-    - Grafana
-    - documentation
+keywords:
+  - Grafana
+  - documentation
 ---
 
 # Grafana Lab's documentation

@@ -1,15 +1,16 @@
 ---
-title: "Topic types"
-menuTitle: "Topic types"
-description: "Topic types that we use at Grafana Labs."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/topic-types/"]
+title: Topic types
+menuTitle: Topic types
+description: Topic types that we use at Grafana Labs.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/
 weight: 400
-Keywords:
-    - topic types
-    - template
-    - concept
-    - task
-    - reference
+keywords:
+  - topic types
+  - template
+  - concept
+  - task
+  - reference
 ---
 
 # Topic types
@@ -53,12 +54,13 @@ Complete the following steps to write a concept topic.
 
 1. Review the information architecture of the Grafana Labs product documentation and determine the topic area to which you want to add feature documentation.
 1. Within the topic area, create a feature directory that conforms to the following naming convention:
+
    - Use a noun
    - Use lower case letters
    - Add a hyphen between words
   <br>
   <br>
-  For example:
+   For example:
      - organization-management
      - alert-groups
      - installation
@@ -129,7 +131,7 @@ Complete the following steps to write a task topic.
    - Add a hyphen between words.
   <br>
   <br>
-  For example:
+   For example:
      - manage-dashboard-permissions
      - manage-organization-users
 <br>
@@ -212,7 +214,7 @@ Complete the following steps to write a task topic.
    - Add a hyphen between words.
   <br>
   <br>
-  For example:
+   For example:
      - calculation-types
      - standard-field-definitions
 <br>

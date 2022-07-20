@@ -1,8 +1,9 @@
 ---
-title: "Markdown guide"
-menuTitle: "Markdown guide"
-description: "Guidelines for writing technical documentation in Markdown."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/markdown-guide/"]
+title: Markdown guide
+menuTitle: Markdown guide
+description: Guidelines for writing technical documentation in Markdown.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/markdown-guide/
 weight: 500
 keywords:
   - Markdown

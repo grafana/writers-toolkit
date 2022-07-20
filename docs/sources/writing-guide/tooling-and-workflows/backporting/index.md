@@ -1,8 +1,9 @@
 ---
-title: "Backporting"
-menuTitle: "Backporting"
-description: "How and when to backport."
-aliases: ["/docs/writers-toolkit/latest/writing-guidelines/backporting/"]
+title: Backporting
+menuTitle: Backporting
+description: How and when to backport.
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/backporting/
 weight: 100
 keywords:
   - backporting

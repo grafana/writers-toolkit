@@ -1,11 +1,12 @@
 ---
-title: "Voice and tone guidelines"
-description: "Voice and tone guidelines"
-aliases: ["/docs/writers-toolkit/latest/style-guide/voice-tone-guidelines"]
+title: Voice and tone guidelines
+description: Voice and tone guidelines
+aliases:
+  - /docs/writers-toolkit/latest/style-guide/voice-tone-guidelines/
 weight: 300
-Keywords:
-    - Grafana
-    - voice and tone
+keywords:
+  - Grafana
+  - voice and tone
 ---
 
 # Voice and tone guidelines

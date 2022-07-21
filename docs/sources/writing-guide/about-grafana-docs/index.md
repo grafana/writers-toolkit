@@ -1,6 +1,6 @@
 ---
-title: Grafana Lab's documentation
-menuTitle: Grafana Lab's documentation
+title: Introduction to documentation
+menuTitle: Introduction to documentation
 description: Learn about Grafana's documentation
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/about-grafana-docs/
@@ -10,7 +10,7 @@ keywords:
   - documentation
 ---
 
-# Grafana Lab's documentation
+# Introduction to documentation
 
 All Grafana Enterprise and OSS documentation is located in the Grafana open source project GitHub repository: https://github.com/grafana/tree/main/docs/sources.
 

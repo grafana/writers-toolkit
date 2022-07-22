@@ -1,13 +1,14 @@
 ---
-title: "Task title"
-menuTitle: "Task"
-description: “Use this template when you write a task topic.”
-aliases: ["/docs/writers-toolkit/latest/templates/task-template"]
+title: Task title
+menuTitle: Task
+description: Use this template when you write a task topic.
+aliases:
+  - /docs/writers-toolkit/latest/templates/task-template
 weight: 100
 keywords:
-    - keyword 1
-    - keyword 2
-    - keyword 3
+  - keyword 1
+  - keyword 2
+  - keyword 3
 ---
 <!-- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 

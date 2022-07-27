@@ -53,4 +53,4 @@ Headings also make content easy to skim. Use headings (or introductory paragraph
 
 ## API documentation
 
-Although API documentation is a reference topic, rather than a task topic, it is has its own guidelines.
+Although API documentation is a reference topic, rather than a task topic, it has its own guidelines.

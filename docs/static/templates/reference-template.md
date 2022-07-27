@@ -39,9 +39,10 @@ If you have a large list of things to store in a table, then you are probably de
 
 The [Glossary](https://grafana.com/docs/grafana/latest/guides/glossary/) provides an example of reference data in a table.
 
-### Empty markdown table
+### Empty Markdown table
 
-While you might not need a heading for each table, headings are a good way to chunk information if you have several tables. They also make the content easy to skim. Use headings or intro paragraphs like this one to explain to the reader what the information in the table is used for.
+Although you might not need a heading for each table, headings are a way to chunk information if you have several tables.
+Headings also make content easy to skim. Use headings (or introductory paragraphs such as this one) to provide the reader with context about the information in the table and its use.
 
 |     |     |     |     |     |     |
 | :-- | :-- | :-: | :-: | --: | --: |
@@ -52,4 +53,4 @@ While you might not need a heading for each table, headings are a good way to ch
 
 ## API documentation
 
-API documentation is always a reference topic rather than a task topic, but it has its own rules.
+Although API documentation is a reference topic, rather than a task topic, it has its own guidelines.

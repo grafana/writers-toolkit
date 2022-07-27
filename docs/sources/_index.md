@@ -18,7 +18,7 @@ keywords:
   - documentation
 ---
 
-# Grafana technical-documentation toolkit
+# Grafana Labs technical-documentation toolkit
 
 Hi, it’s nice to see you.
 

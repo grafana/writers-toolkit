@@ -20,21 +20,23 @@ keywords:
 
 # Grafana technical-documentation toolkit
 
-<!-- vale Grafana.Exclamation = NO -->
+Hi, it’s nice to see you.
 
-Welcome!
+We’re here to help you make the technical documentation at Grafana Labs accurate and shiny.
+Whether this is your first pull request (PR) or whether you are a long-time contributor,
+we’re here to help you create content that is consistent, and that applies the voice and tone of Grafana Labs.
+We understand if you are in a hurry and just want to get something done,
+or if you prefer to ask us a writing question and to learn along the way through doing.
 
-<!-- vale Grafana.Exclamation = YES -->
-
-We're glad you're here to help make our technical documentation even better. We develop content that leads our users to success using Grafana products. We want to empower everyone to create content experiences that are consistent and apply Grafana’s voice and tone; so that our documentation is truly a reflection of who we are.
-
-This toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
+This toolkit is for anyone who writes or edits customer-facing technical documentation of Grafana or other Grafana Labs products.
+It is the source of truth for voice and tone, grammar and style, templates, and more.
 
 This toolkit consists of two guides:
 
-- Style Guide
-- Writing Guide
+- Style guide
+- Writing guide
 
-## Iteration is our friend
+## Iteration is your friend
 
-This is just a start. We will continue to share our guidelines and seek feedback and iterate. Our hope is that these pages and our understanding continues and evolves over time. We will expand to include Design, Internationalization, Accessibility; the list goes on.
+As we share feedback with each other about this toolkit, let’s continue to evolve it.
+Some areas of content that are subject for inclusion come from the Design, Internationalization, and the Accessibility teams.

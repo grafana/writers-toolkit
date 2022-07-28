@@ -12,16 +12,18 @@ keywords:
 
 # Documentation structure
 
-The Docs Squad makes very intentional decisions about how we organize and structure product documentation. Well-structured content enables users to find what they need, quickly and reliably.
+The technical writing team makes very intentional decisions about how we organize and structure product documentation. 
+Well-structured content enables users to find what they need, quickly and reliably.
 
-The way in which we organize content is referred to as the information architecture (IA). The IA for the help docs of each product does vary, so it is important that you understand the structure of the help docs before you start contributing.
+The way in which we organize content is referred to as the information architecture (IA). 
+The IA of each set of product documentation varies, so it is important that you understand the structure of the content before you start contributing.
 
 In general, the IA determines how content is:
 - Titled
 - Grouped
 - Combined (or not combined) with other related content
 
-The following examples are based on the Grafana OSS and Enterprise docs.
+The following examples are based on the Grafana OSS and Enterprise documentation.
 
 ## Information architecture
 
@@ -29,33 +31,35 @@ The information architecture consists of the following levels.
 
 ![Grafana table of contents](grafana-toc.png)
 
-**Topic area:** The topic area is the top-most level of the table of contents. The topic area represents major groupings of features and functionality. When you contribute to the docs, first identify which topic area you are contributing to.
+**Feature set:** The feature set is the top-most level of the table of contents and represents groups of product features and functionality. 
+When you contribute to the docs, first identify which feature set you are contributing to.
 
-> **Note:** Do not create new topic areas. If it is not obvious to you which topic area you should add your docs to, reach out to the Docs Squad.
+> **Note:** Do not add to this level of the table of contents. 
+If it is not obvious where your documention belongs, reach out to the technical documentation team.
 
-**Feature:** Each topic area contains one or more features that Grafana customers use. In the image above, Grafana includes features that customers can use to manage their users.
+**Topic area:** Each feature set contains one or more topic areas, which are groups of related feature content.
+The topic area helps user navigate to child topics.
 
-The feature level in the table of contents serves two purposes:
+**Topic:** This level of the information architecture includes includes concepts, tasks, or reference topics.
 
-1. It provides a place for you to include supporting conceptual information.
+## Topic area structure
 
-1. It helps to organize related child topics. In this example, the user management feature docs include task topics on how to manage server users, user preferences, and organization users.
+A topic area exists within the feature set directory.
 
-**Task:** This level of the information architecture includes step-by-step guidelines that users follow to complete a task or group of tasks.
+The following image shows the `user-management` topic area directory as it is structured in the repository.
 
-## Feature directory structure
-The feature directory exists within the topic area directory.
+- The topic area directory contains an `_index.md` file that functions as a landing page for the child topics. 
+The `_index.md` file typically contains conceptual content.
+For more information about the kinds of conceptual content that you can add to the `_index.md` file, refer to [Concepts]({{< relref "../topic-types/#concepts" >}}).
+- The topic area directory also includes four task topics, each with its own directory and `index.md` file.
 
-The following image shows the user management documentation as it is structured in the repository.
+For more information about how to write concepts, refer to [Concepts]({{< relref "../topic-types/#concepts" >}}).
+For more information about how to write tasks, refer to [Tasks]({{< relref "../topic-types/#tasks" >}}).
 
-- The user-management feature directory contains an `_index.md` file that contains the contents of a concept.
-- The user-management feature includes four task topics, each with its own directory and `index.md` file.
+![Topic area directory structure](topic-area-directory.png)
 
-For more information about how to write concepts, refer to [Concepts]({{< relref "../topic-types/#concepts" >}}). For more information about how to write tasks, refer to [Tasks]({{< relref "../topic-types/#tasks" >}}).
-
-![Feature directory structure](feature-directory.png)
-
-> **Note:** If a directory contains multiple pages or subdirectories, then it’s a branch bundle and the index filename must be `_index.md`. If a directory contains only one page, then it’s a leaf bundle and the content filename must be `index.md`.
+> **Note:** If a directory contains multiple pages or subdirectories, then it is considered a branch bundle and the index filename must be `_index.md`. 
+If a directory contains only one page, then it is a leaf bundle and the content filename must be `index.md`.
 
 ## Useful links
 

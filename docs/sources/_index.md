@@ -2,12 +2,12 @@
 cascade:
   draft: true
   public_docs: true
-  search_section: Grafana Labs technical-documentation toolkit
+  search_section: Grafana Labs technical documentation toolkit
   search_type: doc
 
-title: Grafana Labs technical-documentation toolkit
+title: Grafana Labs technical documentation toolkit
 menuTitle: Tech-doc toolkit
-description: The Grafana Labs technical-documentation toolkit for the Community.
+description: The Grafana Labs technical documentation toolkit for the Community.
 aliases:
   - /docs/writers-toolkit/latest/
 weight: 100

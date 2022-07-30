@@ -1,5 +1,5 @@
 ---
-title: Image guidelines
+title: Image, diagram, and screenshot guidelines
 menuTitle: Image guidelines
 description: How to include images in your documentation.
 aliases:

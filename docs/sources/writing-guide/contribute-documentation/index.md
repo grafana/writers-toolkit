@@ -1,6 +1,6 @@
 ---
 title: Contribute to documentation
-menuTitle: Contribute to documenation
+menuTitle: Contribute to documentation
 description: This section describes the different ways of contributing to documentation.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/contribute-documentation/
@@ -95,7 +95,7 @@ When you are ready for other people to review your work, perform the following t
 1. Commit your changes.
 1. Push your changes to Github.
 1. Create a PR in Github.
-1. Add the `type/docs` label. 
+1. Add the `type/docs` label.
 
    For more information about the `type/docs` workflow, refer to [type/docs label workflow]({{< relref "../tooling-and-workflows/type-docs-label-workflow/" >}}).
 

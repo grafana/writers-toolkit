@@ -1,7 +1,7 @@
 ---
 title: Style guide
 menuTitle: Style guide
-description: Style guide
+description: Style guide for Grafana Labs
 aliases:
   - /docs/writers-toolkit/latest/style-guide/
 weight: 100

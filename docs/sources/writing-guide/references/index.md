@@ -26,6 +26,10 @@ The difference between the two categories of references is how Hugo resolves the
 Hugo resolves relative references from the current page or file.
 Hugo resolves absolute references from the root of the website.
 
+> **Note:** For Hugo's purposes, other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest`, cannot be addressed using Hugo references.
+> Use regular Markdown link syntax (`[link text](https://example.com/docs/etc)`) for such links.
+> Unlike references, Hugo will _not_ confirm that these link destinations exist, so manually check the published links to confirm that they point correctly.
+
 ## Relative references
 
 Relative references are the most common references in Grafana technical documentation.
@@ -141,3 +145,48 @@ To convert a heading to an anchor, Hugo makes the following changes:
 1. Remove any period characters (`.`).
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
+
+## References across docs sets built by `grafana/website`
+
+Product docs are collated as part of the `grafana/website` repository's publishing process, which generates the live website at grafana.com.
+It might be necessary to create a reference from one of these component docs sets, such as docs in `grafana/grafana`, to another component docs set, such as docs in `grafana/cloud-docs` or tutorial content.
+Regardless of how you reference such documents, Hugo generates `REF_NOT_FOUND` warnings about those references when building docs from only that component repository.
+
+To link to such docs, use refs to reference those docs by their unique identifier as they exist in the other docs set. Avoid relrefs if possible. If you cannot uniquely address such docs, you might need to determine how to address those documents by troubleshooting the `grafana/website` build.
+
+## Troubleshooting
+
+### Links generated from references point to their own page/self-reference
+
+Hugo generates HTML link tags for properly formatted but incorrectly addressed references, such as those targeting a document Hugo cannot resolve.
+This does not break the docs build, neither locally nor in the publishing process's continuous integration (CI) pipeline.
+In the generated source, Hugo leaves the hypertext reference (`href`) attribute unexpectedly empty:
+
+```html
+<a href="">Link text</a>
+```
+
+When clicking the resulting link in a browser, the browser loads the page that contains the link.
+In other words, the user is taken nowhere.
+Such links do not appear on 404 reports because the resulting links do not point to a technically invalid destination.
+
+Hugo emits `REF_NOT_FOUND` warnings indicating the filename and location of such references when building the docs, for example with `make docs` in `grafana/grafana` or `make server-quick` in `grafana/website`:
+
+```
+WARN 2022/08/04 21:35:37 [en] REF_NOT_FOUND: Ref "../../enterprise/": "/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md:14:47": page not found
+```
+
+In this example,
+
+- `Ref "../../enterprise/"` is the destination of the reference that Hugo cannot resolve
+- `/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md` is the document containing the reference, where the path after `/next/` is relative to the documentation root of the component repository
+- `:14` represents the line number containing the unresolved reference
+- `:47` represents the character in that line where the unresolved reference begins
+
+If the reference's destination appears to be invalid, for example due to a typo in the reference or relref directory traversal depth, then you should be able to resolve this by correcting the reference target.
+
+However, if the reference's destination appears to be valid, it might not be referencing a unique document, or a sufficiently specific or correct path.
+You might need to use a different or more specific destination, or use a ref to reference the document's unique identifier if it has one.
+
+A document's filename or its aliases can serve as unique identifiers, but they must be unique across all documents Hugo is processing.
+For the live grafana.com website, this means the document or an alias must be unique across all _component_ docs sets&mdash;for example, across the combination of `grafana/grafana` docs, and `grafana/mimir` docs, and `grafana/cloud-docs`, etc.

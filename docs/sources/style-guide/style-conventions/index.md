@@ -109,7 +109,7 @@ Always give the reader some idea of what to expect in the reference. Avoid blind
 When possible, use the exact title of the page or section you are linking to as the link text.
 
 **Example**
-Refer to the [Grafana documentation](https://grafana.com/docs/grafana/latest/) for information about how to use Grafana Lans products.
+Refer to the [Grafana documentation](https://grafana.com/docs/grafana/latest/) for information about how to use Grafana Labs products.
 
 ## Notes, tips, cautions, and warnings
 

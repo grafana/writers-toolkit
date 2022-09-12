@@ -27,6 +27,9 @@ You can backport to more than one branch by using multiple labels.
 After the pull request is merged, the GitHub bot `grafanabot` creates a follow-up pull request for each of the `backport v<MAJOR>.<MINOR>.x` labels.
 If `grafanabot` is unable to automatically backport the changes, it comments on the first pull request with instructions about how to backport the change manually.
 
+In repositories such as `grafana/grafana` that sometimes creates a new branch for a release before the release has shipped.
+If you intend to publish content against an imminent release, check for the existence of a backport label for the upcoming version when filing and also before merging.
+
 If you decide to _not_ backport a change, use the `no-backport` GitHub label.
 
 ## When to backport
@@ -37,7 +40,7 @@ To decide whether to backport a pull request, use the following decision tree:
 flowchart TD
 
 D1{Is the change documenting a new feature?}
-D2{Is the feature going to be released in the next version of Grafana?}
+D2{Is the feature going to be released in<br>a future version of Grafana that<br>doesn't yet have a release branch?}
 D3{Is the change a fix for a typo?}
 D4{Is the change a documentation refactoring?}
 T1[Add the `no-backport` label.]
@@ -46,8 +49,8 @@ T3[Update this flowchart as the decision making process is incomplete.]
 T4[Backport the change to release branch for the next version of Grafana.]
 D1 -- Yes --> D2
 D1 -- No -->  D3
-D2 -- Yes --> T4
-D2 -- No -->  T1
+D2 -- Yes --> T1
+D2 -- No -->  T4
 D3 -- Yes --> T2
 D3 -- No -->  D4
 D4 -- Yes --> T4

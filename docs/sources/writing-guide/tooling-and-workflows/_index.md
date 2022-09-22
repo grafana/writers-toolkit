@@ -231,3 +231,83 @@ branch 'my-branch' set up to track 'origin/my-branch'.
 The response from GitHub includes a link used to open a pull request for your remote branch.
 Click the link to open GitHub, then click the green button on the upper left of the screen to open the pull request for reviewers.
 Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the Settings icon and entering reviewer GitHub usernames.
+
+### Merging changes from the main branch
+
+Because git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.
+From the point where you created your branch and when you're ready to merge the pull request, the main branch might have changed in significant ways, or even developed a conflict with your branch.
+
+If the changes don't conflict, you can use git to incorprate the changes made to the main branch with yours without making any additional changes.
+
+First, fetch changes to all branches and remotes:
+
+```
+git fetch --all
+```
+
+Update your local copy of the main branch by merging the remote changes into it:
+
+```
+git switch main
+git merge --ff-only
+```
+
+After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'..."). The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
+
+```
+git switch main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+```
+
+Now switch back to your branch and merge the main branch into it, applying its changes into yours:
+
+```
+git switch my-branch
+git merge main
+```
+
+If there are no changes to apply, git confirms this:
+
+```
+$ git merge main
+Already up to date.
+```
+
+Otherwise, if successful, git outputs the changes being applied to your branch:
+
+```
+$ git merge main
+Removing public/app/plugins/panel/geomap/utils/view.ts
+...
+Auto-merging .github/CODEOWNERS
+Merge made by the 'recursive' strategy.
+ .betterer.results                                                           |  142 +--
+ .drone.yml                                                                  |  351 ++++++-
+ .github/CODEOWNERS                                                          |    3 +
+...
+```
+
+### Resolving conflicts
+
+GitHub and git both warn you when the source branch and your branch directly conflict.
+
+GitHub notifies you in the pull request if your branch conflicts with the source branch.
+If the conflict is easy to resolve, GitHub offers to help you resolve it using the web editor.
+See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) for details.
+
+If the conflict is too complex to resolve in the web editor, GitHub directs you to resolve it on the command line.
+
+If there's a conflict when attempting to merge the main branch into yours, git also tells you which files are in conflict:
+
+```
+$ git merge main
+Auto-merging .github/CODEOWNERS
+CONFLICT (content): Merge conflict in .github/CODEOWNERS
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+GitHub also has detailed, cross-platform instructions for resolving a merge conflict using git on the command line.
+See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for details.
+

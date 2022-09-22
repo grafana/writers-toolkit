@@ -1,5 +1,5 @@
 ---
-title: Contribute to what's new or release notes
+title: Contribute to What's New or release notes
 menuTitle: Contribute to what's new or release notes
 description: This section describes the different ways of contributing to what's new or release notes.
 aliases:

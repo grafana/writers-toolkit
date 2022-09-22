@@ -237,7 +237,7 @@ Here, you can also edit the title and further detail in the larger text box as w
 Because git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.
 From the point where you created your branch and when you're ready to merge the pull request, the main branch might have changed in significant ways, or even developed a conflict with your branch.
 
-If the changes don't conflict, you can use git to incorprate the changes made to the main branch with yours without making any additional changes.
+If the changes don't conflict, you can use git to incorporate the changes made to the main branch with yours without making any additional changes.
 
 First, fetch changes to all branches and remotes:
 
@@ -255,7 +255,6 @@ git merge --ff-only
 After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'..."). The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
 
 ```
-git switch main
 Switched to branch 'main'
 Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)

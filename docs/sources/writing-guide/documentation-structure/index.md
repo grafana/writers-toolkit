@@ -31,10 +31,10 @@ The information architecture consists of the following levels.
 
 ![Grafana table of contents](grafana-toc.png)
 
-**Root:** The root is the top-most level of the table of contents and represents groups of product features and functionality. 
-When you contribute to the docs, first identify which root item you are contributing to.
+**Top-level:** The top-most level of the table of contents represents groups of product features and functionality. 
+When you contribute to the docs, first identify which top-level entity you are contributing to.
 
-> **Note:** Do not add a root item to the table of contents. 
+> **Note:** Do not add a top-level entity to the table of contents. 
 If it is not obvious where your documentation belongs, reach out to the technical documentation team.
 
 **Parent:** Each root item contains one or more parents, which are groups of related feature content.

@@ -187,7 +187,10 @@ In this example,
 If the reference's destination appears to be invalid, for example due to a typo in the reference or relref directory traversal depth, then you should be able to resolve this by correcting the reference target.
 
 However, if the reference's destination appears to be valid, it might not be referencing a unique document, or a sufficiently specific or correct path.
-You might need to use a different or more specific destination, or use a ref to reference the document's unique identifier if it has one.
+You might need to use a different or more specific destination, or use a `ref` to reference the document's unique identifier if it has one.
 
-A document's filename or its aliases can serve as unique identifiers, but they must be unique across all documents Hugo is processing.
-For the live grafana.com website, this means the document or an alias must be unique across all _component_ docs sets&mdash;for example, across the combination of `grafana/grafana` docs, and `grafana/mimir` docs, and `grafana/cloud-docs`, etc.
+A document's filename can serve as unique identifiers, but they must be unique across _all_ documents Hugo is processing.
+For the live grafana.com website, this means the document or an alias must be unique across all _component_ docs sets&mdash;for example, across the combination of `grafana/grafana` docs, and `grafana/mimir` docs, and `grafana/cloud-docs`, and non-docs content such as `/tutorials/` and `/blogs/`, etc.
+
+If the affected link is from a product's documentation to another product's documentation, to a specific version of the same product's docs, or to non-docs content on grafana.com, replace the Hugo `ref` with a Markdown link relative to the current domain: `[link text](/docs/repo/version/folder/file/)`.
+

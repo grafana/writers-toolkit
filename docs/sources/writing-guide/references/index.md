@@ -28,6 +28,7 @@ Hugo resolves absolute references from the root of the website.
 
 > **Note:** For Hugo's purposes, other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, cannot be addressed using Hugo references.
 > Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
+>
 > To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, You **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
 > Unlike references, Hugo will _not_ confirm that these link destinations exist during its build, so manually check the published links in a local build and on the published website to confirm that they point correctly.
 

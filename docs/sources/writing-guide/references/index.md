@@ -27,7 +27,8 @@ Hugo resolves relative references from the current page or file.
 Hugo resolves absolute references from the root of the website.
 
 > **Note:** For Hugo's purposes, other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest`, cannot be addressed using Hugo references.
-> Use regular Markdown link syntax (`[link text](https://example.com/docs/etc)`) for such links.
+> Hugo references across products' docs, such as from `/grafana/` to `/loki/` and vice-versa, and from docs to other content on grafana.com can also be unpredictable.
+> Use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) for such links.
 > Unlike references, Hugo will _not_ confirm that these link destinations exist, so manually check the published links to confirm that they point correctly.
 
 ## Relative references

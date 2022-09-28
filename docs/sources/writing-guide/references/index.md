@@ -26,10 +26,10 @@ The difference between the two categories of references is how Hugo resolves the
 Hugo resolves relative references from the current page or file.
 Hugo resolves absolute references from the root of the website.
 
-> **Note:** For Hugo's purposes, other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest`, cannot be addressed using Hugo references.
-> Hugo references across products' docs, such as from `/grafana/` to `/loki/` and vice-versa, and from docs to other content on grafana.com can also be unpredictable.
-> Use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) for such links.
-> Unlike references, Hugo will _not_ confirm that these link destinations exist, so manually check the published links to confirm that they point correctly.
+> **Note:** For Hugo's purposes, other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, cannot be addressed using Hugo references.
+> Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
+> To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, You **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
+> Unlike references, Hugo will _not_ confirm that these link destinations exist during its build, so manually check the published links in a local build and on the published website to confirm that they point correctly.
 
 ## Relative references
 
@@ -146,14 +146,6 @@ To convert a heading to an anchor, Hugo makes the following changes:
 1. Remove any period characters (`.`).
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
-
-## References across docs sets built by `grafana/website`
-
-Product docs are collated as part of the `grafana/website` repository's publishing process, which generates the live website at grafana.com.
-It might be necessary to create a reference from one of these component docs sets, such as docs in `grafana/grafana`, to another component docs set, such as docs in `grafana/cloud-docs` or tutorial content.
-Regardless of how you reference such documents, Hugo generates `REF_NOT_FOUND` warnings about those references when building docs from only that component repository.
-
-To link to such docs, use refs to reference those docs by their unique identifier as they exist in the other docs set. Avoid relrefs if possible. If you cannot uniquely address such docs, you might need to determine how to address those documents by troubleshooting the `grafana/website` build.
 
 ## Troubleshooting
 

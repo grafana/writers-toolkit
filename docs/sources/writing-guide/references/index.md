@@ -26,11 +26,11 @@ The difference between the two categories of references is how Hugo resolves the
 Hugo resolves relative references from the current page or file.
 Hugo resolves absolute references from the root of the website.
 
-> **Note:** For Hugo's purposes, other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, cannot be addressed using Hugo references.
+> **Note:** For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
 > Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
 >
 > To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, You **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
-> Unlike references, Hugo will _not_ confirm that these link destinations exist during its build, so manually check the published links in a local build and on the published website to confirm that they point correctly.
+> Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
 
 ## Relative references
 
@@ -152,8 +152,8 @@ To convert a heading to an anchor, Hugo makes the following changes:
 
 ### Links generated from references point to their own page/self-reference
 
-Hugo generates HTML link tags for properly formatted but incorrectly addressed references, such as those targeting a document Hugo cannot resolve.
-This does not break the docs build, neither locally nor in the publishing process's continuous integration (CI) pipeline.
+Hugo generates HTML link tags for properly formatted but incorrectly addressed references, such as those targeting a document Hugo can't resolve.
+This doesn't break the docs build, neither locally nor in the publishing process's continuous integration (CI) pipeline.
 In the generated source, Hugo leaves the hypertext reference (`href`) attribute unexpectedly empty:
 
 ```html
@@ -161,8 +161,8 @@ In the generated source, Hugo leaves the hypertext reference (`href`) attribute 
 ```
 
 When clicking the resulting link in a browser, the browser loads the page that contains the link.
-In other words, the user is taken nowhere.
-Such links do not appear on 404 reports because the resulting links do not point to a technically invalid destination.
+In other words, the browser takes the user nowhere.
+Such links don't appear on 404 reports because the resulting links don't point to a technically invalid destination.
 
 Hugo emits `REF_NOT_FOUND` warnings indicating the filename and location of such references when building the docs, for example with `make docs` in `grafana/grafana` or `make server-quick` in `grafana/website`:
 
@@ -172,7 +172,7 @@ WARN 2022/08/04 21:35:37 [en] REF_NOT_FOUND: Ref "../../enterprise/": "/hugo/con
 
 In this example,
 
-- `Ref "../../enterprise/"` is the destination of the reference that Hugo cannot resolve
+- `Ref "../../enterprise/"` is the destination of the reference that Hugo can't resolve
 - `/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md` is the document containing the reference, where the path after `/next/` is relative to the documentation root of the component repository
 - `:14` represents the line number containing the unresolved reference
 - `:47` represents the character in that line where the unresolved reference begins

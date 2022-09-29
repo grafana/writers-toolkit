@@ -44,22 +44,23 @@ When you write in _active voice_, you identify the subject of the sentence and t
 | After you create a dashboard, add a panel.       | After the dashboard has been created, the panel can be added.          |
 | Click **OK** to save the dashboard configuration. | The dashboard configuration is saved when the **OK** button is clicked. |
 
+
 ### Write simple words, sentences, and paragraphs
 
-Effective technical communication is simple and direct.
+Simple, direct communication is the key to effective technical communication.
 
-- Don't use a long word where a short word will do, for example, “use,” not “utilize.”
-  - When possible, "use" and its variants (utilize, make use of) as an imperative should be replaced with a more descriptive action.
-- Write short sentences that are fewer than 25 words.
-  - If it is possible to cut a word without losing meaning, do so (typical culprits: there is; there are; in order to; it is important to; keep in mind).
-  - If you find yourself writing long sentences, consider writing smaller complete phrases or change the format, such as using a bulleted list.
+- Use short words whenever possible, such as "use," not "utilize."
+  - If possible, replace "use" and its variants (utilize, make use of) with a more descriptive verb.
+- Make your sentences shorter than 25 words.
+  - If you can remove a word without losing meaning, do so (typical culprits: there is; there are; in order to; it is important to; keep in mind).
+  - Consider writing shorter sentences or using a bulleted list if you find yourself writing long sentences.
 - Use simple verbs and tenses.
-- Use the simplest term possible, considering the characteristics of your audience.
-- Avoid buzzwords and jargon.
-- Write paragraphs that are three sentences or fewer.
-  - Make the text more concise, use more headings, or both.
+- Consider the characteristics of your audience when choosing a term.
+- Don't use buzzwords or jargon.
+- Keep paragraphs to three sentences or less.
+  - Condense the text, add more headings, or do both.
 
-Focus on the user’s context and make content relevant. The more familiar you are with the user's context, the better you can communicate without using a lot of words.
+Make content relevant to the user's context. The more familiar you are with the user’s context, the better you can communicate without using a lot of words.
 
 ### Write in present tense
 
@@ -102,40 +103,41 @@ For more guidance, refer to [Lists](https://developers.google.com/style/lists) i
 
 ## Links and references
 
-When referencing another document, use "Refer to" rather than alternatives such as "See" or "Check out."
+You should use "Refer to" instead of "See" or "Check out" when referencing another document.
 
-Always give the reader some idea of what to expect in the reference. Avoid blind references, such as, "Refer to [this file]."
+Give the reader a sense of what to expect in the reference. Don't use blind references, such as "Refer to [this file]."
 
-When possible, use the exact title of the page or section you are linking to as the link text.
+As much as possible, use the exact title of the page or section you are linking to as the link text.
 
-**Example**
-Refer to the [Grafana documentation](https://grafana.com/docs/grafana/latest/) for information about how to use Grafana Labs products.
+**Example:** For more information about Grafana Labs products, refer to [Grafana documentation](https://grafana.com/docs/grafana/latest/).
 
-## Notes, tips, cautions, and warnings
+## Admonitions
 
-Grafana documentation uses notes, tips, cautions, and warnings to focus the user's attention. Notes are the most commonly used admonition.
+To focus a user's attention, Grafana Labs documentation includes notes, tips, cautions, and warnings.
 
 ### Notes
 
-Notes provide additional information that the user should be extra aware of. For example:
+The most common admonition is a note. A note provides additional information that the user should be aware of. 
 
-> **Note:** This page describes a feature for Grafana 8.0 beta.
+For example:
+
+> **Note:** This page describes a feature for Grafana 9.0 beta.
 
 ### Tips
 
-Tips describe alternate or more efficient ways of doing things. Rarely used.
+A tip describes a more efficient or alternate way of doing something. Tips are rarely used.
 
 ### Cautions
 
-Cautions warn the user that they should proceed with caution. Use cautions to emphasize the potential downside of a course of action.
+A caution warns the user to proceed with caution. A caution emphasizes a course of action's potential downsides.
 
-> **Caution:** If you turn off authentication requirements, then anyone can access your Grafana instance. This poses a considerable security risk.
+> **Caution:** By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
 
 ### Warnings
 
-Warnings tell the user not to do something. For example:
+A warning informs the user not to do something For example:
 
-> **Warning:** Grafana does not back up your dashboards. If you delete a dashboard, then you might not be able to recover it.
+> **Warning:** You cannot back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.
 
 ## Command line
 

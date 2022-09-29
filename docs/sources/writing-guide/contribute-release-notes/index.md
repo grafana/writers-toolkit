@@ -41,8 +41,8 @@ Follow these guidelines to ensure that your What's New or release notes content 
 
   For more information, refer to [insert link to documentation].
 
-  * Don't refer to how the feature used to work.
+* Don't refer to how the feature used to work.
 
   For example, don't say "Previously, alert rules changed state when the rule was facing an error or a timeout. Now, the state does not update."
 
-  * For changes or updates to features, provide brief descriptions.
+* For changes or updates to features, provide brief descriptions.

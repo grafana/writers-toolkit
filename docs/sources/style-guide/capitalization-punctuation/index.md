@@ -29,7 +29,6 @@ Use all-caps capitalization exclusively for abbreviations, such as `API`, `HTTP`
 
 The names of people, places, and products take initial capitals because they are proper nouns.
 
-
 ### Grafana-specific capitalization guidelines
 - Menu and submenu titles always use sentence case: capitalize the first word, and lowercase the rest.
   - "Dashboards" when referring to the submenu title.
@@ -41,9 +40,9 @@ The names of people, places, and products take initial capitals because they are
 
 ### Kubernetes objects
 
-Capitalize Kubernetes objects such as Job, Pod, and StatefulSet when it is clear you are specifically talking about them and not generic jobs and pods.
+When referring to Kubernetes objects, such as Jobs, Pods, and StatefulSets, capitalizing them makes it clear that you are not talking about generic jobs and pods.
 
-Introduce the object as "Kubernetes XX" on the first usage, then just the object in subsequent uses.
+In the first use, introduce the object as "Kubernetes XX", then use it alone in subsequent uses.
 
 **Examples:**
 
@@ -54,11 +53,11 @@ Introduce the object as "Kubernetes XX" on the first usage, then just the object
 
 Refer to the following punctuation guidelines when you write technical content.
 
-- Add one space after a period, not two.
-- Use serial commas, which are commas before "and" or "or" in a series.
-  - Example:  “Through lunch, we suffered quiche, quinoa, and kale salad.”
-- Do not use an ampersand (&) as an abbreviation for _and_.
-  - **Exception:** If an ampersand is used in the Grafana UI, then match the UI.
-- Remove extra space characters at the end of a paragraph.
-- Navigation: When referring to a location within the web application, use italics to indicate a path, and greater-than symbols (>) to indicate path separators.
-  - Example: “To add an administrator to the list of local users, navigate to *Appliance > Configuration > Access*.”
+- After a period, add one space, not two.
+- In a series, use serial commas before "and" or "or."
+  - Example: "During lunch, we enjoyed quiche, quinoa, and kale salad.”
+- Do not abbreviate and with an ampersand (&).
+  - Exception: If the UI uses an ampersand, match the UI.
+- At the end of a paragraph, remove extra space characters.
+- Use italics to indicate paths within a web application, and greater-than symbols (>) to indicate path separators.
+  - Example: “To add an administrator to the list of local users, navigate to Appliance > Configuration > Access.”

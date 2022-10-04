@@ -12,39 +12,37 @@ keywords:
 
 # Contribute to What's New or release notes
 
-To help ensure the What’s New document or release notes are helpful, relevant, and easy to read, follow these guidelines:
+Follow these guidelines to ensure that your What's New or release notes content is clear, helpful, and easy to understand.
 
-* Address users directly.
+* Directly address your users.
 
-    Use the imperative or address them as “you”.
-* Use active voice and present tense.
+    Address them using the imperative or as “you”.
 
-    Note: it is okay to use passive voice and past tense to describe changes that were made to the product.
-* Do not write redundant statements about the release version, for example, “In Grafana 9, we ” or “As of now, we”.
+    **Example:**
+    Shorten your communication time when reporting issues and requesting help from Grafana Labs by grabbing a panel’s query response data and panel settings.
 
-  The What’s New or release notes are understood to be providing information for a specific release.
-* Keep out marketing spins.
+* Make use of active voice or present tense.
 
-  Avoid terms like “fast” or “easy” - or trying to “sell” features.
-* Include high-level descriptions.
+    **Example:**
+    Enable a configuration option to skip user organization and roles synchronization with your SAML provider.
 
-  Start the descriptions with imperative statements that tell customers what goal they can accomplish or what problems they can solve with the feature. Describe the business value.
-* For changes, provide brief descriptions.
+* Don't refer to the release version, for example, “In Grafana 9, we ” or “As of now, we”.
 
-* To provide more information on features and changes, cross-reference topics that provide more detailed information or steps.
+  The What’s New or release notes are understood to be providing information for a specific release, so there is no need to repeat this information.
 
-## Examples:
+* Provide high-level descriptions.
 
-**What’s New in the Grafana Coffee Shop**
+  Tell customers what goal they can accomplish or what problems they can solve with the feature. Describe the business value. Don't go into details about how the feature works, or configuration steps.
 
-**Americano**
+  Link out to topics in the documentation that provide more detailed information or steps.
 
-Increase the user’s work ethic by injecting high levels of caffeine.
+  **Example:**
+  Use custom branding to make Grafana your observability tool by adding your own sign-in page, help links, logo, application name, and more.
 
-**Banesso**
+  For more information, refer to [insert link to documentation].
 
-Add extra nutritional value to the mix. This banana-coffee blend prevents users from feeling unhealthy while drinking coffee throughout the day.
+* Don't refer to how the feature used to work.
 
-**Mocha**
+  For example, don't say "Previously, alert rules changed state when the rule was facing an error or a timeout. Now, the state does not update."
 
-Increase the morale of your admin users. Incorporate a whimsical layer of chocolatey goodness.
+* For changes or updates to features, provide brief descriptions.

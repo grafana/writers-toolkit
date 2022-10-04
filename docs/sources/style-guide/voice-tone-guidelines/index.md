@@ -11,47 +11,36 @@ keywords:
 
 # Voice and tone guidelines
 
-At Grafana, we like our company to sound like a real person. Specifically, a real person who isn’t trying to sell you something.
+At Grafana, we like our company to sound like a real person.
 
-Voice and tone reflect your attitude and how you convey information. Your voice is who the reader hears talking as they read documentation. Voice comes across in word choice and how you use **bold**, *italics**, punctuation, and grammar. Tone reflects the urgency of your message and can changed based on the situation.
+Voice and tone reflect your attitude and how you convey information. Word choice, **bolding**, *italicizing*, punctuation, and grammar all affect your voice. The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
 
 Consult the following voice and tone guidelines when you write technical documentation.
 
-### Be confident
+### Project confidence
 
-Write in a confident, authoritative tone to instill confidence in the reader. You know this
-information better than anyone, so let your style reflect your expertise.
+You know the subject matter better than anyone. Let your style reflect your expertise. Write in an authoritative tone to evoke confidence in your reader.
 
 ### Be conversational
 
-Write in a natural and conversational style with language that reflects a tone that is positive and friendly. Use simple, concise, and easy to understand words and sentences that are informative and helpful.
+Write in a natural and conversational style with language that reflects a positive and friendly tone. Be informative and helpful by using simple, easy-to-understand words and sentences. Keep your language simple and straightforward.
 
-### Formal tone versus casual tone
+### Tone
 
-Compared to traditional business writing, a more casual tone in UI copy and supporting material is increasingly accepted.
+A casual tone is accepted in UI copy and supporting material compared to traditional business writing.
 
-You can start sentences with the words ‘and’, ‘but’, and ‘so’ in moderation and when it allows for shorter sentences.
+As long as they allow for shorter sentences, the words 'and', 'but', and 'so' can be used in moderation.
 
-### Everyday tasks and activities
+### Task completion
 
-When the user completes everyday tasks and activities, write in a way that the user knows what a feature is or that something has happened as expected. The goal is to give the user just enough information to complete a task without overemphasizing ourselves or the product.
-
-| Do  | Don't |
-|---|---|
-| Look for the simplest way to communicate information—words aren’t always necessary. | Use overly complicated or intimidating language. |
+Provide the user with just enough information to complete a task. Inform the user that something has happened as expected once the task is completed.
 
 ### Learning
 
-Sometimes it helps to give more explanation or education. In these situations, we want to make sure people feel confident in their actions and in Grafana capabilities.
+There are times when it is helpful to explain or educate users more. It is important to Grafana Labs that users feel confident about their actions and Grafana Labs' product capabilities.
 
-| Do  | Don't |
-|---|---|
-| Help people understand why they should do something, not just how. | Oversell or overpromise. |
+Don't just teach people how to perform an action, but also why they should.
 
-### Motivate or encourage action
+### Motivation
 
-Write in a way that provides the user clarity and context about next steps so that they are motivated to continue down a desired path.
-
-| Do  | Don't |
-|---|---|
-| Help people understand what the next steps are and why they should take them. | Assume that the user knows what the next steps are or what the outcome will be. |
+Motivate the user to continue by providing information about the next steps. Don't assume the user knows what the next steps will be or what the outcome will be.

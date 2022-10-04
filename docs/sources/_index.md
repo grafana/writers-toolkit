@@ -32,8 +32,6 @@ By creating this toolkit, we want to empower everyone to create content experien
 
 This toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana Labs. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
 
-You'll notice that this section doesn't strictly follow our style guidelines. The intent of this page is to give you an introduction to our contributor's toolkit and not to provide an example of how to write at Grafana Labs.
-
 This toolkit consists of two guides:
 
 - Style guide

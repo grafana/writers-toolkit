@@ -1,7 +1,7 @@
 ---
 title: Contribute to What's New or release notes
 menuTitle: Contribute to What's New or release notes
-description: This section describes the different ways of contributing to what's new or release notes.
+description: This section describes the different ways of contributing to the What's New document or release notes.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/contribute-release-notes/
 weight: 250

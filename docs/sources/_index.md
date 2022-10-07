@@ -6,7 +6,7 @@ cascade:
   search_type: doc
 
 title: Contributor's toolkit for Grafana Labs' technical documentation
-menuTitle: Contributor's Toolkit
+menuTitle: Contributor's toolkit
 description: Contributor's toolkit for Grafana Labs' technical documentation
 aliases:
   - /docs/writers-toolkit/latest/
@@ -39,4 +39,4 @@ This toolkit consists of two guides:
 
 ## Iteration is our friend
 
-This is just a start. We will continue to share our guidelines and seek feedback and iterate. Our hope is that these pages and our understanding continues and evolves over time. Over time, we will expand to include Design, Internationalization, Accessibility; and so on.
+This is just a start. We will continue to share our guidelines and seek feedback and iterate. Our hope is that these pages and our understanding continues and evolves over time. Over time, we will expand to include Design, Internationalization, Accessibility, and so on.

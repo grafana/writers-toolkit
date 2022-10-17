@@ -1,7 +1,7 @@
 ---
 title: Shortcodes
 menuTitle: Shortcodes
-description: Understand how to use shortcodes in your markdown.
+description: Understand what shortcodes are and how to use them in your markdown.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/shortcodes/
 weight: 800
@@ -16,11 +16,17 @@ Shortcodes are predefined templates used for rendering snippets in Hugo.
 
 ## Why use shortcodes?
 
-Markdown is limited in its ability to render complex elements. You might be tempted to insert HTML directly into content to make up for the limitations of markdown, but instead use shortcodes. This lets us standardize content across the Grafana repos.
+Markdown is limited in its ability to render complex elements. You might be tempted to insert HTML directly into content to make up for its limitations, but instead use shortcodes to ensure consistency across the Grafana repos.
 
-The following sections describe shortcodes used for rendering Grafana documentation. 
+The following sections describe shortcodes you can use in your markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation]({{< relref "https://gohugo.io/content-management/shortcodes/" >}}).
 
-### docs/shared shortcode
+## docs/shared shortcode
+
+The `docs/shared` shortcode lets you reuse content across a site. To do so, you create a markdown file for sharing and store it in a shared folder. Then you insert the content into other markdown files using the `docs/shared` shortcode. 
+
+
+
+Reuse content create a docs/shared folder: 
 
 > **Note:** Hugo doesn't rebuild the destination file when a source file changes on disk.
 > To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that too.
@@ -43,10 +49,10 @@ Pages in the shared directory should set `headless: true` in the front matter to
 For example, to include the latest version of a page "shared-page.md", shared Grafana Enterprise Metrics, offsetting the headings by one level:
 
 ```markdown
-{{< docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" >}}
+{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
 ```
 
-### figure shortcode
+## figure shortcode
 
 `figure` renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element.
 
@@ -66,7 +72,7 @@ For example, to include the latest version of a page "shared-page.md", shared Gr
   Defaults to `"true"`.
 - **src**: Sets the source of the image.
 
-### section shortcode
+## section shortcode
 
 `section` renders an unordered list of links to a page's child pages.
 

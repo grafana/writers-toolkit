@@ -14,17 +14,8 @@ keywords:
 
 # Links and cross references
 
-References are hyperlinks between pages.
-Hugo supports several types of references and the references themselves can have different forms.
-
-You can split references into one of two categories:
-
-- **Relative references**: often referred to as **relrefs**.
-- **Absolute references**: typically just **references**.
-
-The difference between the two categories of references is how Hugo resolves them to link between pages.
-Hugo resolves relative references from the current page or file.
-Hugo resolves absolute references from the root of the website.
+Hugo has built-in shortcodes for creating links to documents.
+The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
 
 > **Note:** For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
 > Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
@@ -92,48 +83,6 @@ You can refer to the table below for all file path based relrefs between these f
 | `/docs/sources/branch/other.md`  | `/docs/sources/branch/_index.md` | `{{< relref "_index.md" >}}`           |
 | `/docs/sources/branch/other.md`  | `/docs/sources/leaf/index.md`    | `{{< relref "../leaf/index.md" >}}`    |
 
-## Absolute references
-
-Absolute references are less common in Grafana technical documentation.
-This is the Hugo shortcode: `{{< ref "<ABSOLUTE FILE/URL PATH>" >}}`
-
-There are two forms of absolute references:
-
-- **File path based**: resolved using file paths.
-- **URL path based**: resolved using URL paths.
-
-Typically, file path based relative references include a `.md` suffix and no trailing slash.
-Conversely, URL path based relative references don't have a `.md` file suffix.
-
-> **Note:** Unlike relrefs, refs with a trailing slash aren't resolved by Hugo.
-
-For example, the following directory structure:
-
-```
-docs
-└── sources
-    ├── branch
-    │   └── _index.md
-    │   └── other.md
-    └── leaf
-        └── index.md
-```
-
-It produces the following website pages:
-
-```
-/docs/technical-documentation/branch/
-/docs/technical-documentation/branch/other/
-/docs/technical-documentation/leaf/
-```
-
-All of the URL path based relrefs between these pages are are follows:
-
-| File                             | Page                                          | File path ref                                                  | URL path ref                                               |
-| -------------------------------- | --------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------- |
-| `/docs/sources/branch/_index.md` | `/docs/technical-documentation/branch/`       | `{{< ref "/docs/technical-documentation/branch/_index.md" >}}` | `{{< ref "/docs/technical-documentation/branch" >}}`       |
-| `/docs/sources/branch/other.md`  | `/docs/technical-documentation/branch/other/` | `{{< ref "/docs/technical-documentation/branch/other.md" >}}`  | `{{< ref "/docs/technical-documentation/branch/other" >}}` |
-| `/docs/sources/leaf/index.md`    | `/docs/technical-documentation/leaf/`         | `{{< ref "/docs/technical-documentation/leaf/index.md" >}}`    | `{{< ref "/docs/technical-documentation/leaf" >}}`         |
 
 ## Anchors
 
@@ -186,4 +135,3 @@ A document's filename can serve as unique identifiers, but they must be unique a
 For the live grafana.com website, this means the document or an alias must be unique across all _component_ docs sets&mdash;for example, across the combination of `grafana/grafana` docs, and `grafana/mimir` docs, and `grafana/cloud-docs`, and non-docs content such as `/tutorials/` and `/blogs/`, etc.
 
 If the affected link is from a product's documentation to another product's documentation, to a specific version of the same product's docs, or to non-docs content on grafana.com, replace the Hugo `ref` with a Markdown link relative to the current domain: `[link text](/docs/repo/version/folder/file/)`.
-

@@ -14,13 +14,11 @@ keywords:
 
 Shortcodes are predefined templates used for rendering snippets in Hugo. 
 
-This section documents the shortcodes supported for rendering Grafana documentation. 
-
 ## Why use shortcodes?
 
-Markdown is limited in its ability to render complex elements in content. Rather than adding HTML directly in content to express these elements, we include the HTML in shortcodes. Using shortcodes lets us standardize content across the Grafana website.
+Markdown is limited in its ability to render complex elements. You might be tempted to insert HTML directly into content to make up for the limitations of markdown, but instead use shortcodes. This lets us standardize content across the Grafana repos.
 
-Grafana's shortcode templates are defined in the `layouts/shortcodes` directory. 
+The following sections describe shortcodes used for rendering Grafana documentation. 
 
 ### docs/shared shortcode
 

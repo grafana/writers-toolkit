@@ -14,7 +14,7 @@ keywords:
 
 # Links and cross references
 
-Hugo has builtin shortcodes for creating links to documents.
+Hugo has built-in shortcodes for creating links to documents.
 The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
 
 > **Note:** For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.

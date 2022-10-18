@@ -16,41 +16,45 @@ Shortcodes are predefined templates used for rendering snippets in Hugo.
 
 ## Why use shortcodes?
 
-Markdown is limited in its ability to render complex elements. You might be tempted to insert HTML directly into content to make up for its limitations, but instead use shortcodes to ensure consistency across the Grafana repos.
+Markdown is limited in its ability to render complex elements. Although you might be tempted to insert HTML directly into content to make up for its limitations, you can instead use shortcodes to ensure consistency across the Grafana website.
 
-The following sections describe shortcodes you can use in your markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation]({{< relref "https://gohugo.io/content-management/shortcodes/" >}}).
+The following sections describe shortcodes available for use in Grafana markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
+
+> **Note for internal Grafana Labs contributors**: The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repo. To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 
 ## docs/shared shortcode
 
-The `docs/shared` shortcode lets you reuse content across a site. To do so, you create a markdown file for sharing and store it in a shared folder. Then you insert the content into other markdown files using the `docs/shared` shortcode. 
+The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory. 
 
+To share content, follow these steps:
 
+1. Create a markdown file containing the source to be shared and include `headless: true` in the front matter to prevent the website from publishing the page. 
+1. Store the file in a shared folder.
+1. To include the shared content in a markdown file, insert the `docs/shared` shortcode with the following named parameters:
 
-Reuse content create a docs/shared folder: 
+  Parameter | Description 
+  ---|---
+  `lookup` | Path to the included content relative to the root of the shared directory. |
+  `source` | Name of the source content as shown on the website. For example, for the `grafana.com/docs/enterprise-metrics` content, the `source` is `enterprise-metrics`.  
+  `version` | Version of the source content to include. If not provided, the version is implicitly set to match the version of the destination content. If the including destination is at version `1.0.0`, then the version of included content is `1.0.0` also.
+  `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.
 
 > **Note:** Hugo doesn't rebuild the destination file when a source file changes on disk.
 > To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that too.
-`docs/shared` includes content from shared pages in source content repositories.
 
-The source content repository must have explicitly shared the page by placing it into its shared directory.
-Pages in the shared directory should set `headless: true` in the front matter to prevent the website publishing the page.
+### Examples
 
-`docs/shared` has multiple named parameters:
+The following shortcode inserts the content from the `oauth2-block.md` file. The `lookup` path is relative to the `shared` folder in the `agent` source repo.
 
-- **lookup**: Path to the included content relative to the root of the shared directory.
-- **source**: Name of the source content as shown on the website.
-- **version**: Version of the source content to include.
-  If not provided, the version is implicitly set to match the version of the destination content.
-  If the including destination is at version `1.0.0`, then the version of included content is `1.0.0` also.
-- **leveloffset**: Manipulates source content headings up to a maximum level of `h6`.
-  Only positive offsets are currently supported.
-  `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.
+```markdown
+{{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" */>}}
+```
 
-For example, to include the latest version of a page "shared-page.md", shared Grafana Enterprise Metrics, offsetting the headings by one level:
+The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` content area. The heading is offset by one level.
 
 ```markdown
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
-```
+ ```
 
 ## figure shortcode
 

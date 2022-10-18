@@ -1,7 +1,7 @@
 ---
 title: Shortcodes
 menuTitle: Shortcodes
-description: Understand what shortcodes are and how to use them in your markdown.
+description: Understand what shortcodes are and how to use them in your Markdown.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/shortcodes/
 weight: 800
@@ -18,7 +18,7 @@ Shortcodes are predefined templates used for rendering snippets in Hugo.
 
 Markdown is limited in its ability to render complex elements. Although you might be tempted to insert HTML directly into content to make up for its limitations, you can instead use shortcodes to ensure consistency across the Grafana website.
 
-The following sections describe shortcodes available for use in Grafana markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
+The following sections describe shortcodes available for use in Grafana Markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
 
 > **Note for internal Grafana Labs contributors**: The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repo. To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 
@@ -28,9 +28,9 @@ The `docs/shared` shortcode lets you reuse content across the Grafana website by
 
 To share content, follow these steps:
 
-1. Create a markdown file containing the source to be shared and include `headless: true` in the front matter to prevent the website from publishing the page. 
+1. Create a Markdown file containing the source to be shared and include `headless: true` in the front matter to prevent the website from publishing the page. 
 1. Store the file in a shared folder.
-1. To include the shared content in a markdown file, insert the `docs/shared` shortcode with the following named parameters:
+1. To include the shared content in a Markdown file, insert the `docs/shared` shortcode with the following named parameters:
 
   Parameter | Description | Required
   ---|---|---
@@ -94,3 +94,14 @@ The following shortcode inserts a list of links to the pages's subpages. The lin
 {{</* section menuTitle="true"*/>}}
 ```
 
+## Escaping Hugo shortcodes
+
+If you need to display the syntax for a shortcode, you can escape it using this syntax:
+
+![Escaped shortcode](./writers-toolkit-escaped-shortcode.png)
+
+This markdown renders as:
+
+```markdown
+{{</* myshortcode */>}}
+```

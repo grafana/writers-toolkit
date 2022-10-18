@@ -129,13 +129,13 @@ Build a list of unordered points by using a hyphen (`-`):
 
 > **Note:** If might be tempting to number a list because the verbiage that precedes it includes a number.
 > Remember that if list items do not need to be performed in a particular order, use an unordered list.
-> 
-> **Example:**
-> 
-> There are three ways to ingest data:
-> - First way
-> - Second way
-> - Third way
+
+**Example:**
+
+There are three ways to ingest data:
+- First way
+- Second way
+- Third way
 
 ## Images
 
@@ -146,11 +146,11 @@ _Do not_ use image shortcodes at this time. Instead, include images in a documen
 ```
 
 > **Note:** Alt(ernative) text does not appear when the user hovers their cursor over the image. The title text does.
-> 
-> **Examples:**
-> 
-> - `![Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
-> - `![Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
+
+**Examples:**
+
+- `![Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
+- `![Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
 
 This follows the format `![alt text](URL)`.
 
@@ -169,3 +169,7 @@ In most cases, use Markdown syntax rather than HTML syntax. Only use the HTML if
 You can include comments that do not display in published output:
 
 `[comment]: <> (Comment text to display)`
+
+## Shortcodes
+
+Shortcodes are predefined templates that allow you to reuse snippets across the Grafana website. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).

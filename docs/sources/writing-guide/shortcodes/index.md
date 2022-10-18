@@ -12,7 +12,7 @@ keywords:
 
 # Shortcodes
 
-Shortcodes are predefined templates used for rendering snippets in Hugo. 
+Shortcodes are predefined templates used for rendering snippets in Hugo.
 
 ## Why use shortcodes?
 
@@ -40,7 +40,7 @@ To share content, follow these steps:
   `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.
 
 > **Note:** Hugo doesn't rebuild the destination file when a source file changes on disk.
-> To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that too.
+> To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that, too.
 
 ### Examples
 
@@ -50,7 +50,7 @@ The following shortcode inserts the content from the `oauth2-block.md` file. The
 {{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" */>}}
 ```
 
-The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` content area. The heading is offset by one level.
+The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` content area. Headings are offset by one level, so if the source content contains an h1, the resulting heading is an h2. 
 
 ```markdown
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
@@ -58,27 +58,39 @@ The following shortcode inserts the latest version of `shared-page.md` from the 
 
 ## figure shortcode
 
-`figure` renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element.
+The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. To add a figure, insert the `figure` shortcode with the following named parameters:
 
-- **animated-gif**: If set, the HTML contains a div with an image link instead of a `<figure>` element.
-  It's typically used for animated screenshots.
-  Shortcode parameters other than the `caption` and `maxWidth` parameters are ignored.
-- **caption**: Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.
-- **class**: Can be optionally used to override the HTML class for the `<figure>` element.
-- **lazy**: If set to `"false"`, the `lazyload` class is **not** also applied to the image.
-  The `lazyload` class lets a browser render a page before the figure image loads.
-  Once the image loads, the placeholder box transitions to the loaded image.
-  Defaults to `"true"`.
-- **lightbox**: If set to `"true"` the `figure-wrapper__lightbox` class is also applied to the `<figure>`.
-- **link**: If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.
-- **maxWidth**: If set, `maxWidth` controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement (e.g. '75px' or '25%').
-- **showCaption**: If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in `caption`.
-  Defaults to `"true"`.
-- **src**: Sets the source of the image.
+Parameter | Description
+---|---
+**animated-gif** | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the `caption` and `maxWidth` parameters are ignored.
+**caption** | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.
+**class** | Can be optionally used to override the HTML class for the `<figure>` element.
+**lazy** | If set to `"false"`, the `lazyload` class is **not** also applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.
+**lightbox** | If set to `"true"` the `figure-wrapper__lightbox` class is also applied to the `<figure>`.
+**link** | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.
+**maxWidth** | If set, `maxWidth` controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement (e.g. '75px' or '25%').
+**showCaption** | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in `caption`. Defaults to `"true"`.
+**src** | Sets the source of the image.
+
+### Example
+
+```markdown
+{{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
+```
 
 ## section shortcode
 
-`section` renders an unordered list of links to a page's child pages.
+The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameter:
 
-- **menuTitle**: If set to `"true"`, the menuTitle parameter modifies the template to use the `menuTitle` parameter of a child page's front matter instead of the page title as the text in the link.
-  If the child page doesn't have a `menuTitle` parameter, the title is used instead.
+Parameter | Description
+---|---
+**menuTitle**: | If set to `"true"`, the menuTitle parameter modifies the template to use the `menuTitle` parameter of a child page's front matter instead of the page title as the text in the link. If the child page doesn't have a `menuTitle` parameter, the title is used instead.
+
+### Example
+
+The following shortcode inserts a list of links to the pages's subpages. The links are named using the value of `menuTitle` from each subpage's front matter. 
+
+```markdown
+{{</* section menuTitle="true"*/>}}
+```
+

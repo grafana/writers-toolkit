@@ -172,4 +172,4 @@ You can include comments that do not display in published output:
 
 ## Shortcodes
 
-Shortcodes are predefined templates that allow you to reuse snippets across the Grafana Labs repository. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
+Shortcodes are predefined templates that allow you to reuse snippets across the Grafana website. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).

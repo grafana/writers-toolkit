@@ -26,7 +26,7 @@ Requesting a change gives you the freedom to express your ideas without committi
 
 GitHub captures your request as an Issue logged against the repository.
 
-> **Note:** You can only request a change against the lastest release of documenation.
+> **Note:** You can only request a change against the latest release of documentation.
 
 **Before you begin:**
 

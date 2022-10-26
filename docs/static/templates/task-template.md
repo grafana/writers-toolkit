@@ -14,7 +14,7 @@ keywords:
 
 # Perform the task
 
-<!-- The task title is required. The task title succinctly describes the goal to accomplish, as the result of following the instructions. The task title contains a verb and an object. For example: Create a dashboard. -->
+<!-- The task title is required. The task title succinctly describes the goal to accomplish, as the result of following the instructions. The task title contains a verb and an object. For example: Create a dashboard -->
 
 Add an introduction to the task.
 
@@ -33,7 +33,7 @@ Some procedures, like configuring a data source, may have more than one task to 
 - Software version _n_ is installed
 - Valid _software_ license
 
-<!-- This section is optional. Use it to identify any prerequisite conditions (such as a specific version, license, or system requirement), permissions, any necessary decision, or tasks to complete before proceeding. Sometimes you might want to include a tip, such as **Tip:** Run the commands within a screen session.
+<!-- This section is optional. Use it to identify any prerequisite conditions (such as a specific version, license, or system requirement), permissions, any necessary decision, or tasks to complete before proceeding. Sometimes you might want to include a tip, such as **Tip:** Run the commands within a `screen` session.
 
 Write each prerequisite as a full sentence or sentence fragment, using parallel structures. 
 
@@ -58,7 +58,7 @@ For example: To build a dashboard: -->
 
    If successful, you will see a prompt to change the password.
 
-1. Check the current context for your Kubernetes cluster and ensure it's correct:
+1. Check the current context for your Kubernetes cluster and make sure that it is correct:
 
    ```bash
    kubectl config current-context

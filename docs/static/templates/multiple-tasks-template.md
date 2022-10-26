@@ -29,7 +29,7 @@ If you write a long introduction, consider creating a concept topic. Next, write
 Some procedures, such as configuring a data source, have more than one task to accomplish a goal. Summarize the overall procedures in the introduction using a numbered list. In the following example, each step matches a task section heading.
 -->
 
-To _goal of procedures_, you need to:
+_Goal of procedure_:
 
 1. Configure service
 1. Set up the environment
@@ -118,9 +118,7 @@ To add context that is directly related to a step, or to add a code block, inden
 
 
 ## Optional: Install libraries
-<!-- Optional: Use this section if you have more than one task that needs to be performed. Otherwise, delete this section. 
-
-If a step is not required but provides additional features, you can mark that section as optional and describe when it should be completed.
+<!-- Optional: If a step is not required but provides additional features, you can mark that section as optional and describe when it should be completed. If this section is not needed, delete it.
 -->
 
 ## Verify the installation

@@ -71,5 +71,5 @@ Write steps so that they contain one action, or possibly two related actions, su
 
 If a sentence does not tell the reader to do something, then it is not a step.
 
-Text and code blocks need to be properly indented underneath a step align with the step and to continue the numbering. 
+Text and code blocks need to be properly indented underneath a step in the markdown file to align with the step's display block. If the indent is not correct, then the code block doesn't display underneath the associated step. Incorrect indents can also cause auto-numbering to restart at 1.  
 -->

@@ -71,5 +71,5 @@ Write steps so that they contain one action, or possibly two related actions, su
 
 If a sentence does not tell the reader to do something, then it is not a step.
 
-Text and code blocks need to be properly indented underneath a step to be presented underneath the step and to continue the numbering. 
+Text and code blocks need to be properly indented underneath a step align with the step and to continue the numbering. 
 -->

@@ -50,7 +50,7 @@ To write a reference, complete these steps:
 1. Create an `index.md` file within the reference directory.
 1. Add front matter to the `index` file.
 
-   For more information about front matter, refer to [Front matter]({{< relref "../front-matter" >}}).
+   For more information about front matter, refer to [Front matter]({{< relref "../../front-matter" >}}).
 
 1. Add the content to a copy of the [Reference template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/reference-template.md).
 

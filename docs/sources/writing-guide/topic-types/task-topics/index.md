@@ -3,7 +3,7 @@ title: Task topics
 menuTitle: Task topics
 description: Topic types that we use at Grafana Labs.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/
+  - /docs/writers-toolkit/latest/writing-guidelines/task-topics/
 weight: 200
 keywords:
   - topic types

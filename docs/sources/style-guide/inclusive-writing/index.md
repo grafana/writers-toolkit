@@ -16,7 +16,7 @@ When writing for Grafana, always use inclusive terminology and phrasing. Avoid a
 
 When writing about people, be compassionate, inclusive, and respectful.
 
-First and foremost, no matter the context, we always make sure to view people as people. When context and word count permits, we refer to them as people or people who [...].
+First and foremost, no matter the context, we always make sure to view people as people. When context and word count permits, we refer to them as people or people who maintain a particular area or discipline.
 
 With that in mind, there are important distinctions between the ways that different people interact with our product and, thus, how we refer to those people.
 

@@ -17,7 +17,7 @@ keywords:
 
 The Grafana Labs documentation is made up of different topic types. The main types are concepts, tasks, and references. We encouage you to use these basic topic types when you write content.
 
-The Grafana Labs documentation includes other types of topics depending on the needs of particular product areas. Select a topic type from the following table to learn about each.
+Depending on the needs of a particular product area, select a topic type from the following table to learn about each.
 
 Type | Description
 ---|---

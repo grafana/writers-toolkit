@@ -25,7 +25,7 @@ Every repository contains a `docs/sources` directory, which is where we store ou
 
 ## Topic-based authoring
 
-The Documentation Squad at Grafana Labs uses topic-based authoring. Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts. The topic types we use at Grafana are concept, reference, and task.
+The technical writing team at Grafana Labs uses topic-based authoring. Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts. The topic types we use at Grafana are concept, reference, and task.
 
 For more information on topic types, refer to [Topic types]({{< relref "../topic-types/" >}}).
 

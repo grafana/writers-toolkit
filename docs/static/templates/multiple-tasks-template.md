@@ -27,6 +27,7 @@ This section of a task topic can include conceptual material. However, limit con
 If you write a long introduction, consider creating a concept topic. Next, write a shorter form of that concept in the task introduction, and link to the longer concept topic for more information.
 
 Some procedures, such as configuring a data source, have more than one task to accomplish a goal. Summarize the overall procedures in the introduction using a numbered list. In the following example, each step matches a task section heading.
+Replace any text in _italics_ with content for your procedure.
 -->
 
 _Goal of procedure_:
@@ -43,6 +44,8 @@ _Goal of procedure_:
 - Valid _software_ license
 
 <!-- This section is optional. Use it to identify any prerequisite conditions (such as a specific version, license, or system requirement), permissions, any necessary decision, or tasks to complete before proceeding. Sometimes you might want to include a tip, such as **Tip:** Run the commands within a screen session.
+
+Replace any text in _italics_ with content for your procedure and remove or add lines as needed.
 
 Write each prerequisite as a full sentence or sentence fragment, using parallel structures. 
 

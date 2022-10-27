@@ -20,7 +20,7 @@ Add an introduction to the task.
  
 <!-- The introduction is required. Add an introduction to describe what the task is and why it’s important to the user. What is the goal the user accomplishes with this task and in what context would it be used? 
 
-Use this template for procedures that contain a series of related tasks. If you only have one task, start from the task-template.md file instead.
+Use this template for procedures that contain a series of related tasks. If you only have one task, start from the [task-template.md](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md) file instead.
 
 This section of a task topic can include conceptual material. However, limit conceptual information to only the tasks at hand.
 
@@ -53,7 +53,7 @@ If you do not need this section, delete it.
 
 ## Configure service
 
-<!-- If you have multiple tasks, then this section should summarize   -->
+<!-- Optional: Add an introductory sentence to this task. For example, summarize the purpose of this task in relation to the overall procedure.    -->
 
 To [task name]:
 <!-- 
@@ -118,7 +118,7 @@ To add context that is directly related to a step, or to add a code block, inden
 
 
 ## Optional: Install libraries
-<!-- Optional: If a step is not required but provides additional features, you can mark that section as optional and describe when it should be completed. If this section is not needed, delete it.
+<!-- Optional: If a task is not required but provides additional features, you can mark that section as optional and describe when it should be completed. If this section is not needed, delete it.
 -->
 
 ## Verify the installation

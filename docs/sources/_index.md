@@ -6,7 +6,7 @@ cascade:
 
 title: Writers' Toolkit for technical documentation provided by Grafana Labs
 menuTitle: Writers' Toolkit
-description: Toolkit for technical documentation provided by Grafana Labs
+description: Writers’ Toolkit for technical documentation provided by Grafana Labs
 aliases:
   - /docs/writers-toolkit/latest/
 weight: 100

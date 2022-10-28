@@ -1,6 +1,5 @@
 ---
 cascade:
-  draft: true
   public_docs: true
   search_section: Toolkit for contributors to technical documentation provided by Grafana Labs
   search_type: doc

@@ -26,7 +26,7 @@ The `ref` and `relref` shortcodes display the absolute and relative permalinks t
 ## Relative references
 
 Relative references are the most common references in Grafana technical documentation.
-This is the Hugo shortcode: `{{< relref "<RELATIVE FILE/URL PATH>" >}}`
+This is the Hugo shortcode: `{{</* relref "<RELATIVE FILE/URL PATH>" */>}}`
 
 There are two forms of relative references:
 
@@ -63,26 +63,25 @@ It produces the following website pages:
 
 All of the URL path based relrefs between these pages are are follows:
 
-| Source page                                   | Destination page                              | relref                             |
-| --------------------------------------------- | --------------------------------------------- | ---------------------------------- |
-| `/docs/technical-documentation/branch/`       | `/docs/technical-documentation/branch/other/` | `{{< relref "other" >}}`           |
-| `/docs/technical-documentation/branch/`       | `/docs/technical-documentation/leaf/`         | `{{< relref "../leaf" >}}`         |
-| `/docs/technical-documentation/leaf/`         | `/docs/technical-documentation/branch/`       | `{{< relref "../branch" >}}`       |
-| `/docs/technical-documentation/leaf/`         | `/docs/technical-documentation/branch/other/` | `{{< relref "../branch/other" >}}` |
-| `/docs/technical-documentation/branch/other/` | `/docs/technical-documentation/branch/`       | `{{< relref "./" >}}`              |
-| `/docs/technical-documentation/branch/other/` | `/docs/technical-documentation/leaf/`         | `{{< relref "../leaf" >}}`         |
+| Source page                                   | Destination page                              | relref                                 |
+| --------------------------------------------- | --------------------------------------------- | -------------------------------------- |
+| `/docs/technical-documentation/branch/`       | `/docs/technical-documentation/branch/other/` | `{{</* relref "other" */>}}`           |
+| `/docs/technical-documentation/branch/`       | `/docs/technical-documentation/leaf/`         | `{{</* relref "../leaf" */>}}`         |
+| `/docs/technical-documentation/leaf/`         | `/docs/technical-documentation/branch/`       | `{{</* relref "../branch" */>}}`       |
+| `/docs/technical-documentation/leaf/`         | `/docs/technical-documentation/branch/other/` | `{{</* relref "../branch/other" */>}}` |
+| `/docs/technical-documentation/branch/other/` | `/docs/technical-documentation/branch/`       | `{{</* relref "./" */>}}`              |
+| `/docs/technical-documentation/branch/other/` | `/docs/technical-documentation/leaf/`         | `{{</* relref "../leaf" */>}}`         |
 
 You can refer to the table below for all file path based relrefs between these files.
 
-| Source file                      | Destination file                 | relref                                 |
-| -------------------------------- | -------------------------------- | -------------------------------------- |
-| `/docs/sources/branch/_index.md` | `/docs/sources/branch/other.md`  | `{{< relref "other.md" >}}`            |
-| `/docs/sources/branch/_index.md` | `/docs/sources/leaf/index.md`    | `{{< relref "../leaf/index.md" >}}`    |
-| `/docs/sources/leaf/index.md`    | `/docs/sources/branch/_index.md` | `{{< relref "../branch/_index.md" >}}` |
-| `/docs/sources/leaf/index.md`    | `/docs/sources/branch/other.md`  | `{{< relref "../branch/other.md" >}}`  |
-| `/docs/sources/branch/other.md`  | `/docs/sources/branch/_index.md` | `{{< relref "_index.md" >}}`           |
-| `/docs/sources/branch/other.md`  | `/docs/sources/leaf/index.md`    | `{{< relref "../leaf/index.md" >}}`    |
-
+| Source file                      | Destination file                 | relref                                     |
+| -------------------------------- | -------------------------------- | ------------------------------------------ |
+| `/docs/sources/branch/_index.md` | `/docs/sources/branch/other.md`  | `{{</* relref "other.md" */>}}`            |
+| `/docs/sources/branch/_index.md` | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
+| `/docs/sources/leaf/index.md`    | `/docs/sources/branch/_index.md` | `{{</* relref "../branch/_index.md" */>}}` |
+| `/docs/sources/leaf/index.md`    | `/docs/sources/branch/other.md`  | `{{</* relref "../branch/other.md" */>}}`  |
+| `/docs/sources/branch/other.md`  | `/docs/sources/branch/_index.md` | `{{</* relref "_index.md" */>}}`           |
+| `/docs/sources/branch/other.md`  | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
 
 ## Anchors
 

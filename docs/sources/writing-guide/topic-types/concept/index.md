@@ -1,6 +1,6 @@
 ---
 title: Concept topic
-menuTitle: Concept topic
+menuTitle: Concept
 description: Learn how to write a concept topic.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/topic-types/concept/

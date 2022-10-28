@@ -1,7 +1,7 @@
 ---
 cascade:
   public_docs: true
-  search_section: Writers' toolkit
+  search_section: Writers' Toolkit
   search_type: doc
 
 title: Writers' toolkit for technical documentation provided by Grafana Labs

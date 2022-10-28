@@ -14,7 +14,7 @@ keywords:
 
 # Contribute to documentation
 
-How can I contribute to Grafana's documentation?
+How can I contribute to Grafana Labs documentation?
 
 There are a number of different ways to contribute to documentation at Grafana Labs. Choose the one that applies best and learn how you can engage with the documentation team and help us by contributing your ideas.
 
@@ -28,7 +28,7 @@ GitHub captures your request as an Issue logged against the repository.
 
 > **Note:** You can only request a change against the latest release of documentation.
 
-**Before you begin:**
+## Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 
@@ -52,9 +52,9 @@ Small changes might include:
 - Adding clarifying language to a concept
 - Providing an example
 
-> **Note:** You can only edit a topic that is part of the lastest release of documenation.
+> **Note:** You can only edit a topic that is part of the latest release of documentation.
 
-**Before you begin:**
+## Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 

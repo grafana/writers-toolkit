@@ -19,11 +19,11 @@ Grafana Labs documentation is made up of different topic types: _concept_, _task
 
 Depending on the needs of a particular product area, select a topic type from the following table to learn about each.
 
-Type | Description
----|---
-[Concept]({{< relref "/concept/" >}}) | Provides an overview and background information. Answers the question "What is it?".
-[Task]({{< relref "/task/" >}}) | Provides numbered steps that describe how to achieve an outcome. Answers the question "How do I?".
-[Reference]({{< relref "/reference/" >}}) | Provides users with the information they might need to refer to during a task. Answers the question "What details do I need to accomplish this task?".
-[Tutorial]({{< relref "/tutorial/" >}}) | Add description...
+| Type                                     | Description                                                                                                                                            |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Concept]({{< relref "concept/" >}})     | Provides an overview and background information. Answers the question "What is it?".                                                                   |
+| [Task]({{< relref "task/" >}})           | Provides numbered steps that describe how to achieve an outcome. Answers the question "How do I?".                                                     |
+| [Reference]({{< relref "reference/" >}}) | Provides users with the information they might need to refer to during a task. Answers the question "What details do I need to accomplish this task?". |
+| [Tutorial]({{< relref "tutorial/" >}})   | Add description...                                                                                                                                     |
 
 For your convenience, we have created topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).

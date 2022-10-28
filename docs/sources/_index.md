@@ -4,7 +4,7 @@ cascade:
   search_section: Writers' Toolkit
   search_type: doc
 
-title: Toolkit for writing technical documentation at Grafana Labs
+title: Writers' toolkit for technical documentation provided by Grafana Labs
 menuTitle: Writers' Toolkit
 description: Toolkit for technical documentation provided by Grafana Labs
 aliases:

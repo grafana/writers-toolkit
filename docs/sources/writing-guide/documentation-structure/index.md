@@ -17,6 +17,7 @@ The technical writing team makes very intentional decisions about how we organiz
 Information architecture (IA) refers to the way in which content is organized. Before you start contributing to product documentation, it is important to understand the IA of the content.
 
 Generally, the IA determines how content is:
+
 - Titled
 - Grouped
 - Combined (or not combined) with other, related content
@@ -43,11 +44,11 @@ Within the top-level directory, there is a parent directory.
 
 The image below shows how the repository's `user-management` parent directory is structured.
 
-- There is an `_index.md` file in the parent directory that serves as a landing page for the child topics. In most cases, `_index.md` contains conceptual content. For information about the types of conceptual content that you can add to the `_index.md` file, refer to [Concepts]({{< relref "../topic-types/concept-topics/" >}}).
+- There is an `_index.md` file in the parent directory that serves as a landing page for the child topics. In most cases, `_index.md` contains conceptual content. For information about the types of conceptual content that you can add to the `_index.md` file, refer to [Concepts]({{< relref "topic-types/concept/" >}}).
 - There are also four task topics in the parent directory, each with a directory and `index.md` file.
 
-For more information about how to write concepts, refer to [Concepts]({{< relref "../topic-types/concept-topics/" >}}).
-For more information about how to write tasks, refer to [Tasks]({{< relref "../topic-types/task-topics/" >}}).
+For more information about how to write concepts, refer to [Concepts]({{< relref "topic-types/concept/" >}}).
+For more information about how to write tasks, refer to [Tasks]({{< relref "topic-types/task/" >}}).
 
 ![Parent directory structure](parent-directory.png)
 

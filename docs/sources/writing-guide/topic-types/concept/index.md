@@ -48,15 +48,11 @@ To write a concept topic, follow these steps.
    - Use a noun
    - Use lowercase letters
    - Add a hyphen between words
-  <br>
-  <br>
-   For example:
-     - organization-management
-     - alert-groups
-     - installation
-     - service-accounts
-<br>
-<br>
+     <br>
+     <br>
+     For example: - organization-management - alert-groups - installation - service-accounts
+     <br>
+     <br>
 
 1. Within the parent directory, create an `_index.md` file.
 1. Add front matter to the `_index` file.
@@ -65,7 +61,7 @@ To write a concept topic, follow these steps.
 
 1. Add the content to a copy of the [Concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md).
 
-   For more information about the kinds of content you can add to a concept topic, refer to [Concept topics](#concept-topics).
+   For more information about the kinds of content you can add to a concept topic, refer to [Concept topics](#concept-topic).
 
 ## Concept topic examples
 

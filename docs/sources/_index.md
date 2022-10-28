@@ -17,7 +17,7 @@ keywords:
   - documentation
 ---
 
-# Writers’ Toolkit for technical documentation provided by Grafana Labs
+# Writers’ Toolkit
 
 <!-- vale Grafana.Exclamation = NO -->
 

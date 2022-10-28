@@ -1,9 +1,9 @@
 ---
-title: Concept topics
-menuTitle: Concept topics
+title: Concept topic
+menuTitle: Concept topic
 description: Learn how to write a concept topic.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/concept-topics/
+  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/concept/
 weight: 100
 keywords:
   - topic types
@@ -11,7 +11,7 @@ keywords:
   - concept
 ---
 
-# Concept topics
+# Concept topic
 
 A concept provides an overview and background information to help end users understand a product, interface, or task. Concepts answer the question “what is it?”. Readers learn about features through concepts.
 

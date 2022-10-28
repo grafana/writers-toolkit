@@ -1,9 +1,9 @@
 ---
-title: Reference topics
-menuTitle: Reference topics
+title: Reference topic
+menuTitle: Reference topic
 description: Learn how to write a reference topic.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/reference-topics/
+  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/reference/
 weight: 300
 keywords:
   - topic types
@@ -11,7 +11,7 @@ keywords:
   - reference
 ---
 
-# Reference topics
+# Reference topic
 
 A reference topic provides users with the information they might need to refer to during a task. An effective reference should provide a comprehensive listing of data, such as functions and parameters, error messages, and return codes. A reference is usually presented as a table, a bulleted list, or a sample script.
 

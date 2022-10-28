@@ -54,7 +54,7 @@ Small changes might include:
 
 > **Note:** You can only edit a topic that is part of the latest release of documentation.
 
-**Before you begin:**
+## Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 

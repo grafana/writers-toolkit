@@ -11,6 +11,7 @@ keywords:
   - concept
   - task
   - reference
+  - tutorial
 ---
 
 # Topic types

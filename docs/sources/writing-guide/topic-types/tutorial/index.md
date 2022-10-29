@@ -3,7 +3,7 @@ title: Tutorial topic
 menuTitle: Tutorial
 description: Learn how to write a tutorial topic.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/task/
+  - /docs/writers-toolkit/latest/writing-guidelines/tutorial/
 weight: 400
 keywords:
   - topic types
@@ -15,7 +15,7 @@ keywords:
 
 The purpose of a tutorial is to show the reader how to learn by doing in a safe environment. A tutorial should build up easy successes that inspire a user to say, “I just did that! Wow!”
 
-The difference between a tutorial and a normal task is that a tutorial is for learning, while a task is for real operational work. The length of a tutorial can vary from a few steps to many sub-tasks or even to many modules.
+The difference between a tutorial and a task is that a tutorial is for learning, and a task is for real operational work. The length of a tutorial can vary from a few steps to many sub-tasks or even to many modules.
 
 ## Tutorial structure
 

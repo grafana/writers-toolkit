@@ -1,6 +1,6 @@
 ---
 title: Reference topic
-menuTitle: Reference topic
+menuTitle: Reference
 description: Learn how to write a reference topic.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/topic-types/reference/

@@ -12,7 +12,7 @@ keywords:
 
 # Introduction to documentation
 
-All Grafana Enterprise and OSS documentation is located in the Grafana open source project GitHub repository: https://github.com/grafana/tree/main/docs/sources.
+All Grafana Enterprise and OSS documentation is located in the Grafana open source project GitHub repository: https://github.com/grafana/grafana/tree/main/docs/sources.
 
 These are the other Grafana OSS project repositories:
 

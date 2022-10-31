@@ -1,6 +1,6 @@
 ---
 title: Task topic
-menuTitle: Task topic
+menuTitle: Task
 description: Learn how to write a task topic.
 aliases:
   - /docs/writers-toolkit/latest/writing-guidelines/task/

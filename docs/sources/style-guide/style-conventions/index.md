@@ -105,7 +105,7 @@ For more guidance, refer to [Lists](https://developers.google.com/style/lists) i
 
 You should use "Refer to" instead of "See" or "Check out" when referencing another document.
 
-Give the reader a sense of what to expect in the reference. Don't use blind references, such as "Refer to [this file]."
+Give the reader a sense of what to expect in the reference. Don't use generic references, such as "Refer to [this file]."
 
 As much as possible, use the exact title of the page or section you are linking to as the link text.
 

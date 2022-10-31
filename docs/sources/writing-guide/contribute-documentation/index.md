@@ -77,7 +77,7 @@ New users or members of other teams are very helpful for these tests.
 
 ## Review your changes
 
-Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "../tooling-and-workflows/#using-git" >}}).
+Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "tooling-and-workflows/#using-git" >}}).
 
 **To view a local build:**
 
@@ -97,7 +97,7 @@ When you are ready for other people to review your work, perform the following t
 1. Create a PR in Github.
 1. Add the `type/docs` label.
 
-   For more information about the `type/docs` workflow, refer to [type/docs label workflow]({{< relref "../tooling-and-workflows/type-docs-label-workflow/" >}}).
+   For more information about the `type/docs` workflow, refer to [type/docs label workflow]({{< relref "tooling-and-workflows/type-docs-label-workflow/" >}}).
 
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.
 

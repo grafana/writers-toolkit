@@ -56,7 +56,7 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 
 ## Links and references
 
-For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references/" >}}).
+For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "references/" >}}).
 
 If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
 
@@ -172,4 +172,4 @@ You can include comments that do not display in published output:
 
 ## Shortcodes
 
-Shortcodes are predefined templates that allow you to reuse snippets across the Grafana website. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
+Shortcodes are predefined templates that allow you to reuse snippets across the Grafana website. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "shortcodes/" >}}).

@@ -210,7 +210,7 @@ The following table lists the steps you take to provide the Grafana Labs technic
 <ol><li>Create a PR against the local repository that includes the Markdown file.
 </li>
 <li>Add the image reference to the Markdown file.<br><br>
-The image reference that you add to the Markdown renders the image when the Grafana website is built.</li>
+The image reference that you add to the Markdown renders the image when the Grafana website is built. If you want to test that the image appears correctly, refer to [Test images in a local build](#test-images-in-a-local-build).</li>
 </ol>
 </td>
         </tr>
@@ -239,3 +239,20 @@ For example:
 
    `![Visualization types](/static/img/docs/panel-editor/select-visualization.png)`
 
+## Test images in a local build
+
+This section is relevant to internal Grafana Labs contributors.
+
+It is important that you generate a local build of your docs so that you can verify that the path to the image, the image size, and the image placement are correct. Because images are stored in the Website repo, you must use a `figure` shortcode that renders the image in a local build of the docs.
+
+> **Note:** The Docs Squad has verified following steps in the Cloud docs repo and the Grafana docs repo.
+
+1. Create a PR against the website repo that contains the image.
+1. After the Website team merges the image PR into the website repo, add the following figure shortcode to your docs:
+
+   {{< figure src="[path to the image in the website repo]" >}}
+
+   For example, `{{< figure src="/static/img/docs/grafana-cloud/k8s-node-capacity.png" >}}`
+
+1. Run `make docs` on your branch and verify that the image appears.
+1. (Optional) Make adjustments to the image in the website repo and test again.

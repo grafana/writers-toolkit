@@ -3,7 +3,6 @@ cascade:
   public_docs: true
   search_section: Writers' Toolkit
   search_type: doc
-
 title: Writers' Toolkit
 menuTitle: Writers' Toolkit
 description: Writers' Toolkit for technical documentation provided by Grafana Labs

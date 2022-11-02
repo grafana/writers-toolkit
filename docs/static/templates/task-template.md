@@ -25,6 +25,8 @@ This section of a task topic can include conceptual material. However, limit con
 If you find yourself writing a long introduction, consider creating a concept topic, and then write a shorter form of that concept in the task introduction. Finally, link to the longer concept topic for more information.
 
 Some procedures, like configuring a data source, may have more than one task to accomplish a goal. Use the multiple-tasks-template.md instead of this template. 
+
+Refer to the [Task topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/task/) for guidelines on writing a task topic. 
 -->
 
 ## Before you begin

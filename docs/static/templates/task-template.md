@@ -26,7 +26,7 @@ If you find yourself writing a long introduction, consider creating a concept to
 
 Some procedures, like configuring a data source, may have more than one task to accomplish a goal. Use the multiple-tasks-template.md instead of this template. 
 
-Refer to the [Task topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/task/) for guidelines on writing a task topic. 
+For guidelines about writing a task topic, refer to the [Task topic](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/task/) documentation.
 -->
 
 ## Before you begin

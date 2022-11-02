@@ -245,7 +245,7 @@ For example:
 
 It is important that you generate a local build of your docs so that you can verify that the path to the image, the image size, and the image placement are correct. Because images are stored in the Website repo, you must use a `figure` shortcode that renders the image in a local build of the docs.
 
-> **Note:** The Docs Squad has verified the following steps in the Cloud docs repo and the Grafana docs repo.
+> **Note:** The following steps only work in the Grafana Cloud docs and  Grafana docs repos.
 
 1. Create a PR against the website repo that contains the image.
 

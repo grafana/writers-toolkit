@@ -58,9 +58,9 @@ To write a reference, complete these steps:
 
 Refer to the following topics for a reference topic examples:
 
-- [Calculation types](https://grafana.com/docs/grafana/latest/panels/calculation-types/)
-- [Standard field definitions](https://grafana.com/docs/grafana/latest/panels/standard-field-definitions/)
-- [Grafana CLI](https://grafana.com/docs/grafana/latest/administration/cli/)
+- [Calculation types](/docs/grafana/latest/panels/calculation-types/)
+- [Standard field definitions](/docs/grafana/latest/panels/standard-field-definitions/)
+- [Grafana CLI](/docs/grafana/latest/administration/cli/)
 
 ## Reference template
 

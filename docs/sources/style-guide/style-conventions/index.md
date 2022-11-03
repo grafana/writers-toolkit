@@ -109,7 +109,7 @@ Give the reader a sense of what to expect in the reference. Don't use generic re
 
 As much as possible, use the exact title of the page or section you are linking to as the link text.
 
-**Example:** For more information about Grafana Labs products, refer to [Grafana documentation](https://grafana.com/docs/grafana/latest/).
+**Example:** For more information about Grafana Labs products, refer to [Grafana documentation](/docs/grafana/latest/).
 
 ## Admonitions
 

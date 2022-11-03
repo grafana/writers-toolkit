@@ -30,9 +30,9 @@ Exception:
 
 - You can use first person in UI elements that are specific to the user, such as “My profile" or “My account."
 
-| Use                                                            | Don't use                                                          |
-| -------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Click **Yes** to accept the license agreement.                 | The license agreement is accepted when you click **Yes**.    |
+| Use                                                           | Don't use                                                         |
+| ------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Click **Yes** to accept the license agreement.                | The license agreement is accepted when you click **Yes**.         |
 | To create a dashboard, add a panel and specify a data source. | To create a dashboard, you add a panel and specify a data source. |
 
 ### Write in active voice
@@ -41,9 +41,8 @@ When you write in _active voice_, you identify the subject of the sentence and t
 
 | Use                                               | Don't use                                                               |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |
-| After you create a dashboard, add a panel.       | After the dashboard has been created, the panel can be added.          |
+| After you create a dashboard, add a panel.        | After the dashboard has been created, the panel can be added.           |
 | Click **OK** to save the dashboard configuration. | The dashboard configuration is saved when the **OK** button is clicked. |
-
 
 ### Write simple words, sentences, and paragraphs
 
@@ -68,7 +67,7 @@ When you write in present tense, you avoid words such as have, has, had, been, s
 
 | Use                                                                | Don't use                                                                    |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| The panel opens. | The panel will open. |
+| The panel opens.                                                   | The panel will open.                                                         |
 | The system **prompts** you to verify the deletion.                 | The system **will prompt** you to verify the deletion.                       |
 | After you log in, your account **begins** the verification proces. | After you log in, your account **will then begin** the verification process. |
 
@@ -76,10 +75,10 @@ When you write in present tense, you avoid words such as have, has, had, been, s
 
 Write positive sentences instead of negative sentences. Positive sentences are easier for the user to understand and are usually shorter than negative sentences.
 
-| Use                                                                    | Don't use                                                                                           |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| The visualization updates with data after you click Apply. | The visualization won't update with data until you click Apply.                                   |
-| Remember to involve your users in the dashboard creation process.     | Don't forget to involve your users in the dashboard creation process.                              |
+| Use                                                               | Don't use                                                             |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------- |
+| The visualization updates with data after you click Apply.        | The visualization won't update with data until you click Apply.       |
+| Remember to involve your users in the dashboard creation process. | Don't forget to involve your users in the dashboard creation process. |
 
 ## Write scannable content
 
@@ -117,7 +116,7 @@ To focus a user's attention, Grafana Labs documentation includes notes, tips, ca
 
 ### Notes
 
-The most common admonition is a note. A note provides additional information that the user should be aware of. 
+The most common admonition is a note. A note provides additional information that the user should be aware of.
 
 For example:
 
@@ -177,3 +176,4 @@ GET /api/dashboards/id/1/permissions HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
+```

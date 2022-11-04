@@ -1,6 +1,6 @@
 ---
-title: Perform the tutorial
-menuTitle: Perform the tutorial
+title: Complete the tutorial
+menuTitle: Complete the tutorial
 description: Use this template to write a tutorial.
 aliases:
   - /docs/writers-toolkit/latest/templates/tutorial-template
@@ -12,7 +12,7 @@ keywords:
 ---
 <!-- For more information about how to populate front matter, see [Topic front matter]({{< relref "../../front-matter/" >}}). -->
 
-# Perform the tutorial
+# Complete the tutorial
 
 <!-- The topic title is required. The topic title succinctly describes the goal to accomplish, as the result of following the instructions. The tutorial title contains a verb and an object. For example: Provision dashboards and data sources -->
 
@@ -38,7 +38,7 @@ Replace any text in _italics_ with content for your procedure and remove or add 
 
 Write each prerequisite as a full sentence or sentence fragment, using parallel structures. 
 
-If you have more than one task, include all prerequisites in this section. For example, if you have a page that configures a widget and several tasks have prerequisites, list all prerequisites in the Before you begin section. This way users can have everything they need before they start performing the tasks.
+If you have more than one task in your tutorial, include all prerequisites in this section. For example, if you have a page that configures a widget and several tasks have prerequisites, list all prerequisites in the Before you begin section. This way users can have everything they need before they start performing the tasks.
 
 If you do not need this section, delete it. 
  -->
@@ -54,7 +54,9 @@ The stem sentence introduces the steps and provides a visual cue for users who s
 A stem sentence begins with the word 'To' and includes the name of the task.
 If you want to provide additional information about a step, add it to a separate line and indent it.
 
-For example: To build a dashboard: -->
+For example: 
+
+To build a dashboard: -->
 
 1. Open your web browser and go to http://localhost:3000/.
 

@@ -67,9 +67,9 @@ To write a concept topic, follow these steps.
 
 Refer to the following topics for concept topic examples:
 
-- [Roles and permissions](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/)
-- [Deployment modes](https://grafana.com/docs/loki/next/fundamentals/architecture/deployment-modes/)
-- [Best practices for managing dashboards](https://grafana.com/docs/grafana/latest/best-practices/best-practices-for-managing-dashboards/)
+- [Roles and permissions](/docs/grafana/latest/administration/roles-and-permissions/)
+- [Deployment modes](/docs/loki/next/fundamentals/architecture/deployment-modes/)
+- [Best practices for managing dashboards](/docs/grafana/latest/best-practices/best-practices-for-managing-dashboards/)
 
 ## Concept template
 

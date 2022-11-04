@@ -2,7 +2,8 @@
 title: type/docs label workflow
 menuTitle: type/docs label workflow
 description: How the type/docs label workflow automation works.
-aliases: /docs/writers-toolkit/latest/writing-guidelines/type-docs-label-workflow/
+aliases:
+  - /docs/writers-toolkit/latest/writing-guidelines/type-docs-label-workflow/
 weight: 200
 keywords:
   - workflow

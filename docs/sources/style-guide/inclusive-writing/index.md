@@ -29,12 +29,12 @@ With that in mind, there are important distinctions between the ways that differ
 
 Consider the following best practices to ensure inclusivity in your writing.
 
-- Groups/Audiences: Don’t refer to a group or audience as “it.” Instead, use “they.”
-- Age: Don’t refer to someone’s age unless it’s relevant. Don’t use age-related words to describe people. Avoid: young, old, elderly.
-- Hearing: Do use the adjectives “deaf,” “partially deaf,” or “hard of hearing” when describing a person with hearing loss.
-- Vision: Do use the adjective “blind” or “low vision” when describing a person with limited vision.
+- Group or audience: Don’t refer to a group or audience as _it_. Instead, use _they_.
+- Age: Don’t refer to someone’s age unless it’s relevant. Don’t use age-related words to describe people. Avoid: _young_, _old_, or _elderly_.
+- Hearing: Do use the adjectives _deaf_, _partially deaf_, or _hard of hearing_ when describing a person with hearing loss.
+- Vision: Do use the adjective _blind_ or _low vision_ when describing a person with limited vision.
 
-## Writing for international audiences
+## Write for an international audience
 
 Consider the following guidelines when you write for an international audience.
 
@@ -59,7 +59,8 @@ Not sure you believe us? Here are some British idioms that you probably won’t 
 - “Chuffed to bits”
 - “Over-egg the pudding”
 
-### Avoid Cultural References
+### Avoid cultural references
+
 Cultural references are references that relate to the culture of a community, country, continent, and so on.
 
 **Examples:**
@@ -69,7 +70,7 @@ Cultural references are references that relate to the culture of a community, co
 
 ## Avoid charged language
 
-Avoid using charged language such as “blacklist”, “master”, and “slave.”
+Avoid using charged language such as _blacklist_, _master_, and _slave_.
 
 ### Allow, block
 

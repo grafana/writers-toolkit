@@ -23,7 +23,7 @@ Because reference topics contain information the user needs to accomplish a task
 
 ## Reference structure
 
-- **Topic title:** Reference topic titles should contain a qualifier and noun, for example, *Grafana CLI*. This helps readers distinguish between reference topics and tasks.
+- **Topic title:** Reference topic titles should contain a qualifier and noun, for example, _Grafana CLI_. This helps readers distinguish between reference topics and tasks.
 - **Introduction:** Provide an introduction that explains what to expect from this topic.
 - **Body:** Tables or lists are often used to provide information in reference topics.
 
@@ -35,17 +35,15 @@ To write a reference, complete these steps:
 
 1. Determine where you want to add reference documentation to the Grafana Labs product documentation.
 1. Create a child directory within the parent directory that follows this naming convention:
-   
+
    - Begin the directory name with a qualifier followed by an noun.
    - Use lowercase letters.
    - Add a hyphen between words.
-  <br>
-  <br>
-   For example:
-     - calculation-types
-     - standard-field-definitions
-<br>
-<br>
+     <br>
+     <br>
+     For example: - calculation-types - standard-field-definitions
+     <br>
+     <br>
 
 1. Create an `index.md` file within the reference directory.
 1. Add front matter to the `index` file.
@@ -58,9 +56,9 @@ To write a reference, complete these steps:
 
 Refer to the following topics for a reference topic examples:
 
-- [Calculation types](https://grafana.com/docs/grafana/latest/panels/calculation-types/)
-- [Standard field definitions](https://grafana.com/docs/grafana/latest/panels/standard-field-definitions/)
-- [Grafana CLI](https://grafana.com/docs/grafana/latest/administration/cli/)
+- [Calculation types](/docs/grafana/latest/panels/calculation-types/)
+- [Standard field definitions](/docs/grafana/latest/panels/standard-field-definitions/)
+- [Grafana CLI](/docs/grafana/latest/administration/cli/)
 
 ## Reference template
 

@@ -46,13 +46,20 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 
 ## Bold and emphasis
 
-- To make text **bold**, use `**two surrounding asterisks**`. For example:
+- To make text **bold**, surround the text with `**two asterisks**`. For example:
 
   > **Note:** It is important to use GitHub-flavored Markdown emojis consistently.
 
-- To emphasize text, use single ` _underscores_`. Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
+- To emphasize text, surround the text with `_single underscores_`̣.
+Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
 
-  **For example:** The distributor only passes _valid_ data to the ingesters.
+```markdown
+**Note**: The distributor only passes _valid_ data to the ingesters.
+```
+
+Displays as:
+
+**Note**: The distributor only passes _valid_ data to the ingesters.
 
 ## Links and references
 
@@ -60,7 +67,9 @@ For information about creating links between topics inside and outside of a Graf
 
 If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
 
-\[Link text to display](https://website.com)
+```markdown
+[Link text to display](https://example.com)
+```
 
 **Example:** For more information about including emojis in GitHub-flavored Markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/). 
 
@@ -68,7 +77,7 @@ If you want to add a link to an external website, wrap the display text in squar
 
 Include block quotes within text by using a right-angle bracket:
 
-```
+```markdown
 > This text is in block quotes
 ```
 
@@ -103,7 +112,7 @@ Construct a table by separating the table headings by a `|` (pipe) character. Th
 | Cell one data | Cell two data |
 ```
 
-Displays as follows:
+On the page, the preceding table displays as follows:
 
 | Heading one   | Heading two   |
 | ------------- | ------------- |
@@ -137,12 +146,11 @@ Build a list of unordered points by using a hyphen (`-`):
 
 > **Note:** Use unordered lists whenever the items have no particular sequence.
 
-**Example:**
+The preceding snippet displays as follows:
 
-There are three ways to ingest data:
-- First way
-- Second way
-- Third way
+- First item
+- Another item
+- The final list item
 
 ## Images
 
@@ -196,9 +204,7 @@ Reasons you might want to write programs in Go include the following:
 
 ```
 
-**Example**
-
-Reasons you might want to write programs in Go include the following:
+The preceding description list displays as follows:
 
 **Fast compile times**
 : The Go compiler is fast!

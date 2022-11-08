@@ -54,12 +54,12 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
 
 ```markdown
-**Note**: The distributor only passes _valid_ data to the ingesters.
+**Note:** The distributor only passes _valid_ data to the ingesters.
 ```
 
 Displays as:
 
-**Note**: The distributor only passes _valid_ data to the ingesters.
+**Note:** The distributor only passes _valid_ data to the ingesters.
 
 ## Links and references
 
@@ -78,7 +78,7 @@ If you want to add a link to an external website, wrap the display text in squar
 Include block quotes within text by using a right-angle bracket:
 
 ```markdown
-> This text is in block quotes
+> This text is in block quotes.
 ```
 
 **Example:**
@@ -112,7 +112,7 @@ Construct a table by separating the table headings by a `|` (pipe) character. Th
 | Cell one data | Cell two data |
 ```
 
-On the page, the preceding table displays as follows:
+When rendered, the preceding table displays as follows:
 
 | Heading one   | Heading two   |
 | ------------- | ------------- |
@@ -136,7 +136,7 @@ The preceding list displays as:
 
 ## Unordered lists
 
-Build a list of unordered points by using a hyphen (`-`):
+Build a list of unordered items by using a hyphen (`-`):
 
 ```markdown
 - First item
@@ -177,12 +177,12 @@ Within Markdown, HTML is valid and to be used sparingly:
      style="float: left; margin-right: 5px;" />
 ```
 
-In most cases, use Markdown syntax rather than HTML syntax. Only use the HTML if you need to change the image in ways that Markdown does not supported.
+In most cases, use Markdown syntax rather than HTML syntax. Only use HTML if you need to change the image in ways that Markdown does not support.
 
 ## Description list
 
 The Markdown parser that Hugo uses, Goldmark, has built-in support for description lists.
-You can use description lists to list terms or core concepts.
+You can use description lists for terms and their definitions, or core concepts.
 The syntax is as follows:
 
 ```markdown
@@ -190,8 +190,8 @@ term
 : description_text
 ```
 
-You can add further markup in a description list.
-For example, you can format the definition terms in bold text.
+You can add more markup in a description list.
+For example, you can format the definition terms as bold text.
 
 ```markdown
 Reasons you might want to write programs in Go include the following:
@@ -200,7 +200,7 @@ Reasons you might want to write programs in Go include the following:
 : The Go compiler is fast!
 
 **Ecosystem**
-: The tooling around Go is very mature.
+: Go tooling is excellent.
 
 ```
 
@@ -210,7 +210,7 @@ The preceding description list displays as follows:
 : The Go compiler is fast!
 
 **Ecosystem**
-: The tooling around Go is very mature.
+: Go tooling is excellent.
 
 ## Comments
 

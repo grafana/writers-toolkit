@@ -27,7 +27,9 @@ Because reference topics contain information the user needs to accomplish a task
 - **Introduction:** Provide an introduction that explains what to expect from this topic.
 - **Body:** Tables or lists are often used to provide information in reference topics.
 
-![Reference structure](reference.png)
+<figure>
+<img src="reference.png" alt="Reference structure" width="600">
+</figure>
 
 ## Write a reference topic
 

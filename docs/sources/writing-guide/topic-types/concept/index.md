@@ -36,7 +36,9 @@ A _concept_ topic includes the following elements:
 - **Introduction:** Include an introduction that explains what this topic is about.
 - **Body:** Provide as much content as needed to explain the concept thoroughly. There can be sections, visuals, and text in the body of a concept.
 
-![Concept structure](concept.png)
+<figure>
+<img src="concept.png" alt="Concept structure" width="600">
+</figure>
 
 ## Write a concept topic
 

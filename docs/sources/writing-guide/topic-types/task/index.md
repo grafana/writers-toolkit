@@ -31,18 +31,22 @@ A _task_ topic includes the following elements:
 - Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the task.
 - If there are no prerequisites, do not include this section.
 
-**Stem sentence: (optional)** The stem sentence introduces the steps and signals to users who scan content that the steps are about to begin. You should include a stem sentence only when you include a before you begin section.
+**Stem sentence:** The stem sentence introduces the steps. Use the following convention when you write a stem sentence.
+- To [name of task], follow these steps:
+- Example: To create a dashboard, follow these steps:
 
 **Steps:** Users are provided with a directive through numbered steps.
 
 - Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value_ or _Save and quit the program._
 - Unless a sentence instructs the reader to act, it isn't a step.
 
-![Task structure](task.png)
+<figure>
+<img src="task.png" alt="Task structure" width="600">
+</figure>
 
 ## Write a task topic
 
-To write a task, complete these steps:
+To write a task, follow these steps:
 
 1. Determine where you want to add task documentation to the Grafana Labs product documentation.
 1. Create a child directory within the parent directory that follows this naming convention:

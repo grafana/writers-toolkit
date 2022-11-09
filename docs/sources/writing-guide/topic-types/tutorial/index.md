@@ -92,10 +92,10 @@ When you are ready to write, make a copy of the [Tutorial template](https://gith
  
  As an example, the [Play with Grafana Mimir](https://grafana.com/tutorials/play-with-grafana-mimir/) tutorial provides a repo that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
 
- If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, you can include it in the "Before you begin" section.
+ If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 
 ## Tutorial topic example
 
 Refer to the following topic for a tutorial example:
 
-- [Monitor an app on Kubernetes using Grafana Agent](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/how-to/k8s-monitor-app/#deploy-and-configure-grafana-agent)
+- [Monitor an app on Kubernetes using Grafana Agent](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/how-to/k8s-monitor-app/)

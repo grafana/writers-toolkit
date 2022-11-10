@@ -52,7 +52,7 @@ To write a tutorial, complete these steps:
 
 1. Determine where you want to add a tutorial to the Grafana Labs product documentation.
 
-    You can include tutorials wherever they make sense in your documentation hierarchy. Some tutorials are included on the [Tutorials](/tutorials/) page, but you can add tutorials within your own repos, as well.  
+    You can include tutorials wherever they make sense in your documentation hierarchy. Some tutorials are included on the [Tutorials](https://grafana.com/tutorials/) page, but you can add tutorials within your own repos, as well.  
 
 1. Create a child directory within the parent directory that follows this naming convention:
    
@@ -90,7 +90,7 @@ Depending on the application, your tutorial's data might be:
   - On test servers
   - In demo repos that the user clones locally
  
-For example, the [Play with Grafana Mimir](/tutorials/play-with-grafana-mimir/) tutorial provides a repo that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
+For example, the [Play with Grafana Mimir](https://grafana.com/tutorials/play-with-grafana-mimir/) tutorial provides a repo that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 

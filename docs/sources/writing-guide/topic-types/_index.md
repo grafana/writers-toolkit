@@ -3,7 +3,7 @@ title: Topic types
 menuTitle: Topic types
 description: Learn to write different types of topics.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/
+  - /docs/writers-toolkit/latest/writing-guide/topic-types/
 weight: 400
 keywords:
   - topic types

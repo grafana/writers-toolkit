@@ -3,7 +3,7 @@ title: Reference topic
 menuTitle: Reference
 description: Learn how to write a reference topic.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/topic-types/reference/
+  - /docs/writers-toolkit/latest/writing-guide/topic-types/reference/
 weight: 300
 keywords:
   - topic types

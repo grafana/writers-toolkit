@@ -3,7 +3,7 @@ title: Tutorial topic
 menuTitle: Tutorial
 description: Learn how to write a tutorial topic.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/tutorial/
+  - /docs/writers-toolkit/latest/writing-guide/topic-types/tutorial/
 weight: 400
 keywords:
   - topic types
@@ -21,12 +21,10 @@ A tutorial topic includes the following elements:
 
 **Topic title:** Write a tutorial topic title that combines a verb and an object.
 
-**Overview:** Let the user know the goal they will achieve by completing the tutorial. Suggested text: "In this tutorial, you will …" You can instead use: "By the end of this tutorial, you'll be able to" and include a list of learning objectives. 
+**Overview:** Let the user know the goal they will achieve by completing the tutorial. Provide context and include a list of the tasks the user will complete. Suggested text: "In this tutorial, you will …". 
 
-- There can be conceptual material in this section of a tutorial topic. Limit conceptual information to only what is relevant to the goal at hand.
+- There can be conceptual material in this section of a tutorial topic. However, limit conceptual information to only what is relevant to the goal at hand.
 - If you find yourself writing a long introduction, consider creating a concept topic, and then writing a shorter form of that concept in the tutorial introduction. The longer concept topic can be accessed for more information by linking to it.
-
-**Background (optional):** Provide context for the tutorial. Limit context information to only what is relevant to the goal at hand. Create a concept topic for more extensive content. 
 
 **Before you begin (optional):** Describe or add links to tasks that need to be completed before the tutorial. The links might sometimes be unrelated to the product, such as “Have this thing at hand."
 - Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the tutorial.
@@ -35,6 +33,8 @@ A tutorial topic includes the following elements:
 
 **Task section (or sections)**: Create a section for each task needed to complete the tutorial. Follow the [task guidelines]({{< relref "../task/" >}}) to write the tasks. 
 
+- To determine what tasks and steps you should include in your tutorial, perform a goal analysis and determine the valuable outcome the user wants to achieve. Limit the tutorial to the tasks needed to satisfy that goal. Work with a Subject Matter Expert (SME) to determine the goal and the minimal set of tasks. If possible, record the SME completing the tasks needed to accomplish the goal or ask the SME to record a demo of the tasks if that's preferable. 
+- Work with a Subject Matter Expert (SME) to 
 - Provide steps that explain how to access or set up the data needed to complete the task. See [Data for your tutorial](#data-for-your-tutorial) for details.
 - Do not include written step numbers in the header, for example, "Step 1: Pick apples." Instead, include just the verb and object, for example "Pick apples."
 - Include only the tasks required for a straight path to the tutorial's goal, not optional or alternative paths. 
@@ -80,19 +80,19 @@ When you are ready to write, make a copy of the [Tutorial template](https://gith
 
 ## Difference between tutorials and task topics
 
- The difference between a tutorial and a task topic is that a tutorial is for learning, and a task is for actual operational work. Another important distinction is that a tutorial typically provides a "sandbox" environment&mdash;a source of data that users can safely experiment with. 
+The difference between a tutorial and a task topic is that a tutorial is for learning, and a task is for actual operational work. Another important distinction is that a tutorial typically provides a "sandbox" environment&mdash;a source of data that users can safely experiment with. 
  
- ## Data for your tutorial
+## Data for your tutorial
  
- Depending on the application, your tutorial's data might be:
+Depending on the application, your tutorial's data might be:
 
   - In a sandbox
   - On test servers
   - In demo repos that the user clones locally
  
- As an example, the [Play with Grafana Mimir](https://grafana.com/tutorials/play-with-grafana-mimir/) tutorial provides a repo that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
+For example, the [Play with Grafana Mimir](https://grafana.com/tutorials/play-with-grafana-mimir/) tutorial provides a repo that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
 
- If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
+If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 
 ## Tutorial topic example
 

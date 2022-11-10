@@ -3,7 +3,7 @@ title: Writing guide
 menuTitle: Writing guide
 description: Learn about Grafana Labs' technical documentation writing guidelines.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/
+  - /docs/writers-toolkit/latest/writing-guide/
 weight: 200
 Keywords:
   - writing

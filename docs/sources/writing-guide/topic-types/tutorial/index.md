@@ -15,6 +15,8 @@ keywords:
 
 The purpose of a tutorial is to show the reader how to "learn by doing" in a safe environment. A tutorial should build up easy successes that inspire a user to say, “I just did that! Wow!” The length of a tutorial can vary from a few steps to many subtasks.
 
+> If you have an idea for a tutorial you'd like to develop, contact the tutorial team, Matt Abrams, Melori Arellano, and Eve Meelan, for guidance.
+
 ## Tutorial structure
 
 A tutorial topic includes the following elements:

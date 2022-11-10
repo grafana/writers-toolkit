@@ -46,13 +46,20 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 
 ## Bold and emphasis
 
-- Make text **bold** using two asterisks. For example:
+- To make text **bold**, surround the text with `**two asterisks**`. For example:
 
   > **Note:** It is important to use GitHub-flavored Markdown emojis consistently.
 
-- To emphasize text, use single ` _underscores_`. Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
+- To emphasize text, surround the text with `_single underscores_`̣.
+Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
 
-  **For example:** The distributor only passes _valid_ data to the ingesters.
+```markdown
+**Note:** The distributor only passes _valid_ data to the ingesters.
+```
+
+Displays as:
+
+**Note:** The distributor only passes _valid_ data to the ingesters.
 
 ## Links and references
 
@@ -60,15 +67,21 @@ For information about creating links between topics inside and outside of a Graf
 
 If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
 
-\[Link text to display](https://website.com)
+```markdown
+[Link text to display](https://example.com)
+```
 
-**Example:** For more information about including emojis in GitHub-flavored markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/). 
+**Example:** For more information about including emojis in GitHub-flavored Markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/). 
 
 ## Block quotes
 
 Include block quotes within text by using a right-angle bracket:
 
-**Example**:
+```markdown
+> This text is in block quotes.
+```
+
+**Example:**
 
 > Any important information about emojis
 > can be separated into a blockquote.
@@ -93,13 +106,13 @@ Construct a table by separating the table headings by a `|` (pipe) character. Th
 
 **Example**:
 
-Heading one | Heading two
+```markdown
+| Heading one   | Heading two   |
+| ------------  | ------------  |
+| Cell one data | Cell two data |
+```
 
-\------------|------------
-
-Cell one data| Cell two data
-
-Displays as follows:
+When rendered, the preceding table displays as follows:
 
 | Heading one   | Heading two   |
 | ------------- | ------------- |
@@ -109,9 +122,11 @@ Displays as follows:
 
 Use repetitive list numbering, to avoid inconsistent list numbering:
 
+```markdown
 1. First
 1. Second
 1. Third
+```
 
 The preceding list displays as:
 
@@ -121,31 +136,31 @@ The preceding list displays as:
 
 ## Unordered lists
 
-Build a list of unordered points by using a hyphen (`-`):
+Build a list of unordered items by using a hyphen (`-`):
+
+```markdown
+- First item
+- Another item
+- The final list item
+```
+
+> **Note:** Use unordered lists whenever the items have no particular sequence.
+
+The preceding snippet displays as follows:
 
 - First item
 - Another item
 - The final list item
 
-> **Note:** If might be tempting to number a list because the verbiage that precedes it includes a number.
-> Remember that if list items do not need to be performed in a particular order, use an unordered list.
-
-**Example:**
-
-There are three ways to ingest data:
-- First way
-- Second way
-- Third way
-
 ## Images
 
 _Do not_ use image shortcodes at this time. Instead, include images in a document using the following syntax:
 
-```
+```markdown
 ![Alt text](link to image, starting with /static/img/docs/ if it is to an internal image "Title of image in sentence case")
 ```
 
-> **Note:** Alt(ernative) text does not appear when the user hovers their cursor over the image. The title text does.
+> **Note:** Alternative text (alt text) doesn't appear when the user hovers their cursor over the image. The title text does.
 
 **Examples:**
 
@@ -156,13 +171,46 @@ This follows the format `![alt text](URL)`.
 
 Within Markdown, HTML is valid and to be used sparingly:
 
-```
+```html
 <img src="example.png"
      alt="Example image"
      style="float: left; margin-right: 5px;" />
 ```
 
-In most cases, use Markdown syntax rather than HTML syntax. Only use the HTML if you need to change the image in ways that Markdown does not supported.
+In most cases, use Markdown syntax rather than HTML syntax. Only use HTML if you need to change the image in ways that Markdown does not support.
+
+## Description list
+
+The Markdown parser that Hugo uses, Goldmark, has built-in support for description lists.
+You can use description lists for terms and their definitions, or core concepts.
+The syntax is as follows:
+
+```markdown
+term
+: description_text
+```
+
+You can add more markup in a description list.
+For example, you can format the definition terms as bold text.
+
+```markdown
+Reasons you might want to write programs in Go include the following:
+
+**Fast compile times**
+: The Go compiler is fast!
+
+**Ecosystem**
+: Go tooling is excellent.
+
+```
+
+The preceding description list displays as follows:
+
+**Fast compile times**
+: The Go compiler is fast!
+
+**Ecosystem**
+: Go tooling is excellent.
 
 ## Comments
 
@@ -172,4 +220,5 @@ You can include comments that do not display in published output:
 
 ## Shortcodes
 
-Shortcodes are predefined templates that allow you to reuse snippets across the Grafana website. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
+Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
+

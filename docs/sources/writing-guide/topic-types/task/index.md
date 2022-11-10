@@ -31,7 +31,7 @@ A _task_ topic includes the following elements:
 - Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the task.
 - If there are no prerequisites, do not include this section.
 
-**Stem sentence:** The stem sentence introduces the steps. Use the following convention when you write a stem sentence.
+**Stem sentence:** The stem sentence introduces the steps. Use the following convention when you write a stem sentence:
 - To [name of task], follow these steps:
 - Example: To create a dashboard, follow these steps:
 

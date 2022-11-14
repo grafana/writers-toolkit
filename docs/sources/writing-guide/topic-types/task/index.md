@@ -35,6 +35,8 @@ A _task_ topic includes the following elements:
 - To [name of task], follow these steps:
 - Example: To create a dashboard, follow these steps:
 
+For more information about stem sentences, refer to [Procedures](https://developers.google.com/style/procedures) in the [Google developer documentation style guide](https://developers.google.com/style).
+
 **Steps:** Users are provided with a directive through numbered steps.
 
 - Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value_ or _Save and quit the program._

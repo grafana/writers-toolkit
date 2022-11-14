@@ -74,6 +74,8 @@ As a result, you should minimize the use of screenshots within your content.
 
 Consider using screenshots when you want to:
 
+-  Provide an example of a visualization
+-  Show panels populated with a query and settings
 -  Orient users in a complicated or long procedure
 -  Show complex relationships among drop-down menus, such as those that contain multiple subsets of information and many options available for selection
 -  Emphasize a new feature or a change in the UI
@@ -82,6 +84,8 @@ Consider using screenshots when you want to:
 
 *Do not* use screenshots for the following items:
 
+-  Simple create operations, such as create a user, a team, an organization, and so on
+-  Primary or secondary navigation items
 -  Code samples (show code samples in code blocks)
 -  Dialog boxes that are easy to understand
 -  Message text (instead show message text within the Markdown)

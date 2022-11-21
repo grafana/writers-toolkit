@@ -3,7 +3,7 @@ title: Image, diagram, and screenshot guidelines
 menuTitle: Image guidelines
 description: How to include images in your documentation.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/image-guidelines/
+  - /docs/writers-toolkit/latest/writing-guide/image-guidelines/
 weight: 750
 keywords:
   - image

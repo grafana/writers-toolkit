@@ -3,7 +3,7 @@ title: Backporting
 menuTitle: Backporting
 description: How and when to backport.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/backporting/
+  - /docs/writers-toolkit/latest/writing-guide/backporting/
 weight: 100
 keywords:
   - backporting

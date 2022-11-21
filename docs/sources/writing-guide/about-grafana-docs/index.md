@@ -3,7 +3,7 @@ title: Introduction to documentation
 menuTitle: Introduction to documentation
 description: Learn about Grafana's documentation
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/about-grafana-docs/
+  - /docs/writers-toolkit/latest/writing-guide/about-grafana-docs/
 weight: 100
 keywords:
   - Grafana

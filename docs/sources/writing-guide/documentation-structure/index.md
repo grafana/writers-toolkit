@@ -2,7 +2,7 @@
 title: Documentation structure
 description: How to organize concepts and tasks in the repository.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guidelines/documentation-structure/
+  - /docs/writers-toolkit/latest/writing-guide/documentation-structure/
 weight: 300
 menuTitle: Documentation structure
 keywords:

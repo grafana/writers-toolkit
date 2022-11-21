@@ -100,4 +100,4 @@ If getting access to the tutorial data is complex, include the instructions in t
 
 Refer to the following topic for a tutorial example:
 
-- [Monitor an app on Kubernetes using Grafana Agent](/docs/grafana-cloud/kubernetes-monitoring/how-to/k8s-monitor-app).
+- [Monitor an app on Kubernetes using Grafana Agent](/docs/grafana-cloud/kubernetes-monitoring/how-to/k8s-monitor-app/).

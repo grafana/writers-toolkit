@@ -126,7 +126,7 @@ General rules:
 - Use lowercase letters in filenames, always.
 - Use dashes between words; do not use spaces or underscores.
 - Do not type special characters or punctuation marks in a file name except for periods in product version numbers (for example, `grafana-9.2.release.png`.
-- Don’t use abbreviations that will cause issues with locationization.
+- Don’t use abbreviations that will cause issues with localization.
   - For example, spell out `database` instead of using `db`, but using an acronym, such as RBAC, is ok.
   - When in doubt, don’t use an abbreviation.
 <table>
@@ -142,9 +142,9 @@ General rules:
             <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description]-[version, if applicable].[file type] <br><br><b>Examples:</b><br>
 <ul><li>screenshot-grafana-loki-uptime-dashboard.jpg</li>
 <li>screenshot-grafana-mimir-data-flow-diagram.jpg</li>
-<li>Screenshot-grafana-9-kubernetes-dashboard.jpg (or)</li>
-<li>Screenshot-grafana-9.0-kubernetes-dashboard.jpg</li>
-<li>simple-scalable-test-environment-grafana-loki.png</li>
+<li>screenshot-grafana-9-kubernetes-dashboard.jpg (or)</li>
+<li>screenshot-grafana-9.0-kubernetes-dashboard.jpg</li>
+<li>screenshot-simple-scalable-test-environment-grafana-loki.png</li>
 </ul>
 </td>
         </tr>
@@ -165,7 +165,7 @@ General rules:
 <br><br>
             <b>Examples:</b>
 <ul><li>logo-prometheus-full-horizontal.svg</li>
-<li>Logo-grafana-loki-full-horizontal.svg</li>
+<li>logo-grafana-loki-full-horizontal.svg</li>
 </ul>
         </tr>
        <tr>
@@ -175,7 +175,7 @@ General rules:
             <b>Examples:</b>
 <ul><li>photo-raji-on-stage-grafanacon-keynote-2022.jpg</li>
 <li>photo-grafanacon-team-marketing.jpg</li>
-<li>Photo-headshot-mike-szczys.jpeg</li>
+<li>photo-headshot-mike-szczys.jpeg</li>
 </ul>
         </tr>
         <tr>

@@ -269,7 +269,7 @@ It is important that you generate a local build of your docs so that you can ver
 
 ## Videos
 
-The Create Services team sometimes creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo.
+The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo.
 
 You can embed a Vimeo-hosted video by using the `vimeo` short code and the video number:
 

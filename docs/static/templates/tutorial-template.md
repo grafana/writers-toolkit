@@ -100,7 +100,7 @@ To add context that is directly related to a step, or to add a code block, inden
         ```bash
         kubectl apply --namespace sample -f sample.yaml
         ```
-  1. To check that MinIO is correctly configured, sign in and verify that a bucket has been created.
+  1. To check that MinIO is correctly configured, sign in and verify that a bucket has been created:
   
      1.  Port-forward the service to port 9001:
          ```bash
@@ -110,7 +110,6 @@ To add context that is directly related to a step, or to add a code block, inden
      1. Verify that the Buckets page lists `sample-data`.
      
      Without these buckets, no data will be stored.
-
 
 ## Optional: Perform an optional task
 <!-- Optional: If a task is not required but provides additional features, you can mark that section as optional and describe when it should be completed. If this section is not needed, delete it.
@@ -135,6 +134,6 @@ To add context that is directly related to a step, or to add a code block, inden
 
 Consider completing some other common tasks using this feature:
 
-Task 1
-Task 2
-Task 3...
+* A task
+* Another task
+* Yet another task

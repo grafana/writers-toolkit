@@ -13,13 +13,13 @@ keywords:
 
 # Image, diagram, and screenshot guidelines
 
-At Grafana Labs, images are an essential part of helpful, clear, and concise content. 
+At Grafana Labs, images are an essential part of helpful, clear, and concise content.
 Follow the standards in this section when creating images for your documents.
 
 ## Image and diagram guidelines
 
-Images and diagrams can complement text, enabling readers to quickly grasp a concept and visualize complex processes in a simplified way. 
-For example, in Grafana blogs, pictures or diagrams can add visual interest and capture the reader's attention. 
+Images and diagrams can complement text, enabling readers to quickly grasp a concept and visualize complex processes in a simplified way.
+For example, in Grafana blogs, pictures or diagrams can add visual interest and capture the reader's attention.
 However, because translation services and tools for the visually impaired don't interpret or translate images well, avoid using images to replace text.
 
 ### When to use images and diagrams
@@ -38,17 +38,17 @@ Do *not* include images or diagrams when:
 
 Use the following standards for images and diagrams:
 
--  **Size**: To reduce page-load time, make images and diagrams as small as you can without compromising their usefulness. 
-Unless image clarity is critical to understanding, use 65-75 percent quality when saving your image. 
+-  **Size**: To reduce page-load time, make images and diagrams as small as you can without compromising their usefulness.
+Unless image clarity is critical to understanding, use 65-75 percent quality when saving your image.
 Use the following recommendations when you size images:
    -  Horizontal: maximum width 1200px
    -  Vertical: maximum height 900px
 
--  **Scope**: Limit the contents of an image to the relevant portion. 
+-  **Scope**: Limit the contents of an image to the relevant portion.
 Do not include distracting or unnecessary content and whitespace.
--  **Format**: Because they are lossless, **PNG** and **SVG** are the preferred image formats. 
-We do not recommend JPG images because they are lossy and might look blurry. 
--  **Copyright**: Determine if an image or diagram is protected by copyright. 
+-  **Format**: Because they are lossless, **PNG** and **SVG** are the preferred image formats.
+We do not recommend JPG images because they are lossy and might look blurry.
+-  **Copyright**: Determine if an image or diagram is protected by copyright.
 If it is, you must obtain permission and acknowledge credit.
 -  **File name**: Use the naming convention documented in [Image asset file naming conventions](#image-asset-file-naming-conventions).
 -  **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
@@ -59,15 +59,15 @@ To create diagrams, you need to access the recommended software and download the
 
 ### Request a diagram from Creative Services
 
-The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors. 
+The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors.
 Please contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
 
 ## Screenshot guidelines
 
-When you document a user interface, consider whether you need to include screenshots. 
-Screenshots can be helpful when text alone cannot adequately convey instructions. 
-Users also like screenshots and find them useful. 
-However, screenshots are difficult and time-consuming to maintain, and can present problems with translation. 
+When you document a user interface, consider whether you need to include screenshots.
+Screenshots can be helpful when text alone cannot adequately convey instructions.
+Users also like screenshots and find them useful.
+However, screenshots are difficult and time-consuming to maintain, and can present problems with translation.
 As a result, you should minimize the use of screenshots within your content.
 
 ### When to use screenshots
@@ -79,7 +79,7 @@ Consider using screenshots when you want to:
 -  Orient users in a complicated or long procedure
 -  Show complex relationships among drop-down menus, such as those that contain multiple subsets of information and many options available for selection
 -  Emphasize a new feature or a change in the UI
- 
+
 ### When not to use screenshots
 
 *Do not* use screenshots for the following items:
@@ -96,16 +96,16 @@ Consider using screenshots when you want to:
 
 ### Screenshot alternatives
 
-Only add screenshots to your documentation when necessary. 
-Instead of providing screenshots, you can consider being explicit about the user interface elements with which the user interacts. 
-Add the names of buttons, navigation items, toggles, menus, and so on as they appear on the user interface. 
+Only add screenshots to your documentation when necessary.
+Instead of providing screenshots, you can consider being explicit about the user interface elements with which the user interacts.
+Add the names of buttons, navigation items, toggles, menus, and so on as they appear on the user interface.
 For example, do not include a screenshot to illustrate simple instructions like, "To add a dashboard, click **Dashboard > New Dashboard**”.
 
 ### Screenshots in tasks
 
-Place a screenshot below the step that it illustrates. 
-Do not rely on the screenshot to convey the information or values that the user must enter. 
-If the user must enter specific information, provide that information in the text of the steps. 
+Place a screenshot below the step that it illustrates.
+Do not rely on the screenshot to convey the information or values that the user must enter.
+If the user must enter specific information, provide that information in the text of the steps.
 However, ensure that the screenshot accurately reflects the directions and values in the step text.
 
 ### Screenshot guidelines
@@ -193,10 +193,10 @@ General rules:
 
 - Linux: Use [gimp](https://www.gimp.org/)
 - macOS: Use [Snagit](https://www.techsmith.com/screen-capture.html)
-- Windows: TBD.
+- Windows: Use [Snagit](https://www.techsmith.com/screen-capture.html)
 
 ## Where to store image files
-All visual asset images are stored in the [Grafana website repository](https://github.com/grafana/website/tree/master/static/static/img/docs), which is a private repo only accessible to Grafana Labs employees. 
+All visual asset images are stored in the [Grafana website repository](https://github.com/grafana/website/tree/master/static/static/img/docs), which is a private repo only accessible to Grafana Labs employees.
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
 > **Note:** Do not store images in the local repository, as it prohibits re-use of the asset for blogs or landing pages.
@@ -255,13 +255,28 @@ It is important that you generate a local build of your docs so that you can ver
 
    Store image files in the following website repo directory: `static/static/img/docs`. If a relevant sub-directory doesn't exist, you can create it.
 
-1. After the Website team merges the image PR into the website repo, add the following figure shortcode to your docs: 
+1. After the Website team merges the image PR into the website repo, add the following figure shortcode to your docs:
 
    `{{</* figure src="[path to the image in the website repo]" */>}}`
-   
+
    **Example:**
-   - Path to image stored in the website repo: `static/static/img/docs/grafana-cloud/k8s-node-capacity.png` 
+   - Path to image stored in the website repo: `static/static/img/docs/grafana-cloud/k8s-node-capacity.png`
    - Corresponding shortcode: `{{</* figure src="/static/img/docs/grafana-cloud/k8s-node-capacity.png" */>}}`.
 
 1. Run `make docs` on your branch and verify that the image appears.
 1. (Optional) Make adjustments to the image in the website repo and test again.
+
+
+## Videos
+
+The Create Services team sometimes creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo.
+
+You can embed a Vimeo-hosted video by using the `vimeo` short code and the video number:
+
+```
+{{< vimeo 773194063 >}}
+```
+
+In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`
+
+The video number at the end of the URL.

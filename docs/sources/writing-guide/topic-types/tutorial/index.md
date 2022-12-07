@@ -100,13 +100,21 @@ If getting access to the tutorial data is complex, include the instructions in t
 
 Your tutorial source is stored in your project repo in a `tutorials` folder and mounted to the tutorials repo so that it can be displayed on the [Tutorials](/tutorials) page. The source is stored in your project repo to make it easy for team members to review and edit the content. 
 
-Follow the steps below to hide the tutorial from your project's table of contents and to display it on the Tutorials page. 
+The following sections describe how to hide the tutorial from your project's table of contents and to display it on the Tutorials page. 
 
 ### Hide your tutorial from your Table of Contents
 
-Before completing these steps, you must create a `tutorials` directory under `sources` and add your tutorial into its own subdirectory as described in the [Write a tutorial topic](#write-a-tutorial-topic) section.
+Tutorials are for learning, so it's best to keep them together on the Tutorials page, accessible directly from the Grafana website's **Learn** menu. As such, you need to hide the tutorial so that it doesn't appear in your project's table of contents.
 
-- Hide your tutorial from your documentation table of contents by integrating the following to the `$.cascade` field in the YAML metadata of your `sources/_index.md` file. 
+#### Before you begin
+
+Before completing these steps, you need to create a `tutorials` directory under `sources` and add your tutorial into its own subdirectory as described in the [Write a tutorial topic](#write-a-tutorial-topic) section.
+
+To hide your tutorial from your documentation's table of contents:
+
+1. Open your project's `sources/_index.md` file.
+
+1. Add the following code to the `$.cascade` field in the YAML metadata. 
 
     ```yaml
     cascade:
@@ -119,15 +127,15 @@ Before completing these steps, you must create a `tutorials` directory under `so
         path: /docs/grafana-cloud/**
     ```
 
-    > Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
+    > **Note**: Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
 
 ### Add your tutorial to the Tutorials page
 
-> Note: This procedure is for writers who have permissions to update the Grafana website repo.
+> **Note**: This procedure is for writers who have permissions to update the Grafana website repo.
 
 To add your tutorial to the Tutorials page:
 
-1. Integrate the following to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
+1. Add the following code to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
 
     ```yaml
     manual_mounts:
@@ -135,9 +143,9 @@ To add your tutorial to the Tutorials page:
         target: content/tutorials/k8s-monitoring-app
     ```
 
-    > Create the `manual_mounts` field if it does not exist. Substitute the source and target with your tutorial's path and name.
+    > **Note**: Create the `manual_mounts` field if it does not exist. Substitute the source and target with your tutorial's path and name.
 
-1. Specify the level and type of your tutorial (substitute the target path of your tutorial):
+1. Add the following code to the `list` field in the `data/tutorials.yaml` file in the website repo:
 
    ```yaml
    list:
@@ -145,6 +153,7 @@ To add your tutorial to the Tutorials page:
        level: beginner
        type: tutorial
    ```
+    > **Note**: Create the `list` field if it does not exist. Substitute the path to your tutorial for `page` and specify the `level` and `technology` for your tutorial. These values are used to filter the Tutorials page.
 
 1. After peer reviews, merge your PR and test that your tutorial displays correctly on the Tutorials page.
     

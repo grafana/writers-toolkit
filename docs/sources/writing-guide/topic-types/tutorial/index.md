@@ -54,7 +54,7 @@ To write a tutorial, complete these steps:
 
 1. Add a `sources/tutorials` directory to your project repo if one does not yet exist.
 
-    The tutorial is stored in your repo but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [where to locate your tutorial](#where-to-locate-your-tutorial) for details.
+    The tutorial is stored in your repo but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [Publish your tutorial](#publish-your-tutorial) for details.
 
 1. Create a child directory within the `tutorials` directory that follows this naming convention:
    
@@ -96,19 +96,17 @@ For example, the [Play with Grafana Mimir](/tutorials/play-with-grafana-mimir/) 
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 
-## Where to locate your tutorial
+## Publish your tutorial
 
-The source for your tutorial should be in your project repo in a `tutorials` folder but it should be displayed on the main Grafana [Tutorials](/tutorials) page.  The source must be in your project repo to makes it easy for team members to review and edit the content. 
+Your tutorial source is stored in your project repo in a `tutorials` folder and mounted to the tutorials repo so that it can be displayed on the [Tutorials](/tutorials) page. The source is stored in your project repo to make it easy for team members to review and edit the content. 
 
-Follow the steps below to hide the tutorial from your documentation's table of contents and display it on the Tutorials page.
+Follow the steps below to hide the tutorial from your project's table of contents and to display it on the Tutorials page. 
 
-> Note: This procedure is for writers who have permissions to update the Grafana website repo.
+### Hide your tutorial from your Table of Contents
 
-To publish your tutorial to the main Tutorials page:
+Before completing these steps, you must create a `tutorials` directory under `sources` and add your tutorial into its own subdirectory as described in the [Write a tutorial topic](#write-a-tutorial-topic) section.
 
-1. In your documentation repo, create a folder under `sources` called `tutorials` and add your tutorial to this folder.
-
-1. To hide your tutorial from your documentation table of contents, integrate the following to the `$.cascade` field in the YAML metadata of your `sources/_index.md` file. 
+- Hide your tutorial from your documentation table of contents by integrating the following to the `$.cascade` field in the YAML metadata of your `sources/_index.md` file. 
 
     ```yaml
     cascade:
@@ -123,7 +121,13 @@ To publish your tutorial to the main Tutorials page:
 
     > Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
 
-1. To add your tutorial to the Tutorials page, integrate the following to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
+### Add your tutorial to the Tutorials page
+
+> Note: This procedure is for writers who have permissions to update the Grafana website repo.
+
+To add your tutorial to the Tutorials page:
+
+1. Integrate the following to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
 
     ```yaml
     manual_mounts:
@@ -142,7 +146,7 @@ To publish your tutorial to the main Tutorials page:
        type: tutorial
    ```
 
-1. Merge and test your PRs.
+1. After peer reviews, merge your PR and test that your tutorial displays correctly on the Tutorials page.
     
 ## Tutorial topic example
 

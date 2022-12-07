@@ -102,7 +102,7 @@ Your tutorial source is stored in your project repo in a `tutorials` folder and 
 
 The following sections describe how to hide the tutorial from your project's table of contents and to display it on the Tutorials page. 
 
-### Hide your tutorial from your Table of Contents
+### Hide your tutorial from your table of contents
 
 Tutorials are for learning, so it's best to keep them together on the Tutorials page, accessible directly from the Grafana website's **Learn** menu. As such, you need to hide the tutorial so that it doesn't appear in your project's table of contents.
 
@@ -153,12 +153,13 @@ To add your tutorial to the Tutorials page:
        level: beginner
        type: tutorial
    ```
-    > **Note**: Create the `list` field if it does not exist. Substitute the path to your tutorial for `page` and specify the `level` and `technology` for your tutorial. These values are used to filter the Tutorials page.
+    > **Note**: Create the `list` field if it does not exist. Substitute the path to your tutorial for `page` and specify the `level` for your tutorial. The `level` and `type` fields are used to filter the Tutorials page.
 
 1. After peer reviews, merge your PR and test that your tutorial displays correctly on the Tutorials page.
     
 ## Tutorial topic example
 
-Refer to the following topic for a tutorial example:
+Refer to the following for tutorial examples:
 
-- [Monitor an app on Kubernetes using Grafana Agent](/docs/grafana-cloud/kubernetes-monitoring/how-to/k8s-monitor-app/).
+- [Tutorials page](/tutorials)
+- [Tutorial example (Monitor an app using Kubernetes Monitoring)](/tutorials/k8s-monitoring-app/)

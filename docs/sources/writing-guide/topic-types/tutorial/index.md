@@ -96,6 +96,49 @@ For example, the [Play with Grafana Mimir](/tutorials/play-with-grafana-mimir/) 
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 
+## Where to locate your tutorial
+
+Sometimes it makes sense to publish your tutorial directly within the documentation for your product or feature. If you want higher visibility for your tutorial, you can add it to the main Grafana [Tutorials](/tutorials) page. Even though you're displaying your tutorial on the Tutorials page, you need to add your tutorial source to your team's repo to make it easy for team members to review the content. 
+
+Follow the steps below to hide the tutorial from your documentation's table of contents and display it on the Tutorials page.
+
+> Note: This procedure is for writers who have permissions to update the Grafana website repo.
+
+To publish your tutorial to the main Tutorials page:
+
+1. In your documentation repo, create a folder under `sources` called `tutorials` and add your tutorial to this folder.
+
+2. To hide your tutorial from your documentation table of contents, add the following to the metadata of your `sources/_index.md` file (replace your repo for `grafana-cloud`):
+
+    ```
+    cascade:
+    - _target:
+        path: /docs/grafana-cloud/tutorials/**
+      _build:
+        list: false
+        render: false
+    - _target:
+        path: /docs/grafana-cloud/**
+    ```
+
+3. To add your tutorial to the Tutorials page, add the following to the `config/_default/config.yaml` file in the website repo (substitute the source and target with your tutorial's path and name):
+    ```
+    manual_mounts:
+      - source: content/docs/grafana-cloud/tutorials/k8s-monitoring-app
+        target: content/tutorials/k8s-monitoring-app
+    ```
+
+4. Specify the level and type of your tutorial (substitute the target path of your tutorial):
+
+   ```
+   list:
+     - page: /tutorials/k8s-monitoring-app/
+       level: beginner
+       type: tutorial
+   ```
+
+5. Merge and test your PRs.
+    
 ## Tutorial topic example
 
 Refer to the following topic for a tutorial example:

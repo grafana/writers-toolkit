@@ -52,11 +52,11 @@ A tutorial topic includes the following elements:
 
 To write a tutorial, complete these steps:
 
-1. Determine where you want to add a tutorial to the Grafana Labs product documentation.
+1. Add a `sources/tutorials` directory to your project repo if one does not yet exist.
 
-    You can include tutorials wherever they make sense in your documentation hierarchy. Some tutorials are included on the [Tutorials](/tutorials/) page, but you can add tutorials within your own repos, as well.  
+    The tutorial is stored in your repo but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [Publish your tutorial](#publish-your-tutorial) for details.
 
-1. Create a child directory within the parent directory that follows this naming convention:
+1. Create a child directory within the `tutorials` directory that follows this naming convention:
    
    - The directory name should include a verb and an object.
    - Use lowercase letters.
@@ -69,7 +69,7 @@ To write a tutorial, complete these steps:
 <br>
 <br>
 
-1. Create an `index.md` file within the task directory.
+1. Create an `index.md` file within the tutorial's directory.
 1. Add front matter to the `index` file.
 
    For more information about front matter, refer to [Front matter]({{< relref "../../front-matter" >}}).
@@ -96,8 +96,70 @@ For example, the [Play with Grafana Mimir](/tutorials/play-with-grafana-mimir/) 
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 
+## Publish your tutorial
+
+Your tutorial source is stored in your project repo in a `tutorials` folder and mounted to the tutorials repo so that it can be displayed on the [Tutorials](/tutorials) page. The source is stored in your project repo to make it easy for team members to review and edit the content. 
+
+The following sections describe how to hide the tutorial from your project's table of contents and to display it on the Tutorials page. 
+
+### Hide your tutorial from your table of contents
+
+Tutorials are for learning, so it's best to keep them together on the Tutorials page, accessible directly from the Grafana website's **Learn** menu. As such, you need to hide the tutorial so that it doesn't appear in your project's table of contents.
+
+#### Before you begin
+
+Before completing these steps, you need to create a `tutorials` directory under `sources` and add your tutorial into its own subdirectory as described in the [Write a tutorial topic](#write-a-tutorial-topic) section.
+
+To hide your tutorial from your documentation's table of contents:
+
+1. Open your project's `sources/_index.md` file.
+
+1. Add the following code to the `$.cascade` field in the YAML metadata. 
+
+    ```yaml
+    cascade:
+    - _target:
+        path: /docs/grafana-cloud/tutorials/**
+      _build:
+        list: false
+        render: false
+    - _target:
+        path: /docs/grafana-cloud/**
+    ```
+
+    > **Note**: Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
+
+### Add your tutorial to the Tutorials page
+
+> **Note**: This procedure is for writers who have permissions to update the Grafana website repo.
+
+To add your tutorial to the Tutorials page:
+
+1. Add the following code to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
+
+    ```yaml
+    manual_mounts:
+      - source: content/docs/grafana-cloud/tutorials/k8s-monitoring-app
+        target: content/tutorials/k8s-monitoring-app
+    ```
+
+    > **Note**: Create the `manual_mounts` field if it does not exist. Substitute the source and target with your tutorial's path and name.
+
+1. Add the following code to the `list` field in the `data/tutorials.yaml` file in the website repo:
+
+   ```yaml
+   list:
+     - page: /tutorials/k8s-monitoring-app/
+       level: beginner
+       type: tutorial
+   ```
+    > **Note**: Create the `list` field if it does not exist. Substitute the path to your tutorial for `page` and specify the `level` for your tutorial. The `level` and `type` fields are used to filter the Tutorials page.
+
+1. After peer reviews, merge your PR and test that your tutorial displays correctly on the Tutorials page.
+    
 ## Tutorial topic example
 
-Refer to the following topic for a tutorial example:
+Refer to the following for tutorial examples:
 
-- [Monitor an app on Kubernetes using Grafana Agent](/docs/grafana-cloud/kubernetes-monitoring/how-to/k8s-monitor-app/).
+- [Tutorials page](/tutorials)
+- [Tutorial example (Monitor an app using Kubernetes Monitoring)](/tutorials/k8s-monitoring-app/)

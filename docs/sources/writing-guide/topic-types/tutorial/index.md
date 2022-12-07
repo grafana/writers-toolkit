@@ -52,11 +52,11 @@ A tutorial topic includes the following elements:
 
 To write a tutorial, complete these steps:
 
-1. Determine where you want to add a tutorial to the Grafana Labs product documentation.
+1. Add a `sources/tutorials` directory to your project repo if one does not yet exist.
 
-    You can include tutorials wherever they make sense in your documentation hierarchy. Some tutorials are included on the [Tutorials](/tutorials/) page, but you can add tutorials within your own repos, as well.  
+    The tutorial is stored in your repo but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [where to locate your tutorial](#where-to-locate-your-tutorial) for details.
 
-1. Create a child directory within the parent directory that follows this naming convention:
+1. Create a child directory within the `tutorials` directory that follows this naming convention:
    
    - The directory name should include a verb and an object.
    - Use lowercase letters.
@@ -69,7 +69,7 @@ To write a tutorial, complete these steps:
 <br>
 <br>
 
-1. Create an `index.md` file within the task directory.
+1. Create an `index.md` file within the tutorial's directory.
 1. Add front matter to the `index` file.
 
    For more information about front matter, refer to [Front matter]({{< relref "../../front-matter" >}}).
@@ -98,7 +98,7 @@ If getting access to the tutorial data is complex, include the instructions in t
 
 ## Where to locate your tutorial
 
-Sometimes it makes sense to publish your tutorial directly within the documentation for your product or feature. If you want higher visibility for your tutorial, you can add it to the main Grafana [Tutorials](/tutorials) page. Even though you're displaying your tutorial on the Tutorials page, you need to add your tutorial source to your team's repo to make it easy for team members to review the content. 
+The source for your tutorial should be in your project repo in a `tutorials` folder but it should be displayed on the main Grafana [Tutorials](/tutorials) page.  The source must be in your project repo to makes it easy for team members to review and edit the content. 
 
 Follow the steps below to hide the tutorial from your documentation's table of contents and display it on the Tutorials page.
 
@@ -108,9 +108,9 @@ To publish your tutorial to the main Tutorials page:
 
 1. In your documentation repo, create a folder under `sources` called `tutorials` and add your tutorial to this folder.
 
-2. To hide your tutorial from your documentation table of contents, add the following to the metadata of your `sources/_index.md` file (replace your repo for `grafana-cloud`):
+1. To hide your tutorial from your documentation table of contents, integrate the following to the `$.cascade` field in the YAML metadata of your `sources/_index.md` file. 
 
-    ```
+    ```yaml
     cascade:
     - _target:
         path: /docs/grafana-cloud/tutorials/**
@@ -121,23 +121,28 @@ To publish your tutorial to the main Tutorials page:
         path: /docs/grafana-cloud/**
     ```
 
-3. To add your tutorial to the Tutorials page, add the following to the `config/_default/config.yaml` file in the website repo (substitute the source and target with your tutorial's path and name):
-    ```
+    > Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
+
+1. To add your tutorial to the Tutorials page, integrate the following to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
+
+    ```yaml
     manual_mounts:
       - source: content/docs/grafana-cloud/tutorials/k8s-monitoring-app
         target: content/tutorials/k8s-monitoring-app
     ```
 
-4. Specify the level and type of your tutorial (substitute the target path of your tutorial):
+    > Create the `manual_mounts` field if it does not exist. Substitute the source and target with your tutorial's path and name.
 
-   ```
+1. Specify the level and type of your tutorial (substitute the target path of your tutorial):
+
+   ```yaml
    list:
      - page: /tutorials/k8s-monitoring-app/
        level: beginner
        type: tutorial
    ```
 
-5. Merge and test your PRs.
+1. Merge and test your PRs.
     
 ## Tutorial topic example
 

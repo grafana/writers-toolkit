@@ -12,7 +12,7 @@ keywords:
 
 # Front matter
 
-Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the LH sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
+Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the lefthand sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
 
 We use YAML for all front matter.
 

@@ -139,18 +139,18 @@ The preceding list displays as:
 Build a list of unordered items by using a hyphen (`-`):
 
 ```markdown
-- First item
+- One item
 - Another item
-- The final list item
+- And another list item
 ```
 
 > **Note:** Use unordered lists whenever the items have no particular sequence.
 
 The preceding snippet displays as follows:
 
-- First item
+- One item
 - Another item
-- The final list item
+- And another list item
 
 ## Images
 

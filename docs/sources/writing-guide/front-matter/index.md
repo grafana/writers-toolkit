@@ -144,8 +144,11 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 ## Guideline
 
-To allow content to be easily moved, include an `aliases` entry that refers to the initial published website directory.
+For unversioned projects, to allow content to be easily moved, include an `aliases` entry that refers to the initial published website directory.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
 
 > **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
 > For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
+
+For versioned projects, do not include an `aliases` entry that refers to the initial published website directory as the version in the URL path can cause undesirable redirects.
+For example, a redirect from latest content to an old version.

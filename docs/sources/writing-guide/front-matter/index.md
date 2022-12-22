@@ -32,6 +32,7 @@ Here’s a correctly built example:
     ---
 
 The following table describes each front matter element in detail.
+
 <table>
     <thead>
         <tr>
@@ -79,12 +80,12 @@ The following table describes each front matter element in detail.
 
 ## [Title] v [MenuTitle] example
 
-   ```
-   ---
-   title: About Grafana Mimir architecture
-   menuTitle: Architecture
-   ---
-   ```
+```
+---
+title: About Grafana Mimir architecture
+menuTitle: Architecture
+---
+```
 
 ## Description example
 
@@ -122,16 +123,16 @@ Assuming a `baseURL` of `grafana.com`, the auto-generated alias `.html` file fou
 <html>
   <head>
     <script>
-    const destination = 'https://grafana.com/intended-url/';
-    console.log(window.location.search)
-    document.head.innerHTML = `<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`;
+      const destination = "https://grafana.com/intended-url/";
+      console.log(window.location.search);
+      document.head.innerHTML = `<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`;
     </script>
     <title>https://grafana.com/intended-url/</title>
-    <link rel="canonical" href="https://grafana.com/intended-url/"/>
-    <meta name="robots" content="noindex">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="canonical" href="https://grafana.com/intended-url/" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <noscript>
-      <meta http-equiv="refresh" content="0; url={{ safeURL .Permalink }}"/>
+      <meta http-equiv="refresh" content="0; url={{ safeURL .Permalink }}" />
     </noscript>
   </head>
 </html>

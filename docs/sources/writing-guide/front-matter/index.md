@@ -143,7 +143,7 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 > **Note:** The redirect relies on first party JavaScript support which is common but not necessarily universal.
 
-## Guideline
+## Guidelines
 
 For unversioned projects, to allow content to be easily moved, include an `aliases` entry that refers to the initial published website directory.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.

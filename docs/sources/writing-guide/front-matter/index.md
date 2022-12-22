@@ -147,7 +147,8 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 ### Unversioned projects:
 
-Include an `aliases` entry that refers to the initial published website directory. Adding an `aliases` entry makes it easier to move content around.
+Include an `aliases` entry that refers to the initial published website directory.
+Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
 
 > **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.

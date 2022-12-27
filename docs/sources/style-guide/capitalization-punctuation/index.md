@@ -60,4 +60,4 @@ Refer to the following punctuation guidelines when you write technical content.
   - Exception: If the UI uses an ampersand, match the UI.
 - At the end of a paragraph, remove extra space characters.
 - Use bold to indicate paths within a web application, and greater-than symbols (>) to indicate path separators.
-  - Example: “To add an administrator to the list of local users, navigate to **Appliance > Configuration > Access.**”
+  - Example: “To add an administrator to the list of local users, navigate to **Appliance** > **Configuration** > **Access**.”

@@ -32,6 +32,7 @@ Here’s a correctly built example:
     ---
 
 The following table describes each front matter element in detail.
+
 <table>
     <thead>
         <tr>
@@ -79,12 +80,12 @@ The following table describes each front matter element in detail.
 
 ## [Title] v [MenuTitle] example
 
-   ```
-   ---
-   title: About Grafana Mimir architecture
-   menuTitle: Architecture
-   ---
-   ```
+```
+---
+title: About Grafana Mimir architecture
+menuTitle: Architecture
+---
+```
 
 ## Description example
 
@@ -122,16 +123,16 @@ Assuming a `baseURL` of `grafana.com`, the auto-generated alias `.html` file fou
 <html>
   <head>
     <script>
-    const destination = 'https://grafana.com/intended-url/';
-    console.log(window.location.search)
-    document.head.innerHTML = `<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`;
+      const destination = "https://grafana.com/intended-url/";
+      console.log(window.location.search);
+      document.head.innerHTML = `<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`;
     </script>
     <title>https://grafana.com/intended-url/</title>
-    <link rel="canonical" href="https://grafana.com/intended-url/"/>
-    <meta name="robots" content="noindex">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="canonical" href="https://grafana.com/intended-url/" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <noscript>
-      <meta http-equiv="refresh" content="0; url={{ safeURL .Permalink }}"/>
+      <meta http-equiv="refresh" content="0; url={{ safeURL .Permalink }}" />
     </noscript>
   </head>
 </html>
@@ -142,10 +143,17 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 > **Note:** The redirect relies on first party JavaScript support which is common but not necessarily universal.
 
-## Guideline
+## Guidelines
 
-To allow content to be easily moved, include an `aliases` entry that refers to the initial published website directory.
+### Unversioned projects:
+
+Include an `aliases` entry that refers to the initial published website directory.
+Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
 
 > **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
 > For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
+
+### Versioned projects:
+
+Do not include an `aliases` entry that refers to the initial published website directory. The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.

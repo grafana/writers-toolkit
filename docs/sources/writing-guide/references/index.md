@@ -98,7 +98,7 @@ To convert a heading to an anchor, Hugo makes the following changes:
 
 ## Troubleshooting
 
-Start by checking if you are using quotes. `{{< relref "schemas.md#storage-schemas" >}}` passes the build, but `{{< relref schemas.md#storage-schemas >}}` does not.
+Start by checking if you are missing quotes: `{{< relref "schemas.md#storage-schemas" >}}` passes the build, but `{{< relref schemas.md#storage-schemas >}}` does not.
 
 ### Links generated from references point to their own page/self-reference
 

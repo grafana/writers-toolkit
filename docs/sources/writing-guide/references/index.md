@@ -98,6 +98,8 @@ To convert a heading to an anchor, Hugo makes the following changes:
 
 ## Troubleshooting
 
+Start by checking if you are missing quotes: `"schemas.md#storage-schemas"` passes the build, but `schemas.md#storage-schemas` (without quotes) does not.
+
 ### Links generated from references point to their own page/self-reference
 
 Hugo generates HTML link tags for properly formatted but incorrectly addressed references, such as those targeting a document Hugo can't resolve.

@@ -27,3 +27,120 @@ Be conversational but don't use the voice you use when texting a friend.
 | **Use** | **Don't use** |
 |---|---|
 | Welcome! We’ll guide you through the process of creating your SLOs. | Here is a guide to set up SLOs. |
+
+### Be clear and concise 
+
+The more words you use, the more time you waste. 
+- Communicate only essential details. 
+- Take time to edit what you write to make every word count.
+
+| **Use** | **Don't use** |
+|---|---|
+| Save changes | Would you like to save your changes? |
+
+### Address users in second person
+
+Use "you" or "your" as though the UI is speaking to the users. Don't use "please," though.
+
+
+| **Use** | **Don't use** |
+|---|---|
+| Set the target for your SLO. | The target can be set for an SLO. |
+| Refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. | Please refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. |
+
+### Use active voice
+
+Use active voice to make clear who is performing the action.
+
+| **Use** | **Don't use** |
+|---|---|
+| The server receives the query. | The query is received by the server. |
+
+Use sentence case in UI elements
+Capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns.
+
+| **Use** | **Don't use** |
+|---|---|
+| Create and manage dashboards to visualize your data. | Create and Manage Dashboards to Visualize Your Data. |
+
+### Avoid words created for UI features
+
+Avoid using UI terms when possible.
+
+| **Use** | **Don't use** |
+|---|---|
+| In your Grafana Cloud stack, click **Connections**. | In your Grafana Cloud stack, click the **Connections** button. |
+
+ 
+### Use numerals
+
+The guideline for writing numbers in most mediums is to spell out the numbers one through nine. When writing UI text, it's best to use numerals (1 - 9) because they're easier to parse.
+
+| **Use** | **Don't use** |
+|---|---|
+| You have 3 messages. | You have three messages. |
+
+### Skip unnecessary punctuation
+
+Avoid using periods for single sentences in UI elements. Use periods for multiple sentences. Do not use colons after labels.
+
+| **Use** | **Don't use** |
+|---|---|
+| Search by data source | Search by data source. |
+| Search by label | Search by label: |
+| Metrics, Logs, and Traces are billed based on ingestion. For Metrics, we bill based on the number of active series using the 95th percentile during the period. | Metrics, Logs, and Traces are billed based on ingestion <p> </p> For Metrics, we bill based on the number of active series using the 95th percentile during the period |
+
+
+
+
+### Write scannable descriptive text
+
+Long blocks of descriptive text decrease readability. Write important information first and use short, bulleted lists. Use [headings] to divide content. 
+
+| **Use** | **Don't use** |
+|---|---|
+| Before you begin, make sure you have: <ul><li>The kubectl command-line tool. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul> | Before you begin, make sure you have the kubectl command-line tool available on your local machine. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation. |
+
+## Write text for UI elements
+
+The following sections provide writing guidelines for common UI elements:
+
+- Buttons
+- Input fields and validation
+- Errors
+- Alert modals
+- Confirm modals
+- Tooltips
+- Headings
+- Links
+
+If you'd like us to add a UI element, see the template at the bottom of this topic.
+
+### Buttons
+
+Use buttons when you want users to take actions, such as adding or creating new records or types of information in an existing system.  
+
+- Start button labels with a verb.
+- Aim for using one to two words, with a maximum of four words.
+- Make button labels descriptive, and tell the user what action will occur if they click it. Rather than using **OK** or **Cancel**, be specific. For example, use **Save** / **Don't save** rather than **Save** / **Cancel**.
+- Use sentence case without punctuation.
+
+#### Common use cases for buttons
+
+| Button | When to use it | Examples |
+|---|---|---|
+| Create | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch. | **Create** <p></p> **Create incident** <p></p> **Create entry** |
+| Add | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating. | **Add details** <p></p> **Add contact** |
+| Save | Save something to a server. | **Save** <p></p> **Save and exit** <p></p> **Save changes** |
+| Edit | Change or update something that already exists. This doesn’t affect the server until the user saves. | **Edit** |
+| Preview | Preview a runtime version of whatever you are working on. This action doesn’t take you away from or override the page you’re already on. | **Preview** |
+| Cancel | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled.   | **Cancel** |
+| Close | Close a window. | **Close** |
+| Delete | Permanently delete something from the server. This usually prompts a confirmation modal, asking you to confirm your decision. | **Delete notification policy** <p></p> Deleting this notification policy will permanently remove it. Are you sure you want to delete this policy? <p></p>**Yes, delete** |
+| Remove  | Remove an item from a list. | **Remove** |
+
+Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/buttons-button--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/buttons-button--basic).
+
+
+
+

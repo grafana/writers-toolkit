@@ -205,4 +205,76 @@ For error messages, provide actionable instructions to help users complete their
 |---|---|
 | Warning <p></p> You'll need additional permissions to perform this action. <p></p>  Permissions needed: `plugins:write` | Error <p></p> You'll need additional permissions to perform this action. |
 
+## Confirm modals
+
+Use confirm modals to request the user to confirm an action, for example, a deletion. Confirm modals interrupt the user in their flow and force them to deal with the action in the modal. Only use a modal if this interruption is a good thing, for example, when the cost of an error is high. 
+
+- Use affirmative actions with verbs in confirmation messages. Direct and actionable language encourages the user to take the next step. 
+- Be sure to also explain the impact and consequences of the options that the user can take. Like other UI elements, use sentence case, plain language, and active voice in the confirmation message title and details.
+
+| **Use** | **Don't use** |
+|---|---|
+| Use Google's location service?<p></p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running. | Are you sure? |
+
+Refer to the Grafana Storybook React component library for confirm modal [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/overlays-confirmmodal--alternative-action) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/overlays-confirmmodal--basic).
+
+# Tooltips
+
+Use tooltips to identify UI objects, such as icons. Users hover over a UI object to view a box with a description. 
+
+- Use tooltips for ancillary information since users only see the information if they hover over the object. 
+- Keep tooltips brief, with a maximum of 50 characters. 
+- Consider using tooltips for additional in-app documentation as in this example:
+    ![Warning alert](tooltip.png)
+
+Refer to the Grafana Storybook React component library for tooltip modal [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/overlays-tooltip--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/overlays-tooltip--basic).
+
+## Headings
+
+A heading gives structure to your UI elements. Use headings whenever you need to break your content down into hierarchical chunks, often in windows, dialog boxes, and wizards.
+
+- Headings are specific and meaningful and include the most relevant keywords and main points of the chunk, while staying short.
+- For headings, use [sentence case](https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings) without punctuation except for question marks when needed. Front-load your headings by putting the word people are looking for at the front of your headline.
+
+| **Use** | **Don't use** |
+|---|---|
+| Connect your data to Grafana Cloud |  Connect Your Data to Grafana Cloud |
+
+## Links
+
+If your product is complex, you might be unable to provide relevant details concisely in the UI text. In this case, you can provide links to documentation for details.  
+
+- Use links sparingly. Try first to write concise and complete UI text. If you include a link, make sure the referenced content will help the user with the task they are completing in the UI.  
+- Your link text should be descriptive, telling the user what content they will find upon clicking. Like headings, front-load the link text by putting the word people are looking for at the front of your link. 
+- Include the link either at the beginning or end of a sentence, not in the middle. Do not include preceding articles as part of the linked text.
+- For overview text, you can link to relevant overview documentation and Grafana University courses. 
+
+| **Use** |
+|---|
+| **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read more in the documentation >](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/) <p></p>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting) |
+
+## Additional elements
+
+The UI elements described here are not exhaustive. If you'd like specific types of UI elements added, let us know. Internal contributors can reach out on Slack and external contributors can reach us using our docs@grafana.com email.  
+
+Use the following template to provide input.
+
+### Template
+
+Use this template to add guidelines for UI elements. 
+
+**[UI element name]**
+
+Write an introduction about the element. Say what its intent or purpose is in an experience.
+
+Provide writing guidelines for the element.
+
+Provide links to usage and examples of the element in the [Grafana Storybook React component library](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-intro--page). 
+
+Provide examples of how to use and how not to use the element.
+
+| **Use** | **Don't use** |
+|---|---|
+| <p></p> |  <p></p> |
+
 

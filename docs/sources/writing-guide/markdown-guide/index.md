@@ -17,7 +17,7 @@ keywords:
 
 This Markdown guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown syntax, or a decision is made about how to apply Markdown.
 
-Grafana uses the default Hugo Markdown parser, Goldmark.
+Grafana uses the default Hugo Markdown parser named Goldmark.
 The flavor is compliant with CommonMark, with some extended features.
 
 **Write in sentence case** throughout all technical documentation, be it long-form text or microcopy within a UI:

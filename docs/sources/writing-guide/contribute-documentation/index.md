@@ -83,12 +83,16 @@ Prior to pushing your changes to Github, you can view a local build of the docum
 
 1. Install either Podman or Docker to manage containers on your system.
 
+    <!-- vale Grafana.Colons = NO -->
+
    > **Note:** Podman has the upside that containers can either be run as root or in rootless mode.
+
+    <!-- vale Grafana.Colons = YES -->
 
    - To install Podman, refer to [Podman Installation Instructions](https://podman.io/getting-started/installation).
    - To install Docker, refer to [Docker Engine installation overview](https://docs.docker.com/engine/install/).
 
-1. If you are using Docker, you will need to start the Docker daemon.
+1. If you are using Docker, start the Docker daemon if it is not already running.
 1. Navigate to the project "docs" directory, this is typically `docs`.
 1. Run `make docs`.
 1. Browse to `localhost:3002/docs/` to review your changes.

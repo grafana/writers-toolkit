@@ -24,9 +24,13 @@ Be conversational but don't use the voice you use when texting a friend.
 - Sound human and show empathy. We're here to help people complete their work and resolve issues. 
 - Refrain from using "please" in your UI text.
 
-| **Use** | **Don't use** |
-|---|---|
-| Welcome! We’ll guide you through the process of creating your SLOs. | Here is a guide to set up SLOs. |
+**Use:**
+
+> Welcome! We’ll guide you through the process of creating your SLOs.
+
+**Don't use:**
+
+> Here is a guide to set up SLOs.
 
 ### Be clear and concise 
 
@@ -34,72 +38,124 @@ The more words you use, the more time you waste.
 - Communicate only essential details. 
 - Take time to edit what you write to make every word count.
 
-| **Use** | **Don't use** |
-|---|---|
-| Save changes | Would you like to save your changes? |
+**Use:**
+
+> Save changes 
+
+**Don't use:**
+
+> Would you like to save your changes?
 
 ### Address users in second person
 
 Use "you" or "your" as though the UI is speaking to the users. Don't use "please," though.
 
+**Use:**
 
-| **Use** | **Don't use** |
-|---|---|
-| Set the target for your SLO. | The target can be set for an SLO. |
-| Refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. | Please refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. |
+> Set the target for your SLO.
+
+**Don't use:**
+
+> The target can be set for an SLO.
+
+**Use:**
+
+> Refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
+
+**Don't use:**
+
+> Please refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
 
 ### Use active voice
 
 Use active voice to make clear who is performing the action.
 
-| **Use** | **Don't use** |
-|---|---|
-| The server receives the query. | The query is received by the server. |
+**Use:**
 
-Use sentence case in UI elements
+> The server receives the query. 
+
+**Don't use:**
+
+> The query is received by the server.
+
+### Use sentence case in UI elements
+
 Capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns.
 
-| **Use** | **Don't use** |
-|---|---|
-| Create and manage dashboards to visualize your data. | Create and Manage Dashboards to Visualize Your Data. |
+**Use:**
+
+> Create and manage dashboards to visualize your data. 
+
+**Don't use:**
+
+> Create and Manage Dashboards to Visualize Your Data.
 
 ### Avoid words created for UI features
 
 Avoid using UI terms when possible.
 
-| **Use** | **Don't use** |
-|---|---|
-| In your Grafana Cloud stack, click **Connections**. | In your Grafana Cloud stack, click the **Connections** button. |
+**Use:**
 
+> In your Grafana Cloud stack, click **Connections**.  
+
+**Don't use:**
+
+> In your Grafana Cloud stack, click the **Connections** button.
  
 ### Use numerals
 
 The guideline for writing numbers in most mediums is to spell out the numbers one through nine. When writing UI text, it's best to use numerals (1 - 9) because they're easier to parse.
 
-| **Use** | **Don't use** |
-|---|---|
-| You have 3 messages. | You have three messages. |
+**Use:**
+
+> You have 3 messages.  
+
+**Don't use:**
+
+> You have three messages.
 
 ### Skip unnecessary punctuation
 
-Avoid using periods for single sentences in UI elements. Use periods for multiple sentences. Do not use colons after labels.
+Avoid using periods for single sentences in UI elements.
 
-| **Use** | **Don't use** |
-|---|---|
-| Search by data source | Search by data source. |
-| Search by label | Search by label: |
-| Metrics, Logs, and Traces are billed based on ingestion. For Metrics, we bill based on the number of active series using the 95th percentile during the period. | Metrics, Logs, and Traces are billed based on ingestion <p> </p> For Metrics, we bill based on the number of active series using the 95th percentile during the period |
+**Use:**
 
+> Search by data source
 
+**Don't use:**
 
+> Search by data source.
 
+Don't use colons after labels.
+
+**Use:**
+
+> Search by type
+
+**Don't use:**
+
+> Search by type:
+
+Use periods for multiple sentences.
+
+**Use:**
+
+> Metrics, Logs, and Traces are billed based on ingestion. For Metrics, we bill based on the number of active series using the 95th percentile during the period. 
+
+**Don't use:**
+
+> Metrics, Logs, and Traces are billed based on ingestion<p></p><p></p>For Metrics, we bill based on the number of active series using the 95th percentile during the period
 ### Write scannable descriptive text
 
-Long blocks of descriptive text decrease readability. Write important information first and use short, bulleted lists. Use [headings] to divide content. 
+Using long blocks of descriptive text reduces readability. Write important information first and use short, bulleted lists. Use [headings](#headings) to divide content.
 
-| **Use** | **Don't use** |
-|---|---|
-| Before you begin, make sure you have: <ul><li>The kubectl command-line tool. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul> | Before you begin, make sure you have the kubectl command-line tool available on your local machine. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation. |
+**Use:**
+
+> Before you begin, make sure you have:<ul><li>The kubectl command-line tool. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul>
+
+**Don't use:**
+
+> Before you begin, make sure you have the kubectl command-line tool available on your local machine. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation.
 
 ## Write text for UI elements
 
@@ -149,11 +205,13 @@ If you provide instructions for an input field, be clear about limitations, requ
 
 Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. 
 
-| **Use** | **Don't use** |
-|---|---|
-| SLO description <p></p> ______________________ <p></p>  This description appears in a panel next to your SLO status. | SLO description that appears in a panel next to your SLO status. <p></p> ______________________ |
+**Use:**
 
-Refer to the Grafana Design System for input field usage and an example. 
+> SLO description ______________________<p></p>This description appears in a panel next to your SLO status.
+
+**Don't use:**
+
+> SLO description that appears in a panel next to your SLO status. <p></p> ______________________
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-inlinefield--with-tooltip) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-inlinefield--basic).
 
@@ -163,14 +221,18 @@ Make errors visible to users, helpful, and easy to understand. Error messages te
 
 - The error headline includes a concise, meaningful summary of the error. Error details provide as much information as possible. 
 - Include reasons and instructions for fixing the issue, if possible. Don’t give just the system logs or error titles; try to state how the error was caused and what the user can do to fix it. Assume that some of your users might not understand crash logs and need a simpler description.
-- Write error messages for humans without blame. Don't use overdramatic wording, and avoid apologies. Give a no-nonsense summary of what went wrong and include the degree of severity, in understandable terms.
+- Write error messages for humans without blame. Don't use overdramatic wording or jargon, and avoid apologies. Give a no-nonsense summary of what went wrong and include the degree of severity, in understandable terms.
 - Like other UI elements, use sentence case, plain language, and active voice in both the  title and details. Do not use the term "invalid" in an error message. Instead use "not valid" if necessary.
 
 Refer also to [Alert modals](#alert-modals). 
 
-| **Use** | **Don't use** |
-|---|---|
-| Failed to evaluate queries and expressions: Add a query target to alert rule. | Failed to evaluate queries and expressions: [plugin.downstreamError] failed to query data: no query target found for the alert rule |
+**Use:**
+
+> Failed to evaluate queries and expressions:<p></p>Add a query target to alert rule.
+
+**Don't use:**
+
+> Failed to evaluate queries and expressions: [plugin.downstreamError] failed to query data: no query target found for the alert rule.
 
 Refer to the Grafana Storybook React component library for input field [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-input--with-field-validation) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-input--simple). 
 
@@ -195,15 +257,19 @@ Alert modals have severity levels (error, warning, info, and success) with diffe
 | ![Error alert](error.png)| Use an error if an action fails and the user is prevented from completing their task. |
 | ![Warning alert](warning.png) | Use a warning to say "don't do this," for example, if the step might be irreversible, leading to permanent data loss. |
 | ![Info alert](info.png) | Use as a note to provide useful but not critical information. |
-| ![Success alert](success.png) | Use to indicate an action has completed without errors. |
+| ![Success alert](success.png) | Use to indicate that an action has completed without errors. |
 
 ### Actionable instructions
 
 For error messages, provide actionable instructions to help users complete their task successfully.
 
-| **Use** | **Don't use** |
-|---|---|
-| Warning <p></p> You'll need additional permissions to perform this action. <p></p>  Permissions needed: `plugins:write` | Error <p></p> You'll need additional permissions to perform this action. |
+**Use:**
+
+> Warning <br> You'll need additional permissions to perform this action. <br>Permissions needed: `plugins:write`
+
+**Don't use:**
+
+> Error <p></p> You'll need additional permissions to perform this action.
 
 ## Confirm modals
 
@@ -212,9 +278,13 @@ Use confirm modals to request the user to confirm an action, for example, a dele
 - Use affirmative actions with verbs in confirmation messages. Direct and actionable language encourages the user to take the next step. 
 - Be sure to also explain the impact and consequences of the options that the user can take. Like other UI elements, use sentence case, plain language, and active voice in the confirmation message title and details.
 
-| **Use** | **Don't use** |
-|---|---|
-| Use Google's location service?<p></p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running. | Are you sure? |
+**Use:**
+
+> Use Google's location service?<p></p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+
+**Don't use:**
+
+> Are you sure?
 
 Refer to the Grafana Storybook React component library for confirm modal [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/overlays-confirmmodal--alternative-action) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/overlays-confirmmodal--basic).
 
@@ -223,7 +293,7 @@ Refer to the Grafana Storybook React component library for confirm modal [usage]
 Use tooltips to identify UI objects, such as icons. Users hover over a UI object to view a box with a description. 
 
 - Use tooltips for ancillary information since users only see the information if they hover over the object. 
-- Keep tooltips brief, with a maximum of 50 characters. 
+- Keep tooltips brief, generally fewer than 120 characters. 
 - Consider using tooltips for additional in-app documentation as in this example:
     ![Warning alert](tooltip.png)
 
@@ -236,9 +306,13 @@ A heading gives structure to your UI elements. Use headings whenever you need to
 - Headings are specific and meaningful and include the most relevant keywords and main points of the chunk, while staying short.
 - For headings, use [sentence case](https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings) without punctuation except for question marks when needed. Front-load your headings by putting the word people are looking for at the front of your headline.
 
-| **Use** | **Don't use** |
-|---|---|
-| Connect your data to Grafana Cloud |  Connect Your Data to Grafana Cloud |
+**Use:**
+
+> Connect your data to Grafana Cloud
+
+**Don't use:**
+
+> Connect Your Data to Grafana Cloud
 
 ## Links
 
@@ -249,9 +323,9 @@ If your product is complex, you might be unable to provide relevant details conc
 - Include the link either at the beginning or end of a sentence, not in the middle. Do not include preceding articles as part of the linked text.
 - For overview text, you can link to relevant overview documentation and Grafana University courses. 
 
-| **Use** |
-|---|
-| **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read more in the documentation >](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/) <p></p>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting) |
+**Use**
+
+> **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read more in the documentation >](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/)<br>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
 
 ## Additional elements
 
@@ -271,10 +345,13 @@ Provide writing guidelines for the element.
 
 Provide links to usage and examples of the element in the [Grafana Storybook React component library](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-intro--page). 
 
-Provide examples of how to use and how not to use the element.
+**Use** 
 
-| **Use** | **Don't use** |
-|---|---|
-| <p></p> |  <p></p> |
+> Provide an example of how to use the element.
+
+**Don't use**
+
+> Provide an example of how not to use the element.
+
 
 

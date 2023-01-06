@@ -141,6 +141,68 @@ Use buttons when you want users to take actions, such as adding or creating new 
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/buttons-button--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/buttons-button--basic).
 
+## Input fields
 
+Use short and scannable text for input field labels. Use sentence case and front-load your field labels with terms that most clearly describe the values they need to enter in the input field. 
+
+If you provide instructions for an input field, be clear about limitations, requirements, and available characters for that field. Use sentence case without punctuation for the instructions, unless there are multiple sentences.
+
+Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. 
+
+| **Use** | **Don't use** |
+|---|---|
+| SLO description <p></p> ______________________ <p></p>  This description appears in a panel next to your SLO status. | SLO description that appears in a panel next to your SLO status. <p></p> ______________________ |
+
+Refer to the Grafana Design System for input field usage and an example. 
+
+Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-inlinefield--with-tooltip) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-inlinefield--basic).
+
+# Errors
+
+Make errors visible to users, helpful, and easy to understand. Error messages tell the user what happened and what they can do to fix the error.  
+
+- The error headline includes a concise, meaningful summary of the error. Error details provide as much information as possible. 
+- Include reasons and instructions for fixing the issue, if possible. Don’t give just the system logs or error titles; try to state how the error was caused and what the user can do to fix it. Assume that some of your users might not understand crash logs and need a simpler description.
+- Write error messages for humans without blame. Don't use overdramatic wording, and avoid apologies. Give a no-nonsense summary of what went wrong and include the degree of severity, in understandable terms.
+- Like other UI elements, use sentence case, plain language, and active voice in both the  title and details. Do not use the term "invalid" in an error message. Instead use "not valid" if necessary.
+
+Refer also to [Alert modals](#alert-modals). 
+
+| **Use** | **Don't use** |
+|---|---|
+| Failed to evaluate queries and expressions: Add a query target to alert rule. | Failed to evaluate queries and expressions: [plugin.downstreamError] failed to query data: no query target found for the alert rule |
+
+Refer to the Grafana Storybook React component library for input field [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-input--with-field-validation) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-input--simple). 
+
+### Input field validation
+
+Use an input field validation when a text field has formatting requirements. If the validation fails, show the error message directly below the field. 
+
+Refer to the Grafana Storybook React component library for an example of an [input field with validation](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-input--with-field-validation).
+
+## Alert modals
+
+An alert modal displays an important message in a way that attracts the user's attention without interrupting the user's task.
+
+Assume that some of your users might not understand technical terms and need simple, clear alert messages. Like other UI elements, use sentence case, plain language, and active voice in alerts.
+
+### Severity levels
+
+Alert modals have severity levels (error, warning, info, and success) with different colors used for each level:
+
+| Severity | When to use |
+|---|---|
+| ![Error alert](error.png)| Use an error if an action fails and the user is prevented from completing their task. |
+| ![Warning alert](warning.png) | Use a warning to say "don't do this," for example, if the step might be irreversible, leading to permanent data loss. |
+| ![Info alert](info.png) | Use as a note to provide useful but not critical information. |
+| ![Success alert](success.png) | Use to indicate an action has completed without errors. |
+
+### Actionable instructions
+
+For error messages, provide actionable instructions to help users complete their task successfully.
+
+| **Use** | **Don't use** |
+|---|---|
+| Warning <p></p> You'll need additional permissions to perform this action. <p></p>  Permissions needed: `plugins:write` | Error <p></p> You'll need additional permissions to perform this action. |
 
 

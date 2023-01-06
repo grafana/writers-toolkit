@@ -38,6 +38,6 @@ jobs:
         host: "github.com"
         # PUBLISH_TO_WEBSITE_WRITERS_TOOLKIT is a fine-grained GitHub Personal Access Token that expires.
         # It must be updated in the grafanabot GitHub account.        
-        github_pat: "${{ secrets.PUBLISH_TO_WEBSITE_WRITERS_TOOLKIT }}"
+        github_pat: "grafanabot:${{ secrets.PUBLISH_TO_WEBSITE_WRITERS_TOOLKIT }}"
         source_folder: "docs/sources"
         target_folder: "content/docs/writers-toolkit"

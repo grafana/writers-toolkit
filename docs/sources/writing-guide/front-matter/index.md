@@ -16,7 +16,7 @@ Grafana technical documentation includes front matter to help organize the conte
 
 Use YAML for all front matter.
 In certain presentations, all front matter characters might render literally.
-For this reason, _do not_ include any special markdown formatting, like italics or monospace, in front matter.
+For this reason, _do not_ include any special Markdown formatting, like italics or monospace, in front matter.
 
 
 Here’s a correctly built example:

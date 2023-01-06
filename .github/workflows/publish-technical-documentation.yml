@@ -25,8 +25,9 @@ jobs:
       uses: "actions/checkout@v3"
 
     - name: "Clone website-sync Action"
-      # GH_BOT_ACCESS_TOKEN expires and must be updated in the grafanabot GitHub account.
-      run: "git clone --single-branch --no-tags --depth 1 -b master 'https://grafanabot:${{ secrets.GH_BOT_ACCESS_TOKEN }}@github.com/grafana/website-sync' ./.github/actions/website-sync"
+      # WEBSITE_SYNC_WRITERS_TOOLKIT is a fine-grained GitHub Personal Access Token that expires.
+      # It must be updated in the grafanabot GitHub account.
+      run: "git clone --single-branch --no-tags --depth 1 -b master 'https://grafanabot:${{ secrets.WEBSITE_SYNC_WRITERS_TOOLKIT }}@github.com/grafana/website-sync' ./.github/actions/website-sync"
 
     - name: "Publish to website repository"
       uses: "./.github/actions/website-sync"
@@ -35,6 +36,8 @@ jobs:
         repository: "grafana/website"
         branch: "master"
         host: "github.com"
-        github_pat: "${{ secrets.WEBSITE_SYNC_WRITERS_TOOLKIT }}"
+        # PUBLISH_TO_WEBSITE_WRITERS_TOOLKIT is a fine-grained GitHub Personal Access Token that expires.
+        # It must be updated in the grafanabot GitHub account.        
+        github_pat: "${{ secrets.PUBLISH_TO_WEBSITE_WRITERS_TOOLKIT }}"
         source_folder: "docs/sources"
         target_folder: "content/docs/writers-toolkit"

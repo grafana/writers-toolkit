@@ -151,11 +151,11 @@ Using long blocks of descriptive text reduces readability. Write important infor
 
 **Use:**
 
-> Before you begin, make sure you have:<ul><li>The kubectl command-line tool. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul>
+> Before you begin, make sure you have:<ul><li>The kubectl command-line tool. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul>
 
 **Don't use:**
 
-> Before you begin, make sure you have the kubectl command-line tool available on your local machine. To learn how to install kubectl, see [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the helm command-line tool for managing Helm charts. To learn how to install helm, see [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation.
+> Before you begin, make sure you have the kubectl command-line tool available on your local machine. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation.
 
 ## Write text for UI elements
 
@@ -170,7 +170,7 @@ The following sections provide writing guidelines for common UI elements:
 - Headings
 - Links
 
-If you'd like us to add a UI element, see the template at the bottom of this topic.
+If you'd like us to add a UI element, refer to the template at the bottom of this topic.
 
 ### Buttons
 
@@ -201,7 +201,7 @@ Refer to the Grafana Storybook React component library for button [usage](https:
 
 Use short and scannable text for input field labels. Use sentence case and front-load your field labels with terms that most clearly describe the values they need to enter in the input field. 
 
-If you provide instructions for an input field, be clear about limitations, requirements, and available characters for that field. Use sentence case without punctuation for the instructions, unless there are multiple sentences.
+If you provide instructions for an input field, be clear about limitations, requirements, and available characters for that field. Use a red asterisk for required fields. Use sentence case without punctuation for the instructions, unless there are multiple sentences.
 
 Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. 
 
@@ -292,7 +292,7 @@ Refer to the Grafana Storybook React component library for confirm modal [usage]
 
 Use tooltips to identify UI objects, such as icons. Users hover over a UI object to view a box with a description. 
 
-- Use tooltips for ancillary information since users only see the information if they hover over the object. 
+- Use tooltips for ancillary information since users only refer to the information if they hover over the object. 
 - Keep tooltips brief, generally fewer than 120 characters. 
 - Consider using tooltips for additional in-app documentation as in this example:
     ![Warning alert](tooltip.png)

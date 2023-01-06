@@ -35,6 +35,6 @@ jobs:
         repository: "grafana/website"
         branch: "master"
         host: "github.com"
-        github_pat: "${{ secrets.GH_BOT_ACCESS_TOKEN }}"
+        github_pat: "${{ secrets.WEBSITE_SYNC_WRITERS_TOOLKIT }}"
         source_folder: "docs/sources"
         target_folder: "content/docs/writers-toolkit"

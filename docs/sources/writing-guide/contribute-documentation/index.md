@@ -36,7 +36,7 @@ GitHub captures your request as an Issue logged against the repository.
 
 1. From a topic on the documentation website, click **Request doc changes**.
 
-    The **Issue** title auto-populates with the location of the file for which you are requesting a change.
+   The **Issue** title auto-populates with the location of the file for which you are requesting a change.
 
 2. Click **Submit new issue**.
 
@@ -81,11 +81,21 @@ Prior to pushing your changes to Github, you can view a local build of the docum
 
 **To view a local build:**
 
-1. Install Docker.
-1. Run Docker.
-1. Navigate to the `docs` root directory.
+1. Install either Podman or Docker to manage containers on your system.
+
+    <!-- vale Grafana.Colons = NO -->
+
+   > **Note:** Podman has the upside that containers can either be run as root or in rootless mode.
+
+    <!-- vale Grafana.Colons = YES -->
+
+   - To install Podman, refer to [Podman Installation Instructions](https://podman.io/getting-started/installation).
+   - To install Docker, refer to [Docker Engine installation overview](https://docs.docker.com/engine/install/).
+
+1. If you are using Docker, start the Docker daemon if it is not already running.
+1. Navigate to the project "docs" directory, this is typically `docs`.
 1. Run `make docs`.
-1. Open `localhost:3002` to review your changes.
+1. Browse to `localhost:3002/docs/` to review your changes.
 
 ## Push changes and create a PR
 

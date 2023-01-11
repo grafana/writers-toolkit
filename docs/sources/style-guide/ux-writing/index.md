@@ -215,7 +215,7 @@ Optionally, you can provide descriptive placeholder text in an input field. If y
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-inlinefield--with-tooltip) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-inlinefield--basic).
 
-# Errors
+## Errors
 
 Make errors visible to users, helpful, and easy to understand. Error messages tell the user what happened and what they can do to fix the error.  
 
@@ -305,7 +305,7 @@ Use confirm modals to request the user to confirm an action, for example, a dele
 
 Refer to the Grafana Storybook React component library for confirm modal [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/overlays-confirmmodal--alternative-action) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/overlays-confirmmodal--basic).
 
-# Tooltips
+## Tooltips
 
 Use tooltips to identify UI objects, such as icons. Users hover over a UI object to view a box with a description. 
 
@@ -342,7 +342,7 @@ If your product is complex, you might be unable to provide relevant details conc
 
 **Use**
 
-> **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read an overview in the documentation >](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/)<br>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
+> **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read an overview in the documentation >](/docs/grafana/latest/alerting/fundamentals/alert-rules/)<br>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
 
 ## Additional elements
 

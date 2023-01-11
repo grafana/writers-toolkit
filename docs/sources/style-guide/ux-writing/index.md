@@ -60,11 +60,11 @@ Use "you" or "your" as though the UI is speaking to the users. Don't use "please
 
 **Use:**
 
-> Refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
+> Refer to [About Kubernetes Monitoring](/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
 
 **Don't use:**
 
-> Please refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
+> Please refer to [About Kubernetes Monitoring](/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
 
 ### Use active voice
 

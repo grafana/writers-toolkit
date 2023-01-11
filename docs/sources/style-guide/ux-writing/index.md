@@ -1,15 +1,15 @@
 ---
-title: UX writing guidelines
+title: UX writing
 description: Guidelines on creating text, style, and tone in UI components 
 aliases:
   - /docs/writers-toolkit/latest/style-guide/ux-writing/
-weight: 400
+weight: 500
 keywords:
   - Grafana
   - UX writing
 ---
 
-# UX writing guidelines
+# UX writing
 
 These guidelines provide guidance on creating text, style, and tone in the different components that make up the UI. They help us build UIs that enhance the user experience, are easy to use, consistent, and inclusive. These guidelines focus on UX writing. For more details on UI elements, refer to the [Grafana Storybook React component library](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-intro--page). 
 
@@ -60,11 +60,11 @@ Use "you" or "your" as though the UI is speaking to the users. Don't use "please
 
 **Use:**
 
-> Refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
+> Refer to [About Kubernetes Monitoring](/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
 
 **Don't use:**
 
-> Please refer to [About Kubernetes Monitoring](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
+> Please refer to [About Kubernetes Monitoring](/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details. 
 
 ### Use active voice
 
@@ -203,19 +203,19 @@ Use short and scannable text for input field labels. Use sentence case and front
 
 If you provide instructions for an input field, be clear about limitations, requirements, and available characters for that field. Use a red asterisk for required fields. Use sentence case without punctuation for the instructions, unless there are multiple sentences.
 
-Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. 
+Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. The placeholder text should be a hint of the value to be expected. 
 
 **Use:**
 
-> SLO description ______________________<p></p>This description appears in a panel next to your SLO status.
+> **SLO description** ______________________<p></p>This description appears in a panel next to your SLO status.
 
 **Don't use:**
 
-> SLO description that appears in a panel next to your SLO status. <p></p> ______________________
+> **SLO description that appears in a panel next to your SLO status.** <p></p> ______________________
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-inlinefield--with-tooltip) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-inlinefield--basic).
 
-# Errors
+## Errors
 
 Make errors visible to users, helpful, and easy to understand. Error messages tell the user what happened and what they can do to fix the error.  
 
@@ -233,6 +233,23 @@ Refer also to [Alert modals](#alert-modals).
 **Don't use:**
 
 > Failed to evaluate queries and expressions: [plugin.downstreamError] failed to query data: no query target found for the alert rule.
+
+**Use:**
+
+> Complete the required fields marked by *.
+
+**Don't use:**
+
+> It looks like you missed a required field.
+
+**Use:**
+
+> The server is unresponsive.
+
+**Don't use:**
+
+> Oops, the server appears to be on a break.
+
 
 Refer to the Grafana Storybook React component library for input field [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-input--with-field-validation) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-input--simple). 
 
@@ -288,7 +305,7 @@ Use confirm modals to request the user to confirm an action, for example, a dele
 
 Refer to the Grafana Storybook React component library for confirm modal [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/overlays-confirmmodal--alternative-action) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/overlays-confirmmodal--basic).
 
-# Tooltips
+## Tooltips
 
 Use tooltips to identify UI objects, such as icons. Users hover over a UI object to view a box with a description. 
 
@@ -319,13 +336,13 @@ A heading gives structure to your UI elements. Use headings whenever you need to
 If your product is complex, you might be unable to provide relevant details concisely in the UI text. In this case, you can provide links to documentation for details.  
 
 - Use links sparingly. Try first to write concise and complete UI text. If you include a link, make sure the referenced content will help the user with the task they are completing in the UI.  
-- Your link text should be descriptive, telling the user what content they will find upon clicking. Like headings, front-load the link text by putting the word people are looking for at the front of your link. 
+- Your link text should be descriptive, telling the user what content they will find upon clicking. Use the exact title of the topic they're linking to so that if the link breaks, they can search for the topic. Like headings, front-load the link text by putting the word people are looking for at the front of your link. 
 - Include the link either at the beginning or end of a sentence, not in the middle. Do not include preceding articles as part of the linked text.
 - For overview text, you can link to relevant overview documentation and Grafana University courses. 
 
 **Use**
 
-> **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read more in the documentation >](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/)<br>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
+> **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read an overview in the documentation >](/docs/grafana/latest/alerting/fundamentals/alert-rules/)<br>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
 
 ## Additional elements
 

@@ -21,5 +21,6 @@ It includes rules and best practices on the following:
 - Voice and tone
 - Terminology
 - Inclusive writing
+- UX writing
 
 When in doubt, defer to the [Google developer documentation style guide](https://developers.google.com/style).

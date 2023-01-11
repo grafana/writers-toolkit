@@ -3,7 +3,7 @@ title: Inclusive writing
 description: Inclusive writing
 aliases:
   - /docs/writers-toolkit/latest/style-guide/style-conventions/inclusive-writing/
-weight: 500
+weight: 400
 keywords:
   - inclusive writing
 ---

@@ -46,7 +46,7 @@ Use the following recommendations when you size images:
 
 -  **Scope**: Limit the contents of an image to the relevant portion.
 Do not include distracting or unnecessary content and whitespace.
--  **Format**: Because they are lossless, **PNG** and **SVG** are the preferred image formats.
+-  **Format**: **PNG** and **SVG** are the preferred image formats.
 We do not recommend JPG images because they are lossy and might look blurry.
 -  **Copyright**: Determine if an image or diagram is protected by copyright.
 If it is, you must obtain permission and acknowledge credit.

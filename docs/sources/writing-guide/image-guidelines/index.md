@@ -1,6 +1,6 @@
 ---
 title: Image, diagram, and screenshot guidelines
-menuTitle: Image guidelines
+menuTitle: Image and media guidelines
 description: How to include images in your documentation.
 aliases:
   - /docs/writers-toolkit/latest/writing-guide/image-guidelines/
@@ -46,8 +46,7 @@ Use the following recommendations when you size images:
 
 -  **Scope**: Limit the contents of an image to the relevant portion.
 Do not include distracting or unnecessary content and whitespace.
--  **Format**: **PNG** and **SVG** are the preferred image formats.
-We do not recommend JPG images because they are lossy and might look blurry.
+-  **Format**: **png** and **svg** are the preferred image formats. Use **jpg** only for photos.
 -  **Copyright**: Determine if an image or diagram is protected by copyright.
 If it is, you must obtain permission and acknowledge credit.
 -  **File name**: Use the naming convention documented in [Image asset file naming conventions](#image-asset-file-naming-conventions).
@@ -139,11 +138,11 @@ General rules:
     <tbody>
         <tr>
             <td align="left" valign="top">Screenshot</td>
-            <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description]-[version, if applicable].[file type] <br><br><b>Examples:</b><br>
-<ul><li>screenshot-grafana-loki-uptime-dashboard.jpg</li>
-<li>screenshot-grafana-mimir-data-flow-diagram.jpg</li>
-<li>screenshot-grafana-9-kubernetes-dashboard.jpg (or)</li>
-<li>screenshot-grafana-9.0-kubernetes-dashboard.jpg</li>
+            <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description]-[version, if applicable].png <br><br><b>Examples:</b><br>
+<ul><li>screenshot-grafana-loki-uptime-dashboard.png</li>
+<li>screenshot-grafana-mimir-data-flow-diagram.png</li>
+<li>screenshot-grafana-9-kubernetes-dashboard.png (or)</li>
+<li>screenshot-grafana-9.0-kubernetes-dashboard.png</li>
 <li>screenshot-simple-scalable-test-environment-grafana-loki.png</li>
 </ul>
 </td>
@@ -152,7 +151,7 @@ General rules:
             <td align="left" valign="top">Icon</td>
             <td align="left" valign="top">Be as descriptive as possible.<br><br>
             For example, use `icon-bar-graph.svg` or `icon-graph-bar.svg` instead of `icon-graph.svg`.<br>
-            <b>Naming convention:</b> [asset type]-[visual description].[file type]<br><br>
+            <b>Naming convention:</b> [asset type]-[visual description].svg<br><br>
             <b>Examples:</b>
 <ul><li>icon-bar-graph.svg</li>
 <li>icon-prometheus.svg</li>
@@ -161,7 +160,7 @@ General rules:
         <tr>
             <td align="left" valign="top">Logo</td>
             <td align="left" valign="top">When you name Grafana logo files, be sure to include the word “grafana”.<br><br>
-            <b>Naming convention:</b>[asset type]-[visual description]-[color + orientation].[file type]
+            <b>Naming convention:</b> [asset type]-[visual description]-[color + orientation].[file type]
 <br><br>
             <b>Examples:</b>
 <ul><li>logo-prometheus-full-horizontal.svg</li>
@@ -170,20 +169,20 @@ General rules:
         </tr>
        <tr>
             <td align="left" valign="top">Photo</td>
-            <td align="left" valign="top"><b>Naming convention:</b>[asset type]-[visual description].[file type]
+            <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description].jpg
 <br><br>
             <b>Examples:</b>
 <ul><li>photo-raji-on-stage-grafanacon-keynote-2022.jpg</li>
 <li>photo-grafanacon-team-marketing.jpg</li>
-<li>photo-headshot-mike-szczys.jpeg</li>
+<li>photo-headshot-mike-szczys.jpg</li>
 </ul>
         </tr>
         <tr>
-            <td align="left" valign="top">GIF</td>
-            <td align="left" valign="top"><b>Naming convention:</b>[asset type]-[visual description].[file type]
+            <td align="left" valign="top">Recording</td>
+            <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description].[file type]
 <br><br>
             <b>Example:</b>
-<ul><li>gif-grafana-share-playlist.gif</li>
+<ul><li>gif-grafana-share-playlist.mp4</li>
 </ul>
         </tr>
     </tbody>
@@ -196,11 +195,12 @@ General rules:
 - Windows: Use [Snagit](https://www.techsmith.com/screen-capture.html)
 - Web browser: Use [Photopea](https://www.photopea.com/)
 
-## Where to store image files
-All visual asset images are stored in the [Grafana website repository](https://github.com/grafana/website/tree/master/static/static/img/docs), which is a private repo only accessible to Grafana Labs employees.
+## Where to store media assets
+All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees. Visit the [uploader application](https://admin.grafana.com/upload/) to upload assets.
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
 > **Note:** Do not store images in the local repository, as it prohibits re-use of the asset for blogs or landing pages.
+
 <table>
     <thead>
         <tr>
@@ -214,8 +214,14 @@ The following table lists the steps you take to provide the Grafana Labs technic
             <td align="left" valign="top">
 <ol><li>Create a PR against the local repository that includes the Markdown file.
 </li>
-<li>Add the image reference to the Markdown file.<br><br>
-The image reference that you add to the Markdown renders the image when the Grafana website is built. If you want to test that the image appears correctly, refer to <A href="#test-images-in-a-local-build">Test images in a local build</A>.</li>
+<li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.</li>
+<li>Find or create a directoy folder under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
+<li>Browse and select asset(s) to upload.</li>
+<li>Click the <strong>Upload button</strong>.</li>
+<li>The asset will immediately be available under https://grafana.com/media/ in the directory where it was uploaded.</li>
+<li>Click the <strong>copy button</strong> to copy the path (reference) of the file to your clipboard.</li>
+<li>Add reference to the Markdown file.<br><br>
+The reference that you add to the Markdown renders the image when the Grafana website or local docs preview is built.</li>
 </ol>
 </td>
         </tr>
@@ -226,7 +232,7 @@ The image reference that you add to the Markdown renders the image when the Graf
 </li>
 <li>Add the image reference to the Markdown file.<br><br>
 We do not expect you to test that the image renders in a local build of the help documentation. The Grafana technical documentation team will ensure that the image reference works correctly.</li><br>
-<li>Attach the image to the PR.</li>
+<li>Attach the image to the GitHub PR description.</li>
 </ol>
 </td>
         </tr>
@@ -237,45 +243,40 @@ We do not expect you to test that the image renders in a local build of the help
 To add an image to a Markdown file, insert a reference to the image below the associated step and indent it so that the reference aligns with the step text.
 
 The image reference path conforms to the following convention:
-`![<Short description of image>](/static/img/docs/<path-to-image/image-file.png>)`
+`![<Short description of image>](/media/<path-to-image/image-file.png>)`
 
 For example:
 1. In the Visualization list, select a visualization type.
 
-   `![Visualization types](/static/img/docs/panel-editor/select-visualization.png)`
+   `![Visualization types](/media/docs/panel-editor/select-visualization.png)`
 
 ## Test images in a local build
 
 > **Note:** This section is relevant to internal Grafana Labs contributors.
 
-It is important that you generate a local build of your docs so that you can verify that the path to the image, the image size, and the image placement are correct. Because images are stored in the Website repo, you must use a `figure` shortcode that renders the image in a local build of the docs.
+It is important that you generate a local build of your docs so that you can verify that the path to the image, the image size, and the image placement are correct.
 
-> **Note:** The following steps only work in the Grafana Cloud (`cloud-docs`) and  Grafana (`grafana`) repos.
-
-1. Create a PR against the website repo that contains the image.
-
-   Store image files in the following website repo directory: `static/static/img/docs`. If a relevant sub-directory doesn't exist, you can create it.
-
-1. After the Website team merges the image PR into the website repo, add the following figure shortcode to your docs:
-
-   `{{</* figure src="[path to the image in the website repo]" */>}}`
-
-   **Example:**
-   - Path to image stored in the website repo: `static/static/img/docs/grafana-cloud/k8s-node-capacity.png`
-   - Corresponding shortcode: `{{</* figure src="/static/img/docs/grafana-cloud/k8s-node-capacity.png" */>}}`.
+1. Follow the steps in [Where to store media assets]({{< relref "#where-to-store-media-assets" >}}).
 
 1. Run `make docs` on your branch and verify that the image appears.
-1. (Optional) Make adjustments to the image in the website repo and test again.
+1. (Optional) Upload a new version and test again.
 
+
+## Screen recordings
+
+The recommended format for screen recordings is **.mp4**. Do not use **.gif** or **.mov** formats. Screen recordings follow the same upload procedure and file naming convention as other media assets. Use the `video-embed` shortcode to embed the video on the page:
+
+```
+{{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}
+```
 
 ## Videos
 
 The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo.
 
-You can embed a Vimeo-hosted video by using the `vimeo` short code and the video number: `{{</* vimeo 1111111*/>}}`.
+You can embed a Vimeo-hosted video by using the `vimeo` shortcode and the video id: `{{</* vimeo 1111111*/>}}`.
 
-In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`
-The video number at the end of the URL.
+In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`. The video id is located at the end of the URL.
 
 ```
 {{</* vimeo 773194063 */>}}

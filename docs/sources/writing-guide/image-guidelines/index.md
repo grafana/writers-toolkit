@@ -19,7 +19,7 @@ Follow the standards in this section when creating images for your documents.
 ## Image and diagram guidelines
 
 Images and diagrams can complement text, enabling readers to quickly grasp a concept and visualize complex processes in a simplified way.
-For example, in Grafana blog post, pictures or diagrams can add visual interest and capture the reader's attention.
+For example, in Grafana blog posts, pictures or diagrams can add visual interest and capture the reader's attention.
 However, because translation services and tools for the visually impaired don't interpret or translate images well, avoid using images to replace text.
 
 ### When to use images and diagrams

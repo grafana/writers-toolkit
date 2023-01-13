@@ -49,7 +49,7 @@ Do not include distracting or unnecessary content and whitespace.
 -  **Format**: **png** and **svg** are the preferred image formats. Use **jpg** only for photos.
 -  **Copyright**: Determine if an image or diagram is protected by copyright.
 If it is, you must obtain permission and acknowledge credit.
--  **File name**: Use the naming convention documented in [Image asset file naming conventions](#image-asset-file-naming-conventions).
+-  **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 -  **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 
 ### Diagram assets
@@ -114,10 +114,10 @@ Consult the following guidelines when you create screenshots:
 -  **Size**: The maximum width of a screenshot is 600 pixels.
 -  **Scope**: Limit the screenshot to just the portion of the user interface that shows the action, and enough surrounding detail to help the user locate the item.
 -  **Annotations**: To annotate a screenshot, use red (hexadecimal color **FF0000**) arrows and boxes.
--  **File name**: Use the naming convention documented in [Image asset file naming conventions](#image-asset-file-naming-conventions).
+-  **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 -  **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 
-## Image asset file naming conventions
+## Media asset file naming conventions
 
 The table in this section includes file naming conventions for you to follow when you create image assets.
 

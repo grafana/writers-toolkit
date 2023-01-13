@@ -194,6 +194,7 @@ General rules:
 - Linux: Use [gimp](https://www.gimp.org/)
 - macOS: Use [Snagit](https://www.techsmith.com/screen-capture.html)
 - Windows: Use [Snagit](https://www.techsmith.com/screen-capture.html)
+- Web browser: Use [Photopea](https://www.photopea.com/)
 
 ## Where to store image files
 All visual asset images are stored in the [Grafana website repository](https://github.com/grafana/website/tree/master/static/static/img/docs), which is a private repo only accessible to Grafana Labs employees.

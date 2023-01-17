@@ -14,7 +14,10 @@ keywords:
 
 Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the lefthand sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
 
-We use YAML for all front matter.
+Use YAML for all front matter.
+In certain presentations, all front matter characters might render literally.
+For this reason, _do not_ include any special Markdown formatting, like italics or monospace, in front matter.
+
 
 Here’s a correctly built example:
 
@@ -66,7 +69,7 @@ The following table describes each front matter element in detail.
         <tr>
             <td align="left" valign="top">[weight]</td>
             <td align="left" valign="top">The [weight] determines the placement of the topic within the left-hand sidebar of our website, with smaller numbers placing the topic higher in the guide. <br><br>Pages with the same weight have lexicographic ordering. </td>
-            <td align="left" valign="top">Use increments of `100` for all other content files, because doing so eliminates much of the need to re-order existing topics when new topics are added. <br><br>Weights are per web directory.</a>.
+            <td align="left" valign="top">Use increments of `100` for all other content files, because doing so eliminates much of the need to re-order existing topics when new topics are added. <br><br>Weights are per web directory.</a>
             </td>
         </tr>
         <tr>
@@ -105,7 +108,7 @@ Technical writers use [Hugo aliases](https://gohugo.io/content-management/urls/#
 
 If you specify `aliases` in the frontmatter, Hugo creates a directory that matches the alias entry that contains a single `.html` file.
 
-## Example
+### Example
 
 The following example file `intended-url.md` contains the alias `/original-url` within its YAML frontmatter:
 
@@ -143,17 +146,16 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 > **Note:** The redirect relies on first party JavaScript support which is common but not necessarily universal.
 
-## Guidelines
+### Guidelines
 
-### Unversioned projects:
+The correct way to use aliases depends on whether the project is versioned or not.
 
-Include an `aliases` entry that refers to the initial published website directory.
+**Unversioned projects**
+: Include an `aliases` entry that refers to the initial published website directory.
 Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
+: > **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
+: > For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
 
-> **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
-> For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
-
-### Versioned projects:
-
-Do not include an `aliases` entry that refers to the initial published website directory. The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.
+**Versioned projects**
+: Do not include an `aliases` entry that refers to the initial published website directory. The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.

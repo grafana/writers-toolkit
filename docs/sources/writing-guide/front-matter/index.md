@@ -41,18 +41,17 @@ The following list describes what each element does and provides guidelines for 
 :  Becomes the document title element. Often browsers display this in the tab for the page.
 
    It doesn't need to precisely match the `menuTitle`.
-   The title should be optimized for search engines. May be surrounded by double quote marks ("). Do not use smart quotes.
+   Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
 `description`
 
-:  Displays as a clue to users about what the page should include on social (Twitter and the like),
-   though not as much by a search engine.
+:  On social media, such as Twitter, displays as a clue to users about what the page includes.
 
-   The number of characters vary by media, but use them wisely.
-   Provide enough information to guide users to the content by describing what content is provided using the link.
+   The number of characters vary by media, so make the description concise.
+   Provide enough information to guide users to the content by describing what content the link leads to.
    Often, this doesn’t need to be original prose&mdash;you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
-   It won't cause harm if it's too long, it will simply truncate in the displayed media.
-   May be surrounded by double quote marks ("). Do not use smart quotes.
+   If it's too long, it is harmlessly truncated on social media.
+   Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
 `aliases`
 
@@ -61,14 +60,14 @@ The following list describes what each element does and provides guidelines for 
 
 `weight`
 
-:  Determines the placement of the topic within the left-hand sidebar of our website, with smaller numbers placing the topic higher in the guide. Pages with the same weight have lexicographic ordering.
+:  Determines the placement of the topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide. Pages with the same weight have lexicographic ordering.
 
-   Use increments of `100` for all other content files, because doing so eliminates much of the need to re-order existing topics when new topics are added. Weights are per directory.
+   Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
 
 `keywords`
 
-:  Keywords are used by the website to link to related pages in the “related content” sections.
-   They do not appear in the resulting HTML source for the page and have no effect on SEO.
+:  The website uses keywords to link to related pages in the _Related content_ sections.
+   They do not appear in the resulting HTML source for the page and do not affect SEO.
 
    Ideally, use single terms as opposed to phrases.
 

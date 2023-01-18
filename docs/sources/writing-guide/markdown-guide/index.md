@@ -17,8 +17,9 @@ keywords:
 
 This Markdown guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown syntax, or a decision is made about how to apply Markdown.
 
-Grafana documentation is rendered with Goldmark, which is the default Markdown parser for Hugo.
-The flavor is compliant with CommonMark, with some extended features.
+We use the static site generator [Hugo](https://gohugo.io/) to generate the web site for the documentation.
+
+Hugo uses a Markdown parser named Goldmark, which supports the CommonMark flavor of Markdown including some extended features. For more information, see the [CommonMark specification](https://spec.commonmark.org/), and a [quick reference guide](https://commonmark.org/help/) for CommonMark.
 
 **Write in sentence case** throughout all technical documentation, be it long-form text or microcopy within a UI:
 

@@ -34,10 +34,8 @@ When writing SEO link text, pay attention to words, quantity of links, the lengt
 
   For example: 
 
-<!-- vale Grafana.Link = NO -->
   * “To learn more, go to the [Grafana faro-web-sdk GitHub repository]().”
   * ”To learn more about Grafana Faro, go to its [GitHub repository]().”
-<!-- vale Grafana.Link = YES -->
 * Do not use more than one *Learn more →* link.
 
   If you use more than one, it is not clear what the subsequent ones refers to because it’s preceded by a link. Will the user learn more about Grafana Cloud in general, Cloud sign-up options, or something else?
@@ -71,16 +69,15 @@ When writing SEO link text, pay attention to words, quantity of links, the lengt
 * On localized pages, indicate the language of the content on the destination page.
 
 ## Examples
-<!-- vale Grafana.Link = NO -->
+
 | Use | Do not use |
 |-|-|
-| [Learn more about cluster navigation]() or learn more about [cluster navigation]() | [Learn more]() |
-| To learn more read our [Grafana Phlare blog post]() | To learn more about Phlare read our [blog post]() |
-| read more about specific [metrics and alerting rules]() | [read more]() |
-| [our `<company name>` products]() or [`<company name>` products]() | [our products]() |
-| visit the [`<company name>` website]() or visit [`<company name>.com`]() | [visit our website]() |
-| [SNMP exporter]() | [exporter]() |
-| [KubeCon + CloudNativeCon North America 2022]() | [KubeCon event]() |
-| The basic [definition of cardinality]() | The [basic definition]() of cardinality |
-| see [configuring Kubernetes monitoring]() | [see configuring Kubernetes monitoring]() |
-<!-- vale Grafana.Link = YES -->
+| `[Learn more about cluster navigation]()` or learn more about `[cluster navigation]()` | `[Learn more]()` |
+| To learn more read our `[Grafana Phlare blog post]()` | To learn more about Phlare read our `[blog post]()` |
+| read more about specific `[metrics and alerting rules]()` | `[read more]()` |
+| `[our <company name> products]()` or `[<company name> products]()` | `[our products]()` |
+| visit the `[<company name> website]()` or visit` [<company name>.com`]() | `[visit our website]()` |
+| `[SNMP exporter]()` | `[exporter]()` |
+| `[KubeCon + CloudNativeCon North America 2022]()` | `[KubeCon event]()` |
+| The basic `[definition of cardinality]()` | The `[basic definition]()` of cardinality |
+| see `[configuring Kubernetes monitoring]()` | `[see configuring Kubernetes monitoring]()` |

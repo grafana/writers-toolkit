@@ -1,14 +1,14 @@
 ---
-title: Write SEO link text
-menuTitle: Write SEO link text
-description: Learn how to write SEO link text well.
+title: Write useful link text
+menuTitle: Write useful link text
+description: Learn how to write useful link text well.
 aliases:
-  - /docs/writers-toolkit/latest/writing-guide/seo-link-text/
+  - /docs/writers-toolkit/latest/writing-guide/useful-link-text/
 weight: 100
 keywords:
 ---
 
-# Write SEO link text
+# Write useful link text
 
 Link text is important for search engines and users, and is critical for accessibility. Wikipedia defines link text as, “The anchor text, link label or link text is the visible, clickable text in an HTML hyperlink. The term "anchor" was used in older versions of the HTML specification…”
 
@@ -18,7 +18,7 @@ The primary purpose of link text is to give search engines and users a short sum
 
 ## Summary
 
-When writing SEO link text, pay attention to words, quantity of links, the length of link text, and localization concerns.
+When writing link text, pay attention to words, quantity of links, the length of link text, and localization concerns.
 
 ### Words
  

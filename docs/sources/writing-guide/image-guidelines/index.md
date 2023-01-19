@@ -274,7 +274,7 @@ The recommended format for screen recordings is **.mp4**. Do not use **.gif** or
 
 The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo.
 
-You can embed a Vimeo-hosted video by using the `vimeo` shortcode and the video id: `{{</* vimeo 1111111*/>}}`.
+You can embed a Vimeo-hosted video by using the `vimeo` shortcode and the video ID: `{{</* vimeo 1111111*/>}}`.
 
 In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`. The video id is located at the end of the URL.
 

@@ -42,7 +42,7 @@ When writing SEO link text, pay attention to words, quantity of links, the lengt
 
   Users can set screen readers to read the links on the page first to give the listener an idea of what’s to come and to assess the number of link topics on a page. Without context the listener will hear “learn more, learn more, try on grafana cloud, learn more”.
 
-  An alternative and preferred approach is to add context to the link text or use, when possible, web available Design features, such as what appears on the [Grafana Labs Newsroom](https://grafana.com/about/press/) and other pages. The entire box, called a *card*, is clickable.
+  An alternative and preferred approach is to add context to the link text or use, when possible, web available Design features, such as what appears on the [Grafana Labs Newsroom](grafana.com/about/press/) and other pages. The entire box, called a *card*, is clickable.
 
 * When linking from outside of a documentation page, include `documentation` in the text.
 

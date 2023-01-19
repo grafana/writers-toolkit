@@ -34,8 +34,8 @@ When writing SEO link text, pay attention to words, quantity of links, the lengt
 
   For example: 
 
-  * “To learn more, go to the [Grafana faro-web-sdk GitHub repository]().”
-  * ”To learn more about Grafana Faro, go to its [GitHub repository]().”
+  * “To learn more, go to the `[Grafana faro-web-sdk GitHub repository]()`.”
+  * ”To learn more about Grafana Faro, go to its `[GitHub repository]()`.”
 * Do not use more than one *Learn more →* link.
 
   If you use more than one, it is not clear what the subsequent ones refers to because it’s preceded by a link. Will the user learn more about Grafana Cloud in general, Cloud sign-up options, or something else?

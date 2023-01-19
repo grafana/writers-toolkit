@@ -1,5 +1,5 @@
 ---
-title: Write SEO link text well
+title: Write SEO link text
 menuTitle: Write SEO link text
 description: Learn how to write SEO link text well.
 aliases:
@@ -8,7 +8,7 @@ weight: 100
 keywords:
 ---
 
-# Write SEO link text well
+# Write SEO link text
 
 Link text is important for search engines and users, and is critical for accessibility. Wikipedia defines link text as, “The anchor text, link label or link text is the visible, clickable text in an HTML hyperlink. The term "anchor" was used in older versions of the HTML specification…”
 

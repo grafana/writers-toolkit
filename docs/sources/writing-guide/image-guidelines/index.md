@@ -199,7 +199,7 @@ General rules:
 All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees. Visit the [uploader application](https://admin.grafana.com/upload/) to upload assets.
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
-> **Note:** Do not store images in the local repository, as it prohibits re-use of the asset for blogs or landing pages.
+> **Note:** Do not store images in the local repository, as it prohibits re-use of the asset in other content.
 
 <table>
     <thead>
@@ -215,12 +215,12 @@ The following table lists the steps you take to provide the Grafana Labs technic
 <ol><li>Create a PR against the local repository that includes the Markdown file.
 </li>
 <li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.</li>
-<li>Find or create a directoy folder under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
+<li>Find or create a directory under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
 <li>Browse and select asset(s) to upload.</li>
 <li>Click the <strong>Upload button</strong>.</li>
 <li>The asset will immediately be available under https://grafana.com/media/ in the directory where it was uploaded.</li>
 <li>Click the <strong>copy button</strong> to copy the path (reference) of the file to your clipboard.</li>
-<li>Add reference to the Markdown file.<br><br>
+<li>Add the reference to the Markdown file.<br><br>
 The reference that you add to the Markdown renders the image when the Grafana website or local docs preview is built.</li>
 </ol>
 </td>

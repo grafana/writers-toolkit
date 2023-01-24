@@ -219,7 +219,7 @@ The following table lists the steps you take to provide the Grafana Labs technic
 <li>Browse and select asset(s) to upload.</li>
 <li>Click the <strong>Upload button</strong>.</li>
 <li>The asset will immediately be available under https://grafana.com/media/ in the directory where it was uploaded.</li>
-<li>Click the <strong>copy button</strong> to copy the path (reference) of the file to your clipboard.</li>
+<li>Click <strong>Copy</strong> to copy the path (reference) of the file to your clipboard.</li>
 <li>Add the reference to the Markdown file.<br><br>
 The reference that you add to the Markdown renders the image when the Grafana website or local docs preview is built.</li>
 </ol>

@@ -71,7 +71,7 @@ To refer to a style sheet `page/style.css` with the link `./style.css`, the link
 
 **Leaf bundles** (`page/index.md`) are also required to mount content from one part of the site to another using Hugo mounts.
 Hugo mounts use a virtual filesystem before site generation, and only directories can be mounted.
-To mount the page `/page/` to `/other/page`, there must first be a `page/index.md` leaf bundle source file.
+To mount the page `/page/` to `/other/page/`, there must first be a `page/index.md` leaf bundle source file.
 
 **Pages** (`page.md`) are any source files that are not leaf or branch bundles.
 It is convenient to use pages when none the behaviors of leaf or branch bundles are required as it can be easier to distinguish two source files in some text editors or IDEs.

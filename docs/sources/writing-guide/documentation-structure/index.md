@@ -74,6 +74,6 @@ Hugo mounts use a virtual filesystem before site generation, and only directorie
 To mount the page `/page/` to `/other/page/`, there must first be a `page/index.md` leaf bundle source file.
 
 **Pages** (`page.md`) are any source files that are not leaf or branch bundles.
-It is convenient to use pages when none the behaviors of leaf or branch bundles are required as it can be easier to distinguish two source files in some text editors or IDEs.
+It is convenient to use pages when none of the behaviors of leaf or branch bundles are required, as it can be easier to distinguish two source files in some text editors or IDEs.
 
 For more information about branch bundles and leaf bundles, refer to [Page bundles](https://gohugo.io/content-management/page-bundles/).

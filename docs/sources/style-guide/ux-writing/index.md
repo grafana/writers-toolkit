@@ -151,7 +151,7 @@ Using long blocks of descriptive text reduces readability. Write important infor
 
 **Use:**
 
-> Before you begin, make sure you have:<ul><li>The kubectl command-line tool. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul>
+> Before you begin, make sure you have the following items:<ul><li>The kubectl command-line tool. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul>
 
 **Don't use:**
 

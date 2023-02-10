@@ -71,6 +71,10 @@ The following list describes what each element does and provides guidelines for 
 
    Ideally, use single terms as opposed to phrases.
 
+`draft: true`
+
+:  When present, this option prevents a page from being published on the documentation website.
+
 ## Example with different page and menu titles
 
 ```

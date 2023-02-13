@@ -71,6 +71,10 @@ The following list describes what each element does and provides guidelines for 
 
    Ideally, use single terms as opposed to phrases.
 
+`draft: true`
+
+:  When present, this option prevents Hugo from rendering the content.  Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
+
 ## Example with different page and menu titles
 
 ```

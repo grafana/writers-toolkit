@@ -73,7 +73,7 @@ The following list describes what each element does and provides guidelines for 
 
 `draft: true`
 
-:  When present, this option prevents a page from being published on the documentation website.
+:  When present, this option prevents Hugo from rendering the content.  Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
 
 ## Example with different page and menu titles
 

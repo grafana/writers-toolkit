@@ -10,7 +10,7 @@ keywords:
 
 # Inclusive writing
 
-When writing for Grafana, always use inclusive terminology and phrasing. Avoid all statements that perpetuate gender, racial, or cultural stereotypes; do not use gendered words or demographically oriented terms that are irrelevant to the content.
+We write our documentation in US English, but we write for a global audience. When writing for Grafana, always use inclusive terminology and phrasing. Avoid all statements that perpetuate gender, racial, or cultural stereotypes; do not use gendered words or demographically oriented terms that are irrelevant to the content.
 
 ## Writing about people
 

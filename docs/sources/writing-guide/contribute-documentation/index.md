@@ -124,5 +124,5 @@ To edit a previous version, or `latest` (the most recent release), you must back
 
 To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.
 
-`grafanabot` automatically creates a backport pull request after the original pull request is merged if the merge commit can be cherry-picked without conflict.
+`grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

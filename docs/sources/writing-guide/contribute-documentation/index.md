@@ -119,8 +119,8 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 
 ## Contributing across versions
 
-Editing the main branch of a project affects the content in the "next" directory of the website.
-To edit previous versions including "latest", the most recent release, and other versions, you must backport the changes into the long-lived version branches in the project repository.
+When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
+To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
 Backporting is most easily achieved using the backport vMAJOR.MINOR.x labels on the GitHub pull request.
 

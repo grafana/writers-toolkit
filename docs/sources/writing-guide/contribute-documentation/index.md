@@ -122,7 +122,7 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
-Backporting is most easily achieved using the backport vMAJOR.MINOR.x labels on the GitHub pull request.
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.
 
 `grafanabot` automatically creates a backport pull request after the original pull request is merged if the merge commit can be cherry-picked without conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

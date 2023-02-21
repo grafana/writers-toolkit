@@ -9,7 +9,7 @@ keywords:
 # Reuse shared content
 
 Shared content is a sentence, paragraph, or whole page of text that makes sense in multiple contexts.
-Reusing shared content propagates changes to a single source file to one or more destination pages.
+Reusing shared content propagates changes from a single source file to one or more destination pages.
 
 This topic describes how to extract and share a chunk of content to multiple pages.
 

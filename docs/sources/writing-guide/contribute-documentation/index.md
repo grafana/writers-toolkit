@@ -116,3 +116,13 @@ When you are ready for other people to review your work, perform the following t
 When you add a PR to the repo and assign the `type/docs` label, it will be reviewed by a member of the Docs Squad.
 
 Depending on the size of the PR and the priority of other work, the PR will either be immediately reviewed and merged (minor fixes typically follow this pattern) or the PR will be triaged and placed in the backlog of work or moved into further development.
+
+## Contributing across versions
+
+When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
+To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
+
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.
+
+`grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
+If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

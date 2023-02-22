@@ -21,12 +21,13 @@ This topic describes how to extract and share a chunk of content to multiple pag
 
 To reuse shared content:
 
-1. Identify the sharing project.
+1. Identify the sharing and consuming projects.
 
-   If the shared content is to be reused in a single project, then the sharing project is that project.
-   However, if shared content is to be reused across multiple projects, for example Tempo and Grafana Enterprise Traces, then you must choose which project shares the content.
-
+   When sharing content within a single project, that project is both the sharing and consuming project.   
+   
+   However, when sharing content from one project to another then you must choose which is the sharing project and which is the consuming project.
    Because we rely on external contributions, sharing from open-source projects is preferred.
+   For example, when sharing content between Tempo and Grafana Enterprise Traces, prefer Tempo to be the sharing project and Grafana Enterprise Traces to be the consuming project.
 
 1. In the sharing project, create the `docs/sources/shared/` directory if it does not exist.
 

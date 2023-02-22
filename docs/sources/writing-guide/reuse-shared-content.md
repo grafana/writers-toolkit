@@ -26,7 +26,7 @@ To reuse shared content:
    If the shared content is to be reused in a single project, then the sharing project is that project.
    However, if shared content is to be reused across multiple projects, for example Tempo and Grafana Enterprise Traces, then you must choose which project shares the content.
 
-   Prefer sharing from open source projects.
+   Because we rely on external contributions, sharing from open-source projects is preferred.
 
 1. In the sharing project, create the `docs/sources/shared/` directory if it does not exist.
 

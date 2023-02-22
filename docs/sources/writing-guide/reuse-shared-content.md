@@ -54,7 +54,7 @@ To reuse shared content:
 
 1. In the sharing project, create a file for the shared content in the `docs/sources/shared/` directory.
 
-   The file should be named to reflect its contents.
+   Name the file to reflect its contents.
 
    The file can be in a subdirectory, but that subdirectory must be in the `docs/sources/shared/` directory.
    The `docs/shared` shortcode cannot lookup files outside of this directory.

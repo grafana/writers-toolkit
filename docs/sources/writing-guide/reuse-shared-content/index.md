@@ -23,8 +23,8 @@ To reuse shared content:
 
 1. Identify the sharing and consuming projects.
 
-   When sharing content within a single project, that project is both the sharing and consuming project.   
-   
+   When sharing content within a single project, that project is both the sharing and consuming project.
+
    However, when sharing content from one project to another then you must choose which is the sharing project and which is the consuming project.
    Because we rely on external contributions, sharing from open-source projects is preferred.
    For example, when sharing content between Tempo and Grafana Enterprise Traces, prefer Tempo to be the sharing project and Grafana Enterprise Traces to be the consuming project.
@@ -40,7 +40,7 @@ To reuse shared content:
    ```
 
    The `index.md` file tells Hugo that the `docs/sources/shared` directory is a leaf bundle which is necessary for the `docs/shared` shortcode to access files stored within.
-   For more information about leaf bundles, refer to [Pages and page bundles]({{< relref "./documentation-structure/#pages-and-page-bundles" >}}).
+   For more information about leaf bundles, refer to [Pages and page bundles]({{< relref "../documentation-structure/#pages-and-page-bundles" >}}).
 
    After performing the preceding instructions for the first time in a new repository, the directory structure looks similar to the following:
 
@@ -69,8 +69,8 @@ To reuse shared content:
    {{</* docs/shared source="tempo" lookup="common-introduction.md" version="latest" */>}}
    ```
 
-   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "./shortcodes/#docsshared-shortcode" >}}).
+   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "../shortcodes/#docsshared-shortcode" >}}).
 
 1. Verify the include.
 
-   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "./contribute-documentation/#Review-your-changes" >}})
+   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "../contribute-documentation/#Review-your-changes" >}})

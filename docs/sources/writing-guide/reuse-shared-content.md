@@ -30,7 +30,7 @@ To reuse shared content:
 
 1. In the sharing project, create the `docs/sources/shared/` directory if it does not exist.
 
-1. In the sharing project, create the file `docs/sources/shared/index.md` with the following contents:
+1. In the sharing project, create the file `docs/sources/shared/index.md` if it does not exist, with the following contents:
 
    ```markdown
    ---

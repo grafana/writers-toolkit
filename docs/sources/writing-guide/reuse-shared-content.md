@@ -49,7 +49,7 @@ To reuse shared content:
    The file can be in a subdirectory, but that subdirectory must be in the `docs/sources/shared/` directory.
    The `docs/shared` shortcode cannot lookup files outside of this directory.
 
-   The contents of the file should be the chunk of writing you wish to reuse.
+   The file's contents should be the chunk of writing you want to reuse.
 
 1. In the consuming project, use the `docs/shared` shortcode to include the shared content.
 

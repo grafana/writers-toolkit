@@ -40,8 +40,17 @@ To reuse shared content:
    ```
 
    The `index.md` file tells Hugo that the `docs/sources/shared` directory is a leaf bundle which is necessary for the `docs/shared` shortcode to access files stored within.
-
    For more information about leaf bundles, refer to [Pages and page bundles]({{< relref "./documentation-structure/#pages-and-page-bundles" >}}).
+
+   After performing the preceding instructions for the first time in a new repository, the directory structure looks similar to the following:
+
+   ```console
+   $ tree docs/sources/shared
+   docs/sources/shared
+   └── index.md
+
+   0 directories, 1 file
+   ```
 
 1. In the sharing project, create a file for the shared content in the `docs/sources/shared/` directory.
 

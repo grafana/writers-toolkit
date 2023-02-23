@@ -20,7 +20,7 @@ Add an introduction to the reference.
 
 <!-- The introduction is required. Include reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
 
-For guidelines about writing a reference topic, see [Reference topic]({{< relref "../../../writing-guide/topic-types/reference/" >}}).
+For guidelines about writing a reference topic, see [Reference topic]({{< relref "../writing-guide/topic-types/reference/" >}}).
 
 Often reference topics are linked from _task_ topics, because they contain information the user needs when performing a task. 
 -->

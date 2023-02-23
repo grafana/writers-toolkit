@@ -75,8 +75,8 @@ We also recommend that you think critically about whether to include an image in
 Complete the following steps after the prior release goes out.
 
 1. The Docs Squad identifies the technical writer responsible for overseeing the What’s New content development process for the upcoming release.
-1. The identified technical writer cuts a branch and creeates a PR with an empty What's New doc that will be populated with the What’s New content for the next release. 
-1. The technical writer then pins a link to [version-number-release-gtm](https://raintank-corp.slack.com/archives/C02L8GQJGBW) Slack channel.
+1. The identified technical writer cuts a branch and creates a PR with an empty What's New doc to be populated with the What’s New content for the next release. 
+1. The technical writer then pins a link to the [version-number-release-gtm](https://raintank-corp.slack.com/archives/C02L8GQJGBW) Slack channel.
 
    > **Note:** A Product Manager (PM) is responsible for update the version number of that channel after a release goes out. 
    

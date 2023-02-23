@@ -38,7 +38,7 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
 
 - A new Transformation: [Partition by values](/docs/grafana/latest/whatsnew/whats-new-in-v9-3/#new-transformation-partition-by-values).
   - This is one of many transformations, but it is brand-new functionality that a user might not notice if they didn’t read the What's New document. What’s New is also a low-effort place to describe some nice use cases and examples for the feature so that users adopt it.
-- The new [Candlestick visualization](docs/grafana/latest/whatsnew/whats-new-in-v8-3/#candlestick-panel-beta).
+- The new [Candlestick visualization](/docs/grafana/latest/whatsnew/whats-new-in-v8-3/#candlestick-panel-beta).
   - This was a beta feature, but still listed in What’s new in order to get the word out and encourage users to try it.
 - All-new Swagger docs for the API. 
   - This is significant because it makes our documentation much easier to use, and it’s a new place for users to go for help when using our API.

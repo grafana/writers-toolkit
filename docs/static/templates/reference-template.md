@@ -20,9 +20,9 @@ Add an introduction to the reference.
 
 <!-- The introduction is required. Include reference information, such as extensive tables, lists, or other information that is used as support for a task. Reference topics are also designed for API information.
 
-Often reference topics are linked from _task_ topics, because they contain information the user needs in order to perform a task. 
+For guidelines about writing a reference topic, see [Reference topic](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/reference/).
 
-Refer to the [Reference topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/reference/) for guidelines on writing a task topic. 
+Often reference topics are linked from _task_ topics, because they contain information the user needs when performing a task. 
 -->
 
 ## Lists

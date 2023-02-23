@@ -100,7 +100,7 @@ Complete the following steps throughout a release cycle:
 
    > **Note:** This won't need to apply to every PR - just the primary PR that checks in the new feature, changed feature, or deprecation. 
 
-   The following image shows an example What's New PR description field that include the information you should complete.
+   The following image shows an example What's New PR description field that includes the information the dev should complete.
 
    <figure>
    <img src="whats-new-pr-template-example.png" alt="What's New PR template example" width="600">

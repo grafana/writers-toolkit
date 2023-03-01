@@ -107,8 +107,6 @@ When you are ready for other people to review your work, perform the following t
 1. Create a PR in Github.
 1. Add the `type/docs` label.
 
-   For more information about the `type/docs` workflow, refer to [type/docs label workflow]({{< relref "../tooling-and-workflows/type-docs-label-workflow/" >}}).
-
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.
 
 ## PR review and approval workflow

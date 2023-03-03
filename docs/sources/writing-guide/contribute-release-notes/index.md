@@ -33,7 +33,7 @@ Complete the following steps within one week after the prior release goes out.
    > **Note:** A Product Manager (PM) is responsible for updating the version number of that channel after a release goes out. 
    
 1. The technical writer posts in the Slack channel that the What's New PR is ready for contributions. 
-1. The PM or PMM on point communicates with eng squads without a PM resource about who’s on point for What’s New PR reviews from within the PM and PMM orgs.
+1. The PM or PMM on point communicates with engineering squads without a PM resource about who’s on point for What’s New PR reviews from within the PM and PMM orgs.
 
    Refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG) for a list of release dates and go-to-market coordinators.
 

@@ -27,7 +27,7 @@ Consider adding an image, though be aware that we will not maintain them, as the
 Complete the following steps within one week after the prior release goes out.
 
 1. The Docs Squad identifies the technical writer responsible for overseeing the What’s New content development process for the upcoming release.
-1. The identified technical writer cuts a branch and creates a PR with an empty What's New doc to be populated with the What’s New content for the next release. 
+1. The identified technical writer cuts a branch and creates a draft PR with an empty What's New doc to be populated with the What’s New content for the next release along with the updated What's New index page. This PR should also include the new Upgrade Guide page (process TBA). This PR should not have a `backport` label initially.
 1. The technical writer then pins a link to the [version-number-release-gtm](https://raintank-corp.slack.com/archives/C02L8GQJGBW) Slack channel.
 
    > **Note:** A Product Manager (PM) is responsible for update the version number of that channel after a release goes out. 

@@ -59,17 +59,17 @@ Complete the following steps in the days leading up to the release:
 
 1. Five days before the GA release:
    - The PM or PMM running the release sends a **Last Call** to dev teams to get in their What’s New content.
-     - The technical writer changes the PR status from **Draft** to **Ready for Review**.
+   - The technical writer changes the PR status from **Draft** to **Ready for Review**.
 
 1. Two days before the release, What’s New content is frozen.
-
-1. On release day, the technical writer merges the What’s New branch into main and backports the doc to the feature version branch.
 
 1. A PM reviews all content and adjusts wording, where appropriate.
 
 1. The technical writer provides a copy edit.
 
-1. The technical writers coordinates with Release Management and the GTM team for precise timing of when to merge the What's New doc into main.
+1. The technical writer coordinates with Release Management and the GTM team for precise timing of when to merge the What's New doc into main.
+
+1. On release day, the technical writer merges the What’s New branch into main and backports the doc to the feature version branch.
 
 ## How to determine if content belongs in a What's New document
 

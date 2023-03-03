@@ -68,11 +68,11 @@ These are important improvements, but are better placed in the changelog than Wh
 
 Developing directly in Markdown reduces errors and removes a manual (toilsome and error-prone step), by creating, editing, discussing, and publishing in the same format from which we will publish in GitHub, using the Grafana repo. 
 
-We also recommend that you think critically about whether to include an image in the What’s New document. We will not maintain these images, as the document refelct a "point in time". If you need to add an image, refer to [Image, diagram, and screenshot guidelines]({{</* relref "../image-guidelines" */>}}).
+Consider adding an image, though be aware that we will not maintain them, as the document reflect a "point in time." If you need to add an image, refer to [Image, diagram, and screenshot guidelines]({{</* relref "../image-guidelines" */>}}).
 
 ### When the prior release is complete
 
-Complete the following steps after the prior release goes out.
+Complete the following steps within one week after the prior release goes out.
 
 1. The Docs Squad identifies the technical writer responsible for overseeing the What’s New content development process for the upcoming release.
 1. The identified technical writer cuts a branch and creates a PR with an empty What's New doc to be populated with the What’s New content for the next release. 
@@ -80,9 +80,10 @@ Complete the following steps after the prior release goes out.
 
    > **Note:** A Product Manager (PM) is responsible for update the version number of that channel after a release goes out. 
    
-1. The technical writer posts in the Slack channel that the What's New PR is ready for populating. 
-1. The PM and Product Marketing Manager (PMM) organizations identify which PM or PMM is responsible for vetting content added to the What's New draft.
+1. The technical writer posts in the Slack channel that the What's New PR is ready for contributions. 
 1. The PM or PMM on point communicates with eng squads without a PM resource about who’s on point for What’s New PR reviews from within the PM and PMM orgs.
+
+   Refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG) for a list of release dates and go-to-market coordinators.
 
 ### Throughout a release
 

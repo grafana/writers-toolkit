@@ -30,7 +30,7 @@ Complete the following steps within one week after the prior release goes out.
 1. The identified technical writer cuts a branch and creates a draft PR with an empty What's New doc to be populated with the What’s New content for the next release along with the updated What's New index page. This PR should also include the new Upgrade Guide page (process TBA). This PR should not have a `backport` label initially.
 1. The technical writer then pins a link to the [version-number-release-gtm](https://raintank-corp.slack.com/archives/C02L8GQJGBW) Slack channel.
 
-   > **Note:** A Product Manager (PM) is responsible for update the version number of that channel after a release goes out. 
+   > **Note:** A Product Manager (PM) is responsible for updating the version number of that channel after a release goes out. 
    
 1. The technical writer posts in the Slack channel that the What's New PR is ready for contributions. 
 1. The PM or PMM on point communicates with eng squads without a PM resource about who’s on point for What’s New PR reviews from within the PM and PMM orgs.

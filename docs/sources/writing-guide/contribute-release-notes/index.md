@@ -83,7 +83,7 @@ What's new content should address changes that have some kind of material impact
   - Most visualization changes and most additions to the UI should be in the What's new document, even when they seem small. 
 - Almost every change or addition associated with Prometheus and Loki is of interest, too.
 - What's New content should also include changes that require customers to do something, like change their API keys to Service Accounts, or stop using a deprecated API or plugin.
-- A What's New doc should include announcements - things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
+- A What's New doc should include announcements — things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
 
 When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in What’s New_.
 

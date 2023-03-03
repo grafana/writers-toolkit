@@ -1,5 +1,8 @@
 ---
 cascade:
+  labels:
+    products:
+      - oss
   public_docs: true
   search_section: Writers' Toolkit
   search_type: doc

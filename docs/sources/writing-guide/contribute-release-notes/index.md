@@ -45,7 +45,7 @@ Complete the following steps throughout a release cycle:
 
 1. Dev teams add commits directly against the branch.
 
-   > **Note:** As an alternative, Dev teams can cut PRs against the branch, add What’s New content, collaborate with Reviewers, and merge the PR into the What's New branch.
+   > **Note:** As an alternative, Dev teams can cut PRs against the branch, add What’s New content, collaborate with reviewers, and merge the PR into the What's New branch.
 
 1. The technical writer periodically checks the What's New PR to determine how much content has been added.
 

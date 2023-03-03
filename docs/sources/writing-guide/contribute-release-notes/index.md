@@ -27,7 +27,9 @@ Consider adding an image, though be aware that we will not maintain them, as the
 Complete the following steps within one week after the prior release goes out.
 
 1. The Docs Squad identifies the technical writer responsible for overseeing the What’s New content development process for the upcoming release.
-1. The identified technical writer cuts a branch and creates a draft PR with an empty What's New doc to be populated with the What’s New content for the next release along with the updated What's New index page. This PR should also include the new Upgrade Guide page (process TBA). This PR should not have a `backport` label initially.
+1. The identified technical writer cuts a branch and creates a draft PR with an empty What's New doc to be populated with the What’s New content for the next release, along with the updated What's New index page. 
+   - This PR should include the new Upgrade Guide page (process TBA).
+   - This PR should not have a `backport` label initially.
 1. The technical writer then pins a link to the [version-number-release-gtm](https://raintank-corp.slack.com/archives/C02L8GQJGBW) Slack channel.
 
    > **Note:** A Product Manager (PM) is responsible for updating the version number of that channel after a release goes out. 
@@ -55,7 +57,9 @@ At this point, the larger Marketing org can review the What’s New content in t
 
 Complete the following steps in the days leading up to the release:
 
-1. Five days before the GA release, the PM or PMM who is running the release sends out a **Last Call** to dev teams to get their What’s New content in.
+1. Five days before the GA release:
+   - The PM or PMM running the release sends a **Last Call** to dev teams to get in their What’s New content.
+     - The technical writer changes the PR status from **Draft** to **Ready for Review**.
 
 1. Two days before the release, What’s New content is frozen.
 
@@ -121,23 +125,23 @@ These are important improvements, but are better placed in the changelog than Wh
 
 Follow these guidelines to ensure that your What's New or release notes content is clear, helpful, and easy to understand.
 
-- Directly address your users.
+- **Directly address your users.**
 
     Address them using the imperative or as “you”.
 
     **Example:**
     Shorten your communication time when reporting issues and requesting help from Grafana Labs by grabbing a panel’s query response data and panel settings.
 
-- Make use of active voice or present tense.
+- **Make use of active voice or present tense.**
 
     **Example:**
     Enable a configuration option to skip user organization and roles synchronization with your SAML provider.
 
-- Don't refer to the release version, for example, “In Grafana 9, we ” or “As of now, we”.
+- **Don't refer to the release version, for example, “In Grafana 9, we ” or “As of now, we”.**
 
   The What’s New or release notes are understood to be providing information for a specific release, so there is no need to repeat this information.
 
-- Provide high-level descriptions.
+- **Provide high-level descriptions.**
 
   Tell customers what goal they can accomplish or what problems they can solve with the feature. Describe the business value. Don't go into details about how the feature works, or configuration steps.
 
@@ -148,8 +152,8 @@ Follow these guidelines to ensure that your What's New or release notes content 
 
   For more information, refer to [insert link to documentation].
 
-- Don't refer to how the feature used to work.
+- **Don't refer to how the feature used to work.**
 
   For example, don't say "Previously, alert rules changed state when the rule was facing an error or a timeout. Now, the state does not update."
 
-- For changes or updates to features, provide brief descriptions.
+- **For changes or updates to features, provide brief descriptions.**

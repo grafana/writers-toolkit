@@ -36,8 +36,8 @@ Consider the following best practices to ensure inclusivity in your writing.
 
 ## Write for an international audience
 
-US English is the standard for Grafana Labs documentation, 
-and we write for an international audience with the following guidelines in mind:
+Grafana Labs uses US English as our standard (for spelling, grammar, punctuation, and more).
+We write for an international audience with the following guidelines in mind:
 
 ### Avoid acronyms
 

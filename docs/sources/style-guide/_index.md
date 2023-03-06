@@ -23,4 +23,4 @@ It includes rules and best practices on the following:
 - Inclusive writing
 - UX writing
 
-When in doubt, defer to the [Google developer documentation style guide](https://developers.google.com/style).
+When a matter of style is not covered here, refer to the [Google developer documentation style guide](https://developers.google.com/style).

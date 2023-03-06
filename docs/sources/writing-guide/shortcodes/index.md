@@ -85,6 +85,7 @@ The `section` shortcode renders an unordered list of links to a page's child pag
 | Parameter      | Description                                                                                                                                                                                                                                                             | Required |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | **menuTitle**: | If set to `"true"`, the menuTitle parameter modifies the template to use the `menuTitle` parameter of a child page's front matter instead of the page title as the text in the link. If the child page doesn't have a `menuTitle` parameter, the title is used instead. | no       |
+| **ordered**    | If set to `"true"`, the ordered parameter modifies the template to use an ordered list instead of an unordered list, displaying each item with a number marker                                                                                                          | no       |
 
 ### Example
 

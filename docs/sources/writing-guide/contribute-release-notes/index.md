@@ -73,7 +73,7 @@ Complete the following steps in the days leading up to the release:
 
 ## How to determine if content belongs in a What's New document
 
-Grafana publishes a What’s New [docs page](/docs/grafana/latest/whatsnew/) and [blog post](https://grafana.com/blog/2022/11/29/grafana-9.3-release/) along with every minor and major release. These posts are popular, and a good way for users to learn about the exciting new things we’ve released. What’s New also drives our go-to-market enablement: we train the field and make videos on the topics in What’s New. 
+Grafana publishes a What’s New [docs page](/docs/grafana/latest/whatsnew/) and [blog post](/blog/2022/11/29/grafana-9.3-release/) along with every minor and major release. These posts are popular, and a good way for users to learn about the exciting new things we’ve released. What’s New also drives our go-to-market enablement: we train the field and make videos on the topics in What’s New. 
 
 However, unlike our comprehensive changelog, What’s New is curated. If it contained every update, it would be too noisy for people to read, and if we wrote a detailed What’s New post for every little bug fix, we’d be wasting our time.
 

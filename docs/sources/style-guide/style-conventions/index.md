@@ -118,7 +118,7 @@ To focus a user's attention, Grafana Labs documentation includes notes, tips, ca
 
 The most common admonition is a note. A note provides additional information that the user should be aware of.
 
-For example:
+The markdown syntax for a note is `> **Note**` and will appear in the published output as shown in the following example:
 
 > **Note:** This page describes a feature for Grafana 9.0 beta.
 
@@ -130,11 +130,15 @@ A tip describes a more efficient or alternate way of doing something. Tips are r
 
 A caution warns the user to proceed with caution. A caution emphasizes a course of action's potential downsides.
 
+The markdown syntax for a caution is `> **Caution**` and will appear in the published output as shown in the following example:
+
 > **Caution:** By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
 
 ### Warnings
 
-A warning informs the user not to do something For example:
+A warning informs the user not to do something.  Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data.  
+
+The markdown syntax for a warning is `> **Warning**` and will appear in the published output as shown in the following example:
 
 > **Warning:** You cannot back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.
 

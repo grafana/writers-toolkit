@@ -102,10 +102,11 @@ Prior to pushing your changes to Github, you can view a local build of the docum
 When you are ready for other people to review your work, perform the following tasks:
 
 1. Add your changes, which prepares your content for the next commit.
-1. Commit your changes.
-1. Push your changes to Github.
-1. Create a PR in Github.
-1. Add the `type/docs` label.
+2. Commit your changes.
+3. Push your changes to Github.
+4. Create a PR in Github.
+5. When writing the description for your PR, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue) for example, "Fixes issue #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
+6. Add the `type/docs` label.  The docs squad uses this label to track documentation work.
 
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.
 
@@ -120,7 +121,7 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
-To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.  For more information, see [backporting]({{< relref "../tooling-and-workflows/backporting/" >}}).
 
 `grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

@@ -102,11 +102,11 @@ Prior to pushing your changes to Github, you can view a local build of the docum
 When you are ready for other people to review your work, perform the following tasks:
 
 1. Add your changes, which prepares your content for the next commit.
-2. Commit your changes.
-3. Push your changes to Github.
-4. Create a PR in Github.
-5. When writing the description for your PR, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue) for example, "Fixes issue #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
-6. Add the `type/docs` label.  The docs squad uses this label to track documentation work.
+1. Commit your changes.
+1. Push your changes to Github.
+1. Create a PR in Github.
+1. When writing the description for your PR, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue), for example "Fixes #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
+1. Add the `type/docs` label, so the Docs team can track the issue.
 
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.
 

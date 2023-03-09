@@ -138,7 +138,7 @@ The markdown syntax for a caution is `> **Caution**` and will appear in the publ
 
 A warning informs the user not to do something.  Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data.  
 
-The markdown syntax for a warning is `> **Warning**` and will appear in the published output as shown in the following example:
+The Markdown syntax for a warning is `> **Warning:**`. The warning appears in the published output as follows:
 
 > **Warning:** You cannot back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.
 

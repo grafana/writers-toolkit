@@ -21,6 +21,7 @@ For this reason, _do not_ include any special Markdown formatting, like italics 
 
 Here’s a correctly built example:
 
+```
     ---
     title: About Grafana Mimir architecture
     menuTitle: Architecture
@@ -33,6 +34,8 @@ Here’s a correctly built example:
       - microservices
       - architecture
     ---
+# About Grafana Mimir architecture
+```
 
 The following list describes what each element does and provides guidelines for its content.
 
@@ -74,6 +77,10 @@ The following list describes what each element does and provides guidelines for 
 `draft: true`
 
 :  When present, this option prevents Hugo from rendering the content.  Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
+
+`# heading`
+
+: If the `docs-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
 
 ## Example with different page and menu titles
 

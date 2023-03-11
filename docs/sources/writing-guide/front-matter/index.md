@@ -25,6 +25,9 @@ Here’s a correctly built example:
 aliases:
   - /docs/mimir/latest/old-architecture/
 description: Learn more about Grafana Mimir’s microservices-based architecture.
+labels:
+  products:
+    - oss
 keywords:
   - Mimir
   - microservices
@@ -69,6 +72,19 @@ The website uses keywords to link to related pages in the _Related content_ sect
 They do not appear in the resulting HTML source for the page and do not affect SEO.
 
 Ideally, use single terms as opposed to phrases.
+
+### labels
+
+Used to add labels that appear before the topic title.
+Only certain labels are supported.
+
+For `labels.products`, the supported values and the resulting website labels are:
+
+- `cloud`: "Grafana Cloud"
+- `enterprise`: "Enterprise"
+- `oss`: "Open source"
+
+A page should include a label in the `labels.products` sequence for every product that the page is relevant to.
 
 ### title
 

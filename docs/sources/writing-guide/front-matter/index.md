@@ -18,69 +18,74 @@ Use YAML for all front matter.
 In certain presentations, all front matter characters might render literally.
 For this reason, _do not_ include any special Markdown formatting, like italics or monospace, in front matter.
 
-
 Here’s a correctly built example:
 
 ```
-    ---
-    title: About Grafana Mimir architecture
-    menuTitle: Architecture
-    description: Learn more about Grafana Mimir’s microservices-based architecture.
-    aliases:
-      - /docs/mimir/latest/old-architecture/
-    weight: 100
-    keywords:
-      - Mimir
-      - microservices
-      - architecture
-    ---
+---
+title: About Grafana Mimir architecture
+menuTitle: Architecture
+description: Learn more about Grafana Mimir’s microservices-based architecture.
+aliases:
+  - /docs/mimir/latest/old-architecture/
+weight: 100
+keywords:
+  - Mimir
+  - microservices
+  - architecture
+---
+
 # About Grafana Mimir architecture
 ```
 
-The following list describes what each element does and provides guidelines for its content.
+## Reference
 
-`title` **Required.**
+The following headings describe what each element does and provides guidelines for its content.
 
-:  Becomes the document title element. Often browsers display this in the tab for the page.
+### title
 
-   It doesn't need to precisely match the `menuTitle`.
-   Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
+**Required.**
 
-`description`
+Becomes the document title element. Often browsers display this in the tab for the page.
 
-:  On social media, such as Twitter, displays as a clue to users about what the page includes.
+It doesn't need to precisely match the `menuTitle`.
+Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-   The number of characters vary by media, so make the description concise.
-   Provide enough information to guide users to the content by describing what content the link leads to.
-   Often, this doesn’t need to be original prose&mdash;you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
-   If it's too long, it is harmlessly truncated on social media.
-   Use double quotes (`"`) to surround the title. Do not use smart quotes.
+If the `doc-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
 
-`aliases`
+### description
 
-:  Provides an HTML redirect from the pages in the list to the current page.
-   Described in detail in Hugo aliases.
+**Required.**
 
-`weight`
+On social media, such as Twitter, displays as a clue to users about what the page includes.
 
-:  Determines the placement of the topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide. Pages with the same weight have lexicographic ordering.
+The number of characters vary by media, so make the description concise.
+Provide enough information to guide users to the content by describing what content the link leads to.
+Often, this doesn’t need to be original prose—you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
+If it's too long, it is harmlessly truncated on social media.
+Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-   Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
+### aliases
 
-`keywords`
+Provides an HTML redirect from the pages in the list to the current page.
+For more information, refer to [Hugo aliases](#hugo-aliases).
 
-:  The website uses keywords to link to related pages in the _Related content_ sections.
-   They do not appear in the resulting HTML source for the page and do not affect SEO.
+### weight
 
-   Ideally, use single terms as opposed to phrases.
+Determines the placement of the topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide. Pages with the same weight have lexicographic ordering.
 
-`draft: true`
+Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
 
-:  When present, this option prevents Hugo from rendering the content.  Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
+### keywords
 
-`# heading`
+The website uses keywords to link to related pages in the _Related content_ sections.
+They do not appear in the resulting HTML source for the page and do not affect SEO.
 
-: If the `docs-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
+Ideally, use single terms as opposed to phrases.
+
+### draft
+
+When set to `true`, this option prevents Hugo from rendering the content.
+Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
 
 ## Example with different page and menu titles
 

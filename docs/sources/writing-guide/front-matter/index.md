@@ -22,16 +22,16 @@ Here’s a correctly built example:
 
 ```
 ---
-title: About Grafana Mimir architecture
-menuTitle: Architecture
-description: Learn more about Grafana Mimir’s microservices-based architecture.
 aliases:
   - /docs/mimir/latest/old-architecture/
-weight: 100
+description: Learn more about Grafana Mimir’s microservices-based architecture.
 keywords:
   - Mimir
   - microservices
   - architecture
+menuTitle: Architecture
+title: About Grafana Mimir architecture
+weight: 100
 ---
 
 # About Grafana Mimir architecture
@@ -41,16 +41,10 @@ keywords:
 
 The following headings describe what each element does and provides guidelines for its content.
 
-### title
+### aliases
 
-**Required.**
-
-Becomes the document title element. Often browsers display this in the tab for the page.
-
-It doesn't need to precisely match the `menuTitle`.
-Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
-
-If the `doc-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
+Provides an HTML redirect from the pages in the list to the current page.
+For more information, refer to [Hugo aliases](#hugo-aliases).
 
 ### description
 
@@ -64,16 +58,10 @@ Often, this doesn’t need to be original prose—you can often scan the first f
 If it's too long, it is harmlessly truncated on social media.
 Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-### aliases
+### draft
 
-Provides an HTML redirect from the pages in the list to the current page.
-For more information, refer to [Hugo aliases](#hugo-aliases).
-
-### weight
-
-Determines the placement of the topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide. Pages with the same weight have lexicographic ordering.
-
-Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
+When set to `true`, this option prevents Hugo from rendering the content.
+Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
 
 ### keywords
 
@@ -82,10 +70,22 @@ They do not appear in the resulting HTML source for the page and do not affect S
 
 Ideally, use single terms as opposed to phrases.
 
-### draft
+### title
 
-When set to `true`, this option prevents Hugo from rendering the content.
-Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
+**Required.**
+
+Becomes the document title element. Often browsers display this in the tab for the page.
+
+It doesn't need to precisely match the `menuTitle`.
+Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
+
+If the `doc-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
+
+### weight
+
+Determines the placement of the topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide. Pages with the same weight have lexicographic ordering.
+
+Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
 
 ## Example with different page and menu titles
 

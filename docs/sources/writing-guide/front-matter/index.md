@@ -84,7 +84,32 @@ For `labels.products`, the supported values and the resulting website labels are
 - `enterprise`: "Enterprise"
 - `oss`: "Open source"
 
+Labels can be inherited through cascading front matter.
+Each project has a set of default labels defined in the root `_index.md` file for the project.
+
+For versioned projects, the `_index.md` file resides in the website repository.
+For unversioned projects, the `_index.md` file resides in the project repository.
+
+If the default labels are incorrect for a page, or directory of pages, you should update the labels.
 A page should include a label in the `labels.products` sequence for every product that the page is relevant to.
+
+For a single page, if the page describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
+
+```yaml
+labels:
+  products:
+    - cloud
+    - enterprise
+```
+
+For a directory of pages, if all pages describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front mattershould include the following:
+
+```
+cascade:
+  labels:
+    products:
+      - cloud
+```
 
 ### title
 

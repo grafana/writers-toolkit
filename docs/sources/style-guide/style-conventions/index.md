@@ -17,7 +17,7 @@ This section includes a non-exhaustive list of technical writing techniques and 
 
 Before you begin writing, clearly identify the goal of the user, and write content that supports the user reaching that goal.
 
-- Do not document implementation details, specifications, or back end system operations that have no clear consequence to the user.
+- Do not document implementation details, specifications, or backend system operations that have no clear consequence to the user.
   - Providing unnecessary information can lead to bloated content that forces the user to determine which content is relevant.
 - Avoid marketing clichés and hyperbole.
   - Instead, use evidence-based or quantifiable language to focus and refine the information, and to offer value propositions.
@@ -58,6 +58,7 @@ Simple, direct communication is the key to effective technical communication.
 - Don't use buzzwords or jargon.
 - Keep paragraphs to three sentences or less.
   - Condense the text, add more headings, or do both.
+- Use contractions in most cases to express an informal style.
 
 Make content relevant to the user's context. The more familiar you are with the user’s context, the better you can communicate without using a lot of words.
 
@@ -118,7 +119,7 @@ To focus a user's attention, Grafana Labs documentation includes notes, tips, ca
 
 The most common admonition is a note. A note provides additional information that the user should be aware of.
 
-The Markdown syntax for a note is `> **Note:**`. The note appears in the published output as follows:
+For example:
 
 > **Note:** This page describes a feature for Grafana 9.0 beta.
 
@@ -130,54 +131,10 @@ A tip describes a more efficient or alternate way of doing something. Tips are r
 
 A caution warns the user to proceed with caution. A caution emphasizes a course of action's potential downsides.
 
-The markdown syntax for a caution is `> **Caution**` and will appear in the published output as shown in the following example:
-
 > **Caution:** By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
 
 ### Warnings
 
-A warning informs the user not to do something.  Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data.  
-
-The Markdown syntax for a warning is `> **Warning:**`. The warning appears in the published output as follows:
+A warning informs the user not to do something For example:
 
 > **Warning:** You cannot back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.
-
-## Command line
-
-Use the following conventions when you include command line commands in technical content.
-
-- Do not assume everyone is using Linux. Make sure instructions include enough information for Windows and Mac users to successfully complete procedures.
-
-- Do not add `$` before commands. Make it easy for users to copy and paste commands.
-
-  - **Right:** `sudo yum install grafana`
-  - **Wrong:** `$ sudo yum install grafana`
-
-- Include `sudo` before commands that require `sudo` to work.
-
-For terminal examples and Grafana configuration, use a `bash` code block:
-
-```bash
-sudo yum install grafana
-```
-
-If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output.
-
-```bash
-cat ~/.ssh/my-ssh-key.pub
-```
-
-The output is similar to the following:
-
-```console
-ssh-rsa KEY_VALUE USERNAME
-```
-
-For HTTP request/response, use an `http` code block:
-
-```http
-GET /api/dashboards/id/1/permissions HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
-```

@@ -28,7 +28,7 @@ GitHub captures your request as an Issue logged against the repository.
 
 > **Note:** You can only request a change against the latest release of documentation.
 
-## Before you begin
+### Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 
@@ -38,7 +38,7 @@ GitHub captures your request as an Issue logged against the repository.
 
    The **Issue** title auto-populates with the location of the file for which you are requesting a change.
 
-2. Click **Submit new issue**.
+1. Click **Submit new issue**.
 
 The Doc Squad determines the priority and scope of the change, and schedules the change to be made.
 
@@ -54,20 +54,44 @@ Small changes might include:
 
 > **Note:** You can only edit a topic that is part of the latest release of documentation.
 
-## Before you begin
+### Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 
 **To edit a topic:**
 
 1. From a topic on the documentation website, click **Edit this page** (pencil icon).
-2. Enter your changes.
-3. Change the branch name, if required.
+1. Enter your changes.
+1. Change the branch name, if required.
    The branch name is auto-populated.
 
-4. Click **Propose changes**.
+1. Click **Propose changes**.
 
    A PR is created and then goes through the PR review and approval workflow.
+
+## Develop a new topic
+
+If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the Doc Squad to see it through. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
+
+Your documentation plan will help you to:
+
+- Identify existing information gaps and explain how you will fill them
+- Get feedback from users and stakeholders before the writing process begins
+- Consider different approaches you might take, and decide between them
+
+> **Note:** You can only create new topics that are part of the latest release of documentation.
+
+**To develop a new topic:**
+
+1. Create a new document in Google Docs, Google Sheets, or a similar tool. For a small project, you may use an email message.
+1. Copy and paste content from the [Document Planning Template]({{< relref "../../static/templates/document-planning-template.md) into your document. 
+1. Fill in the requested information. 
+1. Attach an outline of your proposed document. 
+1. Schedule a review meeting with a member of the Doc Squad. 
+
+   If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com).  
+
+Your writer on the Doc Squad will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
 
 ## Testing
 
@@ -105,8 +129,7 @@ When you are ready for other people to review your work, perform the following t
 1. Commit your changes.
 1. Push your changes to Github.
 1. Create a PR in Github.
-1. When writing the description for your PR, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue), for example "Fixes #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
-1. Add the `type/docs` label, so the Docs team can track the issue.
+1. Add the `type/docs` label.
 
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.
 
@@ -121,7 +144,7 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
-To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.  For more information, see [backporting]({{< relref "../tooling-and-workflows/backporting/" >}}).
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.
 
 `grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

@@ -139,4 +139,4 @@ A warning informs the user not to do something.
 
 For example:
 
-> **Warning:** You cannot back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.
+> **Warning:** Do not back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.

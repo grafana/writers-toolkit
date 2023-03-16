@@ -10,7 +10,6 @@ keywords:
   - documentation plan
   - writing new documents
 ---
-<!-- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Documentation plan
 

@@ -119,6 +119,8 @@ To focus a user's attention, Grafana Labs documentation includes notes, tips, ca
 
 The most common admonition is a note. A note provides additional information that the user should be aware of.
 
+The Markdown syntax for a note is `> **Note:**`. The note appears in the published output as follows:
+
 For example:
 
 > **Note:** This page describes a feature for Grafana 9.0 beta.

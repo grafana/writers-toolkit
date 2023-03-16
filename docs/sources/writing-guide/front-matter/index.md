@@ -85,7 +85,7 @@ For `labels.products`, the supported values and the resulting published labels a
 - `oss`: "Open source"
 
 Labels can be inherited through cascading front matter.
-Each project has a set of default labels defined in the root `_index.md` file for the project.
+Each project has a set of default labels that are defined in the root `_index.md` file of the project.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.
 For unversioned projects, the `_index.md` file resides in the project repository.

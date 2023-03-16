@@ -2,7 +2,7 @@
 title: Write for developers
 description: Guidelines on creating documentation for software developers and engineers
 aliases:
-  - /docs/writers-toolkit/latest/style-guide/writing-for-developers/
+  - /docs/writers-toolkit/latest/style-guide/write-for-developers/
 weight: 500
 keywords:
   - Grafana
@@ -78,7 +78,7 @@ Remember the basic rule: your explanation of the code shouldn't describe _what_ 
 Here are guidelines to follow when formatting code examples.
 
 - Use spaces, not tabs. 
-- Follow Grafana's accepted [coding style guidelines](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).)
+- Follow Grafana's accepted [coding style guidelines](https://github.com/grafana/grafana/blob/main/contribute/style-guides/).
 - Wrap lines at 80 characters.
 - When omitting code, use three dots (...). Don't use the ellipsis character (…).
 

@@ -79,8 +79,6 @@ Your documentation plan will help you to:
 - Get feedback from users and stakeholders before the writing process begins
 - Consider different approaches you might take, and decide between them
 
-> **Note:** You can only create new topics that are part of the latest release of documentation.
-
 **To develop a new topic:**
 
 1. Create a new document in Google Docs, Google Sheets, or a similar tool. For a small project, you may use an email message.
@@ -89,7 +87,7 @@ Your documentation plan will help you to:
 1. Attach an outline of your proposed document. 
 1. Schedule a review meeting with a member of the Doc Squad. 
 
-   If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com).  
+   If you don't know which writer will be reviewing your documentation plan, reach out to docs-team@grafana.com.  
 
 Your writer on the Doc Squad will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
 
@@ -129,6 +127,7 @@ When you are ready for other people to review your work, perform the following t
 1. Commit your changes.
 1. Push your changes to Github.
 1. Create a PR in Github.
+1. When writing the description for your PR, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue), for example "Fixes #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
 1. Add the `type/docs` label.
 
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.

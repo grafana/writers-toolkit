@@ -6,7 +6,7 @@ description: How to run a local documentation webserver with the make-docs scrip
 
 # Run a local documentation webserver with the make-docs script
 
-The [`make-docs`](./make-docs) script can be used to mount multiple documentation sets in a single build.
+The [`make-docs`](https://github.com/grafana/writers-toolkit/blob/main/scripts/make-docs) script can be used to mount multiple documentation sets in a single build.
 It is used by the `make docs` Make target in project repositories and can also be run separately.
 
 ## Examples

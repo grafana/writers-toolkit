@@ -49,4 +49,4 @@ make-docs:
 .PHONY: docs
 docs: ## Serve documentation locally.
 docs:
-	$(GIT_ROOT)/docs/sources/writing-guide/tooling-and-workflows/run-a-local-webserver/make-docs $(PROJECTS)
+	$(GIT_ROOT)/scripts/make-docs $(PROJECTS)

@@ -58,7 +58,7 @@ Simple, direct communication is the key to effective technical communication.
 - Don't use buzzwords or jargon.
 - Keep paragraphs to three sentences or less.
   - Condense the text, add more headings, or do both.
-- Use contractions in most cases to express an informal style.
+- Use contractions in common and negative cases to express a conversational style: _you’re_, _that’s_, _isn’t_ or _don’t, for example.
 
 Make content relevant to the user's context. The more familiar you are with the user’s context, the better you can communicate without using a lot of words.
 

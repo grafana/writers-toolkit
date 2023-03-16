@@ -91,7 +91,7 @@ For versioned projects, the `_index.md` file resides in the `website` repository
 For unversioned projects, the `_index.md` file resides in the project repository.
 
 If the default labels are incorrect for a page or directory of pages, update the labels.
-A page should include a label in the `labels.products` sequence for every product that the page is relevant to.
+For each page, include a label in the `labels.products` sequence for every product that the page relates to.
 
 For a single page, if the page describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
 

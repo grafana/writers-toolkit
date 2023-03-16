@@ -135,6 +135,8 @@ A caution warns the user to proceed with caution. A caution emphasizes a course 
 
 ### Warnings
 
-A warning informs the user not to do something For example:
+A warning informs the user not to do something.
+
+For example:
 
 > **Warning:** You cannot back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.

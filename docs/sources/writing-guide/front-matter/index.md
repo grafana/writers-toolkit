@@ -75,7 +75,7 @@ Ideally, use single terms as opposed to phrases.
 
 ### labels
 
-Used to add labels that appear before the topic title.
+Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
 Only certain labels are supported.
 
 For `labels.products`, the supported values and the resulting website labels are:

@@ -91,7 +91,7 @@ Your documentation plan helps you to:
 
    If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com). 
 
-Your writer on the Doc Squad will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
+Your writer on the Docs team will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
 
 ## Testing
 

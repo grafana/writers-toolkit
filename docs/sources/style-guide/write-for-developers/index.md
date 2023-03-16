@@ -48,7 +48,7 @@ When writing documentation that will be used by an auto-generated program to cre
 An auto-generation tool can parse syntax, but when writing documentation that will be used to create automated content, it is up to you to add actionable insights. 
 - What are the caveats, edge cases, and side effects?
 - What is the bigger picture that is not self-evident in the code? 
-- In short, what is everything that a developer needs to know to make use of the code?
+- In short, what is everything that a developer needs to know to use the code?
 
 Be aware that it may be difficult to integrate auto-gen content with other documentation such as relevant sections of getting started guides, tutorials, and detailed code examples. You may need to consult with a Doc Squad member to ensure that your content is properly cross-referenced.
 

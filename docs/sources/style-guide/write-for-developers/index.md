@@ -25,7 +25,7 @@ For example, instead of covering the fundamentals of UI design  _in general_, ex
 
 ## Code comments
 
-The foundation of strong documentation is well-written comments in code: concise, relevant, and up-to-date. 
+The foundation of strong documentation is well-written comments in code that are concise, relevant, and current. 
 
 This guide doesn't cover the do's and don'ts of writing comments, but you can refer to the [Grafana developer style guide](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
 

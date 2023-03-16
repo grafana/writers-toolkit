@@ -72,7 +72,7 @@ Additional tips:
 
 ## Code examples
 
-It is common for readers of documentation to skim through it to find code samples they can copy and paste and run "as is". For this reason, it is worth taking the time to ensure that whenever possible the examples you provide are production-ready.
+Readers of documentation typically skim through it to find code samples they can copy and paste and run "as is". Because of this, we highly recommend you ensure that whenever possible the examples you provide are production-ready.
 
 Of course, this doesn't mean you should avoid writing code examples intended merely to illustrate a point. When your intent is to explain something, it isn't necessary for your code to be runnable so long as the developer can learn from it to do something similar on their own.
 

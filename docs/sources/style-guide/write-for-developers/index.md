@@ -6,7 +6,6 @@ aliases:
 weight: 500
 keywords:
   - Grafana
-  - Writing for developers
   - Docs for developers
 ---
 

@@ -35,7 +35,8 @@ For more general advice, consult one of the reputable [Google Style Guides](http
 
 ## Reference docs
 
-Whenever possible, API docs and other reference docs should be automatically generated from source code comments. However they happen to be created, they ought to conform to our [style conventions]({{< relref "../../style-guide/style-conventions/" >}}), with particular attention paid to properly formatting the elements of code.
+Whenever possible, automatically generate API and other reference documentation from source-code comments. However documentation is created, make sure it conforms to the [style conventions]({{< relref "../../style-guide/style-conventions/" >}}).
+Pay particular attention to properly formatting the elements of code.
 
 ### Auto-generated documentation
 

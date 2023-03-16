@@ -25,6 +25,9 @@ Here’s a correctly built example:
 aliases:
   - /docs/mimir/latest/old-architecture/
 description: Learn more about Grafana Mimir’s microservices-based architecture.
+labels:
+  products:
+    - oss
 keywords:
   - Mimir
   - microservices
@@ -69,6 +72,45 @@ The website uses keywords to link to related pages in the _Related content_ sect
 They do not appear in the resulting HTML source for the page and do not affect SEO.
 
 Ideally, use single terms as opposed to phrases.
+
+### labels
+
+Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
+Only certain labels are supported.
+
+For `labels.products`, the supported values and the resulting published labels are as follows:
+
+- `cloud`: "Grafana Cloud"
+- `enterprise`: "Enterprise"
+- `oss`: "Open source"
+
+Labels can be inherited through cascading front matter.
+Each project has a set of default labels that are defined in the root `_index.md` file of the project.
+
+For versioned projects, the `_index.md` file resides in the `website` repository.
+For unversioned projects, the `_index.md` file resides in the project’s repository.
+
+If the default labels are incorrect for a page or directory of pages, update the labels.
+Also, if you are adding a new page, consider whether the default labels are appropriate.
+For each page, include a label in the `labels.products` sequence for every product that the page relates to.
+
+For example, if a **single page** describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
+
+```yaml
+labels:
+  products:
+    - cloud
+    - enterprise
+```
+
+For a **directory of pages** that describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front matter should include the following:
+
+```yaml
+cascade:
+  labels:
+    products:
+      - cloud
+```
 
 ### title
 

@@ -82,7 +82,7 @@ Your documentation plan helps you to:
 **To develop a new topic:**
 
 1. Create a new document in Google Docs, Google Sheets, or a similar tool.
-1. Copy and paste content from the [Document planning template]({{< relref "../../static/templates/document-planning-template.md) into your document. 
+1. Copy and paste content from the [Document planning template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md) into your document. 
 1. Fill in the requested information. 
 1. Attach an outline of your proposed document. 
 1. Schedule a review meeting with a member of the Docs team.

@@ -43,7 +43,7 @@ Pay particular attention to properly formatting the elements of code.
 The advantages of automating documentation programmatically are well-known, and include increased consistency and a reduction in human-made errors.
 But behind every line of auto-generated content is a human author who is responsible for following the [style guide]({{< relref "../../style-guide/" >}}).
 
-When writing docs that will be used by an auto-gen program to create publishable content, keep the following in mind:
+When writing documentation that will be used by an auto-generated program to create publishable content, keep the following things in mind:
 
 An auto-gen tool can parse syntax, but when writing docs that will be used to create automated content, it falls on your shoulders to add actionable insights. 
 - What are the caveats, edge cases, and side effects?

@@ -86,8 +86,8 @@ Your documentation plan helps you to:
 >>>>>>> c4c6e981efb1ec982287039637dea2ea28dbeed5
 **To develop a new topic:**
 
-1. Create a new document in Google Docs, Google Sheets, or a similar tool. For a small project, you may use an email message.
-1. Copy and paste content from the [Document Planning Template]({{< relref "../../static/templates/document-planning-template.md) into your document. 
+1. Create a new document in Google Docs, Google Sheets, or a similar tool.
+1. Copy and paste content from the [Document planning template]({{< relref "../../static/templates/document-planning-template.md) into your document. 
 1. Fill in the requested information. 
 1. Attach an outline of your proposed document. 
 1. Schedule a review meeting with a member of the Docs team.

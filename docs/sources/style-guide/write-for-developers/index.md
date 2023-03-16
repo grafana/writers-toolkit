@@ -91,7 +91,7 @@ Here are guidelines to follow when formatting code examples.
 
 Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample or a period if it doesn't. 
 
-### Paths, filenames and URLs
+### Paths, filenames, and URLs
 
 There are many types of information that should be put in code font. Among these are filenames, paths, folders, and directories. However, don't format domain names or URLs as code if you intend the user to follow the link. 
 

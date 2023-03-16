@@ -1,6 +1,6 @@
 ---
 title: Write for developers
-description: Guidelines on creating documentation for software developers and engineers
+description: Learn to write documentation for software developers and engineers.
 aliases:
   - /docs/writers-toolkit/latest/style-guide/writing-for-developers/
 weight: 500

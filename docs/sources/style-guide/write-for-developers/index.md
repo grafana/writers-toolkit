@@ -40,7 +40,8 @@ Pay particular attention to properly formatting the elements of code.
 
 ### Auto-generated documentation
 
-The advantages of automating documentation programmatically are well-known, mainly increases in consistency and reduction of human error. But behind every line of auto-gen content is a human author, one who is responsible for following our [style guidelines]({{< relref "../../style-guide/" >}}).
+The advantages of automating documentation programmatically are well-known, and include increased consistency and a reduction in human-made errors.
+But behind every line of auto-generated content is a human author who is responsible for following the [style guide]({{< relref "../../style-guide/" >}}).
 
 When writing docs that will be used by an auto-gen program to create publishable content, keep the following in mind:
 

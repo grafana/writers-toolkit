@@ -104,7 +104,7 @@ labels:
 
 For a directory of pages, if all pages describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front matter should include the following:
 
-```
+```yaml
 cascade:
   labels:
     products:

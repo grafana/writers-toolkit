@@ -79,11 +79,6 @@ Your documentation plan helps you to:
 - Get feedback from users and stakeholders before the writing process begins.
 - Consider different approaches you might take, and decide on one of them.
 
-<<<<<<< HEAD
-=======
-> **Note:** Only create new topics that are part of the upcoming release of documentation.
-
->>>>>>> c4c6e981efb1ec982287039637dea2ea28dbeed5
 **To develop a new topic:**
 
 1. Create a new document in Google Docs, Google Sheets, or a similar tool.
@@ -92,11 +87,7 @@ Your documentation plan helps you to:
 1. Attach an outline of your proposed document. 
 1. Schedule a review meeting with a member of the Docs team.
 
-<<<<<<< HEAD
    If you don't know which writer will be reviewing your documentation plan, reach out to docs-team@grafana.com.  
-=======
-   If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com). 
->>>>>>> c4c6e981efb1ec982287039637dea2ea28dbeed5
 
 Your writer on the Docs team will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
 

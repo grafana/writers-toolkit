@@ -87,7 +87,7 @@ For `labels.products`, the supported values and the resulting published labels a
 Labels can be inherited through cascading front matter.
 Each project has a set of default labels defined in the root `_index.md` file for the project.
 
-For versioned projects, the `_index.md` file resides in the website repository.
+For versioned projects, the `_index.md` file resides in the `website` repository.
 For unversioned projects, the `_index.md` file resides in the project repository.
 
 If the default labels are incorrect for a page, or directory of pages, you should update the labels.

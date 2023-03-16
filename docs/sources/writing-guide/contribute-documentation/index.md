@@ -79,7 +79,7 @@ Your documentation plan helps you to:
 - Get feedback from users and stakeholders before the writing process begins.
 - Consider different approaches you might take, and decide on one of them.
 
-> **Note:** You can only create new topics that are part of the latest release of documentation.
+> **Note:** Only create new topics that are part of the upcoming release of documentation.
 
 **To develop a new topic:**
 

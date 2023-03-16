@@ -75,9 +75,9 @@ If you want to develop a new topic from scratch, you can create a documentation 
 
 Your documentation plan helps you to:
 
-- Identify existing information gaps and explain how you will fill them
-- Get feedback from users and stakeholders before the writing process begins
-- Consider different approaches you might take, and decide between them
+- Identify existing information gaps, and explain how you will fill them.
+- Get feedback from users and stakeholders before the writing process begins.
+- Consider different approaches you might take, and decide on one of them.
 
 > **Note:** You can only create new topics that are part of the latest release of documentation.
 

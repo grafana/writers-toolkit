@@ -11,7 +11,9 @@ keywords:
 
 # Write for developers
 
-These guidelines provide suggestions for creating documentation for software develoers and engineers. Follow these tips to write useful API docs, code examples, and other technical material. Read these guidelines in the context of [Grafana's style guide]({{< relref "../../style-guide/" >}}) to learn how to communicate effectively with the developers who enhance and work with the code of our project. 
+The guidelines that follow provide suggestions for writing documentation for software developers and engineers. 
+Follow these tips to write useful API documentation, code examples, and other technical material.
+To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide]({{< relref "../../style-guide/" >}}).
 
 ## Developer documentation basics
 

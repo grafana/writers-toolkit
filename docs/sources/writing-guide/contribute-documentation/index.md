@@ -87,7 +87,7 @@ Your documentation plan helps you to:
 1. Copy and paste content from the [Document Planning Template]({{< relref "../../static/templates/document-planning-template.md) into your document. 
 1. Fill in the requested information. 
 1. Attach an outline of your proposed document. 
-1. Schedule a review meeting with a member of the Doc Squad. 
+1. Schedule a review meeting with a member of the Docs team.
 
    If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com).  
 

@@ -19,7 +19,9 @@ To learn how to communicate effectively with the developers who enhance and work
 
 Writing technical content for software developers is similar to writing content for users or administrators of software products, so they follow the same general guidelines. However, developer-facing docs tend to be more technical, and they rely upon certain conventions that are important to recognize. They often talk about code, so it's important to know how to structure, format, and identify common problems that may arise with it in documentation. 
 
-When readers of your documents are developers, you can assume that they are familiar with general programming concepts. There is no need to spell out elementary ideas. Instead, talk about those concepts and features that are specific to our products. For instance, instead of talking about the fundamentals of UI design  _in general_, talking about how Grafana's software or APIs _interpret_ those principles.
+When your readers are developers, you can assume that they are familiar with general programming concepts.
+There is no need to explain elementary ideas. Instead, introduce those concepts and features that are specific to Grafana Labs products.
+For example, instead of covering the fundamentals of UI design  _in general_, explain how Grafana Labs software or APIs _interpret_ those principles.
 
 ## Code comments
 

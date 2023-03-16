@@ -45,7 +45,7 @@ But behind every line of auto-generated content is a human author who is respons
 
 When writing documentation that will be used by an auto-generated program to create publishable content, keep the following things in mind:
 
-An auto-gen tool can parse syntax, but when writing docs that will be used to create automated content, it falls on your shoulders to add actionable insights. 
+An auto-generation tool can parse syntax, but when writing documentation that will be used to create automated content, it is up to you to add actionable insights. 
 - What are the caveats, edge cases, and side effects?
 - What is the bigger picture not self-evident in the code? 
 - In short, what is everything that a developer needs to know to make use of the code?

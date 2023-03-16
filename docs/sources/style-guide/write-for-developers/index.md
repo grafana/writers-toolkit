@@ -50,7 +50,7 @@ An auto-generation tool can parse syntax, but when writing documentation that wi
 - What is the bigger picture that is not self-evident in the code? 
 - In short, what is everything that a developer needs to know to use the code?
 
-Be aware that it may be difficult to integrate auto-gen content with other documentation such as relevant sections of getting started guides, tutorials, and detailed code examples. You may need to consult with a Doc Squad member to ensure that your content is properly cross-referenced.
+> **Note:** It might be difficult to integrate auto-generated content with other documentation, such as relevant sections of _Get started_ guides, tutorials, or detailed code examples. You might need to ask a Docs team member to ensure that your content is properly cross-referenced.
 
 ### Elements of API references
 

@@ -1,53 +1,60 @@
 ---
 title: Write for developers
-description: Guidelines on creating documentation for software developers and engineers
+description: Learn to write documentation for software developers and engineers.
 aliases:
   - /docs/writers-toolkit/latest/style-guide/write-for-developers/
 weight: 500
 keywords:
   - Grafana
-  - Writing for developers
   - Docs for developers
 ---
 
 # Write for developers
 
-These guidelines provide suggestions for creating documentation for software develoers and engineers. Follow these tips to write useful API docs, code examples, and other technical material. Read these guidelines in the context of [Grafana's style guide]({{< relref "../../style-guide/" >}}) to learn how to communicate effectively with the developers who enhance and work with the code of our project. 
+The guidelines that follow provide suggestions for writing documentation for software developers and engineers. 
+Follow these tips to write useful API documentation, code examples, and other technical material.
+To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide]({{< relref "../../style-guide/" >}}).
 
 ## Developer documentation basics
 
-Writing technical content for software developers is similar to writing content for users or administrators of software products, so they follow the same general guidelines. However, developer-facing docs tend to be more technical, and they rely upon certain conventions that are important to recognize. They often talk about code, so it's important to know how to structure, format, and identify common problems that may arise with it in documentation. 
+Writing technical content for software developers is similar to writing content for users or administrators of software products, so the same general guidelines apply.
+However, developer-facing documentation tends to be more technical, and relies on certain important conventions.
+Because this type of documentation contains details about code, it's important to know how to structure, format, and identify common problems that might arise.
 
-When readers of your documents are developers, you can assume that they are familiar with general programming concepts. There is no need to spell out elementary ideas. Instead, talk about those concepts and features that are specific to our products. For instance, instead of talking about the fundamentals of UI design  _in general_, talking about how Grafana's software or APIs _interpret_ those principles.
+When your readers are developers, you can assume that they are familiar with general programming concepts.
+There is no need to explain elementary ideas. Instead, introduce those concepts and features that are specific to Grafana Labs products.
+For example, instead of covering the fundamentals of UI design  _in general_, explain how Grafana Labs software or APIs _interpret_ those principles.
 
 ## Code comments
 
-The foundation of strong documentation is well-written comments in code: concise, relevant, and up-to-date. 
+The foundation of strong documentation is well-written comments in code that are concise, relevant, and current. 
 
-This guide doesn't cover the do's and don'ts of writing comments, but you can refer to the [Grafana developer style guide](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
+For do's and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
 
-For more general advice, consult a reputable [coding style guide](https://google.github.io/styleguide/) for your favorite programming language. 
+For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your favorite programming language. 
 
 ## Reference docs
 
-Whenever possible, API docs and other reference docs should be automatically generated from source code comments. However they happen to be created, they ought to conform to our [style conventions]({{< relref "../../style-guide/style-conventions/" >}}), with particular attention paid to properly formatting the elements of code.
+Whenever possible, automatically generate API and other reference documentation from source-code comments. However documentation is created, make sure it conforms to the [style conventions]({{< relref "../../style-guide/style-conventions/" >}}).
+Pay particular attention to properly formatting the elements of code.
 
 ### Auto-generated documentation
 
-The advantages of automating documentation programmatically are well-known, mainly increases in consistency and reduction of human error. But behind every line of auto-gen content is a human author, one who is responsible for following our [style guidelines]({{< relref "../../style-guide/" >}}).
+The advantages of automating documentation programmatically are well-known, and include increased consistency and a reduction in human-made errors.
+But behind every line of auto-generated content is a human author who is responsible for following the [style guide]({{< relref "../../style-guide/" >}}).
 
-When writing docs that will be used by an auto-gen program to create publishable content, keep the following in mind:
+When writing documentation that will be used by an auto-generated program to create publishable content, keep the following things in mind:
 
-An auto-gen tool can parse syntax, but when writing docs that will be used to create automated content, it falls on your shoulders to add actionable insights. 
+An auto-generation tool can parse syntax, but when writing documentation that will be used to create automated content, it is up to you to add actionable insights. 
 - What are the caveats, edge cases, and side effects?
-- What is the bigger picture not self-evident in the code? 
-- In short, what is everything that a developer needs to know to make use of the code?
+- What is the bigger picture that is not self-evident in the code? 
+- In short, what is everything that a developer needs to know to use the code?
 
-Be aware that it may be difficult to integrate auto-gen content with other documentation such as relevant sections of getting started guides, tutorials, and detailed code examples. You may need to consult with a Doc Squad member to ensure that your content is properly cross-referenced.
+> **Note:** It might be difficult to integrate auto-generated content with other documentation, such as relevant sections of _Get started_ guides, tutorials, or detailed code examples. You might need to ask a Docs team member to ensure that your content is properly cross-referenced.
 
 ### Elements of API references
 
-Pay attention to properly documenting the most common elements of an API reference such as the title, parameters, return values, and so on. The following are suggestions that will help you to write more complete and consistent docs.
+Properly document the most common elements of an API reference, such as the title, parameters, return values, and so on. The following suggestions will help you to write more complete and consistent documentation:
 
 | Element                                               | Description                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |

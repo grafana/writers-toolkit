@@ -71,25 +71,34 @@ Small changes might include:
 
 ## Develop a new topic
 
-If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the Doc Squad to see it through. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
+If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the Docs team. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
 
-Your documentation plan will help you to:
+Your documentation plan helps you to:
 
-- Identify existing information gaps and explain how you will fill them
-- Get feedback from users and stakeholders before the writing process begins
-- Consider different approaches you might take, and decide between them
+- Identify existing information gaps, and explain how you will fill them.
+- Get feedback from users and stakeholders before the writing process begins.
+- Consider different approaches you might take, and decide on one of them.
 
+<<<<<<< HEAD
+=======
+> **Note:** Only create new topics that are part of the upcoming release of documentation.
+
+>>>>>>> c4c6e981efb1ec982287039637dea2ea28dbeed5
 **To develop a new topic:**
 
 1. Create a new document in Google Docs, Google Sheets, or a similar tool. For a small project, you may use an email message.
 1. Copy and paste content from the [Document Planning Template]({{< relref "../../static/templates/document-planning-template.md) into your document. 
 1. Fill in the requested information. 
 1. Attach an outline of your proposed document. 
-1. Schedule a review meeting with a member of the Doc Squad. 
+1. Schedule a review meeting with a member of the Docs team.
 
+<<<<<<< HEAD
    If you don't know which writer will be reviewing your documentation plan, reach out to docs-team@grafana.com.  
+=======
+   If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com). 
+>>>>>>> c4c6e981efb1ec982287039637dea2ea28dbeed5
 
-Your writer on the Doc Squad will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
+Your writer on the Docs team will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
 
 ## Testing
 

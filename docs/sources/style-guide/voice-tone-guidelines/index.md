@@ -31,7 +31,7 @@ A casual tone is accepted in UI copy and supporting material compared to traditi
 
 As long as they allow for shorter sentences, you can use the words _and_, _but_, and _so_ in moderation. 
 
-Use ontractions like _isn't_ for _is not_ to help to convey an informal tone. But [be careful](https://www.grammarly.com/blog/contractions/).
+Use contractions like _isn't_ for _is not_ to help to convey an informal tone. But [be careful](https://www.grammarly.com/blog/contractions/).
 
 ### Task completion
 

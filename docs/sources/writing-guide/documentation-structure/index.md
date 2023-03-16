@@ -29,28 +29,32 @@ The following examples are based on the Grafana OSS and Enterprise documentation
 
 ## Structure of published content
 
-Using the same content structure across documentation provides consistent experience. Topics are listed from high level to more specific. For example, a new Grafana user may wish to learn conceptual information first, so Introduction is listed before installation.
+A content structure that spans sets of documentation provides a consistent experience.
+Information flows from a higher (less specific) level to a lower (more specific) level.
+For example, a new Grafana user wants to learn conceptual information first, so _Introduction_ comes before _Installation_.
 
-Nat all Topics are not used for every product. For example, Grafana OSS may use all of the headings, while Grafana Enterprise Traces only uses a subset.
+You do not have to use all of the topics for every product.
+For Grafana OSS for example, you might use all of the headings.
+For Grafana Enterprise Traces for example, you might only use a subset of topics.
 
 This table provides a list of the high-level topics used for grouping content. For example, a conceptual page explaining metrics would go under the Introduction topic.
 
 Italicized topics are optional and are usually found in specific contexts. For example, the Create, Manage, Monitor topics are used in Grafana OnCall but are not used in Grafana Tempo.
 
-| Topic | Example link | Contains |
+| Topic | Example link | Contents |
 | --- | --- | --- |
 | Introduction | Introduction to Grafana | Conceptual information, fundamentals, architecture, etc. |
-| Get started | Get started with Tempo | Opinionated walk-throughs and tutorials |
+| _Get started_ | _Get started with Tempo_ | Opinionated walk-throughs and tutorials. |
 | Set up | Set up Loki | System requirements, Set up, configure, upgrade, migrate, etc. |
-| Configure |  | Configure may be it’s own directory if the number of pages |
-| Create alerts | Create alerts for Grafana OnCall | Specific to operational products such as Grafana OnCall. Not used with backend database products like Tempo and Loki. |
+| _Configure_ |  | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |
+| _Create alerts_ | _Create alerts for Grafana OnCall_ | Specific to operational products, such as Grafana OnCall. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
 | Manage alerts | Manage alerts for Grafana OnCall | Specific to operational products such as Grafana OnCall. Not used with backend database products like Tempo and Loki. |
-| Monitor alerts | Monitor alerts for Grafana OnCall | Specific to operational products such as Grafana OnCall. Not used with backend database products like Tempo and Loki. |
-| Integrate (with) product or Send data |  | How to set up data integrations, product integrations, data sources, clients, plugins, etc. |
+| _Monitor alerts_ | _Monitor alerts for Grafana OnCall_ | Specific to operational products, such as Grafana OnCall. Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details.  |
+| _Integrate (with) [product]_ or _Send data_ |  | How to set up data integrations, product integrations, data sources, clients, plugins, and more. |
 | Query data | TraceQL query editor | Query languages, query tools, examples |
 | Visualize data |  | Dashboard concepts and procedures |
 | Alert |  |  |
-| Monitor [product] |  | Information about using tools to monitor a Grafana product. |
+| _Monitor [product]_ |  | Information about using tools to monitor a Grafana Labs product. |
 | References | HTTP API Reference | API, configuration references, SDKs, etc. Material that is usually not procedural and infrequently used. |
 
 

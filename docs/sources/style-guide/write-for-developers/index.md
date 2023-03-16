@@ -54,7 +54,7 @@ An auto-generation tool can parse syntax, but when writing documentation that wi
 
 ### Elements of API references
 
-Pay attention to properly documenting the most common elements of an API reference such as the title, parameters, return values, and so on. The following are suggestions that will help you to write more complete and consistent docs.
+Properly document the most common elements of an API reference, such as the title, parameters, return values, and so on. The following suggestions will help you to write more complete and consistent documentation:
 
 | Element                                               | Description                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |

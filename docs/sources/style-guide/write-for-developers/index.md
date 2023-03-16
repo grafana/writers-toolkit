@@ -72,9 +72,9 @@ Additional tips:
 
 ## Code examples
 
-It is common for readers of documentation to skim through it to find code samples they can copy and paste and run "as is". For this reason, it is worth taking the time to ensure that whenever possible the examples you provide are production-ready.
+Readers of documentation typically skim through it to find code samples they can copy and paste and run "as is". Because of this, we highly recommend you ensure that whenever possible the examples you provide are production-ready.
 
-Of course, this doesn't mean you should avoid writing code examples intended merely to illustrate a point. When your intent is to explain something, it isn't necessary for your code to be runnable so long as the developer can learn from it to do something similar on their own.
+However, it isn't necessary for every code example to be runnable in production.  Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
 
 When providing an example, give a written description. You can put it either in the body of the document or as explanatory comments within the example code.
 
@@ -91,7 +91,7 @@ Here are guidelines to follow when formatting code examples.
 
 Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample or a period if it doesn't. 
 
-### Paths, filenames and URLs
+### Paths, filenames, and URLs
 
 There are many types of information that should be put in code font. Among these are filenames, paths, folders, and directories. However, don't format domain names or URLs as code if you intend the user to follow the link. 
 

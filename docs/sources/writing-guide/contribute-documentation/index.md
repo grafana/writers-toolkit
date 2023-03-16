@@ -71,7 +71,7 @@ Small changes might include:
 
 ## Develop a new topic
 
-If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the Docs team. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
+If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the technical writing team. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
 
 Your documentation plan helps you to:
 

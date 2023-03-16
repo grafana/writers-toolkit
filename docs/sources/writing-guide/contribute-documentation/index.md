@@ -89,7 +89,7 @@ Your documentation plan helps you to:
 1. Attach an outline of your proposed document. 
 1. Schedule a review meeting with a member of the Docs team.
 
-   If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com).  
+   If you don't know which writer will be reviewing your documentation plan, reach out to [docs@grafana.com](mailto:docs@grafana.com). 
 
 Your writer on the Doc Squad will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
 

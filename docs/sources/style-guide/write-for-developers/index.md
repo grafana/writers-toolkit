@@ -145,6 +145,9 @@ If an argument is optional, enclose it in square brackets.
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
 
-Use descriptive words and phrases when including placeholders. Try to avoid using X or XXX. In Markdown, put a backtick followed by an asterisk in front and an asterisk followed by a backtick in front. For example, (*`A_PLACEHOLDER`*).
+Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
+In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk.
+
+ For example: *`A_PLACEHOLDER`*.
 
 For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

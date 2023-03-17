@@ -18,9 +18,9 @@ Before you begin contributing to documentation, it is important to understand th
 
 ## User goals and documentation structure
 
-Any documentation you create should be focused on what your user's goals are. Refer to [Focus on user goals]({{< relref "../../style-guide/style-conventions" >}}) for more information.
+When writing documentation, focus on what your user's goals are. For more information, refer to [Focus on user goals]({{< relref "../../style-guide/style-conventions" >}}).
 
-Your documentation structure should reflect these user goals. Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
+Use the structure of your documentation to reflect the user’s goals. Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
 
 This approach applies not only to content on a page but also to how you organize a set of documentation, whether it's for a product or a feature.
 
@@ -46,17 +46,17 @@ For example, a new Grafana user wants to learn conceptual information first, so 
 
 ### Use the topics you need
 
-Depending on your product design and maturity, you may not need every topic listed below.
-If a topic does not apply to your project, you don't need to use it.
-For Grafana OSS for example, you might use all of the headings.
-For Grafana Enterprise Traces for example, you might only use a subset of topics.
+Depending on your product design and maturity, you may not need every topic:
+* If a topic does not apply to your project, you don't need to use it.
+* For Grafana OSS for example, you might use all of the headings.
+* For Grafana Enterprise Traces for example, you might only use a subset of topics.
 
 Some topics are optional and are usually found in specific contexts.
-For example, the _Create_, _Manage_, and _Monitor_ topics are used in Grafana OnCall but are not used in Grafana Tempo.
+For example, the _Create_, _Manage_, and _Monitor_ topics are used in Grafana OnCall, but are not used in Grafana Tempo.
 
 ### Topic list
 
-This table provides a list of the high-level topics used for grouping content. When writing new content, consider where it should appear given this content structure. For example, a conceptual page explaining metrics would go under the Introduction topic.
+You can use the following high-level topics to group content. When writing new content, consider where it should appear given this content structure. For example, a conceptual page explaining metrics would go under the _Introduction_ topic.
 
 
 | Topic | Example link | Contents |
@@ -65,9 +65,9 @@ This table provides a list of the high-level topics used for grouping content. W
 | _Get started_ | [Get started with Tempo](/docs/tempo/latest/getting-started/) | Opinionated walk-throughs and tutorials. |
 | _Set up_ | [Set up Grafana](/docs/grafana/latest/setup-grafana/) | System requirements, and subsections titled _Set up_, _Configure_, _Upgrade_, or _Migrate_. |
 | _Configure_ | [Configure Grafana Agent](/docs/agent/latest/configuration/) | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |
-| _Create alerts_ | [Create a Grafana managed alert rule](/docs/grafana-cloud/alerting/alerting-rules/create-grafana-managed-rule/) | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). The word _alert_ may be changed, depending upon the product. If used with Grafana SLO, this then topic would be _Create SLO_. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
-| _Manage alerts_ | | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details. |
-| _Monitor alerts_ | | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details.  |
+| _Create alerts_ | [Create a Grafana managed alert rule](/docs/grafana-cloud/alerting/alerting-rules/create-grafana-managed-rule/) | Specific to Grafana Ops products (Alerting, OnCall, Incident, SLOs). The word _alert_ may be changed, depending upon the product. If used with Grafana SLO, this then topic would be _Create SLO_. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
+| _Manage alerts_ | [Manage and monitor SLOs](/docs/grafana-cloud/slo/manage/) | Specific to Grafana Ops products (Alerting, OnCall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details. |
+| _Monitor alerts_ | [Meta monitoring](/docs/grafana/next/alerting/meta-monitoring/) | Specific to Grafana Ops products (Alerting, OnCall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details.  |
 | _Integrate (with) [product]_ or _Send data_ | [Connect your datat to Grafana Cloud](/docs/grafana-cloud/data-configuration/get-started-data/) | How to set up data integrations, product integrations, data sources, clients, plugins, and more. |
 | _Query data_ | [TraceQL](/docs/tempo/latest/traceql/) | Query languages, query tools, and examples. |
 | _Visualize data_ | [Dashboards](/docs/grafana/latest/dashboards/) | Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here. |

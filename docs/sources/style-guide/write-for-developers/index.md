@@ -112,7 +112,7 @@ Use the following conventions when you include commands on the command line in t
 
 - Include `sudo` before commands that require `sudo` to work.
 
-For terminal examples and Grafana configuration, use a `bash` code block:
+For terminal examples and configurations, use a `bash` code block:
 
 ```bash
 sudo yum install grafana

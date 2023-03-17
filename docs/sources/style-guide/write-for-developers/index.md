@@ -66,7 +66,7 @@ Properly document the most common elements of an API reference, such as the titl
 | Comments | Describe any important information that hasn't been previously included in the title, description, syntax, parameters, or return values. For example, you might explain non-obvious context, make a comparison to similar elements, or provide cautionary notes about potential gotchas. |
 
 Additional tips:
-- Remember to write concisely. Don't say "The AddUser method adds a user." or "This method adds a user." when "Adds a user." will do. 
+- Write concisely. Don't say "The `AddUser` method adds a user." or "This method adds a user." when "Adds a user." will do.
 - When the name of a code element is singular, don't pluralize it. Instead, follow it by plural noun. For example, write "`MyEvent` objects" instead of `MyEvents`.
 - If the element performs an action, start the first sentence of the description with an action verb. 
 

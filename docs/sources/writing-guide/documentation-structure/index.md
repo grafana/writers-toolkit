@@ -45,17 +45,17 @@ Some topics are optional and are usually found in specific contexts. For example
 | --- | --- | --- |
 | _Introduction_ | [Introduction to Grafana](https://grafana.com/docs/grafana/latest/introduction/) | Conceptual, fundamental, or architectural information. |
 | _Get started_ | _Get started with Tempo_ | Opinionated walk-throughs and tutorials. |
-| Set up | Set up Loki | System requirements, Set up, configure, upgrade, migrate, etc. |
+| _Set up_ | _Set up Loki_ | System requirements, and subsections titled _Set up_, _Configure_, _Upgrade_, or _Migrate_. |
 | _Configure_ |  | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |
 | _Create alerts_ | _Create alerts for Grafana OnCall_ | Specific to operational products, such as Grafana OnCall. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
-| Manage alerts | Manage alerts for Grafana OnCall | Specific to operational products such as Grafana OnCall. Not used with backend database products like Tempo and Loki. |
+| _Manage alerts_ | _Manage alerts for Grafana OnCall_ | Specific to operational products, such as Grafana OnCall. Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details. |
 | _Monitor alerts_ | _Monitor alerts for Grafana OnCall_ | Specific to operational products, such as Grafana OnCall. Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details.  |
 | _Integrate (with) [product]_ or _Send data_ |  | How to set up data integrations, product integrations, data sources, clients, plugins, and more. |
-| Query data | TraceQL query editor | Query languages, query tools, examples |
-| Visualize data |  | Dashboard concepts and procedures |
-| Alert |  |  |
+| _Query data_ | _TraceQL query editor_ | Query languages, query tools, and examples. |
+| _Visualize data_ |  | Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here. |
+| _Alert_ |  |  |
 | _Monitor [product]_ |  | Information about using tools to monitor a Grafana Labs product. |
-| References | HTTP API Reference | API, configuration references, SDKs, etc. Material that is usually not procedural and infrequently used. |
+| _References_ | [HTTP API reference](https://grafana.com/docs/grafana-cloud/api-reference/http-api/) | APIs, configuration references, SDKs, and more. Material that is usually not procedural. |
 
 
 

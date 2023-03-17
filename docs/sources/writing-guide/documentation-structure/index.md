@@ -18,7 +18,7 @@ Before you begin contributing to documentation, it is important to understand th
 
 ## User goals and documentation structure
 
-Any documentation you create should be focused on what your user's goals are. Refer to [Focus on user goals](https://grafana.com/docs/writers-toolkit/style-guide/style-conventions/#focus-on-user-goals) for more information.
+Any documentation you create should be focused on what your user's goals are. Refer to [Focus on user goals]({{< relref "../style-guide/style-conventions" >}}) for more information.
 
 Your documentation structure should reflect these user goals. Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
 
@@ -61,19 +61,19 @@ This table provides a list of the high-level topics used for grouping content. W
 
 | Topic | Example link | Contents |
 | --- | --- | --- |
-| _Introduction_ | [Introduction to Grafana](https://grafana.com/docs/grafana/latest/introduction/) | Conceptual, fundamental, or architectural information.  |
-| _Get started_ | [Get started with Tempo](https://grafana.com/docs/tempo/latest/getting-started/) | Opinionated walk-throughs and tutorials. |
-| _Set up_ | [Set up Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/) | System requirements, and subsections titled _Set up_, _Configure_, _Upgrade_, or _Migrate_. |
-| _Configure_ | [Configure Grafana Agent](https://grafana.com/docs/agent/latest/configuration/) | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |
-| _Create alerts_ | [Create a Grafana managed alert rule](https://grafana.com/docs/grafana-cloud/alerting/alerting-rules/create-grafana-managed-rule/) | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). The word _alert_ may be changed, depending upon the product. If used with Grafana SLO, this then topic would be _Create SLO_. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
+| _Introduction_ | [Introduction to Grafana](/docs/grafana/latest/introduction/) | Conceptual, fundamental, or architectural information.  |
+| _Get started_ | [Get started with Tempo](/docs/tempo/latest/getting-started/) | Opinionated walk-throughs and tutorials. |
+| _Set up_ | [Set up Grafana](/docs/grafana/latest/setup-grafana/) | System requirements, and subsections titled _Set up_, _Configure_, _Upgrade_, or _Migrate_. |
+| _Configure_ | [Configure Grafana Agent](/docs/agent/latest/configuration/) | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |
+| _Create alerts_ | [Create a Grafana managed alert rule](/docs/grafana-cloud/alerting/alerting-rules/create-grafana-managed-rule/) | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). The word _alert_ may be changed, depending upon the product. If used with Grafana SLO, this then topic would be _Create SLO_. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
 | _Manage alerts_ | | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details. |
 | _Monitor alerts_ | | Specific to Grafana Ops products (Alerting, Oncall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details.  |
-| _Integrate (with) [product]_ or _Send data_ | [Connect your datat to Grafana Cloud](https://grafana.com/docs/grafana-cloud/data-configuration/get-started-data/) | How to set up data integrations, product integrations, data sources, clients, plugins, and more. |
-| _Query data_ | [TraceQL](https://grafana.com/docs/tempo/latest/traceql/) | Query languages, query tools, and examples. |
-| _Visualize data_ | [Dashboards](https://grafana.com/docs/grafana/latest/dashboards/) | Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here. |
-| _Alert_ | [Alerting rules](https://grafana.com/docs/loki/latest/rules/) | This topic level is used for pages that discuss alerting features, like Grafana Loki's alerting rules. It provides a place for alerting content that is not specific to the Grafana Operations products. |
-| _Monitor [product]_ | [Monitor Mimir](https://grafana.com/docs/mimir/latest/operators-guide/monitor-grafana-mimir/) | Information about using tools to monitor a Grafana Labs product. |
-| _References_ | [HTTP API reference](https://grafana.com/docs/grafana-cloud/api-reference/http-api/) | APIs, configuration references, SDKs, and more. Material that is usually not procedural. |
+| _Integrate (with) [product]_ or _Send data_ | [Connect your datat to Grafana Cloud](/docs/grafana-cloud/data-configuration/get-started-data/) | How to set up data integrations, product integrations, data sources, clients, plugins, and more. |
+| _Query data_ | [TraceQL](/docs/tempo/latest/traceql/) | Query languages, query tools, and examples. |
+| _Visualize data_ | [Dashboards](/docs/grafana/latest/dashboards/) | Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here. |
+| _Alert_ | [Alerting rules](/docs/loki/latest/rules/) | This topic level is used for pages that discuss alerting features, like Grafana Loki's alerting rules. It provides a place for alerting content that is not specific to the Grafana Operations products. |
+| _Monitor [product]_ | [Monitor Mimir](/docs/mimir/latest/operators-guide/monitor-grafana-mimir/) | Information about using tools to monitor a Grafana Labs product. |
+| _References_ | [HTTP API reference](/docs/grafana-cloud/api-reference/http-api/) | APIs, configuration references, SDKs, and more. Material that is usually not procedural. |
 
 
 

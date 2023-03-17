@@ -18,7 +18,7 @@ Before you begin contributing to documentation, it is important to understand th
 
 ## User goals and documentation structure
 
-Any documentation you create should be focused on what your user's goals are. Refer to [Focus on user goals]({{< relref "../style-guide/style-conventions" >}}) for more information.
+Any documentation you create should be focused on what your user's goals are. Refer to [Focus on user goals]({{< relref "../../style-guide/style-conventions" >}}) for more information.
 
 Your documentation structure should reflect these user goals. Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
 

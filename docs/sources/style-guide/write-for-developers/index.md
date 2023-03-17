@@ -62,7 +62,7 @@ Properly document the most common elements of an API reference, such as the titl
 | Syntax | The code signature that defines the element. If it is possible to use multiple programming languages, provide the syntax for each. Put the signature in `code font`. |
 | Parameters | If the element has parameters, specify their descriptions, data types, and state whether they are optional or required. Put the parameters in _italic_. |
 | Return values| If the element returns a value, describe the range of possibilities and the data type. |
-| Error codes| Describe errors or exceptions and the conditions under which they occur. |
+| Error codes| Describe errors or exceptions and the conditions under which they occur. If possible, provide a way to resolve the issue. |
 | Comments | Describe any important information that hasn't been previously included in the title, description, syntax, parameters, or return values. For example, you may explain non-obvious context, compare it to similar elements, or provide cautionary notes about potential gotchas. |
 
 Additional tips:

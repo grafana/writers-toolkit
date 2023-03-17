@@ -12,21 +12,74 @@ keywords:
 
 # Documentation structure
 
-The technical writing team makes very intentional decisions about how we organize and structure product documentation. Users can find what they need quickly and easily with well-structured content.
+The Grafana Labs Docs team makes intentional decisions about how to organize and structure product documentation. The topic levels discussed on this page reflect common user goals. For example, a first-time Grafana user needs to understand the basic concepts before installing the product.
 
-Information architecture (IA) refers to the way in which content is organized. Before you start contributing to product documentation, it is important to understand the IA of the content.
+Before you begin contributing to documentation, it is important to understand the structure of the content.
 
-Generally, the IA determines how content is:
+## User goals and documentation structure
+
+When writing documentation, focus on what your user's goals are. For more information, refer to [Focus on user goals]({{< relref "../../style-guide/style-conventions" >}}).
+
+Use the structure of your documentation to reflect the user’s goals. Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
+
+This approach applies not only to content on a page but also to how you organize a set of documentation, whether it's for a product or a feature.
+
+With well-structured content, you can find what you need quickly and easily. Topics flow in a logical progression.
+
+<!-- Commenting this paragraph out until we have an actual section on information architecture.
+
+According to STC’s [Information Design and Information Architecture: Why Technical Communicators Should Care About These Fields](https://www.stc.org/intercom/2022/05/information-design-and-information-architecture-why-technical-communicators-should-care-about-these-fields/),
+information architecture is "...the practice of organizing, structuring, and labeling information to it’s easy to find, use, and understand..."
+-->
+
+## Structure of published content
+
+Generally, documentation structure determines how content is:
 
 - Titled
 - Grouped
 - Combined (or not combined) with other, related content
 
-The following examples are based on the Grafana OSS and Enterprise documentation.
+A standardized content structure that spans sets of documentation provides a consistent user experience.
+Information flows from a higher (less specific) level to a lower (more specific) level.
+For example, a new Grafana user wants to learn conceptual information first, so _Introduction_ comes before _Installation_.
 
-## Information architecture
+### Use the topics you need
 
-The IA consists of the following levels.
+Depending on your product design and maturity, you may not need every topic:
+* If a topic does not apply to your project, you don't need to use it.
+* For Grafana OSS for example, you might use all of the headings.
+* For Grafana Enterprise Traces for example, you might only use a subset of topics.
+
+Some topics are optional and are usually found in specific contexts.
+For example, the _Create_, _Manage_, and _Monitor_ topics are used in Grafana OnCall, but are not used in Grafana Tempo.
+
+### Topic list
+
+You can use the following high-level topics to group content. When writing new content, consider where it should appear given this content structure. For example, a conceptual page explaining metrics would go under the _Introduction_ topic.
+
+
+| Topic | Example link | Contents |
+| --- | --- | --- |
+| _Introduction_ | [Introduction to Grafana](/docs/grafana/latest/introduction/) | Conceptual, fundamental, or architectural information.  |
+| _Get started_ | [Get started with Tempo](/docs/tempo/latest/getting-started/) | Opinionated walk-throughs and tutorials. |
+| _Set up_ | [Set up Grafana](/docs/grafana/latest/setup-grafana/) | System requirements, and subsections titled _Set up_, _Configure_, _Upgrade_, or _Migrate_. |
+| _Configure_ | [Configure Grafana Agent](/docs/agent/latest/configuration/) | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |
+| _Create alerts_ | [Create a Grafana managed alert rule](/docs/grafana-cloud/alerting/alerting-rules/create-grafana-managed-rule/) | Specific to Grafana Ops products (Alerting, OnCall, Incident, SLOs). The word _alert_ may be changed, depending upon the product. If used with Grafana SLO, this then topic would be _Create SLO_. Do not use with backend database products, such as Tempo and Loki. Use _Alerts_ instead, and refer to an operational product for details. |
+| _Manage alerts_ | [Manage and monitor SLOs](/docs/grafana-cloud/slo/manage/) | Specific to Grafana Ops products (Alerting, OnCall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details. |
+| _Monitor alerts_ | [Meta monitoring](/docs/grafana/next/alerting/meta-monitoring/) | Specific to Grafana Ops products (Alerting, OnCall, Incident, SLOs). Do not use with backend database products, such as Tempo and Loki. Use _Alert_ instead, and refer to an operational product for details.  |
+| _Integrate (with) [product]_ or _Send data_ | [Connect your datat to Grafana Cloud](/docs/grafana-cloud/data-configuration/get-started-data/) | How to set up data integrations, product integrations, data sources, clients, plugins, and more. |
+| _Query data_ | [TraceQL](/docs/tempo/latest/traceql/) | Query languages, query tools, and examples. |
+| _Visualize data_ | [Dashboards](/docs/grafana/latest/dashboards/) | Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here. |
+| _Alert_ | [Alerting rules](/docs/loki/latest/rules/) | This topic level is used for pages that discuss alerting features, like Grafana Loki's alerting rules. It provides a place for alerting content that is not specific to the Grafana Operations products. |
+| _Monitor [product]_ | [Monitor Mimir](/docs/mimir/latest/operators-guide/monitor-grafana-mimir/) | Information about using tools to monitor a Grafana Labs product. |
+| _References_ | [HTTP API reference](/docs/grafana-cloud/api-reference/http-api/) | APIs, configuration references, SDKs, and more. Material that is usually not procedural. |
+
+
+
+## Table of contents levels
+
+The table of contents consists of the following section levels.
 
 ![Grafana table of contents](grafana-toc.png)
 

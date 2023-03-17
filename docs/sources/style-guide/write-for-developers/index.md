@@ -59,7 +59,7 @@ Properly document the most common elements of an API reference, such as the titl
 | Element                                               | Description                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |
 | Title and description       | The name of the element and a description of it in one or two sentences. Use back ticks (``) for API names, classes, methods, and so forth, so they display in a fixed-width font. |
-| Syntax | The code signature that defines the element. If multiple programming languages can be used, give the syntax in each. Put the signature in `code font`. |
+| Syntax | The code signature that defines the element. If it is possible to use multiple programming languages, provide the syntax for each. Put the signature in `code font`. |
 | Parameters | If the element has parameters, specify their descriptions, data types, and state whether they are optional or required. Put the parameters in _italic_. |
 | Return values| If the element returns a value, describe the range of possibilities and the data type. |
 | Error codes| Describe errors or exceptions and the conditions under which they occur. |

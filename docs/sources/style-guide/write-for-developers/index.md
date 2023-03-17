@@ -95,7 +95,7 @@ Introduce each code sample with a sentence or paragraph to establish its context
 
 ### Paths, filenames, and URLs
 
-There are many types of information that should be put in code font. Among these are filenames, paths, folders, and directories. However, don't format domain names or URLs as code if you intend the user to follow the link. 
+Many types of information belong in fixed-width font. Among these are path names, file names, directories, or folders. However, don't format domain names or URLs as code if you intend the user to follow the link.
 
 While there are times when you may want to make a URL clickable, it is better to follow our [guidelines for references]({{< relref "../../writing-guide/references/" >}}).
 

@@ -79,7 +79,8 @@ However, it isn't necessary for every code example to be runnable in production.
 
 When providing an example, give a written description. You can put it either in the body of the document or as explanatory comments within the example code.
 
-Remember the basic rule: your explanation of the code shouldn't describe _what_ it does, but _why_ it does what it does. (Refer to [_Docs for Developers_](https://docsfordevelopers.com/)).
+Remember the basic rule: explain _why_ your code does what it does, rather than describe _what_ it does.
+For an in-depth, external resource about writing developer documentation, see [_Docs for Developers_](https://docsfordevelopers.com/).
 
 ### Formatting code examples
 

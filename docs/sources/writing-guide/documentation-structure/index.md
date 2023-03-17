@@ -12,7 +12,7 @@ keywords:
 
 # Documentation structure
 
-The Grafana Labs Docs team makes intentional decisions about how to organize and structure product documentation. With well-structured content, users can find what they need quickly and easily.
+The Grafana Labs Docs team makes intentional decisions about how to organize and structure product documentation. With well-structured content, you can find what you need quickly and easily.
 
 Before you begin contributing to documentation, it is important to understand the structure of the content.
 
@@ -29,21 +29,21 @@ The following examples are based on the Grafana OSS and Enterprise documentation
 
 ## Structure of published content
 
-A content structure that spans sets of documentation provides a consistent experience.
+A standardized content structure that spans sets of documentation provides a consistent user experience.
 Information flows from a higher (less specific) level to a lower (more specific) level.
 For example, a new Grafana user wants to learn conceptual information first, so _Introduction_ comes before _Installation_.
 
-You do not have to use all of the topics for every product.
+Depending on your product design and maturity, you may not need every topic listed below.  If a topic does not apply to your project, you don't need to use it.  
 For Grafana OSS for example, you might use all of the headings.
 For Grafana Enterprise Traces for example, you might only use a subset of topics.
 
-This table provides a list of the high-level topics used for grouping content. For example, a conceptual page explaining metrics would go under the Introduction topic.
+This table provides a list of the high-level topics used for grouping content. When writing new content, consider where it should appear given this content structure. For example, a conceptual page explaining metrics would go under the Introduction topic.
 
-Italicized topics are optional and are usually found in specific contexts. For example, the Create, Manage, Monitor topics are used in Grafana OnCall but are not used in Grafana Tempo.
+Some topics are optional and are usually found in specific contexts. For example, the Create, Manage, Monitor topics are used in Grafana OnCall but are not used in Grafana Tempo.
 
 | Topic | Example link | Contents |
 | --- | --- | --- |
-| Introduction | Introduction to Grafana | Conceptual information, fundamentals, architecture, etc. |
+| _Introduction_ | [Introduction to Grafana](https://grafana.com/docs/grafana/latest/introduction/) | Conceptual, fundamental, or architectural information. |
 | _Get started_ | _Get started with Tempo_ | Opinionated walk-throughs and tutorials. |
 | Set up | Set up Loki | System requirements, Set up, configure, upgrade, migrate, etc. |
 | _Configure_ |  | _Configure_ can be its own section directory if the number of pages warrants it. Making this determination is not an exact science; use your best judgement. |

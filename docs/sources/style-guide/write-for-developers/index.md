@@ -91,7 +91,7 @@ Here are guidelines to follow when formatting code examples.
 - Wrap lines at 80 characters.
 - When omitting code, use three dots (...). Don't use the ellipsis character (…).
 
-Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample or a period if it doesn't. 
+Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample, or a period if it doesn't. 
 
 ### Paths, filenames, and URLs
 

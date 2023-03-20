@@ -32,10 +32,10 @@ Replace any text in _italics_ with content for your procedure.
 
 _Goal of procedure_:
 
-1. Configure service
-1. Set up the environment
-1. Optional: Install libraries
-1. Verify the installation
+1. [Configure service](#configure-service)
+1. [Set up the environment](#set-up-the-environment)
+1. [Optional: Install libraries](#optional-install-libraries)
+1. [Verify the installation](#verify-the-installation)
 
 ## Before you begin
 

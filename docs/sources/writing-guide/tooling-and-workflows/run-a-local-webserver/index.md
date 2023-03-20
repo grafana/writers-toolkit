@@ -1,7 +1,7 @@
 ---
 title: Run a local documentation webserver with the make-docs script
 menuTitle: Run a local documentation webserver
-description: How to run a local documentation webserver with the make-docs script.
+description: Run a local documentation web server with the make-docs script.
 ---
 
 # Run a local documentation webserver with the make-docs script

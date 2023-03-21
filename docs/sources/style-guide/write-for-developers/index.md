@@ -112,25 +112,45 @@ Use the following conventions when you include commands on the command line in t
 
 - Include `sudo` before commands that require `sudo` to work.
 
-For terminal examples and configurations, use a `bash` code block:
+For terminal examples and configurations, use a `bash` code block. In raw markdown:
 
 ```bash
 sudo yum install grafana
 ```
 
-If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output.
+It produces:
+
+> ```bash
+> sudo yum install grafana
+> ```
+
+If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output. 
+
+The input, in raw markdown:
 
 ```bash
 cat ~/.ssh/my-ssh-key.pub
 ```
 
-The output is similar to the following:
+It produces:
+
+> ```bash
+> cat ~/.ssh/my-ssh-key.pub
+> ```
+
+The output, in raw markdown:
 
 ```console
 ssh-rsa KEY_VALUE USERNAME
 ```
 
-For HTTP request/response, use an `http` code block:
+It produces:
+
+> ```console
+> ssh-rsa KEY_VALUE USERNAME
+> ```
+
+For HTTP request/response, use an `http` code block in raw markdown:
 
 ```http
 GET /api/dashboards/id/1/permissions HTTP/1.1
@@ -139,15 +159,36 @@ Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
-If an argument is optional, enclose it in square brackets.
+It produces:
 
-```typescript
+> ```http
+> GET /api/dashboards/id/1/permissions HTTP/1.1
+> Accept: application/json
+> Content-Type: application/json
+> Authorization: Bearer  eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
+```
+
+If an argument is optional, enclose it in square brackets. For example, prefer the following raw markdown:
+
+```typescript 
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
 
-Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
-In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk.
+It produces:
 
- For example: *`A_PLACEHOLDER`*.
+> ```typescript
+> ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
+> ```
+
+Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
+In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk. For example, prefer the following raw markdown:
+
+```
+The following text is a placeholder: *`A_PLACEHOLDER`*.
+```
+
+It produces:
+
+> The following text is a placeholder: *`A_PLACEHOLDER`*.
 
 For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

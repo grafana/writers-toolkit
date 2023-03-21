@@ -58,27 +58,29 @@ Properly document the most common elements of an API reference, such as the titl
 
 | Element                                               | Description                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |
-| Title and description       | The name of the element and a description of it in one or two sentences. Put API names, classes, methods, etc. in `code font`. |
-| Syntax | The code signature that defines the element. If multiple programming languages can be used, give the syntax in each. Put the signature in `code font`. |
+| Title and description       | The name of the element and a description of it in one or two sentences. Use back ticks (``) for API names, classes, methods, and so forth, so they display in a fixed-width font. |
+| Syntax | The code signature that defines the element. If it is possible to use multiple programming languages, provide the syntax for each. Put the signature in `code font`. |
 | Parameters | If the element has parameters, specify their descriptions, data types, and state whether they are optional or required. Put the parameters in _italic_. |
 | Return values| If the element returns a value, describe the range of possibilities and the data type. |
-| Error codes| Describe errors or exceptions and the conditions under which they occur. |
-| Comments | Describe any important information that hasn't been previously included in the title, description, syntax, parameters, or return values. For example, you may explain non-obvious context, compare it to similar elements, or provide cautionary notes about potential gotchas. |
+| Error codes| Describe errors or exceptions and the conditions under which they occur. If possible, provide a way to resolve the issue. |
+| Comments | Describe any important information that hasn't been previously included in the title, description, syntax, parameters, or return values. For example, you might explain non-obvious context, make a comparison to similar elements, or provide cautionary notes about potential gotchas. |
 
 Additional tips:
-- Remember to write concisely. Don't say "This method adds a user." when "Adds a user." will do. However, you may say, "The AddUser method adds a user." if needed to avoid a Go linting error.
+- Remember to write concisely. Don't say "The AddUser method adds a user." or "This method adds a user." when "Adds a user." will do. 
 - When the names of code elements are singular, don't make them plural. Instead, add a plural noun to describe them. For example, don't change `MyEvent` to `MyEvents`; refer to the `MyEvent` objects. 
 - If the element does some sort of action, start the first sentence of the description with an action verb. 
 
 ## Code examples
 
-Readers of documentation typically skim through it to find code samples they can copy and paste and run "as is". Because of this, we highly recommend you ensure that whenever possible the examples you provide are production-ready.
+Readers of documentation typically skim through it to find code samples they can copy and paste and run as is.
+Because of this and whenever possible, provide production-ready examples.
 
 However, it isn't necessary for every code example to be runnable in production.  Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
 
 When providing an example, give a written description. You can put it either in the body of the document or as explanatory comments within the example code.
 
-Remember the basic rule: your explanation of the code shouldn't describe _what_ it does, but _why_ it does what it does. (Refer to [_Docs for Developers_](https://docsfordevelopers.com/)).
+Remember the basic rule: explain _why_ your code does what it does, rather than describe _what_ it does.
+For an in-depth, external resource about writing developer documentation, see [_Docs for Developers_](https://docsfordevelopers.com/).
 
 ### Formatting code examples
 
@@ -89,13 +91,13 @@ Here are guidelines to follow when formatting code examples.
 - Wrap lines at 80 characters.
 - When omitting code, use three dots (...). Don't use the ellipsis character (…).
 
-Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample or a period if it doesn't. 
+Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample, or a period if it doesn't. 
 
 ### Paths, filenames, and URLs
 
-There are many types of information that should be put in code font. Among these are filenames, paths, folders, and directories. However, don't format domain names or URLs as code if you intend the user to follow the link. 
+Many types of information belong in fixed-width font. Among these are path names, file names, directories, or folders. However, don't format domain names or URLs as code if you intend the user to follow the link.
 
-While there are times when you may want to make a URL clickable, it is better to follow our [guidelines for references]({{< relref "../../writing-guide/references/" >}}).
+Although there are times when you might want to make a URL clickable, it is better to follow the guidelines for [References]({{< relref "../../writing-guide/references/" >}}).
 
 ## Command lines
 
@@ -110,7 +112,7 @@ Use the following conventions when you include commands on the command line in t
 
 - Include `sudo` before commands that require `sudo` to work.
 
-For terminal examples and Grafana configuration, use a `bash` code block:
+For terminal examples and configurations, use a `bash` code block:
 
 ```bash
 sudo yum install grafana
@@ -143,6 +145,9 @@ If an argument is optional, enclose it in square brackets.
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
 
-Use descriptive words and phrases when including placeholders. Try to avoid using X or XXX. In Markdown, put a backtick followed by an asterisk in front and an asterisk followed by a backtick in front. For example, (*`A_PLACEHOLDER`*).
+Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
+In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk.
 
-For more advice on formatting command lines, see the [Google developer style guide](https://developers.google.com/style/code-syntax).
+ For example: *`A_PLACEHOLDER`*.
+
+For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

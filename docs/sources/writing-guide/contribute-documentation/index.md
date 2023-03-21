@@ -79,18 +79,6 @@ Your documentation plan helps you to:
 - Get feedback from users and stakeholders before the writing process begins.
 - Consider different approaches you might take, and decide on one of them.
 
-**To develop a new topic:**
-
-1. Create a new document in Google Docs, Google Sheets, or a similar tool.
-1. Copy and paste content from the [Document planning template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md) into your document. 
-1. Fill in the requested information. 
-1. Attach an outline of your proposed document. 
-1. Schedule a review meeting with a member of the Docs team.
-
-   If you don't know which writer will be reviewing your documentation plan, reach out to docs-team@grafana.com.  
-
-Your writer on the Docs team will contact you with next steps. Our aim is to help you to be successful in improving the experience of our users and developers.
-
 ## Testing
 
 It is a best practice to have someone else test any task you have written. If another user can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.

@@ -58,7 +58,7 @@ Properly document the most common elements of an API reference, such as the titl
 
 | Element                                               | Description                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |
-| Title and description       | The name of the element and a description of it in one or two sentences. Use back ticks (``) for API names, classes, methods, and so forth, so they display in a fixed-width font. |
+| Title and description       | The name of the element and a description of it in one or two sentences. Use backticks (``) for API names, classes, methods, and so forth, so they display in a fixed-width font. |
 | Syntax | The code signature that defines the element. If it is possible to use multiple programming languages, provide the syntax for each. Put the signature in `code font`. |
 | Parameters | If the element has parameters, specify their descriptions, data types, and state whether they are optional or required. Put the parameters in _italic_. |
 | Return values| If the element returns a value, describe the range of possibilities and the data type. |
@@ -114,81 +114,81 @@ Use the following conventions when you include commands on the command line in t
 
 For terminal examples and configurations, use a `bash` code block. In raw markdown:
 
+````
 ```bash
 sudo yum install grafana
 ```
+````
 
 It produces:
 
-> ```bash
-> sudo yum install grafana
-> ```
+```bash
+sudo yum install grafana
+```
 
 If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output. 
 
 The input, in raw markdown:
 
+````
 ```bash
 cat ~/.ssh/my-ssh-key.pub
 ```
+````
 
-It produces:
-
-> ```bash
-> cat ~/.ssh/my-ssh-key.pub
-> ```
-
-The output, in raw markdown:
+It produces the following output:
 
 ```console
-ssh-rsa KEY_VALUE USERNAME
+cat ~/.ssh/my-ssh-key.pub
 ```
-
-It produces:
-
-> ```console
-> ssh-rsa KEY_VALUE USERNAME
-> ```
 
 For HTTP request/response, use an `http` code block in raw markdown:
 
+````
 ```http
 GET /api/dashboards/id/1/permissions HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
+````
 
 It produces:
 
-> ```http
-> GET /api/dashboards/id/1/permissions HTTP/1.1
-> Accept: application/json
-> Content-Type: application/json
-> Authorization: Bearer  eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
+```http
+GET /api/dashboards/id/1/permissions HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer  eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 If an argument is optional, enclose it in square brackets. For example, prefer the following raw markdown:
 
+````
 ```typescript 
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
+````
 
 It produces:
 
-> ```typescript
-> ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
-> ```
+ ```typescript
+ ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
+ ```
 
 Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
 In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk. For example, prefer the following raw markdown:
 
+````
 ```
 The following text is a placeholder: *`A_PLACEHOLDER`*.
 ```
+````
 
 It produces:
 
-> The following text is a placeholder: *`A_PLACEHOLDER`*.
+```
+The following text is a placeholder: *`A_PLACEHOLDER`*.
+```
 
 For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

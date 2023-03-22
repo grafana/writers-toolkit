@@ -137,7 +137,7 @@ A caution warns the user to proceed with caution. A caution emphasizes a course 
 
 ### Warnings
 
-A warning informs the user not to do something.
+A warning informs the user not to do something.  Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data. 
 
 For example:
 

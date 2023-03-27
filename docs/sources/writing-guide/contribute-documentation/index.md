@@ -28,7 +28,7 @@ GitHub captures your request as an Issue logged against the repository.
 
 > **Note:** You can only request a change against the latest release of documentation.
 
-## Before you begin
+### Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 
@@ -38,7 +38,7 @@ GitHub captures your request as an Issue logged against the repository.
 
    The **Issue** title auto-populates with the location of the file for which you are requesting a change.
 
-2. Click **Submit new issue**.
+1. Click **Submit new issue**.
 
 The Doc Squad determines the priority and scope of the change, and schedules the change to be made.
 
@@ -54,20 +54,30 @@ Small changes might include:
 
 > **Note:** You can only edit a topic that is part of the latest release of documentation.
 
-## Before you begin
+### Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
 
 **To edit a topic:**
 
 1. From a topic on the documentation website, click **Edit this page** (pencil icon).
-2. Enter your changes.
-3. Change the branch name, if required.
+1. Enter your changes.
+1. Change the branch name, if required.
    The branch name is auto-populated.
 
-4. Click **Propose changes**.
+1. Click **Propose changes**.
 
    A PR is created and then goes through the PR review and approval workflow.
+
+## Develop a new topic
+
+If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the technical writing team. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
+
+Your documentation plan helps you to:
+
+- Identify existing information gaps, and explain how you will fill them.
+- Get feedback from users and stakeholders before the writing process begins.
+- Consider different approaches you might take, and decide on one of them.
 
 ## Testing
 
@@ -121,7 +131,7 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
-To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.  For more information, see [backporting]({{< relref "../tooling-and-workflows/backporting/" >}}).
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request. For more information, see [backporting]({{< relref "../tooling-and-workflows/backporting/" >}}).
 
 `grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

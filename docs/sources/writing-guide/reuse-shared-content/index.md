@@ -1,9 +1,9 @@
 ---
-title: Reuse shared content
 description: How to reuse chunks of content between pages
 keywords:
   - content reuse
   - shared content
+title: Reuse shared content
 ---
 
 # Reuse shared content

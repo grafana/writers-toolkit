@@ -37,7 +37,7 @@ To reuse a shared directory:
 
 1. Update the website repository Hugo configuration.
 
-   The configuration is in the `config/_default/config.yaml` file in the `website` repository.
+   The configuration is in the in the `website` repository in the `config/_default/config.yaml` file.
 
    Append the mount to the `docs.manual_mount` key in the YAML configuration.
 

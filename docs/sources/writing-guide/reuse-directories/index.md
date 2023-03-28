@@ -1,5 +1,5 @@
 ---
-description: Reuse directories of content with Hugo mounts
+description: Learn to reuse directories of content with Hugo mounts.
 keywords:
   - content reuse
   - shared content

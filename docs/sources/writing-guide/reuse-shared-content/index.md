@@ -1,5 +1,5 @@
 ---
-description: How to reuse chunks of content between pages
+description: Learn to reuse chunks of content between pages.
 keywords:
   - content reuse
   - shared content

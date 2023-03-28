@@ -1,3 +1,10 @@
+.ONESHELL:
+.DELETE_ON_ERROR:
+export SHELL     := bash
+export SHELLOPTS := pipefail:errexit
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rule
+
 .DEFAULT_GOAL: help
 
 # Adapted from https://www.thapaliya.com/en/writings/well-documented-makefiles/
@@ -6,4 +13,40 @@ help: ## Display this help.
 help:
 	@awk 'BEGIN {FS = ": ##"; printf "Usage:\n  make <target>\n\nTargets:\n"} /^[a-zA-Z0-9_\.\-\/%]+: ##/ { printf "  %-45s %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
 
-include docs.mk
+GIT_ROOT := $(shell git rev-parse --show-toplevel)
+
+# List of projects to provide to the make-docs script.
+PROJECTS := writers-toolkit
+
+# Name for the container.
+export DOCS_CONTAINER := writers-toolkit-docs
+
+# Host port to publish container port to.
+export DOCS_HOST_PORT := 3002
+
+# Container image used to perform Hugo build.
+export DOCS_IMAGE := grafana/docs-base:latest
+
+# PATH-like list of directories within which to find projects.
+# If all projects are checked out into the same directory, ~/repos/ for example, then the default should work.
+export REPOS_PATH := $(realpath $(GIT_ROOT)/..)
+
+# How to treat Hugo relref errors.
+export HUGO_REFLINKSERRORLEVEL := WARNING
+
+.PHONY: docs-rm
+docs-rm: ## Remove the docs container.
+	$(PODMAN) rm -f $(DOCS_CONTAINER)
+
+.PHONY: docs-pull
+docs-pull: ## Pull documentation base image.
+	$(PODMAN) pull $(DOCS_IMAGE)
+
+make-docs: ## Fetch the latest make-docs script.
+make-docs:
+	echo TODO
+
+.PHONY: docs
+docs: ## Serve documentation locally.
+docs:
+	$(GIT_ROOT)/scripts/make-docs $(PROJECTS)

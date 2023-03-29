@@ -20,7 +20,10 @@ Use Hugo mounts to reuse a whole directory of content in another part of the pub
 - Identify a directory of content that you want to reuse.
 - Identify any pages to exclude.
   Typically, excluded pages do not make sense in the context of the target directory.
-  > **Note:** Excluding files breaks any relative links to that page unless there is an equivalent in the target directory.
+  > **Warning:** Pages in the directory might have relative links to other pages that would be broken by their exclusion.
+  > If the excluded page is replaced by another in the target directory, relative links will continue to work.
+  > Otherwise, the broken relative links should be made absolute.
+  > That way, they will always refer to the page in the source directory.
 
 ## Steps
 

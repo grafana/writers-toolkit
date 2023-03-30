@@ -81,103 +81,107 @@ aget() {
 
 # new_proj populates a new project structure.
 new_proj() {
-  project="$1"
-  version="$2"
-  repo="$3"
-  path="$4"
+  _project="$1"
+  _version="$2"
+  _repo="$3"
+  _path="$4"
 
   # If version is not set, use the script mapping of project to default versions if it exists.
   # Fallback to 'latest'.
-  if [ -z "${version}" ]; then
-    if [ -z "$(aget VERSIONS "${project}")" ]; then
-      version=latest
+  if [ -z "${_version}" ]; then
+    if [ -z "$(aget VERSIONS "${_project}")" ]; then
+      _version=latest
     else
-      version="$(aget VERSIONS "${project}")"
+      _version="$(aget VERSIONS "${_project}")"
     fi
   fi
-  readonly version
 
   # If repo is not set, use the script mapping of project to repo name if it exists.
   # Fallback to using the project name.
-  if [ -z "${repo}" ]; then
-    if [ -z "$(aget SOURCES "${project}")" ]; then
-      repo="${project}"
+  if [ -z "${_repo}" ]; then
+    if [ -z "$(aget SOURCES "${_project}")" ]; then
+      _repo="${_project}"
     else
-      repo="$(aget SOURCES "${project}")"
+      _repo="$(aget SOURCES "${_project}")"
     fi
   fi
-  readonly repo
 
   # If path is not set, use the script mapping of project to docs sources path if it exists.
   # Fallback to using 'docs/sources'.
-  if [ -z "${path}" ]; then
-    if [ -z "$(aget PATHS "${project}")" ]; then
-      path="docs/sources"
+  if [ -z "${_path}" ]; then
+    if [ -z "$(aget PATHS "${_project}")" ]; then
+      _path="docs/sources"
     else
-      path="$(aget PATHS "${project}")"
+      _path="$(aget PATHS "${_project}")"
     fi
   fi
-  readonly path
 
-  echo "${project}:${version}:${repo}:${path}"
+  echo "${_project}:${_version}:${_repo}:${_path}"
+  unset _project _version _repo _path
 }
 
 # proj_url returns the webserver URL for a project.
 # It expects a complete project structure as input.
 proj_url() {
-  IFS=: read -r project version _ _ <<POSIX_HERESTRING
+  IFS=: read -r _project _version _ _ <<POSIX_HERESTRING
 $1
 POSIX_HERESTRING
 
-  if [ -z "${version}" ] || [ "${version}" = 'UNVERSIONED' ]; then
-    echo "http://localhost:3002/docs/${project}/"
+  if [ -z "${_version}" ] || [ "${_version}" = 'UNVERSIONED' ]; then
+    echo "http://localhost:3002/docs/${_project}/"
   else
-    echo "http://localhost:3002/docs/${project}/${version}/"
+    echo "http://localhost:3002/docs/${_project}/${_version}/"
   fi
+
+  unset _project _version
 }
 
 # proj_ver returns the version for a project.
 # It expects a complete project structure as input.
 proj_ver() {
-  IFS=: read -r _ ver _ _ <<POSIX_HERESTRING
+  IFS=: read -r _ _ver _ _ <<POSIX_HERESTRING
 $1
 POSIX_HERESTRING
 
-  echo "${ver}"
+  echo "${_ver}"
+  unset _ver
 }
 
 # proj_dst returns the container path to content source for a project.
 # It expects a complete project structure as input.
 proj_dst() {
-  IFS=: read -r project version _ _ <<POSIX_HERESTRING
+  IFS=: read -r _project _version _ _ <<POSIX_HERESTRING
 $1
 POSIX_HERESTRING
 
-  if [ -z "${version}" ] || [ "${version}" = 'UNVERSIONED' ]; then
-    echo "/hugo/content/docs/${project}"
+  if [ -z "${_version}" ] || [ "${_version}" = 'UNVERSIONED' ]; then
+    echo "/hugo/content/docs/${_project}"
   else
-    echo "/hugo/content/docs/${project}/${version}"
+    echo "/hugo/content/docs/${_project}/${_version}"
   fi
+  unset _project _version
 }
 
 # proj_src returns the host path to content source for a project.
 # It expects a complete project structure as input.
 # It looks for the provided repository name in each of the paths specified in the REPOS_PATH environment variable.
 proj_src() {
-  IFS=: read -r _ _ repo path <<POSIX_HERESTRING
+  IFS=: read -r _ _ _repo _path <<POSIX_HERESTRING
 $1
 POSIX_HERESTRING
 
   IFS=:
   for lookup in ${REPOS_PATH}; do
-    if [ -d "${lookup}/${repo}" ]; then
-      echo "${lookup}/${repo}/${path}"
+    if [ -d "${lookup}/${_repo}" ]; then
+      echo "${lookup}/${_repo}/${_path}"
+      unset _path _repo
       return
     fi
   done
   unset IFS
 
-  echo "ERROR: could not find project '${repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}."
+  echo "ERROR: could not find project '${_repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}."
+  unset _path _repo
   return 1
 }
 
@@ -187,34 +191,36 @@ proj_to_url_src_dst_ver() {
 
 url_src_dst_vers() {
   for arg in "$@"; do
-    IFS=: read -r project version repo path <<POSIX_HERESTRING
+    IFS=: read -r _project _version _repo _path <<POSIX_HERESTRING
 $arg
 POSIX_HERESTRING
 
-    case "${project}" in
+    case "${_project}" in
       # Workaround for arbitrary mounts where the version field is expected to be the local directory
       # and the repo field is expected to be the container directory.
       arbitrary)
-        echo "${project}^${version}^${repo}^" # TODO
+        echo "${_project}^${_version}^${_repo}^" # TODO
         ;;
       logs)
-        proj_to_url_src_dst_ver "$(new_proj loki "${version}")"
-        proj_to_url_src_dst_ver "$(new_proj enterprise-logs "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj loki "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-logs "${_version}")"
         ;;
       metrics)
-        proj_to_url_src_dst_ver "$(new_proj mimir "${version}")"
-        proj_to_url_src_dst_ver "$(new_proj helm-charts/mimir-distributed "${version}")"
-        proj_to_url_src_dst_ver "$(new_proj enterprise-metrics "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj mimir "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj helm-charts/mimir-distributed "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-metrics "${_version}")"
         ;;
       traces)
-        proj_to_url_src_dst_ver "$(new_proj tempo "${version}")"
-        proj_to_url_src_dst_ver "$(new_proj enterprise-traces "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj tempo "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-traces "${_version}")"
         ;;
       *)
-        proj_to_url_src_dst_ver "$(new_proj "${project}" "${version}" "${repo}" "${path}")"
+        proj_to_url_src_dst_ver "$(new_proj "${_project}" "${_version}" "${_repo}" "${_path}")"
         ;;
     esac
   done
+
+  unset _project _version _repo _path
 }
 
 url_src_dst_vers="$(url_src_dst_vers "$@")"
@@ -223,36 +229,37 @@ volumes=""
 redirects=""
 
 for x in ${url_src_dst_vers}; do
-  IFS='^' read -r url src dst ver <<POSIX_HERESTRING
+  IFS='^' read -r _url _src _dst _ver <<POSIX_HERESTRING
 $x
 POSIX_HERESTRING
 
-  if [ -n "$(git -C "${src}" status --porcelain)" ]; then
-    echo "WARN: Repository '$(git -C "${src}" rev-parse --show-toplevel)' worktree is dirty" >&2
+  if [ -n "$(git -C "${_src}" status --porcelain)" ]; then
+    echo "WARN: Repository '$(git -C "${_src}" rev-parse --show-toplevel)' worktree is dirty" >&2
   fi
 
-  if [ "${url}" != "arbitrary" ]; then
-    if [ ! -f "${src}/_index.md" ]; then
-      echo "ERRR: Index file '${src}/_index.md' does not exist." >&2
-      echo "Is '${src}' the correct source directory?" >&2
+  if [ "${_url}" != "arbitrary" ]; then
+    if [ ! -f "${_src}/_index.md" ]; then
+      echo "ERRR: Index file '${_src}/_index.md' does not exist." >&2
+      echo "Is '${_src}' the correct source directory?" >&2
       continue
     fi
   fi
 
-  echo "DEBG: Mounting '${src}' at container path '${dst}'" >&2
+  echo "DEBG: Mounting '${_src}' at container path '${_dst}'" >&2
   if [ -z "${volumes}" ]; then
-    volumes="--volume=${src}:${dst}"
+    volumes="--volume=${_src}:${_dst}"
   else
-    volumes="${volumes} --volume=${src}:${dst}"
+    volumes="${volumes} --volume=${_src}:${_dst}"
   fi
 
-  if [ -n "${ver}" ] && [ "${ver}" != 'UNVERSIONED' ]; then
+  if [ -n "${_ver}" ] && [ "${_ver}" != 'UNVERSIONED' ]; then
     if [ -z "${redirects}" ]; then
-      redirects="${dst}^${ver}"
+      redirects="${_dst}^${_ver}"
     else
-      redirects="${redirects} ${dst}^${ver}"
+      redirects="${redirects} ${_dst}^${_ver}"
     fi
   fi
+  unset _url _src _dst _ver
 done
 
 cat <<EOF >/tmp/make-docs-entrypoint

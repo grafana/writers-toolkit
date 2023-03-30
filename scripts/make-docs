@@ -1,7 +1,7 @@
 #!/bin/sh
 # Source of this file is https://github.com/grafana/technical-documentation/scripts/make-docs.
 
-set -ef -o pipefail
+set -ef
 
 readonly DOCS_CONTAINER="${DOCS_CONTAINER:-make-docs}"
 readonly DOCS_HOST_PORT="${DOCS_HOST_PORT:-3002}"
@@ -9,21 +9,7 @@ readonly DOCS_IMAGE="${DOCS_IMAGE:-grafana/docs-base:latest}"
 
 readonly HUGO_REFLINKSERRORLEVEL="${HUGO_REFLINKSERRORLEVEL:-WARNING}"
 
-# ANSI codes.
-readonly BLUE='\e[1;34m'
-readonly END='\e[0m'
-readonly RED='\e[1;31m'
-readonly YELLOW='\e[1;33m'
-
-podman() {
-  if
-    command -v podman >/dev/null 2>&1
-  then
-    echo podman
-  else
-    echo docker
-  fi
-}
+PODMAN="$(if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)"
 
 about() {
   cat <<EOF
@@ -43,7 +29,7 @@ Examples:
 EOF
 }
 
-if [[ $# -lt 1 ]]; then
+if [ $# -lt 1 ]; then
   cat <<EOF >&2
 ERROR: arguments required but not supplied.
 
@@ -56,7 +42,7 @@ fi
 
 readonly REPOS_PATH="${REPOS_PATH:-$(realpath "$(git rev-parse --show-toplevel)/..")}"
 
-if [[ -z "${REPOS_PATH}" ]]; then
+if [ -z "${REPOS_PATH}" ]; then
   cat <<EOF >&2
 ERROR: REPOS_PATH environment variable is required but has not been provided.
 
@@ -90,21 +76,20 @@ identifier() {
 # Get the value of KEY from associative array ARRAY.
 # Characters that are not valid in an identifier are replaced with underscores.
 aget() {
-  echo '$'"$(identifier "$1")_$(identifier "$2")"
+  eval echo '$'"$(identifier "$1")_$(identifier "$2")"
 }
 
-# proj_complete_structure fills any empty fields.
-proj_complete_structure() {
-  local -r project="$1"
-  local version="$2"
-  local repo="$3"
-  local path="$4"
+# new_proj populates a new project structure.
+new_proj() {
+  project="$1"
+  version="$2"
+  repo="$3"
+  path="$4"
 
-  aget VERSIONS "${project}" >&2
   # If version is not set, use the script mapping of project to default versions if it exists.
   # Fallback to 'latest'.
-  if [[ -z "${version}" ]]; then
-    if [[ -z "$(aget VERSIONS "${project}")" ]]; then
+  if [ -z "${version}" ]; then
+    if [ -z "$(aget VERSIONS "${project}")" ]; then
       version=latest
     else
       version="$(aget VERSIONS "${project}")"
@@ -114,8 +99,8 @@ proj_complete_structure() {
 
   # If repo is not set, use the script mapping of project to repo name if it exists.
   # Fallback to using the project name.
-  if [[ -z "${repo}" ]]; then
-    if [[ -z "$(aget SOURCES "${project}")" ]]; then
+  if [ -z "${repo}" ]; then
+    if [ -z "$(aget SOURCES "${project}")" ]; then
       repo="${project}"
     else
       repo="$(aget SOURCES "${project}")"
@@ -125,8 +110,8 @@ proj_complete_structure() {
 
   # If path is not set, use the script mapping of project to docs sources path if it exists.
   # Fallback to using 'docs/sources'.
-  if [[ -z "${path}" ]]; then
-    if [[ -z "$(aget PATHS "${project}")" ]]; then
+  if [ -z "${path}" ]; then
+    if [ -z "$(aget PATHS "${project}")" ]; then
       path="docs/sources"
     else
       path="$(aget PATHS "${project}")"
@@ -140,9 +125,11 @@ proj_complete_structure() {
 # proj_url returns the webserver URL for a project.
 # It expects a complete project structure as input.
 proj_url() {
-  IFS=: echo "$1" | read -r project version _ _
+  IFS=: read -r project version _ _ <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
 
-  if [[ -z "${version}" ]] || [[ "${version}" == 'UNVERSIONED' ]]; then
+  if [ -z "${version}" ] || [ "${version}" = 'UNVERSIONED' ]; then
     echo "http://localhost:3002/docs/${project}/"
   else
     echo "http://localhost:3002/docs/${project}/${version}/"
@@ -152,16 +139,21 @@ proj_url() {
 # proj_ver returns the version for a project.
 # It expects a complete project structure as input.
 proj_ver() {
-  IFS=: echo "$1" | read -r _ ver _ _
+  IFS=: read -r _ ver _ _ <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
+
   echo "${ver}"
 }
 
 # proj_dst returns the container path to content source for a project.
 # It expects a complete project structure as input.
 proj_dst() {
-  IFS=: echo "$1" read -r project version _ _
+  IFS=: read -r project version _ _ <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
 
-  if [[ -z "${version}" ]] || [[ "${version}" == 'UNVERSIONED' ]]; then
+  if [ -z "${version}" ] || [ "${version}" = 'UNVERSIONED' ]; then
     echo "/hugo/content/docs/${project}"
   else
     echo "/hugo/content/docs/${project}/${version}"
@@ -172,15 +164,18 @@ proj_dst() {
 # It expects a complete project structure as input.
 # It looks for the provided repository name in each of the paths specified in the REPOS_PATH environment variable.
 proj_src() {
-  IFS=: echo "$1" | read -r _ _ repo path
+  IFS=: read -r _ _ repo path <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
 
-  for lookup in IFS=: "${REPOS_PATH}"; do
-    if [[ -d "${lookup}/${repo}" ]]; then
+  IFS=:
+  for lookup in ${REPOS_PATH}; do
+    if [ -d "${lookup}/${repo}" ]; then
       echo "${lookup}/${repo}/${path}"
       return
     fi
-
   done
+  unset IFS
 
   echo "ERROR: could not find project '${repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}."
   return 1
@@ -192,8 +187,10 @@ proj_to_url_src_dst_ver() {
 
 url_src_dst_vers() {
   for arg in "$@"; do
-    echo "${arg}" | IFS=: read -r project version repo path
-    echo "${project}" >&2
+    IFS=: read -r project version repo path <<POSIX_HERESTRING
+$arg
+POSIX_HERESTRING
+
     case "${project}" in
       # Workaround for arbitrary mounts where the version field is expected to be the local directory
       # and the repo field is expected to be the container directory.
@@ -201,55 +198,56 @@ url_src_dst_vers() {
         echo "${project}^${version}^${repo}^" # TODO
         ;;
       logs)
-        proj_to_url_src_dst_ver "$(proj_complete_structure loki "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure enterprise-logs "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj loki "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-logs "${version}")"
         ;;
       metrics)
-        proj_to_url_src_dst_ver "$(proj_complete_structure mimir "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure helm-charts/mimir-distributed "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure enterprise-metrics "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj mimir "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj helm-charts/mimir-distributed "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-metrics "${version}")"
         ;;
       traces)
-        proj_to_url_src_dst_ver "$(proj_complete_structure tempo "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure enterprise-traces "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj tempo "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-traces "${version}")"
         ;;
       *)
-        echo proj_to_url_src_dst_ver "$(proj_complete_structure "${project}" "${version}" "${repo}" "${path}")" >&2
+        proj_to_url_src_dst_ver "$(new_proj "${project}" "${version}" "${repo}" "${path}")"
         ;;
     esac
   done
 }
 
-identifier "$1"
-
 url_src_dst_vers="$(url_src_dst_vers "$@")"
 
-declare volumes
-declare redirects
-for x in ${url_src_dst_vers}; do
-  IFS='^' echo "${x}" | read -r url src dst ver
+volumes=""
+redirects=""
 
-  if [[ -n "$(git -C "${src}" status --porcelain)" ]]; then
-    echo -e "${YELLOW}WARN${END} Repository '$(git -C "${src}" rev-parse --show-toplevel)' worktree is dirty" >&2
+for x in ${url_src_dst_vers}; do
+  IFS='^' read -r url src dst ver <<POSIX_HERESTRING
+$x
+POSIX_HERESTRING
+
+  if [ -n "$(git -C "${src}" status --porcelain)" ]; then
+    echo "WARN: Repository '$(git -C "${src}" rev-parse --show-toplevel)' worktree is dirty" >&2
   fi
 
-  if [[ "${url}" != "arbitrary" ]]; then
-    if [[ ! -f "${src}/_index.md" ]]; then
-      echo -e "${RED}ERRR${END} Index file '${src}/_index.md' does not exist." >&2
+  if [ "${url}" != "arbitrary" ]; then
+    if [ ! -f "${src}/_index.md" ]; then
+      echo "ERRR: Index file '${src}/_index.md' does not exist." >&2
       echo "Is '${src}' the correct source directory?" >&2
       continue
     fi
   fi
 
-  echo -e "${BLUE}DEBG${END} Mounting '${src}' at container path '${dst}'" >&2
-  if [[ -z "${volumes}" ]]; then
+  echo "DEBG: Mounting '${src}' at container path '${dst}'" >&2
+  if [ -z "${volumes}" ]; then
     volumes="--volume=${src}:${dst}"
   else
     volumes="${volumes} --volume=${src}:${dst}"
   fi
 
-  if [[ -n "${ver}" ]]; then
-    if [[ -z "${redirects}" ]]; then
+  if [ -n "${ver}" ] && [ "${ver}" != 'UNVERSIONED' ]; then
+    if [ -z "${redirects}" ]; then
       redirects="${dst}^${ver}"
     else
       redirects="${redirects} ${dst}^${ver}"
@@ -259,12 +257,12 @@ done
 
 cat <<EOF >/tmp/make-docs-entrypoint
 #!/usr/bin/env bash
-for redirect in ${redirects} | tr ' ' '\n' | while read -}; do
+for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
   echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/${ver}/_index.md}"
-
-  make server
 done
+
+make server
 EOF
 chmod +x /tmp/make-docs-entrypoint
 volumes="${volumes} --volume=/tmp/make-docs-entrypoint:/entrypoint"
@@ -273,13 +271,17 @@ readonly volumes
 echo
 echo "Documentation will be served at the following URLs:"
 for x in ${url_src_dst_vers}; do
-  IFS='^' echo "${x}" | read -r url _ _
-  if [[ -n "${url}" ]]; then
+  IFS='^' read -r url _ _ <<POSIX_HERESTRING
+$x
+POSIX_HERESTRING
+
+  if [ -n "${url}" ]; then
     echo "  ${url}"
   fi
 done
 
-echo "$(podman)" run \
+echo
+"${PODMAN}" run \
   --env "HUGO_REFLINKSERRORLEVEL=${HUGO_REFLINKSERRORLEVEL}" \
   --init \
   --interactive \
@@ -288,6 +290,6 @@ echo "$(podman)" run \
   --publish "3002:${DOCS_HOST_PORT}" \
   --rm \
   --tty \
-  "${volumes}" \
+  ${volumes} \
   "${DOCS_IMAGE}" \
   /entrypoint

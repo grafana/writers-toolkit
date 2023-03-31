@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Source of this file is https://github.com/grafana/technical-documentation/scripts/make-docs.
 
-set -ef -o pipefail
+set -ef
 
 readonly DOCS_CONTAINER="${DOCS_CONTAINER:-make-docs}"
 readonly DOCS_HOST_PORT="${DOCS_HOST_PORT:-3002}"
@@ -9,16 +9,9 @@ readonly DOCS_IMAGE="${DOCS_IMAGE:-grafana/docs-base:latest}"
 
 readonly HUGO_REFLINKSERRORLEVEL="${HUGO_REFLINKSERRORLEVEL:-WARNING}"
 
-# ANSI codes.
-readonly BLUE='\e[1;34m'
-readonly END='\e[0m'
-readonly RED='\e[1;31m'
-readonly YELLOW='\e[1;33m'
+PODMAN="$(if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)"
 
-PODMAN="$(if command -v podman &>/dev/null; then echo podman; else echo docker; fi)"
-readonly PODMAN
-
-function about {
+about() {
   cat <<EOF
 Test documentation locally with multiple source repositories.
 
@@ -26,7 +19,7 @@ The REPOS_PATH environment variable is a colon (:) separated list of paths in wh
 EOF
 }
 
-function usage {
+usage() {
   cat <<EOF
 Usage:
   REPOS_PATH=<PATH[:<PATH>...]> $0 [<PROJECT>[:<VERSION>[:<REPO>[:<DIR>]]]...]
@@ -36,7 +29,7 @@ Examples:
 EOF
 }
 
-if [[ $# -lt 1 ]]; then
+if [ $# -lt 1 ]; then
   cat <<EOF >&2
 ERROR: arguments required but not supplied.
 
@@ -49,7 +42,7 @@ fi
 
 readonly REPOS_PATH="${REPOS_PATH:-$(realpath "$(git rev-parse --show-toplevel)/..")}"
 
-if [[ -z "${REPOS_PATH}" ]]; then
+if [ -z "${REPOS_PATH}" ]; then
   cat <<EOF >&2
 ERROR: REPOS_PATH environment variable is required but has not been provided.
 
@@ -58,193 +51,238 @@ EOF
   exit 1
 fi
 
-declare -A SOURCES
-SOURCES['enterprise-metrics']='backend-enterprise'
-SOURCES['grafana-cloud']='cloud-docs'
-SOURCES['helm-charts/mimir-distributed']='mimir'
-SOURCES['helm-charts/tempo-distributed']='tempo'
+SOURCES_enterprise_metrics='backend-enterprise'
+SOURCES_enterprise_metrics_='backend-enterprise'
+SOURCES_grafana_cloud_='cloud-docs'
+SOURCES_helm_charts_mimir_distributed_='mimir'
+SOURCES_helm_charts_tempo_distributed_='tempo'
 
-declare -A VERSIONS
-VERSIONS['grafana-cloud']='UNVERSIONED'
-VERSIONS['opentelemetry']='UNVERSIONED'
-VERSIONS['writers-toolkit']='UNVERSIONED'
+VERSIONS_grafana_cloud='UNVERSIONED'
+VERSIONS_opentelemetry='UNVERSIONED'
+VERSIONS_writers_toolkit='UNVERSIONED'
 
-declare -A PATHS
-PATHS['helm-charts/mimir-distributed']='docs/sources/helm-charts/mimir-distributed'
-PATHS['helm-charts/tempo-distributed']='docs/sources/helm-charts/tempo-distributed'
-PATHS['mimir']='docs/sources/mimir'
-PATHS['tempo']='docs/sources/tempo'
+PATHS_helm_charts_mimir_distributed='docs/sources/helm-charts/mimir-distributed'
+PATHS_helm_charts_tempo_distributed='docs/sources/helm-charts/tempo-distributed'
+PATHS_mimir='docs/sources/mimir'
+PATHS_tempo='docs/sources/tempo'
 
-# proj_complete_structure fills any empty fields.
-function proj_complete_structure {
-  local -r project="$1"
-  local version="$2"
-  local repo="$3"
-  local path="$4"
+# identifier STR
+# Replace characters that are not valid in an identifier with underscores.
+identifier() {
+  echo "$1" | tr -C '[:alnum:]_\n' '_'
+}
+
+# aget ARRAY KEY
+# Get the value of KEY from associative array ARRAY.
+# Characters that are not valid in an identifier are replaced with underscores.
+aget() {
+  eval echo '$'"$(identifier "$1")_$(identifier "$2")"
+}
+
+# new_proj populates a new project structure.
+new_proj() {
+  _project="$1"
+  _version="$2"
+  _repo="$3"
+  _path="$4"
 
   # If version is not set, use the script mapping of project to default versions if it exists.
   # Fallback to 'latest'.
-  if [[ -z "${version}" ]]; then
-    if [[ -z "${VERSIONS[${project}]}" ]]; then
-      version=latest
+  if [ -z "${_version}" ]; then
+    if [ -z "$(aget VERSIONS "${_project}")" ]; then
+      _version=latest
     else
-      version="${VERSIONS[${project}]}"
+      _version="$(aget VERSIONS "${_project}")"
     fi
   fi
-  readonly version
 
   # If repo is not set, use the script mapping of project to repo name if it exists.
   # Fallback to using the project name.
-  if [[ -z "${repo}" ]]; then
-    if [[ -z "${SOURCES[${project}]}" ]]; then
-      repo="${project}"
+  if [ -z "${_repo}" ]; then
+    if [ -z "$(aget SOURCES "${_project}")" ]; then
+      _repo="${_project}"
     else
-      repo="${SOURCES[${project}]}"
+      _repo="$(aget SOURCES "${_project}")"
     fi
   fi
-  readonly repo
 
   # If path is not set, use the script mapping of project to docs sources path if it exists.
   # Fallback to using 'docs/sources'.
-  if [[ -z "${path}" ]]; then
-    if [[ -z "${PATHS[${project}]}" ]]; then
-      path="docs/sources"
+  if [ -z "${_path}" ]; then
+    if [ -z "$(aget PATHS "${_project}")" ]; then
+      _path="docs/sources"
     else
-      path="${PATHS[${project}]}"
+      _path="$(aget PATHS "${_project}")"
     fi
   fi
-  readonly path
 
-  echo "${project}:${version}:${repo}:${path}"
+  echo "${_project}:${_version}:${_repo}:${_path}"
+  unset _project _version _repo _path
 }
 
 # proj_url returns the webserver URL for a project.
 # It expects a complete project structure as input.
-function proj_url {
-  IFS=: read -r project version _ _ <<<"$1"
+proj_url() {
+  IFS=: read -r _project _version _ _ <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
 
-  if [[ -z "${version}" ]] || [[ "${version}" == 'UNVERSIONED' ]]; then
-    echo "http://localhost:3002/docs/${project}/"
+  if [ -z "${_version}" ] || [ "${_version}" = 'UNVERSIONED' ]; then
+    echo "http://localhost:3002/docs/${_project}/"
   else
-    echo "http://localhost:3002/docs/${project}/${version}/"
+    echo "http://localhost:3002/docs/${_project}/${_version}/"
   fi
+
+  unset _project _version
 }
 
 # proj_ver returns the version for a project.
 # It expects a complete project structure as input.
-function proj_ver {
-  IFS=: read -r _ ver _ _ <<<"$1"
-  echo "${ver}"
+proj_ver() {
+  IFS=: read -r _ _ver _ _ <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
+
+  echo "${_ver}"
+  unset _ver
 }
 
 # proj_dst returns the container path to content source for a project.
 # It expects a complete project structure as input.
-function proj_dst {
-  IFS=: read -r project version _ _ <<<"$1"
+proj_dst() {
+  IFS=: read -r _project _version _ _ <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
 
-  if [[ -z "${version}" ]] || [[ "${version}" == 'UNVERSIONED' ]]; then
-    echo "/hugo/content/docs/${project}"
+  if [ -z "${_version}" ] || [ "${_version}" = 'UNVERSIONED' ]; then
+    echo "/hugo/content/docs/${_project}"
   else
-    echo "/hugo/content/docs/${project}/${version}"
+    echo "/hugo/content/docs/${_project}/${_version}"
   fi
+  unset _project _version
 }
 
 # proj_src returns the host path to content source for a project.
 # It expects a complete project structure as input.
 # It looks for the provided repository name in each of the paths specified in the REPOS_PATH environment variable.
-function proj_src {
-  IFS=: read -r _ _ repo path <<<"$1"
+proj_src() {
+  IFS=: read -r _ _ _repo _path <<POSIX_HERESTRING
+$1
+POSIX_HERESTRING
 
-  for lookup in IFS=: "${REPOS_PATH[@]}"; do
-    if [[ -d "${lookup}/${repo}" ]]; then
-      echo "${lookup}/${repo}/${path}"
+  IFS=:
+  for lookup in ${REPOS_PATH}; do
+    if [ -d "${lookup}/${_repo}" ]; then
+      echo "${lookup}/${_repo}/${_path}"
+      unset _path _repo
       return
     fi
-
   done
+  unset IFS
 
-  echo "ERROR: could not find project '${repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}."
+  echo "ERROR: could not find project '${_repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}."
+  unset _path _repo
   return 1
 }
 
-function proj_to_url_src_dst_ver {
+proj_to_url_src_dst_ver() {
   echo "$(proj_url "$1")^$(proj_src "$1")^$(proj_dst "$1")^$(proj_ver "$1")"
 }
 
-function url_src_dst_vers {
+url_src_dst_vers() {
   for arg in "$@"; do
-    IFS=: read -r project version repo path <<<"${arg}"
-    case "${project}" in
+    IFS=: read -r _project _version _repo _path <<POSIX_HERESTRING
+$arg
+POSIX_HERESTRING
+
+    case "${_project}" in
       # Workaround for arbitrary mounts where the version field is expected to be the local directory
       # and the repo field is expected to be the container directory.
       arbitrary)
-        echo "${project}^${version}^${repo}^" # TODO
+        echo "${_project}^${_version}^${_repo}^" # TODO
         ;;
       logs)
-        proj_to_url_src_dst_ver "$(proj_complete_structure loki "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure enterprise-logs "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj loki "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-logs "${_version}")"
         ;;
       metrics)
-        proj_to_url_src_dst_ver "$(proj_complete_structure mimir "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure helm-charts/mimir-distributed "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure enterprise-metrics "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj mimir "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj helm-charts/mimir-distributed "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-metrics "${_version}")"
         ;;
       traces)
-        proj_to_url_src_dst_ver "$(proj_complete_structure tempo "${version}")"
-        proj_to_url_src_dst_ver "$(proj_complete_structure enterprise-traces "${version}")"
+        proj_to_url_src_dst_ver "$(new_proj tempo "${_version}")"
+        proj_to_url_src_dst_ver "$(new_proj enterprise-traces "${_version}")"
         ;;
       *)
-        proj_to_url_src_dst_ver "$(proj_complete_structure "${project}" "${version}" "${repo}" "${path}")"
+        proj_to_url_src_dst_ver "$(new_proj "${_project}" "${_version}" "${_repo}" "${_path}")"
         ;;
     esac
   done
+
+  unset _project _version _repo _path
 }
 
 url_src_dst_vers="$(url_src_dst_vers "$@")"
 
-declare -a volumes
-declare -a redirects
-for x in ${url_src_dst_vers}; do
-  IFS='^' read -r url src dst ver <<<"${x}"
+volumes=""
+redirects=""
 
-  if [[ -n "$(git -C "${src}" status --porcelain)" ]]; then
-    echo -e "${YELLOW}WARN${END} Repository '$(git -C "${src}" rev-parse --show-toplevel)' worktree is dirty" >&2
+for x in ${url_src_dst_vers}; do
+  IFS='^' read -r _url _src _dst _ver <<POSIX_HERESTRING
+$x
+POSIX_HERESTRING
+
+  if [ -n "$(git -C "${_src}" status --porcelain)" ]; then
+    echo "WARN: Repository '$(git -C "${_src}" rev-parse --show-toplevel)' worktree is dirty" >&2
   fi
 
-  if [[ "${url}" != "arbitrary" ]]; then
-    if [[ ! -f "${src}/_index.md" ]]; then
-      echo -e "${RED}ERRR${END} Index file '${src}/_index.md' does not exist." >&2
-      echo "Is '${src}' the correct source directory?" >&2
+  if [ "${_url}" != "arbitrary" ]; then
+    if [ ! -f "${_src}/_index.md" ]; then
+      echo "ERRR: Index file '${_src}/_index.md' does not exist." >&2
+      echo "Is '${_src}' the correct source directory?" >&2
       continue
     fi
   fi
 
-  echo -e "${BLUE}DEBG${END} Mounting '${src}' at container path '${dst}'" >&2
-  volumes+=("--volume=${src}:${dst}")
-
-  if [[ -n "${ver}" ]]; then
-    redirects+=("${dst}^${ver}")
+  echo "DEBG: Mounting '${_src}' at container path '${_dst}'" >&2
+  if [ -z "${volumes}" ]; then
+    volumes="--volume=${_src}:${_dst}"
+  else
+    volumes="${volumes} --volume=${_src}:${_dst}"
   fi
+
+  if [ -n "${_ver}" ] && [ "${_ver}" != 'UNVERSIONED' ]; then
+    if [ -z "${redirects}" ]; then
+      redirects="${_dst}^${_ver}"
+    else
+      redirects="${redirects} ${_dst}^${_ver}"
+    fi
+  fi
+  unset _url _src _dst _ver
 done
 
 cat <<EOF >/tmp/make-docs-entrypoint
 #!/usr/bin/env bash
-for redirect in ${redirects[@]}; do
+for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
   echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/${ver}/_index.md}"
-
-  make server
 done
+
+make server
 EOF
 chmod +x /tmp/make-docs-entrypoint
-volumes+=("--volume=/tmp/make-docs-entrypoint:/entrypoint")
+volumes="${volumes} --volume=/tmp/make-docs-entrypoint:/entrypoint"
 readonly volumes
 
 echo
 echo "Documentation will be served at the following URLs:"
 for x in ${url_src_dst_vers}; do
-  IFS='^' read -r url _ _ <<<"${x}"
-  if [[ -n "${url}" ]]; then
+  IFS='^' read -r url _ _ <<POSIX_HERESTRING
+$x
+POSIX_HERESTRING
+
+  if [ -n "${url}" ]; then
     echo "  ${url}"
   fi
 done
@@ -259,6 +297,6 @@ echo
   --publish "3002:${DOCS_HOST_PORT}" \
   --rm \
   --tty \
-  "${volumes[@]}" \
+  ${volumes} \
   "${DOCS_IMAGE}" \
   /entrypoint

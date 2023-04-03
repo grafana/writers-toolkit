@@ -15,7 +15,7 @@ keywords:
 
 In late 2022, the documentation website was significantly modified to a more modern design. The goal of the redesign was to make our technical documentation more accessible, modern, and scalable as we grow.  
 
-In addition to a new look (including a new typeface and layout), our updated docs pages take better advantage of our static site generator, Hugo. As a result, several elements of the page are now automatically managed during the publication of the page using Hugo's taxonomy, thus the source markdown files **do not need to hand manage** these elements and **do not require** contributors to curate them.
+Our docs pages take advantage of our static site generator, Hugo. As a result, several elements of the page are automatically managed during the publication of the page using Hugo's taxonomy. Thus, the source markdown files **do not need to hand management** of these elements and **do not require** contributors to curate them.
 
 The improvements include:
 

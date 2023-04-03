@@ -19,7 +19,7 @@ GIT_ROOT := $(shell git rev-parse --show-toplevel)
 PROJECTS := writers-toolkit
 
 # Name for the container.
-export DOCS_CONTAINER := writers-toolkit-docs
+export DOCS_CONTAINER := $(firstword $(subst /,-,$(PROJECTS))-docs)
 
 # Host port to publish container port to.
 export DOCS_HOST_PORT := 3002

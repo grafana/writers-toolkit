@@ -2,7 +2,6 @@
 title: About our documentation design
 menuTitle: Documentation design
 description: Learn about Grafana's documentation docs pages
-aliases:
   - 
 weight: 100
 keywords:

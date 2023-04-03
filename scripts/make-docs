@@ -31,7 +31,7 @@ EOF
 
 if [ $# -lt 1 ]; then
   cat <<EOF >&2
-ERROR: arguments required but not supplied.
+ERRR: arguments required but not supplied.
 
 $(about)
 
@@ -44,7 +44,7 @@ readonly REPOS_PATH="${REPOS_PATH:-$(realpath "$(git rev-parse --show-toplevel)/
 
 if [ -z "${REPOS_PATH}" ]; then
   cat <<EOF >&2
-ERROR: REPOS_PATH environment variable is required but has not been provided.
+ERRR: REPOS_PATH environment variable is required but has not been provided.
 
 $(usage)
 EOF
@@ -54,10 +54,12 @@ fi
 SOURCES_enterprise_metrics='backend-enterprise'
 SOURCES_enterprise_metrics_='backend-enterprise'
 SOURCES_grafana_cloud_='cloud-docs'
+SOURCES_grafana_cloud_k6='k6-docs'
 SOURCES_helm_charts_mimir_distributed_='mimir'
 SOURCES_helm_charts_tempo_distributed_='tempo'
 
 VERSIONS_grafana_cloud='UNVERSIONED'
+VERSIONS_grafana_cloud_k6='UNVERSIONED'
 VERSIONS_opentelemetry='UNVERSIONED'
 VERSIONS_writers_toolkit='UNVERSIONED'
 
@@ -180,13 +182,19 @@ POSIX_HERESTRING
   done
   unset IFS
 
-  echo "ERROR: could not find project '${_repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}."
+  echo "ERRR: could not find project '${_repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}." >&2
   unset _path _repo
-  return 1
+  exit 1
 }
 
 proj_to_url_src_dst_ver() {
-  echo "$(proj_url "$1")^$(proj_src "$1")^$(proj_dst "$1")^$(proj_ver "$1")"
+  _url="$(proj_url "$1")"
+  _src="$(proj_src "$1")"
+  _dst="$(proj_dst "$1")"
+  _ver="$(proj_ver "$1")"
+
+  echo "${_url}^${_src}^${_dst}^${_ver}"
+  unset _url _src _dst _ver
 }
 
 url_src_dst_vers() {
@@ -233,15 +241,11 @@ for x in ${url_src_dst_vers}; do
 $x
 POSIX_HERESTRING
 
-  if [ -n "$(git -C "${_src}" status --porcelain)" ]; then
-    echo "WARN: Repository '$(git -C "${_src}" rev-parse --show-toplevel)' worktree is dirty" >&2
-  fi
-
   if [ "${_url}" != "arbitrary" ]; then
     if [ ! -f "${_src}/_index.md" ]; then
       echo "ERRR: Index file '${_src}/_index.md' does not exist." >&2
       echo "Is '${_src}' the correct source directory?" >&2
-      continue
+      exit 1
     fi
   fi
 

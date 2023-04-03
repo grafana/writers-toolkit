@@ -20,7 +20,7 @@ Our docs pages take advantage of our static site generator, Hugo. As a result, s
 We also include:
 
 - **Navigation to preview primary topics.** The left-hand sidebar broadly outlines key topics, with nested related topics underneath. This design supports the philosophy that "every page is page one" and creates an system of documentation around a topic that is easier to reference and navigate. 
-- **More accessible table of contents.** The table of contents now floats on the page as you scroll to the content that's hidden beneath the fold. You can also view the upcoming topics, to enable a better user experience that helps you navigate to subtopics lower on the page.
+- **Floating table of contents.** The table of contents floats on the page as you scroll to the content that's hidden beneath the fold. You can also view the upcoming topics, to enable a better user experience that helps you navigate to subtopics lower on the page.
 - **Auto-generated _Related documentation_.** Using Hugo's taxonomy, our documentation now automatically finds other documentation that's pertinent to the page you're viewing.
 - **Auto-generated _Related resources from Grafana Labs_.** Hugo's taxonomy again is used to automatically generate this content.
 - **Feedback.** We added more prominent options for feedback from our community.

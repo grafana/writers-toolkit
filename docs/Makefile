@@ -44,9 +44,10 @@ docs-pull: ## Pull documentation base image.
 
 make-docs: ## Fetch the latest make-docs script.
 make-docs:
-	echo TODO
+	curl -s -LO https://raw.githubusercontent.com/grafana/writers-toolkit/main/scripts/make-docs
+	chmod +x make-docs
 
 .PHONY: docs
 docs: ## Serve documentation locally.
-docs:
-	$(GIT_ROOT)/scripts/make-docs $(PROJECTS)
+docs: make-docs
+	$(PWD)/make-docs $(PROJECTS)

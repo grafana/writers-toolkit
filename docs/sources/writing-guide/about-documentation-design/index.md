@@ -3,7 +3,7 @@ title: About our documentation design
 menuTitle: Documentation design
 description: Learn about Grafana's documentation docs pages
 aliases:
-  - /docs/writers-toolkit/latest/writing-guide/about-documentation-design/
+  - 
 weight: 100
 keywords:
   - Grafana

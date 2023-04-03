@@ -25,4 +25,4 @@ We also include:
 - **Auto-generated _Related resources from Grafana Labs_.** Hugo's taxonomy again is used to automatically generate this content.
 - **Feedback.** We added more prominent options for feedback from our community.
 
-You can read more about the redesign in our [blog] [https://grafana.com/blog/2023/02/03/grafana-documentation-a-look-at-the-new-and-improved-design/].
+You can read about the redesign of our documentation pages in our [blog] [https://grafana.com/blog/2023/02/03/grafana-documentation-a-look-at-the-new-and-improved-design/].

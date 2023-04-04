@@ -91,3 +91,6 @@ doc-validator/%:
 		--skip-image-validation \
 		/docs/sources \
 		$(PRIMARY_PROJECT_CANONICAL)
+
+docs.mk: ## Fetch the latest version of this Makefile from Writers' Toolkit.
+	curl -s -LO https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk

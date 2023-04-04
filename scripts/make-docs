@@ -271,7 +271,7 @@ cat <<EOF >/tmp/make-docs-entrypoint
 #!/usr/bin/env bash
 for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
-  echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/${ver}/_index.md}"
+  echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/\${ver}/_index.md}"
 done
 
 ${WEBSITE_EXEC}

@@ -26,12 +26,6 @@ endif
 # First project is considered the primary one used for doc-validator.
 PRIMARY_PROJECT := $(firstword $(subst /,-,$(PROJECTS)))
 
-ifeq ($(PRIMARY_PROJECT_VERSION),)
-PRIMARY_PROJECT_CANONICAL := /docs/$(PRIMARY_PROJECT)
-else
-PRIMARY_PROJECT_CANONICAL := /docs/$(PRIMARY_PROJECT)/$(PRIMARY_PROJECT_VERSION)
-endif
-
 # Name for the container.
 export DOCS_CONTAINER := $(PRIMARY_PROJECT)-docs
 
@@ -68,29 +62,12 @@ docs: make-docs
 
 .PHONY: doc-validator
 doc-validator: ## Run docs-validator on the entire docs folder.
-	$(PODMAN) run \
-		--init \
-		--platform linux/amd64 \
-		--volume "$(GIT_ROOT)/docs/sources:/docs/sources" \
-		--rm \
-		grafana/doc-validator:latest \
-		--skip-image-validation \
-		/docs/sources \
-		$(PRIMARY_PROJECT_CANONICAL)
+	DOCS_IMAGE=grafana/doc-validator:latest $(PWD)/make-docs $(PROJECTS)
 
 .PHONY: doc-validator/%
 doc-validator/%: ## Run doc-validator on a specific path. To lint the path /docs/sources/administration, run 'make doc-validator/administration'.
 doc-validator/%:
-	$(PODMAN) run \
-		--init \
-		--platform linux/amd64 \
-		--volume "$(GIT_ROOT)/docs/sources:/docs/sources" \
-		--rm \
-		grafana/doc-validator:latest \
-		--include=$(subst doc-validator/,,$@) \
-		--skip-image-validation \
-		/docs/sources \
-		$(PRIMARY_PROJECT_CANONICAL)
+	DOCS_IMAGE=grafana/doc-validator:latest DOC_VALIDATOR_INCLUDE=$(subst doc-validator/,,$@) $(PWD)/make-docs $(PROJECTS)
 
 docs.mk: ## Fetch the latest version of this Makefile from Writers' Toolkit.
 	curl -s -LO https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk

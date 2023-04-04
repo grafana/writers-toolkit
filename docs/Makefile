@@ -15,11 +15,16 @@ help:
 
 GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
+PODMAN := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
+
 # List of projects to provide to the make-docs script.
 PROJECTS := writers-toolkit
 
+# First project is considered the primary one used for doc-validator.
+PRIMARY_PROJECT := $(firstword $(subst /,-,$(PROJECTS)))
+
 # Name for the container.
-export DOCS_CONTAINER := $(firstword $(subst /,-,$(PROJECTS))-docs)
+export DOCS_CONTAINER := $(PRIMARY_PROJECT)-docs
 
 # Host port to publish container port to.
 export DOCS_HOST_PORT := 3002
@@ -51,3 +56,18 @@ make-docs:
 docs: ## Serve documentation locally.
 docs: make-docs
 	$(PWD)/make-docs $(PROJECTS)
+
+.PHONY: doc-validator
+doc-validator: ## Run docs-validator on the entire docs folder.
+	$(PODMAN) run --rm -ti \
+		--platform linux/amd64 \
+		--volume "$(GIT_ROOT)/docs/sources:/docs/sources" \
+		grafana/doc-validator:latest \
+		--skip-image-validation \
+		/docs/sources \
+		/docs/$(PRIMARY_PROJECT)
+
+.PHONY: doc-validator/%
+doc-validator/%: ## Run doc-validator on a specific path. To lint the path /docs/sources/administration, run 'make doc-validator/administration'.
+doc-validator/%:
+	$(PODMAN) run --init -v "$(shell pwd)/sources:/sources" grafana/doc-validator:latest --skip-image-validation --include=$(subst doc-validator/,,$@) ./sources /docs/$(PRIMARY_PROJECT)

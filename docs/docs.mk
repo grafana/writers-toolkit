@@ -1,4 +1,5 @@
 include variables.mk
+-include variables.mk.local
 
 .ONESHELL:
 .DELETE_ON_ERROR:

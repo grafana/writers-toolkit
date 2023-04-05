@@ -54,6 +54,7 @@ EOF
   exit 1
 fi
 
+SOURCES_as_code='as-code-docs'
 SOURCES_enterprise_metrics='backend-enterprise'
 SOURCES_enterprise_metrics_='backend-enterprise'
 SOURCES_grafana_cloud='cloud-docs'
@@ -61,6 +62,7 @@ SOURCES_grafana_cloud_k6='k6-docs'
 SOURCES_helm_charts_mimir_distributed='mimir'
 SOURCES_helm_charts_tempo_distributed='tempo'
 
+SOURCES_as_code='UNVERSIONED'
 VERSIONS_grafana_cloud='UNVERSIONED'
 VERSIONS_grafana_cloud_k6='UNVERSIONED'
 VERSIONS_opentelemetry='UNVERSIONED'

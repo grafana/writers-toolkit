@@ -21,8 +21,6 @@ keywords:
 
 # Writers’ Toolkit
 
-left-hand side
-
 <!-- vale Grafana.Exclamation = NO -->
 
 Welcome!

@@ -187,7 +187,8 @@ POSIX_HERESTRING
   done
   unset IFS
 
-  echo "ERRR: could not find project '${_repo}' in any of the paths in REPOS_PATH ${REPOS_PATH}." >&2
+  echo "ERRR: could not find project '${_repo}' in any of the paths in REPOS_PATH '${REPOS_PATH}'." >&2
+  echo "NOTE: you must have a checkout of '${_repo}' in one of the directories of '${REPOS_PATH}'." >&2
   unset _path _repo
   exit 1
 }

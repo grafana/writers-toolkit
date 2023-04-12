@@ -80,7 +80,7 @@ The `figure` shortcode renders an image with a caption using an HTML [`<figure>`
 
 ## section shortcode
 
-The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameter:
+The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameters:
 
 | Parameter            | Description                                                                                                                                                                                                                                                             | Required |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |

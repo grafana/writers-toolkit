@@ -61,7 +61,12 @@ make-docs:
 
 .PHONY: docs
 docs: ## Serve documentation locally.
-docs: make-docs
+docs: docs-pull make-docs
+	$(PWD)/make-docs $(PROJECTS)
+
+.PHONY: docs-no-pull
+docs-no-pull: ## Serve documentation locally without pulling the latest docs-base image.
+docs-no-pull: make-docs
 	$(PWD)/make-docs $(PROJECTS)
 
 .PHONY: doc-validator

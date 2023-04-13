@@ -136,9 +136,9 @@ $1
 POSIX_HERESTRING
 
   if [ -z "${_version}" ] || [ "${_version}" = 'UNVERSIONED' ]; then
-    echo "http://localhost:3002/docs/${_project}/"
+    echo "http://localhost:${DOCS_HOST_PORT}/docs/${_project}/"
   else
-    echo "http://localhost:3002/docs/${_project}/${_version}/"
+    echo "http://localhost:${DOCS_HOST_PORT}/docs/${_project}/${_version}/"
   fi
 
   unset _project _version
@@ -342,7 +342,7 @@ POSIX_HERESTRING
     --interactive \
     --name "${DOCS_CONTAINER}" \
     --platform linux/amd64 \
-    --publish "3002:${DOCS_HOST_PORT}" \
+    --publish "${DOCS_HOST_PORT}:3002" \
     --rm \
     --tty \
     ${volumes} \

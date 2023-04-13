@@ -1,8 +1,6 @@
 ---
 title: Style conventions
 description: Style conventions
-aliases:
-  - /docs/writers-toolkit/latest/style-guide/style-conventions/
 weight: 200
 keywords:
   - style conventions
@@ -58,7 +56,7 @@ Simple, direct communication is the key to effective technical communication.
 - Don't use buzzwords or jargon.
 - Keep paragraphs to three sentences or less.
   - Condense the text, add more headings, or do both.
-- Use contractions in common and negative cases to express a conversational style: _you’re_, _that’s_, _isn’t_ or _don’t, for example.
+- Use contractions in common and negative cases to express a conversational style: _you’re_, _that’s_, _isn’t_ or \_don’t, for example.
 
 Make content relevant to the user's context. The more familiar you are with the user’s context, the better you can communicate without using a lot of words.
 
@@ -137,7 +135,7 @@ A caution warns the user to proceed with caution. A caution emphasizes a course 
 
 ### Warnings
 
-A warning informs the user not to do something.  Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data. 
+A warning informs the user not to do something. Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data.
 
 For example:
 

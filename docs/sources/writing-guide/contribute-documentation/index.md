@@ -2,8 +2,6 @@
 title: Contribute to documentation
 menuTitle: Contribute to documentation
 description: This section describes the different ways of contributing to documentation.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/contribute-documentation/
 weight: 200
 keywords:
   - contribute

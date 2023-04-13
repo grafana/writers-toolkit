@@ -2,8 +2,6 @@
 title: Documentation tooling and workflows
 menuTitle: Documentation tooling and workflows
 description: How to use documentation tools and understand our workflows.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/tooling-and-workflows/
 weight: 800
 keywords:
   - git
@@ -309,4 +307,3 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 GitHub also has detailed, cross-platform instructions for resolving a merge conflict using git on the command line.
 See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for details.
-

@@ -1,8 +1,6 @@
 ---
 title: Capitalization and punctuation
 description: Capitalization and punctuaton
-aliases:
-  - /docs/writers-toolkit/latest/style-guide/capitalization-punctuation/
 weight: 400
 keywords:
   - capitalization
@@ -30,6 +28,7 @@ Use all-caps capitalization exclusively for abbreviations, such as `API`, `HTTP`
 The names of people, places, and products take initial capitals because they are proper nouns.
 
 ### Grafana-specific capitalization guidelines
+
 - Menu and submenu titles always use sentence case: capitalize the first word, and lowercase the rest.
   - _Dashboards_ when referring to the submenu title.
   - _Keyboard shortcuts_ when referring to the submenu topic.
@@ -54,7 +53,7 @@ In the first use, introduce the object as _Kubernetes XX_, then use it alone in 
 Refer to the following punctuation guidelines when you write technical content.
 
 - After a period, add one space, not two.
-- When listing a series of items, insert a comma before _and_ or _or_.  This is known as using serial commas or the Oxford comma.
+- When listing a series of items, insert a comma before _and_ or _or_. This is known as using serial commas or the Oxford comma.
   - Example: "During lunch, we enjoyed quiche, quinoa, _and_ kale salad.”
 - Do not abbreviate _and_ with an ampersand (_&_).
   - Exception: If the UI uses an ampersand, match the UI.

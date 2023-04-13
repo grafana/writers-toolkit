@@ -1,8 +1,6 @@
 ---
 title: Write for developers
 description: Learn to write documentation for software developers and engineers.
-aliases:
-  - /docs/writers-toolkit/latest/style-guide/write-for-developers/
 weight: 500
 keywords:
   - Grafana
@@ -11,7 +9,7 @@ keywords:
 
 # Write for developers
 
-The guidelines that follow provide suggestions for writing documentation for software developers and engineers. 
+The guidelines that follow provide suggestions for writing documentation for software developers and engineers.
 Follow these tips to write useful API documentation, code examples, and other technical material.
 To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide]({{< relref "../../style-guide/" >}}).
 
@@ -23,15 +21,15 @@ Because this type of documentation contains details about code, it's important t
 
 When your readers are developers, you can assume that they are familiar with general programming concepts.
 There is no need to explain elementary ideas. Instead, introduce those concepts and features that are specific to Grafana Labs products.
-For example, instead of covering the fundamentals of UI design  _in general_, explain how Grafana Labs software or APIs _interpret_ those principles.
+For example, instead of covering the fundamentals of UI design _in general_, explain how Grafana Labs software or APIs _interpret_ those principles.
 
 ## Code comments
 
-The foundation of strong documentation is well-written comments in code that are concise, relevant, and current. 
+The foundation of strong documentation is well-written comments in code that are concise, relevant, and current.
 
-For do's and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
+For do's and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-\* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
 
-For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your favorite programming language. 
+For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your favorite programming language.
 
 ## Reference docs
 
@@ -45,9 +43,10 @@ But behind every line of auto-generated content is a human author who is respons
 
 When writing documentation that will be used by an auto-generated program to create publishable content, keep the following things in mind:
 
-An auto-generation tool can parse syntax, but when writing documentation that will be used to create automated content, it is up to you to add actionable insights. 
+An auto-generation tool can parse syntax, but when writing documentation that will be used to create automated content, it is up to you to add actionable insights.
+
 - What are the caveats, edge cases, and side effects?
-- What is the bigger picture that is not self-evident in the code? 
+- What is the bigger picture that is not self-evident in the code?
 - In short, what is everything that a developer needs to know to use the code?
 
 > **Note:** It might be difficult to integrate auto-generated content with other documentation, such as relevant sections of _Get started_ guides, tutorials, or detailed code examples. You might need to ask a Docs team member to ensure that your content is properly cross-referenced.
@@ -56,26 +55,27 @@ An auto-generation tool can parse syntax, but when writing documentation that wi
 
 Properly document the most common elements of an API reference, such as the title, parameters, return values, and so on. The following suggestions will help you to write more complete and consistent documentation:
 
-| Element                                               | Description                                                           |
-| ------------------------------------------------- | ----------------------------------------------------------------------- |
-| Title and description       | The name of the element and a description of it in one or two sentences. Use backticks (``) for API names, classes, methods, and so forth, so they display in a fixed-width font. |
-| Syntax | The code signature that defines the element. If it is possible to use multiple programming languages, provide the syntax for each. Put the signature in `code font`. |
-| Parameters | If the element has parameters, specify their descriptions, data types, and state whether they are optional or required. Put the parameters in _italic_. |
-| Return values| If the element returns a value, describe the range of possibilities and the data type. |
-| Error codes| Describe errors or exceptions and the conditions under which they occur. If possible, provide a way to resolve the issue. |
-| Comments | Describe any important information that hasn't been previously included in the title, description, syntax, parameters, or return values. For example, you might explain non-obvious context, make a comparison to similar elements, or provide cautionary notes about potential gotchas. |
+| Element               | Description                                                                                                                                                                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Title and description | The name of the element and a description of it in one or two sentences. Use backticks (``) for API names, classes, methods, and so forth, so they display in a fixed-width font.                                                                                                        |
+| Syntax                | The code signature that defines the element. If it is possible to use multiple programming languages, provide the syntax for each. Put the signature in `code font`.                                                                                                                     |
+| Parameters            | If the element has parameters, specify their descriptions, data types, and state whether they are optional or required. Put the parameters in _italic_.                                                                                                                                  |
+| Return values         | If the element returns a value, describe the range of possibilities and the data type.                                                                                                                                                                                                   |
+| Error codes           | Describe errors or exceptions and the conditions under which they occur. If possible, provide a way to resolve the issue.                                                                                                                                                                |
+| Comments              | Describe any important information that hasn't been previously included in the title, description, syntax, parameters, or return values. For example, you might explain non-obvious context, make a comparison to similar elements, or provide cautionary notes about potential gotchas. |
 
 Additional tips:
+
 - Remember to write concisely. Don't say "This method adds a user." when "Adds a user." will do. If your linter requires the description to begin with the element name, you may say "The AddUser method adds a user." to avoid an error message.
-- When the names of code elements are singular, don't make them plural. Instead, add a plural noun to describe them. For example, don't change `MyEvent` to `MyEvents`; refer to the `MyEvent` objects. 
-- If the element does some sort of action, start the first sentence of the description with an action verb. 
+- When the names of code elements are singular, don't make them plural. Instead, add a plural noun to describe them. For example, don't change `MyEvent` to `MyEvents`; refer to the `MyEvent` objects.
+- If the element does some sort of action, start the first sentence of the description with an action verb.
 
 ## Code examples
 
 Readers of documentation typically skim through it to find code samples they can copy and paste and run as is.
 Because of this and whenever possible, provide production-ready examples.
 
-However, it isn't necessary for every code example to be runnable in production.  Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
+However, it isn't necessary for every code example to be runnable in production. Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
 
 When providing an example, give a written description. You can put it either in the body of the document or as explanatory comments within the example code.
 
@@ -86,12 +86,12 @@ For an in-depth, external resource about writing developer documentation, see [_
 
 Here are guidelines to follow when formatting code examples.
 
-- Use spaces, not tabs. 
+- Use spaces, not tabs.
 - Follow Grafana's accepted [coding style guidelines](https://github.com/grafana/grafana/blob/main/contribute/style-guides/).
 - Wrap lines at 80 characters.
 - When omitting code, use three dots (...). Don't use the ellipsis character (…).
 
-Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample, or a period if it doesn't. 
+Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample, or a period if it doesn't.
 
 ### Paths, filenames, and URLs
 
@@ -126,7 +126,7 @@ It produces:
 sudo yum install grafana
 ```
 
-If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output. 
+If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output.
 
 The input, in raw markdown:
 
@@ -165,16 +165,16 @@ Authorization: Bearer  eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 If an argument is optional, enclose it in square brackets. For example, prefer the following raw markdown:
 
 ````
-```typescript 
+```typescript
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
 ````
 
 It produces:
 
- ```typescript
- ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
- ```
+```typescript
+ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
+```
 
 Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
 In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk. For example, prefer the following raw markdown:

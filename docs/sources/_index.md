@@ -9,8 +9,6 @@ cascade:
 title: Writers’ Toolkit
 menuTitle: Writers' Toolkit
 description: Writers' Toolkit for technical documentation provided by Grafana Labs
-aliases:
-  - /docs/writers-toolkit/latest/
 weight: 100
 keywords:
   - writing guide

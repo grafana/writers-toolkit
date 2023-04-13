@@ -1,8 +1,6 @@
 ---
 title: Voice and tone guidelines
 description: Voice and tone guidelines
-aliases:
-  - /docs/writers-toolkit/latest/style-guide/voice-tone-guidelines/
 weight: 300
 keywords:
   - Grafana
@@ -13,7 +11,7 @@ keywords:
 
 At Grafana, we like our company to sound like a real person.
 
-Voice and tone reflect your attitude and how you convey information. Word choice, **bolding**, *italicizing*, punctuation, and grammar all affect your voice. The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
+Voice and tone reflect your attitude and how you convey information. Word choice, **bolding**, _italicizing_, punctuation, and grammar all affect your voice. The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
 
 Consult the following voice and tone guidelines when you write technical documentation.
 
@@ -29,7 +27,7 @@ Write in a natural and conversational style with language that reflects a positi
 
 A casual tone is accepted in UI copy and supporting material compared to traditional business writing.
 
-As long as they allow for shorter sentences, you can use the words _and_, _but_, and _so_ in moderation. 
+As long as they allow for shorter sentences, you can use the words _and_, _but_, and _so_ in moderation.
 
 Use contractions like _isn't_ for _is not_ to help to convey an informal tone. But [be careful](https://www.grammarly.com/blog/contractions/).
 

@@ -2,8 +2,6 @@
 title: Topic types
 menuTitle: Topic types
 description: Learn to write different types of topics.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/topic-types/
 weight: 400
 keywords:
   - topic types
@@ -24,6 +22,6 @@ Depending on the needs of a particular product area, select a topic type from th
 | [Concept]({{< relref "concept/" >}})     | Provides an overview and background information. Answers the question "What is it?".                                                                   |
 | [Task]({{< relref "task/" >}})           | Provides numbered steps that describe how to achieve an outcome. Answers the question "How do I?".                                                     |
 | [Reference]({{< relref "reference/" >}}) | Provides users with the information they might need to refer to during a task. Answers the question "What details do I need to accomplish this task?". |
-| [Tutorial]({{< relref "tutorial/" >}}) | Provides procedures that users can safely reproduce and learn from. Answers the question: "Can you teach me to …?" |
+| [Tutorial]({{< relref "tutorial/" >}})   | Provides procedures that users can safely reproduce and learn from. Answers the question: "Can you teach me to …?"                                     |
 
 For your convenience, we have created topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).

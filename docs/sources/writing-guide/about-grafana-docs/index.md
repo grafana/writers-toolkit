@@ -2,8 +2,6 @@
 title: Introduction to documentation
 menuTitle: Introduction to documentation
 description: Learn about Grafana's documentation
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/about-grafana-docs/
 weight: 100
 keywords:
   - Grafana
@@ -36,7 +34,7 @@ Why is topic-based authoring important?
 - **Writing that isn’t topic-based is difficult for readers to understand.** Content, structure, terminology, and writing style differs and can confuse and frustrate readers.
 
 - **Writing that is topic-based is more consistent and user-friendly.**
-Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
+  Users can find the information they are looking for quickly and easily. It has a more consistent format and voice, clearly defining the Grafana brand.
 
 ## Markdown
 

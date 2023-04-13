@@ -2,8 +2,6 @@
 title: Reference topic
 menuTitle: Reference
 description: Learn how to write a reference topic.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/topic-types/reference/
 weight: 300
 keywords:
   - topic types
@@ -46,9 +44,11 @@ To write a reference, complete these steps:
    - Add a hyphen between words.
 
      For example:
-      - `calculation-types`
-      - `standard-field-definitions`
-      <p>
+
+     - `calculation-types`
+     - `standard-field-definitions`
+     <p>
+
 1. Create an `index.md` file within the reference directory.
 1. Add front matter to the `index` file.
 

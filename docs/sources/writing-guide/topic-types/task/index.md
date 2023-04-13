@@ -2,8 +2,6 @@
 title: Task topic
 menuTitle: Task
 description: Learn how to write a task topic.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/topic-types/task/
 weight: 200
 keywords:
   - topic types
@@ -34,6 +32,7 @@ A _task_ topic includes the following elements:
 **Steps heading**: The steps heading indicates that the steps are about to begin.
 
 **Stem sentence:** The stem sentence introduces the steps. Use the following convention when you write a stem sentence:
+
 - To [name of task], follow these steps:
 - Example: To create a dashboard, follow these steps:
 

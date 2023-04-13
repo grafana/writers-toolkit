@@ -1,8 +1,6 @@
 ---
 title: Inclusive writing
 description: Inclusive writing
-aliases:
-  - /docs/writers-toolkit/latest/style-guide/style-conventions/inclusive-writing/
 weight: 400
 keywords:
   - inclusive writing
@@ -50,6 +48,7 @@ If you use an acronym, first write out each word in the acronym on first use, an
 Understanding idioms typically requires cultural context. Grafana’s users are all around the world, and many are non-native English speakers. Therefore, avoid idioms and idiomatic puns.
 
 For example, some common American English idioms:
+
 - “Costs an arm and a leg”
 - “Hit the nail on the head”
 - “Bite off more than you can chew”
@@ -65,6 +64,7 @@ Not sure you believe us? Here are some British idioms that you probably won’t 
 Cultural references are references that relate to the culture of a community, country, continent, and so on.
 
 **Examples:**
+
 - “Her ambition is a clear reflection of the American dream.”
 - “I'm so glad you came to help like a good samaritan.”
 - “They grew up in a typical nuclear family.”

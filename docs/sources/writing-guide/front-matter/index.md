@@ -2,8 +2,6 @@
 title: Front matter
 menuTitle: Front matter
 description: Learn about how we build front matter to properly enable the publication and search of our technical documentation.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/front-matter/
 weight: 700
 keywords:
   - front matter
@@ -198,12 +196,18 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 The correct way to use aliases depends on whether the project is versioned or not.
 
-**Unversioned projects**
-: Include an `aliases` entry that refers to the initial published website directory.
+#### Unversioned projects
+
+Include an `aliases` entry that refers to the initial published website directory.
 Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
-: > **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
-: > For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
+Aliases can be relative or absolute paths.
 
-**Versioned projects**
-: Do not include an `aliases` entry that refers to the initial published website directory. The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.
+> **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
+> For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
+
+#### Versioned projects
+
+Do not include an `aliases` entry that refers to the initial published website directory.
+The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.
+Aliases should be relative and not absolute paths so that old versions do not steal redirects from "latest" content when it is moved around.

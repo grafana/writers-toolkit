@@ -2,8 +2,6 @@
 title: Markdown guide
 menuTitle: Markdown guide
 description: Guidelines for writing technical documentation in Markdown.
-aliases:
-  - /docs/writers-toolkit/latest/writing-guide/markdown-guide/
 weight: 500
 keywords:
   - Markdown
@@ -28,7 +26,7 @@ Hugo uses a Markdown parser named Goldmark, which supports the CommonMark flavor
 
 ## Headings
 
-Similar to HTML headings (`<h1>`, `<h2>`, and `<h3>`), in Markdown, `#` symbols (or *hash tags*) create different heading levels:
+Similar to HTML headings (`<h1>`, `<h2>`, and `<h3>`), in Markdown, `#` symbols (or _hash tags_) create different heading levels:
 
 **Example**
 
@@ -55,7 +53,7 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
   > **Note:** It is important to use GitHub-flavored Markdown emojis consistently.
 
 - To emphasize text, surround the text with `_single underscores_`̣.
-Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
+  Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
 
 ```markdown
 **Note:** The distributor only passes _valid_ data to the ingesters.
@@ -75,7 +73,7 @@ If you want to add a link to an external website, wrap the display text in squar
 [Link text to display](https://example.com)
 ```
 
-**Example:** For more information about including emojis in GitHub-flavored Markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/). 
+**Example:** For more information about including emojis in GitHub-flavored Markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).
 
 ## Block quotes
 
@@ -97,9 +95,9 @@ Code blocks within Markdown can highlight syntax that is specific to a language.
 ```javascript
 function testNum(a) {
   if (a > 0) {
-    return 'positive';
+    return "positive";
   } else {
-    return 'NOT positive';
+    return "NOT positive";
   }
 }
 ```
@@ -112,7 +110,7 @@ Construct a table by separating the table headings by a `|` (pipe) character. Th
 
 ```markdown
 | Heading one   | Heading two   |
-| ------------  | ------------  |
+| ------------- | ------------- |
 | Cell one data | Cell two data |
 ```
 
@@ -176,9 +174,11 @@ This follows the format `![alt text](URL)`.
 Within Markdown, HTML is valid and to be used sparingly:
 
 ```html
-<img src="example.png"
-     alt="Example image"
-     style="float: left; margin-right: 5px;" />
+<img
+  src="example.png"
+  alt="Example image"
+  style="float: left; margin-right: 5px;"
+/>
 ```
 
 In most cases, use Markdown syntax rather than HTML syntax. Only use HTML if you need to change the image in ways that Markdown does not support.
@@ -205,7 +205,6 @@ Reasons you might want to write programs in Go include the following:
 
 **Ecosystem**
 : Go tooling is excellent.
-
 ```
 
 The preceding description list displays as follows:
@@ -225,4 +224,3 @@ You can include comments that do not display in published output:
 ## Shortcodes
 
 Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
-

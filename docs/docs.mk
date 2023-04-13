@@ -69,6 +69,11 @@ docs-no-pull: ## Serve documentation locally without pulling the latest docs-bas
 docs-no-pull: make-docs
 	$(PWD)/make-docs $(PROJECTS)
 
+.PHONY: docs-debug
+docs-debug: ## Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
+docs-debug: make-docs
+	WEBSITE_EXEC='hugo server --debug' $(PWD)/make-docs $(PROJECTS)
+
 .PHONY: doc-validator
 doc-validator: ## Run docs-validator on the entire docs folder.
 	DOCS_IMAGE=$(DOC_VALIDATOR_IMAGE) $(PWD)/make-docs $(PROJECTS)

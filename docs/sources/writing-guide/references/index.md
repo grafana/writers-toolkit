@@ -15,7 +15,7 @@ keywords:
 Hugo has built-in shortcodes for creating links to documents.
 The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
 
->**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-pository linking]({{< relref "#versions-and-cross-repository-linking" .}}) section for details.
+>**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-pository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
 
 ## Relative references
 

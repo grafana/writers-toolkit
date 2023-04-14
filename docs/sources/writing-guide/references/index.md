@@ -15,11 +15,7 @@ keywords:
 Hugo has built-in shortcodes for creating links to documents.
 The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
 
-> **Note:** For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
-> Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
->
-> To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
-> Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
+>**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-pository linking]({{< relref "#versions-and-cross-repository-linking" .}}) section for details.
 
 ## Relative references
 
@@ -80,6 +76,25 @@ You can refer to the table below for all file path based relrefs between these f
 | `/docs/sources/leaf/index.md`    | `/docs/sources/branch/other.md`  | `{{</* relref "../branch/other.md" */>}}`  |
 | `/docs/sources/branch/other.md`  | `/docs/sources/branch/_index.md` | `{{</* relref "_index.md" */>}}`           |
 | `/docs/sources/branch/other.md`  | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
+
+
+## Versions and cross-repository linking
+
+For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
+
+Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
+
+To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
+
+For cross-repository links, use a standard markdown link, like this:
+
+```markdown
+This is an [example cross-repository link](/docs/grafana/whatsnew) to the Grafana repository.
+```
+
+Using a Hugo `relref` in a cross-repository link or a link to a specific version can result in a page not found error message when running `make docs`.
+
+Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
 
 ## Anchors
 

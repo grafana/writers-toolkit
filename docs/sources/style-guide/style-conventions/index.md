@@ -117,11 +117,21 @@ To focus a user's attention, Grafana Labs documentation includes notes, tips, ca
 
 The most common admonition is a note. A note provides additional information that the user should be aware of.
 
-The Markdown syntax for a note is `> **Note:**`. The note appears in the published output as follows:
+Notes have an admonition shortcode. The syntax is as follows:
 
-For example:
+```markdown
+{{%/* admonition type="note" */%}}
+This page describes a feature for Grafana 9.0 beta.
+{{%/* /admonition */%}}
+```
 
-> **Note:** This page describes a feature for Grafana 9.0 beta.
+
+This note appears in the published output as follows:
+
+{{% admonition type="note" %}}
+This page describes a feature for Grafana 9.0 beta.
+{{% /admonition %}}
+
 
 ### Tips
 
@@ -131,12 +141,39 @@ A tip describes a more efficient or alternate way of doing something. Tips are r
 
 A caution warns the user to proceed with caution. A caution emphasizes a course of action's potential downsides.
 
-> **Caution:** By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
+Cautions have an admonition shortcode. The syntax is as follows:
+
+```markdown
+{{%/* admonition type="caution" */%}}
+By disabling authentication requirements, anyone can access your Grafana instance.
+There is a considerable security risk associated with this.
+{{%/* /admonition */%}}
+```
+
+This caution appears in the published output as follows:
+
+{{% admonition type="caution" %}}
+By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
+{{% /admonition %}}
+
 
 ### Warnings
 
 A warning informs the user not to do something. Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data.
 
-For example:
+Warnings have an admonition shortcode. The syntax is as follows:
 
-> **Warning:** Do not back up your dashboards in Grafana. You might not be able to recover a dashboard if it is deleted.
+```markdown
+{{%/* admonition type="warning" */%}}
+Do not back up your dashboards in Grafana.
+You might not be able to recover a dashboard if it is deleted.
+{{%/* /admonition */%}}
+```
+
+This warning appears in the published output as follows:
+
+{{% admonition type="warning" %}}
+By disabling authentication requirements, anyone can access your Grafana instance.
+There is a considerable security risk associated with this.
+{{% /admonition %}}
+

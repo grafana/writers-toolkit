@@ -20,7 +20,30 @@ The following sections describe shortcodes available for use in Grafana Markdown
 
 > **Note for internal Grafana Labs contributors**: The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repo. To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 
-## docs/shared shortcode
+## `admonition` shortcode
+
+The `admonition` shortcode renders its content in a blockquote or stylized banner.
+The style depends on the admonition type as defined in the Writers' Toolkit [Style conventions]({{% relref "../../style-guide/style-conventions" %}}).
+
+The content of the admonition must be within opening and closing tags.
+
+| Parameter | Description                                                     | Required |
+|-----------|-----------------------------------------------------------------|----------|
+| `type`    | The type of admonition. One of `note`, `caution`, or `warning`. | yes |
+
+
+### Example
+
+The following snippet renders an admonition of type `note` with a message `Kingston is the capital of Jamaica`.
+
+```html
+{{%/* admonition type="note" */%}}
+Kingston is the capital of Jamaica.
+{{%/* /admonition */%}}
+```
+
+
+## `docs/shared` shortcode
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory.
 
@@ -54,7 +77,7 @@ The following shortcode inserts the latest version of `shared-page.md` from the 
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
 ```
 
-## figure shortcode
+## `figure` shortcode
 
 The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. To add a figure, insert the `figure` shortcode with the following named parameters:
 
@@ -76,7 +99,7 @@ The `figure` shortcode renders an image with a caption using an HTML [`<figure>`
 {{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-## section shortcode
+## `section` shortcode
 
 The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameters:
 

@@ -33,7 +33,7 @@ To run the local documentation webserver with the default configuration, run `ma
 
 ## Run with specific projects
 
-Each project has a list of projects to build by default when running `make docs`.
+Each project has a list of projects to build by default when running `make docs` that is defined by the `PROJECTS` variable in `docs/variables.mk`.
 To override the default for a single invocation, provide the `PROJECTS` argument to `make docs` which is the name of the project as it appears in the website URL path.
 For Grafana, the `PROJECT` is `grafana` (https://grafana.com/docs/grafana/).
 For Grafana Cloud, the `PROJECT` is `grafana-cloud` (https://grafana.com/docs/grafana-cloud/).

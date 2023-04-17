@@ -8,7 +8,7 @@ keywords:
 
 # Inclusive writing
 
-When writing for Grafana, always use inclusive terminology and phrasing. Avoid all statements that perpetuate gender, racial, or cultural stereotypes; do not use gendered words or demographically oriented terms that are irrelevant to the content.
+When writing for Grafana Labs, always use inclusive terminology and phrasing. Avoid all statements that perpetuate gender, racial, or cultural stereotypes; do not use gendered words or demographically oriented terms that are irrelevant to the content.
 
 ## Writing about people
 
@@ -45,7 +45,7 @@ If you use an acronym, first write out each word in the acronym on first use, an
 
 ### Avoid idioms
 
-Understanding idioms typically requires cultural context. Grafana’s users are all around the world, and many are non-native English speakers. Therefore, avoid idioms and idiomatic puns.
+Understanding idioms typically requires cultural context. Users of Grafana Labs products and projects are all around the world, and many are non-native English speakers. Therefore, avoid idioms and idiomatic puns.
 
 For example, some common American English idioms:
 

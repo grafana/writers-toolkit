@@ -15,7 +15,7 @@ keywords:
 Hugo has built-in shortcodes for creating links to documents.
 The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
 
->**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-pository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
+>**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
 
 ## Relative references
 
@@ -80,13 +80,16 @@ You can refer to the table below for all file path based relrefs between these f
 
 ## Versions and cross-repository linking
 
-For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/`, etc.) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
+For Hugo's purposes, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/` and so forth) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
 
 Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be unpredictably addressed.
 
 To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
 
-For cross-repository links, use a standard markdown link, like this:
+For cross-repository links, use a standard markdown link, with the link structured like so:
+`\docs\repo\page\`
+
+For example:
 
 ```markdown
 This is an [example cross-repository link](/docs/grafana/whatsnew) to the Grafana repository.

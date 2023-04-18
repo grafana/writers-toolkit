@@ -211,3 +211,33 @@ Aliases can be relative or absolute paths.
 Do not include an `aliases` entry that refers to the initial published website directory.
 The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.
 Aliases should be relative and not absolute paths so that old versions do not steal redirects from "latest" content when it is moved around.
+
+### Test an alias
+
+To test an alias results in the correct redirect, use your browser or a command-line tool for making HTTP requests.
+
+#### Use the browser
+
+1. Start the documentation webserver with `make docs`.
+1. Browse to the URL of the page that should be redirected.
+1. Confirm that you are redirected to the desired page.
+
+   For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: http://localhost:3002/docs/grafana/latest/panels/working-with-panels/.
+
+#### Use `cURL`
+
+1. Start the documentation webserver with `make docs`.
+1. In a separate terminal, make an HTTP GET request to the URL of the page that should be redirected.
+   For example, to request the page `localhost:3002/docs/grafana/latest/panels/working-with-panels/`
+
+   ```bash
+   curl localhost:3002/docs/grafana/latest/panels/working-with-panels/
+   ```
+
+   The output is similar to the following:
+
+   ```console
+   <!doctype html><html><head><script>const destination="http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/";console.log(window.location.search),document.head.innerHTML=`<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`</script><title>http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/</title><link rel=canonical href=http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/><meta name=robots content="noindex"><meta charset=utf-8><noscript><meta http-equiv=refresh content="0; url=http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/"></noscript></head></html>
+   ```
+
+1. Confirm that the value of the `destination` `const` in the `<script>` tag is the pretty URL for the page with the alias.

@@ -222,6 +222,8 @@ To test an alias results in the correct redirect, use your browser or a command-
 1. Browse to the URL of the page that should be redirected.
 1. Confirm that you are redirected to the desired page.
 
+   For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: http://localhost:3002/docs/grafana/latest/panels/working-with-panels/.
+
 #### Use `cURL`
 
 1. Start the documentation webserver with `make docs`.

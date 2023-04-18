@@ -216,13 +216,13 @@ Aliases should be relative and not absolute paths so that old versions do not st
 
 To test an alias results in the correct redirect, use your browser or a command-line tool for making HTTP requests.
 
-#### Using the browser
+#### Use the browser
 
 1. Start the documentation webserver with `make docs`.
 1. Browse to the URL of the page that should be redirected.
 1. Confirm that you are redirected to the desired page.
 
-#### Using `cURL`
+#### Use `cURL`
 
 1. Start the documentation webserver with `make docs`.
 1. In a separate terminal, make an HTTP GET request to the URL of the page that should be redirected.

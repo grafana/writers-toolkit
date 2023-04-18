@@ -48,7 +48,7 @@ You must have the repository cloned locally for any projects specified in the sp
 To specifically build only the Grafana documentation:
 
 ```bash
-make docs PROJECTS=grafana
+make docs PROJECTS='grafana'
 ```
 
 To specifically build Grafana and Grafana Cloud documentation:

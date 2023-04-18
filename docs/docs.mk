@@ -14,7 +14,12 @@ MAKEFLAGS += --no-builtin-rule
 .PHONY: help
 help: ## Display this help.
 help:
-	@awk 'BEGIN {FS = ": ##"; printf "Usage:\n  make <target>\n\nTargets:\n"} /^[a-zA-Z0-9_\.\-\/%]+: ##/ { printf "  %-45s %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
+	@awk 'BEGIN { \
+		FS = ": ##"; \
+		printf "Usage:\n  make <target>\n\nTargets:\n" \
+	} \
+	/^[a-zA-Z0-9_\.\-\/%]+: ##/ { printf "  %-15s %s\n", $$1, $$2 }' \
+	$(MAKEFILE_LIST)
 
 GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
@@ -72,12 +77,12 @@ make-docs:
 	chmod +x make-docs
 
 .PHONY: docs
-docs: ## Serve documentation locally.
+docs: ## Serve documentation locally, which includes pulling the latest `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image. See also `docs-no-pull`.
 docs: docs-pull make-docs
 	$(PWD)/make-docs $(PROJECTS)
 
 .PHONY: docs-no-pull
-docs-no-pull: ## Serve documentation locally without pulling the latest docs-base image.
+docs-no-pull: ## Serve documentation locally without pulling the `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image.
 docs-no-pull: make-docs
 	$(PWD)/make-docs $(PROJECTS)
 

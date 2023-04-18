@@ -1,21 +1,74 @@
 ---
-title: Run a local documentation webserver with the make-docs script
-menuTitle: Run a local documentation webserver
-description: Run a local documentation web server with the make-docs script.
+title: Run a local documentation webserver
+description: Run a local documentation webserver
 ---
 
-# Run a local documentation webserver with the make-docs script
+# Run a local documentation webserver
 
-The [`make-docs`](https://github.com/grafana/writers-toolkit/blob/main/scripts/make-docs) script can be used to mount multiple documentation sets in a single build.
-It is used by the `make docs` Make target in project repositories and can also be run separately.
+Every project keeps technical documentation in the `docs/sources` directory.
+Additionally, every project uses [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to technical documentation.
+To learn more about GNU Make, refer to [GNU Make Manual](https://www.gnu.org/software/make/manual/).
 
-## Examples
+To see a list of targets and their descriptions, run `make` from the `docs/` directory.
+The output is similar to the following:
+
+```console
+Usage:
+  make <target>
+
+Targets:
+  help             Display this help.
+  docs-rm          Remove the docs container.
+  docs-pull        Pull documentation base image.
+  make-docs        Fetch the latest make-docs script.
+  docs             Serve documentation locally, which includes pulling the latest `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image. See also `docs-no-pull`.
+  docs-no-pull     Serve documentation locally without pulling the `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image.
+  docs-debug       Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
+  doc-validator    Run docs-validator on the entire docs folder.
+  doc-validator/%  Run doc-validator on a specific path. To lint the path /docs/sources/administration, run 'make doc-validator/administration'.
+  docs.mk          Fetch the latest version of this Makefile from Writers' Toolkit.
+```
+
+To run the local documentation webserver with the default configuration, run `make docs` from the `docs/` directory.
+
+## Run with specific projects
+
+Each project has a list of projects to build by default when running `make docs` that is defined by the `PROJECTS` variable in `docs/variables.mk`.
+To override the default for a single invocation, provide the `PROJECTS` argument to `make docs` which is the name of the project as it appears in the website URL path.
+
+For example:
+
+- For Grafana, the `PROJECT` is `grafana` (https://grafana.com/docs/grafana/).
+- For Grafana Cloud, the `PROJECT` is `grafana-cloud` (https://grafana.com/docs/grafana-cloud/).
+
+{{% admonition type="note" %}}
+You must have the repository cloned locally for any projects specified in the space separated list to `PROJECTS` for the command to succeed.
+{{% /admonition %}}
+
+To specifically build only the Grafana documentation:
+
+```bash
+make docs PROJECTS='grafana'
+```
+
+To specifically build Grafana and Grafana Cloud documentation:
+
+```bash
+make docs PROJECTS='grafana grafana-cloud'
+```
+
+## Reference
+
+The `make docs` target uses the [`make-docs`](https://github.com/grafana/writers-toolkit/blob/main/scripts/make-docs) script to mount local documentation into the Hugo build.
+It can also be run separately if special configuration is required.
+
+### Examples
 
 The following examples assume:
 
 1. Your working directory is the root of a project repository.
 1. You have a copy of the `make-docs` script in that working directory.
-1. The script is marked as executable.
+1. The script is executable.
 1. You have a checkout of each of the project repositories used in the examples.
 
 **Build Mimir, the `mimir-distributed` Helm chart, and GEM**: `./make-docs metrics`
@@ -49,7 +102,7 @@ To remove the worktree created in the `grafana` repository, run the following co
 $ git worktree remove v9.3.x
 ```
 
-## Reference
+#### Arguments
 
 Each argument to the `make-docs` script is a project to be mounted into the local build.
 Each argument has four fields separated by colons (`:`) and optional fields can be omitted.

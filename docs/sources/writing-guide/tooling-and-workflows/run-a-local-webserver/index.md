@@ -17,16 +17,16 @@ Usage:
   make <target>
 
 Targets:
-  help                                           Display this help.
-  docs-rm                                        Remove the docs container.
-  docs-pull                                      Pull documentation base image.
-  make-docs                                      Fetch the latest make-docs script.
-  docs                                           Serve documentation locally.
-  docs-no-pull                                   Serve documentation locally without pulling the latest docs-base image.
-  docs-debug                                     Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
-  doc-validator                                  Run docs-validator on the entire docs folder.
-  doc-validator/%                                Run doc-validator on a specific path. To lint the path /docs/sources/administration, run 'make doc-validator/administration'.
-  docs.mk                                        Fetch the latest version of this Makefile from Writers' Toolkit.
+  help             Display this help.
+  docs-rm          Remove the docs container.
+  docs-pull        Pull documentation base image.
+  make-docs        Fetch the latest make-docs script.
+  docs             Serve documentation locally, which includes pulling the latest `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image. See also `docs-no-pull`.
+  docs-no-pull     Serve documentation locally without pulling the `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image.
+  docs-debug       Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
+  doc-validator    Run docs-validator on the entire docs folder.
+  doc-validator/%  Run doc-validator on a specific path. To lint the path /docs/sources/administration, run 'make doc-validator/administration'.
+  docs.mk          Fetch the latest version of this Makefile from Writers' Toolkit.
 ```
 
 To run the local documentation webserver with the default configuration, run `make docs` from the `docs/` directory.

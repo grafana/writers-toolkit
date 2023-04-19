@@ -190,6 +190,7 @@ POSIX_HERESTRING
 
   echo "ERRR: could not find project '${_repo}' in any of the paths in REPOS_PATH '${REPOS_PATH}'." >&2
   echo "NOTE: you must have a checkout of the project '${_repo}' at '${REPOS_PATH##:*}/${_repo}'." >&2
+  echo "NOTE: if you have cloned the repository into a directory with a different name, consider changing it to ${_repo}." >&2
   unset _path _repo
   exit 1
 }

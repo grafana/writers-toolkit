@@ -67,6 +67,7 @@ VERSIONS_as_code='UNVERSIONED'
 VERSIONS_grafana_cloud='UNVERSIONED'
 VERSIONS_grafana_cloud_k6='UNVERSIONED'
 VERSIONS_opentelemetry='UNVERSIONED'
+VERSIONS_technical_documentation='UNVERSIONED'
 VERSIONS_writers_toolkit='UNVERSIONED'
 
 PATHS_helm_charts_mimir_distributed='docs/sources/helm-charts/mimir-distributed'

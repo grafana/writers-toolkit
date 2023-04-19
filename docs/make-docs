@@ -1,5 +1,5 @@
 #!/bin/sh
-# Source of this file is https://github.com/grafana/technical-documentation/scripts/make-docs.
+# The source of this file is https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs.
 
 set -ef
 

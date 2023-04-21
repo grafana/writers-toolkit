@@ -11,6 +11,8 @@ readonly DOC_VALIDATOR_INCLUDE="${DOC_VALIDATOR_INCLUDE:-.+\.md$}"
 
 readonly HUGO_REFLINKSERRORLEVEL="${HUGO_REFLINKSERRORLEVEL:-WARNING}"
 readonly WEBSITE_EXEC="${WEBSITE_EXEC:-make server}"
+# If set, the docs-base image will run a prebuild script that sets up Hugo mounts.
+readonly WEBSITE_MOUNTS="${WEBSITE_MOUNTS:-}"
 
 PODMAN="$(if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)"
 
@@ -294,7 +296,6 @@ IFS=':' read -r image _ <<POSIX_HERESTRING
 ${DOCS_IMAGE}
 POSIX_HERESTRING
 
-echo "${image}" >&2
 if [ "${image}" = "grafana/doc-validator" ]; then
   echo
   "${PODMAN}" run \
@@ -317,6 +318,10 @@ else
 for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
   echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/\${ver}/_index.md}"
+
+  if [[ -n "${WEBSITE_MOUNTS}" ]]; then
+    unset WEBSITE_SKIP_MOUNTS
+  fi
 done
 
 ${WEBSITE_EXEC}

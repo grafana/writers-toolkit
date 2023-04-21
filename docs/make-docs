@@ -350,6 +350,7 @@ POSIX_HERESTRING
     --name "${DOCS_CONTAINER}" \
     --platform linux/amd64 \
     --publish "${DOCS_HOST_PORT}:3002" \
+    --publish "3003:3003" \
     --rm \
     --tty \
     ${volumes} \

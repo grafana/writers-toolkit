@@ -102,7 +102,7 @@ labels:
     - enterprise
 ```
 
-### Set cascading front matter
+#### Set cascading front matter
 
 When a directory of pages share the same front matter, it is convenient to set them all at once with cascading front matter.
 
@@ -112,7 +112,9 @@ The second is a sequence of mappings with the `_target` keyword.
 You cannot override the latter with the former.
 For more information about cascading front matter, refer to [Front Matter Cascade](https://gohugo.io/content-management/front-matter/#front-matter-cascade).
 
+{{% admonition type="note" %}}
 To avoid confusing behavior, set all cascading front matter with the sequence of mappings form.
+{{% /admonition %}}
 
 For a **directory of pages** under `/docs/grafana/latest/troubleshooting/` that describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front matter should include the following:
 

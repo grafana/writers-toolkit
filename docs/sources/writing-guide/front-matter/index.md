@@ -47,6 +47,16 @@ The following headings describe what each element does and provides guidelines f
 Provides an HTML redirect from the pages in the list to the current page.
 For more information, refer to [Hugo aliases](#hugo-aliases).
 
+### date
+
+Describes the publish date of the page.
+Hugo produces XML page outputs for use by RSS feeds where users can be notified of updates.
+Customers use RSS feeds of our release notes pages to be notified of new releases.
+Therefore, the `date` front matter is recommended for release note pages.
+
+The value to the `date` field should be a full ISO 8601 timestamp.
+For example, `date: "2023-04-24T00:00:00Z"` is 12:00 AM, Apr 24 Coordinated Universal Time (UTC).
+
 ### description
 
 **Required.**

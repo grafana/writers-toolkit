@@ -111,13 +111,18 @@ As much as possible, use the exact title of the page or section you are linking 
 
 ## Admonitions
 
-To focus a user's attention, Grafana Labs documentation includes notes, tips, cautions, and warnings.
+To focus a user's attention, Grafana Labs documentation includes notes, cautions, and warnings.
+
+To standardize styling, each admonition has a special shortcode declaration.
+The following sections provide examples how to write each type.
+For the complete syntax reference, refer to [Shortcodes]({{% relref "../../writing-guide/shortcodes" %}}).
 
 ### Notes
 
-The most common admonition is a note. A note provides additional information that the user should be aware of.
+A note provides additional information that the user should be aware of.
+Notes are the most common admonition.
 
-Notes have an admonition shortcode. The syntax is as follows:
+The syntax for a note admonition is as follows:
 
 ```markdown
 {{%/* admonition type="note" */%}}
@@ -125,23 +130,18 @@ This page describes a feature for Grafana 9.0 beta.
 {{%/* /admonition */%}}
 ```
 
-
-This note appears in the published output as follows:
+On the published page, this note renders as follows:
 
 {{% admonition type="note" %}}
 This page describes a feature for Grafana 9.0 beta.
 {{% /admonition %}}
 
-
-### Tips
-
-A tip describes a more efficient or alternate way of doing something. Tips are rarely used.
-
 ### Cautions
 
-A caution warns the user to proceed with caution. A caution emphasizes a course of action's potential downsides.
+A caution warns the user to proceed with caution.
+A caution emphasizes a course of action's potential downsides.
 
-Cautions have an admonition shortcode. The syntax is as follows:
+The syntax for a caution admonition is as follows:
 
 ```markdown
 {{%/* admonition type="caution" */%}}
@@ -150,7 +150,7 @@ There is a considerable security risk associated with this.
 {{%/* /admonition */%}}
 ```
 
-This caution appears in the published output as follows:
+On the published page, this caution renders as follows:
 
 {{% admonition type="caution" %}}
 By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
@@ -159,9 +159,10 @@ By disabling authentication requirements, anyone can access your Grafana instanc
 
 ### Warnings
 
-A warning informs the user not to do something. Warnings are usually reserved for actions that, if performed, could cause harm to hardware, software, or data.
+A warning informs the user not to do something.
+Warnings are reserved for actions that could cause harm to hardware, software, or data.
 
-Warnings have an admonition shortcode. The syntax is as follows:
+The syntax for a warning admonition is as follows:
 
 ```markdown
 {{%/* admonition type="warning" */%}}
@@ -170,7 +171,7 @@ You might not be able to recover a dashboard if it is deleted.
 {{%/* /admonition */%}}
 ```
 
-This warning appears in the published output as follows:
+On the published page, this warning renders as follows:
 
 {{% admonition type="warning" %}}
 By disabling authentication requirements, anyone can access your Grafana instance.

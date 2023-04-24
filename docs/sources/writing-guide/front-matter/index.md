@@ -83,7 +83,7 @@ For `labels.products`, the supported values and the resulting published labels a
 - `oss`: "Open source"
 
 Labels can be inherited through cascading front matter.
-For more information, refer to [Set cascading front matter](#set-cascading-frontmatter).
+For more information, refer to [Set cascading front matter](#set-cascading-front-matter).
 Each project has a set of default labels that are defined in the cascading front matter of the root `_index.md` file of the project.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.

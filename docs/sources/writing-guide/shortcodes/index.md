@@ -29,7 +29,7 @@ The content of the admonition must be within opening and closing tags.
 
 | Parameter | Description                                                     | Required |
 |-----------|-----------------------------------------------------------------|----------|
-| `type`    | The type of admonition. One of `note`, `caution`, or `warning`. | yes |
+| `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes |
 
 
 ### Example

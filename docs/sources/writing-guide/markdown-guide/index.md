@@ -171,7 +171,7 @@ Include images in a document using the following syntax:
 
 This follows the format `![alt text](URL)`.
 
-Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes/#figure-shortcode" >}} if you need more image options, such as adding captions or controlling the image size.
+Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes/#figure-shortcode" >}}) if you need more image options, such as adding captions or controlling the image size.
 
 Within Markdown, HTML is valid, but should be used sparingly:
 

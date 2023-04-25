@@ -87,7 +87,8 @@ To link to the source files directly, refer to the following table:
 | `/docs/sources/branch/other.md`  | `/docs/sources/branch/_index.md` | `{{</* relref "./_index.md" */>}}`         |
 | `/docs/sources/branch/other.md`  | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
 
-To avoid having to worry about whether the destination is a leaf bundle, a branch bundle, or a regular file, you can omit the `/_index.md`, `/index.md` or `.md` extensions to have and the relref resolves the same.
+To avoid having to worry about whether the destination is a leaf bundle, a branch bundle, or a regular file, you can omit the `/_index.md`, `/index.md`, or `.md` extension.
+In each case, the relref resolves to the same page.
 
 > **Note:**: If the destination file or its containing directory has a period (`.`) in the path, you have to link to the source file directly.
 

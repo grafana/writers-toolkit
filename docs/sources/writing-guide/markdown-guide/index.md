@@ -156,7 +156,7 @@ The preceding snippet displays as follows:
 
 ## Images
 
-_Do not_ use image shortcodes at this time. Instead, include images in a document using the following syntax:
+Include images in a document using the following syntax:
 
 ```markdown
 ![Alt text](link to image, starting with /static/img/docs/ if it is to an internal image "Title of image in sentence case")
@@ -171,7 +171,9 @@ _Do not_ use image shortcodes at this time. Instead, include images in a documen
 
 This follows the format `![alt text](URL)`.
 
-Within Markdown, HTML is valid and to be used sparingly:
+Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes/#figure-shortcode" >}} if you need more image options, such as adding captions or controlling the image size.
+
+Within Markdown, HTML is valid, but should be used sparingly:
 
 ```html
 <img

@@ -320,10 +320,11 @@ for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
   echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/\${ver}/_index.md}"
 
-  if [[ -n "${WEBSITE_MOUNTS}" ]]; then
-    unset WEBSITE_SKIP_MOUNTS
-  fi
 done
+
+if [[ -n "${WEBSITE_MOUNTS}" ]]; then
+  unset WEBSITE_SKIP_MOUNTS
+fi
 
 ${WEBSITE_EXEC}
 EOF

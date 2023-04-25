@@ -127,10 +127,21 @@ cascade:
         - cloud
 ```
 
-The `cascade` value is a YAML block sequence denoted by the dash and space (`- `).
-The only element in the `cascade` sequence is a mapping of the keyword `_target`, which is itself a map of the key `path` to the value `"/docs/grafana/*/troubleshooting/**"`, and the same `labels` mapping that is used for individual pages.
+In the preceding example, the `cascade` value is a YAML block sequence of length one, as denoted by the single dash and space (`- `).
 
-The `*` pattern matches any directory.
+The value of the only element in `cascade` sequence is a mapping with two keys: the Hugo reserved `_target`, and the Grafana specific `labels`.
+
+The `_target` key is a map of the key `path` to the value `"/docs/grafana/*/troubleshooting/**"`.
+For more information about the the `path` value, refer to [Specify a path](#specify-a-path).
+
+The `labels` key is the same mapping that is used for individual pages.
+
+##### Specify a path
+
+The value of the `_target.path` mapping is a string matching paths from the Hugo content root.
+Glob patterns specified with `*` and `**` match multiple paths.
+
+The `*` pattern matches any file or directory.
 It is useful for matching any version directory for versioned documentation.
 
 The `**` pattern matches all directories and files recursively.

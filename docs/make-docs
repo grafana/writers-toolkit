@@ -313,7 +313,8 @@ if [ "${image}" = "grafana/doc-validator" ]; then
     "$(proj_canonical "$(new_proj "$1")")"
 else
 
-  cat <<EOF >/tmp/make-docs-entrypoint
+  tempfile="$(mktemp -t make-docs.XXX)"
+  cat <<EOF >"${tempfile}"
 #!/usr/bin/env bash
 for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
@@ -326,8 +327,8 @@ done
 
 ${WEBSITE_EXEC}
 EOF
-  chmod +x /tmp/make-docs-entrypoint
-  volumes="${volumes} --volume=/tmp/make-docs-entrypoint:/entrypoint"
+  chmod +x "${tempfile}"
+  volumes="${volumes} --volume=${tempfile}:/entrypoint"
   readonly volumes
 
   echo

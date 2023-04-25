@@ -12,8 +12,8 @@ keywords:
 
 # Links and cross references
 
-Links are a mechanism to reuse content.
-Instead of writing the same information twice, one can link to a definitive source of truth.
+Links are a mechanism for reusing content.
+Instead of writing the same information twice, you can link to a definitive source of truth.
 
 When linking, keep in mind that the reader is directed away from the current content when following the link.
 Just because a link can be made, it doesn't mean it should be made.

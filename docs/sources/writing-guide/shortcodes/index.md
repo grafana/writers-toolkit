@@ -79,7 +79,7 @@ The following shortcode inserts the latest version of `shared-page.md` from the 
 
 ## `figure` shortcode
 
-The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic markdown to add images]({{< reflref "../markdown-guide/#images" >}}). 
+The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic markdown to add images]({{< relref "../markdown-guide/#images" >}}). 
 
 To add a figure, insert the `figure` shortcode with the following named parameters:
 

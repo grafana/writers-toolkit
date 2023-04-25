@@ -49,7 +49,7 @@ For more information, refer to [Hugo aliases](#hugo-aliases).
 
 ### date
 
-Describes the publish date of the page.
+Describes the initial publish date of the page.
 Hugo produces XML page outputs for use by RSS feeds where users can be notified of updates.
 Customers use RSS feeds of our release notes pages to be notified of new releases.
 Therefore, the `date` front matter is recommended for release note pages.

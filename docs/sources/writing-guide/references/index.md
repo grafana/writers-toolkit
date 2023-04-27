@@ -47,10 +47,18 @@ Hugo has built-in shortcodes for creating links to documents.
 The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
 They both provide build time link checking to ensure that the destination exists.
 
-> **Warn:** If you do not use a Hugo relref for build time link checking, your links may be broken without you realizing it.
+{{% admonition type="warn" %}}
+If you do not use a Hugo relref for build time link checking, your links may be broken without you realizing it.
+{{% /admonition %}}
 
 Relative references are the most common references in Grafana technical documentation.
 This is the Hugo shortcode: `{{</* relref "<DESTINATION>" */>}}`.
+
+{{% admonition type="note" %}}
+Hugo link checking depends on having all the content available during the build.
+In most projects, the only content available during local builds and CI is the current project documentation.
+Therefore, the current advice is that `relref`s should only be used for links within the current project.
+{{% /admonitition %}}
 
 ### Determine relref destinations
 

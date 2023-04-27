@@ -28,18 +28,34 @@ Link destinations can be specified in different ways.
 All of the following destinations link https://grafana.com/docs/grafana/latest to when followed from the page https://grafana.com/docs:
 
 - https://grafana.com/docs/grafana/latest: fully specified HTTPS URL.
-- /docs/grafana/latest: partial URL with absolute URL path.
-- ./grafana/latest: relative URL path.
+- /docs/grafana/latest: partial URL with absolute path.
+- ./grafana/latest: relative path.
 
 To choose the correct link destination type, follow these steps:
 
 1. If the destination is external to the https://grafana.com website, use the fully specified HTTPS URL.
+   For example, https://github.com.
 1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-directories" >}}):
+
    1. If the destination is also present in the destination mount, use a relative URL path.
       This keeps reader within the destination project.
-   1. Otherwise use a partial URL with an absolute URL path.
+      For example, `{{</* relref "./path/to/page" */>}}`.
+
+      Use the Hugo `relref` shortcode for build time link checking.
+      For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
+
+   1. Otherwise use a partial URL with an absolute path.
       This always brings the reader back to the destination page in the source project.
-1. Otherwise, use a relative URL path.
+      For example, `/docs/writers-toolkit/writing-guide/`.
+
+1. If the destination is internal to the https://grafana.com website, but external to the project documentation,
+   use a partial URL with an absolute path.
+   For example, `/blog/`.
+1. Otherwise, use a relative path.
+   For example, `{{</* relref "./path/to/page" */>}}`.
+
+   Use the Hugo `relref` shortcode for build time link checking.
+   For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
 
 ## Build time link checking with Hugo
 

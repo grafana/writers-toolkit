@@ -58,7 +58,7 @@ This is the Hugo shortcode: `{{</* relref "<DESTINATION>" */>}}`.
 Hugo link checking depends on having all the content available during the build.
 In most projects, the only content available during local builds and CI is the current project documentation.
 Therefore, the current advice is that `relref`s should only be used for links within the current project.
-{{% /admonitition %}}
+{{% /admonition %}}
 
 ### Determine relref destinations
 

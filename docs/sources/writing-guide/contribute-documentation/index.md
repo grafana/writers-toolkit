@@ -58,7 +58,7 @@ Small changes might include:
 
 - Create a [GitHub](https://www.github.com) account.
 
-**To edit a topic:**
+### To edit a topic
 
 1. From a topic on the documentation website, click **Edit this page** (pencil icon).
 1. Enter your changes.

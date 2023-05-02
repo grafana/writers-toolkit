@@ -87,7 +87,7 @@ New users or members of other teams are very helpful for these tests.
 
 ## Review your changes
 
-Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "../tooling-and-workflows/#using-git" >}}).
+Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "../tooling-and-workflows#using-git" >}}).
 
 **To view a local build:**
 
@@ -131,7 +131,7 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
-To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request. For more information, see [backporting]({{< relref "../tooling-and-workflows/backporting/" >}}).
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request. For more information, see [backporting]({{< relref "../tooling-and-workflows/backporting" >}}).
 
 `grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

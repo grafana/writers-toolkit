@@ -59,10 +59,33 @@ You can only edit a topic that is part of the latest release of documentation.
 ### Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
+- Find the source repository.
+  To find the source repository, refer to [Find the source repository](#find-the-source-repository).
+
+### Find the source repository
+
+Technical documentation published from public projects have a **Suggest an edit** link with a pencil icon.
+Click this link to directly edit the page in GitHub.
+
+{{% admonition type="warning" %}}
+Because development happens in the `main` branch on GitHub and "latest" documentation is typically published from a different, "version" branch, the **Suggest an edit** link can result in a 404 error from GitHub.
+In that case, use the GitHub code navigation to try and find the new location, or reach out to a Technical Writer for support.
+{{% /admonition %}}
+
+For pages that do not have a **Suggest an edit** link, search the Grafana organization on GitHub for repositories that include the plugin name.
+For example, the [Splunk data source for Grafana](/docs/plugins/grafana-splunk-datasource/latest/) plugin, can be found by [searching for "Splunk"](https://github.com/search?q=org%3Agrafana+Splunk&type=repositories).
+
+For [Grafana Cloud](/docs/grafana-cloud/) documentation, most content is managed in the [website repository](https://github.com/grafana/website).
+Some content is sourced from other projects, listed below:
+
+- `/docs/grafana-cloud/alerting`: https://github.com/grafana/grafana/tree/main/docs/sources/alerting
+- `/docs/grafana-cloud/api-reference/http-api`: https://github.com/grafana/grafana/tree/main/docs/sources/developers/http_api
+- `/docs/grafana-cloud/incident`: https://github.com/grafana/incident/tree/main/docs/sources
+- `/docs/grafana-cloud/oncall`: https://github.com/grafana/oncall/tree/main/docs/sources
 
 ### To edit a topic
 
-1. From a topic on the documentation website, click **Edit this page** (pencil icon).
+1. From a topic on the documentation website, click **Suggest an edit** (pencil icon).
 1. Enter your changes.
 1. Change the branch name, if required.
    The branch name is auto-populated.

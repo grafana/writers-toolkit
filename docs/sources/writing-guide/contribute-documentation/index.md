@@ -122,7 +122,7 @@ When you are ready for other people to review your work, perform the following t
 
 ## PR review and approval workflow
 
-When you add a PR to the repo and assign the `type/docs` label, it will be reviewed by a member of the Docs Squad.
+When you add a PR to the repository and assign the `type/docs` label, it will be reviewed by a member of the Docs Squad.
 
 Depending on the size of the PR and the priority of other work, the PR will either be immediately reviewed and merged (minor fixes typically follow this pattern) or the PR will be triaged and placed in the backlog of work or moved into further development.
 

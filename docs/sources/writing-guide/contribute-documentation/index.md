@@ -26,7 +26,7 @@ GitHub captures your request as an Issue logged against the repository.
 
 {{% admonition type="note" %}}
 You can only request a change against the latest release of documentation.
-{{% /admonition $}}
+{{% /admonition %}}
 
 ### Before you begin
 
@@ -52,7 +52,9 @@ Small changes might include:
 - Adding clarifying language to a concept
 - Providing an example
 
-> **Note:** You can only edit a topic that is part of the latest release of documentation.
+{{% admonition type="note" %}}
+You can only edit a topic that is part of the latest release of documentation.
+{{% /admonition %}}
 
 ### Before you begin
 
@@ -93,11 +95,9 @@ Prior to pushing your changes to Github, you can view a local build of the docum
 
 1. Install either Podman or Docker to manage containers on your system.
 
-    <!-- vale Grafana.Colons = NO -->
-
-   > **Note:** Podman has the upside that containers can either be run as root or in rootless mode.
-
-    <!-- vale Grafana.Colons = YES -->
+   {{% admonition type="note" %}}
+   Podman has the upside that containers can either be run as root or in rootless mode.
+   {{% /admonition %}}
 
    - To install Podman, refer to [Podman Installation Instructions](https://podman.io/getting-started/installation).
    - To install Docker, refer to [Docker Engine installation overview](https://docs.docker.com/engine/install/).

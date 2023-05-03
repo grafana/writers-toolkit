@@ -68,8 +68,8 @@ Technical documentation published from public projects have a **Suggest an edit*
 Click this link to directly edit the page in GitHub.
 
 {{% admonition type="warning" %}}
-Because development happens in the `main` branch on GitHub and "latest" documentation is typically published from a different, "version" branch, the **Suggest an edit** link can result in a 404 error from GitHub.
-In that case, use the GitHub code navigation to try and find the new location, or reach out to a Technical Writer for support.
+Because development happens in the `main` branch on GitHub and "latest" documentation is typically published from a different "version" branch, the **Suggest an edit** link can result in a 404 error from GitHub.
+In that case, use the GitHub code navigation to try and find the new location or reach out to a Technical Writer for support.
 {{% /admonition %}}
 
 For pages that do not have a **Suggest an edit** link, search the Grafana organization on GitHub for repositories that include the plugin name.

@@ -156,14 +156,26 @@ It is useful for matching any version directory for versioned documentation.
 
 The `**` pattern matches all directories and files recursively.
 
+### menuTitle
+
+Becomes the link text for the page in website menus.
+
+The `menuTitle` doesn't need to match the `title`.
+It typically omits the product name and any other words that can be derived from the page or menu context.
+
+Examples of omission:
+
+- In Grafana Mimir documentation, it is not necessary to have "Grafana Mimir" in the `menuTitle` because the reader knows this from the page context.
+- In a menu with a parent section of "Reference", it is not necessary to have "Reference" in the `menuTitle` because the reader knows this from the menu context.
+
 ### title
 
 **Required.**
 
-Becomes the document title element. Often browsers display this in the tab for the page.
+Becomes the page's HTML title element.
+Often browsers display this in the tab for the page.
 
-It doesn't need to precisely match the `menuTitle`.
-Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
+Optimize the title for search engines by including the product name.
 
 If the `doc-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
 

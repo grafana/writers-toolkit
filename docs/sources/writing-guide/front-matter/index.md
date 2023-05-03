@@ -92,59 +92,42 @@ For `labels.products`, the supported values and the resulting published labels a
 - `enterprise`: "Enterprise"
 - `oss`: "Open source"
 
-Labels can be inherited through cascading front matter.
-For more information, refer to [Set cascading front matter](#set-cascading-front-matter).
-Each project has a set of default labels that are defined in the cascading front matter of the root `_index.md` file of the project.
+Labels are inherited through cascading front matter.
+All labels, including project defaults, are set in the project's root index file.
+This is almost always the `docs/sources/_index.md` file in the project repository.
 
-For versioned projects, the `_index.md` file resides in the `website` repository.
-For unversioned projects, the `_index.md` file resides in the project’s repository.
-
-If the default labels are incorrect for a page or directory of pages, update the labels.
-Also, if you are adding a new page, consider whether the default labels are appropriate.
-For each page, include a label in the `labels.products` sequence for every product that the page relates to.
-
-For example, if a page describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
-
-```yaml
-labels:
-  products:
-    - cloud
-    - enterprise
-```
+If you add a new page, consider whether the default labels are appropriate.
+If the default labels are incorrect for a page or directory of pages, update the cascading front matter in `docs/sources/_index.md`.
 
 #### Set cascading front matter
 
-When a directory of pages share the same front matter, it is convenient to set them all at once with cascading front matter.
-
-There are two forms of cascading front matter.
-The first is a `cascade` map of keys to values.
-The second is a sequence of mappings with the `_target` keyword.
-You cannot override the latter with the former.
-For more information about cascading front matter, refer to [Front Matter Cascade](https://gohugo.io/content-management/front-matter/#front-matter-cascade).
-
-{{% admonition type="note" %}}
-To avoid confusing behavior, set all cascading front matter with the sequence of mappings form.
-{{% /admonition %}}
-
-For a **directory of pages** under `/docs/grafana/latest/troubleshooting/` that describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front matter should include the following:
+Set cascading front matter by adding or updating the `cascade` mapping in the `docs/sources/_index.md` front matter:
 
 ```yaml
-cascade:
-  - _target:
-      path: "/docs/grafana/*/troubleshooting/**"
-    labels:
-      products:
-        - cloud
+cascade: <TARGETS...>
 ```
 
-In the preceding example, the `cascade` value is a YAML block sequence of length one, as denoted by the single dash and space (`- `).
+Where `<TARGETS...>` is a sequence of mappings that looks similar to the following:
 
-The value of the only element in `cascade` sequence is a mapping with two keys: the Hugo reserved `_target`, and the Grafana specific `labels`.
+```yaml
+- _target: { path: <PATH> }
+  labels:
+    products: <PRODUCTS...>
+```
 
-The `_target` key is a map of the key `path` to the value `"/docs/grafana/*/troubleshooting/**"`.
-For more information about the the `path` value, refer to [Specify a path](#specify-a-path).
+- `<PATH>` is a glob pattern that matches the affected source pages.
+  For more information about the the `<PATH>` value, refer to [Specify a path](#specify-a-path).
 
-The `labels` key is the same mapping that is used for individual pages.
+- `<PRODUCTS...>` is a sequence of valid product labels.
+
+The following example target mapping sets the product label to "Grafana Cloud" for all pages under `/docs/grafana/latest/troubleshooting/`:
+
+```yaml
+- _target: { path: /docs/grafana/*/troubleshooting/** }
+  labels:
+    products:
+      - cloud
+```
 
 ##### Specify a path
 

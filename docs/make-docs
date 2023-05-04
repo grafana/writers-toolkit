@@ -1,5 +1,6 @@
 #!/bin/sh
 # The source of this file is https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs.
+# 1.0.0 (2023-05-04)
 
 set -ef
 
@@ -61,6 +62,7 @@ SOURCES_enterprise_metrics='backend-enterprise'
 SOURCES_enterprise_metrics_='backend-enterprise'
 SOURCES_grafana_cloud='cloud-docs'
 SOURCES_grafana_cloud_k6='k6-docs'
+SOURCES_grafana_cloud_machine_learning='machine-learning'
 SOURCES_helm_charts_mimir_distributed='mimir'
 SOURCES_helm_charts_tempo_distributed='tempo'
 SOURCES_opentelemetry='opentelemetry-docs'
@@ -68,6 +70,7 @@ SOURCES_opentelemetry='opentelemetry-docs'
 VERSIONS_as_code='UNVERSIONED'
 VERSIONS_grafana_cloud='UNVERSIONED'
 VERSIONS_grafana_cloud_k6='UNVERSIONED'
+VERSIONS_grafana_cloud_machine_learning='UNVERSIONED'
 VERSIONS_opentelemetry='UNVERSIONED'
 VERSIONS_technical_documentation='UNVERSIONED'
 VERSIONS_website='UNVERSIONED'

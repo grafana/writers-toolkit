@@ -1,0 +1,35 @@
+# `make-docs` script changelog
+
+<!-- Updates should conform to the guidelines in https://keepachangelog.com/en/1.1.0/ -->
+
+[Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
+
+## 1.0.0 (2023-05-04)
+
+### Added
+
+- Build multiple projects simultaneously if all projects are checked out locally.
+- Run [`doc-validator`](https://github.com/grafana/technical-documentation/tree/main/tools/cmd/doc-validator) over projects.
+- Redirect project root to mounted version.
+  For example redirect `/docs/grafana/` to `/docs/grafana/latest/`.
+- Support for Podman or Docker containers with `PODMAN` environment variable.
+- Support for projects:
+  - agent
+  - enterprise-logs
+  - enterprise-metrics
+  - enterprise-traces
+  - grafana
+  - grafana-cloud
+  - grafana-cloud/machine-learning
+  - helm-charts/mimir-distributed
+  - helm-charts/tempo-distributed
+  - incident
+  - loki
+  - mimir
+  - oncall
+  - opentelemetry
+  - phlare
+  - plugins
+  - slo
+  - tempo
+  - writers-toolkit

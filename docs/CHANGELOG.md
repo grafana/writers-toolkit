@@ -4,6 +4,12 @@
 
 [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 
+## 1.0.1 (2023-05-04)
+
+### Fixed
+
+- Ensure complete section hierarchy so that all projects have a visible menu.
+
 ## 1.0.0 (2023-05-04)
 
 ### Added

@@ -347,7 +347,15 @@ else
 for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
   echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/\${ver}/_index.md}"
+done
 
+for x in ${url_src_dst_vers}; do
+  IFS='^' read -r _ _ dst _ <<<"${x}"
+
+  while [[ -n "\${dst}" ]]; do
+    touch "\${dst}/_index.md"
+    dst="\${dst%/*}"
+  done
 done
 
 if [[ -n "${WEBSITE_MOUNTS}" ]]; then

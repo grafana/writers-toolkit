@@ -4,6 +4,17 @@ on:
     paths: ["docs/sources/**"]
   workflow_dispatch:
 jobs:
+  vale-linter:
+    runs-on: "ubuntu-latest"
+    container:
+      image: "grafana/vale:latest"
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
+      - name: "Configure annotations"
+        run: "echo '::add-matcher::vale-linter.json'"
+      - name: "Run linter"
+        run: "vale --minAlertLevel=error --config /etc/vale/.vale.ini --output=line"
   doc-validator:
     runs-on: "ubuntu-latest"
     container:
@@ -12,15 +23,14 @@ jobs:
       - name: "Checkout code"
         uses: "actions/checkout@v3"
       - name: "Configure annotations"
-        run: |
-          echo '::add-matcher::doc-validator.json'
+        run: "echo '::add-matcher::doc-validator.json'"
       - name: "Run doc-validator tool"
         run: "doc-validator docs/sources /docs/writers-toolkit"
   test:
     runs-on: "ubuntu-latest"
     steps:
-    - name: "Check out code"
-      uses: "actions/checkout@v3"
-    - name: "Build website"
-      run: |
-        docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+      - name: "Check out code"
+        uses: "actions/checkout@v3"
+      - name: "Build website"
+        run: |
+          docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'

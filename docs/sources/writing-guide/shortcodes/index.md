@@ -27,21 +27,18 @@ The style depends on the admonition type as defined in the Writers' Toolkit [Sty
 
 The content of the admonition must be within opening and closing tags.
 
-| Parameter | Description                                                     | Required |
-|-----------|-----------------------------------------------------------------|----------|
-| `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes |
-
+| Parameter | Description                                                           | Required |
+| --------- | --------------------------------------------------------------------- | -------- |
+| `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
 
 ### Example
 
 The following snippet renders an admonition of type `note` with a message `Kingston is the capital of Jamaica`.
 
 ```html
-{{%/* admonition type="note" */%}}
-Kingston is the capital of Jamaica.
-{{%/* /admonition */%}}
+{{%/* admonition type="note" */%}} Kingston is the capital of Jamaica. {{%/*
+/admonition */%}}
 ```
-
 
 ## `docs/shared` shortcode
 
@@ -79,7 +76,7 @@ The following shortcode inserts the latest version of `shared-page.md` from the 
 
 ## `figure` shortcode
 
-The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide/#images" >}}). 
+The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide#images" >}}).
 
 To add a figure, insert the `figure` shortcode with the following named parameters:
 

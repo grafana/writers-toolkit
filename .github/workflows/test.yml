@@ -14,7 +14,7 @@ jobs:
       - name: "Configure annotations"
         run: "echo '::add-matcher::vale-linter.json'"
       - name: "Run linter"
-        run: "vale --minAlertLevel=error --config /etc/vale/.vale.ini --output=line"
+        run: "vale --minAlertLevel=error --config /etc/vale/.vale.ini --output=line docs/sources"
   doc-validator:
     runs-on: "ubuntu-latest"
     container:

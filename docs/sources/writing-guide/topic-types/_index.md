@@ -1,7 +1,6 @@
 ---
 title: Topic types
 menuTitle: Topic types
-description: Learn to write different types of topics.
 weight: 400
 keywords:
   - topic types
@@ -11,7 +10,7 @@ keywords:
   - reference
 ---
 
-# Topic types
+# Break some things
 
 Grafana Labs documentation is made up of different topic types: _concept_, _task_, _reference_, and _tutorial_. We encourage you to use these topic types when you write content.
 

@@ -7,7 +7,7 @@ jobs:
   doc-validator:
     runs-on: "ubuntu-latest"
     container:
-      image: "grafana/doc-validator:bcec384-dirty"
+      image: "grafana/doc-validator:latest"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3"
@@ -37,7 +37,7 @@ jobs:
   vale:
     runs-on: "ubuntu-latest"
     container:
-      image: "grafana/vale:4b01f6e19eaaf59fa811cc20131810a9ddf073ab9ce89c461a96c6006e05aaca"
+      image: "grafana/vale:latest"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3"

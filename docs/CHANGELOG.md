@@ -4,6 +4,16 @@
 
 [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 
+## 1.1.1 (2023-05-5)
+
+### Added
+
+- Rewrite error output so it can be followed by text editors.
+
+### Fixed
+
+- Fix `docs-debug` container process port.
+
 ## 1.0.1 (2023-05-04)
 
 ### Fixed

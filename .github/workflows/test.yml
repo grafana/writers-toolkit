@@ -4,17 +4,6 @@ on:
     paths: ["docs/sources/**"]
   workflow_dispatch:
 jobs:
-  vale-linter:
-    runs-on: "ubuntu-latest"
-    container:
-      image: "grafana/vale:a45d03bd644be6a3302d018d0b1f0a6b54d9c367c86460649190bd163af4764b"
-    steps:
-      - name: "Checkout code"
-        uses: "actions/checkout@v3"
-      - name: "Run linter"
-        run: "/bin/vale --config=/etc/vale/.vale.ini --output=/src/rdjsonl.tmpl ./docs/sources | /bin/reviewdog --fail-on-error --filter-mode=nofilter --f=rdjsonl --name=vale --reporter=github-pr-review"
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
   doc-validator:
     runs-on: "ubuntu-latest"
     container:
@@ -26,6 +15,17 @@ jobs:
         run: "echo '::add-matcher::doc-validator.json'"
       - name: "Run doc-validator tool"
         run: "doc-validator docs/sources /docs/writers-toolkit"
+  prettier:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v3"
+      - uses: "EPMatt/reviewdog-action-prettier@v1"
+        with:
+          fail_on_error: true
+          filter_mode: "nofilter"
+          github_token: "${{ secrets.github_token }}"
+          level: "info"
+          reporter: "github-pr-review"
   test:
     runs-on: "ubuntu-latest"
     steps:
@@ -34,3 +34,14 @@ jobs:
       - name: "Build website"
         run: |
           docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+  vale-linter:
+    runs-on: "ubuntu-latest"
+    container:
+      image: "grafana/vale:a45d03bd644be6a3302d018d0b1f0a6b54d9c367c86460649190bd163af4764b"
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
+      - name: "Run linter"
+        run: "/bin/vale --config=/etc/vale/.vale.ini --output=/src/rdjsonl.tmpl ./docs/sources | /bin/reviewdog --fail-on-error --filter-mode=nofilter --f=rdjsonl --name=vale --reporter=github-pr-review"
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

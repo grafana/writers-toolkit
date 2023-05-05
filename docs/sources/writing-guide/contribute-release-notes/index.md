@@ -87,7 +87,7 @@ What's new content should address changes that have some kind of material impact
   - Most visualization changes and most additions to the UI should be in the What's new document, even when they seem small.
 - Almost every change or addition associated with Prometheus and Loki is of interest, too.
 - What's New content should also include changes that require customers to do something, like change their API keys to Service Accounts, or stop using a deprecated API or plugin.
-- A What's New doc should include announcements — things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
+- A What's New doc should include announcements—things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
 
 When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in What’s New_.
 
@@ -113,7 +113,7 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
 These are important improvements, but are better placed in the changelog than What’s new:
 
 - [A docs update](https://github.com/grafana/grafana/pull/60352)
-  - This update doesn’t require customers to change their behavior — they’ll simply see better instructions the next time they use the docs.
+  - This update doesn’t require customers to change their behavior—they’ll simply see better instructions the next time they use the docs.
 - [A bug fix related to migrations](https://github.com/grafana/grafana/pull/59438)
   - This is a bug fix that doesn’t require customer action.
 - [A usability improvement to an existing transformation](https://github.com/grafana/grafana/pull/59074)

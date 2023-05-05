@@ -54,6 +54,11 @@ ifeq ($(origin DOC_VALIDATOR_IMAGE), undefined)
 export DOC_VALIDATOR_IMAGE := grafana/doc-validator:latest
 endif
 
+# Container image used for vale linting.
+ifeq ($(origin VALE_IMAGE), undefined)
+export VALE_IMAGE := grafana/vale:4b01f6e19eaaf59fa811cc20131810a9ddf073ab9ce89c461a96c6006e05aaca
+endif
+
 # PATH-like list of directories within which to find projects.
 # If all projects are checked out into the same directory, ~/repos/ for example, then the default should work.
 ifeq ($(origin REPOS_PATH), undefined)
@@ -96,7 +101,7 @@ docs-debug: make-docs
 	WEBSITE_EXEC='hugo server --bind 0.0.0.0 --port 3002 --debug' $(PWD)/make-docs $(PROJECTS)
 
 .PHONY: doc-validator
-doc-validator: ## Run docs-validator on the entire docs folder.
+doc-validator: ## Run doc-validator on the entire docs folder.
 doc-validator: make-docs
 	DOCS_IMAGE=$(DOC_VALIDATOR_IMAGE) $(PWD)/make-docs $(PROJECTS)
 
@@ -104,6 +109,11 @@ doc-validator: make-docs
 doc-validator/%: ## Run doc-validator on a specific path. To lint the path /docs/sources/administration, run 'make doc-validator/administration'.
 doc-validator/%: make-docs
 	DOCS_IMAGE=$(DOC_VALIDATOR_IMAGE) DOC_VALIDATOR_INCLUDE=$(subst doc-validator/,,$@) $(PWD)/make-docs $(PROJECTS)
+
+.PHONY: vale
+vale: ## Run vale on the entire docs folder.
+vale: make-docs
+	DOCS_IMAGE=$(VALE_IMAGE) $(PWD)/make-docs $(PROJECTS)
 
 .PHONY: update
 update: ## Fetch the latest version of this Makefile and the `make-docs` script from Writers' Toolkit.

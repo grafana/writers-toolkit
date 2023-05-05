@@ -34,10 +34,10 @@ jobs:
       - name: "Build website"
         run: |
           docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
-  vale-linter:
+  vale:
     runs-on: "ubuntu-latest"
     container:
-      image: "grafana/vale:a45d03bd644be6a3302d018d0b1f0a6b54d9c367c86460649190bd163af4764b"
+      image: "grafana/vale:4b01f6e19eaaf59fa811cc20131810a9ddf073ab9ce89c461a96c6006e05aaca"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3"

@@ -56,7 +56,7 @@ endif
 
 # Container image used for vale linting.
 ifeq ($(origin VALE_IMAGE), undefined)
-export VALE_IMAGE := grafana/vale:4b01f6e19eaaf59fa811cc20131810a9ddf073ab9ce89c461a96c6006e05aaca
+export VALE_IMAGE := grafana/vale:latest
 endif
 
 # PATH-like list of directories within which to find projects.

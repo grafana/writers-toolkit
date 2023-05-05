@@ -325,6 +325,7 @@ ${DOCS_IMAGE}
 POSIX_HERESTRING
 
 if [ "${image}" = "grafana/doc-validator" ]; then
+  proj="$(new_proj "$1")"
   echo
   "${PODMAN}" run \
     --init \
@@ -338,7 +339,7 @@ if [ "${image}" = "grafana/doc-validator" ]; then
     --skip-image-validation \
     --include="${DOC_VALIDATOR_INCLUDE}" \
     /hugo/content/docs \
-    "$(proj_canonical "$(new_proj "$1")")"
+    "$(proj_canonical "${proj}")" | sed "s#$(proj_dst "${proj}")#sources#"
 else
 
   tempfile="$(mktemp -t make-docs.XXX)"

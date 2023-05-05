@@ -7,14 +7,12 @@ jobs:
   vale-linter:
     runs-on: "ubuntu-latest"
     container:
-      image: "grafana/vale:latest"
+      image: "grafana/vale:a45d03bd644be6a3302d018d0b1f0a6b54d9c367c86460649190bd163af4764b"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3"
-      - name: "Configure annotations"
-        run: "echo '::add-matcher::vale-linter.json'"
       - name: "Run linter"
-        run: "vale --minAlertLevel=error --config /etc/vale/.vale.ini --output=line docs/sources"
+        run: "/bin/vale --config /etc/vale/.vale.ini --output=/src/rdjsonl.tmpl docs/sources | /bin/reviewdog -f=rdjsonl -name=vale"
   doc-validator:
     runs-on: "ubuntu-latest"
     container:

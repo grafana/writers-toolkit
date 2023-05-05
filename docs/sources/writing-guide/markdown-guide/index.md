@@ -212,7 +212,7 @@ Reasons you might want to write programs in Go include the following:
 The preceding description list displays as follows:
 
 **Fast compile times**
-: The Go compiler is fast!
+: The Go compiler is fast
 
 **Ecosystem**
 : Go tooling is excellent.

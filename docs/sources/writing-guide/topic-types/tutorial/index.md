@@ -11,7 +11,9 @@ keywords:
 
 # Tutorial topic
 
-The purpose of a tutorial is to show the reader how to "learn by doing" in a safe environment. A tutorial should build up easy successes that inspire a user to say, “I just did that! Wow!” The length of a tutorial can vary from a few steps to many subtasks.
+The purpose of a tutorial is to show the reader how to "learn by doing" in a safe environment.
+A tutorial should build up easy successes.
+The length of a tutorial can vary from a few steps to many subtasks.
 
 If you have an idea for a tutorial you’d like to develop, contact the team. Internal contributors can reach out on Slack and external contributors are welcome to reach us using our docs@grafana.com email.
 

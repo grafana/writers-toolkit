@@ -13,6 +13,8 @@ jobs:
         uses: "actions/checkout@v3"
       - name: "Run linter"
         run: "/bin/vale --config=/etc/vale/.vale.ini --output=/src/rdjsonl.tmpl ./docs/sources | /bin/reviewdog --fail-on-error --filter-mode=nofilter --f=rdjsonl --name=vale --reporter=github-pr-review"
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
   doc-validator:
     runs-on: "ubuntu-latest"
     container:

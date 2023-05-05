@@ -15,11 +15,11 @@ keywords:
 
 # Concept title
 
-<!-- The concept title is required. Use a noun-based title that includes the name of the product or feature. For example: Alerting fundamentals. 
+<!-- The concept title is required. Use a noun-based title that includes the name of the product or feature. For example: Alerting fundamentals.
 
-A concept provides an overview and background information to help users understand a product, interface, or task. Concepts answer the question “what is it?”. Readers learn about features through concepts. Concepts do not include step-by-step procedures or reference material but often link to those materials. 
+A concept provides an overview and background information to help users understand a product, interface, or task. Concepts answer the question “what is it?”. Readers learn about features through concepts. Concepts do not include step-by-step procedures or reference material but often link to those materials.
 
-Refer to the [Concept topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/concept/) for guidelines on writing a concept topic. 
+Refer to the [Concept topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/concept/) for guidelines on writing a concept topic.
 -->
 
 Introduce the concept.
@@ -33,4 +33,5 @@ Introduce the concept.
 ## Useful links
 
 <!-- Link out to task or reference topics related to the concept. -->
-* [Link example](https://grafana.com)
+
+- [Link example](https://grafana.com)

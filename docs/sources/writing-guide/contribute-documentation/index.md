@@ -24,7 +24,9 @@ Requesting a change gives you the freedom to express your ideas without committi
 
 GitHub captures your request as an Issue logged against the repository.
 
-> **Note:** You can only request a change against the latest release of documentation.
+{{% admonition type="note" %}}
+You can only request a change against the latest release of documentation.
+{{% /admonition %}}
 
 ### Before you begin
 
@@ -50,15 +52,40 @@ Small changes might include:
 - Adding clarifying language to a concept
 - Providing an example
 
-> **Note:** You can only edit a topic that is part of the latest release of documentation.
+{{% admonition type="note" %}}
+You can only edit a topic that is part of the latest release of documentation.
+{{% /admonition %}}
 
 ### Before you begin
 
 - Create a [GitHub](https://www.github.com) account.
+- Find the source repository.
+  To find the source repository, refer to [Find the source repository](#find-the-source-repository).
 
-**To edit a topic:**
+### Find the source repository
 
-1. From a topic on the documentation website, click **Edit this page** (pencil icon).
+Technical documentation published from public projects have a **Suggest an edit** link with a pencil icon.
+Click this link to directly edit the page in GitHub.
+
+{{% admonition type="warning" %}}
+Because development happens in the `main` branch on GitHub and "latest" documentation is typically published from a different "version" branch, the **Suggest an edit** link can result in a 404 error from GitHub.
+In that case, use the GitHub code navigation to try and find the new location or reach out to a Technical Writer for support.
+{{% /admonition %}}
+
+For pages that do not have a **Suggest an edit** link, search the Grafana organization on GitHub for repositories that include the plugin name.
+For example, the [Splunk data source for Grafana](/docs/plugins/grafana-splunk-datasource/latest/) plugin, can be found by [searching for "Splunk"](https://github.com/search?q=org%3Agrafana+Splunk&type=repositories).
+
+For [Grafana Cloud](/docs/grafana-cloud/) documentation, most content is managed in the [website repository](https://github.com/grafana/website).
+Some content is sourced from other projects, listed below:
+
+- `/docs/grafana-cloud/alerting`: https://github.com/grafana/grafana/tree/main/docs/sources/alerting
+- `/docs/grafana-cloud/api-reference/http-api`: https://github.com/grafana/grafana/tree/main/docs/sources/developers/http_api
+- `/docs/grafana-cloud/incident`: https://github.com/grafana/incident/tree/main/docs/sources
+- `/docs/grafana-cloud/oncall`: https://github.com/grafana/oncall/tree/main/docs/sources
+
+### To edit a topic
+
+1. From a topic on the documentation website, click **Suggest an edit** (pencil icon).
 1. Enter your changes.
 1. Change the branch name, if required.
    The branch name is auto-populated.
@@ -91,11 +118,9 @@ Prior to pushing your changes to Github, you can view a local build of the docum
 
 1. Install either Podman or Docker to manage containers on your system.
 
-    <!-- vale Grafana.Colons = NO -->
-
-   > **Note:** Podman has the upside that containers can either be run as root or in rootless mode.
-
-    <!-- vale Grafana.Colons = YES -->
+   {{% admonition type="note" %}}
+   Podman has the upside that containers can either be run as root or in rootless mode.
+   {{% /admonition %}}
 
    - To install Podman, refer to [Podman Installation Instructions](https://podman.io/getting-started/installation).
    - To install Docker, refer to [Docker Engine installation overview](https://docs.docker.com/engine/install/).
@@ -120,7 +145,7 @@ When you are ready for other people to review your work, perform the following t
 
 ## PR review and approval workflow
 
-When you add a PR to the repo and assign the `type/docs` label, it will be reviewed by a member of the Docs Squad.
+When you add a PR to the repository and assign the `type/docs` label, it will be reviewed by a member of the Docs Squad.
 
 Depending on the size of the PR and the priority of other work, the PR will either be immediately reviewed and merged (minor fixes typically follow this pattern) or the PR will be triaged and placed in the backlog of work or moved into further development.
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 # The source of this file is https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs.
-# 1.2.0 (2023-05-05)
+# 1.2.1 (2023-05-05)
 
 set -ef
 
@@ -368,8 +368,8 @@ for redirect in ${redirects}; do
   echo -e "---\\nredirectURL: \"\${path/\/hugo\/content/}\"\\ntype: redirect\\n---\\n" > "\${path/\${ver}/_index.md}"
 done
 
-for x in ${url_src_dst_vers}; do
-  IFS='^' read -r _ _ dst _ <<<"${x}"
+for x in "${url_src_dst_vers}"; do
+  IFS='^' read -r _ _ dst _ <<<"\${x}"
 
   while [[ -n "\${dst}" ]]; do
     touch "\${dst}/_index.md"

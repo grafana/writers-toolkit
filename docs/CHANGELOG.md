@@ -4,7 +4,14 @@
 
 [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 
-## 1.2.0
+## 1.2.1 (2023-05-05)
+
+### Fixed
+
+- Use `latest` tag of `grafana/vale` image by default instead of hardcoded older version.
+- Fix mounting multiple projects broken by the changes in 1.0.1
+
+## 1.2.0 (2023-05-05)
 
 ### Added
 
@@ -12,7 +19,7 @@
 
 ### Fixed
 
-## 1.1.0 (2023-05-5)
+## 1.1.0 (2023-05-05)
 
 ### Added
 

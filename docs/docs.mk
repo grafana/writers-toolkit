@@ -91,7 +91,7 @@ docs-no-pull: make-docs
 .PHONY: docs-debug
 docs-debug: ## Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
 docs-debug: make-docs
-	WEBSITE_EXEC='hugo server --debug' $(PWD)/make-docs $(PROJECTS)
+	WEBSITE_EXEC='hugo server --bind 0.0.0.0 --port 3002 --debug' $(PWD)/make-docs $(PROJECTS)
 
 .PHONY: doc-validator
 doc-validator: ## Run docs-validator on the entire docs folder.

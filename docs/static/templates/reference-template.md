@@ -10,6 +10,7 @@ keywords:
   - keyword 2
   - keyword 3
 ---
+
 <!-- Refer to [Topic front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
 
 # Reference title
@@ -22,7 +23,7 @@ Add an introduction to the reference.
 
 For guidelines about writing a reference topic, see [Reference topic](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/reference/).
 
-Often reference topics are linked from _task_ topics, because they contain information the user needs when performing a task. 
+Often reference topics are linked from _task_ topics, because they contain information the user needs when performing a task.
 -->
 
 ## Lists

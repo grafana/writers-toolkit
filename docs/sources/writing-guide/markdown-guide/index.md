@@ -65,7 +65,7 @@ Displays as:
 
 ## Links and references
 
-For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references/" >}}).
+For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references" >}}).
 
 If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
 
@@ -171,7 +171,7 @@ Include images in a document using the following syntax:
 
 This follows the format `![alt text](URL)`.
 
-Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes/#figure-shortcode" >}}) if you need more image options, such as adding captions or controlling the image size.
+Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes#figure-shortcode" >}}) if you need more image options, such as adding captions or controlling the image size.
 
 Within Markdown, HTML is valid, but should be used sparingly:
 
@@ -225,4 +225,4 @@ You can include comments that do not display in published output:
 
 ## Shortcodes
 
-Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
+Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes" >}}).

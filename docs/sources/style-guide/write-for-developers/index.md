@@ -11,7 +11,7 @@ keywords:
 
 The guidelines that follow provide suggestions for writing documentation for software developers and engineers.
 Follow these tips to write useful API documentation, code examples, and other technical material.
-To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide]({{< relref "../../style-guide/" >}}).
+To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide]({{< relref "../../style-guide" >}}).
 
 ## Developer documentation basics
 
@@ -33,13 +33,13 @@ For more general advice, consult one of the reputable [Google Style Guides](http
 
 ## Reference docs
 
-Whenever possible, automatically generate API and other reference documentation from source-code comments. However documentation is created, make sure it conforms to the [style conventions]({{< relref "../../style-guide/style-conventions/" >}}).
+Whenever possible, automatically generate API and other reference documentation from source-code comments. However documentation is created, make sure it conforms to the [style conventions]({{< relref "../../style-guide/style-conventions" >}}).
 Pay particular attention to properly formatting the elements of code.
 
 ### Auto-generated documentation
 
 The advantages of automating documentation programmatically are well-known, and include increased consistency and a reduction in human-made errors.
-But behind every line of auto-generated content is a human author who is responsible for following the [style guide]({{< relref "../../style-guide/" >}}).
+But behind every line of auto-generated content is a human author who is responsible for following the [style guide]({{< relref "../../style-guide" >}}).
 
 When writing documentation that will be used by an auto-generated program to create publishable content, keep the following things in mind:
 
@@ -97,7 +97,7 @@ Introduce each code sample with a sentence or paragraph to establish its context
 
 Many types of information belong in fixed-width font. Among these are path names, file names, directories, or folders. However, don't format domain names or URLs as code if you intend the user to follow the link.
 
-Although there are times when you might want to make a URL clickable, it is better to follow the guidelines for [References]({{< relref "../../writing-guide/references/" >}}).
+Although there are times when you might want to make a URL clickable, it is better to follow the guidelines for [References]({{< relref "../../writing-guide/references" >}}).
 
 ## Command lines
 

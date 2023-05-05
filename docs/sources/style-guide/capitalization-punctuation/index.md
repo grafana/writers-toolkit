@@ -1,6 +1,6 @@
 ---
 title: Capitalization and punctuation
-description: Capitalization and punctuaton
+description: Guidelines for use of capitalization and punctuation.
 weight: 400
 keywords:
   - capitalization

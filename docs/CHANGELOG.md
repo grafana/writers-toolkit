@@ -4,7 +4,15 @@
 
 [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 
-## 1.1.1 (2023-05-5)
+## 1.2.0
+
+### Added
+
+- Support for running the Vale linter with `make vale`.
+
+### Fixed
+
+## 1.1.0 (2023-05-5)
 
 ### Added
 

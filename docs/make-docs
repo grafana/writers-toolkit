@@ -1,6 +1,6 @@
 #!/bin/sh
 # The source of this file is https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs.
-# 1.1.0 (2023-05-05)
+# 1.2.0 (2023-05-05)
 
 set -ef
 
@@ -324,26 +324,44 @@ IFS=':' read -r image _ <<POSIX_HERESTRING
 ${DOCS_IMAGE}
 POSIX_HERESTRING
 
-if [ "${image}" = "grafana/doc-validator" ]; then
-  proj="$(new_proj "$1")"
-  echo
-  "${PODMAN}" run \
-    --init \
-    --interactive \
-    --name "${DOCS_CONTAINER}" \
-    --platform linux/amd64 \
-    --rm \
-    --tty \
-    ${volumes} \
-    "${DOCS_IMAGE}" \
-    --skip-image-validation \
-    --include="${DOC_VALIDATOR_INCLUDE}" \
-    /hugo/content/docs \
-    "$(proj_canonical "${proj}")" | sed "s#$(proj_dst "${proj}")#sources#"
-else
-
-  tempfile="$(mktemp -t make-docs.XXX)"
-  cat <<EOF >"${tempfile}"
+case "${image}" in
+  'grafana/doc-validator')
+    proj="$(new_proj "$1")"
+    echo
+    "${PODMAN}" run \
+      --init \
+      --interactive \
+      --name "${DOCS_CONTAINER}" \
+      --platform linux/amd64 \
+      --rm \
+      --tty \
+      ${volumes} \
+      "${DOCS_IMAGE}" \
+      --skip-image-validation \
+      --include="${DOC_VALIDATOR_INCLUDE}" \
+      /hugo/content/docs \
+      "$(proj_canonical "${proj}")" | sed "s#$(proj_dst "${proj}")#sources#"
+    ;;
+  'grafana/vale')
+    proj="$(new_proj "$1")"
+    echo
+    "${PODMAN}" run \
+      --init \
+      --interactive \
+      --name "${DOCS_CONTAINER}" \
+      --platform linux/amd64 \
+      --rm \
+      --tty \
+      ${volumes} \
+      "${DOCS_IMAGE}" \
+      --minAlertLevel=error \
+      --config=/etc/vale/.vale.ini \
+      --output=line \
+      /hugo/content/docs | sed "s#$(proj_dst "${proj}")#sources#"
+    ;;
+  *)
+    tempfile="$(mktemp -t make-docs.XXX)"
+    cat <<EOF >"${tempfile}"
 #!/usr/bin/env bash
 for redirect in ${redirects}; do
   IFS='^' read -r path ver <<<"\${redirect}"
@@ -365,36 +383,37 @@ fi
 
 ${WEBSITE_EXEC}
 EOF
-  chmod +x "${tempfile}"
-  volumes="${volumes} --volume=$(realpath "${tempfile}"):/entrypoint"
-  readonly volumes
+    chmod +x "${tempfile}"
+    volumes="${volumes} --volume=$(realpath "${tempfile}"):/entrypoint"
+    readonly volumes
 
-  echo
-  echo "Documentation will be served at the following URLs:"
-  for x in ${url_src_dst_vers}; do
-    IFS='^' read -r url _ _ <<POSIX_HERESTRING
+    echo
+    echo "Documentation will be served at the following URLs:"
+    for x in ${url_src_dst_vers}; do
+      IFS='^' read -r url _ _ <<POSIX_HERESTRING
 $x
 POSIX_HERESTRING
 
-    if [ -n "${url}" ]; then
-      if [ "${_url}" != "arbitrary" ]; then
-        echo "  ${url}"
+      if [ -n "${url}" ]; then
+        if [ "${_url}" != "arbitrary" ]; then
+          echo "  ${url}"
+        fi
       fi
-    fi
-  done
+    done
 
-  echo
-  "${PODMAN}" run \
-    --env "HUGO_REFLINKSERRORLEVEL=${HUGO_REFLINKSERRORLEVEL}" \
-    --init \
-    --interactive \
-    --name "${DOCS_CONTAINER}" \
-    --platform linux/amd64 \
-    --publish "${DOCS_HOST_PORT}:3002" \
-    --publish "3003:3003" \
-    --rm \
-    --tty \
-    ${volumes} \
-    "${DOCS_IMAGE}" \
-    /entrypoint
-fi
+    echo
+    "${PODMAN}" run \
+      --env "HUGO_REFLINKSERRORLEVEL=${HUGO_REFLINKSERRORLEVEL}" \
+      --init \
+      --interactive \
+      --name "${DOCS_CONTAINER}" \
+      --platform linux/amd64 \
+      --publish "${DOCS_HOST_PORT}:3002" \
+      --publish "3003:3003" \
+      --rm \
+      --tty \
+      ${volumes} \
+      "${DOCS_IMAGE}" \
+      /entrypoint
+    ;;
+esac

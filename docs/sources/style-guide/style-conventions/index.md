@@ -156,7 +156,6 @@ On the published page, this caution renders as follows:
 By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
 {{% /admonition %}}
 
-
 ### Warnings
 
 A warning informs the user not to do something.
@@ -177,4 +176,3 @@ On the published page, this warning renders as follows:
 By disabling authentication requirements, anyone can access your Grafana instance.
 There is a considerable security risk associated with this.
 {{% /admonition %}}
-

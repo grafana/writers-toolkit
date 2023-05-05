@@ -12,7 +12,7 @@ jobs:
       - name: "Checkout code"
         uses: "actions/checkout@v3"
       - name: "Run linter"
-        run: "/bin/vale --config /etc/vale/.vale.ini --output=/src/rdjsonl.tmpl docs/sources | /bin/reviewdog -f=rdjsonl -name=vale"
+        run: "/bin/vale --config /etc/vale/.vale.ini --output=/src/rdjsonl.tmpl ./docs/sources | /bin/reviewdog -f=rdjsonl --name=vale --filter-mode=nofilter"
   doc-validator:
     runs-on: "ubuntu-latest"
     container:

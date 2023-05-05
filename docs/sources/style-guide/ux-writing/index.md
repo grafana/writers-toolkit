@@ -206,14 +206,6 @@ If you provide instructions for an input field, be clear about limitations, requ
 
 Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. The placeholder text should be a hint of the value to be expected.
 
-**Use:**
-
-> **SLO description** \***\*\*\*\*\***\_\_\***\*\*\*\*\***<p></p>This description appears in a panel next to your SLO status.
-
-**Don't use:**
-
-> **SLO description that appears in a panel next to your SLO status.** <p></p> \***\*\*\*\*\***\_\_\***\*\*\*\*\***
-
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-inlinefield--with-tooltip) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-inlinefield--basic).
 
 ## Errors

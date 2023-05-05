@@ -141,7 +141,7 @@ Use periods for multiple sentences.
 **Use:**
 
 > Metrics, Logs, and Traces are billed based on ingestion.
-For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
+> For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
 
 **Don't use:**
 

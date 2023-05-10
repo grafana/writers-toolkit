@@ -4,6 +4,14 @@
 
 [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 
+## Unreleased
+
+- Support for the grafana-cloud/frontend-observability/faro-web-sdk project.
+
+### Added
+
+- Support for running the Vale linter with `make vale`.
+
 ## 1.2.1 (2023-05-05)
 
 ### Fixed

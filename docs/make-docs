@@ -12,6 +12,7 @@ readonly DOC_VALIDATOR_INCLUDE="${DOC_VALIDATOR_INCLUDE:-.+\.md$}"
 
 readonly HUGO_REFLINKSERRORLEVEL="${HUGO_REFLINKSERRORLEVEL:-WARNING}"
 readonly WEBSITE_EXEC="${WEBSITE_EXEC:-make server}"
+readonly VALE_MINALERTLEVEL="${VALE_MINALERTLEVEL:-error}"
 # If set, the docs-base image will run a prebuild script that sets up Hugo mounts.
 readonly WEBSITE_MOUNTS="${WEBSITE_MOUNTS:-}"
 
@@ -62,6 +63,8 @@ SOURCES_enterprise_metrics='backend-enterprise'
 SOURCES_enterprise_metrics_='backend-enterprise'
 SOURCES_grafana_cloud='cloud-docs'
 SOURCES_grafana_cloud_k6='k6-docs'
+SOURCES_grafana_cloud_data_configuration_integrations='cloud-onboarding'
+SOURCES_grafana_cloud_frontend_observability_faro_web_sdk='faro-web-sdk'
 SOURCES_grafana_cloud_machine_learning='machine-learning'
 SOURCES_helm_charts_mimir_distributed='mimir'
 SOURCES_helm_charts_tempo_distributed='tempo'
@@ -70,6 +73,8 @@ SOURCES_opentelemetry='opentelemetry-docs'
 VERSIONS_as_code='UNVERSIONED'
 VERSIONS_grafana_cloud='UNVERSIONED'
 VERSIONS_grafana_cloud_k6='UNVERSIONED'
+VERSIONS_grafana_cloud_data_configuration_integrations='UNVERSIONED'
+VERSIONS_grafana_cloud_frontend_observability_faro_web_sdk='UNVERSIONED'
 VERSIONS_grafana_cloud_machine_learning='UNVERSIONED'
 VERSIONS_opentelemetry='UNVERSIONED'
 VERSIONS_technical_documentation='UNVERSIONED'
@@ -354,7 +359,7 @@ case "${image}" in
       --tty \
       ${volumes} \
       "${DOCS_IMAGE}" \
-      --minAlertLevel=error \
+      --minAlertLevel="${VALE_MINALERTLEVEL}" \
       --config=/etc/vale/.vale.ini \
       --output=line \
       /hugo/content/docs | sed "s#$(proj_dst "${proj}")#sources#"

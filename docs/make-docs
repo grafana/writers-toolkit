@@ -11,8 +11,8 @@ readonly DOCS_IMAGE="${DOCS_IMAGE:-grafana/docs-base:latest}"
 readonly DOC_VALIDATOR_INCLUDE="${DOC_VALIDATOR_INCLUDE:-.+\.md$}"
 
 readonly HUGO_REFLINKSERRORLEVEL="${HUGO_REFLINKSERRORLEVEL:-WARNING}"
-readonly WEBSITE_EXEC="${WEBSITE_EXEC:-make server}"
 readonly VALE_MINALERTLEVEL="${VALE_MINALERTLEVEL:-error}"
+readonly WEBSITE_EXEC="${WEBSITE_EXEC:-make docs}"
 # If set, the docs-base image will run a prebuild script that sets up Hugo mounts.
 readonly WEBSITE_MOUNTS="${WEBSITE_MOUNTS:-}"
 

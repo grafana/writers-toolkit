@@ -16,8 +16,4 @@ The guidelines are for anyone who is interested in improving Grafana Labs' techn
 
 If you are already familiar with the guidelines, feel free to get started from one of the [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
 
-<!-- vale Grafana.Exclamation = NO -->
-
 We hope you find what you are looking for. If you don't, provide us with the feedback, so we can continuously improve this writing guide.
-
-<!-- vale Grafana.Exclamation = YES -->

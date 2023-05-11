@@ -79,7 +79,7 @@ However, unlike our comprehensive changelog, What’s New is curated. If it cont
 
 So how do you decide whether to write a What’s New post for your latest improvement?
 
-### Add a What’s New for anything that could make a customer say “oo! 😃 ” or “ooo… 😬 ”
+### Add a What’s New for anything that could excite or concern a customer
 
 What's new content should address changes that have some kind of material impact on the user experience.
 
@@ -104,7 +104,7 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
 - [New keyboard shortcut](https://github.com/grafana/grafana/pull/61837)
   - This is a small change, but it brings attention to a feature that has been improved recently and that most people don't know about.
 - [Search improvement for Flame graphs](https://github.com/grafana/grafana/pull/61748)
-  - Fuzzy search! Has to be in the blog post.
+  - Fuzzy search. Has to be in the blog post.
 - [Changes to the Prometheus query editor](https://github.com/grafana/grafana/pull/60718)
   - These are query patterns for the data source that most of our users use.
 

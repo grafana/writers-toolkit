@@ -25,7 +25,7 @@ Be conversational but don't use the voice you use when texting a friend.
 
 **Use:**
 
-> Welcome! We’ll guide you through the process of creating your SLOs.
+> We’ll guide you through the process of creating your SLOs.
 
 **Don't use:**
 

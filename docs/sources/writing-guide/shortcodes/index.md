@@ -108,12 +108,18 @@ The `section` shortcode renders an unordered list of links to a page's child pag
 | **ordered**          | If set to `"true"`, the ordered parameter modifies the template to use an ordered list instead of an unordered list, displaying each item with a number marker                                                                                                          | no       |
 | **withDescriptions** | If set to `"true"`, the withDescriptions parameter modifies the template to include the front matter descriptions for child pages that have them.                                                                                                                       | no       |
 
-### Example
+### Examples
 
 The following shortcode inserts a list of links to the pages's subpages. The links are named using the value of `menuTitle` from each subpage's front matter.
 
 ```markdown
 {{</* section menuTitle="true"*/>}}
+```
+
+This shortcode inserts a lists of links to the page's subpages and includes the `description` content from each subpage's front matter.
+
+```markdown
+{{</* section withDescriptions="true"*/>}}
 ```
 
 ## Escaping Hugo shortcodes

@@ -6,7 +6,13 @@
 
 ## Unreleased
 
+### Added
+
 - Support for the grafana-cloud/frontend-observability/faro-web-sdk project.
+
+### Fixed
+
+- Source grafana-cloud project from website repository.
 
 ### Added
 

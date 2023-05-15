@@ -104,7 +104,7 @@ To link to the source files directly, refer to the following table:
 
 | Source page                      | Destination page                 | relref                                     |
 | -------------------------------- | -------------------------------- | ------------------------------------------ |
-| `/docs/sources/branch/_index.md` | `/docs/sources/branch/other.md`  | `{{</* relref "other.md" */>}}`            |
+| `/docs/sources/branch/_index.md` | `/docs/sources/branch/other.md`  | `{{</* relref "./other.md" */>}}`          |
 | `/docs/sources/branch/_index.md` | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
 | `/docs/sources/leaf/index.md`    | `/docs/sources/branch/_index.md` | `{{</* relref "../branch/_index.md" */>}}` |
 | `/docs/sources/leaf/index.md`    | `/docs/sources/branch/other.md`  | `{{</* relref "../branch/other.md" */>}}`  |
@@ -114,7 +114,9 @@ To link to the source files directly, refer to the following table:
 To avoid having to worry about whether the destination is a leaf bundle, a branch bundle, or a regular file, you can omit the `/_index.md`, `/index.md`, or `.md` extension.
 In each case, the relref resolves to the same page.
 
-> **Note:**: If the destination file or its containing directory has a period (`.`) in the path, you have to link to the source file directly.
+{{% admonition type="warning" %}}
+If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
+{{% /admonition %}}
 
 | Source page                           | Destination page                      | relref                                 |
 | ------------------------------------- | ------------------------------------- | -------------------------------------- |
@@ -122,7 +124,7 @@ In each case, the relref resolves to the same page.
 | `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
 | `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/`       | `{{</* relref "../branch" */>}}`       |
 | `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/other/` | `{{</* relref "../branch/other" */>}}` |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "./" */>}}`              |
+| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "." */>}}`               |
 | `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
 
 ### Anchors

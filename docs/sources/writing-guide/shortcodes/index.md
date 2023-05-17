@@ -98,6 +98,21 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 {{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
+## `responsive-table` shortcode
+
+The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.
+This results in a table with horizontal scrolling that is fixed to the width of the containing element.
+
+### Example
+
+```markdown
+{{%/* responsive-table */%}}
+| Header column one | Header column two |
+| - | - |
+| Row one, column one | Row one, column two |
+{{%/* /responsive-table */%}}
+```
+
 ## `section` shortcode
 
 The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameters:

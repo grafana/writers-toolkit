@@ -122,8 +122,7 @@ Hugo references addressed across different products' docs, such as from `/docs/g
 
 To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
 
-For cross-repository links, use a standard markdown link, with the link structured like so:
-`\docs\repo\page\`
+For cross-repository links, use a standard markdown link, with the link structured like this: `\docs\repo\page\`.
 
 For example:
 
@@ -134,7 +133,7 @@ This is an [example cross-repository link](/docs/grafana/whatsnew) to the Grafan
 Using a Hugo `relref` in a cross-repository link or a link to a specific version can result in a page not found error message when running `make docs` if the linked content isn't mounted when using the script.
 
 Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
-With partial URIs, you also cannot check these links without the content mounted. For example, `/docs/grafana/latest/ from /docs/tempo/latest` won't resolve unless you have both projects mounted in the webserver.
+With partial URIs, you also cannot check these links without the content mounted. For example, `/docs/grafana/latest/` from `/docs/tempo/latest` won't resolve unless you have both projects mounted in the webserver.
 
 ## Anchors
 

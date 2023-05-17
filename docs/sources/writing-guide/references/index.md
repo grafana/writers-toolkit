@@ -15,8 +15,7 @@ keywords:
 Links are a mechanism for reusing content.
 Instead of writing the same information twice, you can link to a definitive source of truth.
 
-When linking, keep in mind that the reader is directed away from the current content when following the link.
-Just because a link can be made, it doesn't mean it should be made.
+> **Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
 
 ## Understanding hyperlinks
 
@@ -115,7 +114,28 @@ Refer to the following table for the correct relref to use to link between each 
 If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
 {{% /admonition %}}
 
-### Anchors
+## Versions and cross-repository linking
+
+For Grafana's webserver environments, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/` and so forth) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
+
+Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be predictably addressed.
+
+To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
+
+For cross-repository links, use a standard markdown link, with the link structured like this: `\docs\repo\page\`.
+
+For example:
+
+```markdown
+This is an [example cross-repository link](/docs/grafana/whatsnew) to the Grafana repository.
+```
+
+Using a Hugo `relref` in a cross-repository link or a link to a specific version can result in a page not found error message when running `make docs` if the linked content isn't mounted when using the script.
+
+Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
+With partial URIs, you also cannot check these links without the content mounted. For example, `/docs/grafana/latest/` from `/docs/tempo/latest` won't resolve unless you have both projects mounted in the webserver.
+
+## Anchors
 
 In a reference, you can optionally include an anchor to a heading in the referenced page.
 Specify and anchor at the end of the reference `#` followed by the normalized heading.

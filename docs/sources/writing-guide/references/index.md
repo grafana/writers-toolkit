@@ -15,8 +15,7 @@ keywords:
 Links are a mechanism for reusing content.
 Instead of writing the same information twice, you can link to a definitive source of truth.
 
->**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
-
+> **Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
 
 ## Understanding hyperlinks
 
@@ -132,7 +131,7 @@ For example:
 This is an [example cross-repository link](/docs/grafana/whatsnew) to the Grafana repository.
 ```
 
-Using a Hugo `relref` in a cross-repository link or a link to a specific version can result in a page not found error message when running `make docs` if the linked content isn't mounted when using the script. 
+Using a Hugo `relref` in a cross-repository link or a link to a specific version can result in a page not found error message when running `make docs` if the linked content isn't mounted when using the script.
 
 Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
 With partial URIs, you also cannot check these links without the content mounted. For example, `/docs/grafana/latest/ from /docs/tempo/latest` won't resolve unless you have both projects mounted in the webserver.

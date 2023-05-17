@@ -40,7 +40,7 @@ To reuse shared content:
    ```
 
    The `index.md` file tells Hugo that the `docs/sources/shared` directory is a leaf bundle which is necessary for the `docs/shared` shortcode to access files stored within.
-   For more information about leaf bundles, refer to [Pages and page bundles]({{< relref "../documentation-structure/#pages-and-page-bundles" >}}).
+   For more information about leaf bundles, refer to [Pages and page bundles]({{< relref "../documentation-structure#pages-and-page-bundles" >}}).
 
    After performing the preceding instructions for the first time in a new repository, the directory structure looks similar to the following:
 
@@ -69,8 +69,8 @@ To reuse shared content:
    {{</* docs/shared source="tempo" lookup="common-introduction.md" version="latest" */>}}
    ```
 
-   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "../shortcodes/#docsshared-shortcode" >}}).
+   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "../shortcodes#docsshared-shortcode" >}}).
 
 1. Verify the include.
 
-   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "../contribute-documentation/#Review-your-changes" >}})
+   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "../contribute-documentation#Review-your-changes" >}})

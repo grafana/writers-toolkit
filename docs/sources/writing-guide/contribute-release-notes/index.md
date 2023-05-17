@@ -18,7 +18,7 @@ This topic explains the decisions and actions associated with collecting, writin
 
 Developing directly in Markdown reduces errors and removes a manual (toilsome and error-prone step), by creating, editing, discussing, and publishing in the same format from which we will publish in GitHub, using the Grafana repo.
 
-Consider adding an image, though be aware that we will not maintain them, as the document reflects a "point in time." If you need to add an image, refer to [Image, diagram, and screenshot guidelines]({{< relref "../image-guidelines/" >}}).
+Consider adding an image, though be aware that we will not maintain them, as the document reflects a "point in time." If you need to add an image, refer to [Image, diagram, and screenshot guidelines]({{< relref "../image-guidelines" >}}).
 
 ### When the prior release is complete
 
@@ -79,7 +79,7 @@ However, unlike our comprehensive changelog, What’s New is curated. If it cont
 
 So how do you decide whether to write a What’s New post for your latest improvement?
 
-### Add a What’s New for anything that could make a customer say “oo! 😃 ” or “ooo… 😬 ”
+### Add a What’s New for anything that could excite or concern a customer
 
 What's new content should address changes that have some kind of material impact on the user experience.
 
@@ -87,7 +87,7 @@ What's new content should address changes that have some kind of material impact
   - Most visualization changes and most additions to the UI should be in the What's new document, even when they seem small.
 - Almost every change or addition associated with Prometheus and Loki is of interest, too.
 - What's New content should also include changes that require customers to do something, like change their API keys to Service Accounts, or stop using a deprecated API or plugin.
-- A What's New doc should include announcements — things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
+- A What's New doc should include announcements—things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
 
 When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in What’s New_.
 
@@ -104,7 +104,7 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
 - [New keyboard shortcut](https://github.com/grafana/grafana/pull/61837)
   - This is a small change, but it brings attention to a feature that has been improved recently and that most people don't know about.
 - [Search improvement for Flame graphs](https://github.com/grafana/grafana/pull/61748)
-  - Fuzzy search! Has to be in the blog post.
+  - Fuzzy search. Has to be in the blog post.
 - [Changes to the Prometheus query editor](https://github.com/grafana/grafana/pull/60718)
   - These are query patterns for the data source that most of our users use.
 
@@ -113,7 +113,7 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
 These are important improvements, but are better placed in the changelog than What’s new:
 
 - [A docs update](https://github.com/grafana/grafana/pull/60352)
-  - This update doesn’t require customers to change their behavior — they’ll simply see better instructions the next time they use the docs.
+  - This update doesn’t require customers to change their behavior—they’ll simply see better instructions the next time they use the docs.
 - [A bug fix related to migrations](https://github.com/grafana/grafana/pull/59438)
   - This is a bug fix that doesn’t require customer action.
 - [A usability improvement to an existing transformation](https://github.com/grafana/grafana/pull/59074)

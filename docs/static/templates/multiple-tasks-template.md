@@ -10,6 +10,7 @@ keywords:
   - keyword 2
   - keyword 3
 ---
+
 <!-- For more information about how to populate front matter, see [Topic front matter]({{< relref "../../front-matter/" >}}). -->
 
 # Perform multiple tasks
@@ -17,8 +18,8 @@ keywords:
 <!-- The task title is required. The task title succinctly describes the goal to accomplish, as the result of following the instructions. The task title contains a verb and an object. For example: Create a dashboard -->
 
 Add an introduction to the task.
- 
-<!-- The introduction is required. Add an introduction to describe what the task is and why it’s important to the user. What is the goal the user accomplishes with this task and in what context would it be used? 
+
+<!-- The introduction is required. Add an introduction to describe what the task is and why it’s important to the user. What is the goal the user accomplishes with this task and in what context would it be used?
 
 Use this template for procedures that contain a series of related tasks. If you only have one task, start from the [task-template.md](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md) file instead.
 
@@ -47,11 +48,11 @@ _Goal of procedure_:
 
 Replace any text in _italics_ with content for your procedure and remove or add lines as needed.
 
-Write each prerequisite as a full sentence or sentence fragment, using parallel structures. 
+Write each prerequisite as a full sentence or sentence fragment, using parallel structures.
 
 If you have more than one task, include all prerequisites in this section. For example, if you have a page that configures a widget and several tasks have prerequisites, list all prerequisites in the Before you begin section. This way users can have everything they need before they start performing the tasks.
 
-If you do not need this section, delete it. 
+If you do not need this section, delete it.
  -->
 
 ## Configure service
@@ -59,7 +60,8 @@ If you do not need this section, delete it.
 <!-- Optional: Add an introductory sentence to this task. For example, summarize the purpose of this task in relation to the overall procedure.    -->
 
 To [task name]:
-<!-- 
+
+<!--
 The stem sentence introduces the steps and provides a visual cue for users who scan content, and it lets them know that the steps are about to begin.
 A stem sentence begins with the word 'To' and includes the name of the task.
 If you want to provide additional information about a step, add it to a separate line and indent it.
@@ -69,7 +71,7 @@ For example: To build a dashboard: -->
 1. Open your web browser and go to http://localhost:3000/.
 
    The default HTTP port that Grafana listens to is `3000` unless you have configured a different port.
-   
+
 1. On the sign-in page, enter `admin` for the username and password.
 1. Click **Sign in**.
 
@@ -88,39 +90,40 @@ Write steps so that they contain one action, or possibly two related actions, su
 
 If a sentence does not tell the reader to do something, then it is not a step.
 
-To add context that is directly related to a step, or to add a code block, indent it underneath the step. Doing so properly scopes the added information to the step. 
+To add context that is directly related to a step, or to add a code block, indent it underneath the step. Doing so properly scopes the added information to the step.
 -->
 
 ## Set up the environment
 
 <!-- This section provides an example of nested steps with code blocks. -->
 
-1. Create a file named `sample.yaml` and copy the following YAML configuration into it:
+1.  Create a file named `sample.yaml` and copy the following YAML configuration into it:
 
     ```yaml
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
-    ... 
     ```
- 1. Run the following command to apply the `sample.yaml` file:
- 
+
+1.  Run the following command to apply the `sample.yaml` file:
+
         ```bash
         kubectl apply --namespace sample -f sample.yaml
         ```
-  1. To check that MinIO is correctly configured, sign in and verify that a bucket has been created.
-  
-     1.  Port-forward the service to port 9001:
-         ```bash
-          kubectl port-forward --namespace tempo service/sample 9001:9001
-          ```
-     1. Navigate to the admin bash using your browser: `https://localhost:9001`. The sign-in credentials are username `user` and password `user123`.
-     1. Verify that the Buckets page lists `sample-data`.
-     
-     Without these buckets, no data will be stored.
 
+1.  To check that MinIO is correctly configured, sign in and verify that a bucket has been created.
+
+    1. Port-forward the service to port 9001:
+       ```bash
+        kubectl port-forward --namespace tempo service/sample 9001:9001
+       ```
+    1. Navigate to the admin bash using your browser: `https://localhost:9001`. The sign-in credentials are username `user` and password `user123`.
+    1. Verify that the Buckets page lists `sample-data`.
+
+    Without these buckets, no data will be stored.
 
 ## Optional: Install libraries
+
 <!-- Optional: If a task is not required but provides additional features, you can mark that section as optional and describe when it should be completed. If this section is not needed, delete it.
 -->
 

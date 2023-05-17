@@ -65,7 +65,7 @@ Displays as:
 
 ## Links and references
 
-For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references/" >}}).
+For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references" >}}).
 
 If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
 
@@ -156,7 +156,7 @@ The preceding snippet displays as follows:
 
 ## Images
 
-_Do not_ use image shortcodes at this time. Instead, include images in a document using the following syntax:
+Include images in a document using the following syntax:
 
 ```markdown
 ![Alt text](link to image, starting with /static/img/docs/ if it is to an internal image "Title of image in sentence case")
@@ -171,7 +171,9 @@ _Do not_ use image shortcodes at this time. Instead, include images in a documen
 
 This follows the format `![alt text](URL)`.
 
-Within Markdown, HTML is valid and to be used sparingly:
+Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes#figure-shortcode" >}}) if you need more image options, such as adding captions or controlling the image size.
+
+Within Markdown, HTML is valid, but should be used sparingly:
 
 ```html
 <img
@@ -210,7 +212,7 @@ Reasons you might want to write programs in Go include the following:
 The preceding description list displays as follows:
 
 **Fast compile times**
-: The Go compiler is fast!
+: The Go compiler is fast.
 
 **Ecosystem**
 : Go tooling is excellent.
@@ -223,4 +225,4 @@ You can include comments that do not display in published output:
 
 ## Shortcodes
 
-Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes/" >}}).
+Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes" >}}).

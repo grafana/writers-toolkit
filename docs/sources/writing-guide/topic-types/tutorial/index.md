@@ -11,9 +11,11 @@ keywords:
 
 # Tutorial topic
 
-The purpose of a tutorial is to show the reader how to "learn by doing" in a safe environment. A tutorial should build up easy successes that inspire a user to say, “I just did that! Wow!” The length of a tutorial can vary from a few steps to many subtasks.
+The purpose of a tutorial is to show the reader how to "learn by doing" in a safe environment.
+A tutorial should build up easy successes.
+The length of a tutorial can vary from a few steps to many subtasks.
 
-If you have an idea for a tutorial you’d like to develop, contact the team. Internal contributors can reach out on Slack and external contributors are welcome to reach us using our docs@grafana.com email.
+If you have an idea for a tutorial you’d like to develop, contact the team. Internal contributors can reach out on Slack and external contributors are welcome to reach us using our [docs@grafana.com](mailto:docs@grafana.com) email.
 
 ## Tutorial structure
 
@@ -32,7 +34,7 @@ A tutorial topic includes the following elements:
 - Use a bulleted list if there is more than one prerequisite.
 - If there are no prerequisites, do not include this section.
 
-**Task section (or sections)**: Create a section for each task needed to complete the tutorial. Follow the [task guidelines]({{< relref "../task/" >}}) to write the tasks.
+**Task section (or sections)**: Create a section for each task needed to complete the tutorial. Follow the [task guidelines]({{< relref "../task" >}}) to write the tasks.
 
 - To determine what tasks and steps you should include in your tutorial, perform a goal analysis and determine the valuable outcome the user wants to achieve. Limit the tutorial to the tasks needed to satisfy that goal. Work with a Subject Matter Expert (SME) to determine the goal and the minimal set of tasks. If possible, record the SME completing the tasks needed to accomplish the goal or ask the SME to record a demo of the tasks if that's preferable.
 - Work with a Subject Matter Expert (SME) to

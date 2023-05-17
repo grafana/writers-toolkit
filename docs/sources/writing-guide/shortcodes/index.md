@@ -20,7 +20,27 @@ The following sections describe shortcodes available for use in Grafana Markdown
 
 > **Note for internal Grafana Labs contributors**: The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repo. To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 
-## docs/shared shortcode
+## `admonition` shortcode
+
+The `admonition` shortcode renders its content in a blockquote or stylized banner.
+The style depends on the admonition type as defined in the Writers' Toolkit [Style conventions]({{< relref "../../style-guide/style-conventions" >}}).
+
+The content of the admonition must be within opening and closing tags.
+
+| Parameter | Description                                                           | Required |
+| --------- | --------------------------------------------------------------------- | -------- |
+| `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
+
+### Example
+
+The following snippet renders an admonition of type `note` with a message `Kingston is the capital of Jamaica`.
+
+```html
+{{%/* admonition type="note" */%}} Kingston is the capital of Jamaica. {{%/*
+/admonition */%}}
+```
+
+## `docs/shared` shortcode
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory.
 
@@ -54,21 +74,23 @@ The following shortcode inserts the latest version of `shared-page.md` from the 
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
 ```
 
-## figure shortcode
+## `figure` shortcode
 
-The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. To add a figure, insert the `figure` shortcode with the following named parameters:
+The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide#images" >}}).
 
-| Parameter        | Description                                                                                                                                                                                                                                                                | Required |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| **animated-gif** | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the `caption` and `maxWidth` parameters are ignored.                                                     | no       |
-| **caption**      | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.                                                                                                                                               | no       |
-| **class**        | Can be optionally used to override the HTML class for the `<figure>` element.                                                                                                                                                                                              | no       |
-| **lazy**         | If set to `"false"`, the `lazyload` class is **not** also applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.          | no       |
-| **lightbox**     | If set to `"true"` the `figure-wrapper__lightbox` class is also applied to the `<figure>`.                                                                                                                                                                                 | no       |
-| **link**         | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.                                                                                                                                                | no       |
-| **maxWidth**     | If set, `maxWidth` controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement (e.g. '75px' or '25%'). | no       |
-| **showCaption**  | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in `caption`. Defaults to `"true"`.                                                                                                                                     | no       |
-| **src**          | Sets the source of the image.                                                                                                                                                                                                                                              | yes      |
+To add a figure, insert the `figure` shortcode with the following named parameters:
+
+| Parameter        | Description                                                                                                                                                                                                                                                                      | Required |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| **animated-gif** | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the `caption` and `maxWidth` parameters are ignored.                                                           | no       |
+| **caption**      | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.                                                                                                                                                     | no       |
+| **class**        | Can be optionally used to override the HTML class for the `<figure>` element.                                                                                                                                                                                                    | no       |
+| **lazy**         | If set to `"false"`, the `lazyload` class is **not** also applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.                | no       |
+| **lightbox**     | If set to `"true"` the `figure-wrapper__lightbox` class is also applied to the `<figure>`.                                                                                                                                                                                       | no       |
+| **link**         | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.                                                                                                                                                      | no       |
+| **maxWidth**     | If set, `maxWidth` controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement, for example '75px' or '25%'. | no       |
+| **showCaption**  | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in `caption`. Defaults to `"true"`.                                                                                                                                           | no       |
+| **src**          | Sets the source of the image.                                                                                                                                                                                                                                                    | yes      |
 
 ### Example
 
@@ -76,7 +98,7 @@ The `figure` shortcode renders an image with a caption using an HTML [`<figure>`
 {{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-## section shortcode
+## `section` shortcode
 
 The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameters:
 
@@ -86,12 +108,18 @@ The `section` shortcode renders an unordered list of links to a page's child pag
 | **ordered**          | If set to `"true"`, the ordered parameter modifies the template to use an ordered list instead of an unordered list, displaying each item with a number marker                                                                                                          | no       |
 | **withDescriptions** | If set to `"true"`, the withDescriptions parameter modifies the template to include the front matter descriptions for child pages that have them.                                                                                                                       | no       |
 
-### Example
+### Examples
 
 The following shortcode inserts a list of links to the pages's subpages. The links are named using the value of `menuTitle` from each subpage's front matter.
 
 ```markdown
 {{</* section menuTitle="true"*/>}}
+```
+
+This shortcode inserts a lists of links to the page's subpages and includes the `description` content from each subpage's front matter.
+
+```markdown
+{{</* section withDescriptions="true"*/>}}
 ```
 
 ## Escaping Hugo shortcodes

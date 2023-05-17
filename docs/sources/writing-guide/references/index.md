@@ -12,30 +12,75 @@ keywords:
 
 # Links and cross references
 
-Hugo has built-in shortcodes for creating links to documents.
-The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
+Links are a mechanism for reusing content.
+Instead of writing the same information twice, you can link to a definitive source of truth.
 
 >**Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
 
-## Relative references
+
+## Understanding hyperlinks
+
+Links can be written in many forms that are enumerated in [<a>: The Anchor element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).
+
+This document focuses only on HTTP-based URLs that have the scheme `http` or `https`.
+
+Link destinations can be specified in different ways.
+All of the following destinations link https://grafana.com/docs/grafana/latest to when followed from the page https://grafana.com/docs:
+
+- https://grafana.com/docs/grafana/latest: fully specified HTTPS URL.
+- /docs/grafana/latest: partial URL with absolute path.
+- ./grafana/latest: relative path.
+
+To choose the correct link destination type, follow these steps:
+
+1. If the destination is external to the https://grafana.com website, use the fully specified HTTPS URL.
+   For example, https://github.com.
+1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-directories" >}}):
+
+   1. If the destination is also present in the destination mount, use a relative URL path.
+      This keeps reader within the destination project.
+      For example, `{{</* relref "./path/to/page" */>}}`.
+
+      Use the Hugo `relref` shortcode for build time link checking.
+      For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
+
+   1. Otherwise use a partial URL with an absolute path.
+      This always brings the reader back to the destination page in the source project.
+      For example, `/docs/writers-toolkit/writing-guide/`.
+
+1. If the destination is internal to the https://grafana.com website, but external to the project documentation,
+   use a partial URL with an absolute path.
+   For example, `/blog/`.
+1. Otherwise, use a relative path.
+   For example, `{{</* relref "./path/to/page" */>}}`.
+
+   Use the Hugo `relref` shortcode for build time link checking.
+   For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
+
+## Build time link checking with Hugo
+
+Hugo has built-in shortcodes for creating links to documents.
+The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
+They both provide build time link checking to ensure that the destination exists.
+
+{{% admonition type="warning" %}}
+If you do not use a Hugo relref for build time link checking, your links may be broken without you realizing it.
+{{% /admonition %}}
 
 Relative references are the most common references in Grafana technical documentation.
-This is the Hugo shortcode: `{{</* relref "<RELATIVE FILE/URL PATH>" */>}}`
+This is the Hugo shortcode: `{{</* relref "<DESTINATION>" */>}}`.
 
-There are two forms of relative references:
+{{% admonition type="note" %}}
+Hugo link checking depends on having all the content available during the build.
+In most projects, the only content available during local builds and CI is the current project documentation.
+Therefore, the current advice is that `relref`s should only be used for links within the current project.
+{{% /admonition %}}
 
-- **File path based**: resolved using file paths.
-- **URL path based**: resolved using URL paths.
+### Determine relref destinations
 
-Typically, file path based relative references include a `.md` suffix and no trailing slash.
-Conversely, URL path based relative references don't have a file suffix, but might have a trailing slash.
-
-### Determine relrefs
-
-How Hugo resolves relative references can cause confusion because of how they interact with [Page Bundles](https://gohugo.io/content-management/page-bundles/).
 Hugo resolves URL path based relrefs from the page bundle, and not the page itself.
 
-For example, the following directory structure:
+For example, with the following directory structure:
 
 ```
 docs
@@ -47,36 +92,28 @@ docs
         └── index.md
 ```
 
-It produces the following website pages:
+Hugo produces the following website pages:
 
 ```
-/docs/technical-documentation/branch/
-/docs/technical-documentation/branch/other/
-/docs/technical-documentation/leaf/
+/docs/writers-toolkit/branch/
+/docs/writers-toolkit/branch/other/
+/docs/writers-toolkit/leaf/
 ```
 
-All of the URL path based relrefs between these pages are are follows:
+Refer to the following table for the correct relref to use to link between each of the example pages.
 
-| Source page                                   | Destination page                              | relref                                 |
-| --------------------------------------------- | --------------------------------------------- | -------------------------------------- |
-| `/docs/technical-documentation/branch/`       | `/docs/technical-documentation/branch/other/` | `{{</* relref "other" */>}}`           |
-| `/docs/technical-documentation/branch/`       | `/docs/technical-documentation/leaf/`         | `{{</* relref "../leaf" */>}}`         |
-| `/docs/technical-documentation/leaf/`         | `/docs/technical-documentation/branch/`       | `{{</* relref "../branch" */>}}`       |
-| `/docs/technical-documentation/leaf/`         | `/docs/technical-documentation/branch/other/` | `{{</* relref "../branch/other" */>}}` |
-| `/docs/technical-documentation/branch/other/` | `/docs/technical-documentation/branch/`       | `{{</* relref "./" */>}}`              |
-| `/docs/technical-documentation/branch/other/` | `/docs/technical-documentation/leaf/`         | `{{</* relref "../leaf" */>}}`         |
+| Source page                           | Destination page                      | relref                                 |
+| ------------------------------------- | ------------------------------------- | -------------------------------------- |
+| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/branch/other/` | `{{</* relref "./other" */>}}`         |
+| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
+| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/`       | `{{</* relref "../branch" */>}}`       |
+| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/other/` | `{{</* relref "../branch/other" */>}}` |
+| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "." */>}}`               |
+| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
 
-You can refer to the table below for all file path based relrefs between these files.
-
-| Source file                      | Destination file                 | relref                                     |
-| -------------------------------- | -------------------------------- | ------------------------------------------ |
-| `/docs/sources/branch/_index.md` | `/docs/sources/branch/other.md`  | `{{</* relref "other.md" */>}}`            |
-| `/docs/sources/branch/_index.md` | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
-| `/docs/sources/leaf/index.md`    | `/docs/sources/branch/_index.md` | `{{</* relref "../branch/_index.md" */>}}` |
-| `/docs/sources/leaf/index.md`    | `/docs/sources/branch/other.md`  | `{{</* relref "../branch/other.md" */>}}`  |
-| `/docs/sources/branch/other.md`  | `/docs/sources/branch/_index.md` | `{{</* relref "_index.md" */>}}`           |
-| `/docs/sources/branch/other.md`  | `/docs/sources/leaf/index.md`    | `{{</* relref "../leaf/index.md" */>}}`    |
-
+{{% admonition type="warning" %}}
+If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
+{{% /admonition %}}
 
 ## Versions and cross-repository linking
 
@@ -113,43 +150,19 @@ To convert a heading to an anchor, Hugo makes the following changes:
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
 
-## Troubleshooting
-
-Start by checking if you are missing quotes: `"schemas.md#storage-schemas"` passes the build, but `schemas.md#storage-schemas` (without quotes) does not.
-
-### Links generated from references point to their own page/self-reference
-
-Hugo generates HTML link tags for properly formatted but incorrectly addressed references, such as those targeting a document Hugo can't resolve.
-This doesn't break the docs build, neither locally nor in the publishing process's continuous integration (CI) pipeline.
-In the generated source, Hugo leaves the hypertext reference (`href`) attribute unexpectedly empty:
-
-```html
-<a href="">Link text</a>
-```
-
-When clicking the resulting link in a browser, the browser loads the page that contains the link.
-In other words, the browser takes the user nowhere.
-Such links don't appear on 404 reports because the resulting links don't point to a technically invalid destination.
+### Hugo error output
 
 Hugo emits `REF_NOT_FOUND` warnings indicating the filename and location of such references when building the docs, for example with `make docs` in `grafana/grafana` or `make server-quick` in `grafana/website`:
 
 ```
-WARN 2022/08/04 21:35:37 [en] REF_NOT_FOUND: Ref "../../enterprise/": "/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md:14:47": page not found
+WARN 2022/08/04 21:35:37 [en] REF_NOT_FOUND: Ref "../../enterprise": "/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md:14:47": page not found
 ```
 
 In this example,
 
-- `Ref "../../enterprise/"` is the destination of the reference that Hugo can't resolve
+- `Ref "../../enterprise"` is the destination of the reference that Hugo can't resolve
 - `/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md` is the document containing the reference, where the path after `/next/` is relative to the documentation root of the component repository
 - `:14` represents the line number containing the unresolved reference
 - `:47` represents the character in that line where the unresolved reference begins
 
 If the reference's destination appears to be invalid, for example due to a typo in the reference or relref directory traversal depth, then you should be able to resolve this by correcting the reference target.
-
-However, if the reference's destination appears to be valid, it might not be referencing a unique document, or a sufficiently specific or correct path.
-You might need to use a different or more specific destination, or use a `ref` to reference the document's unique identifier if it has one.
-
-A document's filename can serve as unique identifiers, but they must be unique across _all_ documents Hugo is processing.
-For the live grafana.com website, this means the document or an alias must be unique across all _component_ docs sets&mdash;for example, across the combination of `grafana/grafana` docs, and `grafana/mimir` docs, and `grafana/cloud-docs`, and non-docs content such as `/tutorials/` and `/blogs/`, etc.
-
-If the affected link is from a product's documentation to another product's documentation, to a specific version of the same product's docs, or to non-docs content on grafana.com, replace the Hugo `ref` with a Markdown link relative to the current domain: `[link text](/docs/repo/version/folder/file/)`.

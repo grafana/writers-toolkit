@@ -1,0 +1,21 @@
+{
+  "name": "writers-toolkit",
+  "version": "1.0.0",
+  "description": "Guidelines for contributors who are interested in improving our technical content",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grafana/writers-toolkit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/grafana/writers-toolkit/issues"
+  },
+  "homepage": "https://grafana.com/docs/writers-toolkit",
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  },
+  "engines": {}
+}

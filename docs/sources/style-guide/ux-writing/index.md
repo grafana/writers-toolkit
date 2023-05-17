@@ -25,7 +25,7 @@ Be conversational but don't use the voice you use when texting a friend.
 
 **Use:**
 
-> Welcome! We’ll guide you through the process of creating your SLOs.
+> We’ll guide you through the process of creating your SLOs.
 
 **Don't use:**
 
@@ -140,11 +140,12 @@ Use periods for multiple sentences.
 
 **Use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion. For Metrics, we bill based on the number of active series using the 95th percentile during the period.
+> Metrics, Logs, and Traces are billed based on ingestion.
+> For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
 
 **Don't use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion<p></p><p></p>For Metrics, we bill based on the number of active series using the 95th percentile during the period
+> Metrics, Logs, and Traces are billed based on ingestion<p></p><p></p>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
 
 ### Write scannable descriptive text
 
@@ -205,14 +206,6 @@ Use short and scannable text for input field labels. Use sentence case and front
 If you provide instructions for an input field, be clear about limitations, requirements, and available characters for that field. Use a red asterisk for required fields. Use sentence case without punctuation for the instructions, unless there are multiple sentences.
 
 Optionally, you can provide descriptive placeholder text in an input field. If you do so, make your description clear and concise. The placeholder text should be a hint of the value to be expected.
-
-**Use:**
-
-> **SLO description** **********\_\_**********<p></p>This description appears in a panel next to your SLO status.
-
-**Don't use:**
-
-> **SLO description that appears in a panel next to your SLO status.** <p></p> **********\_\_**********
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/forms-inlinefield--with-tooltip) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/forms-inlinefield--basic).
 

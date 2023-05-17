@@ -37,7 +37,7 @@ jobs:
   vale:
     runs-on: "ubuntu-latest"
     container:
-      image: "grafana/vale:latest"
+      image: "grafana/vale:94c213a5a274f3aec541c749ae88cfeef2b9a6d241b15e9b282f1759d936e46a"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3"

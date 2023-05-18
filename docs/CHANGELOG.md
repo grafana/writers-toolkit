@@ -6,9 +6,12 @@
 
 ## Unreleased
 
+## 2.0.0 (2023-05-18)
+
 ### Added
 
 - Support for the grafana-cloud/frontend-observability/faro-web-sdk project.
+- Use of `doc-validator` v2.0.x which includes breaking changes to command line options.
 
 ### Fixed
 

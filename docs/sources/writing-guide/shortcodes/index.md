@@ -35,9 +35,10 @@ The content of the admonition must be within opening and closing tags.
 
 The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
 
-```html
-{{%/* admonition type="note" */%}} Kingston is the capital of Jamaica. {{%/*
-/admonition */%}}
+```markdown
+{{%/* admonition type="note" */%}}
+Kingston is the capital of Jamaica.
+{{%/* /admonition */%}}
 ```
 
 ## `docs/shared` shortcode

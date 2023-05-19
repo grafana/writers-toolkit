@@ -107,6 +107,8 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.
 This results in a table with horizontal scrolling that is fixed to the width of the containing element.
 
+Without the `responsive-table` shortcode, a table can often overflow its containing element and text can be hidden by neighboring elements like the table of contents.
+
 ### Example
 
 ```markdown

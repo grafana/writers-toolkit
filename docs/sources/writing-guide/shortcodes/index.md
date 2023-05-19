@@ -111,8 +111,8 @@ This results in a table with horizontal scrolling that is fixed to the width of 
 
 ```markdown
 {{%/* responsive-table */%}}
-| Header column one | Header column two |
-| - | - |
+| Heading, column one | Heading, column two |
+| ------------------- | ------------------- |
 | Row one, column one | Row one, column two |
 {{%/* /responsive-table */%}}
 ```

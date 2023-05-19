@@ -146,7 +146,7 @@ If you need to display the syntax for a shortcode, you can escape it using this 
 
 ![Escaped shortcode](./writers-toolkit-escaped-shortcode.png)
 
-This markdown renders as:
+This Markdown renders as:
 
 ```markdown
 {{</* myshortcode */>}}

@@ -6,6 +6,13 @@
 
 ## Unreleased
 
+## 3.0.0 (2023-05-18)
+
+### Fixed
+
+- Compatibility with the updated Make targets in the `website` repository.
+  `docs` now runs this script itself, `server-docs` builds the site with the `docs` Hugo environment.
+
 ## 2.0.0 (2023-05-18)
 
 ### Added

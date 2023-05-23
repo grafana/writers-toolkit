@@ -148,6 +148,12 @@ To convert a heading to an anchor, Hugo makes the following changes:
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
 
+If the anchor is in the current page, you don't need to use `relref` syntax.
+The following Markdown links are equivalent:
+
+- `[link text]({{</* relref "#anchor-in-current-page" */>}})`
+- `[link text](#anchor-in-current-page)`
+
 ### Hugo error output
 
 Hugo emits `REF_NOT_FOUND` warnings indicating the filename and location of such references when building the docs, for example with `make docs` in `grafana/grafana` or `make server-quick` in `grafana/website`:

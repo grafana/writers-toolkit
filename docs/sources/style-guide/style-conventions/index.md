@@ -119,7 +119,7 @@ Grafana Labs guidance matches the [Google Markdown style guide for lists](https:
 
 The resulting HTML "numbering" type for lazy numbering depends on the website style.
 Presently, all levels of nested numbering results in numbers.
-For more information about the available types of "numbering" types, refer to [<ol>: The Ordered List element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol#attributes).
+For more information about the available types of "numbering" types, refer to [The Ordered List element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol#attributes).
 
 ### Unordered lists
 

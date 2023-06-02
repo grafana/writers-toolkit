@@ -44,14 +44,11 @@ The following headings describe what each element does and provides guidelines f
 
 ### aliases
 
-Provides an HTML redirect from the pages in the list to the current page.
-For more information, refer to [Hugo aliases](#hugo-aliases).
+Used to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with the previous file path and name to create an HTML redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases).
 
-### description
+### (required) description
 
-**Required.**
-
-On social media, such as Twitter, displays as a clue to users about what the page includes.
+Used to provide the short description of the topic to search engines, including the search feature in the Grafana documentaiton site. The description is also diplayed on social media, such as Twitter, to provide a clue to users about what the page includes.
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
@@ -66,8 +63,8 @@ Use the command line flag `--buildDrafts` to generate content marked as `draft: 
 
 ### keywords
 
-The website uses keywords to link to related pages in the _Related content_ sections.
-They do not appear in the resulting HTML source for the page and do not affect SEO.
+The website uses keywords to genrate links to related pages in the _Related content_ sections.
+They do not appear in the resulting HTML source for the page and do not affect search engine optimization (SEO).
 
 Ideally, use single terms as opposed to phrases.
 
@@ -110,22 +107,25 @@ cascade:
       - cloud
 ```
 
-### title
+### menuTitle
 
-**Required.**
+Use to specify a different heading in the sidebar navigation than the `title` element, for example if you want to abbreviate the topic heading in the table of contents.
 
-Becomes the document title element. Often browsers display this in the tab for the page.
+### (required) title
 
-It doesn't need to precisely match the `menuTitle`.
+Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
+
+The `title` becomes the document title element in the HTML. Often browsers display this in the tab for the page.
+
 Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-If the `doc-validator` linter has been implemented on your repository, your topic heading must match the title in the metadata.
+If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
 
 ### weight
 
-Determines the placement of the topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide. Pages with the same weight have lexicographic ordering.
+You use the `weight` to specify the placement of a topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide or section of the guide. Pages with the same weight or no weight will be displayed in alphabetical order.
 
-Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
+Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights can be specified at each level (directory) within the content.
 
 ## Example with different page and menu titles
 

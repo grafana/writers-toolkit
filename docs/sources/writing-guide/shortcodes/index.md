@@ -23,7 +23,7 @@ The following sections describe shortcodes available for use in Grafana Markdown
 ## `admonition` shortcode
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
-The style depends on the admonition type as defined in the Writers' Toolkit [Style conventions]({{< relref "../../style-guide/style-conventions" >}}).
+The style depends on the admonition type as defined in the Writers' Toolkit [Style conventions]({{< relref "../../style-guide/style-conventions/" >}}).
 
 The content of the admonition must be within opening and closing tags.
 

@@ -16,18 +16,19 @@ In most cases, you can refer to the [word list in the Google developer documenta
 
 This page is a work in progress.
 
+<!--
 ## A
 ## B
 ## C
 ## D
 ## E
 ## F
-## G
+## G -->
 ## H
 
 **hover over**: Use this rather than _hold the pointer over_ or _point to_.
 
-## I
+<!--## I
 ## J
 ## K
 ## L
@@ -42,4 +43,4 @@ This page is a work in progress.
 ## U
 ## V
 ## W
-## X
+## X -->

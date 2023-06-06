@@ -1,6 +1,6 @@
 #!/bin/sh
 # The source of this file is https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs.
-# 3.0.0 (2023-05-18)
+# 4.0.0 (2023-06-06)
 
 set -ef
 

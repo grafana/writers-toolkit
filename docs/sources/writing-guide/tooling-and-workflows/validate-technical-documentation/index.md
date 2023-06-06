@@ -31,6 +31,14 @@ Targets:
 ```
 
 To validate technical documentation with `doc-validator`, run `make doc-validator` from the `docs/` directory.
+Any linting errors are logged by the tool as JSON.
+
+For more human-readable output, pipe the output to [`jq`](https://jqlang.github.io/jq/).
+For example:
+
+```console
+make -s doc-validator | jq -r '"ERROR: \(.location.path):\(.location.range.start.line):\(.location.range.start.column): \(.message)"'
+```
 
 ## Run on specific files
 

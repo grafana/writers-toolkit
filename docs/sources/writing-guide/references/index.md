@@ -33,7 +33,7 @@ All of the following destinations link https://grafana.com/docs/grafana/latest t
 To choose the correct link destination type, follow these steps:
 
 1. If the destination is external to the https://grafana.com website, use the fully specified HTTPS URL.
-   For example, https://github.com.
+   For example, `(GitHub)[https://github.com]`.
 1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-directories" >}}):
 
    1. If the destination is also present in the destination mount, use a relative URL path.

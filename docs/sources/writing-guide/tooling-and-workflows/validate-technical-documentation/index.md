@@ -1,10 +1,10 @@
 ---
-description: Validate technical documentation with the doc-validator tool
+description: How to validate technical documentation with the doc-validator tool.
 menuTitle: Validate technical documentation
-title: validate technical documentation with the doc-validator tool.
+title: Validate technical documentation with doc-validator
 ---
 
-# Validate technical documentation with the doc-validator
+# Validate technical documentation with doc-validator
 
 Every project keeps technical documentation in the `docs/sources` directory.
 Additionally, every project uses [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to technical documentation.

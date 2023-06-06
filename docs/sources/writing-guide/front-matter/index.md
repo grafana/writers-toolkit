@@ -44,11 +44,11 @@ The following headings describe what each element does and provides guidelines f
 
 ### aliases
 
-Used to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with the previous file path and name to create an HTML redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases).
+Used to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases). In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
 ### (required) description
 
-Used to provide the short description of the topic to search engines, including the search feature in the Grafana documentaiton site. The description is also diplayed on social media, such as Twitter, to provide a clue to users about what the page includes.
+Used to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about what the page includes.
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
@@ -63,7 +63,7 @@ Use the command line flag `--buildDrafts` to generate content marked as `draft: 
 
 ### keywords
 
-The website uses keywords to genrate links to related pages in the _Related content_ sections.
+The website uses keywords to generate links to related pages in the _Related content_ sections.
 They do not appear in the resulting HTML source for the page and do not affect search engine optimization (SEO).
 
 Ideally, use single terms as opposed to phrases.
@@ -123,9 +123,11 @@ If the `doc-validator` linter has been implemented on your repository, your topi
 
 ### weight
 
-You use the `weight` to specify the placement of a topic within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic higher in the guide or section of the guide. Pages with the same weight or no weight will be displayed in alphabetical order.
+By default topics are displayed in alphabetical order by `title`.
 
-Use increments of `100` for all other content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights can be specified at each level (directory) within the content.
+You use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic earlier in the guide or section of the guide. Pages with the same weight are displayed in alphabetical order.
+
+Use increments of `100` for content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
 
 ## Example with different page and menu titles
 

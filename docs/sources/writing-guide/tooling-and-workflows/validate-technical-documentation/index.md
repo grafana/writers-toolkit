@@ -45,7 +45,7 @@ It's value is a regular expression to be matched against file paths.
 When in the Writer's Toolkit repository, to only validate content in the `/docs/sources/writing-guide/` directory, run the following command:
 
 ```console
-make doc-validator doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/writing-guide/.*$'
+make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/writing-guide/.*$'
 ```
 
 #### Explanation of the regular expression
@@ -61,7 +61,7 @@ make doc-validator doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writ
 When in the Grafana repository, to only validate content in the `/docs/sources/developers/plugins/` directory, run the following command:
 
 ```console
-make doc-validator doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/grafana/latest/developers/plugins.*$'
+make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/grafana/latest/developers/plugins.*$'
 ```
 
 #### Explanation of the regular expression

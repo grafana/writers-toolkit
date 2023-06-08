@@ -122,7 +122,7 @@ Hugo references addressed across different products' docs, such as from `/docs/g
 
 To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
 
-For cross-repository links, use a standard markdown link, with the link structured like this: `\docs\repo\page\`.
+For cross-repository links, use a standard markdown link, with the link structured like this: `/docs/repo/page`.
 
 For example:
 

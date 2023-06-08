@@ -40,6 +40,11 @@ For example:
 make -s doc-validator | jq -r '"ERROR: \(.location.path):\(.location.range.start.line):\(.location.range.start.column): \(.message)"'
 ```
 
+## Error codes
+
+All errors include an error code.
+Each error code is documented in [Errata]({{< relref "./errata" >}}).
+
 ## Run on specific files
 
 The script that invokes `doc-validator` mounts projects using the Hugo website structure.

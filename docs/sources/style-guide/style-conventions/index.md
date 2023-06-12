@@ -91,7 +91,9 @@ Use the following techniques to enhance the scannability of content.
 - Use headings to divide content.
 
 ## Lists
-For a discussion about lists and tables, read the [Lists](https://developers.google.com/style/lists) page in the Google developer documentation style guide. 
+
+For a discussion about lists and tables, read the [Lists](https://developers.google.com/style/lists) page in the Google developer documentation style guide.
+
 ### Ordered lists
 
 Refer to the following guidelines when you write ordered lists.
@@ -132,10 +134,10 @@ For more guidance, refer to [Lists](https://developers.google.com/style/lists) i
 
 ### Definition lits
 
-Definition lists often used for providing a list of a term and indented definition. For example, you can use a definition list to document commands and their meanings: 
+Definition lists often used for providing a list of a term and indented definition. For example, you can use a definition list to document commands and their meanings:
 
 Feature
-: Creates a new feature 
+: Creates a new feature
 
 Features
 : Creates more than one feature
@@ -143,7 +145,7 @@ Features
 
 To create a definition list, add the term on a new line then add a new line with a colon (`:`) along with the definition.
 
- For additional information, refer to the [Definition Lists](https://www.markdownguide.org/extended-syntax/#definition-lists) from the Markdown Guide.  
+For additional information, refer to the [Definition Lists](https://www.markdownguide.org/extended-syntax/#definition-lists) from the Markdown Guide.
 
 ## Links and references
 

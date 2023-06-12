@@ -91,7 +91,7 @@ Use the following techniques to enhance the scannability of content.
 - Use headings to divide content.
 
 ## Lists
-
+For a discussion about lists and tables, read the [Lists](https://developers.google.com/style/lists) page in the Google developer documentation style guide. 
 ### Ordered lists
 
 Refer to the following guidelines when you write ordered lists.

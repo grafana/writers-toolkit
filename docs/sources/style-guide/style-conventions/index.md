@@ -130,6 +130,21 @@ Refer to the following guidelines when you write unordered lists.
 
 For more guidance, refer to [Lists](https://developers.google.com/style/lists) in the [Google developer style guide](https://developers.google.com/style/).
 
+### Definition lits
+
+Definition lists often used for providing a list of a term and indented definition. For example, you can use a definition list to document commands and their meanings: 
+
+Feature
+: Creates a new feature 
+
+Features
+: Creates more than one feature
+: Sample additional features
+
+To create a definition list, add the term on a new line then add a new line with a colon (`:`) along with the definition.
+
+ For additional information, refer to the [Definition Lists](https://www.markdownguide.org/extended-syntax/#definition-lists) from the Markdown Guide.  
+
 ## Links and references
 
 You should use "Refer to" instead of "See" or "Check out" when referencing another document.

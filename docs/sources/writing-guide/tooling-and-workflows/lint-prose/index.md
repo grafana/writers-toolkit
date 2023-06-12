@@ -35,6 +35,10 @@ Targets:
 To lint prose with Vale, run `make vale` from the `docs/` directory.
 Any linting errors are logged by the tool.
 
+Additionally, some repositories run Vale as part of Continuous Integration (CI).
+Repositories that run Vale in CI include:
+- [Writers' Toolkit](https://github.com/grafana/writers-toolkit)
+
 ## Skip rules
 
 To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule.

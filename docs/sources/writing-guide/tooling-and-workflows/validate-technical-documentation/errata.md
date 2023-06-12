@@ -1,5 +1,6 @@
 ---
 title: Errata for doc-validator
+menuTitle: Errata
 description: Error codes and descriptions for doc-validator errata.
 ---
 

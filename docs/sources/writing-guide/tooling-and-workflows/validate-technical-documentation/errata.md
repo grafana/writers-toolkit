@@ -1,9 +1,9 @@
 ---
-title: Errata
+title: Errata for doc-validator
 description: Error codes and descriptions for doc-validator errata.
 ---
 
-# Errata
+# Errata for doc-validator
 
 ## anchor-does-not-exist
 

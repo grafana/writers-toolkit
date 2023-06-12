@@ -6,7 +6,7 @@ title: Lint prose with the Vale linter
 
 # Lint prose with the Vale linter
 
-[Vale](https://github.com/errata-ai/vale) is syntax-aware linter for prose built with speed and extensibility in mind.
+[Vale](https://github.com/errata-ai/vale) is a syntax-aware linter for prose built with speed and extensibility in mind.
 
 Every project keeps technical documentation in the `docs/sources` directory.
 Additionally, every project uses [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to technical documentation.

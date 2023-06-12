@@ -44,15 +44,15 @@ The following headings describe what each element does and provides guidelines f
 
 ### aliases
 
-Used to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases). In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
+Use to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases). In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
-### (required) description
+### description (required)
 
-Used to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about what the page includes.
+Use to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
-Often, this doesn’t need to be original prose—you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
+Often, this doesn’t need to be original text, you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
 If it's too long, it is harmlessly truncated on social media.
 Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
@@ -111,21 +111,19 @@ cascade:
 
 Use to specify a different heading in the sidebar navigation than the `title` element, for example if you want to abbreviate the topic heading in the table of contents.
 
-### (required) title
+### title (required)
 
-Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
+Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
 
 The `title` becomes the document title element in the HTML. Often browsers display this in the tab for the page.
 
 Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
-
 ### weight
 
-By default topics are displayed in alphabetical order by `title`.
+By default, topics are displayed in alphabetical order by `title`.
 
-You use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic earlier in the guide or section of the guide. Pages with the same weight are displayed in alphabetical order.
+Use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic earlier in the guide or section of the guide. Pages with the same weight are displayed in alphabetical order.
 
 Use increments of `100` for content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
 

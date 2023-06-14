@@ -46,6 +46,19 @@ The following headings describe what each element does and provides guidelines f
 
 Use to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases). In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
+### date
+
+Describes the initial publish date of the page.
+Hugo produces XML page outputs for use by RSS feeds where users can be notified of updates.
+Customers use RSS feeds of release notes pages to be notified of new releases.
+Therefore, the `date` front matter is recommended for release note pages.
+
+The value of the `date` field should be a full ISO 8601 timestamp.
+For example, `date: "2023-04-24T00:00:00Z"` is 12:00 AM, Apr 24 Coordinated Universal Time (UTC).
+
+The `date` front matter also impacts menu ordering.
+Pages with more recent dates are lower in the menu.
+
 ### description (required)
 
 Use to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.

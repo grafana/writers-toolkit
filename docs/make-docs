@@ -1,6 +1,6 @@
 #!/bin/sh
 # The source of this file is https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs.
-# 3.0.0 (2023-05-18)
+# 4.0.0 (2023-06-06)
 
 set -ef
 
@@ -365,8 +365,8 @@ case "${image}" in
       --tty \
       ${volumes} \
       "${DOCS_IMAGE}" \
-      --include="${DOC_VALIDATOR_INCLUDE}" \
-      --skip-checks="${DOC_VALIDATOR_SKIP_CHECKS}" \
+      "--include=${DOC_VALIDATOR_INCLUDE}" \
+      "--skip-checks=${DOC_VALIDATOR_SKIP_CHECKS}" \
       /hugo/content/docs \
       "$(proj_canonical "${proj}")" | sed "s#$(proj_dst "${proj}")#sources#"
     ;;
@@ -382,7 +382,7 @@ case "${image}" in
       --tty \
       ${volumes} \
       "${DOCS_IMAGE}" \
-      --minAlertLevel="${VALE_MINALERTLEVEL}" \
+      "--minAlertLevel=${VALE_MINALERTLEVEL}" \
       --config=/etc/vale/.vale.ini \
       --output=line \
       /hugo/content/docs | sed "s#$(proj_dst "${proj}")#sources#"

@@ -6,6 +6,14 @@
 
 ## Unreleased
 
+## 4.0.0 (2023-06-06)
+
+### Removed
+
+- `doc-validator/%` target.
+  The behavior of the target was not as described.
+  Instead, to limit `doc-validator` to only specific files, refer to https://grafana.com/docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/#run-on-specific-files.
+
 ## 3.0.0 (2023-05-18)
 
 ### Fixed

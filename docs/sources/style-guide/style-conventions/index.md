@@ -90,14 +90,62 @@ Use the following techniques to enhance the scannability of content.
 - Use short, bulleted lists.
 - Use headings to divide content.
 
-## Unordered lists
+## Lists
+
+For a discussion about lists and tables, read the [Lists](https://developers.google.com/style/lists) page in the Google developer documentation style guide.
+
+### Ordered lists
+
+Refer to the following guidelines when you write ordered lists.
+
+Grafana Labs guidance matches the [Google Markdown style guide for lists](https://google.github.io/styleguide/docguide/style.html#lists).
+
+> Markdown is smart enough to let the resulting HTML render your numbered lists correctly.
+> For longer lists that may change, especially long nested lists, use "lazy" numbering:
+>
+> ```markdown
+> 1.  Foo.
+> 1.  Bar.
+>     1.  Foofoo.
+>     1.  Barbar.
+> 1.  Baz.
+> ```
+>
+> However, if the list is small and you don’t anticipate changing it, prefer fully numbered lists, because it’s nicer to read in source:
+>
+> ```markdown
+> 1.  Foo.
+> 2.  Bar.
+> 3.  Baz.
+> ```
+
+The resulting HTML "numbering" type for lazy numbering depends on the website style.
+Presently, all levels of nested numbering results in numbers.
+For more information about the available types of "numbering" types, refer to [The Ordered List element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol#attributes).
+
+### Unordered lists
 
 Refer to the following guidelines when you write unordered lists.
 
+- Begin list items with a capital letter unless there is a strong reason not to. For example, when you list case-sensitive parameters.
+- If they're complete sentences, end list items with a period. If one item in a list ends with a period, then apply periods to all items in the list.
+
 For more guidance, refer to [Lists](https://developers.google.com/style/lists) in the [Google developer style guide](https://developers.google.com/style/).
 
-- Begin list items with a capital letter unless there is a strong reason not to. For example, when you list case-sensitive parameters.
-- If they are complete sentences, end list items with a period. If one item in a list ends with a period, then apply periods to all items in the list.
+### Definition lits
+
+Definition lists often used for providing a list of a term and indented definition. For example, you can use a definition list to document commands and their meanings:
+
+Feature
+: Creates a new feature
+
+Features
+: Creates more than one feature
+: Sample additional features
+
+To create a definition list, add the term on a new line then add a new line with a colon (`:`) along with the definition.
+
+For additional information, refer to the [Definition Lists](https://www.markdownguide.org/extended-syntax/#definition-lists) from the Markdown Guide.
 
 ## Links and references
 

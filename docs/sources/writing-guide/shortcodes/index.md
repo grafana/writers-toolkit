@@ -47,7 +47,7 @@ The `docs/link` shortcode offers more flexible linking than the Hugo builtin `re
 
 Each argument to the shortcode has the form `<PATH PREFIX> -> <REFERENCE>`:
 
-- _`PATH PREFIX`_ matches against the page's URL path. 
+- _`PATH PREFIX`_ matches against the page's URL path.
   If _`PATH PREFIX`_ matches, then _`REFERENCE`_ is used as the argument to Hugo's `relref` shortcode.
 - _`REFERENCE`_ can include a version variable that is looked up in the page's front matter.
   If the front matter variable is not found, then the shortcodes uses the version inferred from the page's URL path.

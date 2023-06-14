@@ -51,7 +51,7 @@ If _`PATH PREFIX`_ matches, then _`REFERENCE`_ is used as the argument to Hugo's
 _`REFERENCE`_ can include a version variable that is looked up in the page's front matter.
 If the front matter variable is not found, then the shortcodes uses the version inferred from the page's URL path.
 The version variable must be enclosed with `<` and `>` symbols, and the final word must be `VERSION`.
-For example, `<GRAFANA VERSION>`, or `<MIMIR VERSION>`.
+For example, `<GRAFANA VERSION>` or `<MIMIR VERSION>`.
 The version variable is lower cased and spaces are replaced with underscores (`_`) when looking up the variable in front matter.
 Using the preceding examples, `<GRAFANA VERSION>` becomes `grafana_version` and `<MIMIR VERSION>` becomes `mimir_version`.
 

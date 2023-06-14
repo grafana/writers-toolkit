@@ -41,6 +41,34 @@ Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
 
+## `docs/link` shortcode
+
+The `docs/link` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
+Each argument to the shortcode has the form `<PATH PREFIX> -> <REFERENCE>`.
+_`PATH PREFIX`_ is matched against the page's URL path.
+If _`PATH PREFIX`_ matches, then _`REFERENCE`_ is used as the argument to Hugo's `relref` shortcode.
+
+_`REFERENCE`_ can include a version variable that is looked up in the page's front matter.
+If the front matter variable is not found, then the shortcodes uses the version inferred from the page's URL path.
+The version variable must be enclosed with `<` and `>` symbols, and the final word must be `VERSION`.
+For example, `<GRAFANA VERSION>`, or `<MIMIR VERSION>`.
+The version variable is lower cased and spaces are replaced with underscores (`_`) when looking up the variable in front matter.
+Using the preceding examples, `<GRAFANA VERSION>` becomes `grafana_version` and `<MIMIR VERSION>` becomes `mimir_version`.
+
+### Example
+
+The following example has behavior such that:
+
+- If the shortcode is used in the page `/docs/grafana/latest/dashboards/`, and the page does not have the front matter `grafana_version`, the shortcode returns a relref to `/docs/grafana/latest`.
+
+- If the shortcode is used in the page `/docs/grafana-cloud/introduction/`, the shortcode returns a relref to `/docs/grafana-cloud`.
+
+- If the shortcode is used in the page `/docs/mimir/latest/dashboards/`, and the page has the front matter `grafana_version: next`, the shortcode returns a relref to `/docs/grafana/next`.
+
+```markdown
+{{</* docs/link "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>" "/docs/grafana-cloud/ -> /docs/grafana-cloud" "/docs/mimir/ -> /docs/grafana/<GRAFANA VERSION>" */>}}
+```
+
 ## `docs/shared` shortcode
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory.

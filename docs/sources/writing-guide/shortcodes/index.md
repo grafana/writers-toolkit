@@ -45,7 +45,11 @@ Kingston is the capital of Jamaica.
 
 The `docs/link` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
 
-Each argument to the shortcode has the form `<PATH PREFIX> -> <REFERENCE>`:
+```markdown
+{{</* docs/link "<PATH PREFIX> -> <REFERENCE>" ["<PATH PREFIX -> <REFERENCE>"...] */>}}
+```
+
+Each argument to the shortcode has the form `"<PATH PREFIX> -> <REFERENCE>"`:
 
 - _`PATH PREFIX`_ matches against the page's URL path.
   If _`PATH PREFIX`_ matches, then _`REFERENCE`_ is used as the argument to Hugo's `relref` shortcode.

@@ -160,7 +160,7 @@ The destination used in a rendered page derives from matching path prefixes:
   For more information about reference-style links, refer to [Daring Fireball: Markdown Syntax Documentation](https://daringfireball.net/projects/markdown/syntax#link).
 - _`PROJECT PATH PREFIX`_ is matched against the page’s URL path.
 - _`REFERENCE`_ is the parameter that would typically be used in a `relref` shortcode.
-  It can include the special syntax `<SOMETHING VERSION>` which is first looked up in the front matter before falling back to the version inferred from the page's version.
+  It can include the syntax `<SOMETHING VERSION>`, which is first looked up in the front matter before falling back to the version inferred from the page's version.
 
 ### Example
 

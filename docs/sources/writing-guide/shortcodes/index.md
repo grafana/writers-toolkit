@@ -176,7 +176,7 @@ The destination used in a rendered page derives from matching path prefixes:
 1. If the shortcode is rendered in a page that has the path prefix `/docs/grafana-cloud/`, the shortcode returns a relref to `/docs/grafana-cloud`.
 1. If the shortcode is rendered in a page that has the path prefix `/docs/mimir/`, the shortcode returns a relref to `/docs/grafana/<GRAFANA VERSION>`.
 
-In cases 1. and 3. the "version" variable `<GRAFANA VERSION>` is replaced with the value of the front matter `grafana_version` if present, or by the version inferred from the current page.
+In cases 1 and 3, the version variable `<GRAFANA VERSION>` is replaced with the value of the front matter `grafana_version` if present, or by the version inferred from the current page.
 For the page `/docs/grafana/latest/dashboards/`, the version is `latest`.
 For the page `/docs/mimir/next/dashboards/`, the version is `next`.
 

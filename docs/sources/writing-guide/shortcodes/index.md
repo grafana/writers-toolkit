@@ -147,7 +147,7 @@ This shortcode inserts a lists of links to the page's subpages and includes the 
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
 Reference links wrapped in the `docs/reference` shortcode can be defined with multiple destinations.
-The destination used in a the rendered page depends is chosen based upon matching path prefixes.
+The destination used in a rendered page derives from matching path prefixes:
 
 ```markdown
 {{%/* docs/reference */%}}

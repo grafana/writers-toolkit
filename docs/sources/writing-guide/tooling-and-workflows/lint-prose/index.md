@@ -37,6 +37,7 @@ Any linting errors are logged by the tool.
 
 Additionally, some repositories run Vale as part of Continuous Integration (CI).
 Repositories that run Vale in CI include:
+
 - [Writers' Toolkit](https://github.com/grafana/writers-toolkit)
 
 ## Skip rules

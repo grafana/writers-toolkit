@@ -151,7 +151,7 @@ The destination used in a rendered page derives from matching path prefixes:
 
 ```markdown
 {{%/* docs/reference */%}}
-[<LABEL>]: "<PATH PREFIX> -> <REFERENCE>"
+[<LABEL>]: "<PROJECT PATH PREFIX> -> <REFERENCE>"
 ...
 {{%/* /docs/reference */%}}
 ```

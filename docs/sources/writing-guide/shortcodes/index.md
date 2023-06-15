@@ -143,6 +143,43 @@ This shortcode inserts a lists of links to the page's subpages and includes the 
 {{</* section withDescriptions="true"*/>}}
 ```
 
+## `docs/reference` shortcode
+
+The `docs/reference` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
+Reference links wrapped in the `docs/reference` shortcode can be defined with multiple destinations.
+The destination used in a the rendered page depends is chosen based upon matching path prefixes.
+
+```markdown
+{{%/* docs/reference */%}}
+[<LABEL>]: "<PATH PREFIX> -> <REFERENCE>"
+...
+{{%/* /docs/reference */%}}
+```
+
+- _`LABEL`_ matches a link label used in a reference-style link (`[LINK TEXT][LABEL])`).
+  For more information about reference-style links, refer to [Daring Fireball: Markdown Syntax Documentation](https://daringfireball.net/projects/markdown/syntax#link).
+- _`PROJECT PATH PREFIX`_ is matched against the page’s URL path.
+- _`REFERENCE`_ is the parameter that would typically be used in a `relref` shortcode.
+  It can include the special syntax `<SOMETHING VERSION>` which is first looked up in the front matter before falling back to the version inferred from the page's version.
+
+### Example
+
+```markdown
+{{%/* docs/reference */%}}
+[grafana]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>"
+[grafana]: "/docs/grafana-cloud/ -> /docs/grafana-cloud"
+[grafana]: "/docs/mimir/ -> /docs/grafana/<GRAFANA VERSION>"
+{{%/* /docs/reference */%}}
+```
+
+1. If the shortcode is rendered in a page that has the path prefix `/docs/grafana/`, the shortcode returns a relref to `/docs/grafana/<GRAFANA VERSION>`.
+1. If the shortcode is rendered in a page that has the path prefix `/docs/grafana-cloud/`, the shortcode returns a relref to `/docs/grafana-cloud`.
+1. If the shortcode is rendered in a page that has the path prefix `/docs/mimir/`, the shortcode returns a relref to `/docs/grafana/<GRAFANA VERSION>`.
+
+In cases 1. and 3. the "version" variable `<GRAFANA VERSION>` is replaced with the value of the front matter `grafana_version` if present, or by the version inferred from the current page.
+For the page `/docs/grafana/latest/dashboards/`, the version is `latest`.
+For the page `/docs/mimir/next/dashboards/`, the version is `next`.
+
 ## Escaping Hugo shortcodes
 
 If you need to display the syntax for a shortcode, you can escape it using this syntax:

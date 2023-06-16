@@ -162,11 +162,14 @@ The destination used in a rendered page derives from matching path prefixes:
 {{%/* /docs/reference */%}}
 ```
 
-- _`LABEL`_ matches a link label used in a reference-style link (`[LINK TEXT][LABEL])`).
+- _`LABEL`_ matches the link label used in a reference-style link (`[LINK TEXT][LABEL])`).
   For more information about reference-style links, refer to [Daring Fireball: Markdown Syntax Documentation](https://daringfireball.net/projects/markdown/syntax#link).
 - _`PROJECT PATH PREFIX`_ is matched against the page’s URL path, where the first matching `PROJECT PATH PREFIX` is chosen.
+  The project of the destinations where you want _`REFERENCE`_ to be used.
+  For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`.
 - _`REFERENCE`_ is the parameter that would typically be used in a `relref` shortcode.
   It can include the syntax `<SOMETHING VERSION>`, which is first looked up in the front matter before falling back to the version inferred from the page's version.
+  Any of the kinds of arguments documented in [Links and Cross References](https://gohugo.io/content-management/cross-references/#use-of-ref-and-relref) can be used.
 
 ### Example
 

@@ -59,11 +59,14 @@ make docs PROJECTS='grafana grafana-cloud'
 
 Let's say that you have forked the main project repository, so your local working directory name doesn't match the project name.
 You can use the `PROJECTS` option to define the local cloned repository (see the Arguments section below).
-This example builds the Tempo documentation from the local working directory, `tempo-doc-work` instead of the standard `tempo` directory.
 
 ```bash
 make docs PROJECTS="tempo::tempo-doc-work"
 ```
+
+The format is `<PROJECT>[:VERSION[:REPOSITORY[:DIR]]].`
+The example mounts the `PROJECT` tempo, at the default `VERSION` latest, using the `REPOSITORY` `tempo-doc-work`, and the default `DIR` `docs/sources`.
+This example builds the Tempo documentation from the local working directory, `tempo-doc-work` instead of the standard `tempo` directory.
 
 ## Reference
 

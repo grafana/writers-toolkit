@@ -57,6 +57,14 @@ To specifically build Grafana and Grafana Cloud documentation:
 make docs PROJECTS='grafana grafana-cloud'
 ```
 
+Let's say that you have forked the main project repository, so your local working directory name doesn't match the project name.
+You can use the `PROJECTS` option to define the local cloned repository (see the Arguments section below).
+This example builds the Tempo documentation from the local working directory, `tempo-doc-work` instead of the standard `tempo` directory.
+
+```bash
+make docs PROJECTS="tempo::tempo-doc-work"
+```
+
 ## Reference
 
 The `make docs` target uses the [`make-docs`](https://github.com/grafana/writers-toolkit/blob/main/scripts/make-docs) script to mount local documentation into the Hugo build.
@@ -135,6 +143,12 @@ Each argument has four fields separated by colons (`:`) and optional fields can 
 
   The `DIR` field is optional and defaults to the scripts internal mapping of project names to documentation source directories.
   For most projects, this is the `docs/sources` directory.
+
+This example builds the Grafana documentation and the Tempo documentation from the local repository, tempo-doc-work.
+
+```bash
+make docs PROJECTS="grafana tempo::tempo-doc-work"
+```
 
 #### REPOS_PATH
 

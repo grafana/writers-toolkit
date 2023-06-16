@@ -258,6 +258,10 @@ An alert modal displays an important message in a way that attracts the user's a
 
 Assume that some of your users might not understand technical terms and need simple, clear alert messages. Like other UI elements, use sentence case, plain language, and active voice in alerts.
 
+{{% admonition type="note" %}}
+The word "modal" is considered jargon and should not be used when writing user documenation.  Use "dialog box" instead.
+{{% /admonition %}}
+
 ### Severity levels
 
 Alert modals have severity levels (error, warning, info, and success) with different colors used for each level:

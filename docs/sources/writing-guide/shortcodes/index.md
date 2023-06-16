@@ -146,11 +146,10 @@ This shortcode inserts a lists of links to the page's subpages and includes the 
 ## `docs/reference` shortcode
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
-If content is sourced from one location, and published in multiple locations, the `docs/reference` shortcode helps you control the appropriate link location.
+When content from one repository is published to more than one documentation set, the `docs/reference` shortcode lets you specify appropriate links for each doc set.
 
 For example, alerting documentation is sourced from the Grafana repository and published to both Grafana documentation and Grafana Cloud documentation.
-Any link from alerting documentation to dashboard documentation, which is also published to both Grafana and Grafana Cloud, needs to be specific as to which destination is appropriate for the audience.
-
+Any link from alerting documentation to dashboard documentation, which is also published to both Grafana and Grafana Cloud, needs to be specific as to which destination is appropriate for the product documentation.
 Grafana Cloud alerting documentation should link to Grafana Cloud dashboard documentation, and Grafana alerting documentation should link to Grafana dashboard documentation.
 
 The destination used in a rendered page derives from matching path prefixes:

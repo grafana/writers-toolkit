@@ -170,23 +170,49 @@ The destination used in a rendered page derives from matching path prefixes:
   It can include the syntax `<SOMETHING VERSION>`, which is first looked up in the front matter before falling back to the version inferred from the page's version.
   Any of the kinds of arguments documented in [Links and Cross References](https://gohugo.io/content-management/cross-references/#use-of-ref-and-relref) can be used.
 
-### Example
+### Examples
+
+#### Version interpolation
+
+Given a page in versioned Grafana documentation containing the following the reference-style link:
+
+```markdown
+For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+```
+
+Version interpolation of `/docs/reference` enables the use of absolute paths that resolve correctly, irrespective of version.
+In the following example, the `/docs/reference` shortcode replaces the variable `<GRAFANA VERSION>` with the version inferred from the current page.
+
+- If the page is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
+- If the page is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
 
 ```markdown
 {{%/* docs/reference */%}}
-[grafana]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>"
-[grafana]: "/docs/grafana-cloud/ -> /docs/grafana-cloud"
-[grafana]: "/docs/mimir/ -> /docs/grafana/<GRAFANA VERSION>"
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
 {{%/* /docs/reference */%}}
 ```
 
-1. If the shortcode is rendered in a page that has the path prefix `/docs/grafana/`, the shortcode returns a relref to `/docs/grafana/<GRAFANA VERSION>`.
-1. If the shortcode is rendered in a page that has the path prefix `/docs/grafana-cloud/`, the shortcode returns a relref to `/docs/grafana-cloud`.
-1. If the shortcode is rendered in a page that has the path prefix `/docs/mimir/`, the shortcode returns a relref to `/docs/grafana/<GRAFANA VERSION>`.
+You can override version inference using front matter.
+To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
+For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
 
-In cases 1 and 3, the version variable `<GRAFANA VERSION>` is replaced with the value of the front matter `grafana_version` if present, or by the version inferred from the current page.
-For the page `/docs/grafana/latest/dashboards/`, the version is `latest`.
-For the page `/docs/mimir/next/dashboards/`, the version is `next`.
+#### Contextual destinations
+
+Given a page in versioned Grafana documentation containing the following the reference-style link:
+
+```markdown
+For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+```
+
+The page is also mounted into Grafana Cloud documentation.
+The page in Grafana should link to the Grafana dashboards page and the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
+
+```markdown
+{{%/* docs/reference */%}}
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
+[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
+{{%/* /docs/reference */%}}
+```
 
 ## Escaping Hugo shortcodes
 

@@ -6,6 +6,18 @@
 
 ## Unreleased
 
+## 4.1.0 (2023-06-16)
+
+### Added
+
+- Mounts of `layouts` and `config` directories for the `website` project.
+  Ensures that local changes to mounts or shortcodes are reflected in the development server.
+
+### Fixed
+
+- Version inference for versioned docs pages.
+  Pages in versioned projects now have the `versioned: true` front matter set to ensure that "version" in $.Page.Scratch is set on builds.
+
 ## 4.0.0 (2023-06-06)
 
 ### Removed

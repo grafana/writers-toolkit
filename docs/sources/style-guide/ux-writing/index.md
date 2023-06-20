@@ -259,7 +259,7 @@ An alert modal displays an important message in a way that attracts the user's a
 Assume that some of your users might not understand technical terms and need simple, clear alert messages. Like other UI elements, use sentence case, plain language, and active voice in alerts.
 
 {{% admonition type="note" %}}
-The word "modal" is considered jargon and should not be used when writing user documenation. Use "dialog box" instead.
+The word "modal" is considered jargon and should not be used when writing documenation, except for developer documentation of code referencing a `modal`. Use "dialog box" instead.
 {{% /admonition %}}
 
 ### Severity levels

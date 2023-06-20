@@ -181,14 +181,14 @@ In Markdown, in front of a placeholder, use an asterisk followed by a backtick. 
 
 ````
 ```
-The following text is a placeholder: *`A_PLACEHOLDER`*.
+The following text is a placeholder: *`<A-PLACEHOLDER>`*.
 ```
 ````
 
 It produces:
 
 ```
-The following text is a placeholder: *`A_PLACEHOLDER`*.
+The following text is a placeholder: *`<A-PLACEHOLDER>`*.
 ```
 
 For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

@@ -177,7 +177,7 @@ ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
 
 Use descriptive words and phrases when including placeholders, and avoid using `X` or `XXX`.
-In Markdown, format a placeholder with an asterisk (*) followed by a backtick (`) and an open angle bracket (<). Use a dash (-) in the placeholder name, if necessary. Close the placeholder name with an angle bracket (>), followed by a backtick and asterisk.
+In Markdown, format a placeholder with an asterisk (\*) followed by a backtick (`) and an open angle bracket (<). Use a dash (-) in the placeholder name, if necessary. Close the placeholder name with an angle bracket (>), followed by a backtick and asterisk.
 For example, refer to the following raw markdown:
 
 ````

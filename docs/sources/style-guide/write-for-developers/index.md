@@ -177,18 +177,18 @@ ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
 
 Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
-In Markdown, in front of a placeholder, use an asterisk followed by a backtick. At the end of the placeholder, use a backtick followed by an asterisk. For example, prefer the following raw markdown:
+In Markdown, in front of a placeholder, use an asterisk followed by a backtick and an open bracket. Use a dash instead of an underscore in the placeholder name if necessary. At the end of the placeholder, use an open bracket followed by a backtick and an asterisk. For example, refer to the following raw markdown:
 
 ````
 ```
-The following text is a placeholder: *`A_PLACEHOLDER`*.
+The following text is a placeholder: *`<A-PLACEHOLDER>`*.
 ```
 ````
 
 It produces:
 
 ```
-The following text is a placeholder: *`A_PLACEHOLDER`*.
+The following text is a placeholder: `*<A-PLACEHOLDER>*`.
 ```
 
 For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

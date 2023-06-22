@@ -104,7 +104,7 @@ In this example, the image has a CSS class that makes the image display floated 
 {{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-In this example, the image's display size is change to have a maximum width of 50%. The `max-width` value must have a unit of measurement, such as pixels or percentages.
+In this example, the image's display size is changed to have a maximum width of 50%. The `max-width` value must have a unit of measurement, such as pixels or percentages.
 
 ```markdown
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}

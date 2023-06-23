@@ -162,7 +162,7 @@ The content of the `docs/reference` shortcode must be within opening and closing
 
 Set the docs reference in the footer of the page and then use the `label` in the link in the body of the file.
 
-### Examples
+### Example
 
 In the following example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
 

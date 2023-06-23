@@ -186,41 +186,9 @@ The `/docs/reference` shortcode replaces the variable `<GRAFANA VERSION>` with t
 - If the page is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
 - If the page is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
 
-#### Version interpolation
-
-Given a page in versioned Grafana documentation containing the following the reference-style link:
-
-```markdown
-For more information about Grafana dashboards, refer to [Dashboards][dashboards].
-```
-
-
-
-
-
-
-```markdown
-{{%/* docs/reference */%}}
-[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
-{{%/* /docs/reference */%}}
-```
-
 You can override version inference using front matter.
 To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
 For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
-
-#### Contextual destinations
-
-
-
-
-
-```markdown
-{{%/* docs/reference */%}}
-[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
-[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
-{{%/* /docs/reference */%}}
-```
 
 ## Escaping Hugo shortcodes
 

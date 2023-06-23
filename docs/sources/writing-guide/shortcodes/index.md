@@ -180,6 +180,7 @@ Then add the link in the body of the file in the following format:
 ```markdown
 For more information about Grafana dashboards, refer to [Dashboards][dashboards].
 ```
+
 The `/docs/reference` shortcode replaces the variable `<GRAFANA VERSION>` with the version inferred from the current page. For example:
 
 - If the page is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.

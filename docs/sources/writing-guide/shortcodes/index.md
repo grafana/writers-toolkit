@@ -149,28 +149,42 @@ The `docs/reference` shortcode offers more flexible linking than the Hugo builti
 When content from one repository is published to more than one documentation set, the `docs/reference` shortcode lets you specify appropriate links for each doc set.
 
 For example, alerting documentation is sourced from the Grafana repository and published to both Grafana documentation and Grafana Cloud documentation.
-Any link from alerting documentation to dashboard documentation, which is also published to both Grafana and Grafana Cloud, needs to be specific as to which destination is appropriate for the product documentation.
+Any link from alerting documentation to dashboard documentation, for example, which is also published to both Grafana and Grafana Cloud, needs to be specific as to which destination is appropriate for the product documentation.
 Grafana Cloud alerting documentation should link to Grafana Cloud dashboard documentation, and Grafana alerting documentation should link to Grafana dashboard documentation.
 
-The destination used in a rendered page derives from matching path prefixes:
+The content of the `docs/reference` shortcode must be within opening and closing tags.
+
+| Parameter | Description                                                           | Required |
+| --------- | --------------------------------------------------------------------- | -------- |
+| `label` | The label for the shortcode. This is the text that you enter in the link instead of an http link or file path. | yes |
+| `project path prefix` | Designates the destination project. For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`. | yes |
+| `reference` | The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. | yes |
+
+Set the docs reference in the footer of the page and then use the `label` in the link in the body of the file.
+
+### Examples
+
+In the following example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation. 
+
+The page in Grafana should link to the Grafana dashboards page and the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
 
 ```markdown
 {{%/* docs/reference */%}}
-[<LABEL>]: "<PROJECT PATH PREFIX> -> <REFERENCE>"
-...
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
+[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
 {{%/* /docs/reference */%}}
 ```
 
-- _`LABEL`_ matches the link label used in a reference-style link (`[LINK TEXT][LABEL])`).
-  For more information about reference-style links, refer to [Daring Fireball: Markdown Syntax Documentation](https://daringfireball.net/projects/markdown/syntax#link).
-- _`PROJECT PATH PREFIX`_ is matched against the page’s URL path, where the first matching `PROJECT PATH PREFIX` is chosen.
-  The project of the destinations where you want _`REFERENCE`_ to be used.
-  For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`.
-- _`REFERENCE`_ is the same parameter used in a `relref` shortcode.
-  It can include the syntax `<SOMETHING VERSION>`, which is first looked up in the front matter before falling back to the version inferred from the page's version.
-  Any of the kinds of arguments documented in [Links and Cross References](https://gohugo.io/content-management/cross-references/#use-of-ref-and-relref) can be used.
+Then add the link in the body of the file in the following format:
 
-### Examples
+```markdown
+For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+```
+  
+The `/docs/reference` shortcode replaces the variable `<GRAFANA VERSION>` with the version inferred from the current page. For example:
+
+- If the page is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
+- If the page is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
 
 #### Version interpolation
 
@@ -180,11 +194,10 @@ Given a page in versioned Grafana documentation containing the following the ref
 For more information about Grafana dashboards, refer to [Dashboards][dashboards].
 ```
 
-Version interpolation of `/docs/reference` enables the use of absolute paths that resolve correctly, irrespective of version.
-In the following example, the `/docs/reference` shortcode replaces the variable `<GRAFANA VERSION>` with the version inferred from the current page.
 
-- If the page is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
-- If the page is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
+
+
+
 
 ```markdown
 {{%/* docs/reference */%}}
@@ -198,14 +211,9 @@ For example, with the front matter `grafana_version: next`, the shortcode replac
 
 #### Contextual destinations
 
-Given a page in versioned Grafana documentation containing the following the reference-style link:
 
-```markdown
-For more information about Grafana dashboards, refer to [Dashboards][dashboards].
-```
 
-The page is also mounted into Grafana Cloud documentation.
-The page in Grafana should link to the Grafana dashboards page and the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
+
 
 ```markdown
 {{%/* docs/reference */%}}

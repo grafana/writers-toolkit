@@ -98,26 +98,18 @@ For a discussion about lists and tables, read the [Lists](https://developers.goo
 
 Refer to the following guidelines when you write ordered lists.
 
-Grafana Labs guidance matches the [Google Markdown style guide for lists](https://google.github.io/styleguide/docguide/style.html#lists).
+In general, Grafana Labs guidance matches the [Google Markdown style guide for lists](https://google.github.io/styleguide/docguide/style.html#lists).
 
-> Markdown is smart enough to let the resulting HTML render your numbered lists correctly.
-> For longer lists that may change, especially long nested lists, use "lazy" numbering:
->
-> ```markdown
-> 1.  Foo.
-> 1.  Bar.
->     1.  Foofoo.
->     1.  Barbar.
-> 1.  Baz.
-> ```
->
-> However, if the list is small and you don’t anticipate changing it, prefer fully numbered lists, because it’s nicer to read in source:
->
-> ```markdown
-> 1.  Foo.
-> 2.  Bar.
-> 3.  Baz.
-> ```
+Because any list may change, we recommend using lazy numbering for ordered lists.
+Markdown is smart enough to let the resulting HTML render your numbered lists correctly.
+
+```markdown
+1.  Foo.
+1.  Bar.
+     1.  Foofoo.
+     1.  Barbar.
+1.  Baz.
+```
 
 The resulting HTML "numbering" type for lazy numbering depends on the website style.
 Presently, all levels of nested numbering results in numbers.

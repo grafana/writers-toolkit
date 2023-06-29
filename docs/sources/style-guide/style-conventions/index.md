@@ -106,8 +106,8 @@ Markdown is smart enough to let the resulting HTML render your numbered lists co
 ```markdown
 1.  Foo.
 1.  Bar.
-     1.  Foofoo.
-     1.  Barbar.
+    1.  Foofoo.
+    1.  Barbar.
 1.  Baz.
 ```
 

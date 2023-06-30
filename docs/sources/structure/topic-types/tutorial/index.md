@@ -3,6 +3,9 @@ title: Tutorial topic
 menuTitle: Tutorial
 description: Learn how to write a tutorial topic.
 weight: 400
+aliases:
+   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/tutorial
+   - /docs/writers-toolkit/structure/topic-types/tutorial/
 keywords:
   - topic types
   - template
@@ -71,7 +74,7 @@ To write a tutorial, complete these steps:
 1. Create an `index.md` file within the tutorial's directory.
 1. Add front matter to the `index` file.
 
-   For more information about front matter, refer to [Front matter]({{< relref "../../front-matter" >}}).
+   For more information about front matter, refer to [Front matter]({{< relref "../../../write/front-matter" >}}).
 
 1. Add the content to a copy of the [Tutorial template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/tutorial-template.md).
 

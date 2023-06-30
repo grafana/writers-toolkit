@@ -45,7 +45,7 @@ To choose the correct link destination type, follow these steps:
 
    1. Otherwise use a partial URL with an absolute path.
       This always brings the reader back to the destination page in the source project.
-      For example, `/docs/writers-toolkit/writing-guide/`.
+      For example, `/docs/writers-toolkit/write/`.
 
 1. If the destination is internal to the https://grafana.com website, but external to the project documentation,
    use a partial URL with an absolute path.

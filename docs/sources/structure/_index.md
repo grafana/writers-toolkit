@@ -2,7 +2,10 @@
 title: Documentation structure
 description: How to organize concepts and tasks in the repository.
 weight: 300
-menuTitle: Documentation structure
+menuTitle: Structure
+aliases:
+  - /docs/writers-toolkit/writing-guide/documentation-structure/
+  - /docs/writers-toolkit/structure
 keywords:
   - information architecture
   - structure
@@ -16,7 +19,7 @@ Before you begin contributing to documentation, it is important to understand th
 
 ## User goals and documentation structure
 
-When writing documentation, focus on what your user's goals are. For more information, refer to [Focus on user goals]({{< relref "../../style-guide/style-conventions" >}}).
+When writing documentation, focus on what your user's goals are. For more information, refer to [Focus on user goals]({{< relref "../write/style-guide/style-conventions" >}}).
 
 Use the structure of your documentation to reflect the user’s goals. Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
 
@@ -82,7 +85,9 @@ The table of contents consists of the following section levels.
 
 **Top-level:** A table of contents top-level represents groups of features and functions of a product. The first step in contributing to the docs is to identify which top-level entity you will be contributing to.
 
-> **Note:** You should not add a top-level entity to the table of contents. Reach out to the technical documentation team if it is not clear where your documentation belongs.
+{{% admonition type="note" %}}
+You should not add a top-level entity to the table of contents. Reach out to the technical documentation team if it is not clear where your documentation belongs.
+{{% /admonition %}}
 
 **Parent:** Each top-level entity has one or more parents, which are groups of related feature content. Parent topics assist users in navigating to child topics.
 
@@ -94,11 +99,11 @@ Within the top-level directory, there is a parent directory.
 
 The image below shows how the repository's `user-management` parent directory is structured.
 
-- There is an `_index.md` file in the parent directory that serves as a landing page for the child topics. In most cases, `_index.md` contains conceptual content. For information about the types of conceptual content that you can add to the `_index.md` file, refer to [Concepts]({{< relref "../topic-types/concept" >}}).
+- There is an `_index.md` file in the parent directory that serves as a landing page for the child topics. In most cases, `_index.md` contains conceptual content. For information about the types of conceptual content that you can add to the `_index.md` file, refer to [Concepts]({{< relref "./topic-types/concept" >}}).
 - There are also four task topics in the parent directory, each with a directory and `index.md` file.
 
-For more information about how to write concepts, refer to [Concepts]({{< relref "../topic-types/concept" >}}).
-For more information about how to write tasks, refer to [Tasks]({{< relref "../topic-types/task" >}}).
+For more information about how to write concepts, refer to [Concepts]({{< relref "./topic-types/concept" >}}).
+For more information about how to write tasks, refer to [Tasks]({{< relref "./topic-types/task" >}}).
 
 ![Parent directory structure](parent-directory.png)
 

@@ -3,6 +3,8 @@ title: Introduction to documentation
 menuTitle: Introduction to documentation
 description: Learn about Grafana's documentation
 weight: 100
+aliases:
+- /docs/writers-toolkit/writing-guide/about-grafana-docs
 keywords:
   - Grafana
   - documentation
@@ -25,7 +27,7 @@ Every repository contains a `docs/sources` directory, which is where we store ou
 
 The technical writing team at Grafana Labs uses topic-based authoring. Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts. The topic types we use at Grafana are concept, reference, and task.
 
-For more information on topic types, refer to [Topic types]({{< relref "../topic-types" >}}).
+For more information on topic types, refer to [Topic types]({{< relref "../write/topic-types" >}}).
 
 Why is topic-based authoring important?
 
@@ -46,7 +48,7 @@ We're thrilled that you are considering contributing to the documentation. You c
 
 - [Request a change]({{< relref "../contribute-documentation#request-a-change" >}})
 - [Edit a topic]({{< relref "../contribute-documentation#edit-a-topic" >}})
-- [Create a topic]({{< relref "../topic-types" >}})
+- [Create a topic]({{< relref "../structure/topic-types" >}})
 
 ## Join our community
 

@@ -53,19 +53,19 @@ All projects are subdirectories of `/hugo/content/docs/`.
 To run `doc-validator` on specific files, provide the _`DOC_VALIDATOR_INCLUDE`_ argument to your `make` command.
 It's value is a regular expression to be matched against file paths.
 
-### Writers' Toolkit repository, `/docs/sources/writing-guide/` directory
+### Writers' Toolkit repository, `/docs/sources/write/` directory
 
-When in the Writer's Toolkit repository, to only validate content in the `/docs/sources/writing-guide/` directory, run the following command:
+When in the Writer's Toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
 
 ```console
-make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/writing-guide/.*$'
+make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/write/.*$'
 ```
 
 #### Explanation of the regular expression
 
 - `^` matches the empty string at the beginning of a line, effectively anchoring the regular expression to the start of the input.
 - Writers' Toolkit is an unversioned project so the content is mounted directly into the `/hugo/content/docs/writers-toolkit/` directory.
-- `writing-guide/` is appended to the literal string so hat only the content in the `/docs/sources/writing-guide/` directory is validated.
+- `write/` is appended to the literal string so hat only the content in the `/docs/sources/writing-guide/` directory is validated.
 - `.*` matches zero or more additional characters, effectively matching any file paths in the `/hugo/content/docs/writers-toolkit/` directory.
 - `$` matches the empty string at the end of a line, effectively anchoring the regular expression to the end of the input.
 

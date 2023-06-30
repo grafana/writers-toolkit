@@ -3,6 +3,9 @@ title: Task topic
 menuTitle: Task
 description: Learn how to write a task topic.
 weight: 200
+aliases:
+   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/task
+   - /docs/writers-toolkit/structure/topic-types/task/
 keywords:
   - topic types
   - template

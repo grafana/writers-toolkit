@@ -97,7 +97,7 @@ Introduce each code sample with a sentence or paragraph to establish its context
 
 Many types of information belong in fixed-width font. Among these are path names, file names, directories, or folders. However, don't format domain names or URLs as code if you intend the user to follow the link.
 
-Although there are times when you might want to make a URL clickable, it is better to follow the guidelines for [References]({{< relref "../../writing-guide/references" >}}).
+Although there are times when you might want to make a URL clickable, it is better to follow the guidelines for [References]({{< relref "../../write/references" >}}).
 
 ## Command lines
 

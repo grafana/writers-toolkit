@@ -3,6 +3,9 @@ title: Concept topic
 menuTitle: Concept
 description: Learn how to write a concept topic.
 weight: 100
+aliases:
+   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/concept
+   - /docs/writers-toolkit/structure/topic-types/concept
 keywords:
   - topic types
   - template

@@ -3,6 +3,9 @@ title: Reference topic
 menuTitle: Reference
 description: Learn how to write a reference topic.
 weight: 300
+aliases:
+   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference
+   - /docs/writers-toolkit/structure/topic-types/reference/
 keywords:
   - topic types
   - template
@@ -20,7 +23,9 @@ API information is also included in reference topics.
 
 Because reference topics contain information the user needs to accomplish a task, reference topics are often linked to task topics.
 
-> **Note:** Do not include steps or conceptual information in reference topics.
+{{% admonition type="note" %}}
+Do not include steps or conceptual information in reference topics.
+{{% /admonition %}}
 
 ## Reference structure
 
@@ -52,7 +57,7 @@ To write a reference, complete these steps:
 1. Create an `index.md` file within the reference directory.
 1. Add front matter to the `index` file.
 
-   For more information about front matter, refer to [Front matter]({{< relref "../../front-matter" >}}).
+   For more information about front matter, refer to [Front matter]({{< relref "../../../write/front-matter" >}}).
 
 1. Make a copy of the [Reference template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/reference-template.md), and add your content to it.
 

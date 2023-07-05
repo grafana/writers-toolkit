@@ -124,7 +124,7 @@ Refer to the following guidelines when you write unordered lists.
 
 For more guidance, refer to [Lists](https://developers.google.com/style/lists) in the [Google developer style guide](https://developers.google.com/style/).
 
-### Definition lits
+### Definition lists
 
 Definition lists often used for providing a list of a term and indented definition. For example, you can use a definition list to document commands and their meanings:
 

@@ -2,7 +2,10 @@
 title: Shortcodes
 menuTitle: Shortcodes
 description: Understand what shortcodes are and how to use them in your Markdown.
-weight: 800
+weight: 500
+aliases:
+   - /docs/writers-toolkit/writing-guide/shortcodes/
+   - /docs/writers-toolkit/write/shortcodes/
 keywords:
   - Hugo
   - shortcodes

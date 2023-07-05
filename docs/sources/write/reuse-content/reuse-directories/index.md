@@ -6,6 +6,9 @@ keywords:
   - Hugo
 menuTitle: Reuse directories of content
 title: Reuse directories of content with Hugo mounts
+aliases:
+   - /docs/writers-toolkit/writing-guide/reuse-directories/
+   - /docs/writers-toolkit/write/reuse-content/reuse-directories/
 ---
 
 # Reuse directories of content with Hugo mounts

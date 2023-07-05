@@ -2,6 +2,9 @@
 title: Style conventions
 description: Style conventions
 weight: 200
+aliases:
+   - /docs/writers-toolkit/style-guide/style-conventions
+   - /docs/writers-toolkit/write/style-guide/style-conventions
 keywords:
   - style conventions
 ---

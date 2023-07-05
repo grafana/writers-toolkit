@@ -2,7 +2,7 @@
 title: Write useful link text
 menuTitle: Write useful link text
 description: Learn how to write useful link text well.
-weight: 100
+weight: 700
 keywords:
 ---
 

@@ -2,7 +2,10 @@
 title: Markdown guide
 menuTitle: Markdown guide
 description: Guidelines for writing technical documentation in Markdown.
-weight: 500
+weight: 300
+aliases:
+   - /docs/writers-toolkit/writing-guide/markdown-guide/
+   - /docs/writers-toolkit/write/markdown-guide/
 keywords:
   - Markdown
   - headings

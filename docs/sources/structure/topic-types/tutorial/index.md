@@ -128,12 +128,15 @@ To hide your tutorial from your documentation's table of contents:
      - _target:
          path: /docs/grafana-cloud/**
    ```
-
-   > **Note**: Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
+   {{%admonition type="note" %}}
+   Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
+   {{% /admonition %}}
 
 ### Add your tutorial to the Tutorials page
 
-> **Note**: This procedure is for writers who have permissions to update the Grafana website repo.
+{{% admonition type="note" %}}
+This procedure is for writers who have permissions to update the Grafana website repo.
+{{% /admonition %}}
 
 To add your tutorial to the Tutorials page:
 

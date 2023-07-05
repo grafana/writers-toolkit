@@ -3,6 +3,9 @@ title: Links and cross references
 menuTitle: Links and cross references
 description: Understand how Hugo determines references, the different types of references, and how to use them.
 weight: 600
+aliases:
+   - /docs/writers-toolkit/writing-guide/references/
+   - /docs/writers-toolkit/write/references/
 keywords:
   - Hugo
   - references
@@ -15,7 +18,9 @@ keywords:
 Links are a mechanism for reusing content.
 Instead of writing the same information twice, you can link to a definitive source of truth.
 
-> **Note**: When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
+{{% admonition type="note" %}}
+When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
+{{% /admonition %}}
 
 ## Understanding hyperlinks
 
@@ -34,7 +39,7 @@ To choose the correct link destination type, follow these steps:
 
 1. If the destination is external to the https://grafana.com website, use the fully specified HTTPS URL.
    For example, `[GitHub](https://github.com)`.
-1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-directories" >}}):
+1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-content/reuse-directories" >}}):
 
    1. If the destination is also present in the destination mount, use a relative URL path.
       This keeps reader within the destination project.
@@ -120,7 +125,7 @@ For Grafana's webserver environments, you can't address other versions of the do
 
 Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be predictably addressed.
 
-To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references. To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
+To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references (`relref`). To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
 
 For cross-repository links, use a standard markdown link, with the link structured like this: `/docs/repo/page`.
 

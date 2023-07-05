@@ -1,9 +1,13 @@
 ---
-title: Run a local documentation webserver
-description: Run a local documentation webserver
+title: Test documentation changes
+description: Test documentation changes by running a local documentation webserver
+weight: 200
+aliases:
+   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/run-a-local-webserver
+   - /docs/writers-toolkit/review/run-a-local-webserver
 ---
 
-# Run a local documentation webserver
+# Test documentation changes
 
 Every project keeps technical documentation in the `docs/sources` directory.
 Additionally, every project uses [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to technical documentation.

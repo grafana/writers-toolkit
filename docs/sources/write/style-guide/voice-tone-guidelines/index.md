@@ -2,6 +2,9 @@
 title: Voice and tone guidelines
 description: Voice and tone guidelines
 weight: 300
+aliases:
+   - /docs/writers-toolkit/style-guide/voice-tone-guidelines
+   - /docs/writers-toolkit/write/style-guide/voice-tone-guidelines
 keywords:
   - Grafana
   - voice and tone

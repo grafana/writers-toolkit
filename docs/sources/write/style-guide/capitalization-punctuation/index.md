@@ -2,6 +2,9 @@
 title: Capitalization and punctuation
 description: Guidelines for use of capitalization and punctuation.
 weight: 400
+aliases:
+   - /docs/writers-toolkit/style-guide/capitalization-punctuation
+   - /docs/writers-toolkit/write/style-guide/capitalization-punctuation
 keywords:
   - capitalization
   - punctuation

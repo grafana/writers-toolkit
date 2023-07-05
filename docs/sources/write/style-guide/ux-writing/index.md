@@ -2,6 +2,9 @@
 title: UX writing
 description: Guidelines on creating text, style, and tone in UI components
 weight: 500
+aliases:
+   - /docs/writers-toolkit/style-guide/ux-writing
+   - /docs/writers-toolkit/write/style-guide/ux-writing
 keywords:
   - Grafana
   - UX writing
@@ -215,7 +218,7 @@ Make errors visible to users, helpful, and easy to understand. Error messages te
 
 - The error headline includes a concise, meaningful summary of the error. Error details provide as much information as possible.
 - Include reasons and instructions for fixing the issue, if possible. Don’t give just the system logs or error titles; try to state how the error was caused and what the user can do to fix it. Assume that some of your users might not understand crash logs and need a simpler description.
-- Write error messages for humans without blame. Don't use overdramatic wording or jargon, and avoid apologies. Give a no-nonsense summary of what went wrong and include the degree of severity, in understandable terms.
+- Write error messages for humans without blame. Don't use over-dramatic wording or jargon, and avoid apologies. Give a no-nonsense summary of what went wrong and include the degree of severity, in understandable terms.
 - Like other UI elements, use sentence case, plain language, and active voice in both the title and details. Do not use the term "invalid" in an error message. Instead use "not valid" if necessary.
 
 Refer also to [Alert modals](#alert-modals).
@@ -259,7 +262,7 @@ An alert modal displays an important message in a way that attracts the user's a
 Assume that some of your users might not understand technical terms and need simple, clear alert messages. Like other UI elements, use sentence case, plain language, and active voice in alerts.
 
 {{% admonition type="note" %}}
-The word "modal" is considered jargon and should not be used when writing documenation, except for developer documentation of code referencing a `modal`. Use "dialog box" instead.
+The word "modal" is considered jargon and should not be used when writing documentation, except for developer documentation of code referencing a `modal`. Use "dialog box" instead.
 {{% /admonition %}}
 
 ### Severity levels

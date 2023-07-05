@@ -1,10 +1,13 @@
 ---
-title: Errata for doc-validator
-menuTitle: Errata
+title: Doc-validator messages
+menuTitle: Doc-validator messages
 description: Error codes and descriptions for doc-validator errata.
+aliases:
+   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
+   - /docs/writers-toolkit/review/doc-validator/errata/
 ---
 
-# Errata for doc-validator
+# Doc-validator messages
 
 ## anchor-does-not-exist
 

@@ -60,7 +60,7 @@ To write a concept topic, follow these steps.
 1. Within the parent directory, create an `_index.md` file.
 1. Add front matter to the `_index` file.
 
-   For more information about front matter, refer to [Front matter]({{< relref "../../front-matter" >}}).
+   For more information about front matter, refer to [Front matter]({{< relref "../../write/front-matter" >}}).
 
 1. Add the content to a copy of the [Concept template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md).
 

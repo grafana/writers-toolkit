@@ -1,8 +1,11 @@
 ---
 title: Documentation tooling and workflows
-menuTitle: Documentation tooling and workflows
-description: How to use documentation tools and understand our workflows.
-weight: 800
+menuTitle: Tooling and workflows
+description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
+weight: 200
+aliases:
+   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
+   - /docs/writers-toolkit/write/tooling-and-workflows
 keywords:
   - git
   - repository
@@ -13,7 +16,7 @@ keywords:
 
 # Documentation tooling and workflows
 
-This section provides an overview of the documentation tools we use at Grafana and highlights some of the key processes we use to create documentation.
+This section provides an overview of the documentation tools we use at Grafana and highlights some of the key processes we use to create and review documentation.
 
 ## Using git
 
@@ -133,8 +136,11 @@ Indicating that you are on the branch `my-branch` and there is another local bra
 
 Alternatively, you can use `git status` to check your current branch and understand the status of the branch.
 
-> **Note:** `git status` relies on your local repository having the up-to-date references from the remote repository.
-> Run `git fetch` before `git status` for the most accurate status.
+{{% admonition type="note" %}}
+`git status` relies on your local repository having the up-to-date references from the remote repository.
+
+Run `git fetch` before `git status` for the most accurate status.
+{{% /admonition %}}
 
 To understand the output of `git status`, refer to [Git - git-status Documentation](https://git-scm.com/docs/git-status#_output).
 
@@ -170,8 +176,11 @@ Using the prompt, stage all hunks relevant to your current change.
 Once you have staged your changes, you can commit them with `git commit -s`.
 `git` opens your text editor where you can type a commit message.
 
-> **Note:** The `-s` flag adds a `Signed-off-by` message to your commits that states you agree to the terms published at https://developercertificate.org/ for that particular commit.
-> This is a requirement for a number of repositories.
+{{% admonition type="note" %}}
+The `-s` flag adds a `Signed-off-by` message to your commits that states you agree to the terms published at https://developercertificate.org/ for that particular commit.
+
+This is a requirement for a number of repositories.
+{{% /admonition %}}
 
 The first line of a message is the subject.
 Commit subjects should be descriptive and concise and are typically written in the imperative, present tense.
@@ -239,20 +248,20 @@ If the changes don't conflict, you can use git to incorporate the changes made t
 
 First, fetch changes to all branches and remotes:
 
-```
+```bash
 git fetch --all
 ```
 
 Update your local copy of the main branch by merging the remote changes into it:
 
-```
+```bash
 git switch main
 git merge --ff-only
 ```
 
 After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'..."). The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
 
-```
+```bash
 Switched to branch 'main'
 Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
@@ -260,21 +269,21 @@ Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
 
 Now switch back to your branch and merge the main branch into it, applying its changes into yours:
 
-```
+```bash
 git switch my-branch
 git merge main
 ```
 
 If there are no changes to apply, git confirms this:
 
-```
+```bash
 $ git merge main
 Already up to date.
 ```
 
 Otherwise, if successful, git outputs the changes being applied to your branch:
 
-```
+```bash
 $ git merge main
 Removing public/app/plugins/panel/geomap/utils/view.ts
 ...
@@ -298,7 +307,7 @@ If the conflict is too complex to resolve in the web editor, GitHub directs you 
 
 If there's a conflict when attempting to merge the main branch into yours, git also tells you which files are in conflict:
 
-```
+```bash
 $ git merge main
 Auto-merging .github/CODEOWNERS
 CONFLICT (content): Merge conflict in .github/CODEOWNERS

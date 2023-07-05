@@ -2,7 +2,10 @@
 title: Front matter
 menuTitle: Front matter
 description: Learn about how we build front matter to properly enable the publication and search of our technical documentation.
-weight: 700
+aliases:
+   - /docs/writers-toolkit/writing-guide/front-matter/
+   - /docs/writers-toolkit/write/front-matter/
+weight: 400
 keywords:
   - front matter
   - alias
@@ -10,7 +13,7 @@ keywords:
 
 # Front matter
 
-Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the lefthand sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
+Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the left-hand sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
 
 Use YAML for all front matter.
 In certain presentations, all front matter characters might render literally.
@@ -165,11 +168,11 @@ For example:
 
 Technical writers use [Hugo aliases](https://gohugo.io/content-management/urls/#aliases) to create redirects to the current page from other URLs.
 
-If you specify `aliases` in the frontmatter, Hugo creates a directory that matches the alias entry that contains a single `.html` file.
+If you specify `aliases` in the front matter, Hugo creates a directory that matches the alias entry that contains a single `.html` file.
 
 ### Example
 
-The following example file `intended-url.md` contains the alias `/original-url` within its YAML frontmatter:
+The following example file `intended-url.md` contains the alias `/original-url` within its YAML front matter:
 
 ```markdown
 ---

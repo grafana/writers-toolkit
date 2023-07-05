@@ -1,13 +1,16 @@
 ---
-title: Backporting
-menuTitle: Backporting
-description: How and when to backport.
-weight: 100
+title: Backport changes
+menuTitle: Backport changes
+description: How and when to backport changes
+weight: 500
+aliases:
+   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/backporting/
+   - /docs/writers-toolkit/review/backporting/
 keywords:
   - backporting
 ---
 
-# Backporting
+# Backport changes
 
 The `grafana/grafana` repository has multiple long-lived branches.
 The `main` branch has the most recent code and documentation.

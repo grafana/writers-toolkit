@@ -51,7 +51,7 @@ By reading this guide, you will:
 
 | Action | Considerations |
 |---|---|
-| Learn how to best write and organize your docs | Read the [topic types](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/) topic and sub-topics in the Writers’ Toolkit. |
+| Learn how to best write and organize your docs | Read the [topic types]({{< relref "../write/topic-types/" >}}) topic and sub-topics in the Writers’ Toolkit. |
 | Add front matter | Front matter provides metadata, page title, display order, and other key information to Hugo (our publishing platform). Learn more about [Front matter]({{< relref "../write/front-matter/" >}}).  |
 | Add images and media  | [Images and media]({{< relref "../write/image-guidelines/" >}})  |
 | Use links and references  | [Links and references]({{< relref "../write/references/" >}})   |

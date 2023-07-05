@@ -158,7 +158,7 @@ To focus a user's attention, Grafana Labs documentation includes notes, cautions
 
 To standardize styling, each admonition has a special shortcode declaration.
 The following sections provide examples how to write each type.
-For the complete syntax reference, refer to [Shortcodes]({{< relref "../../write/shortcodes" >}}).
+For the complete syntax reference, refer to [Shortcodes]({{< relref "../../../write/shortcodes" >}}).
 
 ### Notes
 

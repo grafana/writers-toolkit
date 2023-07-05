@@ -61,11 +61,18 @@ By reading this guide, you will:
 
 ### 4. Review the docs
 
-
-
+| Action | Considerations |
+|---|---|
+| Build the docs locally | See the [build locally guidelines]({{< relref "../review/run-a-local-webserver" >}}) and check for errors, particularly in linking. |
+| Open a PR and tag the docs team | Use the label type/docs. |
+| Use the docs validator and vale linter | These are automatic checks from within the PR itself. Learn more about the [docs-validator]({{< relref "../review/doc-validator" >}}) and the [Vale linter]({{< relref "../review/lint-prose" >}}).|
 
 
 ### 5. Publish the docs
 
-
+| Action | Considerations |
+|---|---|
+| Review publishing options | Engage #docs to discuss the publishing options for different stages in the release cycle. |
+| Backport, if required | See the [backporting guidelines]({{< relref "../review/backporting" >}}). |
+| Add What’s New or release notes, if required | See the [Contribute to release notes guidelines]({{< relref "../contribute-documentation/contribute-release-notes" >}}).  *In Grafana, use the label add-to-whats-new in your PR. |
 

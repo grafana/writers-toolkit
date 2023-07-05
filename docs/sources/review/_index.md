@@ -4,8 +4,8 @@ menuTitle: Build and review
 description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
 weight: 800
 aliases:
-   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
-   - /docs/writers-toolkit/review/
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
+  - /docs/writers-toolkit/review/
 keywords:
   - documentation review
   - build documentation

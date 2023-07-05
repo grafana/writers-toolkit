@@ -4,7 +4,7 @@ menuTitle: Get started
 title: Get started with the Writer's Toolkit
 weight: 50
 aliases:
-   - /docs/writers-toolkit/get-started/
+  - /docs/writers-toolkit/get-started/
 ---
 
 # Get started with the Writer's Tookit
@@ -16,18 +16,18 @@ In short, it's a `tl;dr` on Writer’s Toolkit to quickly point you in the right
 
 By reading this guide, you will:
 
-* Learn how to successfully document new products or features
-* Have a step-by-step guide from project kick-off to release
-* Be introduced to the craft of creating good documentation
+- Learn how to successfully document new products or features
+- Have a step-by-step guide from project kick-off to release
+- Be introduced to the craft of creating good documentation
 
 ## Audience
 
-* Software developers who need to create docs alongside code
-* Other technical roles that create and contribute to docs
+- Software developers who need to create docs alongside code
+- Other technical roles that create and contribute to docs
 
 ## Before you begin
 
-* Consider what you want someone reading your documentation to understand or accomplish
+- Consider what you want someone reading your documentation to understand or accomplish
 
 ## Project checklist
 

@@ -4,8 +4,8 @@ menuTitle: Tutorial
 description: Learn how to write a tutorial topic.
 weight: 400
 aliases:
-   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/tutorial
-   - /docs/writers-toolkit/structure/topic-types/tutorial/
+  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/tutorial
+  - /docs/writers-toolkit/structure/topic-types/tutorial/
 keywords:
   - topic types
   - template
@@ -128,6 +128,7 @@ To hide your tutorial from your documentation's table of contents:
      - _target:
          path: /docs/grafana-cloud/**
    ```
+
    {{%admonition type="note" %}}
    Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
    {{% /admonition %}}

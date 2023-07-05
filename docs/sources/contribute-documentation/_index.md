@@ -4,7 +4,7 @@ menuTitle: Contribute to documentation
 description: This section describes the different ways of contributing to documentation.
 weight: 200
 aliases:
-- /docs/writers-toolkit/writing-guide/contribute-documentation
+  - /docs/writers-toolkit/writing-guide/contribute-documentation
 keywords:
   - contribute
   - request change

@@ -4,8 +4,8 @@ menuTitle: Backport changes
 description: How and when to backport changes
 weight: 500
 aliases:
-   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/backporting/
-   - /docs/writers-toolkit/review/backporting/
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/backporting/
+  - /docs/writers-toolkit/review/backporting/
 keywords:
   - backporting
 ---

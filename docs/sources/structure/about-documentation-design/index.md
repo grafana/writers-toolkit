@@ -4,8 +4,8 @@ menuTitle: Documentation design
 description: Learn about Grafana's documentation docs pages
 weight: 100
 aliases:
-- /docs/writers-toolkit/writing-guide/about-documentation-design/
-- /docs/writers-toolkit/structure/about-documentation-design/
+  - /docs/writers-toolkit/writing-guide/about-documentation-design/
+  - /docs/writers-toolkit/structure/about-documentation-design/
 keywords:
   - Grafana
   - documentation

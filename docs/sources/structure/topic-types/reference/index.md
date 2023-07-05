@@ -4,8 +4,8 @@ menuTitle: Reference
 description: Learn how to write a reference topic.
 weight: 300
 aliases:
-   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference
-   - /docs/writers-toolkit/structure/topic-types/reference/
+  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference
+  - /docs/writers-toolkit/structure/topic-types/reference/
 keywords:
   - topic types
   - template

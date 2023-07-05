@@ -3,8 +3,8 @@ title: Doc-validator messages
 menuTitle: Doc-validator messages
 description: Error codes and descriptions for doc-validator errata.
 aliases:
-   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
-   - /docs/writers-toolkit/review/doc-validator/errata/
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
+  - /docs/writers-toolkit/review/doc-validator/errata/
 ---
 
 # Doc-validator messages

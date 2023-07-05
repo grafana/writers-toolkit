@@ -3,8 +3,8 @@ title: Test documentation changes
 description: Test documentation changes by running a local documentation webserver
 weight: 200
 aliases:
-   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/run-a-local-webserver
-   - /docs/writers-toolkit/review/run-a-local-webserver
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/run-a-local-webserver
+  - /docs/writers-toolkit/review/run-a-local-webserver
 ---
 
 # Test documentation changes

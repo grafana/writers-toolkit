@@ -37,7 +37,7 @@ By reading this guide, you will:
 |---|---|
 | Decide what kind of documentation deliverables you need | What do you want a user to accomplish? |
 | Know which release life cycle stage the product or feature is at | Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/) <br /> Check in at the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP) to learn about docs for each of these stages. |
-| Consider content reuse, if applicable | Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories/" >}}) <br />Check in at #docs to find out how the docs team can support you in this. |
+| Consider content reuse, if applicable | Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}) <br />Check in at #docs to find out how the docs team can support you in this. |
 
 
 ### 2. Create the structure
@@ -52,10 +52,10 @@ By reading this guide, you will:
 | Action | Considerations |
 |---|---|
 | Learn how to best write and organize your docs | Read the [topic types]({{< relref "../write/topic-types/" >}}) topic and sub-topics in the Writers’ Toolkit. |
-| Add front matter | Front matter provides metadata, page title, display order, and other key information to Hugo (our publishing platform). Learn more about [Front matter]({{< relref "../write/front-matter/" >}}).  |
-| Add images and media  | [Images and media]({{< relref "../write/image-guidelines/" >}})  |
-| Use links and references  | [Links and references]({{< relref "../write/references/" >}})   |
-| Add code samples   | [Code samples]({{< relref "../write/markdown-guide/#code-blocks" >}})|
+| Add front matter |[Front matter]({{< relref "../write/front-matter" >}})der, and other key information to Hugo (our publishing platform). Learn more about [Front matter]({{< relref "../write/front-matter/" >}}).  |
+| Add images and media  | [Images and media]({{< relref "../write/image-guidelines" >}})  |
+| Use links and references  | [Links and references]({{< relref "../write/references" >}})   |
+| Add code samples   | [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}})|
 | Refer to our style guide  | [Style guide]({{< relref "../write/style-guide/style-conventions/" >}}) |
 
 

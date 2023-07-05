@@ -7,7 +7,7 @@ aliases:
   - /docs/writers-toolkit/get-started/
 ---
 
-# Get started with the Writer's Tookit
+# Get started with the Writer's Toolkit
 
 This guide provides includes everything you need to complete your documentation project from start to finish.
 In short, it's a `tl;dr` on Writer’s Toolkit to quickly point you in the right direction.
@@ -36,8 +36,8 @@ By reading this guide, you will:
 | Action | Considerations |
 |---|---|
 | Decide what kind of documentation deliverables you need | What do you want a user to accomplish? |
-| Know which stage of the release life cycle the product or feature is at | Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/) <br /> Check in at the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP) to learn about docs for each of these stages. |
-| Consider the documentation reuse strategy if your product is for multiple platforms. | Read the [Reuse strategy documentation](https://grafana.com/docs/writers-toolkit/writing-guide/reuse-directories/) <br />Check in at #docs to find out how the docs team can support you in this. |
+| Know which release life cycle stage the product or feature is at | Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/) <br /> Check in at the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP) to learn about docs for each of these stages. |
+| Consider content reuse, if applicable | Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories/" >}}) <br />Check in at #docs to find out how the docs team can support you in this. |
 
 
 ### 2. Create the structure

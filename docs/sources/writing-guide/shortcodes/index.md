@@ -154,11 +154,9 @@ Grafana Cloud alerting documentation should link to Grafana Cloud dashboard docu
 
 The content of the `docs/reference` shortcode must be within opening and closing tags.
 
-| Parameter             | Description                                                                                                                                                                                                                                                               | Required |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `label`               | The label for the shortcode. This is the text that you enter in the link instead of an http link or file path.                                                                                                                                                            | yes      |
-| `project path prefix` | Designates the destination project. For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`.                                                                                                                                                        | yes      |
-| `reference`           | The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. | yes      |
+ `label` - The label for the shortcode. This is the text that you enter in the link instead of an http link or file path.  
+ `project path prefix` - Designates the destination project. For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`.   
+ `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version.                                                                                                                                                          
 
 Set the docs reference in the footer of the page and then use the `label` in the link in the body of the file.
 
@@ -180,9 +178,6 @@ Then add the link in the body of the file in the following format:
 ```markdown
 For more information about Grafana dashboards, refer to [Dashboards][dashboards].
 ```
-
-
-
 
 - If the page is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
 - If the page is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.

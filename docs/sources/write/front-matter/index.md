@@ -3,8 +3,8 @@ title: Front matter
 menuTitle: Front matter
 description: Learn about how we build front matter to properly enable the publication and search of our technical documentation.
 aliases:
-   - /docs/writers-toolkit/writing-guide/front-matter/
-   - /docs/writers-toolkit/write/front-matter/
+  - /docs/writers-toolkit/writing-guide/front-matter/
+  - /docs/writers-toolkit/write/front-matter/
 weight: 400
 keywords:
   - front matter

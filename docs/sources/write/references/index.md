@@ -4,8 +4,8 @@ menuTitle: Links and cross references
 description: Understand how Hugo determines references, the different types of references, and how to use them.
 weight: 600
 aliases:
-   - /docs/writers-toolkit/writing-guide/references/
-   - /docs/writers-toolkit/write/references/
+  - /docs/writers-toolkit/writing-guide/references/
+  - /docs/writers-toolkit/write/references/
 keywords:
   - Hugo
   - references

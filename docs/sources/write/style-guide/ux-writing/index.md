@@ -3,8 +3,8 @@ title: UX writing
 description: Guidelines on creating text, style, and tone in UI components
 weight: 500
 aliases:
-   - /docs/writers-toolkit/style-guide/ux-writing
-   - /docs/writers-toolkit/write/style-guide/ux-writing
+  - /docs/writers-toolkit/style-guide/ux-writing
+  - /docs/writers-toolkit/write/style-guide/ux-writing
 keywords:
   - Grafana
   - UX writing

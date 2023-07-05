@@ -4,8 +4,8 @@ menuTitle: Style guide
 description: Style guide for Grafana Labs
 weight: 100
 aliases:
-   - /docs/writers-toolkit/style-guide/
-   - /docs/writers-toolkit/write/style-guide
+  - /docs/writers-toolkit/style-guide/
+  - /docs/writers-toolkit/write/style-guide
 keywords:
   - Grafana
   - style guide

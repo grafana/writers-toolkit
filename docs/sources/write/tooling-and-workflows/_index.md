@@ -4,8 +4,8 @@ menuTitle: Tooling and workflows
 description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
 weight: 200
 aliases:
-   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
-   - /docs/writers-toolkit/write/tooling-and-workflows
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
+  - /docs/writers-toolkit/write/tooling-and-workflows
 keywords:
   - git
   - repository

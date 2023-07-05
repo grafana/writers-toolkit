@@ -4,8 +4,8 @@ menuTitle: Image and media guidelines
 description: How to include images in your documentation.
 weight: 750
 aliases:
-   - /docs/writers-toolkit/writing-guide/image-guidelines/
-   - /docs/writers-toolkit/write/image-guidelines/
+  - /docs/writers-toolkit/writing-guide/image-guidelines/
+  - /docs/writers-toolkit/write/image-guidelines/
 keywords:
   - image
   - screenshot

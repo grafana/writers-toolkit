@@ -4,7 +4,7 @@ menuTitle: Reuse content
 description: Learn about reusing content in your documentation.
 weight: 800
 aliases:
-   - /docs/writers-toolkit/write/reuse-content
+  - /docs/writers-toolkit/write/reuse-content
 Keywords:
   - sharing
   - reuse content

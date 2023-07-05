@@ -5,8 +5,8 @@ keywords:
   - shared content
 title: Reuse shared content
 aliases:
-   - /docs/writers-toolkit/writing-guide/reuse-shared-content/
-   - /docs/writers-toolkit/write/reuse-content/reuse-shared-content/
+  - /docs/writers-toolkit/writing-guide/reuse-shared-content/
+  - /docs/writers-toolkit/write/reuse-content/reuse-shared-content/
 ---
 
 # Reuse shared content

@@ -59,7 +59,7 @@ It's value is a regular expression to be matched against file paths.
 
 ### Writers' Toolkit repository, `/docs/sources/write/` directory
 
-When in the writers' toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
+When in the writers-toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
 
 ```console
 make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/write/.*$'

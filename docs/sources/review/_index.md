@@ -17,4 +17,4 @@ Any content that you create should be tested and reviewed before that content is
 
 The build and review section covers the follow topics:
 
-  {{< section withDescriptions="true" >}}
+{{< section withDescriptions="true" >}}

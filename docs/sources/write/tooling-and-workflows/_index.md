@@ -60,7 +60,7 @@ Resolving deltas: 100% (73091/73091), done.
 
 You can then enter the repository by changing to the newly created directory.
 
-```
+```bash
 cd mimir
 ```
 
@@ -127,7 +127,7 @@ git branch
 
 The output is similar to the following:
 
-```
+```console
 * my-branch
 main
 ```
@@ -261,7 +261,7 @@ git merge --ff-only
 
 After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'..."). The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
 
-```bash
+```console
 Switched to branch 'main'
 Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
@@ -278,6 +278,11 @@ If there are no changes to apply, git confirms this:
 
 ```bash
 $ git merge main
+```
+
+The output is similar to the following:
+
+```console
 Already up to date.
 ```
 
@@ -285,6 +290,11 @@ Otherwise, if successful, git outputs the changes being applied to your branch:
 
 ```bash
 $ git merge main
+```
+
+The output is similar to the following:
+
+```console
 Removing public/app/plugins/panel/geomap/utils/view.ts
 ...
 Auto-merging .github/CODEOWNERS

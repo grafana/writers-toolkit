@@ -76,4 +76,4 @@ To reuse shared content:
 
 1. Verify the include.
 
-   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "../../../contribute-documentation/#Review-your-changes" >}})
+   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "../../../contribute-documentation#review-your-changes" >}})

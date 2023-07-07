@@ -36,23 +36,17 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 ### 1. Plan the work
 
 
-1. Decide what kind of documentation deliverables you need
-    1.  What do you want a user to accomplish?
+1. Decide what kind of documentation deliverables you need. What do you want a user to accomplish?
 
+1. Know  release life cycle stage of the product or feature.  Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/).
 
-1. Know which release life cycle stage the product or feature is at
-   1. Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/).
-
-1. Consider content reuse, if applicable
-    1. Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}).
+1. Consider content reuse, if applicable. Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}).
 
 ### 2. Create the structure
-
 
 1. Add docs to your GitHub repository. Add a `docs/sources` folder to your repo, if it doesn’t already exist.
 
 1. Create the folders and structure. Use the content framework for consistency across product docs.
-
 
 ### 3. Draft the docs
 
@@ -60,7 +54,6 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 1. Add front matter.
    1. Read the [Front matter]({{< relref "../write/front-matter" >}}) documentation, and other key information to Hugo (our publishing platform).
-   1. Learn more about [Front matter]({{< relref "../write/front-matter" >}}).
 
 1. Add images and media. Read the [Images and media]({{< relref "../write/image-guidelines" >}}) documentation.
 
@@ -78,9 +71,10 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 1. Use the docs validator and vale linter. These are automatic checks from within the PR itself. Learn more about the [docs-validator]({{< relref "../review/doc-validator" >}}) and the [Vale linter]({{< relref "../review/lint-prose" >}}).
 
-
 ### 5. Publish the docs
 
 1. Review publishing options. Engage #docs to discuss the publishing options for different stages in the release cycle.
+
 1. Backport, if required. Refer to the [backporting guidelines]({{< relref "../review/backporting" >}}).
+
 1. Add What’s New or release notes, if required. Refer to the [Contribute to release notes guidelines]({{< relref "../contribute-documentation/contribute-release-notes" >}}). In Grafana, use the label `add-to-whats-new` in your PR.

@@ -1,25 +1,26 @@
 name: Update `make docs` procedure
 on:
   schedule:
-    - 0 7 * * 1-5
+    - cron: "0 7 * * 1-5"
 jobs:
-  update:
+  main:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-    steps:
-      - if: github.repository != 'grafana/writers-toolkit'
+      - name: Update procedure
+        if: github.repository != 'grafana/writers-toolkit'
         run: |
-          curl -s -Lo .github/workflows/update-make-docs.yml https://raw.githubusercontent.com/grafana/writers-toolkit/main/.github/workflows/update-make-docs.yml
           curl -s -Lo docs/docs.mk https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
           curl -s -Lo docs/make-docs https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs
           if git diff --exit-code; then exit 0; fi
           BRANCH="$(date +%Y-%m-%d)/update-make-docs"
           git checkout -b "${BRANCH}"
           git add .
-          git commit -m "Update `make docs` procedure"
+          git config --local user.email "bot@grafana.com"
+          git config --local user.name "grafanabot"
+          git commit -m "Update \`make docs\` procedure"
           git push -v origin "refs/heads/${BRANCH}"
           gh pr create --fill
         env:

@@ -70,6 +70,7 @@ SOURCES_grafana_cloud_machine_learning='machine-learning'
 SOURCES_helm_charts_mimir_distributed='mimir'
 SOURCES_helm_charts_tempo_distributed='tempo'
 SOURCES_opentelemetry='opentelemetry-docs'
+SOURCES_plugins_grafana_splunk_datasource='splunk-datasource'
 
 VERSIONS_as_code='UNVERSIONED'
 VERSIONS_grafana_cloud='UNVERSIONED'

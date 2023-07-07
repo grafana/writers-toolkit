@@ -1,13 +1,13 @@
 ---
-description: Get started with the Writers' Toolkit
+description: Get started with Writers' Toolkit
 menuTitle: Get started
-title: Get started with the Writers' Toolkit
+title: Get started with Writers' Toolkit
 weight: 50
 aliases:
   - /docs/writers-toolkit/get-started/
 ---
 
-# Get started with the Writers' Toolkit
+# Get started with Writers' Toolkit
 
 This guide provides includes everything you need to complete your documentation project from start to finish.
 In short, it quickly points you in the right direction.

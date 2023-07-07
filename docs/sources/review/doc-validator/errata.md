@@ -187,7 +187,7 @@ Move '%s' to a Hugo bundle and the image inside the bundle directory.
 
 ### Message
 
-The front matter alias '%s' is from the Writers' Toolkit template and must be removed.
+The front matter alias '%s' is from Writers' Toolkit template and must be removed.
 
 ### Guide
 
@@ -203,7 +203,7 @@ If there are no other aliases in the front matter, remove the entire 'aliases' m
 
 ### Message
 
-The front matter description is from the Writers' Toolkit template and must be replaced with a description of the content.
+The front matter description is from Writers' Toolkit template and must be replaced with a description of the content.
 
 ### Guide
 

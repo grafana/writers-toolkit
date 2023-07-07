@@ -33,62 +33,56 @@ By reading this guide, you will:
 
 ### 1. Plan the work
 
-{{% responsive-table %}}
 
-| Action                                                           | Considerations                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Decide what kind of documentation deliverables you need          | What do you want a user to accomplish?                                                                                                                                                                                            |
-| Know which release life cycle stage the product or feature is at | Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/) <br /> Check in at the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP) to learn about docs for each of these stages. |
-| Consider content reuse, if applicable                            | Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}) <br />Check in at #docs to find out how the docs team can support you in this.                                                 |
+1. Decide what kind of documentation deliverables you need
+    2.  What do you want a user to accomplish?
 
-{{% /responsive-table %}}
+
+1. Know which release life cycle stage the product or feature is at
+   2. Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/) <br /> Check in at the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP) to learn about docs for each of these stages.
+
+
+1. Consider content reuse, if applicable
+    1. Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}).
 
 ### 2. Create the structure
 
-{{% responsive-table %}}
 
-| Action                             | Considerations                                                         |
-| ---------------------------------- | ---------------------------------------------------------------------- |
-| Add docs to your GitHub repository | Add a `docs/sources` folder to your repo, if it doesn’t already exist. |
-| Create the folders and structure   | Use the content framework for consistency across product docs.         |
+1. Add docs to your GitHub repository. Add a `docs/sources` folder to your repo, if it doesn’t already exist.
 
-{{% /responsive-table %}}
+1. Create the folders and structure. Use the content framework for consistency across product docs.
+
 
 ### 3. Draft the docs
 
-{{% responsive-table %}}
+1. Learn how to best write and organize your docs | Read the [topic types]({{< relref "../structure/topic-types" >}}) topic and sub-topics in the Writers’ Toolkit.
 
-| Action                                         | Considerations                                                                                                                                                                                |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Learn how to best write and organize your docs | Read the [topic types]({{< relref "../structure/topic-types" >}}) topic and sub-topics in the Writers’ Toolkit.                                                                               |
-| Add front matter                               | [Front matter]({{< relref "../write/front-matter" >}}), and other key information to Hugo (our publishing platform). Learn more about [Front matter]({{< relref "../write/front-matter" >}}). |
-| Add images and media                           | [Images and media]({{< relref "../write/image-guidelines" >}})                                                                                                                                |
-| Use links and references                       | [Links and references]({{< relref "../write/references" >}})                                                                                                                                  |
-| Add code samples                               | [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}})                                                                                                                          |
-| Refer to our style guide                       | [Style guide]({{< relref "../write/style-guide/style-conventions" >}})                                                                                                                        |
+1. Add front matter.
+  1. Read the [Front matter]({{< relref "../write/front-matter" >}}) documentation, and other key information to Hugo (our publishing platform).
+  2. Learn more about [Front matter]({{< relref "../write/front-matter" >}}).
 
-{{% /responsive-table %}}
+1. Add images and media.
+   2. [Images and media]({{< relref "../write/image-guidelines" >}})
+
+1. Use links and references.
+   2. [Links and references]({{< relref "../write/references" >}})
+
+1. Add code samples.
+   2. [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}})
+
+1. Refer to our [Style guide]({{< relref "../write/style-guide/style-conventions"
 
 ### 4. Review the docs
 
-{{% responsive-table %}}
+1. Build the docs locally. Refer to the [build locally guidelines]({{< relref "../review/run-a-local-webserver" >}}) and check for errors, particularly in linking.
 
-| Action                                 | Considerations                                                                                                                                                                                      |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Build the docs locally                 | See the [build locally guidelines]({{< relref "../review/run-a-local-webserver" >}}) and check for errors, particularly in linking.                                                                 |
-| Open a PR and tag the docs team        | Use the label type/docs.                                                                                                                                                                            |
-| Use the docs validator and vale linter | These are automatic checks from within the PR itself. Learn more about the [docs-validator]({{< relref "../review/doc-validator" >}}) and the [Vale linter]({{< relref "../review/lint-prose" >}}). |
+1. Open a PR and tag the docs team. Use the label type/docs.
 
-{{% /responsive-table %}}
+1. Use the docs validator and vale linter. These are automatic checks from within the PR itself. Learn more about the [docs-validator]({{< relref "../review/doc-validator" >}}) and the [Vale linter]({{< relref "../review/lint-prose" >}}).
+
 
 ### 5. Publish the docs
 
-{{% responsive-table %}}
-
-| Action                                       | Considerations                                                                                                                                                                    |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Review publishing options                    | Engage #docs to discuss the publishing options for different stages in the release cycle.                                                                                         |
-| Backport, if required                        | See the [backporting guidelines]({{< relref "../review/backporting" >}}).                                                                                                         |
-| Add What’s New or release notes, if required | See the [Contribute to release notes guidelines]({{< relref "../contribute-documentation/contribute-release-notes" >}}). \*In Grafana, use the label add-to-whats-new in your PR. |
-
-{{% /responsive-table %}}
+1. Review publishing options. Engage #docs to discuss the publishing options for different stages in the release cycle.
+2. Backport, if required. Refer to the [backporting guidelines]({{< relref "../review/backporting" >}}).
+1. Add What’s New or release notes, if required. Refer to the [Contribute to release notes guidelines]({{< relref "../contribute-documentation/contribute-release-notes" >}}). In Grafana, use the label `add-to-whats-new` in your PR.

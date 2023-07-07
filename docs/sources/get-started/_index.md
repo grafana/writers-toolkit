@@ -35,10 +35,9 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 ### 1. Plan the work
 
-
 1. Decide what kind of documentation deliverables you need. What do you want a user to accomplish?
 
-1. Know  release life cycle stage of the product or feature.  Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/).
+1. Know the release life cycle stage of the product or feature. Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/).
 
 1. Consider content reuse, if applicable. Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}).
 
@@ -52,8 +51,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 1. Learn how to best write and organize your docs | Read the [topic types]({{< relref "../structure/topic-types" >}}) topic and sub-topics in the Writers’ Toolkit.
 
-1. Add front matter.
-   1. Read the [Front matter]({{< relref "../write/front-matter" >}}) documentation, and other key information to Hugo (our publishing platform).
+1. Add front matter. Read the [Front matter]({{< relref "../write/front-matter" >}}) documentation, and other key information to Hugo (our publishing platform).
 
 1. Add images and media. Read the [Images and media]({{< relref "../write/image-guidelines" >}}) documentation.
 
@@ -61,7 +59,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 1. Add code samples. Refer to the [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}}) documentation for guidance.
 
-1. Refer to our [Style guide]({{< relref "../write/style-guide/style-conventions"
+1. Refer to our [Style guide]({{< relref "../write/style-guide/style-conventions" >}}).
 
 ### 4. Review the docs
 

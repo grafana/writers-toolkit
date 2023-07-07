@@ -31,16 +31,17 @@ By reading this guide, you will:
 
 ## Project checklist
 
+If you have questions, you can ask them in the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP).
+
 ### 1. Plan the work
 
 
 1. Decide what kind of documentation deliverables you need
-    2.  What do you want a user to accomplish?
+    1.  What do you want a user to accomplish?
 
 
 1. Know which release life cycle stage the product or feature is at
-   2. Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/) <br /> Check in at the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP) to learn about docs for each of these stages.
-
+   1. Review the [Release cycle for Grafana Labs](/docs/release-life-cycle/).
 
 1. Consider content reuse, if applicable
     1. Read the [Reuse strategy documentation]({{< relref "../write/reuse-content/reuse-directories" >}}).
@@ -58,17 +59,14 @@ By reading this guide, you will:
 1. Learn how to best write and organize your docs | Read the [topic types]({{< relref "../structure/topic-types" >}}) topic and sub-topics in the Writers’ Toolkit.
 
 1. Add front matter.
-  1. Read the [Front matter]({{< relref "../write/front-matter" >}}) documentation, and other key information to Hugo (our publishing platform).
-  2. Learn more about [Front matter]({{< relref "../write/front-matter" >}}).
+   1. Read the [Front matter]({{< relref "../write/front-matter" >}}) documentation, and other key information to Hugo (our publishing platform).
+   1. Learn more about [Front matter]({{< relref "../write/front-matter" >}}).
 
-1. Add images and media.
-   2. [Images and media]({{< relref "../write/image-guidelines" >}})
+1. Add images and media. Read the [Images and media]({{< relref "../write/image-guidelines" >}}) documentation.
 
-1. Use links and references.
-   2. [Links and references]({{< relref "../write/references" >}})
+1. Use links and references. Refer to the [Links and references]({{< relref "../write/references" >}}) documentation for guidance.
 
-1. Add code samples.
-   2. [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}})
+1. Add code samples. Refer to the [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}}) documentation for guidance.
 
 1. Refer to our [Style guide]({{< relref "../write/style-guide/style-conventions"
 
@@ -84,5 +82,5 @@ By reading this guide, you will:
 ### 5. Publish the docs
 
 1. Review publishing options. Engage #docs to discuss the publishing options for different stages in the release cycle.
-2. Backport, if required. Refer to the [backporting guidelines]({{< relref "../review/backporting" >}}).
+1. Backport, if required. Refer to the [backporting guidelines]({{< relref "../review/backporting" >}}).
 1. Add What’s New or release notes, if required. Refer to the [Contribute to release notes guidelines]({{< relref "../contribute-documentation/contribute-release-notes" >}}). In Grafana, use the label `add-to-whats-new` in your PR.

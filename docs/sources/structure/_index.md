@@ -86,7 +86,8 @@ The table of contents consists of the following section levels.
 **Top-level:** A table of contents top-level represents groups of features and functions of a product. The first step in contributing to the docs is to identify which top-level entity you will be contributing to.
 
 {{% admonition type="note" %}}
-You should not add a top-level entity to the table of contents. Reach out to the technical documentation team if it is not clear where your documentation belongs.
+Do not add a top-level entity to the table of contents. 
+If you are not sure where your documentation belongs, contact the technical documentation team.
 {{% /admonition %}}
 
 **Parent:** Each top-level entity has one or more parents, which are groups of related feature content. Parent topics assist users in navigating to child topics.

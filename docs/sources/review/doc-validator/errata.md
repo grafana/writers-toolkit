@@ -1,6 +1,6 @@
 ---
-title: Doc-validator messages
-menuTitle: Doc-validator messages
+title: Errata for doc-validator
+menuTitle: Errata for doc-validator
 description: Error codes and descriptions for doc-validator errata.
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/

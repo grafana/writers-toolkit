@@ -4,6 +4,8 @@ menuTitle: Errata
 description: Error codes and descriptions for doc-validator errata.
 ---
 
+[//]: # "DO NOT EDIT. This file is generated from https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl"
+
 # Errata for doc-validator
 
 ## anchor-does-not-exist
@@ -260,7 +262,9 @@ The '%s' parameter in the front matter must be a YAML sequence of strings.
 
 ### Message
 
-The link to the project page '%s' is invalid. Links to project pages must use a Hugo relref shortcode like `{{</* relref "./path/to/page" */>}}`.
+The link to the project page '%s' is invalid.
+Links to project pages must use a Hugo relref shortcode like `{{</* relref "./path/to/page" */>}}`.
+Links to project assets must be made from a leaf bundle (index.md file).
 
 ## relref-can-resolve-ambiguously
 

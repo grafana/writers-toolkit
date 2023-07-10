@@ -7,7 +7,9 @@ aliases:
   - /docs/writers-toolkit/review/doc-validator/errata/
 ---
 
-# Doc-validator messages
+[//]: # "DO NOT EDIT. This file is generated from https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl"
+
+# Errata for doc-validator
 
 ## anchor-does-not-exist
 
@@ -263,7 +265,11 @@ The '%s' parameter in the front matter must be a YAML sequence of strings.
 
 ### Message
 
-The link to the project page '%s' is invalid. Links to project pages must use a Hugo relref shortcode like `{{</* relref "./path/to/page" */>}}`.
+The link to the project page '%s' is invalid.
+Links to project pages must use a Hugo relref shortcode like `{{</* relref "./path/to/page" */>}}`.
+
+Links to project assets must be made from a bundle (index.md or \_index.md file).
+The asset must be contained within the bundle directory, it must have an extension, and must not have the extension ".md".
 
 ## relref-can-resolve-ambiguously
 

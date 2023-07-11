@@ -143,12 +143,12 @@ Use periods for multiple sentences.
 
 **Use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion.
-> For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
+> Metrics, Logs, and Traces are billed based on ingestion. For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
 
 **Don't use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion<p></p><p></p>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
+> Metrics, Logs, and Traces are billed based on ingestion<br>
+> For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
 
 ### Write scannable descriptive text
 
@@ -156,7 +156,10 @@ Using long blocks of descriptive text reduces readability. Write important infor
 
 **Use:**
 
-> Before you begin, make sure you have the following items:<ul><li>The kubectl command-line tool. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).</li><li>(Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.</li></ul>
+> Before you begin, make sure you have the following items:
+>
+> - The kubectl command-line tool. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
+> - (Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
 
 **Don't use:**
 
@@ -184,21 +187,21 @@ Use buttons when you want users to take actions, such as adding or creating new 
 - Start button labels with a verb.
 - Aim for using one to two words, with a maximum of four words.
 - Make button labels descriptive, and tell the user what action will occur if they click it. Rather than using **OK** or **Cancel**, be specific. For example, use **Save** / **Don't save** rather than **Save** / **Cancel**.
-- Use sentence case without punctuation.
+- Use sentence case without punctuation. For example, use **Save changes** rather than **Save Changes.**
 
 #### Common use cases for buttons
 
-| Button  | When to use it                                                                                                                                                                   | Examples                                                                                                                                                                 |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | **Create** <p></p> **Create incident** <p></p> **Create entry**                                                                                                          |
-| Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | **Add details** <p></p> **Add contact**                                                                                                                                  |
-| Save    | Save something to a server.                                                                                                                                                      | **Save** <p></p> **Save and exit** <p></p> **Save changes**                                                                                                              |
-| Edit    | Change or update something that already exists. This doesn’t affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                                 |
-| Preview | Preview a runtime version of whatever you are working on. This action doesn’t take you away from or override the page you’re already on.                                         | **Preview**                                                                                                                                                              |
-| Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | **Cancel**                                                                                                                                                               |
-| Close   | Close a window.                                                                                                                                                                  | **Close**                                                                                                                                                                |
-| Delete  | Permanently delete something from the server. This usually prompts a confirmation modal, asking you to confirm your decision.                                                    | **Delete notification policy** <p></p> Deleting this notification policy will permanently remove it. Are you sure you want to delete this policy? <p></p>**Yes, delete** |
-| Remove  | Remove an item from a list.                                                                                                                                                      | **Remove**                                                                                                                                                               |
+| Button  | When to use it                                                                                                                                                                   | Examples                                                                                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | **Create**<br>**Create incident**<br>**Create entry**                                                                                                           |
+| Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | **Add details**<br>**Add contact**                                                                                                                              |
+| Save    | Save something to a server.                                                                                                                                                      | **Save**<br>**Save and exit**<br>**Save changes**                                                                                                               |
+| Edit    | Change or update something that already exists. This doesn’t affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                        |
+| Preview | Preview a runtime version of whatever you are working on. This action doesn’t take you away from or override the page you’re already on.                                         | **Preview**                                                                                                                                                     |
+| Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | **Cancel**                                                                                                                                                      |
+| Close   | Close a window.                                                                                                                                                                  | **Close**                                                                                                                                                       |
+| Delete  | Permanently delete something from the server. This usually prompts a confirmation modal, asking you to confirm your decision.                                                    | **Delete notification policy**<br>Deleting this notification policy will permanently remove it. Are you sure you want to delete this policy?<br>**Yes, delete** |
+| Remove  | Remove an item from a list.                                                                                                                                                      | **Remove**                                                                                                                                                      |
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/buttons-button--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/buttons-button--basic).
 
@@ -225,7 +228,7 @@ Refer also to [Alert modals](#alert-modals).
 
 **Use:**
 
-> Failed to evaluate queries and expressions:<p></p>Add a query target to alert rule.
+> Failed to evaluate queries and expressions:<br> Add a query target to alert rule.
 
 **Don't use:**
 
@@ -282,11 +285,17 @@ For error messages, provide actionable instructions to help users complete their
 
 **Use:**
 
-> Warning <br> You'll need additional permissions to perform this action. <br>Permissions needed: `plugins:write`
+> Warning
+>
+> You'll need additional permissions to perform this action.
+>
+> Permissions needed: `plugins:write`
 
 **Don't use:**
 
-> Error <p></p> You'll need additional permissions to perform this action.
+> Error
+>
+> You'll need additional permissions to perform this action.
 
 ## Confirm modals
 
@@ -297,7 +306,7 @@ Use confirm modals to request the user to confirm an action, for example, a dele
 
 **Use:**
 
-> Use Google's location service?<p></p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+> Use Google's location service?<br> Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
 
 **Don't use:**
 
@@ -342,7 +351,17 @@ If your product is complex, you might be unable to provide relevant details conc
 
 **Use**
 
-> **Get started** <p></p> Create an alert rule by adding queries and expressions from multiple data sources.<ul><li>Add labels to your alert rules to connect them to notification policies.</li><li>Configure contact points to define where to send your notifications to.</li><li>Configure notification policies to route your alert instances to contact points.</li></ul><p></p>[Read an overview in the documentation >](/docs/grafana/latest/alerting/fundamentals/alert-rules/)<br>[Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
+> **Get started**
+>
+> Create an alert rule by adding queries and expressions from multiple data sources:
+>
+> - Add labels to your alert rules to connect them to notification policies.
+> - Configure contact points to define where to send your notifications to.
+> - Configure notification policies to route your alert instances to contact points.
+>
+> [Read an overview in the documentation >](/docs/grafana/latest/alerting/fundamentals/alert-rules/)
+>
+> [Learn more in the Grafana University course >](https://university.grafana.com/learn/course/external/view/elearning/82/module-intro-to-grafana-alerting)
 
 ## Additional elements
 

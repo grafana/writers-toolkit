@@ -143,20 +143,39 @@ This shortcode inserts a lists of links to the page's subpages and includes the 
 {{</* section withDescriptions="true"*/>}}
 ```
 
-## `docs/reference` shortcode
+## `docs/reference` shortcode (option A)
 
-The `docs/reference` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
-When content from one repository is published to more than one documentation set, the `docs/reference` shortcode lets you specify appropriate links for each doc set.
+The `docs/reference` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode. 
+It allows you to specify your link destination or destinations in one part of the file (usually at end of the file, like a footer) while using the link label in the body text, like so:
+
+**Body text:**
+```markdown
+I get more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
+```
+
+**Reference:**
+```markdown
+{{%/* docs/reference */%}}
+[1]: "http://google.com/" 
+[2]: "http://search.yahoo.com/" 
+[3]: "http://search.msn.com/"
+{{%/* /docs/reference */%}}
+```
+
+This shortcode is useful when:
+
+- You want to link to the same destination multiple times, because it saves you time formatting the link every time.
+- When content from one repository is published to more than one documentation set, because the `docs/reference` shortcode lets you specify appropriate links for each doc set.
 
 For example, alerting documentation is sourced from the Grafana repository and published to both Grafana documentation and Grafana Cloud documentation.
 Any link from alerting documentation to dashboard documentation, for example, which is also published to both Grafana and Grafana Cloud, needs to be specific as to which destination is appropriate for the product documentation.
 Grafana Cloud alerting documentation should link to Grafana Cloud dashboard documentation, and Grafana alerting documentation should link to Grafana dashboard documentation.
 
-The content of the `docs/reference` shortcode must be within opening and closing tags.
+The following content must be within the opening and closing tags of the `docs/reference` shortcode:
 
  `label` - The label for the shortcode. This is the text that you enter in the link instead of an http link or file path.  
- `project path prefix` - Designates the destination project. For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`.   
- `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version.                                                                                                                                                          
+ `project path prefix` - Designates the destination project. For example, for Grafana, use `/docs/grafana/`, for Mimir, use `/docs/mimir/`.
+ `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version.
 
 Set the docs reference in the footer of the page and then use the `label` in the link in the body of the file.
 
@@ -185,6 +204,65 @@ For more information about Grafana dashboards, refer to [Dashboards][dashboards]
 You can override version inference using front matter.
 To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
 For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
+
+## `docs/reference` shortcode (option B)
+
+The `docs/reference` shortcode offers more flexible linking than the Hugo builtin `relref` shortcode.
+
+Use this code when content from one repository is published to more than one documentation set, because it lets you specify appropriate links for each doc set in one part of the file (usually at end of the file, like a footer) while using the link label in the body text.
+
+For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation. 
+The page in Grafana should link to the Grafana dashboards page and the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
+
+Set the reference at the end of the document as follows:
+
+```markdown
+{{%/* docs/reference */%}}
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
+[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
+{{%/* /docs/reference */%}}
+```
+
+The content within the shortcode tags is as follows:
+
+ `label` - The label for the shortcode. This is the text that you'll use in the body text. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboards docs]).
+ `project path prefix` - Designates the destination project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.  
+ `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version.
+
+<!--TO DO
+Question: what would be the "something" be in a different repo? is it the name of the repo?-->
+
+Then add the link in the body of the file in the following format:
+
+```markdown
+For more information about Grafana dashboards, refer to the [Dashboards documentation][dashboards].
+```
+
+- If the page you're on is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
+- If the page you're on is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
+
+You can override version inference using front matter.
+To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
+For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
+
+### Other use cases
+
+The `docs/reference` shortcode is also useful when you want to link to the same destination multiple times in one file. 
+It allows you to specify the link destination once while you use the label multiple times. For example:
+
+**Reference:**
+
+```markdown
+{{%/* docs/reference */%}}
+[Grafana website]: "www.grafana.com"
+{{%/* /docs/reference */%}}
+```
+
+**Body text:**
+
+```markdown
+Find more information on [Grafana][Grafana website].
+```
 
 ## Escaping Hugo shortcodes
 

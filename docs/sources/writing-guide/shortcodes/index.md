@@ -227,7 +227,7 @@ The content within the shortcode tags is as follows:
 
  `label` - The label for the shortcode. This is the text that you'll use in the body text. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboards docs]).
  `project path prefix` - Designates the destination project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.  
- `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version.
+ `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all uppercased (for example, grafana = GRAFANA, grafana-cloud = GRAFANA CLOUD).
 
 <!--TO DO
 Question: what would be the "something" be in a different repo? is it the name of the repo?-->
@@ -238,8 +238,8 @@ Then add the link in the body of the file in the following format:
 For more information about Grafana dashboards, refer to the [Dashboards documentation][dashboards].
 ```
 
-- If the page you're on is `/docs/grafana/latest/alerting`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
-- If the page you're on is `/docs/grafana/next/alerting`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
+- If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
+- If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
 
 You can override version inference using front matter.
 To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
@@ -254,7 +254,7 @@ It allows you to specify the link destination once while you use the label multi
 
 ```markdown
 {{%/* docs/reference */%}}
-[Grafana website]: "www.grafana.com"
+[Grafana website]: "/ -> www.grafana.com"
 {{%/* /docs/reference */%}}
 ```
 

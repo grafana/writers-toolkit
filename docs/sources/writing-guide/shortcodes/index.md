@@ -150,7 +150,7 @@ The `docs/reference` shortcode offers more flexible linking than the Hugo built-
 Use this code when content from one repository is published to more than one documentation set, because it lets you specify appropriate links for each doc set in one part of the file (usually at end of the file, like a footer) while using the link label in the body text.
 
 For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
-The page in Grafana should link to the Grafana dashboards page and the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
+The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
 
 Set the reference at the end of the document as follows:
 

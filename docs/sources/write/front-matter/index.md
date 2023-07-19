@@ -228,6 +228,24 @@ Do not include an `aliases` entry that refers to the initial published website d
 The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.
 Aliases should be relative and not absolute paths so that old versions do not steal redirects from "latest" content when it is moved around.
 
+##### Examples
+
+To redirect the page  `/docs/grafana/latest/alerting/silences/` to `/docs/grafana/latest/alerting/manage-notifications/create-silence/` you must add a relative alias in the source file for `/docs/grafana/latest/alerting/manage-notifications/create-silence/` containing the relative alias to `/docs/grafana/latest/alerting/silences/`.
+
+* The relative alias `./` refers to the page`/docs/grafana/latest/alerting/manage-notifications/` because that is the directory containing the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`.
+* The relative alias `../` refers to the page `/docs/grafana/latest/alerting/`.
+* The relative alias `../silences/` refers to the page `/docs/grafana/latest/alerting/silences/`.
+
+Therefore, with the alias `../silences/` in the source file for the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/silences/`.
+
+To redirect the page `/docs/grafana/latest/alerting/unified-alerting/` to `/docs/grafana/latest/alerting/` you must add a relative alias in the source file for `/docs/grafana/alerting/` containing the relative alias to `/docs/grafana/latest/alerting/unified-alerting/`.
+
+* The relative alias `./` refers to the page `/docs/grafana/latest/` because that is the directory containing the page `/docs/grafana/latest/alerting/`.
+* The relative alias `./alerting/` refers to the page `/docs/grafana/latest/alerting/` which is the page itself.
+* The relative alias `./alerting/unified-alerting/` refers to the page `/docs/grafana/latest/alerting/unified-alerting/`.
+
+Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
+
 ### Test an alias
 
 To test an alias results in the correct redirect, use your browser or a command-line tool for making HTTP requests.

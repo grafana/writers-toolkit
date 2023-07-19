@@ -230,7 +230,7 @@ Aliases should be relative and not absolute paths so that old versions do not st
 
 ##### Examples
 
-To redirect the page `/docs/grafana/latest/alerting/silences/` to `/docs/grafana/latest/alerting/manage-notifications/create-silence/` you must add a relative alias in the source file for `/docs/grafana/latest/alerting/manage-notifications/create-silence/` containing the relative alias to `/docs/grafana/latest/alerting/silences/`.
+To redirect the page `/docs/grafana/latest/alerting/silences/` to `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, you must add a relative alias in the source file for `/docs/grafana/latest/alerting/manage-notifications/create-silence/` containing the relative alias to `/docs/grafana/latest/alerting/silences/`.
 
 - The relative alias `./` refers to the page`/docs/grafana/latest/alerting/manage-notifications/` because that is the directory containing the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`.
 - The relative alias `../` refers to the page `/docs/grafana/latest/alerting/`.

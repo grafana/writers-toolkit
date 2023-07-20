@@ -20,8 +20,15 @@ This page is a work in progress.
 <!--
 ## A
 ## B
-## C
+## C -->
 ## D
+
+**data source** Use this rather than _datasource_ for the noun form.
+
+When you need to use the adjective form, use _data-source_ rather than _datasource_.
+
+**drop-down**: Use this rather than _dropdown_ or _drop down_.
+<!-->
 ## E
 ## F
 ## G -->
@@ -40,8 +47,15 @@ This page is a work in progress.
 ## P
 ## Q
 ## R
-## S
+## S -->
+
 ## T
+
+**time series**: Use this rather than _timeseries_ for the noun form.
+
+When you need to use the adjective form, use _time-series_ rather than _timeseries_.
+
+<!-->
 ## U
 ## V
 ## W

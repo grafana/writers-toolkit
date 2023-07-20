@@ -531,7 +531,7 @@ fi
 ${WEBSITE_EXEC}
 EOF
     chmod +x "${tempfile}"
-    volumes="${volumes} --volume=$(realpath "${tempfile}"):/entrypoint"
+    volumes="${volumes} --volume=${tempfile}:/entrypoint"
     readonly volumes
 
     echo

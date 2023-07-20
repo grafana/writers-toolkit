@@ -6,7 +6,11 @@
 # [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 # Changes are relevant to this script and the support docs.mk GNU Make interface.
 
-# ## Unreleased
+# ## 4.1.1 (2023-07-20)
+
+# ### Fixed
+
+# - Replaced use of `realpath` with POSIX compatible alternative to determine default value for REPOS_PATH.
 
 # ## 4.1.0 (2023-06-16)
 

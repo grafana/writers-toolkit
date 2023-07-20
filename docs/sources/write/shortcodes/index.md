@@ -158,12 +158,12 @@ This shortcode inserts a lists of links to the page's subpages and includes the 
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo built-in `relref` shortcode.
 
-Use this code when content from one repository is published to more than one documentation set, because it lets you specify appropriate links for each doc set in one part of the file (usually at end of the file, like a footer) while using the link label in the body text.
+Use this shortcode when content from one repository is published to more than one documentation set, because it lets you specify appropriate links for each doc set in one part of the file (usually at end of the file, like a footer) while using the link label in the body text.
 
 For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
 The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
 
-Set the reference at the end of the document as follows:
+Set the reference at the end of the page as follows:
 
 ```markdown
 {{%/* docs/reference */%}}
@@ -176,7 +176,7 @@ The content within the shortcode tags is as follows:
 
 - `label` - The label for the shortcode. This is the text that you'll use in the body text. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
 - `project path prefix` - Designates the destination project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-- `reference` - The path to the file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-cased (for example, grafana = GRAFANA, grafana-cloud = GRAFANA CLOUD).
+- `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-cased (for example, grafana = GRAFANA, grafana-cloud = GRAFANA CLOUD).
 
 Then add the link in the body of the file in the following format:
 
@@ -187,7 +187,7 @@ For more information about Grafana dashboards, refer to the [Dashboards document
 - If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
 - If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
 
-You can override version inference using front matter.
+You can override version inference by including additional metadata in the front matter of the file.
 To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
 For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
 

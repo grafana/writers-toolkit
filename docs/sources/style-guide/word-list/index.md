@@ -41,7 +41,11 @@ When you need to use the adjective form, use _data-source_ rather than _datasour
 ## J
 ## K
 ## L
+-->
 ## M
+
+**menu icon**: Use this rather than _hamburger menu_ or _kebab menu_.
+<!--
 ## N
 ## O
 ## P

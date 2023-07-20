@@ -219,3 +219,23 @@ On the published page, this warning renders as follows:
 By disabling authentication requirements, anyone can access your Grafana instance.
 There is a considerable security risk associated with this.
 {{% /admonition %}}
+
+## Semantic line breaks
+
+We use [these general rules](https://sembr.org/) for adding line breaks in your writing, but we recommend starting a new line after each sentence to make the text easier to review and edit. 
+
+With line breaks:
+
+```markdown
+When you write in active voice, you identify the subject of the sentence and the action that the subject performs. 
+For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). 
+The passive voice variation is “The car was driven by John.”
+```
+
+Without line breaks:
+
+```markdown
+When you write in active voice, you identify the subject of the sentence and the action that the subject performs. For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is “The car was driven by John.”
+```
+
+The output is the same in both cases, but the first is easier to review and edit and is less subject to the screen and text editor settings of each contributor.

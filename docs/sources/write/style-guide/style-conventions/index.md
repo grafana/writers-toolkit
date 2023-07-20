@@ -222,7 +222,9 @@ There is a considerable security risk associated with this.
 
 ## Semantic line breaks
 
-We use [these general rules](https://sembr.org/) for adding line breaks in your writing, but we recommend starting a new line after each sentence to make the text easier to review and edit.
+The [Semantic Line Breaks organization](https://sembr.org/) suggests adding line breaks in your writing. We find this can help with reviews.
+
+Note that we don't require that this suggestion be followed. We share the Semantic Line Breaks rules so that you can discuss with your review team and adapt to your circumstance.
 
 With line breaks:
 

@@ -222,13 +222,13 @@ There is a considerable security risk associated with this.
 
 ## Semantic line breaks
 
-We use [these general rules](https://sembr.org/) for adding line breaks in your writing, but we recommend starting a new line after each sentence to make the text easier to review and edit. 
+We use [these general rules](https://sembr.org/) for adding line breaks in your writing, but we recommend starting a new line after each sentence to make the text easier to review and edit.
 
 With line breaks:
 
 ```markdown
-When you write in active voice, you identify the subject of the sentence and the action that the subject performs. 
-For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). 
+When you write in active voice, you identify the subject of the sentence and the action that the subject performs.
+For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove).
 The passive voice variation is “The car was driven by John.”
 ```
 

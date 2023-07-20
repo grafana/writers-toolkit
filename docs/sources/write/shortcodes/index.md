@@ -175,7 +175,7 @@ Set the reference at the end of the page as follows:
 The content within the shortcode tags is as follows:
 
 - `label` - The label for the shortcode. This is the text that you'll use in the body text. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
-- `project path prefix` - Designates the destination project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
+- `project path prefix` - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
 - `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-cased (for example, grafana = GRAFANA, grafana-cloud = GRAFANA CLOUD).
 
 Then add the link in the body of the file in the following format:

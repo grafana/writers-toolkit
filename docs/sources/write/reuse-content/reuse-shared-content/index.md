@@ -62,7 +62,17 @@ To reuse shared content:
    The file can be in a subdirectory, but that subdirectory must be in the `docs/sources/shared/` directory.
    The `docs/shared` shortcode cannot lookup files outside of this directory.
 
-   The file's contents should be the chunk of writing you want to reuse.
+   The file's contents should be the chunk of writing you want to reuse and a front matter section with a title. You can include the appropriate labels in the front matter if you think it would be helpful information, but the labels won't be visible in the consuming project:
+
+   ```markdown
+   ---
+   labels:
+     products:
+       - cloud
+       - oss
+   title: A shared file
+   ---
+   ```
 
 1. In the consuming project, use the `docs/shared` shortcode to include the shared content.
 

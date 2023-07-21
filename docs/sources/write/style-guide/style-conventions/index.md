@@ -222,10 +222,10 @@ There is a considerable security risk associated with this.
 
 ## Semantic line breaks
 
-The [Semantic Line Breaks organization](https://sembr.org/) suggests adding line breaks in your writing. 
+The [Semantic Line Breaks organization](https://sembr.org/) suggests adding line breaks in your writing.
 We find this can help with reviews.
 
-Note that we don't require that this suggestion be followed. 
+Note that we don't require that this suggestion be followed.
 We share the Semantic Line Breaks rules so that you can discuss with your review team and adapt to your circumstance.
 
 With line breaks:
@@ -242,5 +242,5 @@ Without line breaks:
 When you write in active voice, you identify the subject of the sentence and the action that the subject performs. For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is “The car was driven by John.”
 ```
 
-The output is the same in both cases. 
+The output is the same in both cases.
 However, the first is easier to review and edit and is less subject to the screen and text editor settings of each contributor.

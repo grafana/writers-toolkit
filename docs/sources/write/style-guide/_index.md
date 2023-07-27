@@ -17,13 +17,6 @@ This style guide is a set of content guidelines that covers aspects of content s
 
 It includes rules and best practices on the following:
 
-{{ section }}
-
-- Capitalization and punctuation
-- Terms to use and avoid
-- Voice and tone
-- Terminology
-- Inclusive writing
-- UX writing
+{{< section menuTitle="true" withDescriptions="true" >}}
 
 When a matter of style is not covered here, refer to the [Google developer documentation style guide](https://developers.google.com/style).

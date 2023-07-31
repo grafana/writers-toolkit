@@ -18,7 +18,7 @@ This topic explains the decisions and actions associated with collecting, writin
 
 ## What's New doc development process
 
-Developing directly in Markdown reduces errors and removes a manual (toilsome and error-prone step), by creating, editing, discussing, and publishing in the same format from which we will publish in GitHub, using the Grafana repo.
+Developing directly in Markdown reduces errors and removes a manual (toilsome and error-prone step), by creating, editing, discussing, and publishing in the same format from which we will publish in GitHub, using the Grafana repository.
 
 Consider adding an image, though be aware that we will not maintain them, as the document reflects a "point in time." If you need to add an image, refer to [Image, diagram, and screenshot guidelines]({{< relref "../../write/image-guidelines" >}}).
 
@@ -36,7 +36,7 @@ Complete the following steps within one week after the prior release goes out.
    > **Note:** A Product Manager (PM) is responsible for updating the version number of that channel after a release goes out.
 
 1. The technical writer posts in the Slack channel that the What's New PR is ready for contributions.
-1. The PM or PMM on point communicates with engineering squads without a PM resource about who’s on point for What’s New PR reviews from within the PM and PMM orgs.
+1. The PM or PMM on point communicates with engineering squads without a PM resource about who’s on point for What’s New PR reviews from within the PM and PMM organizations.
 
    Refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG) for a list of release dates and go-to-market coordinators.
 
@@ -46,9 +46,9 @@ A Grafana release cycle is typically 6-8 weeks, and during that time, developers
 
 Complete the following steps throughout a release cycle:
 
-1. Dev teams add commits directly against the branch.
+1. Developer teams add commits directly against the branch.
 
-   > **Note:** As an alternative, Dev teams can cut PRs against the branch, add What’s New content, collaborate with reviewers, and merge the PR into the What's New branch.
+   > **Note:** As an alternative, developer teams can cut PRs against the branch, add What’s New content, collaborate with reviewers, and merge the PR into the What's New branch.
 
 1. The technical writer periodically checks the What's New PR to determine how much content has been added.
 
@@ -60,7 +60,7 @@ Complete the following steps in the days leading up to the release:
 
 1. Five days before the GA release:
 
-   - The PM or PMM running the release sends a **Last Call** to dev teams to get in their What’s New content.
+   - The PM or PMM running the release sends a **Last Call** to developer teams to get in their What’s New content.
    - The technical writer changes the PR status from **Draft** to **Ready for Review**.
 
 1. Two days before the release, What’s New content is frozen.

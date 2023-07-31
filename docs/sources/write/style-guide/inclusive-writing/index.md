@@ -69,7 +69,7 @@ Cultural references are references that relate to the culture of a community, co
 **Examples:**
 
 - “Her ambition is a clear reflection of the American dream.”
-- “I'm so glad you came to help like a good samaritan.”
+- “I'm so glad you came to help like a good Samaritan.”
 - “They grew up in a typical nuclear family.”
 
 ## Avoid charged language

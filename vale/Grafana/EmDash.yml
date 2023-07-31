@@ -1,0 +1,12 @@
+extends: existence
+message: "Remove any space before or after a dash."
+link: "https://developers.google.com/style/dashes"
+nonword: true
+level: error
+action:
+  name: edit
+  params:
+    - remove
+    - " "
+tokens:
+  - '\s[—–]\s'

@@ -7,7 +7,7 @@ aliases:
   - /docs/writers-toolkit/review/doc-validator/errata/
 ---
 
-[//]: # "DO NOT EDIT. This file is generated from https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl"
+<!-- DO NOT EDIT. This file is generated from https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl -->
 
 # Errata for doc-validator
 
@@ -100,7 +100,7 @@ For grafana, this path prefix is '/docs/grafana/latest/'.
 
 ### Message
 
-The link to the external page '%s' is invalid. Links to external pages must be an absolute URI, with either the scheme https or http.
+The link to the external page '%s' is invalid. Links to external pages must be an absolute URI, with either the scheme `https` or `http`.
 
 ### Guide
 
@@ -279,11 +279,11 @@ The asset must be contained within the bundle directory, it must have an extensi
 
 ### Message
 
-The relref '%s' can resolve ambiguously because it is not a relative or absolute path.
+The `relref` shortcode argument '%s' can resolve ambiguously because it is not a relative or absolute path.
 
 ### Guide
 
-If a relref has ambiguous resolution, the link won't work and will instead point to the current page.
+If a `relref` shortcode argument resolves ambiguously, the link won't work and will instead point to the current page.
 
 A relative path begins with either `./` or `../`.
 An absolute path begins with a `/`.
@@ -296,7 +296,7 @@ An absolute path begins with a `/`.
 
 ### Message
 
-The relref '%s' has a trailing slash, which can break the resolution.
+The `relref` shortcode argument '%s' has a trailing slash, which can break the resolution.
 
 ### Guide
 
@@ -313,4 +313,4 @@ Remove the trailing slash to make sure that changing the index type doesn't brea
 
 ### Message
 
-The relref '%s' is malformed.
+The `relref` shortcode '%s' is malformed.

@@ -71,7 +71,7 @@ When you write in present tense, you avoid words such as have, has, had, been, s
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
 | The panel opens.                                                   | The panel will open.                                                         |
 | The system **prompts** you to verify the deletion.                 | The system **will prompt** you to verify the deletion.                       |
-| After you log in, your account **begins** the verification proces. | After you log in, your account **will then begin** the verification process. |
+| After you log in, your account **begins** the verification process. | After you log in, your account **will then begin** the verification process. |
 
 ### Be positive
 
@@ -86,7 +86,7 @@ Write positive sentences instead of negative sentences. Positive sentences are e
 
 Users often scan content rather than read. Long blocks of text minimize readability - they bury information and are particularly uninviting online.
 
-Use the following techniques to enhance the scannability of content.
+Use the following techniques to make content easier to scan.
 
 - Write important information first.
 - Place actions before explanations.

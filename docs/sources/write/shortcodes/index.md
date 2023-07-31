@@ -21,7 +21,7 @@ Markdown is limited in its ability to render complex elements. Although you migh
 
 The following sections describe shortcodes available for use in Grafana Markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
 
-> **Note for internal Grafana Labs contributors**: The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repo. To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
+> **Note for internal Grafana Labs contributors**: The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repository. To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 
 ## `admonition` shortcode
 
@@ -95,7 +95,7 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 | `lazy`         | If set to `"false"`, an additional `lazyload` class is **not** applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.               | no       |
 | `lightbox`     | If set to `"true"`, an additional `figure-wrapper__lightbox` class is applied to the `<figure>`.                                                                                                                                                                                     | no       |
 | `link`         | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.                                                                                                                                                          | no       |
-| `maxWidth`     | If set, _maxWidth_ controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement, for example `"75px"` or `"25%"`. | no       |
+| `maxWidth`     | If set, `_maxWidth_` controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement, for example `"75px"` or `"25%"`. | no       |
 | `showCaption`  | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in _caption_. Defaults to `"true"`.                                                                                                                                               | no       |
 | `src`          | Sets the source of the image.                                                                                                                                                                                                                                                        | yes      |
 
@@ -142,13 +142,14 @@ The `section` shortcode renders an unordered list of links to a page's child pag
 
 ### Examples
 
-The following shortcode inserts a list of links to the pages's subpages. The links are named using the value of `menuTitle` from each subpage's front matter.
+The following shortcode inserts a list of links to child pages.
+The links are named using the value of `menuTitle` from the front matter of the child page.
 
 ```markdown
 {{</* section menuTitle="true"*/>}}
 ```
 
-This shortcode inserts a lists of links to the page's subpages and includes the `description` content from each subpage's front matter.
+The following shortcode inserts a lists of links to child pages and includes the `description` content from the front matter of each child page.
 
 ```markdown
 {{</* section withDescriptions="true"*/>}}
@@ -176,7 +177,10 @@ The content within the shortcode tags is as follows:
 
 - `label` - The label you'll use in the reference-style links in the file. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
 - `project path prefix` - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-- `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of (which file) or falls back to being inferred from the version of the page. This enables the use of absolute paths that resolve correctly, irrespective of version. When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-cased (for example, grafana = GRAFANA, grafana-cloud = GRAFANA CLOUD).
+- `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of the page or falls back to being inferred from the version of the page. 
+  This enables the use of absolute paths that resolve correctly, irrespective of version.
+  When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-cased.
+  For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
 
 Then add the link in the body of the file in the following format:
 

@@ -1,8 +1,0 @@
-extends: substitution
-message: to ensure Hugo correctly parses the shortcode, use '%s' instead of '%s'
-level: error
-ignorecase: false
-scope: raw
-swap:
-  abundance: plenty
-  accelerate: speed up

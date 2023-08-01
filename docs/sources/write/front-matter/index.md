@@ -99,7 +99,7 @@ Labels can be inherited through cascading front matter.
 Each project has a set of default labels that are defined in the root `_index.md` file of the project.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.
-For unversioned projects, the `_index.md` file resides in the project’s repository.
+For other projects, the `_index.md` file resides in the project’s repository.
 
 If the default labels are incorrect for a page or directory of pages, update the labels.
 Also, if you are adding a new page, consider whether the default labels are appropriate.
@@ -212,16 +212,6 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 The correct way to use aliases depends on whether the project is versioned or not.
 
-#### Unversioned projects
-
-Include an `aliases` entry that refers to the initial published website directory.
-Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
-Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
-Aliases can be relative or absolute paths.
-
-> **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
-> For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
-
 #### Versioned projects
 
 Do not include an `aliases` entry that refers to the initial published website directory.
@@ -245,6 +235,13 @@ To redirect the page `/docs/grafana/latest/alerting/unified-alerting/` to `/docs
 - The relative alias `./alerting/unified-alerting/` refers to the page `/docs/grafana/latest/alerting/unified-alerting/`.
 
 Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
+
+#### Other projects
+
+Include an `aliases` entry for the current URL path.
+Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
+Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
+When a page is moved, update the `aliases` with the new URL path.
 
 ### Test an alias
 

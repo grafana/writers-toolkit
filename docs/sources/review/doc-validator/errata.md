@@ -7,7 +7,7 @@ aliases:
   - /docs/writers-toolkit/review/doc-validator/errata/
 ---
 
-<!-- DO NOT EDIT. This file is generated from https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl -->
+<!-- DO NOT EDIT. This file is generated from <https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl> -->
 
 # Errata for doc-validator
 
@@ -90,7 +90,7 @@ The canonical '%s' in the front matter is not a valid URL.
 ### Guide
 
 Invoke `doc-validator` with the [URL PATH PREFIX] argument set to the path prefix for the project documentation.
-For grafana, this path prefix is '/docs/grafana/latest/'.
+For Grafana, this path prefix is '/docs/grafana/latest/'.
 
 ## external-link-invalid
 
@@ -124,7 +124,7 @@ Links to grafana.com pages must be one of the following:
 - For linking to headings within the current page, use an anchor starting with a hash (#).
   For example, #heading.
 
-- For linking to other pages in the current documentation set, use a Hugo relref with either an absolute path or relative path parameter.
+- For linking to other pages in the current documentation set, use a Hugo `relref` shortcode with either an absolute path or relative path parameter.
   Using a relative path parameter, for example, `{{</* relref "./path/to/page" */>}}` or `{{</* relref "../other/path" */>}}`.
   Using an absolute path parameter, for example, `{{</* relref "/docs/grafana-cloud" */>}}`.
 
@@ -266,7 +266,7 @@ The '%s' parameter in the front matter must be a YAML sequence of strings.
 ### Message
 
 The link to the project page '%s' is invalid.
-Links to project pages must use a Hugo relref shortcode like `{{</* relref "./path/to/page" */>}}`.
+Links to project pages must use a Hugo `relref` shortcode like `{{</* relref "./path/to/page" */>}}`.
 
 Links to project assets must be made from a bundle (index.md or \_index.md file).
 The asset must be contained within the bundle directory, it must have an extension, and must not have the extension ".md".

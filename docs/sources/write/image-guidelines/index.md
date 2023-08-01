@@ -205,7 +205,7 @@ General rules:
 
 ## Where to store media assets
 
-All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees. You use the [asset uploader application](https://admin.grafana.com/upload/) to upload assets.
+All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees. You use the [asset upload application](https://admin.grafana.com/upload/) to upload assets.
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
 > **Note:** Do not store images in the local repository, as it prohibits re-use of the asset in other content.

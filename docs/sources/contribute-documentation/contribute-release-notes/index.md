@@ -42,7 +42,7 @@ Complete the following steps within one week after the prior release goes out.
 
 ### Throughout a release
 
-A Grafana release cycle is typically 6-8 weeks, and during that time, developers are empowered to add to the What's New document incrementally. To see a list of release dates and assigned PMs and PMMs, refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG).
+A Grafana release cycle is typically 6-8 weeks, and during that time, developers are empowered to add to the What's New document incrementally. To see a list of release dates and assigned Product Managers and Product Marketing Managers, refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG).
 
 Complete the following steps throughout a release cycle:
 

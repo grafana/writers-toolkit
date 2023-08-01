@@ -68,7 +68,7 @@ make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/wr
 #### Explanation of the regular expression
 
 - `^` matches the empty string at the beginning of a line, effectively anchoring the regular expression to the start of the input.
-- Writers' Toolkit is an unversioned project so the content is mounted directly into the `/hugo/content/docs/writers-toolkit/` directory.
+- Writers' Toolkit is not a versioned project so the content is mounted directly into the `/hugo/content/docs/writers-toolkit/` directory.
 - `write/` is appended to the literal string so that only the content in the `/docs/sources/write/` directory is validated.
 - `.*` matches zero or more additional characters, effectively matching any file paths in the `/hugo/content/docs/writers-toolkit/` directory.
 - `$` matches the empty string at the end of a line, effectively anchoring the regular expression to the end of the input.

@@ -67,10 +67,10 @@ Make content relevant to the user's context. The more familiar you are with the 
 
 When you write in present tense, you avoid words such as have, has, had, been, should, would, and will.
 
-| Use                                                                | Don't use                                                                    |
-| ------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| The panel opens.                                                   | The panel will open.                                                         |
-| The system **prompts** you to verify the deletion.                 | The system **will prompt** you to verify the deletion.                       |
+| Use                                                                 | Don't use                                                                    |
+| ------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| The panel opens.                                                    | The panel will open.                                                         |
+| The system **prompts** you to verify the deletion.                  | The system **will prompt** you to verify the deletion.                       |
 | After you log in, your account **begins** the verification process. | After you log in, your account **will then begin** the verification process. |
 
 ### Be positive

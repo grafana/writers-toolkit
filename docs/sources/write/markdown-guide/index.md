@@ -84,6 +84,8 @@ They allow a destination to be defined once for a label, and that label to be re
 
 The following snippet demonstrates a reference-style link with the text "Link text to display", the destination https://example.com, and uses the label "label".
 
+The destination can be defined anywhere in the page but is typically put at the bottom of the page to imitate footnotes.
+
 ```markdown
 [Link text to display][label]
 

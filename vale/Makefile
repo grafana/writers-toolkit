@@ -17,6 +17,6 @@ dictionaries/en_US-grafana.%: dictionaries/wordlist
 	$(MAKE) -C $(@D) $(@F)
 
 .PHONY: grafana/vale
-grafana/vale: ## Builds a Docker image for Vale with the technical-documentation styles loaded.
+grafana/vale: ## Builds a container image for Vale with the Grafana styles loaded.
 grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
-	$(PODMAN) build . -t grafana/vale:latest
+	DOCKER_DEFAULT_PLATFORM=linux/amd64 DOCKER_BUILDKIT=1 $(PODMAN) build -t grafana/vale  .

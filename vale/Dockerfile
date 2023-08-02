@@ -1,4 +1,4 @@
-FROM alpine:latest as reviewdog
+FROM --platform=linux/amd64 alpine:latest as reviewdog
 
 ENV REVIEWDOG_VERSION=0.14.1
 ENV REVIEWDOG_CHECKSUM=fbd700763e119230e7c935ba27e0e65b9523c2d7c4f59c904670039a9010e3c86cb3778831eb483ff8e5816ac25dcde0bca7f0b0a155e408caa84d9e45249110
@@ -26,7 +26,7 @@ RUN echo "${TEMPLATE_CHECKSUM}  rdjsonl.tmpl" \
 
 RUN mv rdjsonl.tmpl /out/
 
-FROM jdkato/vale:v2.28.1
+FROM --platform=linux/amd64 jdkato/vale:v2.28.1
 
 ENV DICPATH=/etc/vale/dictionaries
 

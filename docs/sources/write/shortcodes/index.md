@@ -22,7 +22,7 @@ Markdown is limited in its ability to render complex elements. Although you migh
 The following sections describe shortcodes available for use in Grafana Markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
 
 {{% admonition type="note" %}}
-The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repository which is only accessible to Grafana Labs employees. 
+The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repository which is only accessible to Grafana Labs employees.
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 {{% /admonition %}}
 

@@ -84,11 +84,22 @@ Reference-style links let you define a link destination once, and then reuse the
 
 The following snippet demonstrates a reference-style link with the text "Link text to display", the destination https://example.com, and uses the label "label".
 
-
 ```markdown
 [Link text to display][label]
 
 [label]: https://example.com
+```
+
+You can also define reference-style links without an explicit label.
+In such a case, the label is the link text.
+
+The following snippet demonstrates the two different ways of writing reference-style links with implicit labels using an unordered list.
+
+```markdown
+- [Link text to display]
+- [Link text to display][]
+
+[Link text to display]: https://example.com
 ```
 
 ## Block quotes

@@ -72,15 +72,15 @@ For information about creating links between topics inside and outside of a Graf
 
 There are two forms of links in Markdown: inline and reference-style.
 
-Inline links define the link text and destination inline.
+When you create an inline link, you define the link text and destination in the same location in the document.
 The following snippet demonstrates an inline link with the text "Link text to display" and the destination https://example.com.
 
 ```markdown
 [Link text to display](https://example.com)
 ```
 
-Reference-style links use labels to join link text and destinations.
-They allow a destination to be defined once for a label, and that label to be reused multiple times in the document.
+When you create a reference-style link, you define your link text and then use a label to reference the link destination that is defined somewhere else in the document, usually at the end of the file.
+Reference-style links let you define a link destination once, and then reuse the label multiple times in the document.
 
 The following snippet demonstrates a reference-style link with the text "Link text to display", the destination https://example.com, and uses the label "label".
 

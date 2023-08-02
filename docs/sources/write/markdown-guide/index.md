@@ -80,7 +80,7 @@ The following snippet demonstrates an inline link with the text "Link text to di
 ```
 
 Reference-style links use labels to join link text and destinations.
-It allows a destination to be defined once for a label, and that label to be reused multiple times in the document.
+They allow a destination to be defined once for a label, and that label to be reused multiple times in the document.
 
 The following snippet demonstrates a reference-style link with the text "Link text to display", the destination https://example.com, and uses the label "label".
 

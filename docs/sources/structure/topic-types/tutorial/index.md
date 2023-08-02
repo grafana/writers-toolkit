@@ -130,7 +130,7 @@ To hide your tutorial from your documentation's table of contents:
    ```
 
    {{%admonition type="note" %}}
-   Create the `cascade` field if it does not exist.
+   Create the `cascade` field if it doesn't exist.
    Substitute your repository for `grafana-cloud` in this example.
    {{% /admonition %}}
 

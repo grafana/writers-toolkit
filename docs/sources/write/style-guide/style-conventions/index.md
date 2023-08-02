@@ -65,7 +65,7 @@ Make content relevant to the user's context. The more familiar you are with the 
 
 ### Write in present tense
 
-When you write in present tense, you avoid words such as have, has, had, been, should, would, and will.
+When you write in present tense, avoid words such as have, has, had, been, should, would, and will.
 
 | Use                                                                 | Don't use                                                                    |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------- |

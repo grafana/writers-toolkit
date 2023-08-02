@@ -179,7 +179,7 @@ The content within the shortcode tags is as follows:
 - `project path prefix` - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
 - `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of the page or falls back to being inferred from the version of the page.
   This enables the use of absolute paths that resolve correctly, irrespective of version.
-  When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-cased.
+  When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-case.
   For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
 
 Then add the link in the body of the file in the following format:

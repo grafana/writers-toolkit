@@ -172,4 +172,4 @@ In this example,
 - `:14` represents the line number containing the unresolved reference
 - `:47` represents the character in that line where the unresolved reference begins
 
-If the reference's destination appears to be invalid, for example due to a typo in the reference or `relref` directory traversal depth, then you should be able to resolve this by correcting the reference target.
+If the reference's destination appears to be invalid, for example due to a typo in the reference or the depth of the`relref` directory, then you should be able to resolve this by correcting the reference target.

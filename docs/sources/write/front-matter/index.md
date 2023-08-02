@@ -75,7 +75,7 @@ Use double quotes (`"`) to surround the title. Do not use smart quotes.
 ### `draft`
 
 When set to `true`, this option prevents Hugo from rendering the content.
-Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
+Use the command-line flag `--buildDrafts` to generate content marked as `draft: true`.
 
 ### `keywords`
 
@@ -125,13 +125,13 @@ cascade:
 
 ### `menuTitle`
 
-Use to specify a different heading in the sidebar navigation than the `title` element, for example if you want to abbreviate the topic heading in the table of contents.
+Use to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 
 ### `title` (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
 
-The `title` becomes the document title element in the HTML. Often browsers display this in the tab for the page.
+The `title` becomes the document title element in the HTML. Often, browsers display this in the tab for the page.
 
 Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
@@ -239,7 +239,7 @@ Therefore, with the alias `./alerting/unified-alerting/` in the source file for 
 #### Other projects
 
 Include an `aliases` entry for the current URL path.
-Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
+Add an `aliases` entry to make it safer to move content around, as the redirect from old to new page location is already in place.
 Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
 When a page is moved, update the `aliases` with the new URL path.
 

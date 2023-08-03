@@ -6,12 +6,6 @@ scope: heading
 match: $sentence
 exceptions:
   - Adaptive Metrics
-  - Azure
-  - CLI
-  - Code
-  - Cosmos
-  - Docker
-  - Emmet
   - Grafana
   - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
@@ -19,25 +13,13 @@ exceptions:
   - Grafana Labs
   - Helm
   - Hugo
-  - I
-  - Kubernetes
-  - Linux
   - LogQL
   - Loki
-  - Marketplace
+  - macOS
   - Memcached
   - Mimir
-  - MongoDB
   - Prometheus
   - PromQL
-  - REPL
   - Redis
-  - Studio
-  - TypeScript
   - Tempo
   - TraceQL
-  - URLs
-  - VS
-  - Visual
-  - Windows
-  - macOS

@@ -1,9 +1,0 @@
-extends: existence
-message: "In general, do not use an ellipsis to indicate missing information. Include the missing information."
-link: "https://developers.google.com/style/ellipses"
-nonword: true
-level: warning
-action:
-  name: remove
-tokens:
-  - '\.\.\.'

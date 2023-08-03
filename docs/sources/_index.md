@@ -19,11 +19,11 @@ keywords:
 
 # Writers’ Toolkit
 
-<!-- vale Grafana.Exclamation = NO -->
+<!-- vale Google.Exclamation = NO -->
 
 Welcome!
 
-<!-- vale Grafana.Exclamation = YES -->
+<!-- vale Google.Exclamation = YES -->
 
 We're glad you're here to help make our technical documentation even better. We aim to develop content that leads our users to success using products developed by Grafana Labs.
 

@@ -1,7 +1,0 @@
-extends: existence
-message: "Avoid using '%s', and use present tense if possible."
-link: "https://developers.google.com/style/tense"
-ignorecase: true
-level: warning
-tokens:
-  - will

@@ -1,7 +1,0 @@
-extends: existence
-message: "Avoid exclamation points in text."
-link: "https://developers.google.com/style/exclamation-points"
-nonword: true
-level: error
-tokens:
-  - '\w!(?:\s|$)'

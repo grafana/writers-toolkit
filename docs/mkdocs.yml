@@ -1,0 +1,25 @@
+site_name: Backstage
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.action.edit
+  palette:
+    scheme: none
+repo_url: https://github.com/grafana/writers-toolkit
+edit_uri: edit/main/docs/sources/
+nav:
+  - Home: ./_index.md
+  - Get started: ./get-started/_index.md
+  - Contribute: ./contribute-documentation/_index.md
+  - Structure: ./structure/_index.md
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

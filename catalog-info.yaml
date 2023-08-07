@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hack-writers-toolkit
+  description: Writers' Toolkit
+  annotations:
+    github.com/project-slug: grafana/hack-writers-toolkit
+    backstage.io/techdocs-ref: dir:./docs/
+    grafana/alert-label-selector: "service=backstage"
+    grafana/dashboard-selector: backstage
+    grafana/tag-selector: backstage
+spec:
+  type: website
+  owner: group:backstage-hackathon-team
+  lifecycle: experimental

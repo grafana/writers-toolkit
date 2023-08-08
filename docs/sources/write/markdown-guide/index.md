@@ -70,13 +70,37 @@ Displays as:
 
 For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references" >}}).
 
-If you want to add a link to an external website, wrap the display text in square brackets, and the web URL in curly brackets.
+There are two forms of links in Markdown: inline and reference-style.
+
+When you create an inline link, you define the link text and destination in the same location in the document.
+The following snippet demonstrates an inline link with the text "Link text to display" and the destination https://example.com.
 
 ```markdown
 [Link text to display](https://example.com)
 ```
 
-**Example:** For more information about including emojis in GitHub-flavored Markdown, refer to the WebFX [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).
+When you create a reference-style link, you define your link text and then use a label to reference the link destination that is defined somewhere else in the document, usually at the end of the file.
+Reference-style links let you define a link destination once, and then reuse the label multiple times in the document.
+
+The following snippet demonstrates a reference-style link with the text "Link text to display", the destination https://example.com, and uses the label "label".
+
+```markdown
+[Link text to display][label]
+
+[label]: https://example.com
+```
+
+You can also define reference-style links without an explicit label.
+In such a case, the label is the link text.
+
+The following snippet demonstrates the two different ways of writing reference-style links with implicit labels using an unordered list.
+
+```markdown
+- [Link text to display]
+- [Link text to display][]
+
+[Link text to display]: https://example.com
+```
 
 ## Block quotes
 

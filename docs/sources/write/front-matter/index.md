@@ -17,7 +17,7 @@ Grafana technical documentation includes front matter to help organize the conte
 
 Use YAML for all front matter.
 In certain presentations, all front matter characters might render literally.
-For this reason, _do not_ include any special Markdown formatting, like italics or monospace, in front matter.
+For this reason, _do not_ include any special Markdown formatting, like italics, in front matter.
 
 Here’s a correctly built example:
 
@@ -45,11 +45,11 @@ weight: 100
 
 The following headings describe what each element does and provides guidelines for its content.
 
-### aliases
+### `aliases`
 
 Use to create redirects from the previous URL to the new URL when a page changes or moves. As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL. For more information, refer to [Hugo aliases](#hugo-aliases). In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
-### date
+### `date`
 
 Describes the initial publish date of the page.
 Hugo produces XML page outputs for use by RSS feeds where users can be notified of updates.
@@ -62,7 +62,7 @@ For example, `date: "2023-04-24T00:00:00Z"` is 12:00 AM, Apr 24 Coordinated Univ
 The `date` front matter also impacts menu ordering.
 Pages with more recent dates are lower in the menu.
 
-### description (required)
+### `description` (required)
 
 Use to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
 
@@ -72,19 +72,19 @@ Often, this doesn’t need to be original text, you can often scan the first few
 If it's too long, it is harmlessly truncated on social media.
 Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-### draft
+### `draft`
 
 When set to `true`, this option prevents Hugo from rendering the content.
-Use the command line flag `--buildDrafts` to generate content marked as `draft: true`.
+Use the command-line flag `--buildDrafts` to generate content marked as `draft: true`.
 
-### keywords
+### `keywords`
 
 The website uses keywords to generate links to related pages in the _Related content_ sections.
 They do not appear in the resulting HTML source for the page and do not affect search engine optimization (SEO).
 
 Ideally, use single terms as opposed to phrases.
 
-### labels
+### `labels`
 
 Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
 Only certain labels are supported.
@@ -99,7 +99,7 @@ Labels can be inherited through cascading front matter.
 Each project has a set of default labels that are defined in the root `_index.md` file of the project.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.
-For unversioned projects, the `_index.md` file resides in the project’s repository.
+For other projects, the `_index.md` file resides in the project’s repository.
 
 If the default labels are incorrect for a page or directory of pages, update the labels.
 Also, if you are adding a new page, consider whether the default labels are appropriate.
@@ -123,19 +123,19 @@ cascade:
       - cloud
 ```
 
-### menuTitle
+### `menuTitle`
 
-Use to specify a different heading in the sidebar navigation than the `title` element, for example if you want to abbreviate the topic heading in the table of contents.
+Use to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 
-### title (required)
+### `title` (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
 
-The `title` becomes the document title element in the HTML. Often browsers display this in the tab for the page.
+The `title` becomes the document title element in the HTML. Often, browsers display this in the tab for the page.
 
 Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-### weight
+### `weight`
 
 By default, topics are displayed in alphabetical order by `title`.
 
@@ -212,16 +212,6 @@ For more detail about HTML redirects, refer to [HTML redirections](https://devel
 
 The correct way to use aliases depends on whether the project is versioned or not.
 
-#### Unversioned projects
-
-Include an `aliases` entry that refers to the initial published website directory.
-Adding an `aliases` entry makes it safer to move content around as the redirect from old to new page location is already in place.
-Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
-Aliases can be relative or absolute paths.
-
-> **Note:** The published directory is dependent on which `content` subdirectory documentation is synced to in the website repository.
-> For example, documentation synced to a the `content/docs` directory requires the `/docs` prefix.
-
 #### Versioned projects
 
 Do not include an `aliases` entry that refers to the initial published website directory.
@@ -245,6 +235,13 @@ To redirect the page `/docs/grafana/latest/alerting/unified-alerting/` to `/docs
 - The relative alias `./alerting/unified-alerting/` refers to the page `/docs/grafana/latest/alerting/unified-alerting/`.
 
 Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
+
+#### Other projects
+
+Include an `aliases` entry for the current URL path.
+Add an `aliases` entry to make it safer to move content around, as the redirect from old to new page location is already in place.
+Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
+When a page is moved, update the `aliases` with the new URL path.
 
 ### Test an alias
 

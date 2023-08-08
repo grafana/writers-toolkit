@@ -48,7 +48,8 @@ Use the following standards for images and diagrams:
 
 - **Scope**: Limit the contents of an image to the relevant portion.
   Do not include distracting or unnecessary content and whitespace.
-- **Format**: **png** and **svg** are the preferred image formats. Use **jpg** only for photos.
+- **Format**: **PNG** and **SVG** are the preferred image formats.
+  Use **JPG** only for photos.
 - **Copyright**: Determine if an image or diagram is protected by copyright.
   If it is, you must obtain permission and acknowledge credit.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
@@ -162,7 +163,7 @@ General rules:
           </tr>
           <tr>
               <td align="left" valign="top">Logo</td>
-              <td align="left" valign="top">When you name Grafana logo files, be sure to include the word “grafana”.<br><br>
+              <td align="left" valign="top">When you name Grafana logo files, be sure to include the word “Grafana”.<br><br>
               <b>Naming convention:</b> [asset type]-[visual description]-[color + orientation].[file type]
   <br><br>
               <b>Examples:</b>
@@ -193,14 +194,18 @@ General rules:
 
 ### Recommended image editors
 
+<!-- vale Grafana.Spelling = NO -->
+
 - Linux: Use [gimp](https://www.gimp.org/)
 - macOS: Use [Snagit](https://www.techsmith.com/screen-capture.html)
 - Windows: Use [Snagit](https://www.techsmith.com/screen-capture.html)
 - Web browser: Use [Photopea](https://www.photopea.com/)
 
+<!-- vale Grafana.Spelling = YES -->
+
 ## Where to store media assets
 
-All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees. You use the [asset uploader application](https://admin.grafana.com/upload/) to upload assets.
+All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees. You use the [asset upload application](https://admin.grafana.com/upload/) to upload assets.
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
 > **Note:** Do not store images in the local repository, as it prohibits re-use of the asset in other content.

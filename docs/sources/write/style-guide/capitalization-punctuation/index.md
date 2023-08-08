@@ -38,7 +38,7 @@ The names of people, places, and products take initial capitals because they are
 - Generic and plural versions are always lowercase.
   - Lowercase _dashboard_ when referring to a dashboard generally.
   - Lowercase _dashboards_ when referring to multiple dashboards.
-- **Exceptions:** If a term is lowercased in the Grafana UI, then match the UI.
+- **Exceptions:** If a term is lowercase in the Grafana UI, then match the UI.
 
 ### Kubernetes objects
 

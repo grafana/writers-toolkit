@@ -43,7 +43,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 ### 2. Create the structure
 
-1. Add docs to your GitHub repository. Add a `docs/sources` folder to your repo, if it doesn’t already exist.
+1. Add docs to your GitHub repository. Add a `docs/sources` folder to your repository, if it doesn’t already exist.
 
 1. Create the folders and structure. Use the content framework for consistency across product docs.
 
@@ -67,7 +67,9 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 1. Open a PR and tag the docs team. Use the label type/docs.
 
-1. Use the docs validator and vale linter. These are automatic checks from within the PR itself. Learn more about the [docs-validator]({{< relref "../review/doc-validator" >}}) and the [Vale linter]({{< relref "../review/lint-prose" >}}).
+1. Use `doc-validator` and Vale linter.
+   These are automatic checks from within the PR itself.
+   Learn more about the [`doc-validator`]({{< relref "../review/doc-validator" >}}) and the [Vale linter]({{< relref "../review/lint-prose" >}}).
 
 ### 5. Publish the docs
 

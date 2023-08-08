@@ -56,9 +56,9 @@ A tutorial topic includes the following elements:
 
 To write a tutorial, complete these steps:
 
-1. Add a `sources/tutorials` directory to your project repo if one does not yet exist.
+1. Add a `sources/tutorials` directory to your project repository if one does not yet exist.
 
-   The tutorial is stored in your repo but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [Publish your tutorial](#publish-your-tutorial) for details.
+   The tutorial is stored in your repository but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [Publish your tutorial](#publish-your-tutorial) for details.
 
 1. Create a child directory within the `tutorials` directory that follows this naming convention:
 
@@ -92,15 +92,15 @@ Depending on the application, your tutorial's data might be:
 
 - In a sandbox
 - On test servers
-- In demo repos that the user clones locally
+- In demo repositories that the user clones locally
 
-For example, the [Play with Grafana Mimir](/tutorials/play-with-grafana-mimir/) tutorial provides a repo that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
+For example, the [Play with Grafana Mimir](/tutorials/play-with-grafana-mimir/) tutorial provides a repository that users can clone in order to complete the tutorial. As a comparison, the Mimir [Storing exemplars in Grafana Mimir](/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial. If getting access to the data is straightforward, include it in the "Before you begin" section.
 
 ## Publish your tutorial
 
-Your tutorial source is stored in your project repo in a `tutorials` folder and mounted to the tutorials repo so that it can be displayed on the [Tutorials](/tutorials) page. The source is stored in your project repo to make it easy for team members to review and edit the content.
+Your tutorial source is stored in your project repository in a `tutorials` folder and mounted to the tutorials repository so that it can be displayed on the [Tutorials](/tutorials) page. The source is stored in your project repository to make it easy for team members to review and edit the content.
 
 The following sections describe how to hide the tutorial from your project's table of contents and to display it on the Tutorials page.
 
@@ -130,18 +130,19 @@ To hide your tutorial from your documentation's table of contents:
    ```
 
    {{%admonition type="note" %}}
-   Create the `cascade` field if it does not exist. Substitute your repo for `grafana-cloud` in this example.
+   Create the `cascade` field if it doesn't exist.
+   Substitute your repository for `grafana-cloud` in this example.
    {{% /admonition %}}
 
 ### Add your tutorial to the Tutorials page
 
 {{% admonition type="note" %}}
-This procedure is for writers who have permissions to update the Grafana website repo.
+This procedure is for writers who have permissions to update the Grafana website repository.
 {{% /admonition %}}
 
 To add your tutorial to the Tutorials page:
 
-1. Add the following code to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repo:
+1. Add the following code to the `$.manual_mounts` field in the `config/_default/config.yaml` file in the website repository:
 
    ```yaml
    manual_mounts:
@@ -151,7 +152,7 @@ To add your tutorial to the Tutorials page:
 
    > **Note**: Create the `manual_mounts` field if it does not exist. Substitute the source and target with your tutorial's path and name.
 
-1. Add the following code to the `list` field in the `data/tutorials.yaml` file in the website repo:
+1. Add the following code to the `list` field in the `data/tutorials.yaml` file in the website repository:
 
    ```yaml
    list:

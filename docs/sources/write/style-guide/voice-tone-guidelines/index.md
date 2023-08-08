@@ -14,7 +14,7 @@ keywords:
 
 At Grafana, we like our company to sound like a real person.
 
-Voice and tone reflect your attitude and how you convey information. Word choice, **bolding**, _italicizing_, punctuation, and grammar all affect your voice. The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
+Voice and tone reflect your attitude and how you convey information. Word choice, use of **bold** or _italic_ emphasis, punctuation, and grammar all affect your voice. The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
 
 Consult the following voice and tone guidelines when you write technical documentation.
 

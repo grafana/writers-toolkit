@@ -21,9 +21,8 @@ This section provides an overview of the documentation tools we use at Grafana a
 ## Using git
 
 This document explains how to use the `git` command line tool to contribute changes to a Grafana Labs repository.
-If you are unfamiliar with `git`, refer to [The Git & Github Bootcamp](https://grafanalabs.udemy.com/course/git-and-github-bootcamp/learn/lecture/24877520%23overview) or [Git and GitHub for Writers](https://grafanalabs.udemy.com/course/git-and-github-for-writers/#overview).
 
-Although processes for contributing changes to a repository differ for each repository, at Grafana there is a generally consistent workflow defined below.
+Although processes for contributing changes differ for each repository, at Grafana there is a generally consistent workflow defined below.
 
 ### Creating a local repository
 

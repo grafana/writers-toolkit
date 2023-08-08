@@ -158,12 +158,12 @@ Using long blocks of descriptive text reduces readability. Write important infor
 
 > Before you begin, make sure you have the following items:
 >
-> - The kubectl command-line tool. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
-> - (Optional) The helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
+> - The `kubectl` command-line tool. To learn how to install `kubectl`, refer to [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl).
+> - (Optional) The `helm` command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
 
 **Don't use:**
 
-> Before you begin, make sure you have the kubectl command-line tool available on your local machine. To learn how to install kubectl, refer to [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the helm command-line tool for managing Helm charts. To learn how to install helm, refer to [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation.
+> Before you begin, make sure you have the `kubectl` command-line tool available on your local machine. To learn how to install `kubectl`, refer to [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) in the Kubernetes documentation. You might also need the `helm` command-line tool for managing Helm charts. To learn how to install `helm`, refer to [Installing Helm](https://helm.sh/docs/intro/install/) from the Helm documentation.
 
 ## Write text for UI elements
 

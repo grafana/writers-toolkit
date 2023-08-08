@@ -139,7 +139,7 @@ Each argument has four fields separated by colons (`:`) and optional fields can 
 
 - `VERSION`: is the name of the version directory under which the project documentation should be mounted.
 
-  The `VERSION` field is optional and defaults to `latest` for versioned projects and is empty for unversioned projects.
+  The `VERSION` field is optional and defaults to `latest` for versioned projects and is empty for other projects.
 
 - `REPOSITORY` is the the name of the local directory within `REPOS_PATH` for that project.
 

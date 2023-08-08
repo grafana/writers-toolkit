@@ -68,7 +68,7 @@ The `ref` and `relref` shortcodes display the absolute and relative permalinks t
 They both provide build time link checking to ensure that the destination exists.
 
 {{% admonition type="warning" %}}
-If you do not use a Hugo relref for build time link checking, your links may be broken without you realizing it.
+If you do not use a Hugo `relref` shortcode for build time link checking, your links may be broken without you realizing it.
 {{% /admonition %}}
 
 Relative references are the most common references in Grafana technical documentation.
@@ -80,11 +80,9 @@ In most projects, the only content available during local builds and CI is the c
 Therefore, the current advice is that `relref`s should only be used for links within the current project.
 {{% /admonition %}}
 
-### Determine relref destinations
+### Determine `relref` shortcode destinations
 
-Hugo resolves URL path based relrefs from the page bundle, and not the page itself.
-
-For example, with the following directory structure:
+With the following directory structure:
 
 ```
 docs
@@ -104,9 +102,9 @@ Hugo produces the following website pages:
 /docs/writers-toolkit/leaf/
 ```
 
-Refer to the following table for the correct relref to use to link between each of the example pages.
+Refer to the following table for the correct `relref` shortcode to use to link between each of the example pages.
 
-| Source page                           | Destination page                      | relref                                 |
+| Source page                           | Destination page                      | `relref` shortcode                     |
 | ------------------------------------- | ------------------------------------- | -------------------------------------- |
 | `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/branch/other/` | `{{</* relref "./other" */>}}`         |
 | `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
@@ -174,4 +172,4 @@ In this example,
 - `:14` represents the line number containing the unresolved reference
 - `:47` represents the character in that line where the unresolved reference begins
 
-If the reference's destination appears to be invalid, for example due to a typo in the reference or relref directory traversal depth, then you should be able to resolve this by correcting the reference target.
+If the reference's destination appears to be invalid, for example due to a typo in the reference or the depth of the`relref` directory, then you should be able to resolve this by correcting the reference target.

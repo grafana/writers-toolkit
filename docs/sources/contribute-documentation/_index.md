@@ -46,7 +46,7 @@ The Doc Squad determines the priority and scope of the change, and schedules the
 
 ## Edit a topic
 
-If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub. You are not required to fork and clone the repo to use this approach.
+If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub. You are not required to fork and clone the repository to use this approach.
 
 Small changes might include:
 
@@ -114,7 +114,7 @@ New users or members of other teams are very helpful for these tests.
 
 ## Review your changes
 
-Prior to pushing your changes to Github, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "../write/tooling-and-workflows#using-git" >}}).
+Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "../write/tooling-and-workflows#using-git" >}}).
 
 **To view a local build:**
 
@@ -138,8 +138,8 @@ When you are ready for other people to review your work, perform the following t
 
 1. Add your changes, which prepares your content for the next commit.
 1. Commit your changes.
-1. Push your changes to Github.
-1. Create a PR in Github.
+1. Push your changes to GitHub.
+1. Create a PR in GitHub.
 1. When writing the description for your PR, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue), for example "Fixes #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
 1. Add the `type/docs` label, so the Docs team can track the issue.
 

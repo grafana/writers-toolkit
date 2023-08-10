@@ -88,12 +88,12 @@ make-docs:
 .PHONY: docs
 docs: ## Serve documentation locally, which includes pulling the latest `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image. See also `docs-no-pull`.
 docs: docs-pull make-docs
-	$(PWD)/make-docs $(PROJECTS)
+	@$(PWD)/make-docs $(PROJECTS)
 
 .PHONY: docs-no-pull
 docs-no-pull: ## Serve documentation locally without pulling the `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image.
 docs-no-pull: make-docs
-	$(PWD)/make-docs $(PROJECTS)
+	@$(PWD)/make-docs $(PROJECTS)
 
 .PHONY: docs-debug
 docs-debug: ## Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.

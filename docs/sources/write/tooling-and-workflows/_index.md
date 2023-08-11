@@ -238,6 +238,14 @@ The response from GitHub includes a link used to open a pull request for your re
 Click the link to open GitHub, then click the green button on the upper left of the screen to open the pull request for reviewers.
 Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the Settings icon and entering reviewer GitHub usernames.
 
+### Force push changes
+
+If you rewrite local history, or your local branch diverges from the one in the remote for other reasons, you might need to force the remote to accept your changes.
+
+In such cases, prefer `--force-with-lease` over `--force`, which will overwrite the branch in the remote only if you have a tracking branch that is up to date. 
+That way, you won't accidentally overwrite commits pushed by others that you didn't know about. 
+For more information, refer to the documentation of the option in `man git-push`.
+
 ### Merging changes from the main branch
 
 Because git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.

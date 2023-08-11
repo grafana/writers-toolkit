@@ -42,8 +42,8 @@ To override the default for a single invocation, provide the `PROJECTS` argument
 
 For example:
 
-- For Grafana, the `PROJECT` is `grafana` (https://grafana.com/docs/grafana/).
-- For Grafana Cloud, the `PROJECT` is `grafana-cloud` (https://grafana.com/docs/grafana-cloud/).
+- For Grafana, the `PROJECT` is `grafana` derived the URL `https://grafana.com/docs/grafana/`.
+- For Grafana Cloud, the `PROJECT` is `grafana-cloud` derived from the URL `https://grafana.com/docs/grafana-cloud/`.
 
 {{% admonition type="note" %}}
 You must have the repository cloned locally for any projects specified in the space separated list to `PROJECTS` for the command to succeed.

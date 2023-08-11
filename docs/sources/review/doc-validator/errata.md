@@ -44,28 +44,28 @@ Update the canonical URL to match the pretty URL for the source file path.
 To determine the pretty URL for the source file path:
 
 1. Start with the root documentation URL.
-   For the Grafana project this would be "https://grafana.com/docs/grafana/latest/".
+   For the Grafana project this would be `https://grafana.com/docs/grafana/latest/`.
 
-2. Append the source file path, ignoring the "docs/sources/" directory.
-   For the path "docs/sources/administration/\_index.md", append the path "administration/\_index.md".
-   The canonical URL is now "https://grafana.com/docs/grafana/latest/administration/_index.md".
+2. Append the source file path, ignoring the `docs/sources/` directory.
+   For the path `docs/sources/administration/\_index.md`, append the path `administration/\_index.md`.
+   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/_index.md`.
 
-   For the path "docs/sources/administration/users.md", append the path "administration/users.md".
-   The canonical URL is now "https://grafana.com/docs/grafana/latest/administration/users.md".
+   For the path `docs/sources/administration/users.md`, append the path `administration/users.md`.
+   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/users.md`.
 
-3. Remove any "index.md", "\_index.md", or ".md" from the URL.
-   For the path "docs/sources/administration/\_index.md", remove "\_index.md" from the canonical URL.
-   The canonical URL is now "https://grafana.com/docs/grafana/latest/administration/"
+3. Remove any `index.md`, `\_index.md`, or `.md` from the URL.
+   For the path `docs/sources/administration/\_index.md`, remove `\_index.md` from the canonical URL.
+   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/`
 
-   For the path "docs/sources/administration/users.md", remove ".md" from the canonical URL.
-   The canonical URL is now "https://grafana.com/docs/grafana/latest/administration/users"
+   For the path `docs/sources/administration/users.md`, remove `.md` from the canonical URL.
+   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/users`
 
 4. Append a trailing slash if there isn't one already.
-   For the path "docs/sources/administration/\_index.md", do nothing.
-   The canonical URL remains "https://grafana.com/docs/grafana/latest/administration/"
+   For the path `docs/sources/administration/\_index.md`, do nothing.
+   The canonical URL remains `https://grafana.com/docs/grafana/latest/administration/`
 
-   For the path "docs/sources/administration/users.md", add a trailing slash.
-   The canonical URL is now "https://grafana.com/docs/grafana/latest/administration/users/"
+   For the path `docs/sources/administration/users.md`, add a trailing slash.
+   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/users/`
 
 ## canonical-is-not-valid-url
 

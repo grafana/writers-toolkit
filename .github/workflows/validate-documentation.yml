@@ -1,4 +1,4 @@
-name: "validate-pr"
+name: Validate documentation
 on:
   pull_request:
     paths: ["docs/sources/**"]

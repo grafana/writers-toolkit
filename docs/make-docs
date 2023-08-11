@@ -443,7 +443,7 @@ await_build() {
 
   if ${req} "${url}"; then
     echo
-    echo "View documentation at following URLs:"
+    echo "View documentation locally:"
     for x in ${url_src_dst_vers}; do
       IFS='^' read -r url _ _ <<POSIX_HERESTRING
 $x

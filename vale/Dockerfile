@@ -32,6 +32,7 @@ ENV DICPATH=/etc/vale/dictionaries
 
 RUN mkdir -p /etc/vale
 
+COPY Google /etc/vale/styles/Google
 COPY Grafana /etc/vale/styles/Grafana
 COPY .vale.ini /etc/vale
 COPY dictionaries /etc/vale/dictionaries

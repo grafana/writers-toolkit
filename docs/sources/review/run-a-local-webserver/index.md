@@ -72,6 +72,28 @@ The format is `<PROJECT>[:VERSION[:REPOSITORY[:DIR]]].`
 The example mounts the `PROJECT` tempo, at the default `VERSION` latest, using the `REPOSITORY` `tempo-doc-work`, and the default `DIR` `docs/sources`.
 This example builds the Tempo documentation from the local working directory, `tempo-doc-work`, instead of the standard `tempo` directory.
 
+## Understand Hugo output from `make docs`
+
+When you run `make docs`, Hugo (our static site generator) processes the Markdown files and outputs warnings and error messages.
+
+These messages are in the following format:
+
+```text
+WARN <DATE> <TIME> <LANGUAGE> REF_NOT_FOUND: Ref <RELREF ARGUMENT>: “<SOURCE FILE>:<LINE>:<COLUMN>”: <ERROR>
+```
+
+where:
+
+- `SOURCE FILE` is the file with the broken `relref`
+- `RELREF ARGUMENT` is the argument to the `relref` shortcode that is not working.
+- `ERROR`` is the reason `RELREF ARGUMENT` is not working.
+
+When you save a file with an active local build, the page is rechecked. If the error messages is not repeated, then the issue is fixed.
+
+In this example, Hugo is reporting a `page not found` error for a link to `alerting/set-up/migrating-alerts/opt-out` in the file `access-ontro/rbac-fixed-basic-role-definitions/index.md` on line 100.
+
+![Hugo output for running make docs](/media/docs/writers-toolkit/screenshot-make-docs-output.png)
+
 ## Reference
 
 The `make docs` target uses the [`make-docs`](https://github.com/grafana/writers-toolkit/blob/main/scripts/make-docs) script to mount local documentation into the Hugo build.

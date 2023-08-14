@@ -86,7 +86,7 @@ where:
 
 - `SOURCE FILE` is the file with the broken `relref`
 - `RELREF ARGUMENT` is the argument to the `relref` shortcode that is not working.
-- `ERROR`` is the reason `RELREF ARGUMENT` is not working.
+- ` ERROR`` is the reason  `RELREF ARGUMENT` is not working.
 
 When you save a file with an active local build, the page is rechecked. If the error messages is not repeated, then the issue is fixed.
 

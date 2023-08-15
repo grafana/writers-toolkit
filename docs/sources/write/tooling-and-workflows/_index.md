@@ -242,8 +242,8 @@ Here, you can also edit the title and further detail in the larger text box as w
 
 If you rewrite local history, or your local branch diverges from the one in the remote for other reasons, you might need to force the remote to accept your changes.
 
-In such cases, prefer `--force-with-lease` over `--force`, which will overwrite the branch in the remote only if you have a tracking branch that is up to date. 
-That way, you won't accidentally overwrite commits pushed by others that you didn't know about. 
+In such cases, prefer `--force-with-lease` over `--force`, which will overwrite the branch in the remote only if you have a tracking branch that is up to date.
+That way, you won't accidentally overwrite commits pushed by others that you didn't know about.
 For more information, refer to the documentation of the option in `man git-push`.
 
 ### Merge changes from the main branch

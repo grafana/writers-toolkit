@@ -114,7 +114,7 @@ New users or members of other teams are very helpful for these tests.
 
 ## Review your changes
 
-Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Using Git]({{< relref "../write/tooling-and-workflows#using-git" >}}).
+Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Use Git]({{< relref "../write/tooling-and-workflows#use-git" >}}).
 
 **To view a local build:**
 

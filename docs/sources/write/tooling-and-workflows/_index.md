@@ -18,13 +18,13 @@ keywords:
 
 This section provides an overview of the documentation tools we use at Grafana and highlights some of the key processes we use to create and review documentation.
 
-## Using git
+## Use git
 
 This document explains how to use the `git` command line tool to contribute changes to a Grafana Labs repository.
 
 Although processes for contributing changes differ for each repository, at Grafana there is a generally consistent workflow defined below.
 
-### Creating a local repository
+### Create a local repository
 
 Creating a local repository is only necessary when first contributing to a new repository.
 To create a local repository from a remote repository, use `git clone` with the URL of the repository.
@@ -65,7 +65,7 @@ cd mimir
 
 For a full list of Grafana repositories, refer to [Grafana Labs](https://github.com/orgs/grafana/repositories).
 
-### Downloading updated references from the remote repository
+### Download updated references from the remote repository
 
 Before contributing changes to a new repository, it's **critical** to have an up-to-date copy of the remote references so that your changes aren't out of date.
 To fetch the updated references from the remote repository, use `git fetch`.
@@ -89,7 +89,7 @@ From github.com:grafana/mimir
  * [new branch]          threaded-reader                  -> origin/threaded-reader
 ```
 
-### Creating a new branch from the main remote branch
+### Create a new branch from the main remote branch
 
 By convention, the remote repository in GitHub is the source of truth for a repository's history.
 The main branch of a repository is typically called `main` and occasionally called `master`.
@@ -143,12 +143,12 @@ Run `git fetch` before `git status` for the most accurate status.
 
 To understand the output of `git status`, refer to [Git - git-status Documentation](https://git-scm.com/docs/git-status#_output).
 
-### Committing changes to your branch
+### Commit changes to your branch
 
 Committing changes has two steps: staging and committing.
 You can stage whole files and directories, or you can stage individual areas within files.
 
-### Staging files and directories
+### Stage files and directories
 
 To stage whole files or directories, use `git add <PATH...>`.
 To stage the `updated.md` file in your current working directory, for example:
@@ -159,7 +159,7 @@ git add updated.md
 
 Stage all files relevant to your current change.
 
-### Staging individual areas within files
+### Stage individual areas within files
 
 Diff hunks are individual areas of difference in files.
 Each diff hunk shows one area where a file differs between versions.
@@ -202,7 +202,7 @@ For example:
 git commit -s -m "Use American English spellings"
 ```
 
-### Pushing changes to the remote repository
+### Push changes to the remote repository
 
 Pushing changes to the remote repository allows other people to look at your commits and review them.
 It's also the first step in getting your changes incorporated into the main branch.
@@ -238,7 +238,15 @@ The response from GitHub includes a link used to open a pull request for your re
 Click the link to open GitHub, then click the green button on the upper left of the screen to open the pull request for reviewers.
 Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the Settings icon and entering reviewer GitHub usernames.
 
-### Merging changes from the main branch
+### Force push changes
+
+If you rewrite local history, or your local branch diverges from the one in the remote for other reasons, you might need to force the remote to accept your changes.
+
+In such cases, prefer `--force-with-lease` over `--force`, which will overwrite the branch in the remote only if you have a tracking branch that is up to date.
+That way, you won't accidentally overwrite commits pushed by others that you didn't know about.
+For more information, refer to the documentation of the option in `man git-push`.
+
+### Merge changes from the main branch
 
 Because git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.
 From the point where you created your branch and when you're ready to merge the pull request, the main branch might have changed in significant ways, or even developed a conflict with your branch.
@@ -304,7 +312,7 @@ Merge made by the 'recursive' strategy.
 ...
 ```
 
-### Resolving conflicts
+### Resolve conflicts
 
 GitHub and git both warn you when the source branch and your branch directly conflict.
 

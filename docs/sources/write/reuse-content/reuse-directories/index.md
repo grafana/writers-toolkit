@@ -39,7 +39,7 @@ To reuse a shared directory:
    The source directory for all Grafana Cloud content at the URL https://grafana.com/docs/grafana-cloud/ is `content/docs/grafana-cloud`.
 
    Similarly, the target directory has the path prefix `content/docs`.
-   For the destination URL https://grafana.com/docs/target-directory/, the path is `content/docs/target-directory`.
+   For the destination URL `https://grafana.com/docs/target-directory/`, the path is `content/docs/target-directory`.
 
 1. Update the website repository Hugo configuration.
 

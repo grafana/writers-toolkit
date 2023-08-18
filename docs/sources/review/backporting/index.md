@@ -57,6 +57,7 @@ D3 -- No -->  D4
 D4 -- Yes --> T4
 D4 -- No -->  T3
 ```
+
 ## Backporting tutorials
 
 Depending on the location from which tutorials are mounted, you might need to backport changes to them.

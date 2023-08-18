@@ -76,6 +76,8 @@ This example builds the Tempo documentation from the local working directory, `t
 
 When you run `make docs`, Hugo (our static site generator) processes the Markdown files and outputs warnings and error messages.
 
+![Hugo output for running make docs](/media/docs/writers-toolkit/screenshot-make-docs-output.png)
+
 These messages are in the following format:
 
 ```text
@@ -92,15 +94,16 @@ When you save a file with an active local build, the page is rechecked. If the e
 
 ### Example: Page not found
 
-In this example, Hugo is reporting a `page not found` error for a link to `alerting/set-up/migrating-alerts/opt-out` in the file `access-ontro/rbac-fixed-basic-role-definitions/index.md` on line 100.
+{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="latest" >}}
+
 
 For more information about linking, refer to [Links and cross references]({{< relref "../../write/references" >}}).
 
-![Hugo output for running make docs](/media/docs/writers-toolkit/screenshot-make-docs-output.png)
 
-### Example: Rebuild failed due to shortcode
 
-In this example, the rebuild fails because the file `contribute-documentation/_index.md` is missing a closing shortcode for `{{% /admonition %}}` on line 152.
+### Example: Rebuild failed due to missing shortcode
+
+In this example, the rebuild fails because the file `contribute-documentation/_index.md` is missing a closing shortcode for `admonition` on line 152.
 
 ```
 ERROR Rebuild failed: assemble: "/hugo/content/docs/writers-toolkit/contribute-documentation/_index.md:152:1": failed to extract shortcode: shortcode "admonition" must be closed or self-closed

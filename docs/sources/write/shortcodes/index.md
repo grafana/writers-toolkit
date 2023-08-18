@@ -37,6 +37,11 @@ The content of the admonition must be within opening and closing tags.
 | --------- | --------------------------------------------------------------------- | -------- |
 | `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
 
+{{% admonition type="warning" %}}
+Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
+For more information, refer to https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3.
+{{% /admonition %}}
+
 ### Example
 
 The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.

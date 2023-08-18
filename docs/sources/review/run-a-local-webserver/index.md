@@ -94,7 +94,7 @@ When you save a file with an active local build, the page is rechecked. If the e
 
 In this example, Hugo is reporting a `page not found` error for a link to `alerting/set-up/migrating-alerts/opt-out` in the file `access-ontro/rbac-fixed-basic-role-definitions/index.md` on line 100.
 
-For more information about linking, refer to [{{< relref 
+For more information about linking, refer to [Links and cross references]({{< relref "../../write/references" >}}).
 
 ![Hugo output for running make docs](/media/docs/writers-toolkit/screenshot-make-docs-output.png)
 

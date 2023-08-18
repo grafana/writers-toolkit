@@ -218,3 +218,9 @@ $ tree -L 1 -d ~/ext/grafana
 ```
 
 The script sets `REPOS_PATH` to be `/home/jdb/ext/grafana`.
+
+#### DEBUG
+
+The `DEBUG` environment variable disables output filtering and enables extra debug logging to help with troubleshooting.
+
+If you experience confusing behavior with the `make docs` procedure, report the problem via a GitHub issue or, for Grafana Labs employees, in the #docs Slack channel and provide the full command and output using `make docs DEBUG=true`.

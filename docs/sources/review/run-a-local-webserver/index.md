@@ -100,7 +100,7 @@ For more information about linking, refer to [Links and cross references]({{< re
 
 ### Example: Rebuild failed due to shortcode
 
-In this example, the rebuild fails becuase the file `contribute-documentation/_index.md` is missing a closing shortcode for `{{% /admonition %}}` on line 152.
+In this example, the rebuild fails because the file `contribute-documentation/_index.md` is missing a closing shortcode for `{{% /admonition %}}` on line 152.
 
 ```
 ERROR Rebuild failed: assemble: "/hugo/content/docs/writers-toolkit/contribute-documentation/_index.md:152:1": failed to extract shortcode: shortcode "admonition" must be closed or self-closed

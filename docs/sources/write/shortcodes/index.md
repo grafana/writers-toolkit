@@ -39,7 +39,7 @@ The content of the admonition must be within opening and closing tags.
 
 {{% admonition type="warning" %}}
 Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
-For more information, refer to https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3.
+For more information, refer to [Markdown Reference Links in Shortcodes](https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3).
 {{% /admonition %}}
 
 ### Example

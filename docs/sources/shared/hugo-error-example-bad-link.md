@@ -4,14 +4,14 @@ labels:
     - oss
 ---
 
-[//]: # 'This file documents an example Hugo error output for relref and links.'
-[//]: # 'This shared file is included in these locations:'
-[//]: # '/writers-toolkit/review/run-a-local-webserver'
-[//]: # '/writers-toolkit/write/references/index.md'
-[//]: # '/tempo/docs/sources/tempo/traceql/query_editor.md'
+[//]: # "This file documents an example Hugo error output for relref and links."
+[//]: # "This shared file is included in these locations:"
+[//]: # "/writers-toolkit/review/run-a-local-webserver"
+[//]: # "/writers-toolkit/write/references/index.md"
+[//]: # "/tempo/docs/sources/tempo/traceql/query_editor.md"
 [//]: #
-[//]: # 'If you make changes to this file, verify that the meaning and content are not changed in any place where the file is included.'
-[//]: # 'Any links should be fully qualified and not relative: /docs/grafana/ instead of ../grafana/.'
+[//]: # "If you make changes to this file, verify that the meaning and content are not changed in any place where the file is included."
+[//]: # "Any links should be fully qualified and not relative: /docs/grafana/ instead of ../grafana/."
 
 Hugo emits `REF_NOT_FOUND` warnings indicating the filename and location of such references when building the docs, for example with `make docs` in `grafana/grafana` or `make server-quick` in `grafana/website`:
 

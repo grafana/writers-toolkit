@@ -127,8 +127,8 @@ The table in this section includes file naming conventions for you to follow whe
 General rules:
 
 - Use lowercase letters in filenames, always.
-- Use dashes between words; do not use spaces or underscores.
-- Do not type special characters or punctuation marks in a file name except for periods in product version numbers (for example, `grafana-9.2.release.png`.
+- Use dashes between words; don't use spaces or underscores.
+- Don't type special characters or punctuation marks in a filename except for periods in product version numbers. For example: `grafana-9.2.release.png`.
 - Don’t use abbreviations that will cause issues with localization.
   - For example, spell out `database` instead of using `db`, but using an acronym, such as RBAC, is ok.
   - When in doubt, don’t use an abbreviation.

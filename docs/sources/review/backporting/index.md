@@ -57,3 +57,16 @@ D3 -- No -->  D4
 D4 -- Yes --> T4
 D4 -- No -->  T3
 ```
+
+## Backporting tutorials
+
+Depending on the location from which tutorials are mounted, you might need to backport changes to them.
+
+For `grafana/grafana`, tutorials are mounted from the "latest" docs, so if you want your changes to be published immediately, backport to the branch that corresponds with the "latest" version of the docs on the website. If there's an upcoming release, but `main` is targeting the release after that, backport to the upcoming release version as well.
+
+For example:
+
+- The "latest" docs are version 10.0
+- `main` is targeting 10.2
+
+Backport to `10.0` and `10.1` to publish your changes immediately and ensure your changes are present in the upcoming release.

@@ -1,5 +1,6 @@
 ---
 headless: true
+description: Shared file for example Hugo error output. 
 labels:
   products:
     - oss

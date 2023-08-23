@@ -24,7 +24,7 @@ WARN 2022/08/04 21:35:37 [en] REF_NOT_FOUND: Ref "../../enterprise": "/hugo/cont
 In this example,
 
 - `Ref "../../enterprise"` is the destination of the reference that Hugo can't resolve
-- `/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md` is the document containing the reference, where the path after `/next/` is relative to the documentation root of the component repository
+- `\/hugo/content/docs/grafana/next/administration/roles-and-permissions/access-control/assign-rbac-roles.md` is the document containing the reference, where the path after `/next/` is relative to the documentation root of the component repository
 - `:14` represents the line number containing the unresolved reference
 - `:47` represents the character in that line where the unresolved reference begins
 

@@ -1,0 +1,9 @@
+extends: substitution
+message: do you mean '%s' instead of '%s'?
+link: https://grafana.com/docs/writers-toolkit/word-list#allows-to
+level: warning
+ignorecase: false
+action:
+  name: replace
+swap:
+  allows to: allows you to

@@ -23,8 +23,10 @@ In such a circumstance, wait a few hours and try again later.
 
 <!-- vale Grafana.WordList = NO -->
 <!-- "check" here is used as a noun not a verb. TODO: update the WordList to only lint "check" as a verb. -->
+
 Occasionally, the CLA assistant workflow is not reported on an open PR, preventing the PR from being merged.
 You can request the CLA assistant to run again by browsing to the check URL for the PR.
+
 <!-- vale Grafana.WordList = YES -->
 
 The format of the URL is `https://cla-assistant.io/check/grafana/<REPOSITORY>?pullRequest=<PR>`.

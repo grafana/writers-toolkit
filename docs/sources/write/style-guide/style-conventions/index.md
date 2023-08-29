@@ -208,16 +208,16 @@ The syntax for a warning admonition is as follows:
 
 ```markdown
 {{%/* admonition type="warning" */%}}
-Do not back up your dashboards in Grafana.
-You might not be able to recover a dashboard if it is deleted.
+Don't back up your dashboards in Grafana.
+You might not be able to recover a dashboard if it's deleted.
 {{%/* /admonition */%}}
 ```
 
 On the published page, this warning renders as follows:
 
 {{% admonition type="warning" %}}
-By disabling authentication requirements, anyone can access your Grafana instance.
-There is a considerable security risk associated with this.
+Don't back up your dashboards in Grafana.
+You might not be able to recover a dashboard if it's deleted.
 {{% /admonition %}}
 
 ## Semantic line breaks

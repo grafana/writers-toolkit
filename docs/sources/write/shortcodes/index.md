@@ -47,6 +47,73 @@ Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
 
+## `docs/experimental-deployment` shortcode
+
+The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.
+
+It takes no parameters.
+
+### Example
+
+```markdown
+{{</* docs/experimental-deployment */>}}
+```
+
+Produces:
+
+{{< docs/experimental-deployment >}}
+
+## `docs/experimental` shortcode
+
+The `docs/experimental` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is experimental.
+
+| Parameter     | Description                                                              | Required |
+| ------------- | ------------------------------------------------------------------------ | -------- |
+| `product`     | The name of the product or feature.                                      | yes      |
+| `featureFlag` | The name of the feature flag users use to enable the product or feature. | yes      |
+
+### Example
+
+```markdown
+{{</* docs/experimental product="experimental-feature" featureFlag="its-feature-flag" */>}}
+```
+
+Produces:
+
+{{< docs/experimental product="experimental-feature" featureFlag="its-feature-flag" >}}
+
+## `docs/private-preview` shortcode
+
+The `docs/private-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in private preview.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `product` | The name of the product or feature. | yes      |
+
+```markdown
+{{</* docs/private-preview product="private-preview-feature" */>}}
+```
+
+Produces:
+
+{{< docs/private-preview product="private-preview-feature" >}}
+
+## `docs/public-preview` shortcode
+
+The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `product` | The name of the product or feature. | yes      |
+
+```markdown
+{{</* docs/public-preview product="public-preview-feature" */>}}
+```
+
+Produces:
+
+{{< docs/public-preview product="public-preview-feature" >}}
+
 ## `docs/shared` shortcode
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory.

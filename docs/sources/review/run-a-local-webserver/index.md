@@ -126,8 +126,8 @@ Each argument has four fields separated by colons (`:`) and optional fields can 
 
 - `PROJECT`: is the name of the project as it appears in the website URL path.
 
-  For Grafana, the `PROJECT` is `grafana` (https://grafana.com/docs/grafana/)
-  For Grafana Cloud, the `PROJECT` is `grafana-cloud` (https://grafana.com/docs/grafana-cloud/).
+  For Grafana, the `PROJECT` is `grafana` (`https://grafana.com/docs/grafana/`)
+  For Grafana Cloud, the `PROJECT` is `grafana-cloud` (`https://grafana.com/docs/grafana-cloud/`).
 
   Pseudo projects mount multiple source directories.
 

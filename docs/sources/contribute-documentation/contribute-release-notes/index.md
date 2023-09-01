@@ -54,6 +54,7 @@ Complete the following steps throughout a release cycle:
 At this point, the larger Marketing org can review the What's new content in the branch.
 
 ### At the end of a release
+
 Complete the following steps in the days leading up to the release:
 
 1. Five days before the What's new freeze, the technical program manager sends a last call to developer teams to get in their What's new content.

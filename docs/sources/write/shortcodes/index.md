@@ -124,12 +124,12 @@ To share content, follow these steps:
 1. Store the file in a shared folder.
 1. To include the shared content in a Markdown file, insert the `docs/shared` shortcode with the following named parameters:
 
-| Parameter     | Description                                                                                                                                                                                                                                       | Required |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                        | yes      |
-| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                  | yes      |
-| `version`     | Version of the source content to include. If not provided, _version_ is implicitly set to match the version of the destination content. If the including destination is at version `1.0.0`, then the version of included content is `1.0.0` also. | no       |
-| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                 | no       |
+| Parameter     | Description                                                                                                                                                                                                                                                                             | Required |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                              | yes      |
+| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                        | yes      |
+| `version`     | Version of the source content to include. For unversioned source content, use the empty string `""` as the value. Version inference is supported using values like `<GRAFANA VERSION>`. To learn about version inference, refer to [About version inference](#about-version-inference). | yes      |
+| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                       | no       |
 
 {{% admonition type="note" %}}
 Hugo doesn't rebuild the destination file when a source file changes on disk.
@@ -141,14 +141,14 @@ To trigger a rebuild after changes to a source file, perform a trivial change to
 The following shortcode inserts the content from the `oauth2-block.md` file. The _lookup_ path is relative to the `shared` folder in the `agent` source repository.
 
 ```markdown
-{{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" */>}}
+{{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" version="<AGENT VERSION>" */>}}
 ```
 
 The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` project.
 Headings are offset by one level, so if the source content contains an `h1`, the resulting heading is an `h2`.
 
 ```markdown
-{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
+{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM VERSION>" leveloffset="+1" */>}}
 ```
 
 ## `figure` shortcode
@@ -248,10 +248,7 @@ The content within the shortcode tags is as follows:
 
 - `label` - The label you'll use in the reference-style links in the file. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
 - `project path prefix` - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-- `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of the page or falls back to being inferred from the version of the page.
-  This enables the use of absolute paths that resolve correctly, irrespective of version.
-  When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-case.
-  For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
+- `reference` - The path to the destination file. Version inference is supported using values like `<GRAFANA VERSION>`. To learn about version inference, refer to [About version inference](#about-version-inference).
 
 Then add the link in the body of the file in the following format:
 
@@ -261,10 +258,6 @@ For more information about Grafana dashboards, refer to the [Dashboards document
 
 - If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
 - If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
-
-You can override version inference by including additional metadata in the front matter of the file.
-To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
-For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
 
 ### Other use cases
 
@@ -296,3 +289,17 @@ This Markdown renders as:
 ```markdown
 {{</* myshortcode */>}}
 ```
+
+## About version inference
+
+Version inference enables the use of absolute paths that resolve correctly, irrespective of version.
+It uses special syntax using angle bracket delimiters like `<GRAFANA VERSION>`.
+
+As a convention, use the name of the target project, with spaces but no hyphens or underscores, all upper-case.
+For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
+
+The special syntax `<SOMETHING VERSION>`, is inferred from the version of the page.
+
+You can override version inference by including additional metadata in the front matter of the file.
+To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.
+For example, with the front matter `GRAFANA VERSION: next`, the shortcode replaces `<GRAFANA VERSION>` with `next` irrespective of the source content version.

@@ -439,29 +439,38 @@ await_build() {
   url="$1"
   req="$(if command -v curl >/dev/null 2>&1; then echo 'curl -s -o /dev/null'; else echo 'wget -q'; fi)"
 
-  sleep 2
+  i=1
+  max=10
+  while [ "${i}" -ne "${max}" ]
+  do
+    sleep 1
+    debg "Retrying request to webserver assuming the process is still starting up."
+    i=$((i + 1))
 
-  if ${req} "${url}"; then
-    echo
-    echo "View documentation locally:"
-    for x in ${url_src_dst_vers}; do
-      IFS='^' read -r url _ _ <<POSIX_HERESTRING
+    if ${req} "${url}"; then
+      echo
+      echo "View documentation locally:"
+      for x in ${url_src_dst_vers}; do
+        IFS='^' read -r url _ _ <<POSIX_HERESTRING
 $x
 POSIX_HERESTRING
 
-      if [ -n "${url}" ]; then
-        if [ "${_url}" != "arbitrary" ]; then
-          echo "  ${url}"
+        if [ -n "${url}" ]; then
+          if [ "${_url}" != "arbitrary" ]; then
+            echo "  ${url}"
+          fi
         fi
-      fi
-    done
-    echo
-    echo 'Press Ctrl+C to stop the server'
-  else
-    echo
-    errr 'The build was interrupted or a build error occurred, check the previous logs for possible causes.'
-  fi
+      done
+      echo
+      echo 'Press Ctrl+C to stop the server'
 
+      unset url req
+      return
+    fi
+  done
+
+  echo
+  errr 'The build was interrupted or a build error occurred, check the previous logs for possible causes.'
   unset url req
 }
 

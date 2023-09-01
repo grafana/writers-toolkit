@@ -471,14 +471,14 @@ POSIX_HERESTRING
       echo
       echo 'Press Ctrl+C to stop the server'
 
-      unset url req
+      unset i max req url
       return
     fi
   done
 
   echo
   errr 'The build was interrupted or a build error occurred, check the previous logs for possible causes.'
-  unset url req
+  unset i max req url
 }
 
 debg() {

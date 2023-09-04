@@ -302,4 +302,4 @@ The special syntax `<SOMETHING VERSION>`, is inferred from the version of the pa
 
 You can override version inference by including additional metadata in the front matter of the file.
 To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.
-For example, with the front matter `GRAFANA VERSION: next`, the shortcode replaces `<GRAFANA VERSION>` with `next` irrespective of the source content version.
+For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA VERSION: next`.

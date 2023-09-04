@@ -88,13 +88,13 @@ where:
 
 - `SOURCE FILE` is the file with the broken `relref`
 - `RELREF ARGUMENT` is the argument to the `relref` shortcode that is not working.
-- ` ERROR`` is the reason  `RELREF ARGUMENT` is not working.
+- `ERROR` is the reason `RELREF ARGUMENT` is not working.
 
 When you save a file with an active local build, the page is rechecked. If the error messages is not repeated, then the issue is fixed.
 
 ### Example: Page not found
 
-{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="latest" >}}
+{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 
 For more information about linking, refer to [Links and cross references]({{< relref "../../write/references" >}}).
 

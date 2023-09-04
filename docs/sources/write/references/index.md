@@ -161,6 +161,6 @@ The following Markdown links are equivalent:
 
 <!-- The output example is also used in review/run-a-local-webserver. -->
 
-{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="latest" >}}
+{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 
 For additional information about Hugo error output, refer to [Test documentation changes]({{< relref "../../review/run-a-local-webserver" >}}).

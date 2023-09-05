@@ -35,7 +35,7 @@ A _visualization_ topic includes the following elements:
 - **Topic title:** Topic titles should be the name of the visualization, for example, "Time series". Don't add the word "panel" or "visualization" to the title.
 - **Introduction:** Include an introduction that explains what visualization type can help the user do.
 - **Supported data formats:** Provide guidance about which data formats are supported by the visualization type with example use cases.
-- **[Section] options:** For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." These don't include the sections linked from the **Other options** section.
+- **[Section] options:** For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." Generally, these don't require screenshots. Only add screenshots where the UI is potentially confusing or a UI interaction is unclear.This doesn't include the sections linked from the **Other options** section.
 - **Other options:** Include a section for links to the docs for common UI options:
 
   - Panel options

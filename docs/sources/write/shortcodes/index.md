@@ -298,7 +298,7 @@ It uses special syntax using angle bracket delimiters like `<GRAFANA VERSION>`.
 As a convention, use the name of the target project, with spaces but no hyphens or underscores, all upper-case.
 For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
 
-The special syntax `<SOMETHING VERSION>`, is inferred from the version of the page.
+The special syntax `<SOMETHING VERSION>` is substituted by the version that is inferred from the page's URL.
 
 You can override version inference by including additional metadata in the front matter of the file.
 To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.

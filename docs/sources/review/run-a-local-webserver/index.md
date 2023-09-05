@@ -193,10 +193,9 @@ If you experience confusing behavior with the `make docs` procedure, report the 
 
 ## Stop running a local build
 
-To stop the `make docs` command, press Commmand/Ctrl + C. 
+To stop the `make docs` command, press Commmand/Ctrl + C.
 
 If this doesn't work, do one of the following:
 
 - (Recommended) Open Docker Desktop, go to **Containers**, and stop all running containers or just the one for your local build.
 - To remove all running containers, run `docker rm -f $(docker ps -q)`.
-

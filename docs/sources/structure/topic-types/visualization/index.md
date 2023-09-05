@@ -30,6 +30,7 @@ A visualization topic does not include:
 ## Visualization topic structure
 
 The following applies to visualizations that require a data source. For visualizations that don't require one, refer to [Widget topic structure](#widget-topic-structure).
+
 A _visualization_ topic includes the following elements:
 
 - **Topic title:** Topic titles should be the name of the visualization, for example, "Time series". Don't add the word "panel" or "visualization" to the title.
@@ -64,10 +65,7 @@ When writing about visualizations (or widgets), use:
 
 For example: Use bar charts to graph categorical data.
 
-Use the adjective form when the name of the visualization is:
-
-- Already in plural form
-- A word with a well-established meaning already
+Use the adjective form when the name of the visualization is already in plural form.
 
 For example: Use time series visualizations to display time series data as a graph. Traces visualizations turns traces data into a diagram that helps you easily interpret that data.
 
@@ -107,3 +105,33 @@ Refer to the following topics for visualization topic examples:
 ## Visualization template
 
 When you are ready to write, make a copy of the [Visualization template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/concept-template.md) and add your content.
+
+## Visualizations naming reference
+
+The following table shows whether visualizations should be treated as nouns or adjectives.
+
+| Noun              | Adjective                  |
+|-------------------|----------------------------|
+| alert lists       | logs visualizations        |
+| annotations lists | news visualizations        |
+| bar charts        | time series visualizations |
+| bar gauges        | traces visualizations      |
+| candlesticks      |                            |
+| canvases          |                            |
+| dashboard lists   |                            |
+| datagrids         |                            |
+| flame graphs      |                            |
+| gauges            |                            |
+| geomaps           |                            |
+| heatmaps          |                            |
+| histograms        |                            |
+| node graphs       |                            |
+| pie charts        |                            |
+| stats             |                            |
+| state timelines   |                            |
+| status histories  |                            |
+| tables            |                            |
+| texts             |                            |
+| treemaps          |                            |
+| trends            |                            |
+| xy charts         |

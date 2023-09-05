@@ -19,7 +19,7 @@ keywords:
 
 A visualization topic provides an overview to help end users understand how to best use the visualization type and the options available to them in the user interface (UI). Visualization topics always include conceptual and reference content and may include task content.
 
-Refer to the [Visualization topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/visualization/) for guidelines on writing a concept topic.
+Refer to the [Visualization topic documentation](https://grafana.com/docs/writers-toolkit/writing-guide/topic-types/visualization/) for guidelines on writing a visualization topic.
 -->
 
 Introduce the concept.

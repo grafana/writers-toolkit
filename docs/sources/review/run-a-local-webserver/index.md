@@ -72,6 +72,40 @@ The format is `<PROJECT>[:VERSION[:REPOSITORY[:DIR]]].`
 The example mounts the `PROJECT` tempo, at the default `VERSION` latest, using the `REPOSITORY` `tempo-doc-work`, and the default `DIR` `docs/sources`.
 This example builds the Tempo documentation from the local working directory, `tempo-doc-work`, instead of the standard `tempo` directory.
 
+## Understand Hugo output from `make docs`
+
+When you run `make docs`, Hugo (our static site generator) processes the Markdown files and outputs warnings and error messages.
+
+![Hugo output for running make docs](/media/docs/writers-toolkit/screenshot-make-docs-output.png)
+
+These messages are in the following format:
+
+```text
+WARN <DATE> <TIME> <LANGUAGE> REF_NOT_FOUND: Ref <RELREF ARGUMENT>: “<SOURCE FILE>:<LINE>:<COLUMN>”: <ERROR>
+```
+
+where:
+
+- `SOURCE FILE` is the file with the broken `relref`
+- `RELREF ARGUMENT` is the argument to the `relref` shortcode that is not working.
+- `ERROR` is the reason `RELREF ARGUMENT` is not working.
+
+When you save a file with an active local build, the page is rechecked. If the error messages is not repeated, then the issue is fixed.
+
+### Example: Page not found
+
+{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
+
+For more information about linking, refer to [Links and cross references]({{< relref "../../write/references" >}}).
+
+### Example: Rebuild failed due to missing shortcode
+
+In this example, the rebuild fails because the file `contribute-documentation/_index.md` is missing a closing shortcode for `admonition` on line 152.
+
+```
+ERROR Rebuild failed: assemble: "/hugo/content/docs/writers-toolkit/contribute-documentation/_index.md:152:1": failed to extract shortcode: shortcode "admonition" must be closed or self-closed
+```
+
 ## Reference
 
 The `make docs` target uses the [`make-docs`](https://github.com/grafana/writers-toolkit/blob/main/scripts/make-docs) script to mount local documentation into the Hugo build.
@@ -190,3 +224,12 @@ The script sets `REPOS_PATH` to be `/home/jdb/ext/grafana`.
 The `DEBUG` environment variable disables output filtering and enables extra debug logging to help with troubleshooting.
 
 If you experience confusing behavior with the `make docs` procedure, report the problem via a GitHub issue or, for Grafana Labs employees, in the #docs Slack channel and provide the full command and output using `make docs DEBUG=true`.
+
+## Stop running a local build
+
+To stop the `make docs` command, press Commmand/Ctrl + C.
+
+If this doesn't work, do one of the following:
+
+- (Recommended) Open Docker Desktop, go to **Containers**, and stop all running containers or just the one for your local build.
+- To remove all running containers, run `docker rm -f $(docker ps -q)`.

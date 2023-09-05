@@ -28,3 +28,13 @@ Depending on the needs of a particular product area, select a topic type from th
 | [Tutorial]({{< relref "./tutorial" >}})   | Provides procedures that users can safely reproduce and learn from. Answers the question: "Can you teach me to …?"                                     |
 
 For your convenience, we have created topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
+
+## Special topic types
+
+We also have special topic types to ensure that pages documenting the same type of content have a standard format.
+
+| Type                                              | Description                                                                          |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [Visualization]({{< relref "./visualization" >}}) | Describes a visualization type. May include conceptual, task, and reference content. |
+
+For your convenience, we have created topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).

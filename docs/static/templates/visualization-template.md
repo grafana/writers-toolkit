@@ -32,11 +32,11 @@ Introduce the concept.
 
 ## [A] options
 
-<!-- For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." Generally, these don't require screenshots. Only add screenshots where the UI is potentially confusing or a UI interaction is unclear. This doesn't include the sections linked from the **Other options** section. -->
+<!-- For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." This doesn't include the sections linked from the **Other options** section. -->
 
 ## [B] options
 
-<!-- For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." Generally, these don't require screenshots. Only add screenshots where the UI is potentially confusing or a UI interaction is unclear. This doesn't include the sections linked from the **Other options** section. -->
+<!-- For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." This doesn't include the sections linked from the **Other options** section. -->
 
 ## Other options
 
@@ -44,32 +44,32 @@ Introduce the concept.
 
 ### Panel options
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds)
+- Learn about [panel options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds) that you can set for a visualization.
 
 ### Standard options
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-standard-options)
+- Learn about [standard options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-standard-options) that you can set for a visualization.
 
 ### Data links
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-data-links)
+- Learn about [data link options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-data-links) that you can set for a visualization.
 
 ### Field overrides
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-overrides)
+- Learn about [field override options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-overrides) that you can set for a visualization.
 
 ### Legend
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-legend)
+- Learn about [legend options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-legend) that you can set for a visualization.
 
 ### Thresholds
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds)
+- Learn about [threshold options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds) that you can set for a visualization.
 
 ### Tooltips
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations)
+- Learn about [tooltip options](https://grafana.com/docs/grafana/latest/panels-visualizations) that you can set for a visualization.
 
 ### Value mappings
 
-- [Link example](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-value-mappings/)
+- Learn about [value mapping options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-value-mappings) that you can set for a visualization.

@@ -29,12 +29,12 @@ Depending on the needs of a particular product area, select a topic type from th
 
 For your convenience, we have created topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
 
-## Special topic types
+## Templates for standardized topics
 
-We also have special topic types to ensure that pages documenting the same type of content have a standard format.
+In addition to our primary topic types, we also provide templates for these specific topic types to ensure that pages documenting the same subject matter have a standard format. Click the the links in the table for detailed information about these topic types.
+
+These [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates) are in the same directory as our topic type templates.
 
 | Type                                              | Description                                                                          |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [Visualization]({{< relref "./visualization" >}}) | Describes a visualization type. May include conceptual, task, and reference content. |
-
-For your convenience, we have created topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).

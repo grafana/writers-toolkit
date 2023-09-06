@@ -74,6 +74,8 @@ To reuse shared content:
    ---
    ```
 
+   You can include `relref` style links in the content. When doing so, set the destination path in relation to the location of the shared content file.
+
 1. In the consuming project, use the `docs/shared` shortcode to include the shared content.
 
    To consume the file `docs/sources/shared/common-introduction.md` from the latest version of the `tempo` project documentation, the shortcode would be the following:

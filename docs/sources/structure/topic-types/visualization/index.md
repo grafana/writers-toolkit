@@ -2,7 +2,7 @@
 title: Visualization topic
 menuTitle: Visualization
 description: Learn how to write a visualization topic.
-weight: 100
+weight: 400
 aliases:
   - /docs/writers-toolkit/structure/topic-types/visualization
 keywords:

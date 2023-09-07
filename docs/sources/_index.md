@@ -31,11 +31,6 @@ By creating Writers’ Toolkit, we want to empower everyone to create technical 
 
 Writers’ Toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana Labs. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
 
-Writers’ Toolkit consists of two primary guides:
-
-- Style guide
-- Writing guide
-
 ## Iteration is our friend
 
 This is just a start. We will continue to share our guidelines and seek feedback and iterate. Our hope is that these pages and our understanding continues and evolves over time. Over time, we will expand Writers’ Toolkit.

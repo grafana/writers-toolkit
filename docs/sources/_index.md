@@ -39,4 +39,4 @@ This is just a start. We will continue to share our guidelines and seek feedback
 
 ## Questions and Feedback
 
-The Writers' Toolkit is open-source, and the source code is available at [grafana/writers-toolkit](https://grafana.com/docs/writers-toolkit/). If you have questions, or feedback on how we can improve it, we encourage you to open an issue and help us make this even better.
+The Writers' Toolkit is open-source, and the source code is available at [grafana/writers-toolkit](https://github.com/grafana/writers-toolkit). If you have questions, or feedback on how we can improve it, we encourage you to open an issue and help us make this even better.

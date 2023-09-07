@@ -59,7 +59,7 @@ A visualization topic includes the following elements:
 
 ## Widget topic structure
 
-_Widgets_ are visualizations that don't require a data source. These visualizations have far fewer options and don't need as much explanation. For visualizations that require a data source, refer to [Visualization topic structure](#visualization-topic-structure). 
+_Widgets_ are visualizations that don't require a data source. These visualizations have far fewer options and don't need as much explanation. For visualizations that require a data source, refer to [Visualization topic structure](#visualization-topic-structure).
 
 A widget topic includes the following elements:
 

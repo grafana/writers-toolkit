@@ -29,8 +29,8 @@ A visualization topic does not include:
 
 Most visualizations require a data source; the ones that don't are called _widgets_. As a result, a widget requires less documentation than a typical visualization. The structures for both of these are explained in the following sections:
 
-[Visualization topic structure](#visualization-topic-structure)
-[Widget topic structure](#widget-topic-structure)
+- [Visualization topic structure](#visualization-topic-structure)
+- [Widget topic structure](#widget-topic-structure)
 
 ## Visualization topic structure
 

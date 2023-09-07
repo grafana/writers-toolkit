@@ -27,6 +27,11 @@ A visualization topic does not include:
 
 - Tutorial content
 
+Most visualizations require a data source; the ones that don't are called _widgets_. As a result, a widget requires less documentation than a typical visualization. The structures for both of these are explained in the following sections:
+
+[Visualization topic structure](#visualization-topic-structure)
+[Widget topic structure](#widget-topic-structure)
+
 ## Visualization topic structure
 
 The following applies to visualizations that require a data source. For visualizations that don't require one, refer to [Widget topic structure](#widget-topic-structure).
@@ -52,9 +57,11 @@ A visualization topic includes the following elements:
 
 ![Visualization structure](/media/docs/writers-toolkit/visualization-topic-example-ann-2.png)
 
-### Widget topic structure
+## Widget topic structure
 
-_Widgets_ are visualizations that don't require a data source. These visualizations have far fewer options and don't need as much explanation. (For visualizations that require a data source, refer to [Visualization topic structure](#visualization-topic-structure).) A widget topic includes the following elements:
+_Widgets_ are visualizations that don't require a data source. These visualizations have far fewer options and don't need as much explanation. For visualizations that require a data source, refer to [Visualization topic structure](#visualization-topic-structure). 
+
+A widget topic includes the following elements:
 
 - **Topic title:** A widget topic title is the same as the name of the widget as it's written in the UI (for example, "Time series"). Don't add the word "panel", "visualization", or "widget" to the title.
 - **Introduction:** Include an introduction that explains what the visualization type can help the user do.
@@ -63,7 +70,7 @@ _Widgets_ are visualizations that don't require a data source. These visualizati
 
   - **[Section] options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options." For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
 
-### Visualization naming conventions
+## Visualization naming conventions
 
 When writing about visualizations (or widgets), use:
 
@@ -72,14 +79,14 @@ When writing about visualizations (or widgets), use:
 
 For example:
 
-```
+```markdown
 Use bar charts to graph categorical data.
 A bar chart lets you graph categorical data.
 ```
 
 If the name of a visualization is _already in plural form_, or _is highly confusing on its own_, use the adjective form. Do this by adding the word "visualization". For example:
 
-```
+```markdown
 Use time series visualizations to display time series data as a graph.
 A traces visualization turns traces data into a diagram.
 Text visualizations allow you to directly include text or HTML in your dashboards.
@@ -87,7 +94,7 @@ Text visualizations allow you to directly include text or HTML in your dashboard
 
 ## Write a visualization topic
 
-To write a visualization topic, follow these steps.
+To write a visualization (or widget) topic, follow these steps.
 
 1. In the `grafana/grafana` repository, go to `/docs/sources/panels-visualizations/visualizations/`.
 1. In the `/visualizations/` directory, create a parent directory with the following naming convention:

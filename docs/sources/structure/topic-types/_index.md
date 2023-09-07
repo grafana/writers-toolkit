@@ -31,7 +31,7 @@ For your convenience, we have created topic [templates](https://github.com/grafa
 
 ## Templates for standardized topics
 
-In addition to our primary topic types, we also provide templates for these specific topic types to ensure that pages documenting the same subject matter have a standard format. Click the the links in the table for detailed information about these topic types.
+In addition to our primary topic types, we also provide templates for these specific topic types to ensure that pages documenting the same subject matter have a standard format.
 
 These [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates) are in the same directory as our topic type templates.
 

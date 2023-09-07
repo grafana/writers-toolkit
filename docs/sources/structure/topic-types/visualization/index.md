@@ -110,7 +110,7 @@ To write a visualization topic, follow these steps.
 
    For more information about the kinds of content you can add to a concept topic, refer to [Visualization topic](#visualization-topic).
 
-<!-- Add examples when some of these follow the template 
+<!-- Add examples when some of these follow the template
 ## Visualization topic examples
 
 Refer to the following topics for visualization topic examples:

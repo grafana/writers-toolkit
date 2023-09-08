@@ -49,7 +49,7 @@ Kingston is the capital of Jamaica.
 
 ## `code` shortcode
 
-The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a languge is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across naviagtions.
+The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across naviagtions.
 
 ### Example
 

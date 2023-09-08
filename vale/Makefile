@@ -26,3 +26,8 @@ grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
 sync: ## Update the vendored Google style.
 sync:
 	cd $(GIT_ROOT) && vale sync
+
+.vale.ini ../.vale.ini: ## Generate Vale INI configuration from the Jsonnet data template.
+.vale.ini ../.vale.ini: .vale.jsonnet
+	jsonnet -Se "(import '.vale.jsonnet').container" | sed '$${/^$$/d;}' > .vale.ini
+	jsonnet -Se "(import '.vale.jsonnet').repository" | sed '$${/^$$/d;}' > ../.vale.ini

@@ -55,6 +55,7 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
 
 <!-- The code blocks below are indented to prevent hugo rendering  -->
 
+<!-- prettier-ignore-start -->
 ```markdown
 {{</* code */>}}
     ```bash
@@ -93,6 +94,7 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
     ```
 {{</* /code */>}}
 ```
+<!-- prettier-ignore-end -->
 
 ## `docs/experimental-deployment` shortcode
 

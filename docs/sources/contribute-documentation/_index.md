@@ -84,6 +84,8 @@ Some content is sourced from other projects, listed below:
 - `/docs/grafana-cloud/api-reference/http-api`: https://github.com/grafana/grafana/tree/main/docs/sources/developers/http_api
 - `/docs/grafana-cloud/incident`: https://github.com/grafana/incident/tree/main/docs/sources
 - `/docs/grafana-cloud/oncall`: https://github.com/grafana/oncall/tree/main/docs/sources
+- `/docs/grafana-cloud/monitor-infrastructure/integrations/integration-reference/`: Automatically generated and published from https://github.com/grafana/cloud-onboarding (Grafana Labs only).
+  Integration documentation is generated from the metadata in https://github.com/grafana/cloud-onboarding/tree/main/integrations and the template file https://github.com/grafana/cloud-onboarding/blob/main/pkg/integrations-api/integrations/docs/templates/layout.tmpl.
 
 ### To edit a topic
 

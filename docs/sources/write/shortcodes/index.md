@@ -52,6 +52,55 @@ Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
 
+## `code` shortcode
+
+The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across navigation.
+
+### Example
+
+<!-- The code blocks below are indented to prevent hugo rendering  -->
+
+<!-- prettier-ignore-start -->
+```markdown
+{{</* code */>}}
+    ```bash
+    curl "https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity"
+    ```
+
+    ```go
+    package main
+
+    import (
+      "context"
+    )
+
+    func main() {
+
+      ...
+    ```
+
+    ```javascript
+    import { GrafanaIncidentClient, ActivityService } from '@grafana/incident-node';
+
+    // https://grafana.com/docs/grafana-cloud/incident/api/auth/#get-a-service-account-token
+    const serviceAccountToken = process.env.GRAFANA_CLOUD_SERVICE_ACCOUNT_TOKEN;
+    const client = new GrafanaIncidentClient(
+      "https://your-stack.grafana.net",
+      serviceAccountToken
+    );
+
+    ...
+    ```
+
+    ```json
+    POST https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity
+    Content-Type="application/json; charset=utf-8"
+    Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
+    ```
+{{</* /code */>}}
+```
+<!-- prettier-ignore-end -->
+
 ## `docs/experimental-deployment` shortcode
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

@@ -84,12 +84,19 @@ Use bar charts to graph categorical data.
 A bar chart lets you graph categorical data.
 ```
 
-If the name of a visualization is _already in plural form_, or _is highly confusing on its own_, use the adjective form. Do this by adding the word "visualization". For example:
+There are some cases where you should use the adjective form of a visualization. You should do this if:
+
+- The name of a visualization is already in plural form
+- It's highly confusing because of other uses of the word
+- You're referencing a visualization outside of the visualization documentation
+
+Do this by adding the word "visualization". For example:
 
 ```markdown
 Use time series visualizations to display time series data as a graph.
 A traces visualization turns traces data into a diagram.
 Text visualizations allow you to directly include text or HTML in your dashboards.
+Click the **Enable node graph** switch to display a node graph visualization above the trace view.
 ```
 
 ## Write a visualization topic

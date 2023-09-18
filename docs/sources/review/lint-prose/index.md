@@ -101,4 +101,3 @@ You can use Vale to lint your current document in VS Code.
    1. Set `Vale › Vale CLI: Path` to the path for the vale executable. For example, `/home/user/vale/vale`.
 
 1. Restart VS Code.
-1. Use the PROBLEMS tab to view the Vale linting for the current file.

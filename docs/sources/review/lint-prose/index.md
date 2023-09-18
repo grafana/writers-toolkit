@@ -84,7 +84,7 @@ You can use Vale to lint your current document in VS Code.
 
    Replace `FULL_PATH_TO_REPO` with the full path to the Technical Documentation repository. For example, `/home/user/git-repos`.
 
-1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VSCode.
+1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VS Code.
 
    1. Start VS Code.
    1. Press Ctrl+P, paste the following command, and press enter.
@@ -103,4 +103,4 @@ You can use Vale to lint your current document in VS Code.
 
 1. Restart VS Code.
 
-You can use the **PROBLEMS** tab (Ctrl_Shift+M) to view the Vale linting for the current file.
+You can use the **PROBLEMS** tab to view the Vale linting for the current file.

@@ -95,8 +95,7 @@ You can use Vale to lint your current document in VS Code.
 
 1. Configure the Vale VS Code extension.
 
-   1. Press Ctrl+Shift+X.
-   1. Select the Vale VS Code extension.
+   1. Press Ctrl+Shift+X and select the Vale VS Code extension.
    1. Select the gear icon.
    1. Set `Vale › Vale CLI: Config` to the path to your `vale.ini` file. For example, `/home/user/vale/vale.ini`.
    1. Set `Vale › Vale CLI: Path` to the path for the vale executable. For example, `/home/user/vale/vale`.

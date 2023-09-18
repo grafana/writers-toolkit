@@ -60,11 +60,11 @@ The task title contains a verb and an object. For example: "Create a dashboard".
 <!-- vale Grafana.Quotes = YES -->
 ```
 
-## Use Vale in VSCode
+## Use Vale in VS Code
 
-You can use Vale to lint your current document in VScode.
+You can use Vale to lint your current document in VS Code.
 
-1. Clone the [Techncial Documentation](https://github.com/grafana/technical-documentation) repository.
+1. Clone the [Technical Documentation](https://github.com/grafana/technical-documentation) repository.
 
    ```bash
    git clone git@github.com:grafana/technical-documentation.git
@@ -82,9 +82,9 @@ You can use Vale to lint your current document in VScode.
    BasedOnStyles = Grafana
    ```
 
-   Replace `FULL_PATH_TO_REPO` with the full path to the Techncial Documentation repository. For example, `/home/user/git-repos`.
+   Replace `FULL_PATH_TO_REPO` with the full path to the Technical Documentation repository. For example, `/home/user/git-repos`.
 
-1. Install the [ValeVSCode extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VSCode.
+1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VSCode.
 
    1. Start VS Code.
    1. Press Ctrl+P, paste the following command, and press enter.
@@ -94,12 +94,13 @@ You can use Vale to lint your current document in VScode.
    ```
 
 1. Configure the Vale VS Code extension.
+
    1. Press Ctrl+Shift+X.
-   1. Select the Vale VSCode extension.
+   1. Select the Vale VS Code extension.
    1. Select the gear icon.
    1. Set `Vale › Vale CLI: Config` to the path to your `vale.ini` file. For example, `/home/user/vale/vale.ini`.
    1. Set `Vale › Vale CLI: Path` to the path for the vale executable. For example, `/home/user/vale/vale`.
 
 1. Restart VS Code.
 
-You can use the **PROBLEMS** tab (Ctrl_Shift+M) to view the Vale linting for the current file. 
+You can use the **PROBLEMS** tab (Ctrl_Shift+M) to view the Vale linting for the current file.

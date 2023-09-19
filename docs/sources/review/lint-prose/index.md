@@ -77,6 +77,7 @@ You can use Vale to lint your current document in VS Code.
    {{% /admonition %}}
 
    {{< code >}}
+
    ```linux
    wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.28.0_Linux_64-bit.tar.gz
    mkdir bin && tar -xvzf vale_2.28.0_Linux_64-bit.tar.gz -C bin
@@ -86,6 +87,7 @@ You can use Vale to lint your current document in VS Code.
    ```macos
    brew install vale
    ```
+
    {{< /code >}}
 
 1. Create a `vale.ini` file in your home directory or in a working directory with the following contents:

@@ -73,7 +73,7 @@ You can use Vale to lint your current document in VS Code.
 1. Download [Vale](https://github.com/errata-ai/vale/releases).
 
    {{% admonition type="note" %}}
-   Refer to the Linux installation steps at [Github Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
+   Refer to the Linux installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
    {{% /admonition %}}
 
    {{< code >}}
@@ -120,5 +120,5 @@ You can use Vale to lint your current document in VS Code.
 
 Vale lints your current document every time you save your changes. The extension reports the linting results in two ways:
 
-1. In-line edit marks. You can hover your mouse cursor over the edit marks to view the vale warnign or error.
-1. A full report in the `PROBLEMS` tab. Press Ctrl + Shift + M to view the `PROBLEMS` tab.
+1. In-line edit marks. You can hover your mouse cursor over the edit marks to view the vale warning or error.
+1. A full report in the `PROBLEMS` tab.

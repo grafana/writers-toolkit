@@ -71,8 +71,24 @@ You can use Vale to lint your current document in VS Code.
    ```
 
 1. Download [Vale](https://github.com/errata-ai/vale/releases).
-1. Extract the downloaded zip file to `$HOME/vale`.
-1. Create a `vale.ini` in `$HOME/vale` with the following contents:
+
+   {{% admonition type="note" %}}
+   Refer to the Linux installation steps at [Github Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
+   {{% /admonition %}}
+
+   {{< code >}}
+   ```linux
+   wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.28.0_Linux_64-bit.tar.gz
+   mkdir bin && tar -xvzf vale_2.28.0_Linux_64-bit.tar.gz -C bin
+   export PATH=./bin:"$PATH"
+   ```
+
+   ```macos
+   brew install vale
+   ```
+   {{< /code >}}
+
+1. Create a `vale.ini` file in your home directory or in a working directory with the following contents:
 
    ```bash
    StylesPath = /FULL_PATH_TO_REPO/technical-documentation/linters/vale
@@ -82,12 +98,12 @@ You can use Vale to lint your current document in VS Code.
    BasedOnStyles = Grafana
    ```
 
-   Replace `FULL_PATH_TO_REPO` with the full path to the Technical Documentation repository. For example, `/home/user/git-repos`.
+   Replace `FULL_PATH_TO_REPO` with the full path to the cloned Technical Documentation repository. For example, in Linux you could set StylesPath to `/home/username/git-repos/technical-documentation/linters/vale` and in macOS, you could set it to `/Users/username/git-repos/technical-documentation/linters/vale`. The path depends on where you cloned the git repository.
 
 1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VS Code.
 
    1. Start VS Code.
-   1. Press Ctrl+P, paste the following command, and press enter.
+   1. Press Ctrl+P, paste the following command, and press Enter.
 
    ```
    ext install ChrisChinchilla.vale-vscode
@@ -97,7 +113,12 @@ You can use Vale to lint your current document in VS Code.
 
    1. Press Ctrl+Shift+X and select the Vale VS Code extension.
    1. Select the gear icon.
-   1. Set `Vale › Vale CLI: Config` to the path to your `vale.ini` file. For example, `/home/user/vale/vale.ini`.
-   1. Set `Vale › Vale CLI: Path` to the path for the vale executable. For example, `/home/user/vale/vale`.
+   1. Set `Vale › Vale CLI: Config` to the path to your `vale.ini` file. For example, on Linux that could be `/home/USERNAME/vale.ini` and on macOS, that could be `/Users/USERNAME/vale.ini`. The path depends on where you created the `vale.ini` file.
+   1. Set `Vale › Vale CLI: Path` to the path for the vale executable. For example, in Linux, that could be `/home/USERNAME/bin/vale` and on macOS, that could be `/usr/local/bin/vale`.
 
 1. Restart VS Code.
+
+Vale lints your current document every time you save your changes. The extension reports the linting results in two ways:
+
+1. In-line edit marks. You can hover your mouse cursor over the edit marks to view the vale warnign or error.
+1. A full report in the `PROBLEMS` tab. Press Ctrl + Shift + M to view the `PROBLEMS` tab.

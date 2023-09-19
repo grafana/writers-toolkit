@@ -70,7 +70,7 @@ You can use Vale to lint your current document in VS Code.
    git clone git@github.com:grafana/technical-documentation.git
    ```
 
-1. Download [Vale](https://github.com/errata-ai/vale/releases).
+1. Download and install [Vale](https://github.com/errata-ai/vale/releases).
 
    {{% admonition type="note" %}}
    Refer to the Linux installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.

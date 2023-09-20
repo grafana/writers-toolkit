@@ -13,9 +13,11 @@ In most cases, you can refer to the [word list in the Google developer documenta
 
 - Grafana guidelines differ from Google guidelines.
 - The word isn't included in Google guidelines.
-- It's still easy to use the wrong word because it's widely used in general or in other Grafana media.
+- It's still easy to use an incorrect word because it's widely used, generally or in other Grafana media.
 
+{{% admonition type="note" %}}
 This page is a work in progress.
+{{% /admonition %}}
 
 <!--
 ## A
@@ -24,25 +26,23 @@ This page is a work in progress.
 
 ## D
 
-**data source** Use this rather than _datasource_ for the noun form.
+**data source** - Use this rather than _datasource_ for the noun form.
 
 When you need to use the adjective form, use _data-source_ rather than _datasource_.
 
-**drop-down**: Use this rather than _dropdown_ or _drop down_.
+**drop-down** - Use this rather than _dropdown_ or _drop down_.
 
-<!-->
-
+<!--
 ## E
-
 ## F
-
 ## G -->
 
 ## H
 
-**hover over**: Use this rather than _hold the pointer over_ or _point to_.
+**hover over** - Use this rather than _hold the pointer over_ or _point to_.
 
-<!--## I
+<!--
+## I
 ## J
 ## K
 ## L
@@ -50,7 +50,7 @@ When you need to use the adjective form, use _data-source_ rather than _datasour
 
 ## M
 
-**menu icon**: Use this rather than _hamburger menu_ or _kebab menu_.
+**menu icon** - Use this rather than _hamburger menu_ or _kebab menu_.
 
 <!--
 ## N
@@ -62,7 +62,7 @@ When you need to use the adjective form, use _data-source_ rather than _datasour
 
 ## T
 
-**time series**: Use this rather than _timeseries_ for the noun form.
+**time series** - Use this rather than _timeseries_ for the noun form.
 
 When you need to use the adjective form, use _time-series_ rather than _timeseries_.
 

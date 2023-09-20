@@ -16,7 +16,7 @@
         'Google.WordList': 'NO',
 
         // https://github.com/errata-ai/vale/issues/288
-        TokenIgnores: @'(<http[^\n]+>+?)',
+        TokenIgnores: @'(<http[^\n]+>+?), \*\*[^\n]+\*\*',
       },
     },
   },

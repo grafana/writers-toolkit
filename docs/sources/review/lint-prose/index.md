@@ -93,11 +93,14 @@ You can use Vale to lint your current document in VS Code.
 1. Create a `vale.ini` file in your home directory or in a working directory with the following contents:
 
    ```bash
-   StylesPath = /FULL_PATH_TO_REPO/technical-documentation/linters/vale
    MinAlertLevel = suggestion
-
+   StylesPath = /FULL_PATH_TO_REPO/writers-toolkit/vale
    [*.md]
-   BasedOnStyles = Grafana
+   BasedOnStyles = Google, Grafana
+   Google.Quotes = NO
+   Google.Units = NO
+   Google.WordList = NO
+   TokenIgnores = (<http[^\n]+>+?)
    ```
 
    Replace `FULL_PATH_TO_REPO` with the full path to the cloned Technical Documentation repository. For example, in Linux you could set StylesPath to `/home/username/git-repos/technical-documentation/linters/vale` and in macOS, you could set it to `/Users/username/git-repos/technical-documentation/linters/vale`. The path depends on where you cloned the git repository.

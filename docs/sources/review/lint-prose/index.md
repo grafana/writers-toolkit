@@ -64,7 +64,7 @@ The task title contains a verb and an object. For example: "Create a dashboard".
 
 You can use Vale to lint your current document in VS Code.
 
-1. Clone the [Technical Documentation](https://github.com/grafana/technical-documentation) repository.
+1. Clone the [Writer's Toolkit](https://github.com/grafana/writers-toolkit/) repository.
 
    ```bash
    git clone git@github.com:grafana/technical-documentation.git

@@ -19,6 +19,8 @@ In most cases, you can refer to the [word list in the Google developer documenta
 This page is a work in progress.
 {{% /admonition %}}
 
+<!-- vale off -->
+
 <!--
 ## A
 ## B
@@ -77,3 +79,5 @@ When you need to use the adjective form, use _time-series_ rather than _timeseri
 ## X
 
 -->
+
+<!-- vale on -->

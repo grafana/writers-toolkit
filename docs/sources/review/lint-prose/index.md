@@ -74,6 +74,8 @@ You can use Vale to lint your current document in VS Code.
 
    {{% admonition type="note" %}}
    Refer to the Linux installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
+   
+   You can use your Linux package manager to install Vale if it is included in your distribution repositories.
    {{% /admonition %}}
 
    {{< code >}}

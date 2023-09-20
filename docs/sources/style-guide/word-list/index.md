@@ -21,6 +21,7 @@ This page is a work in progress.
 ## A
 ## B
 ## C -->
+
 ## D
 
 **data source** Use this rather than _datasource_ for the noun form.
@@ -28,9 +29,13 @@ This page is a work in progress.
 When you need to use the adjective form, use _data-source_ rather than _datasource_.
 
 **drop-down**: Use this rather than _dropdown_ or _drop down_.
+
 <!-->
+
 ## E
+
 ## F
+
 ## G -->
 
 ## H
@@ -42,9 +47,11 @@ When you need to use the adjective form, use _data-source_ rather than _datasour
 ## K
 ## L
 -->
+
 ## M
 
 **menu icon**: Use this rather than _hamburger menu_ or _kebab menu_.
+
 <!--
 ## N
 ## O
@@ -60,8 +67,13 @@ When you need to use the adjective form, use _data-source_ rather than _datasour
 When you need to use the adjective form, use _time-series_ rather than _timeseries_.
 
 <!-->
+
 ## U
+
 ## V
+
 ## W
+
 ## X
+
 -->

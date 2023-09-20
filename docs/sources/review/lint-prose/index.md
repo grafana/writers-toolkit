@@ -64,6 +64,12 @@ The task title contains a verb and an object. For example: "Create a dashboard".
 
 You can use Vale to lint your current document in VS Code.
 
+### Before you begin
+
+Install [Homebrew](https://brew.sh/) on macOS.
+
+### Install and configure Vale in VS Code
+
 1. Clone the [Writer's Toolkit](https://github.com/grafana/writers-toolkit/) repository.
 
    ```bash
@@ -73,8 +79,8 @@ You can use Vale to lint your current document in VS Code.
 1. Download and install [Vale](https://vale.sh/docs/vale-cli/installation/).
 
    {{% admonition type="note" %}}
-   Refer to the Linux installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
-   You can use your Linux package manager to install Vale if it is included in your distribution repositories.
+   Refer to the Linux command line installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
+   You can also use your Linux package manager to install Vale.
    {{% /admonition %}}
 
    {{< code >}}

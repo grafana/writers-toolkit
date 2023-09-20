@@ -67,7 +67,7 @@ You can use Vale to lint your current document in VS Code.
 1. Clone the [Writer's Toolkit](https://github.com/grafana/writers-toolkit/) repository.
 
    ```bash
-   git clone git@github.com:grafana/technical-documentation.git
+   git clone git@github.com:grafana/writers-toolkit.git
    ```
 
 1. Download and install [Vale](https://github.com/errata-ai/vale/releases).

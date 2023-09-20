@@ -115,7 +115,7 @@ Install [Homebrew](https://brew.sh/) on macOS.
 1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VS Code.
 
    1. Start VS Code.
-   1. Press Ctrl+P, paste the following command, and press Enter.
+   1. Press Ctrl+P, paste the following command, and press Enter. Alternatively, click the **Extensions** icon, search for "Vale VS Code", open it, and click "Install".
 
    ```
    ext install ChrisChinchilla.vale-vscode

@@ -1,0 +1,25 @@
+extends: capitalization
+message: "Use sentence-style capitalization for '%s'."
+link: "https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings"
+level: warning
+scope: heading
+match: $sentence
+exceptions:
+  - Adaptive Metrics
+  - Grafana
+  - Grafana Enterprise Metrics
+  - Grafana Enterprise Logs
+  - Grafana Enterprise Traces
+  - Grafana Labs
+  - Helm
+  - Hugo
+  - LogQL
+  - Loki
+  - macOS
+  - Memcached
+  - Mimir
+  - Prometheus
+  - PromQL
+  - Redis
+  - Tempo
+  - TraceQL

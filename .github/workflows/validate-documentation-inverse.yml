@@ -1,0 +1,17 @@
+name: Validate documentation
+on:
+  pull_request:
+    paths-ignore: ["docs/sources/**"]
+jobs:
+  doc-validator:
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo 'No build required'
+  prettier:
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo 'No build required'
+  vale:
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo 'No build required'

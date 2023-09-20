@@ -100,7 +100,7 @@ You can use Vale to lint your current document in VS Code.
    Google.Quotes = NO
    Google.Units = NO
    Google.WordList = NO
-   TokenIgnores = (<http[^\n]+>+?)
+   TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
    ```
 
    Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. For example, in Linux you could set StylesPath to `/home/username/git-repos/writers-toolkit/vale` and in macOS, you could set it to `/Users/username/git-repos/writers-toolkit/vale`. The path depends on where you cloned the git repository.
@@ -127,5 +127,5 @@ You can use Vale to lint your current document in VS Code.
 
 Vale lints your current document every time you save your changes. The extension reports the linting results in two ways:
 
-- In-line edit marks. You can hover your mouse cursor over the edit marks to view the vale warning or error.
-- A full report in the **PROBLEMS** tab. These errors include a reference to the Vale rule.
+- In-line edit marks. You can hover your mouse cursor over the edit marks to view the Vale warning or error.
+- A full report in the **PROBLEMS** tab. Each Vale warning or error in the report includes the line and column where the error occurs.

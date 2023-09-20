@@ -41,7 +41,7 @@ For more human-readable output, pipe the output to [`jq`](https://jqlang.github.
 For example:
 
 ```console
-make -s doc-validator | jq -r '"ERROR: \(.location.path):\(.location.range.start.line):\(.location.range.start.column): \(.message)"'
+make -s doc-validator | jq -r '"ERROR: \(.location.path):\(.location.range.start.line // 1):\(.location.range.start.column // 1): \(.message). Suggestion: \(.suggestions[0].text // "")"'
 ```
 
 ## Error codes

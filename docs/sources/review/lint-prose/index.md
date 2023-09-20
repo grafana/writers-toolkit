@@ -125,4 +125,4 @@ You can use Vale to lint your current document in VS Code.
 Vale lints your current document every time you save your changes. The extension reports the linting results in two ways:
 
 - In-line edit marks. You can hover your mouse cursor over the edit marks to view the vale warning or error.
-1. A full report in the **PROBLEMS** tab.
+- A full report in the **PROBLEMS** tab. These errors include a reference to the Vale rule.

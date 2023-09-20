@@ -121,7 +121,7 @@ You can use Vale to lint your current document in VS Code.
    <!-- vale off -->
    1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. For example, on Linux that could be `/home/USERNAME/vale.ini` and on macOS, that could be `/Users/USERNAME/vale.ini`. The path depends on where you created the `vale.ini` file.
    <!-- vale on -->
-   1. Set **Vale › Vale CLI: Path** to the path for the vale executable. For example, in Linux, that could be `/home/USERNAME/bin/vale` and on macOS, that could be `/usr/local/bin/vale`.
+   1. For Linux, set **Vale › Vale CLI: Path** to the path for the vale executable. For example, that could be `/home/USERNAME/bin/vale`.
 
 1. Restart VS Code.
 

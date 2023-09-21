@@ -68,7 +68,7 @@ When you need to use the adjective form, use _data-source_ rather than _datasour
 
 When you need to use the adjective form, use _time-series_ rather than _timeseries_.
 
-<!-->
+<!--
 
 ## U
 

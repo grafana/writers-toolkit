@@ -35,7 +35,7 @@ All of the following destinations link https://grafana.com/docs/grafana/latest/ 
 
    For more information about the `docs/reference` shortcode, refer to [`docs/reference` shortcode]({{< relref "../shortcodes#docs-reference-shortcode" >}}).
 
-1. If the destination is part of the current documentation set, consider using the `relref` shortcode.
+1. If the destination is part of the current documentation set, use the `relref` shortcode.
 
    For example, `{{</* relref "./path/to/page" */>}}`.
 

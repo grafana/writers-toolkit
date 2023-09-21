@@ -33,7 +33,7 @@ All of the following destinations link https://grafana.com/docs/grafana/latest/ 
 
 1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-content/reuse-directories" >}}), use the `docs/reference` shortcode.
 
-   For more information about the `docs/reference` shortcode, refer to [`docs/reference` shortcode]({{< relref "../shortcodes#docs-reference-shortcode" >}}).
+   For more information about the `docs/reference` shortcode, refer to [`docs/reference` shortcode]({{< relref "../shortcodes#docsreference-shortcode" >}}).
 
 1. If the destination is part of the current documentation set, use the `relref` shortcode.
 

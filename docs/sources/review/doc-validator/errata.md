@@ -89,7 +89,7 @@ The canonical '%s' in the front matter is not a valid URL.
 ### Guide
 
 Invoke `doc-validator` with the [URL PATH PREFIX] argument set to the path prefix for the project documentation.
-For grafana, this path prefix is '/docs/grafana/latest/'.
+For the Grafana project, this path prefix is '/docs/grafana/latest/'.
 
 ## h1-does-not-match-title
 

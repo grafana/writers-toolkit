@@ -44,7 +44,7 @@ All of the following destinations link https://grafana.com/docs/grafana/latest/ 
 
 1. Otherwise, use the fully qualified URL.
 
-   For example, `[GitHub](https://github.com)`, or [Grafana](https://grafana.com/docs/grafana/latest/).
+   For example, `[GitHub](https://github.com)`, or `[Grafana](https://grafana.com/docs/grafana/latest/)`.
 
 ## Build time link checking with Hugo
 

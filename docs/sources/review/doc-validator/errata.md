@@ -193,7 +193,7 @@ Verify the link by building the docs locally using the `make docs` webserver.
 
 ### Message
 
-The link '%s' is invalid. Links must be an absolute URI, with either the scheme https or http.
+The link '%s' is invalid. Links must be an absolute URI, with either the scheme `https` or `http`.
 
 ### Guide
 

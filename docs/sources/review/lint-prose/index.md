@@ -59,3 +59,78 @@ The task title contains a verb and an object. For example: "Create a dashboard".
 
 <!-- vale Grafana.Quotes = YES -->
 ```
+
+## Use Vale in VS Code
+
+You can use Vale to lint your current document in VS Code.
+
+### Before you begin
+
+If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/) is installed.
+
+### Install and configure Vale in VS Code
+
+1. Clone the [Writer's Toolkit](https://github.com/grafana/writers-toolkit/) repository.
+
+   ```bash
+   git clone git@github.com:grafana/writers-toolkit.git
+   ```
+
+1. Download and install [Vale](https://vale.sh/docs/vale-cli/installation/).
+
+   {{% admonition type="note" %}}
+   Refer to the Linux command line installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
+   You can also use your Linux package manager to install Vale.
+   {{% /admonition %}}
+
+   {{< code >}}
+
+   ```linux
+   wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.28.0_Linux_64-bit.tar.gz
+   mkdir bin && tar -xvzf vale_2.28.0_Linux_64-bit.tar.gz -C bin
+   export PATH=./bin:"$PATH"
+   ```
+
+   ```macos
+   brew install vale
+   ```
+
+   {{< /code >}}
+
+1. Create a `vale.ini` file in your home directory or in a working directory with the following contents:
+
+   ```bash
+   MinAlertLevel = suggestion
+   StylesPath = /FULL_PATH_TO_REPO/writers-toolkit/vale
+   [*.md]
+   BasedOnStyles = Google, Grafana
+   Google.Quotes = NO
+   Google.Units = NO
+   Google.WordList = NO
+   TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
+   ```
+
+   Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. For example, in Linux you could set StylesPath to `/home/username/git-repos/writers-toolkit/vale` and in macOS, you could set it to `/Users/username/git-repos/writers-toolkit/vale`. The path depends on where you cloned the git repository.
+
+1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VS Code.
+
+   1. Start VS Code.
+   1. Press Ctrl+P, paste the following command, and press Enter. Alternatively, click the **Extensions** icon, search for "Vale VS Code", open it, and click "Install".
+
+   ```
+   ext install ChrisChinchilla.vale-vscode
+   ```
+
+1. Configure the Vale VS Code extension.
+
+   1. Press Ctrl+Shift+X or click the **Extensions** icon and select the Vale VS Code extension.
+   1. Select the gear icon.
+   1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. For example, on Linux that could be `/home/USERNAME/vale.ini` and on macOS, that could be `/Users/USERNAME/vale.ini`. The path depends on where you created the `vale.ini` file.
+   1. For Linux, set **Vale › Vale CLI: Path** to the path for the vale executable. For example, that could be `/home/USERNAME/bin/vale`.
+
+1. Restart VS Code.
+
+Vale lints your current document every time you save your changes. The extension reports the linting results in two ways:
+
+- In-line edit marks. You can hover your mouse cursor over the edit marks to view the Vale warning or error.
+- A full report in the **PROBLEMS** tab. Each Vale warning or error in the report includes the line and column where the error occurs.

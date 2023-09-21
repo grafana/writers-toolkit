@@ -40,7 +40,7 @@ A visualization topic includes the following elements:
 
 - **Topic title:** A visualization topic title is the same as the name of the visualization as it's written in the UI (for example, "Time series"). Don't add the word "panel" or "visualization" to the title.
 - **Introduction:** Include an introduction that explains what the visualization type can help the user do.
-- **Main image:** Add a clear screenshot depicting the visualization displaying a typical use case.
+- **Main visual:** Add a clear screenshot depicting the visualization displaying a typical use case. A short video embed (5-10 seconds) is also acceptable. Don't use longer videos here.
 - **Body:** The body may include task/how-to information as needed. The body must include the following sections:
 
   - **Supported data formats:** Provide guidance about which data formats are supported by the visualization type, with example use cases.
@@ -65,7 +65,7 @@ A widget topic includes the following elements:
 
 - **Topic title:** A widget topic title is the same as the name of the widget as it's written in the UI (for example, "Time series"). Don't add the word "panel", "visualization", or "widget" to the title.
 - **Introduction:** Include an introduction that explains what the visualization type can help the user do.
-- **Main image:** Add a clear screenshot depicting the visualization displaying a typical use case.
+- **Main visual:** Add a clear screenshot depicting the visualization displaying a typical use case. A short video embed (5-10 seconds) is also acceptable. Don't use longer videos here.
 - **Body:** The body may include task/how-to information as needed. The body must include the following sections:
 
   - **[Section] options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options." For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".

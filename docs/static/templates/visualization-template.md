@@ -26,7 +26,7 @@ Introduce the concept.
 
 <!-- The introduction is required. Add an introduction to the visualization that explains what visualization type can help the user do. -->
 
-Main visual representing the visualization. 
+Main visual representing the visualization.
 
 <!-- A screenshot is generally preferred because it's easiest to maintain, but a five-to-ten second video is acceptable. Please don't use longer videos as the main visual aid here. They can be added elsewhere in the page, if needed. -->
 

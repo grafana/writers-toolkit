@@ -66,7 +66,7 @@ You can use Vale to lint your current document in VS Code.
 
 ### Before you begin
 
-Install [Homebrew](https://brew.sh/) on macOS.
+If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/) is installed.
 
 ### Install and configure Vale in VS Code
 

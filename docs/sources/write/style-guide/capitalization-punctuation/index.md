@@ -10,6 +10,8 @@ keywords:
   - punctuation
 ---
 
+# Capitalization and punctuation
+
 This section includes capitalization and punctuation guidelines.
 
 ## Capitalization

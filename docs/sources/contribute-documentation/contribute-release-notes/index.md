@@ -18,7 +18,7 @@ This topic explains the decisions and actions associated with collecting, writin
 
 ## What's new doc development process
 
-Developing directly in Markdown reduces errors and removes a manual (toilsome and error-prone step), by creating, editing, discussing, and publishing in the same format from which we will publish in GitHub, using the Grafana repository.
+Developing directly in Markdown reduces errors and removes a manual (toilsome and error-prone) step, by creating, editing, discussing, and publishing in the same format from which we will publish in GitHub, using the Grafana repository.
 
 Consider adding an image, though be aware that we will not maintain them, as the document reflects a "point in time." If you need to add an image, refer to [Image, diagram, and screenshot guidelines]({{< relref "../../write/image-guidelines" >}}).
 

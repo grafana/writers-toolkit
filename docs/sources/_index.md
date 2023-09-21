@@ -31,6 +31,8 @@ By creating Writers’ Toolkit, we want to empower everyone to create technical 
 
 Writers’ Toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana Labs. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
 
+We write our documentation using U.S. English.
+
 Our style guide is based on [Google's developer documentation style guide](https://developers.google.com/style). If you can't find guidance on a specific topic in the Writers' Toolkit, refer to Google's style guide.
 
 If you're new to the guide, start with the [Get started]({{< relref "./get-started" >}}) section.

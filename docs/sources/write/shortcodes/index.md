@@ -37,6 +37,11 @@ The content of the admonition must be within opening and closing tags.
 | --------- | --------------------------------------------------------------------- | -------- |
 | `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
 
+{{% admonition type="warning" %}}
+Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
+For more information, refer to [Markdown Reference Links in Shortcodes](https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3).
+{{% /admonition %}}
+
 ### Example
 
 The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
@@ -46,6 +51,55 @@ The following snippet renders an admonition of _type_ `"note"` with the message 
 Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
+
+## `code` shortcode
+
+The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across navigation.
+
+### Example
+
+<!-- The code blocks below are indented to prevent hugo rendering  -->
+
+<!-- prettier-ignore-start -->
+```markdown
+{{</* code */>}}
+    ```bash
+    curl "https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity"
+    ```
+
+    ```go
+    package main
+
+    import (
+      "context"
+    )
+
+    func main() {
+
+      ...
+    ```
+
+    ```javascript
+    import { GrafanaIncidentClient, ActivityService } from '@grafana/incident-node';
+
+    // https://grafana.com/docs/grafana-cloud/incident/api/auth/#get-a-service-account-token
+    const serviceAccountToken = process.env.GRAFANA_CLOUD_SERVICE_ACCOUNT_TOKEN;
+    const client = new GrafanaIncidentClient(
+      "https://your-stack.grafana.net",
+      serviceAccountToken
+    );
+
+    ...
+    ```
+
+    ```json
+    POST https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity
+    Content-Type="application/json; charset=utf-8"
+    Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
+    ```
+{{</* /code */>}}
+```
+<!-- prettier-ignore-end -->
 
 ## `docs/experimental-deployment` shortcode
 

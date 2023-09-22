@@ -126,6 +126,7 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
    ```
 
    Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. The path depends on where you cloned the git repository. For example:
+
    - On Linux you could set StylesPath to `/home/USERNAME/git-repos/writers-toolkit/vale`
    - On macOS, you could set StylesPath to `/Users/USERNAME/git-repos/writers-toolkit/vale`
    - On Windows, you could set StylesPath to `C:\Users\USERNAME\git-repos\writers-toolkit\vale`

@@ -280,6 +280,20 @@ The following shortcode inserts a lists of links to child pages and includes the
 {{</* section withDescriptions="true"*/>}}
 ```
 
+## `term` shortcode
+
+The `term` shortcode enables a tooltip when a user hovers above text surrounded by the shortcode.
+
+| Parameter  | Description         | Required |
+| ---------- | ------------------- | -------- |
+| position 0 | Glossary lookup key | yes      |
+
+### Examples
+
+```markdown
+Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
+```
+
 ## `docs/reference` shortcode
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo built-in `relref` shortcode.

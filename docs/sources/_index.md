@@ -41,6 +41,6 @@ If you're new to the guide, start with the [Get started]({{< relref "./get-start
 
 This is just a start. We will continue to share our guidelines and seek feedback and iterate. Our hope is that these pages and our understanding continues and evolves over time. Over time, we will expand Writers’ Toolkit.
 
-## Questions and Feedback
+## Questions and feedback
 
 Writers' Toolkit is open-source and available at [grafana/writers-toolkit](https://github.com/grafana/writers-toolkit). If you have questions, or feedback on how we can improve it, we encourage you to open an issue and help us make this an even better resource.

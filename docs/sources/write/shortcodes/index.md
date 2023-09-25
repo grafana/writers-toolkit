@@ -37,6 +37,11 @@ The content of the admonition must be within opening and closing tags.
 | --------- | --------------------------------------------------------------------- | -------- |
 | `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
 
+{{% admonition type="warning" %}}
+Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
+For more information, refer to [Markdown Reference Links in Shortcodes](https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3).
+{{% /admonition %}}
+
 ### Example
 
 The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
@@ -46,6 +51,122 @@ The following snippet renders an admonition of _type_ `"note"` with the message 
 Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
+
+## `code` shortcode
+
+The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across navigation.
+
+### Example
+
+<!-- The code blocks below are indented to prevent hugo rendering  -->
+
+<!-- prettier-ignore-start -->
+```markdown
+{{</* code */>}}
+    ```bash
+    curl "https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity"
+    ```
+
+    ```go
+    package main
+
+    import (
+      "context"
+    )
+
+    func main() {
+
+      ...
+    ```
+
+    ```javascript
+    import { GrafanaIncidentClient, ActivityService } from '@grafana/incident-node';
+
+    // https://grafana.com/docs/grafana-cloud/incident/api/auth/#get-a-service-account-token
+    const serviceAccountToken = process.env.GRAFANA_CLOUD_SERVICE_ACCOUNT_TOKEN;
+    const client = new GrafanaIncidentClient(
+      "https://your-stack.grafana.net",
+      serviceAccountToken
+    );
+
+    ...
+    ```
+
+    ```json
+    POST https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity
+    Content-Type="application/json; charset=utf-8"
+    Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
+    ```
+{{</* /code */>}}
+```
+<!-- prettier-ignore-end -->
+
+## `docs/experimental-deployment` shortcode
+
+The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.
+
+It takes no parameters.
+
+### Example
+
+```markdown
+{{</* docs/experimental-deployment */>}}
+```
+
+Produces:
+
+{{< docs/experimental-deployment >}}
+
+## `docs/experimental` shortcode
+
+The `docs/experimental` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is experimental.
+
+| Parameter     | Description                                                              | Required |
+| ------------- | ------------------------------------------------------------------------ | -------- |
+| `product`     | The name of the product or feature.                                      | yes      |
+| `featureFlag` | The name of the feature flag users use to enable the product or feature. | yes      |
+
+### Example
+
+```markdown
+{{</* docs/experimental product="experimental-feature" featureFlag="its-feature-flag" */>}}
+```
+
+Produces:
+
+{{< docs/experimental product="experimental-feature" featureFlag="its-feature-flag" >}}
+
+## `docs/private-preview` shortcode
+
+The `docs/private-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in private preview.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `product` | The name of the product or feature. | yes      |
+
+```markdown
+{{</* docs/private-preview product="private-preview-feature" */>}}
+```
+
+Produces:
+
+{{< docs/private-preview product="private-preview-feature" >}}
+
+## `docs/public-preview` shortcode
+
+The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `product` | The name of the product or feature. | yes      |
+
+```markdown
+{{</* docs/public-preview product="public-preview-feature" */>}}
+```
+
+Produces:
+
+{{< docs/public-preview product="public-preview-feature" >}}
 
 ## `docs/shared` shortcode
 
@@ -57,12 +178,12 @@ To share content, follow these steps:
 1. Store the file in a shared folder.
 1. To include the shared content in a Markdown file, insert the `docs/shared` shortcode with the following named parameters:
 
-| Parameter     | Description                                                                                                                                                                                                                                       | Required |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                        | yes      |
-| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                  | yes      |
-| `version`     | Version of the source content to include. If not provided, _version_ is implicitly set to match the version of the destination content. If the including destination is at version `1.0.0`, then the version of included content is `1.0.0` also. | no       |
-| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                 | no       |
+| Parameter     | Description                                                                                                                                                                                                                                                                                              | Required |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                               | yes      |
+| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                         | yes      |
+| `version`     | Version of the source content to include. For source content that does not have a version, use the empty string `""` as the value. Version inference is supported using values like `<GRAFANA VERSION>`. To learn about version inference, refer to [About version inference](#about-version-inference). | yes      |
+| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                        | no       |
 
 {{% admonition type="note" %}}
 Hugo doesn't rebuild the destination file when a source file changes on disk.
@@ -74,14 +195,14 @@ To trigger a rebuild after changes to a source file, perform a trivial change to
 The following shortcode inserts the content from the `oauth2-block.md` file. The _lookup_ path is relative to the `shared` folder in the `agent` source repository.
 
 ```markdown
-{{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" */>}}
+{{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" version="<AGENT VERSION>" */>}}
 ```
 
 The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` project.
 Headings are offset by one level, so if the source content contains an `h1`, the resulting heading is an `h2`.
 
 ```markdown
-{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="latest" leveloffset="+1" */>}}
+{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM VERSION>" leveloffset="+1" */>}}
 ```
 
 ## `figure` shortcode
@@ -92,6 +213,7 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 
 | Parameter      | Description                                                                                                                                                                                                                                                                             | Required |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `alt`          | If set, `alt` specifies the alt text for the image.                                                                                                                                                                                                                                     | no       |
 | `animated-gif` | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the _caption_ and _maxWidth_ parameters are ignored.                                                                  | no       |
 | `caption`      | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.                                                                                                                                                            | no       |
 | `class`        | Can be optionally used to override the HTML class for the `<figure>` element.                                                                                                                                                                                                           | no       |
@@ -180,10 +302,7 @@ The content within the shortcode tags is as follows:
 
 - `label` - The label you'll use in the reference-style links in the file. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
 - `project path prefix` - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-- `reference` - The path to the destination file. It can include `<SOMETHING VERSION>`, which is either taken from front matter of the page or falls back to being inferred from the version of the page.
-  This enables the use of absolute paths that resolve correctly, irrespective of version.
-  When including a version, for the target project, use the name of the project, with spaces but no hyphens or underscores, all upper-case.
-  For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
+- `reference` - The path to the destination file. Version inference is supported using values like `<GRAFANA VERSION>`. To learn about version inference, refer to [About version inference](#about-version-inference).
 
 Then add the link in the body of the file in the following format:
 
@@ -193,10 +312,6 @@ For more information about Grafana dashboards, refer to the [Dashboards document
 
 - If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned reference is `/docs/grafana/latest/dashboards`.
 - If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned reference is `/docs/grafana/next/dashboards`.
-
-You can override version inference by including additional metadata in the front matter of the file.
-To override the value of `<GRAFANA VERSION>`, set the `grafana_version` parameter in the page's front matter.
-For example, with the front matter `grafana_version: next`, the shortcode replaces `<GRAFANA VERSION>` with `next`.
 
 ### Other use cases
 
@@ -228,3 +343,17 @@ This Markdown renders as:
 ```markdown
 {{</* myshortcode */>}}
 ```
+
+## About version inference
+
+Version inference enables the use of absolute paths that resolve correctly, irrespective of version.
+It uses special syntax using angle bracket delimiters like `<GRAFANA VERSION>`.
+
+As a convention, use the name of the target project, with spaces but no hyphens or underscores, all upper-case.
+For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes GRAFANA CLOUD.
+
+The special syntax `<SOMETHING VERSION>` is substituted by the version that is inferred from the page's URL.
+
+You can override version inference by including additional metadata in the front matter of the file.
+To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.
+For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA VERSION: next`.

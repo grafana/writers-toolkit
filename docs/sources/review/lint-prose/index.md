@@ -114,7 +114,7 @@ If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/)
    ```
 
    Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. The path depends on where you cloned the git repository. For example:
-   
+
    - On Linux you could set StylesPath to `/home/USERNAME/git-repos/writers-toolkit/vale`
    - On macOS, you could set StylesPath to `/Users/USERNAME/git-repos/writers-toolkit/vale`
    - On Windows, you could set StylesPath to `C:\Users\USERNAME\git-repos\writers-toolkit\vale`
@@ -136,7 +136,7 @@ If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/)
       - On Linux that could be `/home/USERNAME/vale.ini`
       - On macOS, that could be `/Users/USERNAME/vale.ini`
       - On Windows, that could be `C:\Users\USERNAME\vale.ini`
-   1. For Linux and manual installations on any operating system, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, on Linux, that could be `/home/USERNAME/bin/vale`.
+   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, on Linux, that could be `/home/USERNAME/bin/vale`.
 
 1. Restart VS Code.
 

@@ -32,6 +32,8 @@ To reuse shared content:
    Because we rely on external contributions, sharing from open-source projects is preferred.
    For example, when sharing content between Tempo and Grafana Enterprise Traces, prefer Tempo to be the sharing project and Grafana Enterprise Traces to be the consuming project.
 
+### Create a shared directory
+
 1. In the sharing project, create the `docs/sources/shared/` directory if it does not exist.
 
 1. In the sharing project, create the file `docs/sources/shared/index.md` if it does not exist, with the following contents:
@@ -54,6 +56,8 @@ To reuse shared content:
 
    0 directories, 1 file
    ```
+
+### Create a shared file
 
 1. In the sharing project, create a file for the shared content in the `docs/sources/shared/` directory.
 

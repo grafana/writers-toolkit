@@ -66,7 +66,7 @@ You can use Vale to lint your current document in VS Code.
 
 ### Before you begin
 
-If you are installing Vale on Linux, follow the [manual installation instructions](https://vale.sh/docs/vale-cli/installation/#github-releases). It may be possible to install Vale using the package repositories for your Linux distribution.
+If you are installing Vale on Linux, it may be possible to use the package repositories for your Linux distribution. The manual installation documented below is the preferred way to install Vale on Linux.
 
 {{% admonition type="note" %}}
 The Vale Snap is out of date and not maintained. Don't install Vale using the Ubuntu Snap store.
@@ -77,7 +77,7 @@ If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/)
 If you are installing Vale on Windows, make sure that [Chocolatey](https://chocolatey.org/install) is installed.
 
 {{% admonition type="note" %}}
-You can [download and manually install](https://vale.sh/docs/vale-cli/installation/#github-releases) Vale on Linux, macOS, or Windows. If you manually install Vale, you must configure your system to add Vale to your path, or set the **Vale › Vale CLI: Path** in the Vale VS Code extension configuration.
+You can [download and manually install](https://vale.sh/docs/vale-cli/installation/#github-releases) Vale on Linux, macOS, or Windows. If you manually install Vale, you must configure your system to add Vale to your path or set the **Vale › Vale CLI: Path** in the Vale VS Code extension configuration.
 {{% /admonition %}}
 
 ### Install and configure Vale in VS Code
@@ -127,7 +127,7 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
 
    Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. The path depends on where you cloned the git repository. For example:
 
-   - On Linux you could set StylesPath to `/home/USERNAME/git-repos/writers-toolkit/vale`
+   - On Linux, you could set StylesPath to `/home/USERNAME/git-repos/writers-toolkit/vale`
    - On macOS, you could set StylesPath to `/Users/USERNAME/git-repos/writers-toolkit/vale`
    - On Windows, you could set StylesPath to `C:\Users\USERNAME\git-repos\writers-toolkit\vale`
 
@@ -145,10 +145,10 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
    1. Press Ctrl+Shift+X or click the **Extensions** icon and select the Vale VS Code extension.
    1. Select the gear icon.
    1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. The path depends on where you created the `vale.ini` file. For example:
-      - On Linux that could be `/home/USERNAME/vale.ini`
+      - On Linux, that could be `/home/USERNAME/vale.ini`
       - On macOS, that could be `/Users/USERNAME/vale.ini`
       - On Windows, that could be `C:\Users\USERNAME\vale.ini`
-   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, on Linux, that could be `/home/USERNAME/bin/vale`.
+   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, that could be `/home/USERNAME/bin/vale` on Linux.
 
 1. Restart VS Code.
 

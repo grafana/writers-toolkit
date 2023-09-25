@@ -66,7 +66,19 @@ You can use Vale to lint your current document in VS Code.
 
 ### Before you begin
 
+If you are installing Vale on Linux, follow the [manual installation instructions](https://vale.sh/docs/vale-cli/installation/#github-releases). It may be possible to install Vale using the package repositories for your Linux distribution.
+
+{{% admonition type="note" %}}
+The Vale Snap is out of date and not maintained. Don't install Vale using the Ubuntu Snap store.
+{{% /admonition %}}
+
 If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/) is installed.
+
+If you are installing Vale on Windows, make sure that [Chocolatey](https://chocolatey.org/install) is installed.
+
+{{% admonition type="note" %}}
+You can [download and manually install](https://vale.sh/docs/vale-cli/installation/#github-releases) Vale on Linux, macOS, or Windows. If you manually install Vale, you must configure your system to add Vale to your path, or set the **Vale › Vale CLI: Path** in the Vale VS Code extension configuration.
+{{% /admonition %}}
 
 ### Install and configure Vale in VS Code
 

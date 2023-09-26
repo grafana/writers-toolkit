@@ -111,8 +111,6 @@ The `collapse` shortcode toggles visibility of sections of content, often helpfu
 
 ### Example
 
-The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
-
 ```markdown
 {{</* collapse title="Title of hidden content" */>}}
 Kingston is the capital of Jamaica.

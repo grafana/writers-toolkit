@@ -91,7 +91,8 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
 1. Download and install [Vale](https://vale.sh/docs/vale-cli/installation/).
 
    {{% admonition type="note" %}}
-   [Verify](https://github.com/errata-ai/vale/releases) that you are downloading the latest build of Vale for Linux.
+   Verify that you are downloading the latest build of Vale for Linux.
+   To find the latest builds, refer to [Releases - errata-ai/vale](https://github.com/errata-ai/vale/releases).
    {{% /admonition %}}
 
    {{< code >}}

@@ -134,3 +134,17 @@ Vale lints your current document every time you save your changes. The extension
 
 - In-line edit marks. You can hover your mouse cursor over the edit marks to view the Vale warning or error.
 - A full report in the **PROBLEMS** tab. Each Vale warning or error in the report includes the line and column where the error occurs.
+
+## Errata for Vale
+
+When you write something that has an associated rule in one of the Vale linting files, an error is generated, such as:
+
+`Use '%s' instead of '%s'.`
+
+`Did you mean '%s' instead of '%s'?`
+
+Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words. However, the following rules require further explanation:
+
+### Allows to
+
+Common wording error. The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to."

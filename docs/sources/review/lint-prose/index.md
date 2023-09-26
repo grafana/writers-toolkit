@@ -145,6 +145,6 @@ When you write something that has an associated rule in one of the Vale linting 
 
 Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words. However, the following rules require further explanation:
 
-### Allowsto
+### Allows to
 
 Common wording error. The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to."

@@ -101,6 +101,24 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
 ```
 <!-- prettier-ignore-end -->
 
+## `collapse` shortcode
+
+The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `title`   | Text explaining the hidden content. | yes      |
+
+### Example
+
+The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
+
+```markdown
+{{</* collapse title="Title of hidden content" */>}}
+Kingston is the capital of Jamaica.
+{{</* /collapse */>}}
+```
+
 ## `docs/experimental-deployment` shortcode
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

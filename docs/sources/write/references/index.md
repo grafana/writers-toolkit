@@ -18,58 +18,39 @@ keywords:
 Links are a mechanism for reusing content.
 Instead of writing the same information twice, you can link to a definitive source of truth.
 
-{{% admonition type="note" %}}
-When linking to specific versions or across repositories, use standard markdown links. Read the [Versions and cross-repository linking]({{< relref "#versions-and-cross-repository-linking" >}}) section for details.
-{{% /admonition %}}
+This page focuses only on HTTP-based URLs that have the scheme `http` or `https`.
 
-## Understanding hyperlinks
+## Choose the correct link
 
-Links can be written in many forms that are enumerated in [<a>: The Anchor element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).
+There are multiple ways to link to the same destination URL.
+All of the following destinations link https://grafana.com/docs/grafana/latest/ to when followed from the page https://grafana.com/docs:
 
-This document focuses only on HTTP-based URLs that have the scheme `http` or `https`.
+- https://grafana.com/docs/grafana/latest/: a fully qualified URL.
+- /docs/grafana/latest: a partial URL with an absolute path.
+- ./grafana/latest: a partial URL with a relative path.
 
-Link destinations can be specified in different ways.
-All of the following destinations link https://grafana.com/docs/grafana/latest to when followed from the page https://grafana.com/docs:
+**To choose the correct link:**
 
-- https://grafana.com/docs/grafana/latest: fully specified HTTPS URL.
-- /docs/grafana/latest: partial URL with absolute path.
-- ./grafana/latest: relative path.
+1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-content/reuse-directories" >}}), use the `docs/reference` shortcode.
 
-To choose the correct link destination type, follow these steps:
+   For more information about the `docs/reference` shortcode, refer to [`docs/reference` shortcode]({{< relref "../shortcodes#docsreference-shortcode" >}}).
 
-1. If the destination is external to the https://grafana.com website, use the fully specified HTTPS URL.
-   For example, `[GitHub](https://github.com)`.
-1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-content/reuse-directories" >}}):
+1. If the destination is part of the current documentation set, use the `relref` shortcode.
 
-   1. If the destination is also present in the destination mount, use a relative URL path.
-      This keeps reader within the destination project.
-      For example, `{{</* relref "./path/to/page" */>}}`.
-
-      Use the Hugo `relref` shortcode for build time link checking.
-      For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
-
-   1. Otherwise use a partial URL with an absolute path.
-      This always brings the reader back to the destination page in the source project.
-      For example, `/docs/writers-toolkit/write/`.
-
-1. If the destination is internal to the https://grafana.com website, but external to the project documentation,
-   use a partial URL with an absolute path.
-   For example, `/blog/`.
-1. Otherwise, use a relative path.
    For example, `{{</* relref "./path/to/page" */>}}`.
 
-   Use the Hugo `relref` shortcode for build time link checking.
+   Hugo emits logs during the build for broken links defined with the `relref` shortcode.
    For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
+
+1. Otherwise, use the fully qualified URL.
+
+   For example, `[GitHub](https://github.com)`, or `[Grafana](https://grafana.com/docs/grafana/latest/)`.
 
 ## Build time link checking with Hugo
 
-Hugo has built-in shortcodes for creating links to documents.
-The `ref` and `relref` shortcodes display the absolute and relative permalinks to a document, respectively.
-They both provide build time link checking to ensure that the destination exists.
-
-{{% admonition type="warning" %}}
-If you do not use a Hugo `relref` shortcode for build time link checking, your links may be broken without you realizing it.
-{{% /admonition %}}
+Hugo has built-in shortcodes for creating links.
+The `ref` and `relref` shortcodes display the absolute and relative permalinks to a page, respectively.
+They both provide build time link checking to ensure that the destination file exists.
 
 Relative references are the most common references in Grafana technical documentation.
 This is the Hugo shortcode: `{{</* relref "<DESTINATION>" */>}}`.
@@ -77,12 +58,37 @@ This is the Hugo shortcode: `{{</* relref "<DESTINATION>" */>}}`.
 {{% admonition type="note" %}}
 Hugo link checking depends on having all the content available during the build.
 In most projects, the only content available during local builds and CI is the current project documentation.
-Therefore, the current advice is that `relref`s should only be used for links within the current project.
+Therefore, the current advice is to only use the `relref` shortcode for links within the current project.
 {{% /admonition %}}
 
 ### Determine `relref` shortcode destinations
 
-With the following directory structure:
+The argument to the `relref` shortcode is the path to a source file in the Hugo content directory.
+During local builds, the `docs/sources` directory is automatically mounted into the Hugo content directory.
+
+Hugo has different kinds of source files for producing pages.
+These include:
+
+- page (`page.md`)
+- leaf bundle (`page/index.md`)
+- branch bundle (`page/_index.md`)
+
+Each of those source files produce the same page.
+To avoid a link breaking when the source file changes kind, you can ignore the file extension and index kind.
+You can reference each of the preceding examples with the same argument -- `page`.
+
+{{% admonition type="note" %}}
+There is no trailing slash in the argument `page`.
+Including a trailing slash prevents the argument working for some kinds of source files.
+{{% /admonition %}}
+
+{{% admonition type="note" %}}
+If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
+{{% /admonition %}}
+
+#### Example
+
+In the Writers' Toolkit repository, with the following directory structure:
 
 ```
 docs
@@ -104,39 +110,14 @@ Hugo produces the following website pages:
 
 Refer to the following table for the correct `relref` shortcode to use to link between each of the example pages.
 
-| Source page                           | Destination page                      | `relref` shortcode                     |
-| ------------------------------------- | ------------------------------------- | -------------------------------------- |
-| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/branch/other/` | `{{</* relref "./other" */>}}`         |
-| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
-| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/`       | `{{</* relref "../branch" */>}}`       |
-| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/other/` | `{{</* relref "../branch/other" */>}}` |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "." */>}}`               |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         |
-
-{{% admonition type="warning" %}}
-If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
-{{% /admonition %}}
-
-## Versions and cross-repository linking
-
-For Grafana's webserver environments, you can't address other versions of the docs, such as a version-specific archived docs set (`https://grafana.com/docs/grafana/v8.5/` and so forth) or `/next/` docs for links in content residing in `/latest/`, using Hugo references.
-
-Hugo references addressed across different products' docs, such as from `/docs/grafana/` to `/docs/loki/` and vice-versa, as well as references from docs addressed to other Hugo-published content on grafana.com, can also be predictably addressed.
-
-To avoid broken links in these situations on grafana.com, use regular Markdown link syntax (`[link text](/docs/repo/version/folder/file/)`) instead of Hugo references (`relref`). To ensure the links work in local builds, staging environments, and the live website, you **shouldn't** use a fully qualified URL with `https://grafana.com` for links to other content on grafana.com.
-
-For cross-repository links, use a standard markdown link, with the link structured like this: `/docs/repo/page`.
-
-For example:
-
-```markdown
-This is an [example cross-repository link](/docs/grafana/whatsnew) to the Grafana repository.
-```
-
-Using a Hugo `relref` in a cross-repository link or a link to a specific version can result in a page not found error message when running `make docs` if the linked content isn't mounted when using the script.
-
-Unlike references, Hugo does _not_ confirm that these link destinations exist during its build, so manually confirm that the published links in a local build and on the published website point correctly.
-With partial URIs, you also cannot check these links without the content mounted. For example, `/docs/grafana/latest/` from `/docs/tempo/latest` won't resolve unless you have both projects mounted in the webserver.
+| Source page                           | Destination page                      | `relref` shortcode with relative path  | `relref` shortcode with absolute path                     |
+| ------------------------------------- | ------------------------------------- | -------------------------------------- | --------------------------------------------------------- |
+| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/branch/other/` | `{{</* relref "./other" */>}}`         | `{{</* relref "/docs/writers-toolkit/branch/other" */>}}` |
+| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         | `{{</* relref "/docs/writers-toolkit/leaf" */>}}`         |
+| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/`       | `{{</* relref "../branch" */>}}`       | `{{</* relref "/docs/writers-toolkit/branch" */>}}`       |
+| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/other/` | `{{</* relref "../branch/other" */>}}` | `{{</* relref "/docs/writers-toolkit/branch/other" */>}}` |
+| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "." */>}}`               | `{{</* relref "/docs/writers-toolkit/branch" */>}}`       |
+| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         | `{{</* relref "/docs/writers-toolkit/leaf" */>}}`         |
 
 ## Anchors
 

@@ -146,10 +146,10 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
    1. Press Ctrl+Shift+X or click the **Extensions** icon and select the Vale VS Code extension.
    1. Select the gear icon.
    1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. The path depends on where you created the `vale.ini` file. For example:
-      - On Linux, that could be `/home/USERNAME/vale.ini`
-      - On macOS, that could be `/Users/USERNAME/vale.ini`
-      - On Windows, that could be `C:\Users\USERNAME\vale.ini`
-   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, that could be `/home/USERNAME/bin/vale` on Linux.
+      - On Linux, that could be `/home/<USERNAME>/vale.ini`
+      - On macOS, that could be `/Users/<USERNAME>/vale.ini`
+      - On Windows, that could be `C:\Users\<USERNAME>\vale.ini`
+   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, that could be `/home/<USERNAME>/bin/vale` on Linux.
 
 1. Restart VS Code.
 

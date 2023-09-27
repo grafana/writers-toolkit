@@ -106,6 +106,22 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 ````
 <!-- prettier-ignore-end -->
 
+## `collapse` shortcode
+
+The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `title`   | Text explaining the hidden content. | yes      |
+
+### Example
+
+```markdown
+{{</* collapse title="Title of hidden content" */>}}
+Kingston is the capital of Jamaica.
+{{</* /collapse */>}}
+```
+
 ## `docs/experimental-deployment` shortcode
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

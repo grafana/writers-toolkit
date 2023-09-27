@@ -1,7 +1,7 @@
 ---
 title: UI elements list
 description: Guidelines for referring to UI elements in Grafana documentation.
-weight: 600
+weight: 700
 keywords:
   - Grafana
   - ui elements

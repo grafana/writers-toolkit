@@ -58,47 +58,52 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
 
 ### Example
 
-<!-- The code blocks below are indented to prevent hugo rendering  -->
+{{% admonition type="note" %}}
+If your repository uses `prettier` to format the files, use the HTML comments `&lt;!-- prettier-ignore-start --&gt;` and `&lt;!-- prettier-ignore-end --&gt;` around the shortcode tags to ensure correct rendering.
+{{% /admonition %}}
 
 <!-- prettier-ignore-start -->
-```markdown
+
+````markdown
 {{</* code */>}}
-    ```bash
-    curl "https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity"
-    ```
 
-    ```go
-    package main
-
-    import (
-      "context"
-    )
-
-    func main() {
-
-      ...
-    ```
-
-    ```javascript
-    import { GrafanaIncidentClient, ActivityService } from '@grafana/incident-node';
-
-    // https://grafana.com/docs/grafana-cloud/incident/api/auth/#get-a-service-account-token
-    const serviceAccountToken = process.env.GRAFANA_CLOUD_SERVICE_ACCOUNT_TOKEN;
-    const client = new GrafanaIncidentClient(
-      "https://your-stack.grafana.net",
-      serviceAccountToken
-    );
-
-    ...
-    ```
-
-    ```json
-    POST https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity
-    Content-Type="application/json; charset=utf-8"
-    Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
-    ```
-{{</* /code */>}}
+```bash
+curl "https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity"
 ```
+
+```go
+package main
+
+import (
+  "context"
+)
+
+func main() {
+
+  ...
+```
+
+```javascript
+import { GrafanaIncidentClient, ActivityService } from '@grafana/incident-node';
+
+// https://grafana.com/docs/grafana-cloud/incident/api/auth/#get-a-service-account-token
+const serviceAccountToken = process.env.GRAFANA_CLOUD_SERVICE_ACCOUNT_TOKEN;
+const client = new GrafanaIncidentClient(
+  "https://your-stack.grafana.net",
+  serviceAccountToken
+);
+
+...
+```
+
+```json
+POST https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity
+Content-Type="application/json; charset=utf-8"
+Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
+```
+
+{{</* /code */>}}
+````
 <!-- prettier-ignore-end -->
 
 ## `collapse` shortcode
@@ -294,6 +299,20 @@ The following shortcode inserts a lists of links to child pages and includes the
 
 ```markdown
 {{</* section withDescriptions="true"*/>}}
+```
+
+## `term` shortcode
+
+The `term` shortcode enables a tooltip when a user hovers above text surrounded by the shortcode.
+
+| Parameter  | Description         | Required |
+| ---------- | ------------------- | -------- |
+| position 0 | Glossary lookup key | yes      |
+
+### Examples
+
+```markdown
+Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
 ```
 
 ## `docs/reference` shortcode

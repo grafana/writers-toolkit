@@ -205,12 +205,12 @@ The `docs/public-preview` shortcode produces a note admonition with the preferre
 | `featureFlag` | The name of the feature flag users use to enable the product or feature. | yes      |
 
 ```markdown
-{{</* docs/public-preview-toggle product="experimental-feature" featureFlag="its-feature-flag" */>}}
+{{</* docs/public-preview-toggle product="public-preview-feature" featureFlag="its-feature-flag" */>}}
 ```
 
 Produces:
 
-{{< docs/public-preview-toggle product="experimental-feature" featureFlag="its-feature-flag" >}}
+{{< docs/public-preview-toggle product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
 ## `docs/shared` shortcode
 

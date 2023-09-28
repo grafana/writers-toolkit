@@ -122,6 +122,12 @@ Kingston is the capital of Jamaica.
 {{</* /collapse */>}}
 ```
 
+Produces:
+
+{{< collapse title="Title of hidden content" >}}
+Kingston is the capital of Jamaica.
+{{< /collapse >}}
+
 ## `docs/experimental-deployment` shortcode
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

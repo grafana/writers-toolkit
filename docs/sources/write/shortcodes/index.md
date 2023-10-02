@@ -321,6 +321,10 @@ The `term` shortcode enables a tooltip when a user hovers above text surrounded 
 Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
 ```
 
+Produces:
+
+Grafana comes with built-in support for many {{< term "data source" >}}FOOBAR{{< /term >}}.
+
 ## `docs/reference` shortcode
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo built-in `relref` shortcode.

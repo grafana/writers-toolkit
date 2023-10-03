@@ -183,9 +183,10 @@ Produces:
 
 The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
 
-| Parameter | Description                         | Required |
-| --------- | ----------------------------------- | -------- |
-| `product` | The name of the product or feature. | yes      |
+| Parameter     | Description                                                              | Required |
+| ------------- | ------------------------------------------------------------------------ | -------- |
+| `product`     | The name of the product or feature.                                      | yes      |
+| `featureFlag` | The name of the feature flag users use to enable the product or feature. | no      |
 
 ```markdown
 {{</* docs/public-preview product="public-preview-feature" */>}}
@@ -195,22 +196,13 @@ Produces:
 
 {{< docs/public-preview product="public-preview-feature" >}}
 
-## `docs/public-preview-toggle` shortcode
-
-The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
-
-| Parameter     | Description                                                              | Required |
-| ------------- | ------------------------------------------------------------------------ | -------- |
-| `product`     | The name of the product or feature.                                      | yes      |
-| `featureFlag` | The name of the feature flag users use to enable the product or feature. | yes      |
-
 ```markdown
-{{</* docs/public-preview-toggle product="public-preview-feature" featureFlag="its-feature-flag" */>}}
+{{</* docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" */>}}
 ```
 
 Produces:
 
-{{< docs/public-preview-toggle product="public-preview-feature" featureFlag="its-feature-flag" >}}
+{{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
 ## `docs/shared` shortcode
 

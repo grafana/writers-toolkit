@@ -106,6 +106,28 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 ````
 <!-- prettier-ignore-end -->
 
+## `collapse` shortcode
+
+The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `title`   | Text explaining the hidden content. | yes      |
+
+### Example
+
+```markdown
+{{</* collapse title="Title of hidden content" */>}}
+Kingston is the capital of Jamaica.
+{{</* /collapse */>}}
+```
+
+Produces:
+
+{{< collapse title="Title of hidden content" >}}
+Kingston is the capital of Jamaica.
+{{< /collapse >}}
+
 ## `docs/experimental-deployment` shortcode
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.
@@ -283,6 +305,20 @@ The following shortcode inserts a lists of links to child pages and includes the
 
 ```markdown
 {{</* section withDescriptions="true"*/>}}
+```
+
+## `term` shortcode
+
+The `term` shortcode enables a tooltip when a user hovers above text surrounded by the shortcode.
+
+| Parameter  | Description         | Required |
+| ---------- | ------------------- | -------- |
+| position 0 | Glossary lookup key | yes      |
+
+### Examples
+
+```markdown
+Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
 ```
 
 ## `docs/reference` shortcode

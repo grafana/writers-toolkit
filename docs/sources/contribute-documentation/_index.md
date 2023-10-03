@@ -78,6 +78,11 @@ For pages that do not have a **Suggest an edit** link, search the Grafana organi
 For example, the [Splunk data source for Grafana](/docs/plugins/grafana-splunk-datasource/latest/) plugin, can be found by [searching for "Splunk"](https://github.com/search?q=org%3Agrafana+Splunk&type=repositories).
 
 For [Grafana Cloud](/docs/grafana-cloud/) documentation, most content is managed in the [website repository](https://github.com/grafana/website).
+
+{{% admonition type="note" %}}
+The website repository is private and only accessible to Grafana Labs employees.
+{{% /admonition %}}
+
 Some content is sourced from other projects, listed below:
 
 - `/docs/grafana-cloud/alerting`: https://github.com/grafana/grafana/tree/main/docs/sources/alerting

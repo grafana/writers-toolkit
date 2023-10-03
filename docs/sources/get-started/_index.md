@@ -9,7 +9,7 @@ aliases:
 
 # Get started with Writers' Toolkit
 
-This guide provides includes everything you need to complete your documentation project from start to finish.
+This guide includes everything you need to complete your documentation project from start to finish.
 In short, it quickly points you in the right direction.
 
 ## Goals

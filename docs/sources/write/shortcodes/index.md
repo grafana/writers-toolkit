@@ -26,7 +26,7 @@ The Grafana shortcode templates are defined in the `layouts/shortcodes` folder o
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 {{% /admonition %}}
 
-## `admonition` shortcode
+## Admonition {{#admonition-shortcode}}
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
 The style depends on the admonition type as defined in Writers' Toolkit [Style conventions]({{< relref "../style-guide/style-conventions" >}}).
@@ -52,7 +52,7 @@ Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
 
-## `code` shortcode
+## Code {{#code-shortcode}}
 
 The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across navigation.
 

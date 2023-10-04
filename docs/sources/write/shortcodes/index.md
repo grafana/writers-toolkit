@@ -323,7 +323,7 @@ Grafana comes with built-in support for many {{</* term "data source" */>}}data 
 
 Produces:
 
-Grafana comes with built-in support for many {{< term "data source" >}}FOOBAR{{< /term >}}.
+Grafana comes with built-in support for many {{< term "data source" >}}data sources{{< /term >}}.
 
 Lookup keys and the associated definitions are defined internally.
 If you are a Grafana Labs employee and want to make changes, edit [`glossary.yaml`](https://github.com/grafana/website/blob/master/data/glossary.yaml).

@@ -115,9 +115,9 @@ Use the following conventions when you include commands on the command line in t
 
 - Include `sudo` before commands that require `sudo` to work.
 
-For terminal examples and configurations, use a `bash` code block. In raw markdown:
+For terminal examples and configurations, use a `bash` code block. In raw Markdown:
 
-````
+````markdown
 ```bash
 sudo yum install grafana
 ```
@@ -131,9 +131,9 @@ sudo yum install grafana
 
 If your command-line instructions include a combination of input and output lines, use separate code blocks for input and output, and use a `console` code block for the output.
 
-The input, in raw markdown:
+The input, in raw Markdown:
 
-````
+````markdown
 ```bash
 cat ~/.ssh/my-ssh-key.pub
 ```
@@ -145,9 +145,9 @@ It produces the following output:
 cat ~/.ssh/my-ssh-key.pub
 ```
 
-For HTTP request/response, use an `http` code block in raw markdown:
+For HTTP request/response, use an `http` code block in raw Markdown:
 
-````
+````markdown
 ```http
 GET /api/dashboards/id/1/permissions HTTP/1.1
 Accept: application/json
@@ -162,12 +162,12 @@ It produces:
 GET /api/dashboards/id/1/permissions HTTP/1.1
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer  eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
+Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
-If an argument is optional, enclose it in square brackets. For example, prefer the following raw markdown:
+If an argument is optional, enclose it in square brackets. For example, prefer the following raw Markdown:
 
-````
+````markdown
 ```typescript
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
@@ -178,20 +178,21 @@ It produces:
 ```typescript
 ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
 ```
+
+## Placeholder variables
 
 Use descriptive words and phrases when including placeholders, and avoid using X or XXX.
-In Markdown, in front of a placeholder, use an asterisk followed by a backtick and an open angle bracket. Use a dash instead of an underscore in the placeholder name if necessary. At the end of the placeholder, use an open angle bracket followed by a backtick and an asterisk. For example, refer to the following raw markdown:
+In Markdown, in front of a placeholder, use an underscore (`_`) followed by a backtick (`` ` ``) and a less-than sign (`<`).
+At the end of the placeholder, use a greater-than sign (`>`) followed by a backtick (`` ` ``) and an underscore (`_`).
 
-````
+For example, refer to the following raw Markdown:
+
+```Markdown
+The following text is a placeholder: _`<PLACEHOLDER>`_.
 ```
-The following text is a placeholder: *`<A-PLACEHOLDER>`*.
-```
-````
 
 It produces:
 
-```
-The following text is a placeholder: *`<A-PLACEHOLDER>*`.
-```
+The following text is a placeholder: _`<PLACEHOLDER>`_.
 
 For more information about formatting command lines, see [Document command-line syntax](https://developers.google.com/style/code-syntax) from Google.

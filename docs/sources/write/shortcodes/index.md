@@ -330,6 +330,18 @@ The `term` shortcode enables a tooltip when a user hovers above text surrounded 
 Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
 ```
 
+Produces:
+
+Grafana comes with built-in support for many {{< term "data source" >}}data sources{{< /term >}}.
+
+Lookup keys and the associated definitions are defined internally.
+If you are a Grafana Labs employee and want to make changes, edit [`glossary.yaml`](https://github.com/grafana/website/blob/master/data/glossary.yaml).
+
+### Guidance
+
+For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
+For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
+
 ## `docs/reference` shortcode
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo built-in `relref` shortcode.

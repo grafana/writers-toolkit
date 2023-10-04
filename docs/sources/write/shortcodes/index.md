@@ -183,9 +183,10 @@ Produces:
 
 The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
 
-| Parameter | Description                         | Required |
-| --------- | ----------------------------------- | -------- |
-| `product` | The name of the product or feature. | yes      |
+| Parameter     | Description                                                              | Required |
+| ------------- | ------------------------------------------------------------------------ | -------- |
+| `product`     | The name of the product or feature.                                      | yes      |
+| `featureFlag` | The name of the feature flag users use to enable the product or feature. | no       |
 
 ```markdown
 {{</* docs/public-preview product="public-preview-feature" */>}}
@@ -194,6 +195,14 @@ The `docs/public-preview` shortcode produces a note admonition with the preferre
 Produces:
 
 {{< docs/public-preview product="public-preview-feature" >}}
+
+```markdown
+{{</* docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" */>}}
+```
+
+Produces:
+
+{{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
 ## `docs/shared` shortcode
 

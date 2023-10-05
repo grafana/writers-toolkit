@@ -45,9 +45,9 @@ weight: 100
 
 The following headings describe what each element does and provides guidelines for its content.
 
-### `aliases`
+### Aliases
 
-Use to create redirects from the previous URL to the new URL when a page changes or moves.
+Use `aliases` to create redirects from the previous URL to the new URL when a page changes or moves.
 As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL.
 In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
@@ -131,9 +131,9 @@ To test an alias results in the correct redirect, use your browser or a command-
 
 1. Confirm that the value of the `destination` `const` in the `<script>` tag is the pretty URL for the page with the alias.
 
-### `date`
+### Date
 
-Describes the initial publish date of the page.
+`date` describes the initial publish date of the page.
 Hugo produces XML page outputs for use by RSS feeds where users can be notified of updates.
 Customers use RSS feeds of release notes pages to be notified of new releases.
 Therefore, the `date` front matter is recommended for release note pages.
@@ -144,9 +144,9 @@ For example, `date: "2023-04-24T00:00:00Z"` is 12:00 AM, Apr 24 Coordinated Univ
 The `date` front matter also impacts menu ordering.
 Pages with more recent dates are lower in the menu.
 
-### `description` (required)
+### Description (required)
 
-Use to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
+Use `description` to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
@@ -154,19 +154,19 @@ Often, this doesn’t need to be original text, you can often scan the first few
 If it's too long, it is harmlessly truncated on social media.
 Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-### `draft`
+### Draft
 
-When set to `true`, this option prevents Hugo from rendering the content.
+When `draft` is set to `true`, this option prevents Hugo from rendering the content.
 Use the command-line flag `--buildDrafts` to generate content marked as `draft: true`.
 
-### `keywords`
+### Keywords
 
-The website uses keywords to generate links to related pages in the _Related content_ sections.
+The website uses `keywords` to generate links to related pages in the _Related content_ sections.
 They do not appear in the resulting HTML source for the page and do not affect search engine optimization (SEO).
 
 Ideally, use single terms as opposed to phrases.
 
-### `labels`
+### Labels
 
 Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
 Only certain labels are supported.
@@ -205,11 +205,11 @@ cascade:
       - cloud
 ```
 
-### `menuTitle`
+### MenuTitle
 
-Use to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
+Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 
-### `title` (required)
+### Title (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
 
@@ -217,7 +217,7 @@ The `title` becomes the document title element in the HTML. Often, browsers disp
 
 Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
 
-### `weight`
+### Weight
 
 By default, topics are displayed in alphabetical order by `title`.
 

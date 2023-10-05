@@ -128,6 +128,12 @@ Produces:
 Kingston is the capital of Jamaica.
 {{< /collapse >}}
 
+You can't do the following with this shortcode:
+
+- Use these as page headings
+- Control the size of the title text
+- Add images or videos between the shortcode tags
+
 ## Docs/experimental-deployment
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

@@ -13,6 +13,11 @@ aliases:
 
 To run the local documentation webserver with the default configuration, run `make docs` from the `docs/` directory.
 
+{{< admonition type="note" >}}
+Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the documentation webserver.
+To run the webserver, ensure that you are in the `docs/` directory.
+{{< /admonition >}}
+
 ## Run with specific projects
 
 Each project has a list of projects to build by default when running `make docs` that is defined by the `PROJECTS` variable in `docs/variables.mk`.

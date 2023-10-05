@@ -44,7 +44,19 @@ You can use Vale to lint your current document in VS Code.
 
 ### Before you begin
 
+If you are installing Vale on Linux, it may be possible to use the package repositories for your Linux distribution. The manual installation documented below is the preferred way to install Vale on Linux.
+
+{{% admonition type="note" %}}
+The Vale Snap is out of date and not maintained. Don't install Vale using the Ubuntu Snap store.
+{{% /admonition %}}
+
 If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/) is installed.
+
+If you are installing Vale on Windows, make sure that [Chocolatey](https://chocolatey.org/install) is installed.
+
+{{% admonition type="note" %}}
+You can [download and manually install](https://vale.sh/docs/vale-cli/installation/#github-releases) Vale on Linux, macOS, or Windows. If you manually install Vale, you must configure your system to add Vale to your path or set the **Vale › Vale CLI: Path** in the Vale VS Code extension configuration.
+{{% /admonition %}}
 
 ### Install and configure Vale in VS Code
 
@@ -57,20 +69,24 @@ If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/)
 1. Download and install [Vale](https://vale.sh/docs/vale-cli/installation/).
 
    {{% admonition type="note" %}}
-   Refer to the Linux command line installation steps at [GitHub Releases](https://vale.sh/docs/vale-cli/installation/#github-releases). Verify that you are downloading the latest build of Vale for Linux.
-   You can also use your Linux package manager to install Vale.
+   Verify that you are downloading the latest build of Vale for Linux.
+   To find the latest builds, refer to [Releases - errata-ai/vale](https://github.com/errata-ai/vale/releases).
    {{% /admonition %}}
 
    {{< code >}}
 
-   ```linux
-   wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.28.0_Linux_64-bit.tar.gz
-   mkdir bin && tar -xvzf vale_2.28.0_Linux_64-bit.tar.gz -C bin
+   ```linux-cli
+   wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.29.0_Linux_64-bit.tar.gz
+   mkdir bin && tar -xvzf vale_2.29.0_Linux_64-bit.tar.gz -C bin
    export PATH=./bin:"$PATH"
    ```
 
    ```macos
    brew install vale
+   ```
+
+   ```windows
+   choco install vale
    ```
 
    {{< /code >}}
@@ -88,7 +104,11 @@ If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/)
    TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
    ```
 
-   Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. For example, in Linux you could set StylesPath to `/home/username/git-repos/writers-toolkit/vale` and in macOS, you could set it to `/Users/username/git-repos/writers-toolkit/vale`. The path depends on where you cloned the git repository.
+   Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. The path depends on where you cloned the git repository. For example:
+
+   - On Linux, you could set StylesPath to `/home/<USERNAME>/git-repos/writers-toolkit/vale`
+   - On macOS, you could set StylesPath to `/Users/<USERNAME>/git-repos/writers-toolkit/vale`
+   - On Windows, you could set StylesPath to `C:\Users\<USERNAME>\git-repos\writers-toolkit\vale`
 
 1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VS Code.
 
@@ -103,8 +123,11 @@ If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/)
 
    1. Press Ctrl+Shift+X or click the **Extensions** icon and select the Vale VS Code extension.
    1. Select the gear icon.
-   1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. For example, on Linux that could be `/home/USERNAME/vale.ini` and on macOS, that could be `/Users/USERNAME/vale.ini`. The path depends on where you created the `vale.ini` file.
-   1. For Linux, set **Vale › Vale CLI: Path** to the path for the vale executable. For example, that could be `/home/USERNAME/bin/vale`.
+   1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. The path depends on where you created the `vale.ini` file. For example:
+      - On Linux, that could be `/home/<USERNAME>/vale.ini`
+      - On macOS, that could be `/Users/<USERNAME>/vale.ini`
+      - On Windows, that could be `C:\Users\<USERNAME>\vale.ini`
+   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, that could be `/home/<USERNAME>/bin/vale` on Linux.
 
 1. Restart VS Code.
 
@@ -112,3 +135,17 @@ Vale lints your current document every time you save your changes. The extension
 
 - In-line edit marks. You can hover your mouse cursor over the edit marks to view the Vale warning or error.
 - A full report in the **PROBLEMS** tab. Each Vale warning or error in the report includes the line and column where the error occurs.
+
+## Errata for Vale
+
+When you write something that has an associated rule in one of the Vale linting files, an error is generated, such as:
+
+`Use '%s' instead of '%s'.`
+
+`Did you mean '%s' instead of '%s'?`
+
+Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words. However, the following rules require further explanation:
+
+### Allows to
+
+Common wording error. The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to."

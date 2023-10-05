@@ -106,6 +106,34 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 ````
 <!-- prettier-ignore-end -->
 
+## `collapse` shortcode
+
+The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
+
+| Parameter | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `title`   | Text explaining the hidden content. | yes      |
+
+### Example
+
+```markdown
+{{</* collapse title="Title of hidden content" */>}}
+Kingston is the capital of Jamaica.
+{{</* /collapse */>}}
+```
+
+Produces:
+
+{{< collapse title="Title of hidden content" >}}
+Kingston is the capital of Jamaica.
+{{< /collapse >}}
+
+You can't do the following with this shortcode:
+
+- Use these as page headings
+- Control the size of the title text
+- Add images or videos between the shortcode tags
+
 ## `docs/experimental-deployment` shortcode
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.
@@ -161,9 +189,10 @@ Produces:
 
 The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
 
-| Parameter | Description                         | Required |
-| --------- | ----------------------------------- | -------- |
-| `product` | The name of the product or feature. | yes      |
+| Parameter     | Description                                                              | Required |
+| ------------- | ------------------------------------------------------------------------ | -------- |
+| `product`     | The name of the product or feature.                                      | yes      |
+| `featureFlag` | The name of the feature flag users use to enable the product or feature. | no       |
 
 ```markdown
 {{</* docs/public-preview product="public-preview-feature" */>}}
@@ -172,6 +201,14 @@ The `docs/public-preview` shortcode produces a note admonition with the preferre
 Produces:
 
 {{< docs/public-preview product="public-preview-feature" >}}
+
+```markdown
+{{</* docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" */>}}
+```
+
+Produces:
+
+{{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
 ## `docs/shared` shortcode
 
@@ -284,6 +321,32 @@ The following shortcode inserts a lists of links to child pages and includes the
 ```markdown
 {{</* section withDescriptions="true"*/>}}
 ```
+
+## `term` shortcode
+
+The `term` shortcode enables a tooltip when a user hovers above text surrounded by the shortcode.
+
+| Parameter  | Description         | Required |
+| ---------- | ------------------- | -------- |
+| position 0 | Glossary lookup key | yes      |
+
+### Examples
+
+```markdown
+Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
+```
+
+Produces:
+
+Grafana comes with built-in support for many {{< term "data source" >}}data sources{{< /term >}}.
+
+Lookup keys and the associated definitions are defined internally.
+If you are a Grafana Labs employee and want to make changes, edit [`glossary.yaml`](https://github.com/grafana/website/blob/master/data/glossary.yaml).
+
+### Guidance
+
+For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
+For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
 
 ## `docs/reference` shortcode
 

@@ -34,7 +34,6 @@ The source is reused as described in [Reuse directories of content with Hugo mou
 For example:
 add examples here
 
-
 ## Linking only to content within the same project
 
 Use:
@@ -44,11 +43,11 @@ Use:
 
 For example: `{{</* relref "./path/to/page" */>}}`.
 
-### Buildtime link checking and Hugo error output
+### Build time link checking and Hugo error output
 
 The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
 
-Hugo link checking only applies to the content available during the build. 
+Hugo link checking only applies to the content available during the build.
 In most projects, the only content available during local builds and CI is the current project documentation,
 so you should be aware that just because a link uses a `relref`, it doesn't automatically follow that the link can be checked.
 
@@ -68,16 +67,16 @@ For information about determining the relative path included in a `relref` short
 
 To determine the path between the source and destination content, do the following:
 
-Find the folder where the destination content lives. 
-Find the folder that the source and destination folders have in common. 
+Find the folder where the destination content lives.
+Find the folder that the source and destination folders have in common.
 Note the pathway from the destination folder to the common folder.
 Count the number of folders from the source to the common folder and that number equals the number of aliases (../) you need to add to your relative path.
 
 For example, with the following folder structure:
 Vehicles
-|_Trucks
-  |_F150
-    |_1999 F150
+|\_Trucks
+|\_F150
+|\_1999 F150
 Vans
 
 In this case, the source content is in the 1999 F150 folder and the destination content is in the Vans folder.
@@ -86,7 +85,7 @@ The number of folders between the source folder, 1999 F150 and the common folder
 The pathway from the common Vehicles to destination folder Vans /vans
 The relative path is ../../../vans
 
-If the source folder was Vans and the desitination was 1999 F150, the pathway would be ../trucks/F150/1999-F150
+If the source folder was Vans and the destination was 1999 F150, the pathway would be ../trucks/F150/1999-F150
 
 ## Any other kind of link
 
@@ -99,7 +98,6 @@ This includes links to:
 - Other projects where content isn't shared
 - Other parts of grafana.com
 - All sites external to grafana.com
-
 
 ## Anchors
 

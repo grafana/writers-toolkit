@@ -15,16 +15,18 @@ keywords:
 
 # Links and cross references
 
-This page focuses only on HTTP-based URLs that have the scheme `http` or `https`. 
-> Does the user need to know this to get the job done?
+Choose your link type based on the applicable scenario:
 
-Link content in one of the following ways:
+- [Linking from source content that's used (or mounted) in multiple projects](#source-content-is-reused-in-multiple-projects)
+- [Linking only within the same project](#linking-only-to-content-within-the-same-project)
+- [Linking that isn't the first two types](#any-other-kind-of-link)
+- [Linking within a page](#anchors)
 
 ## Source content is reused in multiple projects
 
 Use:
 
-- `docs/reference` shortcode
+- the `docs/reference` shortcode
 - partial URL with a relative path
 
 The source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-content/reuse-directories" >}}). For more information, refer to the [`docs/reference` shortcode]({{< relref "../shortcodes#docsreference" >}}).
@@ -37,7 +39,7 @@ add examples here
 
 Use:
 
-- `relref` shortcode
+- the `relref` shortcode
 - partial URL with relative path
 
 For example: `{{</* relref "./path/to/page" */>}}`.
@@ -60,6 +62,32 @@ For additional information about Hugo error output, refer to [Test documentation
 
 For information about determining the relative path included in a `relref` shortcode, refer to ### Determine relref
 
+<!-- why don't we document relrefs on the shortcodes page? -->
+
+### Determine `relref` shortcode destinations
+
+To determine the path between the source and destination content, do the following:
+
+Find the folder where the destination content lives. 
+Find the folder that the source and destination folders have in common. 
+Note the pathway from the destination folder to the common folder.
+Count the number of folders from the source to the common folder and that number equals the number of aliases (../) you need to add to your relative path.
+
+For example, with the following folder structure:
+Vehicles
+|_Trucks
+  |_F150
+    |_1999 F150
+Vans
+
+In this case, the source content is in the 1999 F150 folder and the destination content is in the Vans folder.
+The common folder for the two pieces of content is the Vehicles folder.
+The number of folders between the source folder, 1999 F150 and the common folder Vehicles is 3 folders, so this requires three aliases: ../../../
+The pathway from the common Vehicles to destination folder Vans /vans
+The relative path is ../../../vans
+
+If the source folder was Vans and the desitination was 1999 F150, the pathway would be ../trucks/F150/1999-F150
+
 ## Any other kind of link
 
 Use a fully qualified URL. For example: https://grafana.com/docs/grafana/latest/
@@ -72,63 +100,6 @@ This includes links to:
 - Other parts of grafana.com
 - All sites external to grafana.com
 
-## Determine `relref` shortcode destinations
-
-The argument to the `relref` shortcode is the path to a source file in the Hugo content directory.
-During local builds, the `docs/sources` directory is automatically mounted into the Hugo content directory.
-
-Hugo has different kinds of source files for producing pages.
-These include:
-
-- page (`page.md`)
-- leaf bundle (`page/index.md`)
-- branch bundle (`page/_index.md`)
-
-Each of those source files produce the same page.
-To avoid a link breaking when the source file changes kind, you can ignore the file extension and index kind.
-You can reference each of the preceding examples with the same argument -- `page`.
-
-{{% admonition type="note" %}}
-There is no trailing slash in the argument `page`.
-Including a trailing slash prevents the argument working for some kinds of source files.
-{{% /admonition %}}
-
-{{% admonition type="note" %}}
-If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
-{{% /admonition %}}
-
-### Example
-
-In the Writers' Toolkit repository, with the following directory structure:
-
-```
-docs
-└── sources
-    ├── branch
-    │   └── _index.md
-    │   └── other.md
-    └── leaf
-        └── index.md
-```
-
-Hugo produces the following website pages:
-
-```
-/docs/writers-toolkit/branch/
-/docs/writers-toolkit/branch/other/
-/docs/writers-toolkit/leaf/
-```
-
-Refer to the following table for the correct `relref` shortcode to use to link between each of the example pages.
-
-| Source page                           | Destination page                      | `relref` shortcode with relative path  | `relref` shortcode with absolute path                     |
-| ------------------------------------- | ------------------------------------- | -------------------------------------- | --------------------------------------------------------- |
-| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/branch/other/` | `{{</* relref "./other" */>}}`         | `{{</* relref "/docs/writers-toolkit/branch/other" */>}}` |
-| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         | `{{</* relref "/docs/writers-toolkit/leaf" */>}}`         |
-| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/`       | `{{</* relref "../branch" */>}}`       | `{{</* relref "/docs/writers-toolkit/branch" */>}}`       |
-| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/other/` | `{{</* relref "../branch/other" */>}}` | `{{</* relref "/docs/writers-toolkit/branch/other" */>}}` |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "." */>}}`               | `{{</* relref "/docs/writers-toolkit/branch" */>}}`       |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         | `{{</* relref "/docs/writers-toolkit/leaf" */>}}`         |
 
 ## Anchors
 
@@ -150,137 +121,4 @@ The following Markdown links are equivalent:
 - `[link text](#anchor-in-current-page)`
 
 
-<!-- Original content
 
-# Links and cross references
-
-Links are a mechanism for reusing content.
-Instead of writing the same information twice, you can link to a definitive source of truth.
-
-This page focuses only on HTTP-based URLs that have the scheme `http` or `https`.
-
-## Choose the correct link
-
-There are multiple ways to link to the same destination URL.
-All of the following destinations link https://grafana.com/docs/grafana/latest/ to when followed from the page https://grafana.com/docs:
-
-- https://grafana.com/docs/grafana/latest/: a fully qualified URL.
-- /docs/grafana/latest: a partial URL with an absolute path.
-- ./grafana/latest: a partial URL with a relative path.
-
-**To choose the correct link:**
-
-1. If the source is reused as described in [Reuse directories of content with Hugo mounts]({{< relref "../reuse-content/reuse-directories" >}}), use the `docs/reference` shortcode.
-
-   For more information about the `docs/reference` shortcode, refer to [`docs/reference` shortcode]({{< relref "../shortcodes#docsreference" >}}).
-
-1. If the destination is part of the current documentation set, use the `relref` shortcode.
-
-   For example, `{{</* relref "./path/to/page" */>}}`.
-
-   Hugo emits logs during the build for broken links defined with the `relref` shortcode.
-   For more information about the `relref` shortcode, refer to [Build time link checking with Hugo](#build-time-link-checking-with-hugo).
-
-1. Otherwise, use the fully qualified URL.
-
-   For example, `[GitHub](https://github.com)`, or `[Grafana](https://grafana.com/docs/grafana/latest/)`.
-
-## Build time link checking with Hugo
-
-Hugo has built-in shortcodes for creating links.
-The `ref` and `relref` shortcodes display the absolute and relative permalinks to a page, respectively.
-They both provide build time link checking to ensure that the destination file exists.
-
-Relative references are the most common references in Grafana technical documentation.
-This is the Hugo shortcode: `{{</* relref "<DESTINATION>" */>}}`.
-
-{{% admonition type="note" %}}
-Hugo link checking depends on having all the content available during the build.
-In most projects, the only content available during local builds and CI is the current project documentation.
-Therefore, the current advice is to only use the `relref` shortcode for links within the current project.
-{{% /admonition %}}
-
-### Determine `relref` shortcode destinations
-
-The argument to the `relref` shortcode is the path to a source file in the Hugo content directory.
-During local builds, the `docs/sources` directory is automatically mounted into the Hugo content directory.
-
-Hugo has different kinds of source files for producing pages.
-These include:
-
-- page (`page.md`)
-- leaf bundle (`page/index.md`)
-- branch bundle (`page/_index.md`)
-
-Each of those source files produce the same page.
-To avoid a link breaking when the source file changes kind, you can ignore the file extension and index kind.
-You can reference each of the preceding examples with the same argument -- `page`.
-
-{{% admonition type="note" %}}
-There is no trailing slash in the argument `page`.
-Including a trailing slash prevents the argument working for some kinds of source files.
-{{% /admonition %}}
-
-{{% admonition type="note" %}}
-If the destination file or its containing directory has a period (`.`) in the path, you must link to the source file directly.
-{{% /admonition %}}
-
-#### Example
-
-In the Writers' Toolkit repository, with the following directory structure:
-
-```
-docs
-└── sources
-    ├── branch
-    │   └── _index.md
-    │   └── other.md
-    └── leaf
-        └── index.md
-```
-
-Hugo produces the following website pages:
-
-```
-/docs/writers-toolkit/branch/
-/docs/writers-toolkit/branch/other/
-/docs/writers-toolkit/leaf/
-```
-
-Refer to the following table for the correct `relref` shortcode to use to link between each of the example pages.
-
-| Source page                           | Destination page                      | `relref` shortcode with relative path  | `relref` shortcode with absolute path                     |
-| ------------------------------------- | ------------------------------------- | -------------------------------------- | --------------------------------------------------------- |
-| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/branch/other/` | `{{</* relref "./other" */>}}`         | `{{</* relref "/docs/writers-toolkit/branch/other" */>}}` |
-| `/docs/writers-toolkit/branch/`       | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         | `{{</* relref "/docs/writers-toolkit/leaf" */>}}`         |
-| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/`       | `{{</* relref "../branch" */>}}`       | `{{</* relref "/docs/writers-toolkit/branch" */>}}`       |
-| `/docs/writers-toolkit/leaf/`         | `/docs/writers-toolkit/branch/other/` | `{{</* relref "../branch/other" */>}}` | `{{</* relref "/docs/writers-toolkit/branch/other" */>}}` |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/branch/`       | `{{</* relref "." */>}}`               | `{{</* relref "/docs/writers-toolkit/branch" */>}}`       |
-| `/docs/writers-toolkit/branch/other/` | `/docs/writers-toolkit/leaf/`         | `{{</* relref "../leaf" */>}}`         | `{{</* relref "/docs/writers-toolkit/leaf" */>}}`         |
-
-## Anchors
-
-In a reference, you can optionally include an anchor to a heading in the referenced page.
-Specify and anchor at the end of the reference `#` followed by the normalized heading.
-
-Hugo normalizes headings to make anchors.
-To convert a heading to an anchor, Hugo makes the following changes:
-
-1. Convert to lower case.
-1. Remove any period characters (`.`).
-1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
-1. Trim any preceding or proceeding dashes (`-`).
-
-If the anchor is in the current page, you don't need to use `relref` syntax.
-The following Markdown links are equivalent:
-
-- `[link text]({{</* relref "#anchor-in-current-page" */>}})`
-- `[link text](#anchor-in-current-page)`
-
-### Hugo error output
-
-The output example is also used in review/run-a-local-webserver.
-
-{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
-
-For additional information about Hugo error output, refer to [Test documentation changes]({{< relref "../../review/run-a-local-webserver" >}}).-->

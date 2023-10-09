@@ -373,7 +373,7 @@ The content within the shortcode tags is as follows:
 
 - _`LABEL`_ - The label you'll use in the reference-style links in the file. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
 - _`PROJECT PATH PREFIX`_ - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-- _`REFERENCE`_ - The path to the destination file. Version substitution is supported using values like `<GRAFANA VERSION>`. To learn about version substition, refer to [About version substitution](https://grafana.com/docs/writers-toolkit/write/links#about-version-substitution).
+- _`REFERENCE`_ - The path to the destination file. Version substitution is supported using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](https://grafana.com/docs/writers-toolkit/write/links#about-version-substitution).
 
 Then add the link in the body of the file in the following format:
 

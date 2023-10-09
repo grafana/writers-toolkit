@@ -24,7 +24,7 @@ Choose your link type based on the applicable scenario:
 
 Other link types exist in our documentation but their usage is discouraged:
 
-- [`relref` shortcode](#relref-shortcode)
+- [Hugo `relref` shortcode](#hugo-relref-shortcode)
 
 ## Source content is reused in multiple projects
 
@@ -73,18 +73,11 @@ To convert a heading to an anchor, Hugo makes the following changes:
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
 
-## Relref shortcode
-
-Use:
-
-- the `relref` shortcode
-- partial URL with relative path
-
-For example: `{{</* relref "./path/to/page" */>}}`.
-
-### Build time link checking and Hugo error output
+## Hugo `relref` shortcode
 
 The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
+
+For example: `{{</* relref "./path/to/page" */>}}`.
 
 Hugo link checking only applies to the content available during the build.
 In most projects, the only content available during local builds and CI is the current project documentation,

@@ -66,9 +66,9 @@ Displays as:
 
 **Note:** The distributor only passes _valid_ data to the ingesters.
 
-## Links and references
+## Links
 
-For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links and cross references]({{< relref "../references" >}}).
+For information about creating links between topics inside and outside of a Grafana Labs repository, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 
 There are two forms of links in Markdown: inline and reference-style.
 

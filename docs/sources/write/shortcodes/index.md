@@ -128,6 +128,29 @@ Produces:
 Kingston is the capital of Jamaica.
 {{< /collapse >}}
 
+Use this shortcode for:
+
+- Deprecated content: Features that have been deprecated, but still need to be documented for some time.
+- Configuration options: Features that have several ways they can be configured.
+
+### Deprecation example
+
+```
+## BoltDB (deprecated)
+
+The following example is for a deprecated store and shouldn't be used for new Loki deployments:
+
+{{</* collapse title="boltdb-shipper" */>}}
+Also known as “boltdb-shipper” during development (and is still the schema store name). 
+The single store configurations for Loki utilize the chunk store for both chunks and the index, requiring just one store to run Loki.
+
+Performance is comparable to a dedicated index type while providing a much less expensive and less complicated deployment. 
+When using Single Store, no extra Chunk storage and Index storage are necessary.
+{{</* /collapse */>}}
+```
+
+### Configuration example
+
 You can't do the following with this shortcode:
 
 - Use these as page headings

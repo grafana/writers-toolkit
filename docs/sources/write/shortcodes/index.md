@@ -130,32 +130,74 @@ Kingston is the capital of Jamaica.
 
 Use this shortcode for:
 
-- Deprecated content: Features that have been deprecated, but still need to be documented for some time.
-- Configuration options: Features that have several ways they can be configured.
+- [Deprecated content](#deprecation-example): Features that have been deprecated, but still need to be documented for some time.
+- [Configuration options](#configuration-options-example): Features that have several ways they can be configured.
+
+Add a lead-in sentence and a title that, taken together, are descriptive enough for the reader to guess what's included in the collapsed content. Don't duplicate headings in the title parameter.
+
+You can't do the following with this shortcode:
+
+- Use them as page headings
+- Control the size of the title text
+- Add images or videos between the shortcode tags
 
 ### Deprecation example
 
 ```
-## BoltDB (deprecated)
+#### BoltDB (deprecated)
 
 The following example is for a deprecated store and shouldn't be used for new Loki deployments:
 
 {{</* collapse title="boltdb-shipper" */>}}
 Also known as “boltdb-shipper” during development (and is still the schema store name). 
 The single store configurations for Loki utilize the chunk store for both chunks and the index, requiring just one store to run Loki.
-
-Performance is comparable to a dedicated index type while providing a much less expensive and less complicated deployment. 
-When using Single Store, no extra Chunk storage and Index storage are necessary.
 {{</* /collapse */>}}
 ```
 
-### Configuration example
+Produces:
 
-You can't do the following with this shortcode:
+#### BoltDB (deprecated)
 
-- Use these as page headings
-- Control the size of the title text
-- Add images or videos between the shortcode tags
+The following example is for a deprecated store and shouldn't be used for new Loki deployments:
+
+{{< collapse title="boltdb-shipper" >}}
+Also known as “boltdb-shipper” during development (and is still the schema store name). 
+The single store configurations for Loki utilize the chunk store for both chunks and the index, requiring just one store to run Loki.
+{{< /collapse >}}
+
+### Configuration options example
+
+````
+#### 6-Compactor-Snippet.yaml
+
+The following partial configuration sets the compactor to use S3 and run the compaction every five minutes.
+Downloaded index files for compaction are stored in `/loki/compactor`.
+
+{{</* collapse title="Example" */>}}
+```yaml
+compactor:
+  working_directory: /tmp/loki/compactor
+  shared_store: s3
+  compaction_interval: 5m
+```
+{{</* /collapse */>}}
+````
+
+Produces:
+
+#### 6-Compactor-Snippet.yaml
+
+The following partial configuration sets the compactor to use S3 and run the compaction every 5 minutes.
+Downloaded index files for compaction are stored in `/loki/compactor`.
+
+{{< collapse title="Example" >}}
+```yaml
+compactor:
+  working_directory: /tmp/loki/compactor
+  shared_store: s3
+  compaction_interval: 5m
+```
+{{< /collapse >}}
 
 ## Docs/experimental-deployment
 

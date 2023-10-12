@@ -220,12 +220,12 @@ To share content, follow these steps:
 1. Store the file in a shared folder.
 1. To include the shared content in a Markdown file, insert the `docs/shared` shortcode with the following named parameters:
 
-| Parameter     | Description                                                                                                                                                                                                                                                                                                                                                              | Required |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                                                                               | yes      |
-| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                                                                         | yes      |
-| `version`     | Version of the source content to include. For source content that does not have a version, use the empty string `""` as the value. Version substitution is supported using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](https://grafana.com/docs/writers-toolkit/write/links#about-version-substitution). | yes      |
-| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                                                                        | no       |
+| Parameter     | Description                                                                                                                                                                                                                                                                                                          | Required |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                           | yes      |
+| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                     | yes      |
+| `version`     | Version of the source content to include. For source content that does not have a version, use the empty string `""` as the value. Version substitution is supported using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
+| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                    | no       |
 
 {{% admonition type="note" %}}
 Hugo doesn't rebuild the destination file when a source file changes on disk.
@@ -280,7 +280,11 @@ In this example, the image's display size is changed to have a maximum width of 
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
+<!-- vale Grafana.Spelling = NO -->
+
 ## Relref
+
+<!-- vale Grafana.Spelling = YES -->
 
 The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
 
@@ -425,9 +429,16 @@ The content within the shortcode tags is as follows:
 
 `[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
 
-- _`LABEL`_ - The label you'll use in the reference-style links in the file. In the example above, the label is `dashboards`. The label can be multiple words (for example, [dashboard docs]) and can include spaces.
-- _`PROJECT PATH PREFIX`_ - Designates the target project. In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-- _`REFERENCE`_ - The path to the destination file. Version substitution is supported using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](https://grafana.com/docs/writers-toolkit/write/links#about-version-substitution).
+- _`LABEL`_ - The label you'll use in the reference-style links in the file.
+  In the example above, the label is `dashboards`.
+  The label can be multiple words (for example, [dashboard docs]) and can include spaces.
+
+- _`PROJECT PATH PREFIX`_ - Designates the target project.
+  In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
+
+- _`REFERENCE`_ - The path to the destination file.
+  Version substitution is supported using values like `<GRAFANA VERSION>`.
+  To learn about version substitution, refer to [About version substitution](#about-version-substitution).
 
 Then add the link in the body of the file in the following format:
 
@@ -469,3 +480,18 @@ This Markdown renders as:
 ```markdown
 {{</* myshortcode */>}}
 ```
+
+## About version substitution
+
+Version substitution enables the use of absolute paths that resolve correctly, irrespective of version.
+It uses special syntax using angle bracket delimiters like `<GRAFANA VERSION>`.
+
+As a convention, use the name of the target project all upper-case.
+For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA CLOUD`.
+
+The special syntax `<SOMETHING VERSION>` is substituted by the version that is inferred from the page's URL.
+If the page's URL has the prefix `/docs/grafana/latest/`, the syntax `<SOMETHING VERSION>` is replaced by `latest` in the final URL.
+
+You can override version inference by including additional metadata in the front matter of the file.
+To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.
+For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA VERSION: next`.

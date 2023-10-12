@@ -4,13 +4,16 @@ description: Understand how to link between pages.
 weight: 600
 aliases:
   - /docs/writers-toolkit/write/links/
-  - /docs/writers-toolkit/writing-guide/references/
   - /docs/writers-toolkit/write/references/
+  - /docs/writers-toolkit/writing-guide/references/
 keywords:
   - Hugo
+  - link
+  - linking
+  - links
+  - ref
   - references
   - relref
-  - ref
 ---
 
 # Links
@@ -35,25 +38,51 @@ For more information and examples, refer to [`docs/reference` shortcode](https:/
 
 ## Destination page is on grafana.com
 
-Use a fully qualified URL with version substitution.
-For example, `https://grafana.com/docs/grafana/<GRAFANA VERSION>/`
+Use a fully qualified URL with version substitution syntax (if needed).
+Version substitution is necessary for fully qualified URLs to link to the correct version of documentation.
+Usually, this is the current version of documentation.
 
-Version substitution is necessary for links to resolve to the correct version of documentation.
-If you want to link to a specific version of documentation, you do not need to include the substitution syntax.
+### Examples
 
-### About version substitution
+**Link to Grafana documentation**:
 
-Version substitution enables the use of absolute paths that resolve correctly, irrespective of version.
-It uses special syntax using angle bracket delimiters like `<GRAFANA VERSION>`.
+Start with `https://grafana.com/docs/grafana/<GRAFANA VERSION>/`, and add the rest of the URL path.
+For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution,
+use `https://grafana.com/docs/grafana/<GRAFANA VERSION>/developers/`.
 
-As a convention, use the name of the target project all upper-case.
-For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA CLOUD`.
+- If you are from other documentation, `<GRAFANA VERSION>` is substituted with the value of `GRAFANA VERSION` set in the page's front matter.
 
-The special syntax `<SOMETHING VERSION>` is substituted by the version that is inferred from the page's URL.
+  Ensure that you set the appropriate version in the root `_index.md` file for your documentation.
+  The following YAML, merged with the existing front matter in the root `_index.md` file sets `GRAFANA VERSION` to be `latest` for that page and all child pages.
 
-You can override version inference by including additional metadata in the front matter of the file.
-To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.
-For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA VERSION: next`.
+  ```yaml
+  cascade:
+    GRAFANA VERSION: latest
+  ```
+
+**Link to Grafana Cloud documentation**:
+
+Grafana Cloud documentation is not versioned so no version substitution syntax is needed.
+Use the fully qualified URL.
+For example, to link to the [Author and run tests](https://grafana.com/docs/grafana-cloud/k6/author-run/) page, use `https://grafana.com/docs/grafana-cloud/k6/author-run/`.
+
+**Link to Mimir documentation**:
+
+Start with `https://grafana.com/docs/grafana/<MIMIR VERSION>/`, and add the rest of the URL path.
+For example, to link to the [Release notes](https://grafana.com/docs/mimir/latest/release-notes/) page with version substitution,
+use `https://grafana.com/docs/mimir/<MIMIR VERSION>/release-notes/`.
+
+- If you are linking from Mimir documentation, `<MIMIR VERSION>` is substituted with the version inferred from the page's URL.
+
+- If you are from other documentation, `<MIMIR VERSION>` is substituted with the value of `MIMIR VERSION` set in the page's front matter.
+
+  Ensure that you set the appropriate version in the root `_index.md` file for your documentation.
+  The following YAML, merged with the existing front matter in the root `_index.md` file sets `MIMIR VERSION` to be `latest` for that page and all child pages.
+
+  ```yaml
+  cascade:
+    MIMIR VERSION: latest
+  ```
 
 ## Destination page is external
 

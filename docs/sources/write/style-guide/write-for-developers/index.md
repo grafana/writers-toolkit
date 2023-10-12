@@ -78,23 +78,110 @@ Additional tips:
 Readers of documentation typically skim through it to find code samples they can copy and paste and run as is.
 Because of this and whenever possible, provide production-ready examples.
 
-However, it isn't necessary for every code example to be runnable in production. Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
+However, it isn't necessary for every code example to be runnable in production.
+Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
+Such examples should be clearly marked as partial.
 
 When providing an example, give a written description. You can put it either in the body of the document or as explanatory comments within the example code.
 
 Remember the basic rule: explain _why_ your code does what it does, rather than describe _what_ it does.
 For an in-depth, external resource about writing developer documentation, see [_Docs for Developers_](https://docsfordevelopers.com/).
 
-### Formatting code examples
+### Format code examples
 
-Here are guidelines to follow when formatting code examples.
+To format code examples, use the following guidelines.
 
-- Use spaces, not tabs.
-- Follow Grafana's accepted [coding style guidelines](https://github.com/grafana/grafana/blob/main/contribute/style-guides/).
-- Wrap lines at 80 characters.
-- When omitting code, use three dots (...). Don't use the ellipsis character (…).
+#### Configure syntax highlighting
 
-Introduce each code sample with a sentence or paragraph to establish its context. End the introduction with a colon if it immediately precedes the sample, or a period if it doesn't.
+In Markdown, an info string after the first three backticks is used to describe the language contained within.
+The website uses this information for syntax highlighting.
+
+To configure syntax highlighting for a JSON code example, refer to the following Markdown example:
+
+````markdown
+```json
+{ "key": "value" }
+```
+````
+
+Some common languages and their info strings are:
+
+- Go: `go`
+- JSON: `json`
+- PromQL: `promql`
+- River: `river`
+- Shell: `shell`
+- YAML: `yaml`
+
+#### Use appropriate whitespace for indentation
+
+Spaces (` `) are a good default but note that some languages use alternative indentation.
+For example, Makefiles and Go source code uses tabs (`	`) for indentation.
+
+Use 2 spaces unless there is a clearly established alternative convention.
+For example, Python generally uses 4 spaces for indentation.
+
+Above all else, be consistent with other Grafana documentation.
+
+#### Introduce each code sample with a sentence or paragraph to establish its context
+
+End the introduction with a colon (`:`) if it immediately precedes the sample, or a period (`.`) if it doesn't.
+
+#### Use the `code` shortcode for tabbed examples
+
+If you have the same example in multiple languages, use the [`code` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#code).
+The website presents the snippets in tabs and remembers the users preferred choice.
+
+### Format partial code examples
+
+Partial code examples are shorter and focus the reader on a specific area of the code.
+However, they require the user to integrate the partial code example with their existing configuration or other examples.
+
+In addition to the general guidance for formatting code examples, when working with partial code examples, use the following guidelines.
+
+#### Wherever possible, ensure the partial example is copy-pasteable
+
+In JSON or YAML, the partial example should be valid on its own.
+
+In programming language code examples, if the example can't be compiled on its own, make sure the snippet is a recognizable unit of a source file.
+
+Do not use an ellipsis (`…`) or three periods (`...`) to omit information.
+It breaks the readers ability to copy-paste the example and provides no additional context for the omission.
+Instead use the preceding sentences or valid code comments to clearly explain the scope of the example and what is omitted.
+
+For example:
+
+> The following YAML example demonstrates the configuration of a single port numbered `80` using the `TCP` protocol.
+>
+> It is part of a Kubernetes Service specification.
+> It is not a complete Service specification and must be incorporated with the rest of a Service specification.
+>
+> ```yaml
+> ports:
+>   - port: 80
+>     protocol: TCP
+> ```
+
+#### Explain how to integrate the example
+
+With YAML examples especially, it is important to explain how to integrate the example within a wide configuration.
+
+Explain which key the example is the value for.
+The following example extends the one in the previous section:
+
+> The following YAML example demonstrates the configuration of a single port numbered `80` using the `TCP` protocol.
+>
+> It is part of a Kubernetes Service specification.
+> It is not a complete Service specification and must be incorporated with the rest of a Service specification.
+>
+> To incorporate the example, you must include it as the value to the Service `spec` mapping.
+> If there is an existing `ports` value, you must choose to replace it or merge the two.
+>
+> ```yaml
+> ports:
+>   - port: 80
+>     protocol: TCP
+> ```
 
 ### Paths, filenames, and URLs
 

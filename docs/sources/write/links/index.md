@@ -46,18 +46,18 @@ Usually, this is the current version of documentation.
 
 **Link to Grafana documentation**:
 
-Start with `https://grafana.com/docs/grafana/<GRAFANA VERSION>/`, and add the rest of the URL path.
+Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path.
 For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution,
-use `https://grafana.com/docs/grafana/<GRAFANA VERSION>/developers/`.
+use `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/`.
 
-- If you are from other documentation, `<GRAFANA VERSION>` is substituted with the value of `GRAFANA VERSION` set in the page's front matter.
+- If you are from other documentation, `<GRAFANA_VERSION>` is substituted with the value of `GRAFANA_VERSION` set in the page's front matter.
 
   Ensure that you set the appropriate version in the root `_index.md` file for your documentation.
-  The following YAML, merged with the existing front matter in the root `_index.md` file sets `GRAFANA VERSION` to be `latest` for that page and all child pages.
+  The following YAML, merged with the existing front matter in the root `_index.md` file sets `GRAFANA_VERSION` to be `latest` for that page and all child pages.
 
   ```yaml
   cascade:
-    GRAFANA VERSION: latest
+    GRAFANA_VERSION: latest
   ```
 
 **Link to Grafana Cloud documentation**:
@@ -68,20 +68,20 @@ For example, to link to the [Author and run tests](https://grafana.com/docs/graf
 
 **Link to Mimir documentation**:
 
-Start with `https://grafana.com/docs/grafana/<MIMIR VERSION>/`, and add the rest of the URL path.
+Start with `https://grafana.com/docs/grafana/<MIMIR_VERSION>/`, and add the rest of the URL path.
 For example, to link to the [Release notes](https://grafana.com/docs/mimir/latest/release-notes/) page with version substitution,
-use `https://grafana.com/docs/mimir/<MIMIR VERSION>/release-notes/`.
+use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
 
-- If you are linking from Mimir documentation, `<MIMIR VERSION>` is substituted with the version inferred from the page's URL.
+- If you are linking from Mimir documentation, `<MIMIR_VERSION>` is substituted with the version inferred from the page's URL.
 
-- If you are from other documentation, `<MIMIR VERSION>` is substituted with the value of `MIMIR VERSION` set in the page's front matter.
+- If you are from other documentation, `<MIMIR_VERSION>` is substituted with the value of `MIMIR_VERSION` set in the page's front matter.
 
   Ensure that you set the appropriate version in the root `_index.md` file for your documentation.
-  The following YAML, merged with the existing front matter in the root `_index.md` file sets `MIMIR VERSION` to be `latest` for that page and all child pages.
+  The following YAML, merged with the existing front matter in the root `_index.md` file sets `MIMIR_VERSION` to be `latest` for that page and all child pages.
 
   ```yaml
   cascade:
-    MIMIR VERSION: latest
+    MIMIR_VERSION: latest
   ```
 
 ## Destination page is external

@@ -484,14 +484,14 @@ This Markdown renders as:
 ## About version substitution
 
 Version substitution enables the use of absolute paths that resolve correctly, irrespective of version.
-It uses special syntax using angle bracket delimiters like `<GRAFANA VERSION>`.
+It uses special syntax using angle bracket delimiters like `<GRAFANA_VERSION>`.
 
 As a convention, use the name of the target project all upper-case.
 For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA CLOUD`.
 
-The special syntax `<SOMETHING VERSION>` is substituted by the version that is inferred from the page's URL.
-If the page's URL has the prefix `/docs/grafana/latest/`, the syntax `<SOMETHING VERSION>` is replaced by `latest` in the final URL.
+The special syntax `<SOMETHING_VERSION>` is substituted by the version that is inferred from the page's URL.
+If the page's URL has the prefix `/docs/grafana/latest/`, the syntax `<SOMETHING_VERSION>` is replaced by `latest` in the final URL.
 
 You can override version inference by including additional metadata in the front matter of the file.
-To override the value of `<GRAFANA VERSION>`, set the `GRAFANA VERSION` parameter in the page's front matter.
-For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA VERSION: next`.
+To override the value of `<GRAFANA_VERSION>`, set the `GRAFANA_VERSION` parameter in the page's front matter.
+For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA_VERSION: next`.

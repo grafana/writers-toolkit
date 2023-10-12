@@ -280,6 +280,60 @@ In this example, the image's display size is changed to have a maximum width of 
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
+## Relref
+
+The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
+
+For example: `{{</* relref "./path/to/page" */>}}`.
+
+| Parameter  | Description      | Required |
+| ---------- | ---------------- | -------- |
+| position 0 | The file lookup. | yes      |
+
+Hugo link checking only applies to the content available during the build.
+In most projects, the only content available during local builds and CI is the current project documentation,
+so you should be aware that just because a link uses a `relref`, it doesn't automatically follow that the link can be checked.
+
+Emitted Hugo errors look like this:
+
+<!-- The output example is also used in review/run-a-local-webserver. -->
+
+{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
+
+For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/).
+
+### Determine `relref` shortcode arguments
+
+To determine the path between the source and destination content, do the following:
+
+Find the directory where the destination content lives.
+Find the directory that the source and destination directories have in common.
+Note the relative path from the common directory to the destination directory.
+Count the number of folders from the source to the common directory and that number equals the number of parent directory path elements (`..`) you need to add to your relative path.
+Join all the path elements together with forward slashes (`/`).
+
+For example, with the following folder structure:
+
+```
+Vehicles
+├── Trucks
+│   ├── F150
+│   └── 1999 F150
+└── Vans
+```
+
+In this case, the source content is in the `1999 F150` directory and the destination content is in the `Vans` directory.
+The common folder for the two pieces of content is the `Vehicles` directory.
+
+The parent directory of `1999 F150` is `Trucks`, requiring one `..` path element.
+To parent directory of `Trucks` is `Vehicles`, requiring another `..` path element.
+Therefore, the relative path from the source directory, `1999 F150`, and the common directory, `Vehicles`, is `../..`
+
+The pathway from the common directory `Vehicles` to destination directory `Vans` is `vans`
+The relative path is `../../vans`
+
+If the source directory was `Vans` and the destination was `1999 F150`, the relative path would be `../trucks/F150/1999-F150`.
+
 ## Responsive-table
 
 The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.

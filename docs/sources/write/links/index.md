@@ -22,9 +22,9 @@ Choose your link type based on the applicable scenario:
 - [Linking to external pages](#destination-page-is-external)
 - [Linking to page headings](#anchors)
 
-Other link types exist in our documentation but their usage is discouraged:
+Other link types exist in our documentation, but you shouldn't use them:
 
-- [Hugo `relref` shortcode](#hugo-relref-shortcode)
+- [Hugo `relref` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#relref)
 
 ## Source content is reused in multiple projects
 
@@ -72,53 +72,3 @@ To convert a heading to an anchor, Hugo makes the following changes:
 1. Remove any period characters (`.`).
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
-
-## Hugo `relref` shortcode
-
-The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
-
-For example: `{{</* relref "./path/to/page" */>}}`.
-
-Hugo link checking only applies to the content available during the build.
-In most projects, the only content available during local builds and CI is the current project documentation,
-so you should be aware that just because a link uses a `relref`, it doesn't automatically follow that the link can be checked.
-
-Emitted Hugo errors look like this:
-
-<!-- The output example is also used in review/run-a-local-webserver. -->
-
-{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
-
-For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/).
-
-### Determine `relref` shortcode arguments
-
-To determine the path between the source and destination content, do the following:
-
-Find the directory where the destination content lives.
-Find the directory that the source and destination directories have in common.
-Note the relative path from the common directory to the destination directory.
-Count the number of folders from the source to the common directory and that number equals the number of parent directory path elements (`..`) you need to add to your relative path.
-Join all the path elements together with forward slashes (`/`).
-
-For example, with the following folder structure:
-
-```
-Vehicles
-├── Trucks
-│   ├── F150
-│   └── 1999 F150
-└── Vans
-```
-
-In this case, the source content is in the `1999 F150` directory and the destination content is in the `Vans` directory.
-The common folder for the two pieces of content is the `Vehicles` directory.
-
-The parent directory of `1999 F150` is `Trucks`, requiring one `..` path element.
-To parent directory of `Trucks` is `Vehicles`, requiring another `..` path element.
-Therefore, the relative path from the source directory, `1999 F150`, and the common directory, `Vehicles`, is `../..`
-
-The pathway from the common directory `Vehicles` to destination directory `Vans` is `vans`
-The relative path is `../../vans`
-
-If the source directory was `Vans` and the destination was `1999 F150`, the relative path would be `../trucks/F150/1999-F150`.

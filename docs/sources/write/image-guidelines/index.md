@@ -54,7 +54,7 @@ Use the following standards for images and diagrams:
   If it is, you must obtain permission and acknowledge credit.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
-- **Alt text and figure captions**: Make sure to include alt text for every image. Figure captions are optional.
+- **Alt text and figure captions**: Make sure to include [alt text](#alt-text) for every image. Figure captions are optional.
 
 ### Diagram assets
 
@@ -120,7 +120,7 @@ Consult the following guidelines when you create screenshots:
 - **Annotations**: To annotate a screenshot, use red (hexadecimal color **FF0000**) arrows and boxes.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
-- **Alt text**: Make sure to include alt text for every image.
+- **Alt text**: Make sure to include [alt text](#alt-text) for every image.
 
 ## Media asset file naming conventions
 

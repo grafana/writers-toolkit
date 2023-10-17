@@ -88,7 +88,7 @@ To reuse shared content, follow these steps:
    {{</* docs/shared source="tempo" lookup="common-introduction.md" version="latest" */>}}
    ```
 
-   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "../../shortcodes#docsshared-shortcode" >}}).
+   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "../../shortcodes#docsshared" >}}).
 
 1. Verify the include.
 

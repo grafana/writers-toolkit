@@ -29,7 +29,8 @@ We're glad you're here to help make our technical documentation even better. We 
 
 By creating Writers’ Toolkit, we want to empower everyone to create technical documentation that is consistent and applies the voice and tone we use at Grafana Labs so that our documentation is truly a reflection of who we are.
 
-Writers’ Toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana Labs. Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
+Writers’ Toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana Labs.
+Use it as the source of truth for voice and tone, grammar and style, templates, and much, much more.
 
 We write our documentation using U.S. English.
 

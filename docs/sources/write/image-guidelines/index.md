@@ -225,6 +225,7 @@ The following table lists the steps you take to provide the Grafana Labs technic
 </li>
 <li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.</li>
 <li>Find or create a directory under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
+<li>Use a free image optimizer (<a href="https://tinypng.com/">TinyPNG</a>, for example) to decrease the image file size.</li>
 <li>Browse and select assets to upload.</li>
 <li>Click <strong>Upload</strong>.</li>
 <li>The asset will immediately be available under https://grafana.com/media/ in the directory where it was uploaded.</li>

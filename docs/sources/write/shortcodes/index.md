@@ -269,6 +269,9 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 | `max-width`     | If set, `_max-width_` controls the maximum width of the `<figure>` element using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement, for example `"75px"` or `"25%"`. | no       |
 | `show-caption`  | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in _caption_. Defaults to `"true"`.                                                                                                                                                          | no       |
 | `src`           | Sets the source of the image.                                                                                                                                                                                                                                                                   | yes      |
+{{% admonition type="note" %}}
+Including the original image dimensions as the 'width' and 'height' properties is highly recommended, as it improves page performance and SEO. These values are _only_ used for determining the image aspect ratio and don't equate to the final displayed size.
+{{% /admonition %}}
 
 ### Example
 

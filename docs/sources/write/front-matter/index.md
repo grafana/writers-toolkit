@@ -173,9 +173,15 @@ Only certain labels are supported.
 
 For `labels.products`, the supported values and the resulting published labels are as follows:
 
-- `cloud`: "Grafana Cloud"
-- `enterprise`: "Enterprise"
-- `oss`: "Open source"
+- `cloud`: <span class="badge docs-labels__product-cloud docs-labels__item">Grafana Cloud</span>
+- `enterprise`: <span class="badge docs-labels__product-enterprise docs-labels__item">Enterprise</span>
+- `oss`: <span class="badge docs-labels__product-oss docs-labels__item">Open source</span>
+
+For `labels.stages`, the supported values and the resulting published labels are as follows:
+
+- `beta`: <span class="badge docs-labels__stage docs-labels__item">Beta</span>
+- `alpha`: <span class="badge docs-labels__stage docs-labels__item">Alpha</span>
+- `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
 
 Labels can be inherited through cascading front matter.
 Each project has a set of default labels that are defined in the root `_index.md` file of the project.

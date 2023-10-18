@@ -149,7 +149,7 @@ You can't do the following with this shortcode:
 The following example is for a deprecated store and shouldn't be used for new Loki deployments:
 
 {{</* collapse title="boltdb-shipper" */>}}
-Also known as “boltdb-shipper” during development (and is still the schema store name).
+Also known as _boltdb-shipper_ during development (and is still the schema store name).
 The single store configurations for Loki utilize the chunk store for both chunks and the index, requiring just one store to run Loki.
 {{</* /collapse */>}}
 ```
@@ -161,7 +161,7 @@ Produces:
 The following example is for a deprecated store and shouldn't be used for new Loki deployments:
 
 {{< collapse title="boltdb-shipper" >}}
-Also known as “boltdb-shipper” during development (and is still the schema store name).
+Also known as _boltdb-shipper_ during development (and is still the schema store name).
 The single store configurations for Loki to utilize the chunk store for both chunks and the index, which requires just one store to run Loki.
 {{< /collapse >}}
 
@@ -174,12 +174,14 @@ The following partial configuration sets the compactor to use S3 and run the com
 Downloaded index files for compaction are stored in `/loki/compactor`.
 
 {{</* collapse title="Example" */>}}
+
 ```yaml
 compactor:
   working_directory: /tmp/loki/compactor
   shared_store: s3
   compaction_interval: 5m
 ```
+
 {{</* /collapse */>}}
 ````
 

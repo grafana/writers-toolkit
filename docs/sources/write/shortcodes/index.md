@@ -288,12 +288,10 @@ In this example, the image's display size is changed to have a maximum width of 
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-In this example, the image's display size is changed to have a width of 500px, and the `class` and `link-class` properties are used to center the image on the page. The `width` value must have a unit of measurement, such as pixels or percentages.
+In this example, the image's display size is changed to have a maximum width of 500px, and the `class` and `link-class` properties are used to center the image on the page. The original `width` and `height` values from the image are included without any unit of measurement (such as pixels or percentages).
 
 ```markdown
-{{</* figure width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
-```
-
+{{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ## Responsive-table
 
 The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.

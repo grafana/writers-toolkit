@@ -16,6 +16,12 @@
 #
 # - Ability to enter the `grafana/docs-base` container with a shell using the `ENTER` environment variable.
 #
+# ### Fixed
+#
+# - Correct key combination for interrupting the process.
+#
+#   Keyboards use capital letters so this more accurately reflects the exact key combination users are expected to press.
+#
 # ### Removed
 #
 # - Imperfect implementation of container name.
@@ -501,7 +507,7 @@ POSIX_HERESTRING
         fi
       done
       echo
-      echo 'Press Ctrl+c to stop the server'
+      echo 'Press Ctrl+C to stop the server'
 
       unset i max req url
       return
@@ -510,7 +516,7 @@ POSIX_HERESTRING
 
   echo
   errr 'The build was interrupted or a build error occurred, check the previous logs for possible causes.'
-  note 'You might need to use Ctrl+c to end the process.'
+  note 'You might need to use Ctrl+C to end the process.'
 
   unset i max req url
 }

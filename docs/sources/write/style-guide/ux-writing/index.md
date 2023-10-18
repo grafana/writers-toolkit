@@ -83,7 +83,7 @@ Use active voice to make clear who is performing the action.
 
 ### Use sentence case in UI elements
 
-Capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns.
+Capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns (people, places, products).
 
 **Use:**
 

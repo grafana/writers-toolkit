@@ -59,7 +59,7 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
 ### Example
 
 {{% admonition type="note" %}}
-If your repository uses `prettier` to format the files, use the HTML comments `&lt;!-- prettier-ignore-start --&gt;` and `&lt;!-- prettier-ignore-end --&gt;` around the shortcode tags to ensure correct rendering.
+If your repository uses `prettier` to format the files, use the HTML comments `<!-- prettier-ignore-start -->` and `<!-- prettier-ignore-end -->` around the shortcode tags to ensure correct rendering.
 {{% /admonition %}}
 
 <!-- prettier-ignore-start -->

@@ -8,10 +8,14 @@
 #
 # ## 4.3.0 (2023-10-18)
 #
-# - Removed container name
+# - Removed container name.
 
 #   Faciliates running `make vale` and `make docs` at once.
 #   Container names are convenient for recognition in `docker ps` but the current implementation has more downsides than upsides.
+#
+# - Improved support for website repository.
+#
+#   Mount more content and provide some feedback to users that the build can take time.
 #
 # ## 4.2.2 (2023-10-05)
 
@@ -244,7 +248,7 @@ PATHS_helm_charts_mimir_distributed='docs/sources/helm-charts/mimir-distributed'
 PATHS_helm_charts_tempo_distributed='docs/sources/helm-charts/tempo-distributed'
 PATHS_mimir='docs/sources/mimir'
 PATHS_tempo='docs/sources/tempo'
-PATHS_website='content/docs'
+PATHS_website='content'
 
 # identifier STR
 # Replace characters that are not valid in an identifier with underscores.
@@ -342,7 +346,7 @@ $1
 POSIX_HERESTRING
 
   if [ "${_project}" = 'website' ]; then
-    echo '/hugo/content/docs'
+    echo '/hugo/content'
 
     unset _project _version
     return
@@ -525,10 +529,12 @@ for arg in "$@"; do
 ${arg}
 POSIX_HERESTRING
   if [ "${_project}" = website ]; then
+    note "Please be patient, building the website can take some time."
+
     _repo="$(repo_path website)"
     volumes="--volume=${_repo}/config:/hugo/config"
-    volumes="${volumes} --volume=${_repo}/layouts/partials:/hugo/layouts/partials"
-    volumes="${volumes} --volume=${_repo}/layouts/shortcodes:/hugo/layouts/shortcodes"
+    volumes="${volumes} --volume=${_repo}/layouts:/hugo/layouts"
+    volumes="${volumes} --volume=${_repo}/scripts:/hugo/scripts"
   fi
   unset _project _repo
 done

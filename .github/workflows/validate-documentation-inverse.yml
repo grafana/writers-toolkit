@@ -15,3 +15,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - run: echo 'No build required'
+  report-readability:
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo 'No build required'

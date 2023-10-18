@@ -284,6 +284,12 @@ In Markdown, the alt text is the text in square brackets when declaring an image
 ![Alt text](/media/<path-to-image/image-file.png>)
 ```
 
+Or, if you're using the `figure` [shortcode]({{< relref "../shortcodes#figure" >}}), you can use the `alt` parameter:
+
+```markdown
+{{</* figure alt="Alt text"  src="/media/<path-to-image/image-file.png>" */>}}
+```
+
 Every image that you add to the Grafana documentation should have an alt text.
 
 A good piece of guidance for writing good alt text from "[HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)" is:

@@ -6,7 +6,7 @@
 # [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 # Changes are relevant to this script and the support docs.mk GNU Make interface.
 #
-# ## 4.3.0 (2023-10-18)
+# ## 5.0.0 (2023-10-18)
 #
 # ### Added
 #
@@ -19,10 +19,13 @@
 # ### Removed
 #
 # - Imperfect implementation of container name.
-
+#
 #   Faciliates running `make vale` and `make docs` at once.
 #   Container names are convenient for recognition in `docker ps` but the current implementation has more downsides than upsides.
 #
+# - Forced platform specification now that multiple architecture images exist.
+#
+#  Significantly speeds up build times on larger repositories.
 #
 # ## 4.2.2 (2023-10-05)
 
@@ -647,7 +650,6 @@ ${PODMAN} run \
   --env=HUGO_REFLINKSERRORLEVEL=${HUGO_REFLINKSERRORLEVEL} \
   --init \
   --interactive \
-  --platform=linux/amd64 \
   --publish=${DOCS_HOST_PORT}:3002 \
   --publish=3003:3003 \
   --rm \

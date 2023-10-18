@@ -292,6 +292,8 @@ In this example, the image's display size is changed to have a maximum width of 
 
 ```markdown
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
+```
+
 ## Responsive-table
 
 The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.

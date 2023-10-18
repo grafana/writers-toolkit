@@ -8,14 +8,21 @@
 #
 # ## 4.3.0 (2023-10-18)
 #
-# - Removed container name.
-
-#   Faciliates running `make vale` and `make docs` at once.
-#   Container names are convenient for recognition in `docker ps` but the current implementation has more downsides than upsides.
+# ### Added
 #
 # - Improved support for website repository.
 #
 #   Mount more content and provide some feedback to users that the build can take time.
+#
+# - Ability to enter the `grafana/docs-base` container with a shell using the `ENTER` environment variable.
+#
+# ### Removed
+#
+# - Imperfect implementation of container name.
+
+#   Faciliates running `make vale` and `make docs` at once.
+#   Container names are convenient for recognition in `docker ps` but the current implementation has more downsides than upsides.
+#
 #
 # ## 4.2.2 (2023-10-05)
 
@@ -646,26 +653,31 @@ ${PODMAN} run \
   --rm \
   --tty \
   ${volumes} \
-  ${DOCS_IMAGE} \
-  /entrypoint
+  ${DOCS_IMAGE}
 EOF
-    await_build http://localhost:3003 &
 
-    if [ -n "${DEBUG}" ]; then
-      ${cmd}
+    if [ -n "${ENTER}" ]; then
+      ${cmd} /bin/bash
+    elif [ -n "${DEBUG}" ]; then
+      await_build http://localhost:3003 &
+
+      ${cmd} /entrypoint
     else
-      ${cmd} 2>&1| sed \
-                     -e '/Web Server is available at http:\/\/localhost:3003\/ (bind address 0.0.0.0)/ d' \
-                     -e '/^hugo server/ d' \
-                     -e '/fatal: not a git repository (or any parent up to mount point \/)/ d' \
-                     -e '/Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set)./ d' \
-                     -e "/Makefile:[0-9]*: warning: overriding recipe for target 'docs'/ d" \
-                     -e "/docs.mk:[0-9]*: warning: ignoring old recipe for target 'docs'/ d" \
-                     -e '/\/usr\/bin\/make -j 2 proxy hserver-docs HUGO_PORT=3003/ d' \
-                     -e '/website-proxy/ d' \
-                     -e '/rm -rf dist*/ d' \
-                     -e '/Press Ctrl+C to stop/ d' \
-                     -e '/make/ d' || echo
+      await_build http://localhost:3003 &
+
+      ${cmd} /entrypoint  2>&1\
+        | sed -u \
+              -e '/Web Server is available at http:\/\/localhost:3003\/ (bind address 0.0.0.0)/ d' \
+              -e '/^hugo server/ d' \
+              -e '/fatal: not a git repository (or any parent up to mount point \/)/ d' \
+              -e '/Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set)./ d' \
+              -e "/Makefile:[0-9]*: warning: overriding recipe for target 'docs'/ d" \
+              -e "/docs.mk:[0-9]*: warning: ignoring old recipe for target 'docs'/ d" \
+              -e '/\/usr\/bin\/make -j 2 proxy hserver-docs HUGO_PORT=3003/ d' \
+              -e '/website-proxy/ d' \
+              -e '/rm -rf dist*/ d' \
+              -e '/Press Ctrl+C to stop/ d' \
+              -e '/make/ d'
     fi
     ;;
 esac

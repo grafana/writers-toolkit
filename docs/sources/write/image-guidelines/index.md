@@ -276,7 +276,7 @@ It is important that you generate a local build of your docs so that you can ver
 
 ## Alt text
 
-Alt text is an HTML attribute that you can use to provide a concise description of an image. The text is used in situations where the image isn't visible, such as people using screen readers, or people who have a low-bandwidth internet connection.
+Alt text is an HTML attribute that you can use to provide a concise description of an image. The text is used in situations where the image isn't visible, such as when people use screen readers or have a low-bandwidth internet connection.
 
 In Markdown, the alt text is the text in square brackets when declaring an image:
 
@@ -286,7 +286,7 @@ In Markdown, the alt text is the text in square brackets when declaring an image
 
 Every image that you add to the Grafana documentation should have an alt text.
 
-A good guidance for writing good alt text from "[HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)" is:
+A good piece of guidance for writing good alt text from "[HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)" is:
 
 > "One way to think of alternative text is to think about how you would read the page containing the image to someone over the phone, without mentioning that there is an image present. Whatever you say instead of the image is typically a good start for writing the alternative text."
 

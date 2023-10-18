@@ -288,11 +288,19 @@ In this example, the image's display size is changed to have a maximum width of 
 
 The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
 
-For example: `{{</* relref "./path/to/page" */>}}`.
+For example: `{{</* relref "./path/to/file" */>}}`.
 
 | Parameter  | Description      | Required |
 | ---------- | ---------------- | -------- |
 | position 0 | The file lookup. | yes      |
+
+The argument is an absolute or relative file lookup.
+An absolute lookup begins with a slash (`/`) and starts from the site root.
+For example, to link to the Grafana Cloud index page, the `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud/_index.md" >}}`.
+
+Using the full path to file, including the extension, can break the lookup if the destination file changes from a page to a leaf or branch bundle.
+To avoid this, omit the file extension and any `/_index` or `/index` part of the lookup.
+Using the previous example of the Grafana Cloud index page, the preferred `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud" >}}`.
 
 Hugo link checking only applies to the content available during the build.
 In most projects, the only content available during local builds and CI is the current project documentation,

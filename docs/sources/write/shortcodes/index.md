@@ -286,6 +286,11 @@ In this example, the image's display size is changed to have a maximum width of 
 
 <!-- vale Grafana.Spelling = YES -->
 
+{{% admonition type="warning" %}}
+This shortcode is present in the documentation, but is being deprecated in favor of fully qualified URLs.
+Don't use it when creating new or updating existing documentation.
+{{% /admonition %}}
+
 The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
 
 For example: `{{</* relref "./path/to/file" */>}}`.

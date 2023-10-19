@@ -91,13 +91,14 @@ For example, `https://github.com`.
 
 ## Link to page headings
 
-In a reference, you can optionally include an anchor to a heading in the referenced page.
-Specify and anchor at the end of the reference `#` followed by the normalized heading.
+You can optionally include an anchor to link to a specific heading in the destination page.
 
-Hugo normalizes headings to make anchors.
-To convert a heading to an anchor, Hugo makes the following changes:
+To convert a heading to an anchor, make the following changes:
 
 1. Convert to lower case.
 1. Remove any period characters (`.`).
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
 1. Trim any preceding or proceeding dashes (`-`).
+1. Prefix with a `#`.
+
+The heading "Link to page headings" becomes the anchor `#link-to-page-headings`.

@@ -54,6 +54,7 @@ Use the following standards for images and diagrams:
   If it is, you must obtain permission and acknowledge credit.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
+- **Alt text and figure captions**: Make sure to include [alt text](#alt-text) for every image. Figure captions are optional.
 
 ### Diagram assets
 
@@ -119,6 +120,7 @@ Consult the following guidelines when you create screenshots:
 - **Annotations**: To annotate a screenshot, use red (hexadecimal color **FF0000**) arrows and boxes.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
+- **Alt text**: Make sure to include [alt text](#alt-text) for every image.
 
 ## Media asset file naming conventions
 
@@ -271,6 +273,35 @@ It is important that you generate a local build of your docs so that you can ver
 
 1. Run `make docs` on your branch and verify that the image appears.
 1. (Optional) Upload a new version and test again.
+
+## Alt text
+
+Alt text is an HTML attribute that you can use to provide a concise description of an image. The text is used in situations where the image isn't visible, such as when people use screen readers or have a low-bandwidth internet connection.
+
+In Markdown, the alt text is the text in square brackets when declaring an image:
+
+```markdown
+![Alt text](/media/<path-to-image/image-file.png>)
+```
+
+Or, if you're using the `figure` [shortcode]({{< relref "../shortcodes#figure" >}}), you can use the `alt` parameter:
+
+```markdown
+{{</* figure alt="Alt text"  src="/media/<path-to-image/image-file.png>" */>}}
+```
+
+Every image that you add to the Grafana documentation should have an alt text.
+
+A good piece of guidance for writing good alt text from "[HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)" is:
+
+> "One way to think of alternative text is to think about how you would read the page containing the image to someone over the phone, without mentioning that there is an image present. Whatever you say instead of the image is typically a good start for writing the alternative text."
+
+For more information about how to write good alt text, refer to:
+
+- [Google developer documentation style guide](https://developers.google.com/style/images#alt-text)
+- [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)
+- [gov.uk Design102 blog: What’s the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
+- [W3C Web Accessibility Initiative: An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
 
 ## Screen recordings
 

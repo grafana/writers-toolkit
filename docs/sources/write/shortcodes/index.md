@@ -26,7 +26,7 @@ The Grafana shortcode templates are defined in the `layouts/shortcodes` folder o
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 {{% /admonition %}}
 
-## `admonition` shortcode
+## Admonition
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
 The style depends on the admonition type as defined in Writers' Toolkit [Style conventions]({{< relref "../style-guide/style-conventions" >}}).
@@ -52,14 +52,14 @@ Kingston is the capital of Jamaica.
 {{%/* /admonition */%}}
 ```
 
-## `code` shortcode
+## Code
 
 The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across navigation.
 
 ### Example
 
 {{% admonition type="note" %}}
-If your repository uses `prettier` to format the files, use the HTML comments `&lt;!-- prettier-ignore-start --&gt;` and `&lt;!-- prettier-ignore-end --&gt;` around the shortcode tags to ensure correct rendering.
+If your repository uses `prettier` to format the files, use the HTML comments `<!-- prettier-ignore-start -->` and `<!-- prettier-ignore-end -->` around the shortcode tags to ensure correct rendering.
 {{% /admonition %}}
 
 <!-- prettier-ignore-start -->
@@ -106,7 +106,7 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 ````
 <!-- prettier-ignore-end -->
 
-## `collapse` shortcode
+## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
 
@@ -128,13 +128,82 @@ Produces:
 Kingston is the capital of Jamaica.
 {{< /collapse >}}
 
+Use this shortcode for:
+
+- [Deprecated content](#deprecation-example): Features that have been deprecated, but still need to be documented for some time.
+- [Configuration options](#configuration-options-example): Features that have several ways they can be configured.
+
+Add a lead-in sentence and a title that, taken together, are descriptive enough for the reader to guess what's included in the collapsed content. Don't duplicate headings in the title parameter.
+
 You can't do the following with this shortcode:
 
-- Use these as page headings
+- Use them as page headings
 - Control the size of the title text
 - Add images or videos between the shortcode tags
 
-## `docs/experimental-deployment` shortcode
+### Deprecation example
+
+```markdown
+#### BoltDB (deprecated)
+
+The following example is for a deprecated store and shouldn't be used for new Loki deployments:
+
+{{</* collapse title="boltdb-shipper" */>}}
+Also known as _boltdb-shipper_ during development (and is still the schema store name).
+The single store configurations for Loki utilize the chunk store for both chunks and the index, requiring just one store to run Loki.
+{{</* /collapse */>}}
+```
+
+Produces:
+
+#### BoltDB (deprecated)
+
+The following example is for a deprecated store and shouldn't be used for new Loki deployments:
+
+{{< collapse title="boltdb-shipper" >}}
+Also known as _boltdb-shipper_ during development (and is still the schema store name).
+The single store configurations for Loki to utilize the chunk store for both chunks and the index, which requires just one store to run Loki.
+{{< /collapse >}}
+
+### Configuration options example
+
+````markdown
+#### 6-Compactor-Snippet.yaml
+
+The following partial configuration sets the compactor to use S3 and run the compaction every five minutes.
+Downloaded index files for compaction are stored in `/loki/compactor`.
+
+{{</* collapse title="Example" */>}}
+
+```yaml
+compactor:
+  working_directory: /tmp/loki/compactor
+  shared_store: s3
+  compaction_interval: 5m
+```
+
+{{</* /collapse */>}}
+````
+
+Produces:
+
+#### 6-Compactor-Snippet.yaml
+
+The following partial configuration sets the compactor to use Amazon S3 and runs the compaction every 5 minutes.
+Downloaded index files for compaction are stored in `/loki/compactor`.
+
+{{< collapse title="Example" >}}
+
+```yaml
+compactor:
+  working_directory: /tmp/loki/compactor
+  shared_store: s3
+  compaction_interval: 5m
+```
+
+{{< /collapse >}}
+
+## Docs/experimental-deployment
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.
 
@@ -150,7 +219,7 @@ Produces:
 
 {{< docs/experimental-deployment >}}
 
-## `docs/experimental` shortcode
+## Docs/experimental
 
 The `docs/experimental` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is experimental.
 
@@ -169,7 +238,7 @@ Produces:
 
 {{< docs/experimental product="experimental-feature" featureFlag="its-feature-flag" >}}
 
-## `docs/private-preview` shortcode
+## Docs/private-preview
 
 The `docs/private-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in private preview.
 
@@ -185,7 +254,7 @@ Produces:
 
 {{< docs/private-preview product="private-preview-feature" >}}
 
-## `docs/public-preview` shortcode
+## Docs/public-preview
 
 The `docs/public-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in public preview.
 
@@ -210,7 +279,7 @@ Produces:
 
 {{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
-## `docs/shared` shortcode
+## Docs/shared
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory.
 
@@ -247,7 +316,7 @@ Headings are offset by one level, so if the source content contains an `h1`, the
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM VERSION>" leveloffset="+1" */>}}
 ```
 
-## `figure` shortcode
+## Figure
 
 The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide#images" >}}).
 
@@ -280,7 +349,7 @@ In this example, the image's display size is changed to have a maximum width of 
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-## `responsive-table` shortcode
+## Responsive-table
 
 The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.
 This results in a table with horizontal scrolling that is fixed to the width of the containing element.
@@ -297,7 +366,7 @@ Without the `responsive-table` shortcode, a table can often overflow its contain
 {{%/* /responsive-table */%}}
 ```
 
-## `section` shortcode
+## Section
 
 The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameters:
 
@@ -322,7 +391,7 @@ The following shortcode inserts a lists of links to child pages and includes the
 {{</* section withDescriptions="true"*/>}}
 ```
 
-## `term` shortcode
+## Term
 
 The `term` shortcode enables a tooltip when a user hovers above text surrounded by the shortcode.
 
@@ -348,7 +417,7 @@ If you are a Grafana Labs employee and want to make changes, edit [`glossary.yam
 For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
 For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
 
-## `docs/reference` shortcode
+## Docs/reference
 
 The `docs/reference` shortcode offers more flexible linking than the Hugo built-in `relref` shortcode.
 

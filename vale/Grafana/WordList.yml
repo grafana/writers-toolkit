@@ -23,6 +23,8 @@ swap:
   "[^/]grafana[^/]": Grafana
   "[cC]entos": CentOS
   "[cC]ontact support": contact Support
+  "back[ -]end": backend
+  "front[ -]end": frontend
   "left[- ]hand[- ]side": left-side
   "right[- ]hand[- ]side": right-side
   "tap (?:&|and) hold": touch and hold

@@ -71,9 +71,12 @@ For example, to link to the [Author and run tests](https://grafana.com/docs/graf
 **Link to Mimir documentation**:
 
 Start with `https://grafana.com/docs/grafana/<MIMIR_VERSION>/`, and add the rest of the URL path.
+
 For example, to link to the [Release notes](https://grafana.com/docs/mimir/latest/release-notes/) page with version substitution,
 use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
 
+- If you're linking from Mimir documentation, `<MIMIR_VERSION>` is substituted with the version inferred from the page's URL.
+- If you're linking from other documentation, `<MIMIR_VERSION>` is substituted with the value of `MIMIR_VERSION` set in the page's front matter.
 
 ## Link to external pages
 

@@ -20,23 +20,23 @@ keywords:
 
 Choose your link type based on the applicable scenario:
 
-- [Linking from source content that's used (or mounted) in multiple projects](#source-content-is-reused-in-multiple-projects)
-- [Linking to grafana.com pages](#destination-page-is-on-grafanacom)
-- [Linking to external pages](#destination-page-is-external)
-- [Linking to page headings](#anchors)
+- [Link from source content that's used in multiple projects](#link-from-source-content-thats-used-in-multiple-projects)
+- [Link to grafana.com pages](#link-to-grafanacom-pages)
+- [Link to external pages](#link-to-external-pages)
+- [Link to page headings](#link-to-page-headings)
 
 Other link types exist in our documentation, but you shouldn't use them:
 
 - [Hugo `relref` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#relref)
 
-## Source content is reused in multiple projects
+## Link from source content that's used in multiple projects
 
 Use the `docs/reference` shortcode.
 
 The source is reused as described in [Reuse directories of content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-directories/).
 For more information and examples, refer to [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
 
-## Destination page is on grafana.com
+## Link to grafana.com pages
 
 Use a fully qualified URL with version substitution syntax (if needed).
 Version substitution is necessary for fully qualified URLs to link to the correct version of documentation.
@@ -84,12 +84,12 @@ use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
     MIMIR_VERSION: latest
   ```
 
-## Destination page is external
+## Link to external pages
 
 Use the fully qualified URL.
 For example, `https://github.com`.
 
-## Anchors
+## Link to page headings
 
 In a reference, you can optionally include an anchor to a heading in the referenced page.
 Specify and anchor at the end of the reference `#` followed by the normalized heading.

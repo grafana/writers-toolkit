@@ -466,15 +466,14 @@ For more information about Grafana dashboards, refer to the [Dashboards document
 
 ### Other use cases
 
-The `docs/reference` shortcode is also useful when you want to link to the same destination multiple times in one file.
-It allows you to specify the link destination once while you use the label multiple times. For example:
+Markdown reference-style links are also useful when you want to link to the same destination multiple times in one file.
+It allows you to specify the link destination once while you use the label multiple times.
+For example:
 
 **Reference:**
 
 ```markdown
-{{%/* docs/reference */%}}
-[Grafana website]: "/ -> www.grafana.com"
-{{%/* /docs/reference */%}}
+[Grafana website]: www.grafana.com
 ```
 
 **Body text:**

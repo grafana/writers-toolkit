@@ -30,7 +30,7 @@ This page is a work in progress.
 
 **data source** - Use this rather than _datasource_ for the noun form.
 
-When refering to the plugin specifically, use _data source plugin_ rather than _data-source plugin_.
+Also, use _data source plugin_ rather than _data-source plugin_.
 
 **drop-down** - Use this rather than _dropdown_ or _drop down_.
 

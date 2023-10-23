@@ -60,7 +60,7 @@ For example, to link to the [Developers](https://grafana.com/docs/grafana/latest
 use `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/`.
 
 - If you're linking from Grafana documentation, `<GRAFANA_VERSION>` is substituted with the version inferred from the page's URL.
-- If you're linking from other documentation, `<GRAFANA_VERSION>` is substituted with the value of `GRAFANA_VERSION` set in the page's front matter.
+- If you're linking from other documentation, `<GRAFANA_VERSION>` is substituted with the value of `GRAFANA_VERSION` from the source page's front matter.
 
 **Link to Grafana Cloud documentation**:
 
@@ -76,7 +76,7 @@ For example, to link to the [Release notes](https://grafana.com/docs/mimir/lates
 use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
 
 - If you're linking from Mimir documentation, `<MIMIR_VERSION>` is substituted with the version inferred from the page's URL.
-- If you're linking from other documentation, `<MIMIR_VERSION>` is substituted with the value of `MIMIR_VERSION` set in the page's front matter.
+- If you're linking from other documentation, `<MIMIR_VERSION>` is substituted with the value of `MIMIR_VERSION` from the source page's front matter.
 
 ## Link to external pages
 

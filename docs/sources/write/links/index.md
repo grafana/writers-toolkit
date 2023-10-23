@@ -85,7 +85,19 @@ For example, `https://github.com`.
 
 ## Link to page headings
 
-You can optionally include an anchor to link to a specific heading in the destination page.
+Link to a heading on a page in one of two ways.
+
+From within the same page:
+
+```markdown
+Read more in the [Configuration section](#configuration) of this page.
+```
+
+From a different page:
+
+```markdown
+Read more in the [Grafana Open Source section of the Introduction page](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/fundamentals/#grafana-open-source
+```
 
 To convert a heading to an anchor, make the following changes:
 

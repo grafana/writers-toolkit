@@ -85,6 +85,10 @@ Use active voice to make clear who is performing the action.
 
 Capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns (people, places, products).
 
+{{% admonition %}}
+If you're not sure of whether something is a product or not, consult the product manager, or if there isn't one, the responsible squad.
+{{% /admonition %}}
+
 **Use:**
 
 > Create and manage dashboards to visualize your data.

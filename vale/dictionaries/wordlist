@@ -1,5 +1,6 @@
 API/S po:noun
 Datadog/ po:noun
+ESLint/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
 OnCall/ po:noun
@@ -11,6 +12,7 @@ SLO/S po:noun
 Splunk/ po:noun
 UI/S po:noun
 URI/S po:noun
+Webpack/ po:noun
 allowlist/S po:noun
 backport/DGS po:verb
 blockquote/S po:noun

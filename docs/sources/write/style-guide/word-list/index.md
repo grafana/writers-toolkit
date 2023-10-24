@@ -32,6 +32,10 @@ This page is a work in progress.
 
 Also, use _data source plugin_ rather than _data-source plugin_.
 
+{{% admonition type="note" %}}
+For other compound adjectives, use a hyphen unless otherwise specified.
+{{% /admonition %}}
+
 **drop-down** - Use this rather than _dropdown_ or _drop down_.
 
 <!--

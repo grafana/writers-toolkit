@@ -32,6 +32,8 @@ This page is a work in progress.
 
 Also, use _data source plugin_ rather than _data-source plugin_.
 
+While most compound adjectives require a hyphen, we've chosen to leave it out in this case to maintain consistency with the naming data sources in the application and reduce confusion. 
+
 {{% admonition type="note" %}}
 For other compound adjectives, use a hyphen unless otherwise specified.
 {{% /admonition %}}

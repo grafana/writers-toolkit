@@ -160,8 +160,32 @@ Use repetitive list numbering, to avoid inconsistent list numbering:
 The preceding list displays as:
 
 1. First
-2. Second
-3. Third
+1. Second
+1. Third
+
+When writing paragraphs as list entries, you must use proper indentation.
+Each line in the entry must have three spaces before the first word.
+Each new paragraph must have an empty line before it.
+
+For example:
+
+```markdown
+1. First paragraph in first entry.
+   Second sentence in first paragraph.
+
+   Second paragraph in first entry.
+
+1. First paragraph in second entry.
+```
+
+The example displays as follows:
+
+1. First paragraph in first entry.
+   Second sentence in first paragraph.
+
+   Second paragraph in first entry.
+
+1. First paragraph in second entry.
 
 ## Unordered lists
 

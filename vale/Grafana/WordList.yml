@@ -59,8 +59,8 @@ swap:
   config file: configuration file
   content type: media type
   curated roles: predefined roles
+  data-?source: data source
   datacenter: data center
-  datasource: data source|data-source
   de-duplicate: deduplicate
   dialog box appears: dialog box opens
   dialog: dialog box

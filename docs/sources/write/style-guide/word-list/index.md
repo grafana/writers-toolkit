@@ -30,7 +30,13 @@ This page is a work in progress.
 
 **data source** - Use this rather than _datasource_ for the noun form.
 
-When you need to use the adjective form, use _data-source_ rather than _datasource_.
+Also, use _data source plugin_ rather than _data-source plugin_.
+
+While most compound adjectives require a hyphen, we've chosen to leave it out in this case to maintain consistency with the naming of data sources in the application and reduce confusion.
+
+{{% admonition type="note" %}}
+For other compound adjectives, use a hyphen unless otherwise specified.
+{{% /admonition %}}
 
 **drop-down** - Use this rather than _dropdown_ or _drop down_.
 

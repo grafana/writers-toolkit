@@ -163,7 +163,7 @@ The preceding list displays as:
 1. Second
 1. Third
 
-For sub-steps, use `a.`, `b.`, `c.` and so on:
+For sub-steps, use `a.`, `b.`, `c.`, and so on:
 
 ```markdown
 1. First

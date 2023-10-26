@@ -163,6 +163,34 @@ The preceding list displays as:
 1. Second
 1. Third
 
+For sub-list items, use `a.`, `b.`, `c.` and so on:
+
+```markdown
+1. First
+
+   a. Write a sub-step.
+
+   b. Write another sub-step.
+
+   c. Write yet another sub-step.
+
+1. Second
+1. Third
+```
+
+The preceding list displays as:
+
+1. First
+
+   a. Write a sub-step.
+
+   b. Write another sub-step.
+
+   c. Write yet another sub-step.
+
+1. Second
+1. Third
+
 When writing paragraphs as list entries, you must use proper indentation.
 Each line in the entry must have three spaces before the first word.
 Each new paragraph must have an empty line before it.

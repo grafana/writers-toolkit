@@ -416,6 +416,10 @@ The `term` shortcode enables a tooltip when a user hovers above text surrounded 
 ### Examples
 
 ```markdown
+{{</* term "data source" */>}}data sources{{</* /term */>}}
+```
+
+```markdown
 Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
 ```
 

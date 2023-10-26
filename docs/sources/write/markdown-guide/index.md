@@ -147,7 +147,7 @@ When rendered, the preceding table displays as follows:
 | ------------- | ------------- |
 | Cell one data | Cell two data |
 
-## Numbered lists
+## Numbered 
 
 Use repetitive list numbering, to avoid inconsistent list numbering:
 
@@ -163,22 +163,22 @@ The preceding list displays as:
 1. Second
 1. Third
 
-For sub-steps, use `a.`, `b.`, `c.`, and so on:
+For sub-steps, use repetive numbering as well:
 
 ```markdown
 1. First
 
-   a. Write a sub-step.
+   1. Write a sub-step.
 
-   b. Write another sub-step.
+   1. Write another sub-step.
 
-   c. Write yet another sub-step.
+   1. Write yet another sub-step.
 
 1. Second
 1. Third
 ```
 
-The preceding list displays as:
+When rendered, the preceding list displays as:
 
 1. First
 

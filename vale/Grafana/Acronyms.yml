@@ -11,6 +11,7 @@ exceptions:
   - API
   - AWS
   - CLI
+  - CPU
   - HTTP
   - JSON
   - SDK

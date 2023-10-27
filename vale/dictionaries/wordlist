@@ -22,6 +22,8 @@ enablement/ po:noun
 hostname/S po:noun
 inclusivity/ po:noun
 ingester/S po:noun
+kubelet/ po:noun
+namespace/S po:noun
 redirection/S po:noun
 shortcode/S po:noun
 submenu/S po:noun

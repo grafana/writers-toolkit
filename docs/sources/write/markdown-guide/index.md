@@ -147,7 +147,7 @@ When rendered, the preceding table displays as follows:
 | ------------- | ------------- |
 | Cell one data | Cell two data |
 
-## Numbered
+## Numbered lists
 
 Use repetitive list numbering, to avoid inconsistent list numbering:
 
@@ -188,8 +188,8 @@ When rendered, the preceding list displays as:
 
    c. Write yet another sub-step.
 
-1. Second
-1. Third
+2. Second
+3. Third
 
 When writing paragraphs as list entries, you must use proper indentation.
 Each line in the entry must have three spaces before the first word.

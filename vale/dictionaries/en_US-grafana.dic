@@ -1,4 +1,4 @@
-32
+34
 API/S po:noun
 Datadog/ po:noun
 ESLint/ po:noun
@@ -23,6 +23,8 @@ enablement/ po:noun
 hostname/S po:noun
 inclusivity/ po:noun
 ingester/S po:noun
+kubelet/ po:noun
+namespace/S po:noun
 redirection/S po:noun
 shortcode/S po:noun
 submenu/S po:noun

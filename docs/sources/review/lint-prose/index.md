@@ -66,6 +66,8 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
    git clone git@github.com:grafana/writers-toolkit.git
    ```
 
+   If you have previously cloned the repository, run `git pull` on the `main` branch.
+
 1. Download and install [Vale](https://vale.sh/docs/vale-cli/installation/).
 
    {{% admonition type="note" %}}

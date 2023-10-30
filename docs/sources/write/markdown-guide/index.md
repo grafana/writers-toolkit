@@ -163,6 +163,34 @@ The preceding list displays as:
 1. Second
 1. Third
 
+For sub-steps, use repetitive numbering as well:
+
+```markdown
+1. First
+
+   1. Write a sub-step.
+
+   1. Write another sub-step.
+
+   1. Write yet another sub-step.
+
+1. Second
+1. Third
+```
+
+When rendered, the preceding list displays as:
+
+1. First
+
+   a. Write a sub-step.
+
+   b. Write another sub-step.
+
+   c. Write yet another sub-step.
+
+2. Second
+3. Third
+
 When writing paragraphs as list entries, you must use proper indentation.
 Each line in the entry must have three spaces before the first word.
 Each new paragraph must have an empty line before it.

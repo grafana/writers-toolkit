@@ -143,6 +143,41 @@ Run `git fetch` before `git status` for the most accurate status.
 
 To understand the output of `git status`, refer to [Git - git-status Documentation](https://git-scm.com/docs/git-status#_output).
 
+### Checkout a PR branch from a fork
+
+> A fork is a new repository that shares code and visibility settings with the original "upstream" repository.
+
+For more information, refer to [About forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
+
+To checkout a PR branch from a fork, use the GitHub CLI (`gh`) tool.
+It fetches from the fork remote repository and configures a local branch in your repository to track that remote branch in the fork.
+
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
+
+Replace _`PR NUMBER`_ with the number of the pull request.
+Run the command from a directory within your local checkout of the upstream repository.
+
+```shell
+gh pr checkout <PR NUMBER>
+```
+
+The output is similar to the following:
+
+```console
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 14 (delta 7), reused 7 (delta 7), pack-reused 5
+Unpacking objects: 100% (14/14), 7.68 KiB | 1.10 MiB/s, done.
+From github.com:grafana/grafana
+ * [new ref]               refs/pull/76925/head -> patch-2
+Switched to branch 'patch-2'
+```
+
+The GitHub CLI tool (`gh`) sets up tracking information for the newly created local branch.
+If the contributor has allowed changes to their branch from maintainers, you can push to their branch with `git push`.
+For more information, refer to [Allowing changes to a pull request branch created from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
+
 ### Commit changes to your branch
 
 Committing changes has two steps: staging and committing.
@@ -333,3 +368,11 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 GitHub also has detailed, cross-platform instructions for resolving a merge conflict using git on the command line.
 See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for details.
+
+## Use GitHub CLI
+
+GitHub CLI simplifies some git workflows when working with GitHub repositories.
+
+### Install GitHub CLI
+
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).

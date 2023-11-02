@@ -322,18 +322,26 @@ The `figure` shortcode renders an image with a caption using an HTML [`<figure>`
 
 To add a figure, insert the `figure` shortcode with the following named parameters:
 
-| Parameter      | Description                                                                                                                                                                                                                                                                             | Required |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `alt`          | If set, `alt` specifies the alt text for the image.                                                                                                                                                                                                                                     | no       |
-| `animated-gif` | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the _caption_ and _maxWidth_ parameters are ignored.                                                                  | no       |
-| `caption`      | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.                                                                                                                                                            | no       |
-| `class`        | Can be optionally used to override the HTML class for the `<figure>` element.                                                                                                                                                                                                           | no       |
-| `lazy`         | If set to `"false"`, an additional `lazyload` class is **not** applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.                  | no       |
-| `lightbox`     | If set to `"true"`, an additional `figure-wrapper__lightbox` class is applied to the `<figure>`.                                                                                                                                                                                        | no       |
-| `link`         | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.                                                                                                                                                             | no       |
-| `max-width`    | If set, `_max-width_` controls the maximum width of the `<figure>` using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement, for example `"75px"` or `"25%"`. | no       |
-| `show-caption` | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in _caption_. Defaults to `"true"`.                                                                                                                                                  | no       |
-| `src`          | Sets the source of the image.                                                                                                                                                                                                                                                           | yes      |
+| Parameter       | Description                                                                                                                                                                                                                                                                                     | Required |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `alt`           | If set, `alt` specifies the alt text for the image.                                                                                                                                                                                                                                             | no       |
+| `animated-gif`  | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the _caption_ and _maxWidth_ parameters are ignored.                                                                          | no       |
+| `caption`       | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.                                                                                                                                                                    | no       |
+| `caption-align` | Can be used to change the alignment of the `caption` property. Accepted values are `left`, `center`, and `right`.                                                                                                                                                                               | no       |
+| `class`         | Can be used to override the HTML class for the `<figure>` element.                                                                                                                                                                                                                              | no       |
+| `link-class`    | Can be used to override the HTML class for the `<a>` element.                                                                                                                                                                                                                                   | no       |
+| `lazy`          | If set to `"false"`, an additional `lazyload` class is **not** applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.                          | no       |
+| `lightbox`      | If set to `"true"`, an additional `figure-wrapper__lightbox` class is applied to the `<figure>`.                                                                                                                                                                                                | no       |
+| `link`          | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.                                                                                                                                                                     | no       |
+| `height`        | If set, `_height_` controls the height of the `<img>` element using the [`height`](https://developer.mozilla.org/en-US/docs/Web/CSS/height) CSS property. When specifying a value, it should be an integer representing pixels without a `"px"` string at the end, for example `"500"`.         | no       |
+| `width`         | If set, `_width_` controls the width of the `<img>` element using the [`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width) CSS property. When specifying a value, it should be an integer representing pixels without a `"px"` string at the end, for example `"500"`.             | no       |
+| `max-width`     | If set, `_max-width_` controls the maximum width of the `<figure>` element using the [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width) CSS property. When specifying a length or percentage, value should include unit of measurement, for example `"75px"` or `"25%"`. | no       |
+| `show-caption`  | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in _caption_. Defaults to `"true"`.                                                                                                                                                          | no       |
+| `src`           | Sets the source of the image.                                                                                                                                                                                                                                                                   | yes      |
+
+{{% admonition type="note" %}}
+Including the original image dimensions as the 'width' and 'height' properties is highly recommended, as it improves page performance and SEO. These values are _only_ used for determining the image aspect ratio and don't equate to the final displayed size.
+{{% /admonition %}}
 
 ### Example
 
@@ -347,6 +355,12 @@ In this example, the image's display size is changed to have a maximum width of 
 
 ```markdown
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
+```
+
+In this example, the image's display size is changed to have a maximum width of 500px, and the `class` and `link-class` properties are used to center the image on the page. The original `width` and `height` values from the image are included without any unit of measurement (such as pixels or percentages).
+
+```markdown
+{{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
 <!-- vale Grafana.Spelling = NO -->
@@ -473,6 +487,10 @@ The `term` shortcode enables a tooltip when a user hovers above text surrounded 
 ### Examples
 
 ```markdown
+{{</* term "data source" */>}}data sources{{</* /term */>}}
+```
+
+```markdown
 Grafana comes with built-in support for many {{</* term "data source" */>}}data sources{{</* /term */>}}.
 ```
 
@@ -534,15 +552,14 @@ For more information about Grafana dashboards, refer to [Dashboards][dashboards]
 
 ### Other use cases
 
-The `docs/reference` shortcode is also useful when you want to link to the same destination multiple times in one file.
-It allows you to specify the link destination once while you use the label multiple times. For example:
+Markdown reference-style links are also useful when you want to link to the same destination multiple times in one file.
+It allows you to specify the link destination once while you use the label multiple times.
+For example:
 
 **Reference:**
 
 ```markdown
-{{%/* docs/reference */%}}
-[Grafana website]: "/ -> www.grafana.com"
-{{%/* /docs/reference */%}}
+[Grafana website]: www.grafana.com
 ```
 
 **Body text:**

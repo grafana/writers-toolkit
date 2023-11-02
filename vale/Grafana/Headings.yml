@@ -13,6 +13,7 @@ exceptions:
   - Grafana Labs
   - Helm
   - Hugo
+  - Kubernetes Monitoring
   - LogQL
   - Loki
   - macOS

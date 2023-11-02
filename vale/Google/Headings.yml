@@ -9,7 +9,6 @@ indicators:
 exceptions:
   - Azure
   - CLI
-  - Code
   - Cosmos
   - Docker
   - Emmet

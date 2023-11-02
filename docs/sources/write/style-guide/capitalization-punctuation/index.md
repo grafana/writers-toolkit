@@ -32,6 +32,8 @@ Use all-caps capitalization exclusively for abbreviations, such as `API`, `HTTP`
 
 The names of people, places, and products take initial capitals because they are proper nouns.
 
+If you're not sure of whether something is a product or not, consult the product manager, or if there isn't one, the responsible squad.
+
 ### Grafana-specific capitalization guidelines
 
 - Menu and submenu titles always use sentence case: capitalize the first word, and lowercase the rest.

@@ -1,4 +1,4 @@
-52
+53
 Alertmanager/S po:noun
 API/S po:noun
 Datadog/ po:noun
@@ -41,6 +41,7 @@ hostname/S po:noun
 inclusivity/ po:noun
 ingester/S po:noun
 kubelet/ po:noun
+misconfiguration/S po:noun
 namespace/S po:noun
 preconfigure/D po:verb
 redirection/S po:noun

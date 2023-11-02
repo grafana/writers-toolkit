@@ -149,7 +149,9 @@ To understand the output of `git status`, refer to [Git - git-status Documentati
 
 For more information, refer to [About forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
-To checkout a PR branch from a fork, use the `gh` tool.
+To checkout a PR branch from a fork, use the GitHub CLI (`gh`) tool.
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
+
 Replace _`PR NUMBER`_ with the number of the pull request.
 Run the command from a directory within the repository.
 
@@ -170,7 +172,7 @@ From github.com:grafana/grafana
 Switched to branch 'patch-2'
 ```
 
-The `gh` tool sets up tracking information for the newly created local branch.
+The GitHub CLI tool (`gh`) sets up tracking information for the newly created local branch.
 If the contributor has allowed changes to their branch from maintainers, you can push to their branch with `git push`.
 For more information, refer to [Allowing changes to a pull request branch created from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
@@ -364,3 +366,11 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 GitHub also has detailed, cross-platform instructions for resolving a merge conflict using git on the command line.
 See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for details.
+
+## Use GitHub CLI
+
+GitHub CLI simplifies some git workflows when working with GitHub repositories.
+
+### Install GitHub CLI
+
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).

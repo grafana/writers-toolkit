@@ -1,4 +1,4 @@
-51
+52
 Alertmanager/S po:noun
 API/S po:noun
 Datadog/ po:noun
@@ -34,6 +34,7 @@ allowlist/S po:noun
 backport/DGS po:verb
 blockquote/S po:noun
 deliverable/S po:noun
+disaggregate/DS po:verb
 don't/S po:noun
 enablement/ po:noun
 hostname/S po:noun

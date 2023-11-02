@@ -79,7 +79,7 @@ When you save a file with an active local build, the page is rechecked. If the e
 
 {{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 
-For more information about linking, refer to [Links and cross references]({{< relref "../../write/references" >}}).
+For more information about linking, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 
 ### Example: Rebuild failed due to missing shortcode
 

@@ -25,7 +25,7 @@ Choose your link type based on the applicable scenario:
 - [Link to external pages](#link-to-external-pages)
 - [Link to page headings](#link-to-page-headings)
 
-Other link types exist in our documentation, but you shouldn't use them:
+Although these other types of links still function, replace them with full URLs:
 
 - [Hugo `relref` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#relref)
 
@@ -38,12 +38,13 @@ For more information and examples, refer to [`docs/reference` shortcode](https:/
 
 ## Link to grafana.com pages
 
-Use a fully qualified URL with version substitution syntax (if needed).
-Version substitution is necessary for fully qualified URLs to link to the correct version of documentation.
+Use a full URL with version substitution syntax (if needed).
+
+Version substitution is necessary for full URLs to link to the correct version of documentation.
 Usually, this is the current version of documentation.
 
-In versioned documentation, ensure that you set the appropriate version in the root `_index.md` file for your documentation.
-For example, the following YAML, merged with the existing front matter in the root `_index.md` file sets `GRAFANA_VERSION` to be `latest` for that page and all child pages.
+In versioned documentation, set the correct version in the root `_index.md` file for your documentation.
+The following YAML example merges with the existing front matter in the root `_index.md` file, and sets `GRAFANA_VERSION` to be `latest` for that page and all child pages.
 
 ```yaml
 cascade:
@@ -65,7 +66,7 @@ use `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/`.
 **Link to Grafana Cloud documentation**:
 
 Grafana Cloud documentation is not versioned so no version substitution syntax is needed.
-Use the fully qualified URL.
+Use the full URL.
 For example, to link to the [Author and run tests](https://grafana.com/docs/grafana-cloud/k6/author-run/) page, use `https://grafana.com/docs/grafana-cloud/k6/author-run/`.
 
 **Link to Mimir documentation**:
@@ -80,7 +81,7 @@ use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
 
 ## Link to external pages
 
-Use the fully qualified URL.
+Use the full URL.
 For example, `https://github.com`.
 
 ## Link to page headings
@@ -96,7 +97,7 @@ Read more in the [Configuration section](#configuration) of this page.
 From a different page:
 
 ```markdown
-Read more in the [Grafana Open Source section of the Introduction page](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/fundamentals/#grafana-open-source
+Read more in the [Grafana Open Source section of the Introduction page](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/fundamentals/#grafana-open-source).
 ```
 
 To convert a heading to an anchor, make the following changes:
@@ -107,4 +108,4 @@ To convert a heading to an anchor, make the following changes:
 1. Trim any preceding or proceeding dashes (`-`).
 1. Prefix with a `#`.
 
-The heading "Link to page headings" becomes the anchor `#link-to-page-headings`.
+The heading _Link to page headings_ becomes the anchor `#link-to-page-headings`.

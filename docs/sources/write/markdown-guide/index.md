@@ -64,7 +64,9 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 
 Displays as:
 
-**Note:** The distributor only passes _valid_ data to the ingesters.
+{{% admonition type="note" %}}
+The distributor only passes _valid_ data to the ingesters.
+{{% /admonition %}}
 
 ## Links
 

@@ -19,6 +19,7 @@ OpenTelemetry/ po:noun
 OpenTelemetry/ po:adjective
 Phlare/ po:noun
 Podman/ po:noun
+relref/ po:noun
 SDK/S po:noun
 SLI/S po:noun
 SLO/S po:noun

@@ -150,10 +150,12 @@ To understand the output of `git status`, refer to [Git - git-status Documentati
 For more information, refer to [About forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 To checkout a PR branch from a fork, use the GitHub CLI (`gh`) tool.
+It fetches from the fork remote repository and configures a local branch in your repository to track that remote branch in the fork.
+
 To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
 
 Replace _`PR NUMBER`_ with the number of the pull request.
-Run the command from a directory within the repository.
+Run the command from a directory within your local checkout of the upstream repository.
 
 ```shell
 gh pr checkout <PR NUMBER>

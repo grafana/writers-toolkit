@@ -1,13 +1,16 @@
-38
+42
 API/S po:noun
 Datadog/ po:noun
 ESLint/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
+Jaeger/ po:noun
 JMeter/ po:noun
 JUnit/ po:noun
 OAuth/ po:noun
+OTel/ po:noun
 OnCall/ po:noun
+OpenTelemetry/ po:noun
 Phlare/ po:noun
 Podman/ po:noun
 SDK/S po:noun
@@ -18,6 +21,7 @@ UI/S po:noun
 URI/S po:noun
 VU/S po:noun
 Webpack/ po:noun
+Zipkin/ po:noun
 allowlist/S po:noun
 backport/DGS po:verb
 blockquote/S po:noun

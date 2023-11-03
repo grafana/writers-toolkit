@@ -2,20 +2,25 @@ name: Update `make docs` procedure
 description: This action updates the `make docs` script and related Makefiles.
 inputs:
   branch:
-    description: Name of remote branch to push changes to. Should be unique to avoid conflict with user-created branches.
     default: update-make-docs
+    description: Name of remote branch to push changes to. Should be unique to avoid conflict with user-created branches.
     required: false
   directory:
-    description: Directory within the repository that should contain the script and related Makefiles.
     default: docs
+    description: Directory within the repository that should contain the script and related Makefiles.
     required: false
   pr_options:
     description: Additional command line options provided to the `gh pr create` command.
     required: false
   token:
-    description: Used to open the PR.
     default: ${{ github.token }}
+    description: Used to open the PR.
     required: false
+  trace:
+    default: false
+    description: Print command traces.
+    required: false
+    type: boolean
 runs:
   using: composite
   steps:
@@ -26,6 +31,10 @@ runs:
       PR_OPTIONS: ${{ inputs.pr_options }}
     name: Update `make docs` procedure
     run: |
+      if ${{ inputs.trace }}; then
+        set -x
+      fi
+
       # If the branch already exists in the remote, the job of the script is to update that branch.
       # Otherwise, it should create a new branch.
       if git fetch origin "${BRANCH}"; then
@@ -49,5 +58,7 @@ runs:
       git push -v origin "refs/heads/${BRANCH}"
 
       # Create a PR if one doesn't already exist.
-      gh pr create --fill ${PR_OPTIONS} || true
+      if ! gh pr view "${BRANCH}"; then
+        gh pr create --fill ${PR_OPTIONS}
+      fi
     shell: bash

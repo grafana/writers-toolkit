@@ -56,7 +56,7 @@ runs:
       PR_STATUS=$(gh pr view "${BRANCH}" --json state --jq .state)
 
       if [[ "${PR_STATUS}" == OPEN ]]; then
-        gh checkout pr "${BRANCH}"
+        gh pr checkout "${BRANCH}"
 
         fetch_files "${DIRECTORY}"
 

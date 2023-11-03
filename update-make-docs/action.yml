@@ -48,9 +48,9 @@ runs:
       # commit adds and commits the updated files as the Grafanabot GitHub user.
       function commit {
         git add .
-        git config --local user.email "bot@grafana.com"
-        git config --local user.name "grafanabot"
-        git commit --message "Update \`make docs\` procedure"
+        git config --local user.email bot@grafana.com
+        git config --local user.name grafanabot
+        git commit --message 'Update `make docs` procedure'
       }
 
       PR_STATUS=$(gh pr view "${BRANCH}" --json state --jq .state)
@@ -80,6 +80,6 @@ runs:
       if ! git diff --exit-code; then
         commit
         git push origin "refs/heads/${BRANCH}"
-        gh pr create --fill ${PR_OPTIONS}
+        gh pr create ${PR_OPTIONS} --title  'Update `make docs` procedure' --body ''
       fi
     shell: bash

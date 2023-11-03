@@ -31,34 +31,55 @@ runs:
       PR_OPTIONS: ${{ inputs.pr_options }}
     name: Update `make docs` procedure
     run: |
+      set -euf -o pipefail
+
       if ${{ inputs.trace }}; then
         set -x
       fi
 
-      # If the branch already exists in the remote, the job of the script is to update that branch.
-      # Otherwise, it should create a new branch.
-      if git fetch origin "${BRANCH}"; then
-        git checkout "${BRANCH}"
-      else
-        git checkout -b "${BRANCH}"
-      fi
+      # fetch_files fetches the Makefiles and script and writes them to the provided directory.
+      function fetch_files {
+        local -r directory="$1"
 
-      # Fetch the Makefiles and script.
-      curl -s -Lo "${DIRECTORY}/docs.mk" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
-      curl -s -Lo "${DIRECTORY}/make-docs" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs
+        curl -s -Lo "${directory}/docs.mk" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
+        curl -s -Lo "${directory}/make-docs" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs
+      }
 
-      # Add and commit files if there are changes.
-      if ! git diff --exit-code; then
-        # Commit the updated files as the Grafanabot GitHub user.
+      # commit adds and commits the updated files as the Grafanabot GitHub user.
+      function commit {
         git add .
         git config --local user.email "bot@grafana.com"
         git config --local user.name "grafanabot"
         git commit --message "Update \`make docs\` procedure"
-        git push -v origin "refs/heads/${BRANCH}"
+      }
+
+      PR_STATUS=$(gh pr view "${BRANCH}" --json state --jq .state)
+
+      if [[ "${PR_STATUS}" == OPEN ]]; then
+        gh checkout pr "${BRANCH}"
+
+        fetch_files "${DIRECTORY}"
+
+        if ! git diff --exit-code; then
+          commit
+          git push
+        fi
+
+        exit 0
       fi
 
-      # Create a PR if one doesn't already exist.
-      if ! gh pr view "${BRANCH}"; then
+      # Remove the remote branch if it exists because there is no PR associated with it.
+      if git fetch origin "${BRANCH}"; then
+        git push origin --delete "${BRANCH}"
+      fi
+
+      git checkout -b "${BRANCH}"
+
+      fetch_files "${DIRECTORY}"
+
+      if ! git diff --exit-code; then
+        commit
+        git push origin "refs/heads/${BRANCH}"
         gh pr create --fill ${PR_OPTIONS}
       fi
     shell: bash

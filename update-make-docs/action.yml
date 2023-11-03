@@ -49,5 +49,5 @@ runs:
       git push -v origin "refs/heads/${BRANCH}"
 
       # Create a PR if one doesn't already exist.
-      gh pr create --fill ${PR OPTIONS} || true
+      gh pr create --fill ${PR_OPTIONS} || true
     shell: bash

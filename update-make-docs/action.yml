@@ -47,15 +47,15 @@ runs:
       curl -s -Lo "${DIRECTORY}/docs.mk" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
       curl -s -Lo "${DIRECTORY}/make-docs" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs
 
-      # If there are no changes, there is nothing more to do.
-      if git diff --exit-code; then exit 0; fi
-
-      # Commit the updated files as the Grafanabot GitHub user.
-      git add .
-      git config --local user.email "bot@grafana.com"
-      git config --local user.name "grafanabot"
-      git commit --message "Update \`make docs\` procedure"
-      git push -v origin "refs/heads/${BRANCH}"
+      # Add and commit files if there are changes.
+      if ! git diff --exit-code; then
+        # Commit the updated files as the Grafanabot GitHub user.
+        git add .
+        git config --local user.email "bot@grafana.com"
+        git config --local user.name "grafanabot"
+        git commit --message "Update \`make docs\` procedure"
+        git push -v origin "refs/heads/${BRANCH}"
+      fi
 
       # Create a PR if one doesn't already exist.
       if ! gh pr view "${BRANCH}"; then

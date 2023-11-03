@@ -27,7 +27,7 @@ runs:
   - env:
       BRANCH: ${{ inputs.branch }}
       DIRECTORY: ${{ inputs.directory }}
-      GITHUB_TOKEN: ${{ inputs.github_token }}
+      GH_TOKEN: ${{ inputs.token }}
       PR_OPTIONS: ${{ inputs.pr_options }}
     name: Update `make docs` procedure
     run: |

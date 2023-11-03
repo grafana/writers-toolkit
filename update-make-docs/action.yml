@@ -19,7 +19,12 @@ inputs:
 runs:
   using: composite
   steps:
-  - run: |
+  - env:
+      BRANCH: ${{ inputs.branch }}
+      DIRECTORY: ${{ inputs.directory }}
+      GITHUB_TOKEN: ${{ inputs.github_token }}
+      PR_OPTIONS: ${{ inputs.pr_options }}
+    run: |
       git fetch origin "${BRANCH}" || true
       git checkout -b "${BRANCH}"
       curl -s -Lo "${DIRECTORY}/docs.mk" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
@@ -31,8 +36,4 @@ runs:
       git commit --message "Update \`make docs\` procedure"
       git push -v origin "refs/heads/${BRANCH}"
       gh pr create --fill ${PR OPTIONS} || true
-    env:
-      BRANCH: ${{ inputs.branch }}
-      DIRECTORY: ${{ inputs.directory }}
-      GITHUB_TOKEN: ${{ inputs.github_token }}
-      PR_OPTIONS: ${{ inputs.pr_options }}
+    shell: bash

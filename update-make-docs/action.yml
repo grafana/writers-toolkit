@@ -1,0 +1,38 @@
+name: Update `make docs` procedure
+description: This action updates the `make docs` script and related Makefiles.
+inputs:
+  branch:
+    description: Name of remote branch to push changes to. Should be unique to avoid conflict with user-created branches.
+    default: update-make-docs
+    required: false
+  directory:
+    description: Directory within the repository that should contain the script and related Makefiles.
+    default: docs
+    required: false
+  pr_options:
+    description: Additional command line options provided to the `gh pr create` command.
+    required: false
+  token:
+    description: Used to open the PR.
+    default: ${{ github.token }}
+    required: false
+runs:
+  using: composite
+  steps:
+  - run: |
+      git fetch origin "${BRANCH}" || true
+      git checkout -b "${BRANCH}"
+      curl -s -Lo "${DIRECTORY}/docs.mk" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
+      curl -s -Lo "${DIRECTORY}/make-docs" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs
+      if git diff --exit-code; then exit 0; fi
+      git add .
+      git config --local user.email "bot@grafana.com"
+      git config --local user.name "grafanabot"
+      git commit --message "Update \`make docs\` procedure"
+      git push -v origin "refs/heads/${BRANCH}"
+      gh pr create --fill ${PR OPTIONS} || true
+    env:
+      BRANCH: ${{ inputs.branch }}
+      DIRECTORY: ${{ inputs.directory }}
+      GITHUB_TOKEN: ${{ inputs.github_token }}
+      PR_OPTIONS: ${{ inputs.pr_options }}

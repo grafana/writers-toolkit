@@ -55,7 +55,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 1. Add images and media. Read the [Images and media]({{< relref "../write/image-guidelines" >}}) documentation.
 
-1. Use links and references. Refer to the [Links and references]({{< relref "../write/references" >}}) documentation for guidance.
+1. Use links. Refer to the [Links](https://grafana.com/docs/writers-toolkit/write/links/) documentation for guidance.
 
 1. Add code samples. Refer to the [Code samples]({{< relref "../write/markdown-guide#code-blocks" >}}) documentation for guidance.
 

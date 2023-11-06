@@ -1,0 +1,85 @@
+name: Update `make docs` procedure
+description: This action updates the `make docs` script and related Makefiles.
+inputs:
+  branch:
+    default: update-make-docs
+    description: Name of remote branch to push changes to. Should be unique to avoid conflict with user-created branches.
+    required: false
+  directory:
+    default: docs
+    description: Directory within the repository that should contain the script and related Makefiles.
+    required: false
+  pr_options:
+    description: Additional command line options provided to the `gh pr create` command.
+    required: false
+  token:
+    default: ${{ github.token }}
+    description: Used to open the PR.
+    required: false
+  trace:
+    default: false
+    description: Print command traces.
+    required: false
+    type: boolean
+runs:
+  using: composite
+  steps:
+  - env:
+      BRANCH: ${{ inputs.branch }}
+      DIRECTORY: ${{ inputs.directory }}
+      GH_TOKEN: ${{ inputs.token }}
+      PR_OPTIONS: ${{ inputs.pr_options }}
+    name: Update `make docs` procedure
+    run: |
+      set -euf -o pipefail
+
+      if ${{ inputs.trace }}; then
+        set -x
+      fi
+
+      # fetch_files fetches the Makefiles and script and writes them to the provided directory.
+      function fetch_files {
+        local -r directory="$1"
+
+        curl -s -Lo "${directory}/docs.mk" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/docs.mk
+        curl -s -Lo "${directory}/make-docs" https://raw.githubusercontent.com/grafana/writers-toolkit/main/docs/make-docs
+      }
+
+      # commit adds and commits the updated files as the Grafanabot GitHub user.
+      function commit {
+        git add .
+        git config --local user.email bot@grafana.com
+        git config --local user.name grafanabot
+        git commit --message 'Update `make docs` procedure'
+      }
+
+      PR_STATUS=$(gh pr view "${BRANCH}" --json state --jq .state)
+
+      if [[ "${PR_STATUS}" == OPEN ]]; then
+        gh pr checkout "${BRANCH}"
+
+        fetch_files "${DIRECTORY}"
+
+        if ! git diff --exit-code; then
+          commit
+          git push
+        fi
+
+        exit 0
+      fi
+
+      # Remove the remote branch if it exists because there is no PR associated with it.
+      if git fetch origin "${BRANCH}"; then
+        git push origin --delete "${BRANCH}"
+      fi
+
+      git checkout -b "${BRANCH}"
+
+      fetch_files "${DIRECTORY}"
+
+      if ! git diff --exit-code; then
+        commit
+        git push origin "refs/heads/${BRANCH}"
+        gh pr create ${PR_OPTIONS} --title  'Update `make docs` procedure' --body ''
+      fi
+    shell: bash

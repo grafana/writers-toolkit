@@ -1,12 +1,14 @@
-53
+55
 Alertmanager/S po:noun
+Ansible/ po:noun
+Ansible/ po:adjective
 API/S po:noun
 Datadog/ po:noun
 Datadog/ po:adjective
 ESLint/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
-Grafana/M po:adjective
+Grafana/ po:adjective
 Jaeger/ po:noun
 Jaeger/ po:adjective
 JMeter/ po:noun

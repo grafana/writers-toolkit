@@ -111,3 +111,7 @@ swap:
   url: URL
   vs\.: versus
   whitelist: allowlist
+
+  Data Firehose: Kinesis Data Firehose
+  Firehose: Kinesis Data Firehose
+  Kinesis Firehose: Kinesis Data Firehose

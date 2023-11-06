@@ -5,6 +5,7 @@ API/S po:noun
 Datadog/ po:noun
 Datadog/ po:adjective
 ESLint/ po:noun
+Firehose/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
 Grafana/ po:adjective
@@ -12,6 +13,7 @@ Jaeger/ po:noun
 Jaeger/ po:adjective
 JMeter/ po:noun
 JUnit/ po:noun
+Kinesis/ po:noun
 OAuth/ po:noun
 OTel/ po:noun
 OTel/ po:adjective

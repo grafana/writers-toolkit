@@ -506,6 +506,10 @@ If you are a Grafana Labs employee and want to make changes, edit [`glossary.yam
 For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
 For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
 
+## Video shortcodes
+
+Refer to the [`vimeo` and `youtube` shortcode documentation]({{< relref "../image-guidelines#videos" >}}) for information about these shortcodes.
+
 ## Docs/reference
 
 The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where the source file is published.

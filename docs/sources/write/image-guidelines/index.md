@@ -316,6 +316,10 @@ The recommended format for screen recordings is **.mp4**. Do not use **.gif** or
 
 The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo or YouTube.
 
+{{% admonition type="note" %}}
+Embed videos only from official Grafana sources.
+{{% /admonition %}}
+
 ### Embed Vimeo videos
 
 You can embed a Vimeo-hosted video by using the `vimeo` shortcode and the video ID: `{{</* vimeo 1111111*/>}}`.

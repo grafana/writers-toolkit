@@ -342,4 +342,4 @@ The `id` comes from the end of YouTube URL (everything after `v=`): `https://www
 {{</* youtube id="g97CjKOZqT4" */>}}
 ```
 
-Example PR: https://github.com/grafana/tempo/pull/3107
+Example PR: [https://github.com/grafana/tempo/pull/3107](https://github.com/grafana/tempo/pull/3107)

@@ -314,7 +314,9 @@ The recommended format for screen recordings is **.mp4**. Do not use **.gif** or
 
 ## Videos
 
-The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo.
+The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo or YouTube.
+
+### Embed Vimeo videos
 
 You can embed a Vimeo-hosted video by using the `vimeo` shortcode and the video ID: `{{</* vimeo 1111111*/>}}`.
 
@@ -323,3 +325,17 @@ In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo
 ```
 {{</* vimeo 773194063 */>}}
 ```
+
+### Embed YouTube videos
+
+You can also embed videos hosted on YouTube.
+The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
+
+Use the `youtube` shortcode to embed the video.
+The `id` comes from the end of YouTube URL (everything after `v=`): `https://www.youtube.com/watch?v=g97CjKOZqT4`.
+
+```
+{{</* youtube id="g97CjKOZqT4" */>}}
+```
+
+Example PR: https://github.com/grafana/tempo/pull/3107

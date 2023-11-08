@@ -115,3 +115,5 @@ swap:
   Data Firehose: Kinesis Data Firehose
   Firehose: Kinesis Data Firehose
   Kinesis Firehose: Kinesis Data Firehose
+
+  pod: Pod

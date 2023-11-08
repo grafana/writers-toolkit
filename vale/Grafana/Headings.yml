@@ -15,6 +15,7 @@ exceptions:
   - Grafana Enterprise Traces
   - Grafana Labs
   - Helm
+  - HTTP
   - Hugo
   - Kinesis Data Firehose
   - Kubernetes Monitoring

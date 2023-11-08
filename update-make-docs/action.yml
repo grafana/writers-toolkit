@@ -53,7 +53,7 @@ runs:
           git commit --message 'Update `make docs` procedure'
         }
 
-        PR_STATUS=$(gh pr view "${BRANCH}" --json state --jq .state)
+        PR_STATUS=$(gh pr view "${BRANCH}" --json state --jq .state || true)
 
         if [[ "${PR_STATUS}" == OPEN ]]; then
           gh pr checkout "${BRANCH}"

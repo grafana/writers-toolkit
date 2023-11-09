@@ -6,27 +6,31 @@ scope: heading
 match: $sentence
 exceptions:
   - Adaptive Metrics
-  - Cloud Metrics
+  - CLI
   - Cloud Logs
+  - Cloud Metrics
   - Cloud Traces
+  - GitHub
   - Grafana
-  - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
+  - Grafana Enterprise Metrics
   - Grafana Enterprise Traces
   - Grafana Labs
-  - Helm
   - HTTP
+  - Helm
   - Hugo
   - Kinesis Data Firehose
   - Kubernetes Monitoring
   - LogQL
   - Loki
-  - macOS
   - Memcached
   - Mimir
-  - Prometheus
   - PromQL
+  - Prometheus
   - Redis
   - Tempo
   - TraceQL
+  - Vimeo
   - Writers' Toolkit
+  - YouTube
+  - macOS

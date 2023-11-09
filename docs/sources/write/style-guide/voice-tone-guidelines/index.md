@@ -12,9 +12,9 @@ keywords:
 
 # Voice and tone guidelines
 
-At Grafana, we like our company to sound like a real person.
-
-Voice and tone reflect your attitude and how you convey information. Word choice, use of **bold** or _italic_ emphasis, punctuation, and grammar all affect your voice. The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
+Voice and tone reflect your attitude and how you convey information.
+Word choice, use of **bold** or _italic_ emphasis, punctuation, and grammar all affect your voice.
+The tone you choose reflects the urgency of your message and can therefore change depending on the situation.
 
 Consult the following voice and tone guidelines when you write technical documentation.
 
@@ -46,4 +46,5 @@ Don't just teach people how to perform an action, but also why they should.
 
 ### Motivation
 
-Motivate the user to continue by providing information about the next steps. Don't assume the user knows what the next steps will be or what the outcome will be.
+Motivate the user to continue by providing information about the next steps.
+Don't assume the user knows what the next steps are or what outcome to expect.

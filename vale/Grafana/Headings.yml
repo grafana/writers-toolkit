@@ -29,3 +29,4 @@ exceptions:
   - Redis
   - Tempo
   - TraceQL
+  - Writers' Toolkit

@@ -20,6 +20,7 @@ These are the other Grafana OSS project repositories:
 - Loki: https://github.com/grafana/loki
 - Tempo: https://github.com/grafana/tempo
 - Mimir: https://github.com/grafana/mimir
+- k6: https://github.com/grafana/k6-docs
 
 Every repository contains a `docs/sources` directory, which is where we store our documentation.
 

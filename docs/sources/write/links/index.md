@@ -21,7 +21,7 @@ keywords:
 Choose your link type based on the applicable scenario:
 
 - [Link from source content that's used in multiple projects](#link-from-source-content-thats-used-in-multiple-projects)
-- [Link to grafana.com pages](#link-to-grafanacom-pages)
+- [Link to Grafana pages](#link-to-grafana-pages)
 - [Link to external pages](#link-to-external-pages)
 - [Link to page headings](#link-to-page-headings)
 
@@ -36,7 +36,7 @@ Use the `docs/reference` shortcode.
 The source is reused as described in [Reuse directories of content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-directories/).
 For more information and examples, refer to [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
 
-## Link to grafana.com pages
+## Link to Grafana pages
 
 Use a full URL with version substitution syntax (if needed).
 

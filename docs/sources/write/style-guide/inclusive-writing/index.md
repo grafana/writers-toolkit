@@ -17,13 +17,16 @@ When writing for Grafana Labs, always use inclusive terminology and phrasing. Av
 
 When writing about people, be compassionate, inclusive, and respectful.
 
-First and foremost, no matter the context, we always make sure to view people as people. When context and word count permits, we refer to them as people or people who maintain a particular area or discipline.
+First and foremost, no matter the context, make sure to view people as people.
+When context and word count permits, refer to them as people or people who maintain a particular area or discipline.
 
-With that in mind, there are important distinctions between the ways that different people interact with our product and, thus, how we refer to those people.
+With that in mind, there are important distinctions between the ways that different people interact with Grafana products and, thus, how to refer to those people.
 
-- Users are every person who uses our products, whether or not they use a commercial version of one of our products. Customers are people and companies who pay to use our products.
-- Visitors are people who visit our website for any reason, whether it's as a potential user, customer, or employee. We appreciate all interest in our hard work.
-- Our customers (and users) often have their own customers (and users). Generally speaking, we refer to these customers of our customers as users, because it does an okay job of encapsulating all the ways our various customers might interact with the people using their products.
+- Users are every person who uses Grafana products, whether or not they use a commercial version.
+  Customers are people and companies who pay to use Grafana products.
+- Visitors are people who visit the Grafana website for any reason, whether it's as a potential user, customer, or employee.
+- Grafana customers (and users) often have their own customers (and users).
+  Generally speaking, refer to these customers of customers as users, because it does an okay job of encapsulating all the ways various customers interact with the people using their products.
 - Employees are people who work at Grafana Labs.
 
 ### Best practices
@@ -37,8 +40,8 @@ Consider the following best practices to ensure inclusivity in your writing.
 
 ## Write for an international audience
 
-Grafana Labs uses US English as our standard (for spelling, grammar, punctuation, and more).
-We write for an international audience with the following guidelines in mind:
+Grafana Labs uses American English for spelling, grammar, and punctuation.
+To write for an international audience, keep the following guidelines in mind:
 
 ### Avoid acronyms
 
@@ -56,7 +59,7 @@ For example, some common American English idioms:
 - “Hit the nail on the head”
 - “Bite off more than you can chew”
 
-Not sure you believe us? Here are some British idioms that you probably won’t understand, despite your perfect handle on the English language.
+Here are some British idioms:
 
 - “A few sandwiches short of a picnic”
 - “Chuffed to bits”
@@ -69,12 +72,16 @@ Cultural references are references that relate to the culture of a community, co
 **Examples:**
 
 - “Her ambition is a clear reflection of the American dream.”
-- “I'm so glad you came to help like a good Samaritan.”
+- “They are so glad you came to help like a good Samaritan.”
 - “They grew up in a typical nuclear family.”
 
 ## Avoid charged language
 
+<!-- vale Grafana.WordList = NO -->
+
 Avoid using charged language such as _blacklist_, _master_, and _slave_.
+
+<!-- vale Grafana.WordList = YES -->
 
 ### Allow, block
 
@@ -85,7 +92,11 @@ When referring to _allowing_ or _blocking_ content or traffic, use a form of _al
 
 Example: _To **allow** outgoing traffic, add the IP to the **allowlist**._
 
+<!-- vale Grafana.WordList = NO -->
+
 Avoid _whitelist_ or _blacklist_.
+
+<!-- vale Grafana.WordList = YES -->
 
 ### Primary and secondary
 

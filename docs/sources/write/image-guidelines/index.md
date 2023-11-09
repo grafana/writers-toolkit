@@ -20,7 +20,7 @@ Follow the standards in this section when creating images for your documents.
 ## Image and diagram guidelines
 
 Images and diagrams can complement text, enabling readers to quickly grasp a concept and visualize complex processes in a simplified way.
-For example, in Grafana blog posts, pictures or diagrams can add visual interest and capture the reader's attention.
+For example, in Grafana blog posts, pictures, or diagrams can add visual interest and capture the reader's attention.
 However, because translation services and tools for the visually impaired don't interpret or translate images well, avoid using images to replace text.
 
 ### When to use images and diagrams
@@ -60,7 +60,7 @@ Use the following standards for images and diagrams:
 
 To create diagrams, you need to access the recommended software and download the required icons and stencils.
 
-### Request a diagram from Creative Services
+### Request a diagram
 
 The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors.
 Please contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
@@ -131,9 +131,12 @@ General rules:
 - Use lowercase letters in filenames, always.
 - Use dashes between words; don't use spaces or underscores.
 - Don't type special characters or punctuation marks in a filename except for periods in product version numbers. For example: `grafana-9.2.release.png`.
-- Don’t use abbreviations that will cause issues with localization.
-  - For example, spell out `database` instead of using `db`, but using an acronym, such as RBAC, is ok.
+- Don’t use abbreviations that cause issues with localization.
+
+  - For example, spell out `database` instead of using `db`, but using an acronym, such as RBAC, is OK.
   - When in doubt, don’t use an abbreviation.
+
+  <!-- vale off -->
   <table>
       <thead>
           <tr>
@@ -194,6 +197,8 @@ General rules:
       </tbody>
   </table>
 
+  <!-- vale on -->
+
 ### Recommended image editors
 
 <!-- vale Grafana.Spelling = NO -->
@@ -215,8 +220,8 @@ The following table lists the steps you take to provide the Grafana Labs technic
 <table>
     <thead>
         <tr>
-            <th>If you are a...</th>
-            <th>Complete these steps</th>
+            <th>Role</th>
+            <th>Steps</th>
         </tr>
     </thead>
     <tbody>
@@ -230,7 +235,7 @@ The following table lists the steps you take to provide the Grafana Labs technic
 <li>Use a free image optimizer (<a href="https://tinypng.com/">TinyPNG</a>, for example) to decrease the image file size.</li>
 <li>Browse and select assets to upload.</li>
 <li>Click <strong>Upload</strong>.</li>
-<li>The asset will immediately be available under https://grafana.com/media/ in the directory where it was uploaded.</li>
+<li>The asset is available under https://grafana.com/media/ in the directory where it was uploaded.</li>
 <li>Click <strong>Copy</strong> to copy the path (reference) of the file to your clipboard.</li>
 <li>Add the reference to the Markdown file.<br><br>
 The reference that you add to the Markdown renders the image when the Grafana website or local docs preview is built.</li>
@@ -243,7 +248,7 @@ The reference that you add to the Markdown renders the image when the Grafana we
 <ol><li>Create a PR against the local repository that includes the Markdown file.
 </li>
 <li>Add the image reference to the Markdown file.<br><br>
-We do not expect you to test that the image renders in a local build of the help documentation. The Grafana technical documentation team will ensure that the image reference works correctly.</li><br>
+You do not need test that the image renders in a local build of the help documentation. The Grafana technical documentation team makes sure that the image works in a PR review.</li><br>
 <li>Attach the image to the GitHub PR description.</li>
 </ol>
 </td>

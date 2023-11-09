@@ -16,7 +16,7 @@ keywords:
 
 # Documentation tooling and workflows
 
-This section provides an overview of the documentation tools we use at Grafana and highlights some of the key processes we use to create and review documentation.
+This section provides an overview of the documentation tools used at Grafana and highlights some of the key processes used to create and review documentation.
 
 ## Use git
 
@@ -92,8 +92,8 @@ From github.com:grafana/mimir
 ### Create a new branch from the main remote branch
 
 By convention, the remote repository in GitHub is the source of truth for a repository's history.
-The main branch of a repository is typically called `main` and occasionally called `master`.
-Note that we prefer to use inclusive language, so `main` is the preferred name.
+The main branch of a repository is typically called `main` and sometimes called `master`.
+`main` is the preferred name.
 
 After fetching the latest changes to your local repository from the remote repository in GitHub, create a local branch to commit your changes.
 Working on your own branch separates and isolates your changes so that they can be later reviewed before incorporation into the main branch.
@@ -116,7 +116,7 @@ Switched to a new branch 'my-branch'
 You are now on a new local branch and can begin to commit changes.
 This means that you are now working on a branch you've created to reflect the changes you're planning to make and can use this branch to develop your content and test different layouts/approaches/structures freely.
 
-To check which branch you currently working on, use `git branch`.
+To see which branch you currently working on, use `git branch`.
 The command outputs a list of local branches with your current branch marked with an asterisk `*`.
 For example:
 
@@ -207,7 +207,7 @@ Answering the prompt with `a` stages the hunk and any remaining hunks.
 
 Using the prompt, stage all hunks relevant to your current change.
 
-Once you have staged your changes, you can commit them with `git commit -s`.
+After you have staged your changes, you can commit them with `git commit -s`.
 `git` opens your text editor where you can type a commit message.
 
 {{% admonition type="note" %}}
@@ -228,7 +228,7 @@ American English is preferred by our technical documentation style-guide.
 For more information, refer to https://github.com/grafana/technical-documentation/tree/main/docs/sources/style-guide.
 ```
 
-Finally, save and close the file opened by `git` to finish the commit.
+Save and close the file opened by `git` to finish the commit.
 
 For small changes where you only need write a subject, use the `-m` flag to provide the message without invoking your editor.
 For example:
@@ -277,7 +277,7 @@ Here, you can also edit the title and further detail in the larger text box as w
 
 If you rewrite local history, or your local branch diverges from the one in the remote for other reasons, you might need to force the remote to accept your changes.
 
-In such cases, prefer `--force-with-lease` over `--force`, which will overwrite the branch in the remote only if you have a tracking branch that is up to date.
+In such cases, prefer `--force-with-lease` over `--force`, which overwrites the branch in the remote only if you have a tracking branch that is up to date.
 That way, you won't accidentally overwrite commits pushed by others that you didn't know about.
 For more information, refer to the documentation of the option in `man git-push`.
 
@@ -301,7 +301,8 @@ git switch main
 git merge --ff-only
 ```
 
-After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'..."). The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
+After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'").
+The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
 
 ```console
 Switched to branch 'main'

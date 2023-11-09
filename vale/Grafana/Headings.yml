@@ -27,6 +27,7 @@ exceptions:
   - Mimir
   - PromQL
   - Prometheus
+  - Pyroscope
   - Redis
   - Tempo
   - TraceQL

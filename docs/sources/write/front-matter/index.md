@@ -73,7 +73,7 @@ The version in the URL path can cause undesirable redirects, such as a redirect 
 Aliases must be relative and not absolute paths so that old versions do not steal redirects from "latest" content when it is moved around.
 
 Aliases should include a YAML comment explaining the absolute URL path that the relative path redirects.
-This helps a reviewer check that your alias works correctly.
+This helps a reviewer make sure that your alias works correctly.
 For example, `../path/to/alias/ # /docs/grafana/<GRAFANA VERSION>/path/to/alias/`.
 
 ##### Examples
@@ -84,7 +84,7 @@ To redirect the page `/docs/grafana/latest/alerting/silences/` to `/docs/grafana
 - The relative alias `../` refers to the page `/docs/grafana/latest/alerting/`.
 - The relative alias `../silences/` refers to the page `/docs/grafana/latest/alerting/silences/`.
 
-Therefore, with the alias `../silences/` in the source file for the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/silences/`.
+Therefore, with the alias `../silences/` in the source file for the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, Hugo creates a redirect page at `/docs/grafana/latest/alerting/silences/`.
 
 To redirect the page `/docs/grafana/latest/alerting/unified-alerting/` to `/docs/grafana/latest/alerting/` you must add a relative alias in the source file for `/docs/grafana/alerting/` containing the relative alias to `/docs/grafana/latest/alerting/unified-alerting/`.
 
@@ -92,7 +92,7 @@ To redirect the page `/docs/grafana/latest/alerting/unified-alerting/` to `/docs
 - The relative alias `./alerting/` refers to the page `/docs/grafana/latest/alerting/` which is the page itself.
 - The relative alias `./alerting/unified-alerting/` refers to the page `/docs/grafana/latest/alerting/unified-alerting/`.
 
-Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
+Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo creates a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
 
 #### Other projects
 
@@ -211,7 +211,11 @@ cascade:
       - cloud
 ```
 
+<!-- vale Grafana.Headings = NO -->
+
 ### MenuTitle
+
+<!-- vale Grafana.Headings = YES -->
 
 Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 

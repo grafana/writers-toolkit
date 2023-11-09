@@ -12,6 +12,8 @@ exceptions:
   - Cloud Traces
   - GitHub
   - Grafana
+  - Grafana Cloud
+  - Grafana Agent
   - Grafana Enterprise Logs
   - Grafana Enterprise Metrics
   - Grafana Enterprise Traces

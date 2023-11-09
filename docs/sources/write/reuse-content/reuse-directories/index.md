@@ -13,7 +13,9 @@ aliases:
 
 # Reuse directories of content with Hugo mounts
 
-> **Note:** The following task can only be performed by a Grafana Labs employee.
+{{< admonition type="note" >}}
+The following task can only be performed by a Grafana Labs employee.
+{{< /admonition >}}
 
 Before Hugo performs a build, _Hugo mounts_ mount a source directory at a destination directory.
 Use Hugo mounts to reuse a whole directory of content in another part of the published technical documentation.
@@ -23,10 +25,13 @@ Use Hugo mounts to reuse a whole directory of content in another part of the pub
 - Identify a directory of content that you want to reuse.
 - Identify any pages to exclude.
   Typically, excluded pages do not make sense in the context of the target directory.
-  > **Warning:** Pages in the directory might have relative links to other pages that would be broken by their exclusion.
-  > If the excluded page is replaced by another in the target directory, relative links will continue to work.
-  > Otherwise, the broken relative links should be made absolute.
-  > That way, they will always refer to the page in the source directory.
+
+  {{< admonition type="warning" >}}
+  Pages in the directory might have relative links to other pages that would be broken by their exclusion.
+  If the excluded page is replaced by another in the target directory, relative links continue to work.
+  Otherwise, the broken relative links should be made absolute.
+  Absolute links always refer to the page in the source directory.
+  {{< /admonition >}}
 
 ## Steps
 

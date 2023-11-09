@@ -53,7 +53,7 @@ When writing link text, pay attention to words, quantity of links, and the lengt
 | Use                                                                                    | Do not use                                          |
 | -------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | `[Learn more about cluster navigation]()` or learn more about `[cluster navigation]()` | `[Learn more]()`                                    |
-| To learn more read our `[Grafana Phlare blog post]()`                                  | To learn more about Phlare read our `[blog post]()` |
+| To learn more read the `[Grafana Phlare blog post]()`                                  | To learn more about Phlare read the `[blog post]()` |
 | read more about specific `[metrics and alerting rules]()`                              | `[read more]()`                                     |
 | `[our <company name> products]()` or `[<company name> products]()`                     | `[our products]()`                                  |
 | visit the `[<company name> website]()` or visit` [<company name>.com`]()               | `[visit our website]()`                             |

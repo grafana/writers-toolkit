@@ -10,6 +10,7 @@
       '*.md': {
         BasedOnStyles: 'Google, Grafana',
 
+        'Google.Colons': 'NO',
         'Google.Headings': 'NO',
         'Google.Quotes': 'NO',
         // More often than not, we need to be consistent with Prometheus units or units used Grafana UI which are not represented in the form encouraged by SI.

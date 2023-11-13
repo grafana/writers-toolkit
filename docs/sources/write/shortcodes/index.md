@@ -398,7 +398,9 @@ Emitted Hugo errors look like this:
 
 <!-- The output example is also used in review/run-a-local-webserver. -->
 
-{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
+{{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" >}}
+
+{{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
 For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/).
 

@@ -1,9 +1,6 @@
 ---
-headless: true
+title: Hugo error example for relref
 description: Shared file for example Hugo error output.
-labels:
-  products:
-    - oss
 ---
 
 [//]: # "This file documents an example Hugo error output for relref and links."

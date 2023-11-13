@@ -58,5 +58,6 @@ submenu/S po:noun
 subtask/S po:noun
 tooltip/S po:noun
 triage/D po:verb
+unaggregated/ po:adjective
 webserver/S po:noun
 worktree/ po:noun

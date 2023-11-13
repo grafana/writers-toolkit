@@ -6,5 +6,4 @@ ignorecase: false
 action:
   name: replace
 swap:
-  allows to: allows you to
-  allows to: makes it possible to
+  allows to: allows you to|makes it possible to

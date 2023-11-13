@@ -13,6 +13,9 @@ exceptions:
   - CLI
   - CPU
   - HTTP
+  - GEL
+  - GEM
+  - GET
   - JSON
   - SDK
   - SQL

@@ -384,19 +384,15 @@ For example: `{{</* relref "./path/to/file" */>}}`.
 
 The argument is an absolute or relative file lookup.
 An absolute lookup begins with a slash (`/`) and starts from the site root.
-For example, to link to the Grafana Cloud index page, the `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud/_index.md" >}}`.
+For example, to link to the Grafana Cloud index page, the `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud/_index.md" */>}}`.
 
 Using the full path to file, including the extension, can break the lookup if the destination file changes from a page to a leaf or branch bundle.
 To avoid this, omit the file extension and any `/_index` or `/index` part of the lookup.
-Using the previous example of the Grafana Cloud index page, the preferred `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud" >}}`.
+Using the previous example of the Grafana Cloud index page, the preferred `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud" */>}}`.
 
 Hugo link checking only applies to the content available during the build.
 In most projects, the only content available during local builds and CI is the current project documentation,
 so you should be aware that just because a link uses a `relref`, it doesn't automatically follow that the link can be checked.
-
-Emitted Hugo errors look like this:
-
-<!-- The output example is also used in review/run-a-local-webserver. -->
 
 {{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 

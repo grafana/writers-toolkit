@@ -6,6 +6,7 @@ scope: heading
 match: $sentence
 exceptions:
   - Adaptive Metrics
+  - Application Observability
   - Cloud Metrics
   - Cloud Logs
   - Cloud Traces

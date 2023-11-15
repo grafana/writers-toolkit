@@ -35,13 +35,15 @@ Complete the following steps within one week after the prior release goes out.
 1. The technical writer posts in the Slack channel that the What's new PR is ready for contributions.
 1. The PMM communicates with engineering squads without a PM resource about who's on point for What's new PR reviews from within the PM and PMM organizations.
 <!-- Unclear who is responsible for this now -->
-1. The technical program manager sets the What's new freeze date. This date is generally 10-14 days before the public release date, or the private release date if a private release is planned.
+1. The technical program manager sets the What's new freeze date.
+   This date is generally 10-14 days before the public release date, or the private release date if a private release is planned.
 
    Refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG) for a list of release dates.
 
 ### Throughout a release
 
-A Grafana release cycle is typically 6-8 weeks, and during that time, developers are empowered to add to the What's new document incrementally. To see a list of release dates and assigned Product Managers and Product Marketing Managers, refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG).
+A Grafana release cycle is typically 6-8 weeks, and during that time, developers are empowered to add to the What's new document incrementally.
+To see a list of release dates and assigned Product Managers and Product Marketing Managers, refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG).
 
 Complete the following steps throughout a release cycle:
 
@@ -66,13 +68,17 @@ Complete the following steps in the days leading up to the release:
 1. The technical writer coordinates with Release Management and the GTM team for precise timing of when to merge the What's new doc into `main`.
 1. On release day (private release) or before release day (public), the technical writer and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the technical writer should add the appropriate backport label to the PR.
 
-The What's new is published in the "next" docs. When the release branch is promoted to GA, the What's new will also be part of the "latest" doc set.
+The What's new is published in the "next" docs.
+When the release branch is promoted to GA, the What's new will also be part of the "latest" doc set.
 
 ## How to determine if content belongs in a What's new document
 
-Grafana publishes a What's new [docs page](/docs/grafana/latest/whatsnew/) and [blog post](/blog/2022/11/29/grafana-9.3-release/) along with every minor and major release. These posts are popular, and a good way for users to learn about the exciting new things we've released. What's new also drives our go-to-market enablement: we train the field and make videos on the topics in What's new.
+Grafana publishes a What's new [docs page](/docs/grafana/latest/whatsnew/) and [blog post](/blog/2022/11/29/grafana-9.3-release/) along with every minor and major release.
+These posts are popular, and a good way for users to learn about the exciting new things we've released.
+What's new also drives our go-to-market enablement: we train the field and make videos on the topics in What's new.
 
-However, unlike our comprehensive changelog, What's new is curated. If it contained every update, it would be too noisy for people to read, and if we wrote a detailed What's new post for every little bug fix, we'd be wasting our time.
+However, unlike our comprehensive changelog, What's new is curated.
+If it contained every update, it would be too noisy for people to read, and if we wrote a detailed What's new post for every little bug fix, we'd be wasting our time.
 
 So how do you decide whether to write a What's new post for your latest improvement?
 
@@ -84,20 +90,23 @@ What's new content should address changes that have some kind of material impact
   - Most visualization changes and most additions to the UI should be in the What's new document, even when they seem small.
 - Almost every change or addition associated with Prometheus and Loki is of interest, too.
 - What's new content should also include changes that require customers to do something, like change their API keys to Service Accounts, or stop using a deprecated API or plugin.
-- A What's new doc should include announcements—things we want customers to notice and try out. These could also be notable community contributions where we want to thank a contributor.
+- A What's new doc should include announcements—things we want customers to notice and try out.
+  These could also be notable community contributions where we want to thank a contributor.
 
 When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in What's new_.
 
 ### Examples of what to include in What's new
 
 - A new Transformation: [Partition by values](/docs/grafana/latest/whatsnew/whats-new-in-v9-3/#new-transformation-partition-by-values).
-  - This is one of many transformations, but it is brand-new functionality that a user might not notice if they didn't read the What's new document. What's new is also a low-effort place to describe some nice use cases and examples for the feature so that users adopt it.
+  - This is one of many transformations, but it is brand-new functionality that a user might not notice if they didn't read the What's new document.
+    What's new is also a low-effort place to describe some nice use cases and examples for the feature so that users adopt it.
 - The new [Candlestick visualization](/docs/grafana/latest/whatsnew/whats-new-in-v8-3/#candlestick-panel-beta).
   - This was a beta feature, but still listed in What's new in order to get the word out and encourage users to try it.
 - All-new Swagger docs for the API.
   - This is significant because it makes our documentation much easier to use, and it's a new place for users to go for help when using our API.
 - [Removing beta labels from several panels](https://github.com/grafana/grafana/pull/58557), which makes then generally available.
-  - This is a small change code-wise, but a big statement with big customer impact. Customers now know that those plugins are fully supported and recommended for use in production.
+  - This is a small change code-wise, but a big statement with big customer impact.
+    Customers now know that those plugins are fully supported and recommended for use in production.
 - [New keyboard shortcut](https://github.com/grafana/grafana/pull/61837)
   - This is a small change, but it brings attention to a feature that has been improved recently and that most people don't know about.
 - [Search improvement for Flame graphs](https://github.com/grafana/grafana/pull/61748)
@@ -140,7 +149,9 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **Provide high-level descriptions.**
 
-  Tell customers what goal they can accomplish or what problems they can solve with the feature. Describe the business value. Don't go into details about how the feature works, or configuration steps.
+  Tell customers what goal they can accomplish or what problems they can solve with the feature.
+  Describe the business value.
+  Don't go into details about how the feature works, or configuration steps.
 
   Link out to topics in the documentation that provide more detailed information or steps.
 
@@ -151,6 +162,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **Don't refer to how the feature used to work.**
 
-  For example, don't say "Previously, alert rules changed state when the rule was facing an error or a timeout. Now, the state does not update."
+  For example, don't say "Previously, alert rules changed state when the rule was facing an error or a timeout.
+  Now, the state does not update."
 
 - **For changes or updates to features, provide brief descriptions.**

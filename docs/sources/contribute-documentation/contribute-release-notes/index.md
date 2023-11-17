@@ -30,24 +30,24 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
 1. Fill out the fields:
 
-- FEATURE NAME - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-- DATE - Date and time (UTC) that you want this note published. If you’ve opened a review PR, it will need to be merged before the date/time. If you enter a date that has passed, the note will publish immediately with that date.
-- CONTACT - First and last name. The contents of this field are not publicly viewable.
-- TAGS (OPTIONAL) - Select category tags that users can use to filter their view. Select as many as apply.
-- CLOUD AVAILABILITY - Select the stage of the feature’s cloud release.
-- CLOUD OFFERING - Select which account types have access to the feature.
-- SELF-MANAGED EDITIONS - Select the on-premises offerings where this feature is available.
-- BODY - Include an overview of the feature and the problem it solves. If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
-  Add any images and a link to your public YouTube video here.
-  If you need more information on adding an image, refer to: Image, diagram, and screenshot guidelines.
-
-* FEATURE TOGGLE NAME (OPTIONAL) - Exact name of the feature toggle for this feature, if one exists. For example, publicDashboards.
-* DOCUMENTATION URL (OPTIONAL) - URL to the public documentation for this feature.
-* GRAFANA URL PATH (OPTIONAL) - URL path to the feature in a Grafana Cloud stack. For example, /alerting/notifications.
-* INTERNAL INFORMATION (OPTIONAL) - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
+    - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
+    - **DATE** - Date and time (UTC) that you want this note published. If you’ve opened a review PR, it will need to be merged before the date/time. If you enter a date that has passed, the note will publish immediately with that date.
+    - **CONTACT** - First and last name. The contents of this field are not publicly viewable.
+    - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
+    - **CLOUD AVAILABILITY** - Select the stage of the feature’s cloud release.
+    - **CLOUD OFFERING** - Select which account types have access to the feature.
+    - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available.
+    - **BODY** - Include an overview of the feature and the problem it solves.   
+      If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
+      Add any images and a link to your public YouTube video here.
+      If you need more information on adding an image, refer to: Image, diagram, and screenshot guidelines.
+    - **FEATURE TOGGLE NAME (OPTIONAL)** - Exact name of the feature toggle for this feature, if one exists. For example, publicDashboards.
+    - **DOCUMENTATION URL (OPTIONAL)** - URL to the public documentation for this feature.
+    - **GRAFANA URL PATH (OPTIONAL)** - URL path to the feature in a Grafana Cloud stack. For example, /alerting/notifications.
+    - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
 
 1. Request a review (optional).
-  Select this option to open a PR in the website repository for review. 
+  Select this option to open a PR in the website repository for review.
 1. Click **Save**. When the note is saved, you can select **In review** from the **Status:** dropdown menu.
    The review PR will appear in the website repository. Note that the Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process. However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 

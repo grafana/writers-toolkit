@@ -73,7 +73,7 @@ Complete the following steps within one week after the prior release goes out.
 1. The technical writer then pins a link to the [grafana-release-train](https://raintank-corp.slack.com/archives/C04RASF5M08) Slack channel.
 1. The technical writer posts in the Slack channel that the What's new PR is ready for contributions.
 1. The PMM communicates with engineering squads without a PM resource about who's on point for What's new PR reviews from within the PM and PMM organizations.
-<!-- Unclear who is responsible for this now 
+<!-- Unclear who is responsible for this now
 1. The technical program manager sets the What's new freeze date.
    This date is generally 10-14 days before the public release date, or the private release date if a private release is planned.
 

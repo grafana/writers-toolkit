@@ -29,15 +29,16 @@ Release notes should be entered into the CMS 2-4 weeks before the feature is ava
 When you’re ready to add a What’s new entry, complete the following steps:
 
 1. Fill out the fields:
-  * FEATURE NAME - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-  * DATE - Date and time (UTC) that you want this note published. If you’ve opened a review PR, it will need to be merged before the date/time. If you enter a date that has passed, the note will publish immediately with that date. 
-  * CONTACT - First and last name. The contents of this field are not publicly viewable. 
-  * TAGS (OPTIONAL) - Select category tags that users can use to filter their view. Select as many as apply. 
-  * CLOUD AVAILABILITY - Select the stage of the feature’s cloud release.
-  * CLOUD OFFERING - Select which account types have access to the feature. 
-  * SELF-MANAGED EDITIONS - Select the on-premises offerings where this feature is available.
-  * BODY - Include an overview of the feature and the problem it solves. If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
-  Add any images and a link to your public YouTube video here. 
+
+- FEATURE NAME - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
+- DATE - Date and time (UTC) that you want this note published. If you’ve opened a review PR, it will need to be merged before the date/time. If you enter a date that has passed, the note will publish immediately with that date.
+- CONTACT - First and last name. The contents of this field are not publicly viewable.
+- TAGS (OPTIONAL) - Select category tags that users can use to filter their view. Select as many as apply.
+- CLOUD AVAILABILITY - Select the stage of the feature’s cloud release.
+- CLOUD OFFERING - Select which account types have access to the feature.
+- SELF-MANAGED EDITIONS - Select the on-premises offerings where this feature is available.
+- BODY - Include an overview of the feature and the problem it solves. If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
+  Add any images and a link to your public YouTube video here.
   If you need more information on adding an image, refer to: Image, diagram, and screenshot guidelines.
 - FEATURE TOGGLE NAME (OPTIONAL) - Exact name of the feature toggle for this feature, if one exists. For example, publicDashboards.
 - DOCUMENTATION URL (OPTIONAL) - URL to the public documentation for this feature.

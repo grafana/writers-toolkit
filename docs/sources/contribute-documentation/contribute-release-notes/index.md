@@ -39,10 +39,10 @@ When you’re ready to add a What’s new entry, complete the following steps:
   * BODY - Include an overview of the feature and the problem it solves. If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
   Add any images and a link to your public YouTube video here. 
   If you need more information on adding an image, refer to: Image, diagram, and screenshot guidelines.
-  * FEATURE TOGGLE NAME (OPTIONAL) - Exact name of the feature toggle for this feature, if one exists. For example, publicDashboards. 
-  * DOCUMENTATION URL (OPTIONAL) - URL to the public documentation for this feature. 
-  * GRAFANA URL PATH (OPTIONAL) - URL path to the feature in a Grafana Cloud stack. For example, /alerting/notifications.
-  * INTERNAL INFORMATION (OPTIONAL) - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
+- FEATURE TOGGLE NAME (OPTIONAL) - Exact name of the feature toggle for this feature, if one exists. For example, publicDashboards.
+- DOCUMENTATION URL (OPTIONAL) - URL to the public documentation for this feature.
+- GRAFANA URL PATH (OPTIONAL) - URL path to the feature in a Grafana Cloud stack. For example, /alerting/notifications.
+- INTERNAL INFORMATION (OPTIONAL) - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
 
 1. Request a review (optional).
   Select this option to open a PR in the website repository for review. 

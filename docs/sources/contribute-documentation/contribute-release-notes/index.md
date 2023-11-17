@@ -37,7 +37,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
     - **CLOUD AVAILABILITY** - Select the stage of the feature’s cloud release.
     - **CLOUD OFFERING** - Select which account types have access to the feature.
     - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available.
-    - **BODY** - Include an overview of the feature and the problem it solves.   
+    - **BODY** - Include an overview of the feature and the problem it solves.
       If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
       Add any images and a link to your public YouTube video here.
       If you need more information on adding an image, refer to: Image, diagram, and screenshot guidelines.

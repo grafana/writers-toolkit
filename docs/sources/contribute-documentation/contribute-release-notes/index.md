@@ -47,7 +47,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
     - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
 
 1. Request a review (optional).
-  Select this option to open a PR in the website repository for review.
+   Select this option to open a PR in the website repository for review.
 1. Click **Save**. When the note is saved, you can select **In review** from the **Status:** dropdown menu.
    The review PR will appear in the website repository. Note that the Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process. However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 

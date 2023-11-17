@@ -47,10 +47,11 @@ When you’re ready to add a What’s new entry, complete the following steps:
 1. Request a review (optional).
   Select this option to open a PR in the website repository for review. 
 1. Click **Save**. When the note is saved, you can select **In review** from the **Status:** dropdown menu.
-  The review PR will appear in the website repository. Note that the Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process. However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
-    * Docs squad office hours (early)
-    * Docs squad office hours (late)
-  If you open a PR, ensure that it’s merged in time for your feature release date.  
+   The review PR will appear in the website repository. Note that the Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process. However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
+
+   - Docs squad office hours (early)
+   - Docs squad office hours (late)
+     If you open a PR, ensure that it’s merged in time for your feature release date.
 
 1. Preview your entry and ensure that it looks the way you want it to.
   For Grafana versioned releases, the content will be collected by [someone] and published in the versioned What’s new at a later date.

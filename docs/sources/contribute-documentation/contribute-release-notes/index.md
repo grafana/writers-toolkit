@@ -100,7 +100,7 @@ Complete the following steps in the days leading up to the release:
 
 1. Five days before the What's new freeze, the technical program manager sends a last call to developer teams to get in their What's new content.
 1. The day after the freeze date, a PM reviews all content and adjusts wording, where appropriate.
-<!-- not sure who is doing this review 
+<!-- not sure who is doing this review
 1. Once the PM has completed their review, the technical writer completes a copy edit.
 1. When the copy edit is complete, the technical writer changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review. This should happen three to five days before the private/public release date to ensure time for further edits.
 1. The technical writer finalizes the What's new.

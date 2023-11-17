@@ -27,6 +27,7 @@ Because this platform is meant to be used by the entire organization, by default
 Release notes should be entered into the CMS 2-4 weeks before the feature is available, depending on the size of the product or feature. This gives the GTM team time for promotion and enablement. For Grafana versioned releases, have your content entered in the CMS by the cut off date communicated by the delivery team. For more information, see the RADS guidelines.
 
 When you’re ready to add a What’s new entry, complete the following steps:
+
 1. Fill out the fields:
   * FEATURE NAME - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
   * DATE - Date and time (UTC) that you want this note published. If you’ve opened a review PR, it will need to be merged before the date/time. If you enter a date that has passed, the note will publish immediately with that date. 

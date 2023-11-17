@@ -58,7 +58,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
 <!-- 1. To edit your What’s new content:
 Scenario 1: The docs are published
-Scenario 2: The docs aren’t published 
+Scenario 2: The docs aren’t published
 Scenario 3: Some of your docs are published and some aren’t. For example, you have features already published in the Cloud What’s new but not yet in the on-prem What’s new -->
 
 <!--### When the prior release is complete

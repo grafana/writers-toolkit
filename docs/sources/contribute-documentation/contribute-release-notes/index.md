@@ -76,7 +76,7 @@ Whether your entry is published or not, it's always best to use the CMS to make 
 
 If your entry is published in both _What's new in Cloud_ and _What's new in Grafana_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person who's creating the versioned release notes.
 
-### Creating the versioned release notes
+### Create the versioned release notes
 
 1. After the previous version of Grafana is released, the DRI cuts a branch and creates a draft PR with an empty What's new doc to be populated with the What's new content for the next release, along with the updated What's new index page. This PR:
 

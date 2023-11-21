@@ -20,94 +20,89 @@ This topic is only relevant for internal Grafana Labs contributors.
 
 ## What's new doc development process
 
-What’s new content is published to our site through the website content management system (CMS), and can be accessed here: [](). 
+What’s new content is published to our site through the website content management system (CMS), and can be accessed [here](). (link to CMS form)
 
-Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval. **Quality assurance will need to be a conversation within and between contributing teams and internal stakeholders**, but there are some best practice guidelines described in the last two sections of this topic.
+Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval. **Quality assurance is a conversation within and between contributing teams and internal stakeholders**, but there are some best practice guidelines described in the last two sections of this topic.
 
-Release notes should be entered into the CMS 2-4 weeks before the feature is available, depending on the size of the product or feature. This gives the GTM team time for promotion and enablement. For Grafana versioned releases, have your content entered in the CMS by the cut off date communicated by the delivery team. For more information, see the RADS guidelines.
+Release notes should be entered into the CMS 2-4 weeks before the feature is available, depending on the size of the product or feature. This gives the GTM team time for promotion and enablement. For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team. For more information, see the [RADS guidelines](https://grafana-intranet--simpplr.vf.force.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000004oOF7AAM).
 
 When you’re ready to add a What’s new entry, complete the following steps:
 
 1. Fill out the fields:
 
     - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-    - **DATE** - Date and time (UTC) that you want this note published. If you’ve opened a review PR, it will need to be merged before the date/time. If you enter a date that has passed, the note will publish immediately with that date.
-    - **CONTACT** - First and last name. The contents of this field are not publicly viewable.
+    - **DATE** - Date and time (UTC) that you want this note published. Typically, this is also the feature release date. If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note will publish immediately with that date.
+    - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
     - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
-    - **CLOUD AVAILABILITY** - Select the stage of the feature’s cloud release.
+    - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release.
     - **CLOUD OFFERING** - Select which account types have access to the feature.
-    - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available.
+    - **SELF-MANAGED AVAILABILITY** - Select the stage of the feature's self-managed release.
+    - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available, or if it's not available in self-managed editions, select "None."
     - **BODY** - Include an overview of the feature and the problem it solves.
-      If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
-      Add any images and a link to your public YouTube video here.
-      If you need more information on adding an image, refer to: Image, diagram, and screenshot guidelines.
-    - **FEATURE TOGGLE NAME (OPTIONAL)** - Exact name of the feature toggle for this feature, if one exists. For example, publicDashboards.
+
+        If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
+        Add any images and a link to your public YouTube video here.
+        If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).
+
+    - **FEATURE TOGGLE NAME (OPTIONAL)** - Exact name of the feature toggle for this feature, if one exists. For example, `publicDashboards`.
     - **DOCUMENTATION URL (OPTIONAL)** - URL to the public documentation for this feature.
-    - **GRAFANA URL PATH (OPTIONAL)** - URL path to the feature in a Grafana Cloud stack. For example, /alerting/notifications.
+    - **GRAFANA URL PATH (OPTIONAL)** - URL path to the feature in a Grafana Cloud stack. For example, `/alerting/notifications`.
     - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
 
-1. Request a review (optional).
-   Select this option to open a PR in the website repository for review.
-1. Click **Save**. When the note is saved, you can select **In review** from the **Status:** dropdown menu.
-   The review PR will appear in the website repository. Note that the Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process. However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
+1. Click **Save**. The entry is now in **Draft** status.
+1. If your entry is ready to publish, proceed to step 4. If your entry requires review, follow these steps:
+    
+    1. In the **Status** drop-down, select **In review.**
+    
+       A review PR is generated in the `grafana/website` repository. **The Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process.** However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 
-   - Docs squad office hours (early)
-   - Docs squad office hours (late)
-     If you open a PR, ensure that it’s merged in time for your feature release date.
+       - [Docs squad office hours (early)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NmoxZ2w0NHBoazgxaW80cTN0MW82aG1xMmxfMjAyMzExMjJUMDkwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
+       - [Docs squad office hours (late)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NTI0MWZxYTYwY3FjYW5waWM1OWVjMDBkaWpfMjAyMzExMjJUMjEwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
 
-1. Preview your entry and ensure that it looks the way you want it to.
-  For Grafana versioned releases, the content will be collected by [someone] and published in the versioned What’s new at a later date.
+    1. Merge your PR in time for your feature release date.
+    
+       Merging your PR ensures your entry is published on the date you entered and it automatically updates the status of your entry in the CMS.
 
-<!-- 1. To edit your What’s new content:
-Scenario 1: The docs are published
-Scenario 2: The docs aren’t published
-Scenario 3: Some of your docs are published and some aren’t. For example, you have features already published in the Cloud What’s new but not yet in the on-prem What’s new -->
+1. To publish your entry from the CMS, follow these steps:
+    
+      1. In the **Status** drop-down, click **Ready**.
+      1. In the **Publish** drop-down, click **Publish now**. The entry will appear in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
 
-<!--### When the prior release is complete
+For Grafana versioned releases, the content entered in the CMS will be collected by [someone] and published in the versioned What’s new at a later date. Refer to [Creating the self-managed/versioned release notes](#creating-the-versioned-release-notes)
 
-Complete the following steps within one week after the prior release goes out.
+### Edit What's new entries
 
-1. The Docs Squad identifies the technical writer responsible for overseeing the What's new content development process for the upcoming OSS release.
-1. The identified technical writer cuts a branch and creates a draft PR with an empty What's new doc to be populated with the What's new content for the next release, along with the updated What's new index page.
-   - This PR should include an update to the link and version number located on the What's new tile of `docs/sources/_index.md`.
-   - This PR should include the new Upgrade Guide page (process TBA).
-   - This PR should have a `no-backport` label.
-1. The technical writer then pins a link to the [grafana-release-train](https://raintank-corp.slack.com/archives/C04RASF5M08) Slack channel.
-1. The technical writer posts in the Slack channel that the What's new PR is ready for contributions.
-1. The PMM communicates with engineering squads without a PM resource about who's on point for What's new PR reviews from within the PM and PMM organizations.
-<!-- Unclear who is responsible for this now
-1. The technical program manager sets the What's new freeze date.
-   This date is generally 10-14 days before the public release date, or the private release date if a private release is planned.
+Whether your entry is published or not, it's always best to use the CMS to make any changes.
 
-   Refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG) for a list of release dates.
--->
-<!--### Throughout a release
+If your entry is published in both _What's new in Cloud_ and _What's new in Grafana_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person who's creating the versioned release notes.
 
-A Grafana release cycle is typically 6-8 weeks, and during that time, developers are empowered to add to the What's new document incrementally.
-To see a list of release dates and assigned Product Managers and Product Marketing Managers, refer to [Grafana Releases and Release Dates](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000001AXrwAAG).
+### Creating the versioned release notes
 
-Complete the following steps throughout a release cycle:
+1. After the previous version of Grafana is released, the DRI cuts a branch and creates a draft PR with an empty What's new doc to be populated with the What's new content for the next release, along with the updated What's new index page. This PR:
 
-1. Developer teams add commits directly against the branch.
+   - Should include an update to the link and version number located on the What's new tile of `docs/sources/_index.md`.
+   - Should include the new Upgrade Guide page.
+   - Should have a `no-backport` label.
+   - May include a new Breaking changes guide page.
 
-   > **Note:** As an alternative, developer teams can cut PRs against the branch, add What's new content, collaborate with reviewers, and merge the PR into the What's new branch.
+1. After the cut-off date for the self-managed/versioned release, the DRI goes [where] and filters the What's new content in the CMS by the following properties:
 
-1. The technical writer periodically checks the What's new PR to determine how much content has been added.
+  - Self-managed editions
+  - Date range (from the previous release to the current date)
 
-At this point, the larger Marketing org can review the What's new content in the branch.
+1. The DRI adds this content to the  What's new doc using the tags data to group items appropriately.
 
-### At the end of a release
+1. PM reviews the content to adjust order, **but not copy**. All copy editing must take place when entries are added in the CMS.
 
-Complete the following steps in the days leading up to the release:
+1. PM and the DRI work to make final adjustments to the Upgrade guide or Breaking changes guide.
 
-1. Five days before the What's new freeze, the technical program manager sends a last call to developer teams to get in their What's new content.
-1. The day after the freeze date, a PM reviews all content and adjusts wording, where appropriate.
-<!-- not sure who is doing this review
-1. Once the PM has completed their review, the technical writer completes a copy edit.
-1. When the copy edit is complete, the technical writer changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review. This should happen three to five days before the private/public release date to ensure time for further edits.
-1. The technical writer finalizes the What's new.
-1. The technical writer coordinates with Release Management and the GTM team for precise timing of when to merge the What's new doc into `main`.
-1. On release day (private release) or before release day (public), the technical writer and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the technical writer should add the appropriate backport label to the PR.
+1. A week before the release date, the the DRI changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
+
+1. The DRI finalizes the What's new.
+
+1. The DRI coordinates with the Release Guild and the GTM team for precise timing of when to merge the What's new doc into `main`.
+
+1. On release day, the DRI and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the DRI should add the appropriate backport label to the PR.
 
 The What's new is published in the "next" docs.
 When the release branch is promoted to GA, the What's new will also be part of the "latest" doc set.-->

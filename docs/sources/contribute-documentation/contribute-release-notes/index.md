@@ -20,7 +20,7 @@ This topic is only relevant for internal Grafana Labs contributors.
 
 ## What's new doc development process
 
-What’s new content is published to our site through the website content management system (CMS), and can be accessed [here](). (link to CMS form)
+What’s new content is published to the website through the website content management system (CMS), and can be accessed [here](https://admin.grafana.com/content-admin/#/collections/whatsnew).
 
 Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval. **Quality assurance is a conversation within and between contributing teams and internal stakeholders**, but there are some best practice guidelines described in the last two sections of this topic.
 
@@ -31,7 +31,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
 1. Fill out the fields:
 
    - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-   - **DATE** - Date and time (UTC) that you want this note published. Typically, this is also the feature release date. If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note will publish immediately with that date.
+   - **DATE** - Date and time (UTC) that you want this note published. Typically, this is also the feature release date. If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note is published immediately on that date.
    - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
    - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
    - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release.
@@ -66,9 +66,9 @@ When you’re ready to add a What’s new entry, complete the following steps:
 1. To publish your entry from the CMS, follow these steps:
 
    1. In the **Status** drop-down, click **Ready**.
-   1. In the **Publish** drop-down, click **Publish now**. The entry will appear in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
+   1. In the **Publish** drop-down, click **Publish now**. The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
 
-For Grafana versioned releases, the content entered in the CMS will be collected by [someone] and published in the versioned What’s new at a later date. Refer to [Creating the self-managed/versioned release notes](#creating-the-versioned-release-notes)
+For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the self-managed/ppversioned release notes](#creating-the-versioned-release-notes)
 
 ### Edit What's new entries
 
@@ -104,18 +104,23 @@ If your entry is published in both _What's new in Cloud_ and _What's new in Graf
 
 1. On release day, the DRI and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the DRI should add the appropriate backport label to the PR.
 
+<!-- vale Google.Will = NO -->
+<!-- This section speaks of the future -->
+
 The What's new is published in the "next" docs.
-When the release branch is promoted to GA, the What's new will also be part of the "latest" doc set.-->
+When the release branch is promoted to GA, the What's new will also be part of the "latest" doc set.
+
+<!-- vale Google.Will = YES -->
 
 ## How to determine if content belongs in What's new
 
 Grafana publishes a What's new [docs page](/docs/grafana/latest/whatsnew/) and [blog post](/blog/2022/11/29/grafana-9.3-release/) along with every minor and major release.
 
-These posts are popular, and a good way for users to learn about the exciting new things we've released.
-What's new also drives our go-to-market enablement: we train the field and make videos on the topics in What's new.
+These posts are popular, and a good way for users to learn about the exciting new things Grafana has released.
+What's new also drives Grafana's go-to-market enablement: it is used to train the field and make videos on the topics in What's new.
 
-However, unlike our comprehensive changelog, What's new is curated.
-If it contained every update, it would be too noisy for people to read, and if we wrote a detailed What's new post for every little bug fix, we'd be wasting our time.
+However, unlike a comprehensive changelog, What's new is curated.
+If it contained every update and a detailed What's new post for every little bug fix, it would be too noisy for people to read.
 
 So how do you decide whether to write a What's new post for your latest improvement?
 
@@ -127,8 +132,8 @@ What's new content should address changes that have some kind of material impact
   - Most visualization changes and most additions to the UI should be in the What's new document, even when they seem small.
 - Almost every change or addition associated with Prometheus and Loki is of interest, too.
 - What's new content should also include changes that require customers to do something, like change their API keys to Service Accounts, or stop using a deprecated API or plugin.
-- A What's new doc should include announcements—things we want customers to notice and try out.
-  These could also be notable community contributions where we want to thank a contributor.
+- A What's new doc should include announcements—things for customers to notice and try out.
+  These could also be notable community contributions to thank a contributor.
 
 When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in What's new_.
 
@@ -138,9 +143,9 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
   - This is one of many transformations, but it is brand-new functionality that a user might not notice if they didn't read the What's new document.
     What's new is also a low-effort place to describe some nice use cases and examples for the feature so that users adopt it.
 - The new [Candlestick visualization](/docs/grafana/latest/whatsnew/whats-new-in-v8-3/#candlestick-panel-beta).
-  - This was a beta feature, but still listed in What's new in order to get the word out and encourage users to try it.
+  - This was a beta feature, but still listed in What's new to get the word out and encourage users to try it.
 - All-new Swagger docs for the API.
-  - This is significant because it makes our documentation much easier to use, and it's a new place for users to go for help when using our API.
+  - This is significant because it makes Grafana documentation much easier to use, and it's a new place for users to go for help when using the API.
 - [Removing beta labels from several panels](https://github.com/grafana/grafana/pull/58557), which makes then generally available.
   - This is a small change code-wise, but a big statement with big customer impact.
     Customers now know that those plugins are fully supported and recommended for use in production.
@@ -149,7 +154,7 @@ When in doubt, ask your nearest PM or EM. Err on the side of _yes, put it in Wha
 - [Search improvement for Flame graphs](https://github.com/grafana/grafana/pull/61748)
   - Fuzzy search. Has to be in the blog post.
 - [Changes to the Prometheus query editor](https://github.com/grafana/grafana/pull/60718)
-  - These are query patterns for the data source that most of our users use.
+  - These are query patterns for the data source that most users use.
 
 ### Examples of what _not_ to include in What's new
 
@@ -161,7 +166,7 @@ These are important improvements, but are better placed in the changelog than Wh
   - This is a bug fix that doesn't require customer action.
 - [A usability improvement to an existing transformation](https://github.com/grafana/grafana/pull/59074)
   - Nice fix, but very detailed. Should be in the changelog but not What's new.
-- [Change regex to accommodate a new branching strategy in Enterprise](https://github.com/grafana/grafana/pull/59429)
+- [Change regular expression to accommodate a new branching strategy in Enterprise](https://github.com/grafana/grafana/pull/59429)
   - This change is invisible to customers.
 
 ## Writing guidelines for What's new content

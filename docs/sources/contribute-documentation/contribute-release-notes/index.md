@@ -30,43 +30,43 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
 1. Fill out the fields:
 
-    - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-    - **DATE** - Date and time (UTC) that you want this note published. Typically, this is also the feature release date. If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note will publish immediately with that date.
-    - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
-    - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
-    - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release.
-    - **CLOUD OFFERING** - Select which account types have access to the feature.
-    - **SELF-MANAGED AVAILABILITY** - Select the stage of the feature's self-managed release.
-    - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available, or if it's not available in self-managed editions, select "None."
-    - **BODY** - Include an overview of the feature and the problem it solves.
+   - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
+   - **DATE** - Date and time (UTC) that you want this note published. Typically, this is also the feature release date. If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note will publish immediately with that date.
+   - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
+   - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
+   - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release.
+   - **CLOUD OFFERING** - Select which account types have access to the feature.
+   - **SELF-MANAGED AVAILABILITY** - Select the stage of the feature's self-managed release.
+   - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available, or if it's not available in self-managed editions, select "None."
+   - **BODY** - Include an overview of the feature and the problem it solves.
 
-        If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
-        Add any images and a link to your public YouTube video here.
-        If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).
+     If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
+     Add any images and a link to your public YouTube video here.
+     If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).
 
-    - **FEATURE TOGGLE NAME (OPTIONAL)** - Exact name of the feature toggle for this feature, if one exists. For example, `publicDashboards`.
-    - **DOCUMENTATION URL (OPTIONAL)** - URL to the public documentation for this feature.
-    - **GRAFANA URL PATH (OPTIONAL)** - URL path to the feature in a Grafana Cloud stack. For example, `/alerting/notifications`.
-    - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
+   - **FEATURE TOGGLE NAME (OPTIONAL)** - Exact name of the feature toggle for this feature, if one exists. For example, `publicDashboards`.
+   - **DOCUMENTATION URL (OPTIONAL)** - URL to the public documentation for this feature.
+   - **GRAFANA URL PATH (OPTIONAL)** - URL path to the feature in a Grafana Cloud stack. For example, `/alerting/notifications`.
+   - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
 
 1. Click **Save**. The entry is now in **Draft** status.
 1. If your entry is ready to publish, proceed to step 4. If your entry requires review, follow these steps:
-    
-    1. In the **Status** drop-down, select **In review.**
-    
-       A review PR is generated in the `grafana/website` repository. **The Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process.** However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 
-       - [Docs squad office hours (early)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NmoxZ2w0NHBoazgxaW80cTN0MW82aG1xMmxfMjAyMzExMjJUMDkwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
-       - [Docs squad office hours (late)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NTI0MWZxYTYwY3FjYW5waWM1OWVjMDBkaWpfMjAyMzExMjJUMjEwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
+   1. In the **Status** drop-down, select **In review.**
 
-    1. Merge your PR in time for your feature release date.
-    
-       Merging your PR ensures your entry is published on the date you entered and it automatically updates the status of your entry in the CMS.
+      A review PR is generated in the `grafana/website` repository. **The Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process.** However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
+
+      - [Docs squad office hours (early)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NmoxZ2w0NHBoazgxaW80cTN0MW82aG1xMmxfMjAyMzExMjJUMDkwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
+      - [Docs squad office hours (late)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NTI0MWZxYTYwY3FjYW5waWM1OWVjMDBkaWpfMjAyMzExMjJUMjEwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
+
+   1. Merge your PR in time for your feature release date.
+
+      Merging your PR ensures your entry is published on the date you entered and it automatically updates the status of your entry in the CMS.
 
 1. To publish your entry from the CMS, follow these steps:
-    
-      1. In the **Status** drop-down, click **Ready**.
-      1. In the **Publish** drop-down, click **Publish now**. The entry will appear in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
+
+   1. In the **Status** drop-down, click **Ready**.
+   1. In the **Publish** drop-down, click **Publish now**. The entry will appear in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
 
 For Grafana versioned releases, the content entered in the CMS will be collected by [someone] and published in the versioned What’s new at a later date. Refer to [Creating the self-managed/versioned release notes](#creating-the-versioned-release-notes)
 
@@ -87,10 +87,10 @@ If your entry is published in both _What's new in Cloud_ and _What's new in Graf
 
 1. After the cut-off date for the self-managed/versioned release, the DRI goes [where] and filters the What's new content in the CMS by the following properties:
 
-  - Self-managed editions
-  - Date range (from the previous release to the current date)
+- Self-managed editions
+- Date range (from the previous release to the current date)
 
-1. The DRI adds this content to the  What's new doc using the tags data to group items appropriately.
+1. The DRI adds this content to the What's new doc using the tags data to group items appropriately.
 
 1. PM reviews the content to adjust order, **but not copy**. All copy editing must take place when entries are added in the CMS.
 

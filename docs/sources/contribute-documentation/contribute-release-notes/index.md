@@ -68,7 +68,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
    1. In the **Status** drop-down, click **Ready**.
    1. In the **Publish** drop-down, click **Publish now**. The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
 
-For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the self-managed/ppversioned release notes](#creating-the-versioned-release-notes)
+For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the self-managed/ppversioned release notes](#create-the-versioned-release-notes)
 
 ### Edit What's new entries
 

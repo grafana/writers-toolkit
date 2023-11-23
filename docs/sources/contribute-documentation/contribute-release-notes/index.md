@@ -28,8 +28,8 @@ Release notes should be entered into the CMS 2-4 weeks before the feature is ava
 
 Note that in the context of the CMS, the word "published" has a slightly different meaning than in general use:
 
- - **Published** - Your entry is complete and in **Published** status. It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
- - **Live** - Your entry is visible on the _What's new in Cloud_ page.
+- **Published** - Your entry is complete and in **Published** status. It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
+- **Live** - Your entry is visible on the _What's new in Cloud_ page.
 
 ### Create a What's new entry
 
@@ -39,8 +39,8 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
    - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
    - **DATE** - Date and time (UTC) that you want this note to be live. This should also be the feature release date.
-   
-      If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note is published immediately with that date.
+
+     If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note is published immediately with that date.
 
    - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
    - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
@@ -90,8 +90,8 @@ Regardless of the status of your entry, it's always best to use the CMS to make 
 1. Click **Save**. The entry is now in **Draft** status.
 1. Do one of the following:
 
-    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
-    - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
+   - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
+   - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
 
 If your entry is already live in both _What's new in Cloud_ and _What's new in Grafana vxx_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person responsible for creating the versioned release notes.
 

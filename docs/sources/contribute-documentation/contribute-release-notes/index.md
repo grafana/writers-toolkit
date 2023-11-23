@@ -93,7 +93,7 @@ Regardless of the status of your entry, it's always best to use the CMS to make 
    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
    - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
 
-If your entry is already live in both _What's new in Cloud_ and _What's new in Grafana vxx_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person responsible for creating the versioned release notes.
+If your entry is already live in both _What's new in Cloud_ and _What's new in Grafana `vMAJOR.MINOR.x`_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person responsible for creating the versioned release notes.
 
 ### Create the versioned release notes
 

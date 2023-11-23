@@ -26,18 +26,28 @@ Because this platform is meant to be used by the entire organization, by default
 
 Release notes should be entered into the CMS 2-4 weeks before the feature is available, depending on the size of the product or feature. This gives the GTM team time for promotion and enablement. For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team. For more information, see the [RADS guidelines](https://grafana-intranet--simpplr.vf.force.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000004oOF7AAM).
 
+Note that in the context of the CMS, the word "published" has a slightly different meaning than in general use:
+
+ - **Published** - Your entry is complete and in **Published** status. It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
+ - **Live** - Your entry is visible on the _What's new in Cloud_ page.
+
+### Create a What's new entry
+
 When you’re ready to add a What’s new entry, complete the following steps:
 
 1. Fill out the fields:
 
    - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-   - **DATE** - Date and time (UTC) that you want this note published. Typically, this is also the feature release date. If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note is published immediately on that date.
+   - **DATE** - Date and time (UTC) that you want this note to be live. This should also be the feature release date.
+   
+      If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note is published immediately with that date.
+
    - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
    - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
-   - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release.
-   - **CLOUD OFFERING** - Select which account types have access to the feature.
-   - **SELF-MANAGED AVAILABILITY** - Select the stage of the feature's self-managed release.
-   - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available, or if it's not available in self-managed editions, select "None."
+   - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release. If the feature isn't available in Cloud, select "None."
+   - **CLOUD OFFERING** - Select which account types have access to the feature. If the feature isn't available in Cloud, select "None."
+   - **SELF-MANAGED AVAILABILITY** - Select the stage of the feature's self-managed release. If the feature isn't available in self-managed Grafana, select "None."
+   - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available. If the feature isn't available in self-managed Grafana, select "None."
    - **BODY** - Include an overview of the feature and the problem it solves.
 
      If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
@@ -61,34 +71,39 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
    1. Merge your PR in time for your feature release date.
 
-      Merging your PR ensures your entry is published on the date you entered and it automatically updates the status of your entry in the CMS.
+      Merging your PR ensures your entry is live on the date you entered and it automatically updates the status of your entry in the CMS.
 
 1. To publish your entry from the CMS, follow these steps:
 
    1. In the **Status** drop-down, click **Ready**.
    1. In the **Publish** drop-down, click **Publish now**. The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
 
-For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the self-managed/ppversioned release notes](#create-the-versioned-release-notes)
+For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the versioned release notes](#create-the-versioned-release-notes)
 
 ### Edit What's new entries
 
-Whether your entry is published or not, it's always best to use the CMS to make any changes.
+Regardless of the status of your entry, it's always best to use the CMS to make any changes. To make edits, follow these steps:
 
-If your entry is published in both _What's new in Cloud_ and _What's new in Grafana_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person who's creating the versioned release notes.
+1. Navigate to the [CMS](https://admin.grafana.com/content-admin/#/collections/whatsnew).
+1. Update the fields that you need to change.
+1. Click **Save**. The entry is now in **Draft** status.
+1. Do one of the following:
+
+    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
+    - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
+
+If your entry is already live in both _What's new in Cloud_ and _What's new in Grafana vxx_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person responsible for creating the versioned release notes.
 
 ### Create the versioned release notes
 
-1. After the previous version of Grafana is released, the DRI cuts a branch and creates a draft PR with an empty What's new doc to be populated with the What's new content for the next release, along with the updated What's new index page. This PR:
+1. After the previous version of Grafana is released, the directly responsible individual (DRI) cuts a branch and creates a draft PR with an empty What's new doc to be populated with the What's new content for the next release, along with the updated What's new index page. This PR:
 
    - Should include an update to the link and version number located on the What's new tile of `docs/sources/_index.md`.
    - Should include the new Upgrade Guide page.
    - Should have a `no-backport` label.
    - May include a new Breaking changes guide page.
 
-1. After the cut-off date for the self-managed/versioned release, the DRI goes [where] and filters the What's new content in the CMS by the following properties:
-
-- Self-managed editions
-- Date range (from the previous release to the current date)
+1. After the cut-off date for the self-managed/versioned release, the DRI collects the relevant What's new content (specifics TBD).
 
 1. The DRI adds this content to the What's new doc using the tags data to group items appropriately.
 
@@ -96,18 +111,18 @@ If your entry is published in both _What's new in Cloud_ and _What's new in Graf
 
 1. PM and the DRI work to make final adjustments to the Upgrade guide or Breaking changes guide.
 
-1. A week before the release date, the the DRI changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
+1. A week before the release date, the DRI changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
 1. The DRI finalizes the What's new.
 
 1. The DRI coordinates with the Release Guild and the GTM team for precise timing of when to merge the What's new doc into `main`.
 
-1. On release day, the DRI and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the DRI should add the appropriate backport label to the PR.
+1. On release day, the DRI and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the DRI adds the appropriate backport label to the PR.
 
 <!-- vale Google.Will = NO -->
 <!-- This section speaks of the future -->
 
-The What's new is published in the "next" docs.
+The What's new is live in the "next" docs.
 When the release branch is promoted to GA, the What's new will also be part of the "latest" doc set.
 
 <!-- vale Google.Will = YES -->

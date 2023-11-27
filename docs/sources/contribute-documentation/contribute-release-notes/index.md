@@ -67,8 +67,8 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
       A review PR is generated in the `grafana/website` repository. **The Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process.** However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 
-      - [Docs squad office hours (early)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NmoxZ2w0NHBoazgxaW80cTN0MW82aG1xMmxfMjAyMzExMjJUMDkwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
-      - [Docs squad office hours (late)](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NTI0MWZxYTYwY3FjYW5waWM1OWVjMDBkaWpfMjAyMzExMjJUMjEwMDAwWiBpc2FiZWwubWF0d2F3YW5hQGdyYWZhbmEuY29t&tmsrc=isabel.matwawana%40grafana.com&scp=ALL)
+      - [Docs squad office hours (early)](https://docs.google.com/document/d/1QaH9PwIZ_6-6Udhmy7Zhwme72ZZLqSTiX8HYFFi6AE4/edit#heading=h.9o53ccbx7xrw)
+      - [Docs squad office hours (late)](https://docs.google.com/document/d/12XK3XYEZWU3uIPluq3sn5HSGqWHBHJkktqlyQZHj_Uw/edit#heading=h.9o53ccbx7xrw)
 
    1. Merge your PR in time for your feature release date.
 

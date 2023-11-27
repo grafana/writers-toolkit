@@ -108,9 +108,9 @@ If your entry is already live in both _What's new in Cloud_ and _What's new in G
 
 1. The DRI adds this content to the What's new doc using the tags data to group items appropriately.
 
-1. PM reviews the content to adjust order, **but not copy**. All copy editing must take place when entries are added in the CMS.
+1. The PM reviews the content to adjust order, **but not copy**. All copy editing must take place when entries are added in the CMS.
 
-1. PM and the DRI work to make final adjustments to the Upgrade guide or Breaking changes guide.
+1. The PM and the DRI work to make final adjustments to the Upgrade guide or Breaking changes guide.
 
 1. A week before the release date, the DRI changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 

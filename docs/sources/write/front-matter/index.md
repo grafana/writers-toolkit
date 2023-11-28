@@ -48,12 +48,13 @@ The following headings describe what each element does and provides guidelines f
 ### Aliases
 
 Use `aliases` to create redirects from the previous URL to the new URL when a page changes or moves.
-As a best practice, when you rename or move files, you should create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL.
+
+When you rename or move files, you must create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL.
 In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
 ### Example
 
-The following example file `intended-url.md` contains the alias `/original-url` within its YAML front matter:
+The following Markdown front matter snippet defines an alias `/original-url/`:
 
 ```markdown
 ---
@@ -68,38 +69,65 @@ The correct way to use aliases depends on whether the project is versioned or no
 
 #### Versioned projects
 
-Do not include an `aliases` entry that refers to the initial published website directory.
-The version in the URL path can cause undesirable redirects, such as a redirect from latest content to an old version.
-Aliases must be relative and not absolute paths so that old versions do not steal redirects from "latest" content when it is moved around.
+Aliases must be relative to avoid redirecting latest content to old versions.
+This happens when a page no longer exists in latest documentation but an alias with the latest version exists in old documentation.
 
 Aliases should include a YAML comment explaining the absolute URL path that the relative path redirects.
-This helps a reviewer check that your alias works correctly.
-For example, `../path/to/alias/ # /docs/grafana/<GRAFANA VERSION>/path/to/alias/`.
+This helps a reviewer confirm that your alias works correctly.
 
-##### Examples
+A YAML comment starts with a hash (`#`).
 
-To redirect the page `/docs/grafana/latest/alerting/silences/` to `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, you must add a relative alias in the source file for `/docs/grafana/latest/alerting/manage-notifications/create-silence/` containing the relative alias to `/docs/grafana/latest/alerting/silences/`.
+For example, the following Markdown front matter snippet, in the file `new-url.md`, defines an alias to redirect `/docs/grafana/<GRAFANA_VERSION/original-url/`.
+The comment `# /docs/grafana/<GRAFANA_VERSION>/original-url/` indicates the absolute URL path.
 
-- The relative alias `./` refers to the page`/docs/grafana/latest/alerting/manage-notifications/` because that is the directory containing the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`.
-- The relative alias `../` refers to the page `/docs/grafana/latest/alerting/`.
-- The relative alias `../silences/` refers to the page `/docs/grafana/latest/alerting/silences/`.
+```
+---
+aliases:
+  - ./original-url/ # /docs/grafana/<GRAFANA_VERSION>/original-url/
+```
 
-Therefore, with the alias `../silences/` in the source file for the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/silences/`.
+##### Determine the relative alias
 
-To redirect the page `/docs/grafana/latest/alerting/unified-alerting/` to `/docs/grafana/latest/alerting/` you must add a relative alias in the source file for `/docs/grafana/alerting/` containing the relative alias to `/docs/grafana/latest/alerting/unified-alerting/`.
+To determine the relative alias, you must first understand the meaning of the current directory (`.`) and parent directory (`..`) path elements when they are used at the start of an alias.
 
-- The relative alias `./` refers to the page `/docs/grafana/latest/` because that is the directory containing the page `/docs/grafana/latest/alerting/`.
-- The relative alias `./alerting/` refers to the page `/docs/grafana/latest/alerting/` which is the page itself.
-- The relative alias `./alerting/unified-alerting/` refers to the page `/docs/grafana/latest/alerting/unified-alerting/`.
+The following example redirects _`SOURCE`_ to _`DESTINATION`_ using the pages:
 
-Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo will create a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
+| Variable        | Page                                                                 |
+| --------------- | -------------------------------------------------------------------- |
+| _`SOURCE`_      | `/docs/grafana/latest/alerting/silences/`                            |
+| _`DESTINATION`_ | `/docs/grafana/latest/alerting/manage-notifications/create-silence/` |
+
+- The current directory element (`.`) refers to the directory containing _`DESTINATION`_.
+
+  In this example, the page `/docs/grafana/latest/alerting/manage-notifications/`.
+
+- The parent directory element (`..`) refers to the parent directory of the current directory element.
+
+  In this example, the page `/docs/grafana/latest/alerting/`.
+
+Therefore, with the alias `../silences/` in the source file for the page `/docs/grafana/latest/alerting/manage-notifications/create-silence/`, Hugo creates a redirect page at `/docs/grafana/latest/alerting/silences/`.
+
+<hr/>
+
+The following example redirects _`SOURCE`_ to _`DESTINATION`_ using the pages:
+
+| Variable        | Page                                              |
+| --------------- | ------------------------------------------------- |
+| _`SOURCE`_      | `/docs/grafana/latest/alerting/unified-alerting/` |
+| _`DESTINATION`_ | `/docs/grafana/latest/alerting/`                  |
+
+- The current directory element (`.`) refers to the directory containing _`DESTINATION`_.
+
+  In this example, the page `/docs/grafana/latest/`.
+
+Therefore, with the alias `./alerting/unified-alerting/` in the source file for the page `/docs/grafana/latest/alerting/`, Hugo creates a redirect page at `/docs/grafana/latest/alerting/unified-alerting/`.
 
 #### Other projects
 
-Include an `aliases` entry for the current URL path.
-Add an `aliases` entry to make it safer to move content around, as the redirect from old to new page location is already in place.
-Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
-When a page is moved, update the `aliases` with the new URL path.
+- Include an `aliases` entry for the current URL path.
+- Add an `aliases` entry to make it safer to move content around, as the redirect from old to new page location is already in place.
+  Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
+- When a page is moved, update the `aliases` with the new URL path.
 
 ### Test an alias
 
@@ -123,11 +151,13 @@ To test an alias results in the correct redirect, use your browser or a command-
    curl localhost:3002/docs/grafana/latest/panels/working-with-panels/
    ```
 
-   The output is similar to the following:
+````
 
-   ```console
-   <!doctype html><html><head><script>const destination="http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/";console.log(window.location.search),document.head.innerHTML=`<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`</script><title>http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/</title><link rel=canonical href=http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/><meta name=robots content="noindex"><meta charset=utf-8><noscript><meta http-equiv=refresh content="0; url=http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/"></noscript></head></html>
-   ```
+The output is similar to the following:
+
+```console
+<!doctype html><html><head><script>const destination="http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/";console.log(window.location.search),document.head.innerHTML=`<meta http-equiv="refresh" content="0; url=${destination}${window.location.search}"/>`</script><title>http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/</title><link rel=canonical href=http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/><meta name=robots content="noindex"><meta charset=utf-8><noscript><meta http-equiv=refresh content="0; url=http://localhost:3002/docs/grafana/latest/panels-visualizations/panel-editor-overview/"></noscript></head></html>
+```
 
 1. Confirm that the value of the `destination` `const` in the `<script>` tag is the pretty URL for the page with the alias.
 
@@ -251,3 +281,4 @@ For example:
 - Add a panel using these steps.
 - Understand the configuration options provided by…
 - Learn more about hash rings and their usage
+````

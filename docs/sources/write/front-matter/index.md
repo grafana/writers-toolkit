@@ -84,6 +84,7 @@ The comment `# /docs/grafana/<GRAFANA_VERSION>/original-url/` indicates the abs
 ---
 aliases:
   - ./original-url/ # /docs/grafana/<GRAFANA_VERSION>/original-url/
+---
 ```
 
 ##### Determine the relative alias

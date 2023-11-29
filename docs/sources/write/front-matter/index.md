@@ -71,7 +71,6 @@ The correct way to use aliases depends on whether the project is versioned or no
 
 Aliases must be relative to avoid redirecting latest content to old versions.
 
-
 If there is a page in the old documentation that has an alias that includes the version "latest", and the page referred to by that alias doesn't exist in the actual latest documentation, then Hugo creates a redirect at the page referred to by the alias.
 
 That redirect redirects the user from latest documentation into the old documentation.

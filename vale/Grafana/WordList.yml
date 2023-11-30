@@ -117,3 +117,5 @@ swap:
   Kinesis Firehose: Kinesis Data Firehose
 
   pod: Pod
+
+  ad[- ]?hoc: free-form|user-written

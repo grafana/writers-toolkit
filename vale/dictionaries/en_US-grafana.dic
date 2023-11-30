@@ -1,4 +1,4 @@
-58
+61
 Alertmanager/S po:noun
 Ansible/ po:noun
 Ansible/ po:adjective
@@ -48,6 +48,9 @@ kubelet/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
 preconfigure/D po:verb
+query/DGS po:verb
+query/ po:noun
+query/A po:adjective
 redirection/S po:noun
 shortcode/S po:noun
 showback/S po:noun
@@ -55,5 +58,6 @@ submenu/S po:noun
 subtask/S po:noun
 tooltip/S po:noun
 triage/D po:verb
+unaggregated/ po:adjective
 webserver/S po:noun
 worktree/ po:noun

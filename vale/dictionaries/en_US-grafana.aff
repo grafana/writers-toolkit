@@ -22,3 +22,7 @@ SFX S   y     ies        [^aeiou]y
 SFX S   0     s          [aeiou]y
 SFX S   0     es         [sxzh]
 SFX S   0     s          [^sxzhy]
+
+SFX A Y 2
+SFX A   e     able       e
+SFX A   0     able       .

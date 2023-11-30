@@ -6,6 +6,11 @@ cascade:
   public_docs: true
   search_section: Writers' Toolkit
   search_type: doc
+  public_docs: true
+  github_repo: https://github.com/grafana/writers-toolkit/
+  github_branch: main
+  github_dir: /docs/sources
+  replace_dir: docs/writers-toolkit/
 title: Writers' Toolkit
 menuTitle: Writers' Toolkit
 description: Writers' Toolkit for technical documentation provided by Grafana Labs

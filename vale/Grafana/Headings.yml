@@ -6,9 +6,11 @@ scope: heading
 match: $sentence
 exceptions:
   - Adaptive Metrics
+  - Application Observability
   - Cloud Metrics
   - Cloud Logs
   - Cloud Traces
+  - CPU
   - Grafana
   - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
@@ -29,3 +31,4 @@ exceptions:
   - Redis
   - Tempo
   - TraceQL
+  - What's new

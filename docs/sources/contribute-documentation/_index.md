@@ -16,13 +16,15 @@ keywords:
 
 How can I contribute to Grafana Labs documentation?
 
-There are a number of different ways to contribute to documentation at Grafana Labs. Choose the one that applies best and learn how you can engage with the documentation team and help us by contributing your ideas.
+There are a number of different ways to contribute to documentation at Grafana Labs.
+Choose the one that applies best and learn how you can engage with the documentation team and help us by contributing your ideas.
 
 ## Request a change
 
 Request a change when you want to make a suggestion or provide feedback about a topic, but don't want to provide an edit that generates a pull request.
 
-Requesting a change gives you the freedom to express your ideas without committing language. Your suggestion can reflect a small change to wording or can reflect larger, more substantive changes.
+Requesting a change gives you the freedom to express your ideas without committing language.
+Your suggestion can reflect a small change to wording or can reflect larger, more substantive changes.
 
 GitHub captures your request as an Issue logged against the repository.
 
@@ -46,7 +48,8 @@ The Doc Squad determines the priority and scope of the change, and schedules the
 
 ## Edit a topic
 
-If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub. You are not required to fork and clone the repository to use this approach.
+If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub.
+You are not required to fork and clone the repository to use this approach.
 
 Small changes might include:
 
@@ -105,7 +108,8 @@ Some content is sourced from other projects, listed below:
 
 ## Develop a new topic
 
-If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the technical writing team. According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
+If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the technical writing team.
+According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
 
 Your documentation plan helps you to:
 
@@ -115,13 +119,16 @@ Your documentation plan helps you to:
 
 ## Testing
 
-It is a best practice to have someone else test any task you have written. If another user can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test. However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
+It is a best practice to have someone else test any task you have written.
+If another user can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test.
+However, it is very common to find you have skipped steps because _you_ are very familiar with the topic you are explaining.
 
 New users or members of other teams are very helpful for these tests.
 
 ## Review your changes
 
-Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work. For more information on using Git, refer to [Use Git]({{< relref "../write/tooling-and-workflows#use-git" >}}).
+Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work.
+For more information on using Git, refer to [Use Git]({{< relref "../write/tooling-and-workflows#use-git" >}}).
 
 **To view a local build:**
 
@@ -163,7 +170,8 @@ Depending on the size of the PR and the priority of other work, the PR will eith
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
-To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request. For more information, see [backporting]({{< relref "../review/backporting" >}}).
+To backport a change, use the `backport <vMAJOR.MINOR.x>` labels on the GitHub pull request.
+For more information, see [backporting]({{< relref "../review/backporting" >}}).
 
 `grafanabot` automatically creates a backport pull request after the original pull request is merged, if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, `grafanabot` posts a comment explaining how to manually backport the change.

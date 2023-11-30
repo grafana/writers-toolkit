@@ -47,6 +47,9 @@ kubelet/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
 preconfigure/D po:verb
+query/DGS po:verb
+query/ po:noun
+query/A po:adjective
 redirection/S po:noun
 shortcode/S po:noun
 showback/S po:noun

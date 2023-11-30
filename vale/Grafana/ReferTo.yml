@@ -1,0 +1,12 @@
+extends: substitution
+message: Prefer '%s' instead of '%s'
+link: https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#links-and-references
+level: warning
+ignorecase: false
+action:
+  name: replace
+swap:
+  Check out: Refer to
+  See: Refer to
+  check out: refer to
+  see: refer to

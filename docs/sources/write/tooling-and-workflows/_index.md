@@ -353,7 +353,7 @@ GitHub and git both warn you when the source branch and your branch directly con
 
 GitHub notifies you in the pull request if your branch conflicts with the source branch.
 If the conflict is easy to resolve, GitHub offers to help you resolve it using the web editor.
-See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) for details.
+For more information refer to [About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts).
 
 If the conflict is too complex to resolve in the web editor, GitHub directs you to resolve it on the command line.
 
@@ -367,7 +367,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 GitHub also has detailed, cross-platform instructions for resolving a merge conflict using git on the command line.
-See [its documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for details.
+For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
 ## Use GitHub CLI
 

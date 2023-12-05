@@ -96,7 +96,7 @@ To determine the relative alias, you must first understand the meaning of the cu
 
 For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
-- The current directory element (`.`) refers to the directory containing the current page.
+- The current directory element (`.`) refers to the directory containing the current page, _not_ the directory of the current page.
 
   In this example, this is the page `/docs/grafana/latest/alerting/`.
 

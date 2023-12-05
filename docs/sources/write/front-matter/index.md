@@ -98,11 +98,11 @@ For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
 - The current directory element (`.`) refers to the directory containing the current page.
 
-  In this example, this is the page `/docs/grafana/latest/alerting/manage-notifications/`.
+  In this example, this is the page `/docs/grafana/latest/alerting/`.
 
 - The parent directory element (`..`) refers to the parent directory of the current directory element.
 
-  In this example, this is the page `/docs/grafana/latest/alerting/`.
+  In this example, this is the page `/docs/grafana/latest/`.
 
 The following table demonstrates the redirect URL, **REDIRECT**, created when using the relative alias, **RELATIVE ALIAS**, in the source file for **DESTINATION**:
 

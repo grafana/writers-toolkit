@@ -104,15 +104,16 @@ For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
   In this example, this is the page `/docs/grafana/latest/`.
 
-The following table demonstrates the redirect URL, **REDIRECT**, created when using the relative alias, **RELATIVE ALIAS**, in the source file for **DESTINATION**:
+The following table demonstrates how to redirect **FROM PAGE**, to **TO PAGE**.
+**RELATIVE ALIAS** is added to the front matter of **TO PAGE**.
 
-| DESTINATION                                           | RELATIVE ALIAS                           | REDIRECT                                                             |
-| ----------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------- |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `./`                                     | `/docs/grafana/latest/alerting/`                                     |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `./silences/`                            | `/docs/grafana/latest/alerting/silences/`                            |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `./manage-notifications/create-silence/` | `/docs/grafana/latest/alerting/manage-notifications/create-silence/` |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `../`                                    | `/docs/grafana/latest/`                                              |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `../old-alerting/`                       | `/docs/grafana/latest/old-alerting/`                                 |
+| FROM PAGE                                                            | TO PAGE                                               | RELATIVE ALIAS                           |
+| -------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------- |
+| `/docs/grafana/latest/alerting/`                                     | `/docs/grafana/latest/alerting/manage-notifications/` | `./`                                     |
+| `/docs/grafana/latest/alerting/silences/`                            | `/docs/grafana/latest/alerting/manage-notifications/` | `./silences/`                            |
+| `/docs/grafana/latest/alerting/manage-notifications/create-silence/` | `/docs/grafana/latest/alerting/manage-notifications/` | `./manage-notifications/create-silence/` |
+| `/docs/grafana/latest/`                                              | `/docs/grafana/latest/alerting/manage-notifications/` | `../`                                    |
+| `/docs/grafana/latest/old-alerting/`                                 | `/docs/grafana/latest/alerting/manage-notifications/` | `../old-alerting/`                       |
 
 #### Other projects
 

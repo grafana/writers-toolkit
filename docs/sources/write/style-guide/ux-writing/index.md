@@ -67,7 +67,11 @@ Use "you" or "your" as though the UI is speaking to the users. Don't use "please
 
 **Don't use:**
 
+<!-- vale Grafana.Please = NO -->
+
 > Please refer to [About Kubernetes Monitoring](/docs/grafana-cloud/kubernetes-monitoring/about-k8s-monitoring/) for details.
+
+<!-- vale Grafana.Please = YES -->
 
 ### Use active voice
 

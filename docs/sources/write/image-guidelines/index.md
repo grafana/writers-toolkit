@@ -63,7 +63,7 @@ To create diagrams, you need to access the recommended software and download the
 ### Request a diagram from Creative Services
 
 The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors.
-Please contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
+Contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
 
 ## Screenshot guidelines
 

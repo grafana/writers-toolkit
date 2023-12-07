@@ -105,7 +105,7 @@ To convert a heading to an anchor, make the following changes:
 1. Convert to lower case.
 1. Remove any period characters (`.`).
 1. Replace any character that's not a lower cased letter, a number, or an underscore (`_`) with dashes (`-`).
-   Some examples include `.`, `/`, or `\`.
+   Some examples are `(`, `)`, `/`, and `\`.
 1. Trim any preceding or proceeding dashes (`-`).
 1. Prefix with a `#`.
 

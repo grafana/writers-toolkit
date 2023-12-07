@@ -32,11 +32,16 @@ To request custom shortcodes, [create an issue](https://github.com/grafana/write
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
 The style depends on the admonition type as defined in Writers' Toolkit [Style conventions]({{< relref "../style-guide/style-conventions" >}}).
 
-The content of the admonition must be within opening and closing tags.
+The content of the admonition must be within opening and closing tags,
+and the type of admonition must be within quotes.
 
-| Parameter | Description                                                           | Required |
-| --------- | --------------------------------------------------------------------- | -------- |
-| `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
+| Parameter | Description                                                            | Required |
+| --------- | ---------------------------------------------------------------------- | -------- |
+| `type`    | The type of admonition. One of `caution`, `note`, `tip`, or `warning`. | yes      |
+
+Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
+Tips are intended to be helpful, additional information. You can think of some tips as tricks.
+Your reader can feel free to skip them if they wish because they do not contribute to core understanding.
 
 {{% admonition type="warning" %}}
 Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
@@ -45,11 +50,21 @@ For more information, refer to [Markdown Reference Links in Shortcodes](https://
 
 ### Example
 
-The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
+The following example renders an admonition of type `note` with the message `Kingston is the capital of Jamaica.`:
 
 ```markdown
 {{%/* admonition type="note" */%}}
 Kingston is the capital of Jamaica.
+{{%/* /admonition */%}}
+```
+
+### Example
+
+The following example renders an admonition of type `tip` with the message `This also applies to headings that contain a forward slash or parentheses or square brackets.`:
+
+```markdown
+{{%/* admonition type="tip" */%}}
+This also applies to headings that contain a forward slash or parentheses or square brackets.
 {{%/* /admonition */%}}
 ```
 

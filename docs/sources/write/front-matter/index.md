@@ -104,8 +104,11 @@ For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
   In this example, this is the page `/docs/grafana/latest/`.
 
-The following table demonstrates how to redirect **FROM PAGE**, to **TO PAGE**.
-**RELATIVE ALIAS** is added to the front matter of **TO PAGE**.
+In the following table:
+
+- **FROM PAGE**: is the page that requires a redirect, for example because the page has been moved or no longer exists.
+- **TO PAGE**: is the page where readers are redirected to, for example the renamed page or where the content has been moved.
+- **RELATIVE ALIAS**: is the alias that must be added to the front matter of the file for **TO PAGE** to create the proper redirect.
 
 | FROM PAGE                                                            | TO PAGE                                               | RELATIVE ALIAS                           |
 | -------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------- |

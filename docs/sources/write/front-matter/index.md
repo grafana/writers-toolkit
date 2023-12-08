@@ -151,6 +151,16 @@ To test an alias results in the correct redirect, use your browser or a command-
 
 1. Confirm that the value of the `destination` `const` in the `<script>` tag is the pretty URL for the page with the alias.
 
+### Canonical
+
+`canonical` indicates the preferred URL for duplicate or very similar pages.
+Search engines use this information and only index the canonical URL.
+
+The value of the `canonical` URL should be the full URL of the canonical page.
+For example, `https://grafana.com/docs/writers-toolkit/`.
+
+For content reused in Grafana Cloud, prefer the open source documentation as the canonical page.
+
 ### Date
 
 `date` describes the initial publish date of the page.

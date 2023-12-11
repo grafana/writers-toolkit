@@ -20,7 +20,7 @@ This topic is only relevant for internal Grafana Labs contributors.
 
 ## What's new doc development process
 
-What’s new content is published to the website through the website content management system (CMS), and can be accessed [here](https://admin.grafana.com/content-admin/#/collections/whatsnew).
+What’s new content is published to the website through the website content management system (CMS), and can be accessed [here](https://admin.grafana.com/content-admin/#/collections/whats-new).
 
 Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval. **Quality assurance is a conversation within and between contributing teams and internal stakeholders**, but there are some best practice guidelines described in the last two sections of this topic.
 
@@ -77,7 +77,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
 1. To publish your entry from the CMS, follow these steps:
 
    1. In the **Status** drop-down, click **Ready**.
-   1. In the **Publish** drop-down, click **Publish now**. The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whatsnew/) on the date you entered.
+   1. In the **Publish** drop-down, click **Publish now**. The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the date you entered.
 
 For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the versioned release notes](#create-the-versioned-release-notes)
 
@@ -85,7 +85,7 @@ For Grafana versioned releases, the content entered in the CMS is published in t
 
 Regardless of the status of your entry, it's always best to use the CMS to make any changes. To make edits, follow these steps:
 
-1. Navigate to the [CMS](https://admin.grafana.com/content-admin/#/collections/whatsnew).
+1. Navigate to the [CMS](https://admin.grafana.com/content-admin/#/collections/whats-new).
 1. Update the fields that you need to change.
 1. Click **Save**. The entry is now in **Draft** status.
 1. Do one of the following:

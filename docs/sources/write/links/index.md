@@ -57,8 +57,11 @@ cascade:
 
 Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path.
 
-For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution,
-use `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/`.
+For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution, use:
+
+```markdown
+https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/
+```
 
 - If you're linking from Grafana documentation, `<GRAFANA_VERSION>` is substituted with the version inferred from the page's URL.
 - If you're linking from other documentation, `<GRAFANA_VERSION>` is substituted with the value of `GRAFANA_VERSION` from the source page's front matter.
@@ -67,14 +70,22 @@ use `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/`.
 
 Grafana Cloud documentation is not versioned so no version substitution syntax is needed.
 Use the full URL.
-For example, to link to the [Author and run tests](https://grafana.com/docs/grafana-cloud/k6/author-run/) page, use `https://grafana.com/docs/grafana-cloud/k6/author-run/`.
+
+For example, to link to the [Author and run tests](https://grafana.com/docs/grafana-cloud/k6/author-run/) page, use:
+
+```markdown
+https://grafana.com/docs/grafana-cloud/k6/author-run/
+```
 
 **Link to Mimir documentation**:
 
 Start with `https://grafana.com/docs/grafana/<MIMIR_VERSION>/`, and add the rest of the URL path.
 
-For example, to link to the [Release notes](https://grafana.com/docs/mimir/latest/release-notes/) page with version substitution,
-use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
+For example, to link to the [Release notes](https://grafana.com/docs/mimir/latest/release-notes/) page with version substitution, use:
+
+```markdown
+https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
+```
 
 - If you're linking from Mimir documentation, `<MIMIR_VERSION>` is substituted with the version inferred from the page's URL.
 - If you're linking from other documentation, `<MIMIR_VERSION>` is substituted with the value of `MIMIR_VERSION` from the source page's front matter.
@@ -82,7 +93,12 @@ use `https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/`.
 ## Link to external pages
 
 Use the full URL.
-For example, `https://github.com`.
+
+For example:
+
+```markdown
+https://github.com
+```
 
 ## Link to page headings
 

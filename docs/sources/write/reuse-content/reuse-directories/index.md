@@ -41,6 +41,11 @@ To reuse a shared directory:
    Similarly, the target directory has the path prefix `content/docs`.
    For the destination URL `https://grafana.com/docs/target-directory/`, the path is `content/docs/target-directory`.
 
+1. For every page in the source directory, set the canonical URL using the `canonical` front matter, to the currently published open source page.
+
+   The `canonical` front matter indicates the preferred URL for duplicate or very similar pages.
+   For more information, refer to [Canonical](https://grafana.com/docs/writers-toolkit/write/front-matter/#canonical).
+
 1. Update the website repository Hugo configuration.
 
    The configuration is in the in the `website` repository in the `config/_default/config.yaml` file.

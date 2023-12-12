@@ -28,7 +28,7 @@ Introduce the concept.
 
 Main visual representing the visualization.
 
-<!-- A screenshot is generally preferred because it's easiest to maintain, but a five-to-ten second video is acceptable. Please don't use longer videos as the main visual aid here. They can be added elsewhere in the page, if needed. -->
+<!-- A screenshot is generally preferred because it's easiest to maintain, but a five-to-ten second video is acceptable. Don't use longer videos as the main visual aid here. They can be added elsewhere in the page, if needed. -->
 
 ## Supported data formats
 

@@ -148,7 +148,12 @@ Sort lists and table rows alphabetically unless the order is important to unders
 
 ## Links and references
 
+<!-- vale Grafana.ReferTo = NO -->
+<!-- This usage is the advice that the rule is based on. -->
+
 You should use "Refer to" instead of "See" or "Check out" when referencing another document.
+
+<!-- vale Grafana.ReferTo = YES -->
 
 Give the reader a sense of what to expect in the reference. Don't use generic references, such as "Refer to [this file]."
 

@@ -64,8 +64,13 @@ For other compound adjectives, use a hyphen unless otherwise specified.
 ## N
 ## O
 ## P
-## Q
+## Q -->
+
 ## R
+
+**README** - When naming a file or making a general reference to READMEs, spell using all caps. When referencing a specific README file, match the same capitalization of that file.
+
+<!--
 ## S -->
 
 ## T

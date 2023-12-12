@@ -96,23 +96,27 @@ To determine the relative alias, you must first understand the meaning of the cu
 
 For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
-- The current directory element (`.`) refers to the directory containing the current page.
-
-  In this example, this is the page `/docs/grafana/latest/alerting/manage-notifications/`.
-
-- The parent directory element (`..`) refers to the parent directory of the current directory element.
+- The current directory element (`.`) refers to the directory containing the current page, _not_ the directory of the current page.
 
   In this example, this is the page `/docs/grafana/latest/alerting/`.
 
-The following table demonstrates the redirect URL, **REDIRECT**, created when using the relative alias, **RELATIVE ALIAS**, in the source file for **DESTINATION**:
+- The parent directory element (`..`) refers to the parent directory of the current directory element.
 
-| DESTINATION                                           | RELATIVE ALIAS                           | REDIRECT                                                             |
-| ----------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------- |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `./`                                     | `/docs/grafana/latest/alerting/`                                     |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `./silences/`                            | `/docs/grafana/latest/alerting/silences/`                            |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `./manage-notifications/create-silence/` | `/docs/grafana/latest/alerting/manage-notifications/create-silence/` |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `../`                                    | `/docs/grafana/latest/`                                              |
-| `/docs/grafana/latest/alerting/manage-notifications/` | `../old-alerting/`                       | `/docs/grafana/latest/old-alerting/`                                 |
+  In this example, this is the page `/docs/grafana/latest/`.
+
+In the following table:
+
+- **FROM PAGE**: is the page that requires a redirect, for example because the page has been moved or no longer exists.
+- **TO PAGE**: is the page where readers are redirected to, for example the renamed page or where the content has been moved.
+- **RELATIVE ALIAS**: is the alias that must be added to the front matter of the file for **TO PAGE** to create the proper redirect.
+
+| FROM PAGE                                                            | TO PAGE                                               | RELATIVE ALIAS                           |
+| -------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------- |
+| `/docs/grafana/latest/alerting/`                                     | `/docs/grafana/latest/alerting/manage-notifications/` | `./`                                     |
+| `/docs/grafana/latest/alerting/silences/`                            | `/docs/grafana/latest/alerting/manage-notifications/` | `./silences/`                            |
+| `/docs/grafana/latest/alerting/manage-notifications/create-silence/` | `/docs/grafana/latest/alerting/manage-notifications/` | `./manage-notifications/create-silence/` |
+| `/docs/grafana/latest/`                                              | `/docs/grafana/latest/alerting/manage-notifications/` | `../`                                    |
+| `/docs/grafana/latest/old-alerting/`                                 | `/docs/grafana/latest/alerting/manage-notifications/` | `../old-alerting/`                       |
 
 #### Other projects
 

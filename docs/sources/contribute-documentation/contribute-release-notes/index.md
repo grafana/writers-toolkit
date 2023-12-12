@@ -60,15 +60,17 @@ When you’re ready to add a What’s new entry, complete the following steps:
    - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
    - **ENABLEMENT VIDEO (OPTIONAL)** - Link to the video used for enablement.
 
-1. Click **Save**. The entry is now in **Draft** status.
+1. Click **Save**. The entry is now in **Draft** status and a PR is generated in the `grafana/website` repository.
 1. If your entry is ready to publish, proceed to step 4. If your entry requires review, follow these steps:
 
    1. In the **Status** drop-down, select **In review.**
 
-      A review PR is generated in the `grafana/website` repository. **The Documentation Team does not automatically review these requests; teams that create What’s new entries are responsible for determining their own review process.** However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
+      **The Documentation Team does not automatically review these pull requests; teams that create What’s new entries are responsible for determining their own review process.** However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 
       - [Docs squad office hours (early)](https://docs.google.com/document/d/1QaH9PwIZ_6-6Udhmy7Zhwme72ZZLqSTiX8HYFFi6AE4/edit#heading=h.9o53ccbx7xrw)
       - [Docs squad office hours (late)](https://docs.google.com/document/d/12XK3XYEZWU3uIPluq3sn5HSGqWHBHJkktqlyQZHj_Uw/edit#heading=h.9o53ccbx7xrw)
+
+   1. Work with your team to review and finalize the generated pull request.
 
    1. Merge your PR in time for your feature release date.
 

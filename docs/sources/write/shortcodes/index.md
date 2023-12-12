@@ -44,7 +44,9 @@ Tips are intended to be helpful, additional information. You can think of some t
 Your reader can feel free to skip them if they wish because they do not contribute to core understanding.
 
 {{% admonition type="warning" %}}
-Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
+Reference style links such as `[link text][label]` or `[link text][]` don't work in the inner text of shortcodes if you use reference links defined at the topic level.
+To use reference links within an admonition, you must use standard inline markdown links or define the reference links within the admonition shortcode.
+
 For more information, refer to [Markdown Reference Links in Shortcodes](https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3).
 {{% /admonition %}}
 

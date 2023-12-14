@@ -1,3 +1,4 @@
+name: Run `prettier` on a branch
 on:
   workflow_dispatch:
     inputs:

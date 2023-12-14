@@ -177,7 +177,11 @@ cascade:
   PRODUCT_NAME: Grafana
 ```
 
+<!-- vale Grafana.Spelling = NO -->
+
 Use the [param](https://grafana.com/docs/writers-toolkit/write/shortcodes#param) shortcode in the topic body text wherever you need to insert the variable.
+
+<!-- vale Grafana.Spelling = YES -->
 
 ### Date
 

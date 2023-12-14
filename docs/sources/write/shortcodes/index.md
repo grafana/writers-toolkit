@@ -381,12 +381,9 @@ In this example, the image's display size is changed to have a maximum width of 
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
-
 <!-- vale Grafana.Spelling = NO -->
 
 ## Param
-
-<!-- vale Grafana.Spelling = YES -->
 
 The `param` shortcode provides build-time variable substitution.
 
@@ -417,6 +414,7 @@ The `param` shortcode in a topic heading:
 ```markdown
 ## What's new in Grafana {{%/* param PRODUCT_VERSION */%}}.
 ```
+<!-- vale Grafana.Spelling = YES -->
 
 <!-- vale Grafana.Spelling = NO -->
 

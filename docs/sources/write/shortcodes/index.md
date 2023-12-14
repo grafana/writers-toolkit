@@ -383,6 +383,38 @@ In this example, the image's display size is changed to have a maximum width of 
 
 <!-- vale Grafana.Spelling = NO -->
 
+## Param
+
+The `param` shortcode provides build-time variable substitution.
+
+To add a new variable definition:
+
+1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
+1. Insert the `param` variable where it's required in the parent and child topics.
+
+> **Note:** If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`. For example: `{{%/* param VARIABLE */%}}`.
+
+### Example
+
+The front matter definition for a product version:
+
+```yaml
+cascade:
+  PRODUCT_VERSION: 10.2
+```
+
+The `param` shortcode in the topic body text:
+
+```markdown
+Welcome to Grafana {{</* param PRODUCT_VERSION */>}}. Read on to learn about changes to dashboards and visualizations, data sources, security and authentication, and more.
+```
+
+The `param` shortcode in a topic heading:
+
+```markdown
+## What's new in Grafana {{%/* param PRODUCT_VERSION */%}}.
+```
+
 ## Relref
 
 <!-- vale Grafana.Spelling = YES -->

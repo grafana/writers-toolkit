@@ -165,6 +165,24 @@ For example, `https://grafana.com/docs/writers-toolkit/`.
 
 For content reused in Grafana Cloud, prefer the open source documentation as the canonical page.
 
+### Cascade
+
+`cascade` is a map of front matter keys. The values are passed down from the parent to the page descendants.
+
+You can use `cascade` to define variables. For example:
+
+```yaml
+cascade:
+  PRODUCT_VERSION: 10.1
+  PRODUCT_NAME: Grafana
+```
+
+<!-- vale Grafana.Spelling = NO -->
+
+Use the [param](https://grafana.com/docs/writers-toolkit/write/shortcodes#param) shortcode in the topic body text wherever you need to insert the variable.
+
+<!-- vale Grafana.Spelling = YES -->
+
 ### Date
 
 `date` describes the initial publish date of the page.

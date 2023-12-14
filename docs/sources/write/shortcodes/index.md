@@ -406,7 +406,7 @@ cascade:
 The `param` shortcode in the topic body text:
 
 ```markdown
-Welcome to Grafana {{</* param PRODUCT_VERSION */>}}! Read on to learn about changes to dashboards and visualizations, data sources, security and authentication, and more.
+Welcome to Grafana {{</* param PRODUCT_VERSION */>}}. Read on to learn about changes to dashboards and visualizations, data sources, security and authentication, and more.
 ```
 
 The `param` shortcode in a topic heading:

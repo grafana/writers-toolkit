@@ -398,7 +398,7 @@ To add a new variable definition:
 
 The front matter definition for a product version:
 
-```markdown
+```yaml
 cascade:
    PRODUCT_VERSION: 10.2
 ```

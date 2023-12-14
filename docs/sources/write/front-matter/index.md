@@ -171,7 +171,7 @@ For content reused in Grafana Cloud, prefer the open source documentation as the
 
 You can use `cascade` to define variables. For example:
 
-```
+```yaml
 cascade:
   PRODUCT_VERSION: 10.1
   PRODUCT_NAME: Grafana

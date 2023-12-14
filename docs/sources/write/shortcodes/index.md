@@ -400,7 +400,7 @@ The front matter definition for a product version:
 
 ```yaml
 cascade:
-   PRODUCT_VERSION: 10.2
+  PRODUCT_VERSION: 10.2
 ```
 
 The `param` shortcode in the topic body text:

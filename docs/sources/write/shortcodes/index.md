@@ -414,9 +414,6 @@ The `param` shortcode in a topic heading:
 ```markdown
 ## What's new in Grafana {{%/* param PRODUCT_VERSION */%}}.
 ```
-<!-- vale Grafana.Spelling = YES -->
-
-<!-- vale Grafana.Spelling = NO -->
 
 ## Relref
 

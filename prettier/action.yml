@@ -19,10 +19,7 @@ runs:
     - uses: actions/checkout@v4
       with:
         ref: ${{ inputs.branch }}
-    - env:
-        BRANCH: ${{ inputs.branch }}
-        GH_TOKEN: ${{ inputs.token }}
-      name: Update `make docs` procedure
+    - name: Update `make docs` procedure
       run: |
         set -euf -o pipefail
 
@@ -42,6 +39,6 @@ runs:
 
         if ! git diff --exit-code; then
           commit
-          git push origin "refs/heads/${BRANCH}"
+          git push origin
         fi
       shell: bash

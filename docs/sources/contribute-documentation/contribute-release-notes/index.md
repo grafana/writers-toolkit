@@ -38,27 +38,25 @@ When you’re ready to add a What’s new entry, complete the following steps:
 1. Fill out the fields:
 
    - **FEATURE NAME** - Short headline for the improvement. For example, “Grafana OnCall integration for Alerting.”
-   - **DATE** - Date and time (UTC) that you want this note to be live. This should also be the feature release date.
+   - **FEATURE RELEASE DATE** - Date and time (UTC) that you want this note to be live. This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users the date is when the feature was first available to users (opting in).
 
      If you’ve opened a review PR, you must merge it before the date/time you've added here. If you enter a date that has passed, the note is published immediately with that date.
 
    - **CONTACT** - First and last name. The contents of this field aren't publicly viewable.
    - **TAGS (OPTIONAL)** - Select category tags that users can use to filter their view. Select as many as apply.
    - **CLOUD AVAILABILITY** - Select the stage of the feature’s Cloud release. If the feature isn't available in Cloud, select "None."
-   - **CLOUD OFFERING** - Select which account types have access to the feature. If the feature isn't available in Cloud, select "None."
-   - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available. If the feature isn't available in self-managed Grafana, select "None."
+   - **CLOUD EDITIONS** - Select which account types have access to the feature. If the feature isn't available in Cloud, select "None."
    - **SELF-MANAGED AVAILABILITY** - Select the stage of the feature's self-managed release. If the feature isn't available in self-managed Grafana, select "None."
+   - **SELF-MANAGED EDITIONS** - Select the on-premises offerings where this feature is available. If the feature isn't available in self-managed Grafana, select "None."
    - **BODY** - Include an overview of the feature and the problem it solves.
 
      If you want to view some best practices around what to write here, see Writing guidelines for what’s new below.
      Add any images and a link to your public YouTube video here.
      If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).
 
-   - **FEATURE TOGGLE NAME (OPTIONAL)** - Exact name of the feature toggle for this feature, if one exists. For example, `publicDashboards`.
    - **DOCUMENTATION URL (OPTIONAL)** - URL to the public documentation for this feature.
-   - **GRAFANA URL PATH (OPTIONAL)** - URL path to the feature in a Grafana Cloud stack. For example, `/alerting/notifications`.
-   - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
    - **ENABLEMENT VIDEO (OPTIONAL)** - Link to the video used for enablement.
+   - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
 
 1. Click **Save**. The entry is now in **Draft** status and a PR is generated in the `grafana/website` repository.
 1. If your entry is ready to publish, proceed to step 4. If your entry requires review, follow these steps:

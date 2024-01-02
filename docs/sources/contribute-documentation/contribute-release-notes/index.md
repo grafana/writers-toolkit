@@ -89,7 +89,6 @@ Regardless of the status of your entry, it's always best to use the CMS to make 
 
    - If your entry is already in **Published** status, you can find it [in the Contents section of the CMS under What's New in Cloud](https://admin.grafana.com/content-admin/#/collections/whats-new).
    - If your entry is still in **Draft** or **Review** status, you can find it [in the Workflow section of the CMS](https://admin.grafana.com/content-admin/#/workflow) under the appropriate heading.
-     
 1. Update the fields that you need to change.
 1. Click **Save**. The entry is now in **Draft** status.
 1. Do one of the following:

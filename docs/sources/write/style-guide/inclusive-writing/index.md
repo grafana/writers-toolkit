@@ -95,3 +95,12 @@ Use the following approach to describe relationships between nodes or processes:
 - Use _secondary_, _replica_, or _child_, instead of _slave_.
 
 Avoid _master_ or _slave_.
+
+### Right and left
+
+Using the terms _right_ and _left_ to denote a location is okay as long as you use them with a qualifier like _top_ or _bottom_ like so:
+
+- top-right
+- bottom-left
+
+Avoid using _right_ and _left_ without a qualifier.

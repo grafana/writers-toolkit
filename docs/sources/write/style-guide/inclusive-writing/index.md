@@ -98,9 +98,11 @@ Avoid _master_ or _slave_.
 
 ### Right and left
 
-Using the terms _right_ and _left_ to denote a location is okay as long as you use them with a qualifier like _top_ or _bottom_ like so:
+Use the terms _right_ and _left_ with a qualifier like _top_ or _lower_ like so:
 
 - top-right
 - bottom-left
+- upper-left
+- lower-right
 
 Avoid using _right_ and _left_ without a qualifier.

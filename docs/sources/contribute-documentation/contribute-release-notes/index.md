@@ -56,7 +56,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
    - **DOCUMENTATION URL (OPTIONAL)** - URL to the public documentation for this feature.
    - **ENABLEMENT VIDEO (OPTIONAL)** - Link to the video used for enablement.
-   - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements.
+   - **INTERNAL INFORMATION (OPTIONAL)** - Information for Grafana Labs employees only. For example, ProductDNA, slack channel, FAQ, training docs or videos. Used for training and internal announcements. This will only be visible on admin.grafana.com/whats-new/, _not_ the public What's New page.
 
 1. Click **Save**. The entry is now in **Draft** status and a PR is generated in the `grafana/website` repository.
 1. If your entry is ready to publish, proceed to step 4. If your entry requires review, follow these steps:

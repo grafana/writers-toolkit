@@ -98,7 +98,7 @@ Avoid _master_ or _slave_.
 
 ### Right and left
 
-Use the terms _right_ and _left_ with a qualifier like _top_ or _lower_  [to help individuals with cognitive disabilities or those using screen-reading software](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/left-leftmost-left-hand). 
+Use the terms _right_ and _left_ with a qualifier like _top_ or _lower_ [to help individuals with cognitive disabilities or those using screen-reading software](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/left-leftmost-left-hand).
 
 Hyphenate when you're modifying a noun. For example:
 

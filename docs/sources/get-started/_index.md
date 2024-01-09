@@ -68,7 +68,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 ### 5. Publish the docs
 
-1. Review publishing options. 
+1. Review publishing options.
    Engage #docs to discuss the publishing options for different stages in the release cycle.
 1. Backport, if required.
    Refer to the [backporting guidelines]({{< relref "../review/backporting" >}}).

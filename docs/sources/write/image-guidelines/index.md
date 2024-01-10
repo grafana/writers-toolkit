@@ -336,10 +336,24 @@ You can also embed videos hosted on YouTube.
 The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
 
 Use the `youtube` shortcode to embed the video.
-The `id` comes from the end of YouTube URL (everything after `v=`): `https://www.youtube.com/watch?v=g97CjKOZqT4`.
+The `id` is the `v` URL parameter in the YouTube URL.
 
-```
+For example, for the YouTube URL `https://www.youtube.com/watch?v=g97CjKOZqT4`, the shortcode is the following:
+
+```markdown
 {{</* youtube id="g97CjKOZqT4" */>}}
+```
+
+You can configure `start` and `end`, in seconds, with:
+
+```markdown
+{{</* youtube id="g97CjKOZqT4" start="100" end="200" */>}}
+```
+
+You can configure automatic playback with:
+
+```markdown
+{{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
 Example PR: [https://github.com/grafana/tempo/pull/3107](https://github.com/grafana/tempo/pull/3107)

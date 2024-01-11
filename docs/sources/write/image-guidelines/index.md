@@ -306,7 +306,12 @@ For more information about how to write good alt text, refer to:
 
 ## Screen recordings
 
-The recommended format for screen recordings is **.mp4**. Do not use **.gif** or **.mov** formats. Screen recordings follow the same upload procedure and file naming convention as other media assets. Use the `video-embed` shortcode to embed the video on the page:
+The recommended format for screen recordings is **.mp4**.
+Don't use **.gif** or **.mov** formats.
+In particular, avoid animated GIFs because they distract users.
+For more information about distracting content, refer to [Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html#intent).
+
+Screen recordings follow the same upload procedure and file naming convention as other media assets. Use the `video-embed` shortcode to embed the video on the page:
 
 ```
 {{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}

@@ -257,4 +257,6 @@ Use bold formatting, \*\* in Markdown, for UI elements. Don't use bold to draw a
 
 Use italics formatting (\_ in Markdown), to emphasize a specific word or phrase. This is particularly useful when defining a term for the first time.
 
-**Recommended:** The Prometheus data model is arranged into _metrics_ that consist of a _timestamp_ and a _sample_.
+For example:
+
+> The Prometheus data model is arranged into _metrics_ that consist of a _timestamp_ and a _sample_.

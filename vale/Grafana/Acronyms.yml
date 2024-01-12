@@ -17,5 +17,6 @@ exceptions:
   - SDK
   - SQL
   - TSDB
+  - URL
   - WIP
   - YAML

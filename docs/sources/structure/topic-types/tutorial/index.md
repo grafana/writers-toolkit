@@ -41,7 +41,8 @@ A tutorial topic includes the following elements:
 
 - To determine what tasks and steps you should include in your tutorial, perform a goal analysis and determine the valuable outcome the user wants to achieve. Limit the tutorial to the tasks needed to satisfy that goal. Work with a Subject Matter Expert (SME) to determine the goal and the minimal set of tasks. If possible, record the SME completing the tasks needed to accomplish the goal or ask the SME to record a demo of the tasks if that's preferable.
 - Work with a Subject Matter Expert (SME) to
-- Provide steps that explain how to access or set up the data needed to complete the task. See [Data for your tutorial](#data-for-your-tutorial) for details.
+- Provide steps that explain how to access or set up the data needed to complete the task.
+  For more information, refer to [Data for your tutorial](#data-for-your-tutorial).
 - Do not include written step numbers in the header, for example, "Step 1: Pick apples." Instead, include just the verb and object, for example "Pick apples."
 - Include only the tasks required for a straight path to the tutorial's goal, not optional or alternative paths.
 - Minimize the explanation within task steps. Instead, link to supporting explanations in related concept, task, and reference topics.
@@ -58,7 +59,8 @@ To write a tutorial, complete these steps:
 
 1. Add a `sources/tutorials` directory to your project repository if one does not yet exist.
 
-   The tutorial is stored in your repository but it is displayed on the Grafana [Tutorials](/tutorials/) page. See [Publish your tutorial](#publish-your-tutorial) for details.
+   The tutorial is stored in your repository but it is displayed on the Grafana [Tutorials](/tutorials/) page.
+   For more information, refer to [Publish your tutorial](#publish-your-tutorial).
 
 1. Create a child directory within the `tutorials` directory that follows this naming convention:
 

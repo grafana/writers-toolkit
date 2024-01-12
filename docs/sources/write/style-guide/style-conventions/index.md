@@ -142,9 +142,18 @@ To create a definition list, add the term on a new line then add a new line with
 
 For additional information, refer to the [Definition Lists](https://www.markdownguide.org/extended-syntax/#definition-lists) from the Markdown Guide.
 
+### Sort lists
+
+Sort lists and table rows alphabetically unless the order is important to understanding the information in the list or table.
+
 ## Links and references
 
+<!-- vale Grafana.ReferTo = NO -->
+<!-- This usage is the advice that the rule is based on. -->
+
 You should use "Refer to" instead of "See" or "Check out" when referencing another document.
+
+<!-- vale Grafana.ReferTo = YES -->
 
 Give the reader a sense of what to expect in the reference. Don't use generic references, such as "Refer to [this file]."
 

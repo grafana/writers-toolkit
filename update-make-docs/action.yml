@@ -77,9 +77,18 @@ runs:
 
         fetch_files "${DIRECTORY}"
 
+        # Use an array to ensure parsing of options that have spaces but that have been quoted in the input.
+        # For example, pr_options: --label 'backport v10.0.x'
+        OPTIONS_ARRAY=()
+        while IFS= read -r -d '' arg; do
+          OPTIONS_ARRAY+=("$arg")
+        done < <(echo "${PR_OPTIONS}" | xargs printf '%s\0')
+
         if ! git diff --exit-code; then
           commit
           git push origin "refs/heads/${BRANCH}"
-          gh pr create ${PR_OPTIONS} --title  'Update `make docs` procedure' --body ''
+          # Set default options before the user-provided ones as later options appear to override earlier ones.
+          # For example, in `gh pr create --web --title foo --title bar`, the resulting title is "bar".
+          gh pr create --title  'Update `make docs` procedure' --body '' "${OPTIONS_ARRAY[@]}"
         fi
       shell: bash

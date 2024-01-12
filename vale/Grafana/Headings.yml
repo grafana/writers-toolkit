@@ -10,6 +10,7 @@ exceptions:
   - Cloud Metrics
   - Cloud Logs
   - Cloud Traces
+  - CPU
   - Grafana
   - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
@@ -30,3 +31,5 @@ exceptions:
   - Redis
   - Tempo
   - TraceQL
+  - What's new
+  - YouTube

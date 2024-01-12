@@ -63,7 +63,7 @@ To create diagrams, you need to access the recommended software and download the
 ### Request a diagram from Creative Services
 
 The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors.
-Please contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
+Contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
 
 ## Screenshot guidelines
 
@@ -306,7 +306,12 @@ For more information about how to write good alt text, refer to:
 
 ## Screen recordings
 
-The recommended format for screen recordings is **.mp4**. Do not use **.gif** or **.mov** formats. Screen recordings follow the same upload procedure and file naming convention as other media assets. Use the `video-embed` shortcode to embed the video on the page:
+The recommended format for screen recordings is **.mp4**.
+Don't use **.gif** or **.mov** formats.
+In particular, avoid animated GIFs because they distract users.
+For more information about distracting content, refer to [Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html#intent).
+
+Screen recordings follow the same upload procedure and file naming convention as other media assets. Use the `video-embed` shortcode to embed the video on the page:
 
 ```
 {{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}
@@ -336,10 +341,24 @@ You can also embed videos hosted on YouTube.
 The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
 
 Use the `youtube` shortcode to embed the video.
-The `id` comes from the end of YouTube URL (everything after `v=`): `https://www.youtube.com/watch?v=g97CjKOZqT4`.
+The `id` is the `v` URL parameter in the YouTube URL.
 
-```
+For example, for the YouTube URL `https://www.youtube.com/watch?v=g97CjKOZqT4`, the shortcode is the following:
+
+```markdown
 {{</* youtube id="g97CjKOZqT4" */>}}
+```
+
+You can configure `start` and `end`, in seconds, with:
+
+```markdown
+{{</* youtube id="g97CjKOZqT4" start="100" end="200" */>}}
+```
+
+You can configure automatic playback with:
+
+```markdown
+{{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
 Example PR: [https://github.com/grafana/tempo/pull/3107](https://github.com/grafana/tempo/pull/3107)

@@ -32,24 +32,41 @@ To request custom shortcodes, [create an issue](https://github.com/grafana/write
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
 The style depends on the admonition type as defined in Writers' Toolkit [Style conventions]({{< relref "../style-guide/style-conventions" >}}).
 
-The content of the admonition must be within opening and closing tags.
+The content of the admonition must be within opening and closing tags,
+and the type of admonition must be within quotes.
 
-| Parameter | Description                                                           | Required |
-| --------- | --------------------------------------------------------------------- | -------- |
-| `type`    | The type of admonition. One of `"note"`, `"caution"`, or `"warning"`. | yes      |
+| Parameter | Description                                                            | Required |
+| --------- | ---------------------------------------------------------------------- | -------- |
+| `type`    | The type of admonition. One of `caution`, `note`, `tip`, or `warning`. | yes      |
+
+Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
+Tips are intended to be helpful, additional information. You can think of some tips as tricks.
+Your reader can feel free to skip them if they wish because they do not contribute to core understanding.
 
 {{% admonition type="warning" %}}
-Reference style links such as `[link text][label]` or `[link text][]` do not work in the inner text of shortcodes.
+Reference style links such as `[link text][label]` or `[link text][]` don't work in the inner text of shortcodes if you use reference links defined at the topic level.
+To use reference links within an admonition, you must use standard inline markdown links or define the reference links within the admonition shortcode.
+
 For more information, refer to [Markdown Reference Links in Shortcodes](https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3).
 {{% /admonition %}}
 
 ### Example
 
-The following snippet renders an admonition of _type_ `"note"` with the message `Kingston is the capital of Jamaica`.
+The following example renders an admonition of type `note` with the message `Kingston is the capital of Jamaica.`:
 
 ```markdown
 {{%/* admonition type="note" */%}}
 Kingston is the capital of Jamaica.
+{{%/* /admonition */%}}
+```
+
+### Example
+
+The following example renders an admonition of type `tip` with the message `This also applies to headings that contain a forward slash or parentheses or square brackets.`:
+
+```markdown
+{{%/* admonition type="tip" */%}}
+This also applies to headings that contain a forward slash or parentheses or square brackets.
 {{%/* /admonition */%}}
 ```
 
@@ -365,6 +382,38 @@ In this example, the image's display size is changed to have a maximum width of 
 ```
 
 <!-- vale Grafana.Spelling = NO -->
+
+## Param
+
+The `param` shortcode provides build-time variable substitution.
+
+To add a new variable definition:
+
+1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
+1. Insert the `param` variable where it's required in the parent and child topics.
+
+> **Note:** If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`. For example: `{{%/* param VARIABLE */%}}`.
+
+### Example
+
+The front matter definition for a product version:
+
+```yaml
+cascade:
+  PRODUCT_VERSION: 10.2
+```
+
+The `param` shortcode in the topic body text:
+
+```markdown
+Welcome to Grafana {{</* param PRODUCT_VERSION */>}}. Read on to learn about changes to dashboards and visualizations, data sources, security and authentication, and more.
+```
+
+The `param` shortcode in a topic heading:
+
+```markdown
+## What's new in Grafana {{%/* param PRODUCT_VERSION */%}}.
+```
 
 ## Relref
 

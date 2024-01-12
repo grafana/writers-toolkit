@@ -1,0 +1,44 @@
+name: Run `prettier` on a branch
+description: This action runs `prettier` on a branch.
+inputs:
+  branch:
+    description: Name of branch to checkout and write changes to.
+    required: true
+  token:
+    default: ${{ github.token }}
+    description: Used to open the PR.
+    required: false
+  trace:
+    default: false
+    description: Print command traces.
+    required: false
+    type: boolean
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.branch }}
+    - name: Update `make docs` procedure
+      run: |
+        set -euf -o pipefail
+
+        if ${{ inputs.trace }}; then
+          set -x
+        fi
+
+        # commit adds and commits the updated files as the Grafanabot GitHub user.
+        function commit {
+          git add .
+          git config --local user.email bot@grafana.com
+          git config --local user.name grafanabot
+          git commit --message 'Run `prettier`'
+        }
+
+        npx prettier -w .
+
+        if ! git diff --exit-code; then
+          commit
+          git push origin
+        fi
+      shell: bash

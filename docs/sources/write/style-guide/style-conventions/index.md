@@ -253,3 +253,19 @@ When you write in active voice, you identify the subject of the sentence and the
 
 The output is the same in both cases.
 However, the first is easier to review and edit and is less subject to the screen and text editor settings of each contributor.
+
+## Text formatting
+
+It's a good idea to take a consistent approach to bold, italic, and other text formats.
+
+### Bold
+
+Use bold formatting (\*\* in Markdown), for UI elements. Don't use bold to draw attention to a word or phrase.
+
+### Italic
+
+Use italics formatting (\_ in Markdown), to emphasize a specific word or phrase. This is particularly useful when defining a term for the first time.
+
+For example:
+
+> The Prometheus data model is arranged into _metrics_ that consist of a _timestamp_ and a _sample_.

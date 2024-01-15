@@ -73,8 +73,11 @@ The following process describes how to address deprecation. This process applies
 You may need to add the above notes to both the documentation AND the UI.
 
 1. Writers, Engineers, or Product Managers determine docs impacted by deprecation.
+   <!-- vale Grafana.Spelling = NO -->
 
    If you have a writer assigned to your team, work with your writer. If you do not have an assigned writer, get in touch with [Fiona Peers Artiaga](mailto:fiona.artiaga@grafana.com).
+
+   <!-- vale Grafana.Spelling = YES -->
 
 1. If you do not have a writer assigned to your team, Engineers or Product Managers communicate with the Docs Squad and provide links to the impacted docs, the rationale for the deprecation, and timing. Post your message in the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel.
 

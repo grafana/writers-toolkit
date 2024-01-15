@@ -82,6 +82,6 @@ You may need to add the above notes to both the documentation AND the UI.
 
 1. In the PR that deprecates the docs, writers, engineers or Product Managers provide the rationale for deprecating the docs in the comments (using the docs deprecation language identified in the table above), and if there are alternative docs that a user can refer to, provide a link.
 
-   Github automatically assigns the writer associated with those docs as a Reviewer of the PR.
+   GitHub automatically assigns the writer associated with those docs as a Reviewer of the PR.
 
 1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation (and links, if available) in the draft What’s New document.

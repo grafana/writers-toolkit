@@ -12,79 +12,103 @@ Keywords:
 
 # Deprecate or remove content
 
-**Deprecation** occurs when a feature or product is planned for removal in a future release. In the period between deprecation and removal, it will be in maintenance.
+<!-- vale Google.Passive = NO -->
+
+**Deprecation** occurs when a feature or product is planned for removal in a future release.
+In the period between deprecation and removal, it's in maintenance.
 
 **Removal** is when the product or feature is removed and no longer supported.
 
 The process for handling these scenarios varies according to how the product or feature is being phased out or maintained.
 
-We should notify our users two minor releases in advance of any planned removal of a feature. For example, if we plan to remove a feature in Grafana v9.5, then we should begin communicating that information to users in Grafana v9.3.
+<!-- vale Google.Passive = YES -->
 
-To ensure that our customers are fully aware of the stages of deprecation for their products or features, we should:
+You should notify users two minor releases in advance of any planned removal of a feature.
+For example, if you plan to remove a feature in Grafana v9.5, then you should begin communicating that information to users in Grafana v9.3.
 
-- Inform customers of deprecation using notes in our What’s New and documentation and where necessary, in the UI.
-- Inform the field by emailing [gtm-se-field-engineering@grafana.com](mailto:gtm-se-field-engineering@grafana.com) or by reaching out on Slack to # field-engineering-with-nomads
+To ensure that users are fully aware of the stages of deprecation for their products or features, you should:
+
+- Inform customers of deprecation using notes in the product's What’s New, documentation, and where necessary, in the UI.
+- Inform the field by emailing [`gtm-se-field-engineering@grafana.com`](mailto:gtm-se-field-engineering@grafana.com) or by reaching out on Slack in the `#field-engineering-with-nomads` channel
 - Update these notes once removal has taken place.
-- Announce the deprecation in our [community slack](https://grafana.slack.com/archives/C05675Y4F) and [forum](https://community.grafana.com/).
+- Announce the deprecation in the Grafana [community slack](https://grafana.slack.com/archives/C05675Y4F) and [forum](https://community.grafana.com/).
 - Inform CX and Solution Engineering.
 
 ## Deprecation
 
-Scenario: “We're planning on removing the feature or product in a future release.”
+Scenario: "You're planning on removing the feature or product in a future release."
 
 Example text:
 
 ```
 {{% admonition type="caution" %}}
-Starting with `<release>`, `<product or feature name>` is deprecated. It will be removed in a future release. *if the release is known, enter the release instead of “future”.
+Starting with <RELEASE>, <PRODUCT OR FEATURE NAME> is deprecated.
+It will be removed in a future release.
 {{% /admonition %}}
 ```
 
+If you know the release, enter the release instead of "future".
+
 ### Removal
 
-Scenario: “We've removed this feature.”
+Scenario: "You've removed a feature."
 
 Example text:
 
 ```
 {{% admonition type="warning" %}}
- `<Product or feature name>` is removed. It is no longer deployed, enhanced, or supported.
+<PRODUCT OR FEATURE NAME> is removed.
+It is no longer deployed, enhanced, or supported.
 {{% /admonition %}}
 ```
 
-## Docs deprecation
+## Documentation deprecation
 
-Scenario: There are situations in which we deprecate docs along with and/or independent of feature deprecation.
+Scenario: There are situations in which you may deprecate documentation along with and/or independent of feature deprecation.
 
 Example text:
 
 ```
 {{% admonition type="caution" %}}
- Starting with release `<version #>`, the `<topic title>` documentation will no longer be published because `<provide rationale>`.  Link to docs, if they exist.
+ Starting with release <VERSION>`, the <TOPIC TITLE> documentation will no longer be published because <RATIONALE>.
+Link to documentation, if it exists.
 {{% /admonition %}}
 ```
 
-Example: “As of Grafana 9.2, we are no longer publishing release notes, because they duplicate the content available in the What’s New document and the CHANGELOG."
+<!-- vale Google.Will = NO -->
+<!-- vale Google.Passive = NO -->
+
+Example: "As of Grafana 9.2, release notes will no longer be published, because they duplicate the content available in the What’s New document and the CHANGELOG."
+
+<!-- vale Google.Passive = YES -->
+<!-- vale Google.Will = YES -->
 
 ## How to address deprecation
 
-The following process describes how to address deprecation. This process applies when a feature is deprecated and associated docs are also deprecated and when docs are deprecated independent of feature deprecation.
+The following process describes how to address deprecation.
+This process applies when you deprecate a feature and associated documentation is also deprecated and also when you deprecate documentation independently of feature deprecation.
 
-You may need to add the above notes to both the documentation AND the UI.
+You may need to add the preceding notes to both the documentation _and_ the UI.
 
-1. Writers, Engineers, or Product Managers determine docs impacted by deprecation.
+1. Writers, Engineers, or Product Managers determine documentation impacted by deprecation.
    <!-- vale Grafana.Spelling = NO -->
 
-   If you have a writer assigned to your team, work with your writer. If you do not have an assigned writer, get in touch with [Fiona Peers Artiaga](mailto:fiona.artiaga@grafana.com).
+   If you have a writer assigned to your team, work with your writer.
+   If you don't have an assigned writer, contact [Fiona Peers Artiaga](mailto:fiona.artiaga@grafana.com).
 
    <!-- vale Grafana.Spelling = YES -->
 
-1. If you do not have a writer assigned to your team, Engineers or Product Managers communicate with the Docs Squad and provide links to the impacted docs, the rationale for the deprecation, and timing. Post your message in the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel.
+1. If you don't have a writer assigned to your team, Engineers or Product Managers communicate with the Docs Squad and provide links to the impacted documentation, the rationale for the deprecation, and timing.
+   Post your message in the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel.
 
-   The Docs Team triage process ensures that a writer is made aware of any pending docs deprecation.
+   The Docs Team triage process makes a writer aware of any pending documentation deprecation.
 
-1. In the PR that deprecates the docs, writers, engineers or Product Managers provide the rationale for deprecating the docs in the comments (using the docs deprecation language identified in the table above), and if there are alternative docs that a user can refer to, provide a link.
+1. In the PR that deprecates the documentation, writers, engineers, or Product Managers provide the rationale for deprecating the documentation in the comments using the documentation deprecation language identified in the preceding table, and if there is alternative documentation that a user can refer to, provide a link.
 
-   GitHub automatically assigns the writer associated with those docs as a Reviewer of the PR.
+   GitHub automatically assigns the writer associated with those documentation as a reviewer of the PR.
 
-1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation (and links, if available) in the draft What’s New document.
+<!-- vale Google.Parens = NO -->
+
+1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation (including links, if available) in the draft What’s New document.
+
+<!-- vale Google.Parens = YES -->

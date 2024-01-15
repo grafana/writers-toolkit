@@ -1,5 +1,5 @@
 ---
-title: Contribute to documentation
+title: Contribute
 menuTitle: Contribute to documentation
 description: This section describes the different ways of contributing to documentation.
 weight: 200

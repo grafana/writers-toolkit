@@ -1,6 +1,6 @@
 ---
 title: Introduction to documentation
-menuTitle: Introduction to documentation
+menuTitle: Introduction
 description: Learn about Grafana's documentation
 weight: 100
 aliases:

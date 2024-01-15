@@ -1,6 +1,6 @@
 ---
 title: Reuse content
-menuTitle: Reuse content
+menuTitle: Reuse
 description: Learn about reusing content in your documentation.
 weight: 800
 aliases:

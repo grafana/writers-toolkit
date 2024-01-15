@@ -75,12 +75,12 @@ You may need to add the above notes to both the documentation AND the UI.
 
    If you have a writer assigned to your team, work with your writer. If you do not have an assigned writer, get in touch with [Fiona Peers Artiaga](mailto:fiona.artiaga@grafana.com).
 
-2. If you do not have a writer assigned to your team, Engineers or Product Managers communicate with the Docs Squad and provide links to the impacted docs, the rationale for the deprecation, and timing. Post your message in the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel.
+1. If you do not have a writer assigned to your team, Engineers or Product Managers communicate with the Docs Squad and provide links to the impacted docs, the rationale for the deprecation, and timing. Post your message in the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel.
 
    The Docs Team triage process ensures that a writer is made aware of any pending docs deprecation.
 
-3. In the PR that deprecates the docs, writers, engineers or Product Managers provide the rationale for deprecating the docs in the comments (using the docs deprecation language identified in the table above), and if there are alternative docs that a user can refer to, provide a link.
+1. In the PR that deprecates the docs, writers, engineers or Product Managers provide the rationale for deprecating the docs in the comments (using the docs deprecation language identified in the table above), and if there are alternative docs that a user can refer to, provide a link.
 
    Github automatically assigns the writer associated with those docs as a Reviewer of the PR.
 
-4. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation (and links, if available) in the draft What’s New document.
+1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation (and links, if available) in the draft What’s New document.

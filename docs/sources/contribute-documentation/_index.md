@@ -1,6 +1,6 @@
 ---
-title: Contribute
-menuTitle: Contribute to documentation
+title: Contribute to documentation
+menuTitle: Contribute
 description: This section describes the different ways of contributing to documentation.
 weight: 200
 aliases:

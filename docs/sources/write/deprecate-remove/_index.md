@@ -57,6 +57,7 @@ Example text:
 Scenario: There are situations in which we deprecate docs along with and/or independent of feature deprecation.
 
 Example text:
+
 ```
 {{% admonition type="caution" %}}
  Starting with release `<version #>`, the `<topic title>` documentation will no longer be published because `<provide rationale>`.  Link to docs, if they exist.

@@ -2,7 +2,7 @@
 title: Deprecate or remove content
 menuTitle: Deprecate or remove
 description: Learn about deprecating or removing content in your documentation.
-weight: 800
+weight: 900
 aliases:
   - /docs/writers-toolkit/write/deprecate-remove
 Keywords:

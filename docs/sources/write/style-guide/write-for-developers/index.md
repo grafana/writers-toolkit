@@ -190,6 +190,24 @@ The following example extends the one in the previous section:
 >     protocol: TCP
 > ```
 
+#### Refer to nested fields
+
+With configuration in JSON or YAML, you may need to refer to deeply nested fields.
+Using natural language is laborious to write and read.
+
+Instead use _dot notation_ to separate nested fields.
+For example, `spec.template.metadata` to refer to the `metadata` field within the `template` field, which is itself within the `spec` field.
+
+If the field name has dots, surround the name with square brackets instead.
+For example, `spec.selector[app.kubernetes.io/name]`
+
+To refer to any member of an array, use `[*]`.
+
+To refer to a specific index in an array, use `[<INDEX>]`.
+For example, the following dot notation refers to the first container within `spec`, and the first port within that container: `spec.containers[0].ports[0].containerPort`.
+
+The use of _dot notation_ for nested fields is common in other engineering documentation such as [Kubernetes documentation](https://kubernetes.io/docs/).
+
 ### Paths, filenames, and URLs
 
 Many types of information belong in fixed-width font. Among these are path names, file names, directories, or folders. However, don't format domain names or URLs as code if you intend the user to follow the link.

@@ -91,12 +91,12 @@ For an in-depth, external resource about writing developer documentation, see [_
 
 To format code examples, use the following guidelines.
 
-#### Configure syntax highlighting
+#### Highlight syntax
 
-In Markdown, an info string after the first three backticks is used to describe the language contained within.
-The website uses this information for syntax highlighting.
+In Markdown, an info string after the first three backticks describes the language contained within.
+The website uses this information to apply syntax highlighting to code examples.
 
-To configure syntax highlighting for a JSON code example, refer to the following Markdown example:
+The following Markdown sets the info string to `json`:
 
 ````markdown
 ```json
@@ -106,6 +106,8 @@ To configure syntax highlighting for a JSON code example, refer to the following
 
 Some common languages and their info strings are:
 
+- Bash: `bash`
+- Console: `console`
 - Go: `go`
 - JSON: `json`
 - PromQL: `promql`
@@ -130,7 +132,7 @@ End the introduction with a colon (`:`) if it immediately precedes the sample, o
 #### Use the `code` shortcode for tabbed examples
 
 If you have the same example in multiple languages, use the [`code` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#code).
-The website presents the snippets in tabs and remembers the users preferred choice.
+The website presents the snippets in tabs and remembers the user's preferred choice.
 
 ### Format partial code examples
 
@@ -143,18 +145,23 @@ In addition to the general guidance for formatting code examples, when working w
 
 In JSON or YAML, the partial example should be valid on its own.
 
-In programming language code examples, if the example can't be compiled on its own, make sure the snippet is a recognizable unit of a source file.
+In programming language code examples, if the example won't compile on its own, make sure the snippet is a recognizable unit of a source file.
 
-Do not use an ellipsis (`…`) or three periods (`...`) to omit information.
+<!-- vale Google.Parens = NO -->
+
+Don't use an ellipsis (`…`) or three periods (`...`) to omit information.
+
 It breaks the readers ability to copy-paste the example and provides no additional context for the omission.
-Instead use the preceding sentences or valid code comments to clearly explain the scope of the example and what is omitted.
+Instead use the preceding sentences or valid code comments to clearly explain the scope of the example and what's omitted.
+
+<!-- vale Google.Parens = YES -->
 
 For example:
 
 > The following YAML example demonstrates the configuration of a single port numbered `80` using the `TCP` protocol.
 >
-> It is part of a Kubernetes Service specification.
-> It is not a complete Service specification and must be incorporated with the rest of a Service specification.
+> It's part of a Kubernetes Service specification.
+> It's not a complete Service specification and your must incorporate it with the rest of a Service specification.
 >
 > ```yaml
 > ports:
@@ -164,15 +171,15 @@ For example:
 
 #### Explain how to integrate the example
 
-With YAML examples especially, it is important to explain how to integrate the example within a wide configuration.
+With YAML examples especially, it's important to explain how to integrate the example within a wide configuration.
 
 Explain which key the example is the value for.
 The following example extends the one in the previous section:
 
 > The following YAML example demonstrates the configuration of a single port numbered `80` using the `TCP` protocol.
 >
-> It is part of a Kubernetes Service specification.
-> It is not a complete Service specification and must be incorporated with the rest of a Service specification.
+> It's part of a Kubernetes Service specification.
+> It's not a complete Service specification and your must incorporate it with the rest of a Service specification.
 >
 > To incorporate the example, you must include it as the value to the Service `spec` mapping.
 > If there is an existing `ports` value, you must choose to replace it or merge the two.

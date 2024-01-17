@@ -269,3 +269,7 @@ Use italics formatting (\_ in Markdown), to emphasize a specific word or phrase.
 For example:
 
 > The Prometheus data model is arranged into _metrics_ that consist of a _timestamp_ and a _sample_.
+
+### Code
+
+Use code formatting (\` in Markdown) to refer to configuration fields and names of code elements.

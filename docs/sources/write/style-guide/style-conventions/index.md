@@ -279,4 +279,3 @@ Use code formatting (\` in Markdown) to refer to:
 - User input
 - Code in text/inline text
 - Class and method names, status codes, and console output
-

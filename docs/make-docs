@@ -686,9 +686,9 @@ POSIX_HERESTRING
     fi
 
     _repo="$(repo_path website)"
-    volumes="--volume=${_repo}/config:/hugo/config"
-    volumes="${volumes} --volume=${_repo}/layouts:/hugo/layouts"
-    volumes="${volumes} --volume=${_repo}/scripts:/hugo/scripts"
+    volumes="--volume=${_repo}/config:/hugo/config:z"
+    volumes="${volumes} --volume=${_repo}/layouts:/hugo/layouts:z"
+    volumes="${volumes} --volume=${_repo}/scripts:/hugo/scripts:z"
   fi
   unset _project _repo
 done
@@ -709,9 +709,9 @@ POSIX_HERESTRING
   debg "Mounting '${_src}' at container path '${_dst}'"
 
   if [ -z "${volumes}" ]; then
-    volumes="--volume=${_src}:${_dst}"
+    volumes="--volume=${_src}:${_dst}:z"
   else
-    volumes="${volumes} --volume=${_src}:${_dst}"
+    volumes="${volumes} --volume=${_src}:${_dst}:z"
   fi
 
   if [ -n "${_ver}" ] && [ "${_ver}" != 'UNVERSIONED' ]; then
@@ -805,7 +805,7 @@ fi
 ${WEBSITE_EXEC}
 EOF
     chmod +x "${tempfile}"
-    volumes="${volumes} --volume=${tempfile}:/entrypoint"
+    volumes="${volumes} --volume=${tempfile}:/entrypoint:z"
     readonly volumes
 
     IFS='' read -r cmd <<EOF

@@ -272,4 +272,11 @@ For example:
 
 ### Code
 
-Use code formatting (\` in Markdown) to refer to configuration fields and names of code elements.
+Use code formatting (\` in Markdown) to refer to:
+
+- File names
+- Configuration options
+- User input
+- Code in text/inline text
+- Class and method names, status codes, and console output
+

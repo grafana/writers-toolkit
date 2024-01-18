@@ -47,7 +47,7 @@ jobs:
   vale:
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:jdb-2023-07-vale
+      image: grafana/vale:latest
       options: --platform linux/amd64
     steps:
       - name: Checkout code

@@ -45,16 +45,29 @@ jobs:
         run: |
           docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
   vale:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     container:
-      image: "grafana/vale:jdb-2023-07-vale"
+      image: grafana/vale:latest
     steps:
-      - name: "Checkout code"
-        uses: "actions/checkout@v3"
-      - name: "Run linter"
-        run: "/bin/vale --minAlertLevel=error --config=vale/.vale.ini --output=/etc/vale/rdjsonl.tmpl ./docs/sources | /bin/reviewdog --fail-on-error --filter-mode=nofilter --f=rdjsonl --name=vale --reporter=github-pr-review"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run linter
+        working-directory: ./vale
+        run: >
+          vale
+          '--glob=*.md'
+          --minAlertLevel=error
+          --output=/etc/vale/rdjsonl.tmpl
+          ../docs/sources
+          | /bin/reviewdog
+          --conf=/etc/vale/.reviewdog.yml
+          --fail-on-error
+          --filter-mode=nofilter
+          --f=rdjsonl
+          --name=vale
+          --reporter=github-pr-review
         env:
-          REVIEWDOG_GITHUB_API_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   report-readability:
     name: Report readability

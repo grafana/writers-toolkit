@@ -60,6 +60,7 @@ jobs:
           --output=/etc/vale/rdjsonl.tmpl
           ../docs/sources
           | /bin/reviewdog
+            --conf=/etc/vale/.reviewdog.yml
             --fail-on-error
             --filter-mode=nofilter
             --f=rdjsonl

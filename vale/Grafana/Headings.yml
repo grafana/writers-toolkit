@@ -12,6 +12,7 @@ exceptions:
   - Cloud Traces
   - CPU
   - Grafana
+  - Grafana Cloud
   - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
   - Grafana Enterprise Traces

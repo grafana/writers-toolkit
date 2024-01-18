@@ -27,6 +27,17 @@ grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
 		--tag grafana/vale:latest \
 			.
 
+.PHONY: grafana/vale/push
+grafana/vale/push: ## Builds and pushes container image for Vale with the Grafana style loaded.
+grafana/vale/push: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
+	$(PODMAN) build \
+		--platform linux/x86_64,linux/arm64 \
+		--progress plain \
+		--push \
+		--tag grafana/vale:$(shell git rev-parse --short HEAD) \
+		--tag grafana/vale:latest \
+			.
+
 .PHONY: sync
 sync: ## Update the vendored Google style.
 sync:

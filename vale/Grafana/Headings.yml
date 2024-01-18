@@ -36,6 +36,7 @@ exceptions:
   - Mimir
   - Prometheus
   - PromQL
+  - Promtail
   - Redis
   - SRE
   - Tempo

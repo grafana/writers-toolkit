@@ -87,7 +87,7 @@ When providing an example, give a written description. You can put it either in 
 Remember the basic rule: explain _why_ your code does what it does, rather than describe _what_ it does.
 For an in-depth, external resource about writing developer documentation, see [_Docs for Developers_](https://docsfordevelopers.com/).
 
-### Format code examples
+### Full code examples
 
 To format code examples, use the following guidelines.
 
@@ -134,7 +134,7 @@ End the introduction with a colon (`:`) if it immediately precedes the sample, o
 If you have the same example in multiple languages, use the [`code` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#code).
 The website presents the snippets in tabs and remembers the user's preferred choice.
 
-### Format partial code examples
+### Partial code examples
 
 Partial code examples are shorter and focus the reader on a specific area of the code.
 However, they require the user to integrate the partial code example with their existing configuration or other examples.

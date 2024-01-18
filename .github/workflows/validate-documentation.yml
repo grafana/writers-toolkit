@@ -48,13 +48,23 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: grafana/vale:latest
-      options: --platform linux/amd64
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run linter
         working-directory: ./vale
-        run: vale '--glob=*.md' --minAlertLevel=error --output=/etc/vale/rdjsonl.tmpl ../docs/sources | /bin/reviewdog --fail-on-error --filter-mode=nofilter --f=rdjsonl --name=vale --reporter=github-pr-review
+        run: >
+          vale
+          '--glob=*.md'
+          --minAlertLevel=error
+          --output=/etc/vale/rdjsonl.tmpl
+          ../docs/sources
+          | /bin/reviewdog
+            --fail-on-error
+            --filter-mode=nofilter
+            --f=rdjsonl
+            --name=vale
+            --reporter=github-pr-review
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

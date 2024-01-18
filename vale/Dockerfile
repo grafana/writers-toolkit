@@ -29,7 +29,7 @@ RUN echo "${TEMPLATE_CHECKSUM}  rdjsonl.tmpl" \
 
 RUN mv rdjsonl.tmpl /out/
 
-FROM --platform=$BUILDPLATFORM jdkato/vale:v3.0.5
+FROM --platform=${TARGETPLATFORM} jdkato/vale:v3.0.5
 
 ENV DICPATH=/etc/vale/dictionaries
 

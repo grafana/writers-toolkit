@@ -199,7 +199,7 @@ Instead use _dot notation_ to separate nested fields.
 For example, `spec.template.metadata` to refer to the `metadata` field within the `template` field, which is itself within the `spec` field.
 
 If the field name has dots, surround the name with square brackets instead.
-For example, `spec.selector[app.kubernetes.io/name]`
+For example, `spec.selector[app.kubernetes.io/name]`.
 
 To refer to any member of an array, use `[*]`.
 

@@ -20,11 +20,15 @@ Read some of our tips for writing clear and concise UX microcopy.
 
 ### Use a voice that is friendly and not too formal
 
+<!-- vale Grafana.Please = NO -->
+
 Be conversational but don't use the voice you use when texting a friend.
 
 - Talk to our users like you're an engineer casually talking to other engineers.
 - Sound human and show empathy. We're here to help people complete their work and resolve issues.
 - Refrain from using "please" in your UI text.
+
+<!-- vale Grafana.Please = YES -->
 
 **Use:**
 
@@ -51,7 +55,12 @@ The more words you use, the more time you waste.
 
 ### Address users in second person
 
-Use "you" or "your" as though the UI is speaking to the users. Don't use "please," though.
+<!-- vale Grafana.Please = NO -->
+
+Use "you" or "your" as though the UI is speaking to the users.
+Don't use "please," though.
+
+<!-- vale Grafana.Please = YES -->
 
 **Use:**
 

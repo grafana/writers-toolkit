@@ -20,7 +20,12 @@ dictionaries/en_US-grafana.%: dictionaries/wordlist
 .PHONY: grafana/vale
 grafana/vale: ## Builds a container image for Vale with the Grafana style loaded.
 grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
-	DOCKER_DEFAULT_PLATFORM=linux/amd64 DOCKER_BUILDKIT=1 $(PODMAN) build -t grafana/vale  .
+	$(PODMAN) build \
+		--platform linux/x86_64,linux/arm64 \
+		--progress plain \
+		--tag grafana/vale:$(shell git rev-parse --short HEAD) \
+		--tag grafana/vale:latest \
+			.
 
 .PHONY: sync
 sync: ## Update the vendored Google style.

@@ -7,7 +7,7 @@
       Packages: 'https://github.com/jdbaldry/Hugo/releases/download/v0.2.0-rc.1/Hugo.zip',
     },
     sections: {
-      '*.md': {
+      '*': {
         BasedOnStyles: 'Google, Grafana',
 
         'Google.Headings': 'NO',

@@ -15,7 +15,7 @@ RUN echo "${REVIEWDOG_CHECKSUM}  reviewdog.tar.gz" \
 RUN tar zxf reviewdog.tar.gz -C /src
 
 WORKDIR "/src/reviewdog-${REVIEWDOG_VERSION}"
-RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o reviewdog
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o reviewdog ./cmd/reviewdog
 RUN mv reviewdog /out
 
 ENV TEMPLATE_CHECKSUM=904dffe57652c4610a48541c4fe9837953ea072d5fb1201ce06d74db0f82970fab4934a1089719c379512cfb955164a7e82eecca2398d33392be9802ff5a3bbf

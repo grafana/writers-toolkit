@@ -711,11 +711,11 @@ case "${image}" in
                 --init \
                 --interactive \
                 --rm \
+                --workdir /etc/vale \
                 --tty \
                 ${volumes} \
                 "${DOCS_IMAGE}" \
                 "--minAlertLevel=${VALE_MINALERTLEVEL}" \
-                --config=/etc/vale/.vale.ini \
                 '--glob=*.md' \
                 --output=line \
                 /hugo/content/docs | sed "s#$(proj_dst "${proj}")#sources#"

@@ -123,7 +123,7 @@ For example, Makefiles and Go source code uses tabs (`	`) for indentation.
 Use 2 spaces unless there is a clearly established alternative convention.
 For example, Python generally uses 4 spaces for indentation.
 
-Above all else, be consistent with other Grafana documentation.
+Above all else, be consistent with existing documentation in your area of the documentation or in your project.
 
 #### Introduce each code sample with a sentence or paragraph to establish its context
 

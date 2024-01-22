@@ -29,6 +29,10 @@
 {{- $message = printf "%s\n\nFor more information, refer to %s" $message . -}}
 {{- end -}}
 
+{{- $message := printf "%s\n\nTo skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules)" $message -}}
+
+{{- $message := printf "%s\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=%s%%20%%3A%%20%%3CISSUE%%3E)" $message $check -}}
+
 {{- /* Output */ -}}
 
 {"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}

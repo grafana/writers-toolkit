@@ -1,0 +1,11 @@
+"extends": "existence"
+"ignorecase": true
+"level": "warning"
+"link": "https://developers.google.com/style/pronouns#personal-pronouns"
+"message": "Try to avoid using first-person plural like '%s'."
+"tokens":
+  - "we"
+  - "we'(?:ve|re)"
+  - "ours?"
+  - "us"
+  - "let's"

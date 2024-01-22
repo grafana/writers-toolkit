@@ -19,7 +19,7 @@ dictionaries/en_US-grafana.%: dictionaries/wordlist
 
 .PHONY: grafana/vale
 grafana/vale: ## Builds a container image for Vale with the Grafana style loaded.
-grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
+grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic grafana/Google .vale.ini
 	$(PODMAN) build \
 		--platform linux/x86_64,linux/arm64 \
 		--progress plain \
@@ -47,3 +47,9 @@ sync:
 .vale.ini ../.vale.ini: .vale.jsonnet
 	jsonnet -Se "(import '.vale.jsonnet').container" | sed '$${/^$$/d;}' > .vale.ini
 	jsonnet -Se "(import '.vale.jsonnet').repository" | sed '$${/^$$/d;}' > ../.vale.ini
+
+.PHONY: Grafana/Google
+Grafana/Google: ## Generate the Grafana style from the Google style.
+Grafana/Google: google.jsonnet
+	jsonnet -S -m . google.jsonnet
+	prettier -w Grafana/Google*.yml

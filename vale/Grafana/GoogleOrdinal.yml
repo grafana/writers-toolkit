@@ -1,0 +1,7 @@
+"extends": "existence"
+"level": "error"
+"link": "https://developers.google.com/style/numbers"
+"message": "Spell out all ordinal numbers ('%s') in text."
+"nonword": true
+"tokens":
+  - "\\d+(?:st|nd|rd|th)"

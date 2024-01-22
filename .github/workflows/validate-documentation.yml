@@ -57,7 +57,7 @@ jobs:
           '--glob=*.md'
           --minAlertLevel=warning
           --output=/etc/vale/rdjsonl.tmpl
-          ./docs/sources
+          docs/sources
           | /bin/reviewdog
           --conf=/etc/vale/.reviewdog.yml
           --fail-on-error

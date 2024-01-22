@@ -7,7 +7,7 @@ description: Understand the CLA assistant and its use on GitHub pull requests.
 
 [CLA assistant](https://cla-assistant.io/) is used by Grafana Labs to ensure that all contributors to a GitHub pull request (PR) have signed the Grafana Labs Contributor License Agreement (CLA).
 
-Grafana Labs doesn't operate the CLA assistant infrastructure; instead it's provided by SAP.
+Grafana Labs doesn't operate the CLA assistant infrastructure, instead it's provided by SAP.
 The CLA assistant project is open source and you can find the source code in the [cla-assistant repository](https://github.com/cla-assistant/cla-assistant).
 
 The workflow runs automatically on all PRs.
@@ -37,6 +37,5 @@ The format of the URL is `https://cla-assistant.io/check/grafana/<REPOSITORY>?pu
 For example, to trigger the CLA assistant workflow for the pull request `https://github.com/grafana/grafana/pull/1`, the URL is `https://cla-assistant.io/check/grafana/grafana?pullRequest=1`.
 
 {{% admonition type="note" %}}
-The URL redirects your browser back to https://github.com without any feedback suggesting the workflow has been triggered.
-After a few minutes, check the PR to see if the status has been reported.
+The URL redirects your browser back to https://github.com without any feedback suggesting the workflow has run.
 {{% /admonition %}}

@@ -1,5 +1,8 @@
 extends: capitalization
-message: "Use sentence-style capitalization for '%s'."
+message: |
+  Use sentence-style capitalization for '%s'.
+
+  If your heading uses sentence capitalization but this error is reported, you need to add an exception to https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/Headings.yml.
 link: "https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings"
 level: warning
 scope: heading

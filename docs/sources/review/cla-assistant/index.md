@@ -1,9 +1,9 @@
 ---
-title: About CLA assistant
+title: CLA assistant
 description: Understand the CLA assistant and its use on GitHub pull requests.
 ---
 
-# About CLA assistant
+# CLA assistant
 
 [CLA assistant](https://cla-assistant.io/) is used by Grafana Labs to ensure that all contributors to a GitHub pull request (PR) have signed the Grafana Labs Contributor License Agreement (CLA).
 
@@ -16,6 +16,7 @@ If it doesn't report back and all other continuous integration (CI) checks have 
 
 {{% admonition type="note" %}}
 During prolonged periods of high load on the CLA assistant infrastructure, even rerunning the workflow might not result in a successful status.
+
 In this case, wait a few hours and try again later.
 {{% /admonition %}}
 

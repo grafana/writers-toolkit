@@ -19,5 +19,5 @@
     {{- end -}}
 
     {"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}
-  {{- end -}}
-{{- end -}}
+  {{ end -}}
+{{ end -}}

@@ -26,12 +26,14 @@
 {{- $message := printf "%s" .Message -}}
 
 {{- with .Link -}}
-{{- $message = printf "%s\n\nFor more information, refer to %s" $message . -}}
+{{- $message = printf "%s\n\nFor more information, refer to %s." $message . -}}
 {{- end -}}
 
-{{- $message := printf "%s\n\nTo skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules)" $message -}}
+{{- $message := printf "%s\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=%s%%20%%3A%%20%%3CISSUE%%3E)." $message $check -}}
 
-{{- $message := printf "%s\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=%s%%20%%3A%%20%%3CISSUE%%3E)" $message $check -}}
+
+{{- $message := printf "%s\n\nIf you have reason to diverge from the style guidance, to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules)." $message -}}
+
 
 {{- /* Output */ -}}
 

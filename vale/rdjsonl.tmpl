@@ -1,23 +1,36 @@
 {{- /* Originally from https://raw.githubusercontent.com/errata-ai/vale-action/reviewdog/lib/rdjsonl.tmpl */ -}}
+{{- /* Range over the linted files */ -}}
+
 {{- range .Files}}
-  {{- $path := .Path -}}
-  {{- range .Alerts -}}
-    {{- $error := "INFO" -}}
-    {{- if eq .Severity "error" -}}
-      {{- $error = "ERROR" -}}
-    {{- else if eq .Severity "warning" -}}
-      {{- $error = "WARNING" -}}
-    {{- end}}
 
-    {{- $line := printf "%d" .Line -}}
-    {{- $col := printf "%d" (index .Span 0) -}}
-    {{- $check := printf "%s" .Check -}}
-    {{- $message := printf "%s" .Message -}}
+{{- $path := .Path -}}
 
-    {{- with .Link -}}
-      {{- $message = printf "%s\n\nFor more information, refer to %s" $message . -}}
-    {{- end -}}
+{{- /* Range over the file's alerts */ -}}
 
-    {"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}
-  {{ end -}}
-{{ end -}}
+{{- range .Alerts -}}
+
+{{- $error := "" -}}
+{{- if eq .Severity "error" -}}
+    {{- $error = "ERROR" -}}
+{{- else if eq .Severity "warning" -}}
+    {{- $error = "WARNING" -}}
+{{- else -}}
+    {{- $error = "INFO" -}}
+{{- end}}
+
+{{- /* Variables setup */ -}}
+
+{{- $line := printf "%d" .Line -}}
+{{- $col := printf "%d" (index .Span 0) -}}
+{{- $check := printf "%s" .Check -}}
+{{- $message := printf "%s" .Message -}}
+
+{{- with .Link -}}
+{{- $message = printf "%s\n\nFor more information, refer to %s" $message . -}}
+{{- end -}}
+
+{{- /* Output */ -}}
+
+{"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}
+{{end -}}
+{{end -}}

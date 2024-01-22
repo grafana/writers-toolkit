@@ -17,7 +17,6 @@ RUN tar zxf reviewdog.tar.gz -C /src
 WORKDIR "/src/reviewdog-${REVIEWDOG_VERSION}"
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o reviewdog ./cmd/reviewdog
 RUN mv reviewdog /out
-RUN mv ./.reviewdog.yml /out
 
 FROM --platform=${TARGETPLATFORM} jdkato/vale:v3.0.5
 
@@ -30,12 +29,12 @@ COPY Grafana /etc/vale/styles/Grafana
 COPY .vale.ini /etc/vale
 COPY dictionaries /etc/vale/dictionaries
 COPY rdjsonl.tmpl /etc/vale/rdjsonl.tmpl
+COPY .reviewdog.yml /etc/vale/.reviewdog.yml
 
 # Git is useful for reporting with reviewdog.
 RUN apk add --no-cache git
 
 COPY --from=reviewdog /out/reviewdog /bin
-COPY --from=reviewdog /out/.reviewdog.yml /etc/vale
 
 WORKDIR /etc/vale
 RUN vale sync

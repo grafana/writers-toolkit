@@ -52,13 +52,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run linter
-        working-directory: ./vale
         run: >
           vale
           '--glob=*.md'
           --minAlertLevel=warning
           --output=/etc/vale/rdjsonl.tmpl
-          ../docs/sources
+          ./docs/sources
           | /bin/reviewdog
           --conf=/etc/vale/.reviewdog.yml
           --fail-on-error

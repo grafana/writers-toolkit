@@ -10,14 +10,15 @@ match: $sentence
 exceptions:
   - Adaptive Metrics
   - Application Observability
-  - Cloud Metrics
+  - CLA
   - Cloud Logs
+  - Cloud Metrics
   - Cloud Traces
   - CPU
   - Grafana
   - Grafana Cloud
-  - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
+  - Grafana Enterprise Metrics
   - Grafana Enterprise Traces
   - Grafana Labs
   - Helm

@@ -1,0 +1,23 @@
+{{- /* Originally from https://raw.githubusercontent.com/errata-ai/vale-action/reviewdog/lib/rdjsonl.tmpl */ -}}
+{{- range .Files}}
+  {{- $path := .Path -}}
+  {{- range .Alerts -}}
+    {{- $error := "INFO" -}}
+    {{- if eq .Severity "error" -}}
+      {{- $error = "ERROR" -}}
+    {{- else if eq .Severity "warning" -}}
+      {{- $error = "WARNING" -}}
+    {{- end}}
+
+    {{- $line := printf "%d" .Line -}}
+    {{- $col := printf "%d" (index .Span 0) -}}
+    {{- $check := printf "%s" .Check -}}
+    {{- $message := printf "%s" .Message -}}
+
+    {{- with .Link -}}
+      {{- $message = printf "%s\n\nFor more information, refer to %s" $message . -}}
+    {{- end -}}
+
+    {"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}
+  {{- end -}}
+{{- end -}}

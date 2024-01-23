@@ -20,8 +20,9 @@ jobs:
       - id: push-to-dockerhub
         uses: grafana/shared-workflows/actions/build-push-to-dockerhub@main
         with:
-          repository: grafana/vale
           context: vale
+          push: true
+          repository: grafana/vale
           tags: |-
             ${{ github.sha }}
             latest

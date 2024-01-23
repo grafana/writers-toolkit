@@ -1,4 +1,4 @@
-63
+64
 Alertmanager/S po:noun
 Ansible/ po:noun
 Ansible/ po:adjective
@@ -50,6 +50,7 @@ misconfiguration/S po:noun
 namespace/S po:noun
 performant/ po:adjective
 preconfigure/D po:verb
+provision/dD po:verb
 query/DGS po:verb
 query/ po:noun
 query/A po:adjective

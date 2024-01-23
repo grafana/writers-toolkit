@@ -1,0 +1,9 @@
+runner:
+  vale:
+    cmd: >
+      vale
+      '--glob=*.md'
+      --minAlertLevel=warning
+      --output=/etc/vale/rdjsonl.tmpl
+      docs/sources/_index.md
+    format: rdjsonl

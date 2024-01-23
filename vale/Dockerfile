@@ -17,17 +17,6 @@ RUN tar zxf reviewdog.tar.gz -C /src
 WORKDIR "/src/reviewdog-${REVIEWDOG_VERSION}"
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o reviewdog ./cmd/reviewdog
 RUN mv reviewdog /out
-RUN mv ./.reviewdog.yml /out
-
-ENV TEMPLATE_CHECKSUM=904dffe57652c4610a48541c4fe9837953ea072d5fb1201ce06d74db0f82970fab4934a1089719c379512cfb955164a7e82eecca2398d33392be9802ff5a3bbf
-
-RUN wget -O rdjsonl.tmpl -q https://raw.githubusercontent.com/errata-ai/vale-action/reviewdog/lib/rdjsonl.tmpl
-
-RUN echo "${TEMPLATE_CHECKSUM}  rdjsonl.tmpl" \
-| sha512sum -csw - \
-|| (printf "\nERROR: Invalid checksum\nexpected: %s\n     got: %s\n\n" "${TEMPLATE_CHECKSUM}" "$(sha512sum rdjsonl.tmpl | awk '{print $1}')";  exit 1)
-
-RUN mv rdjsonl.tmpl /out/
 
 FROM --platform=${TARGETPLATFORM} jdkato/vale:v3.0.5
 
@@ -37,15 +26,16 @@ RUN mkdir -p /etc/vale
 
 COPY Google /etc/vale/styles/Google
 COPY Grafana /etc/vale/styles/Grafana
-COPY .vale.ini /etc/vale
+COPY .vale.ini /etc/vale/.vale.ini
+COPY .vale-config /etc/vale/.vale-config
 COPY dictionaries /etc/vale/dictionaries
+COPY rdjsonl.tmpl /etc/vale/rdjsonl.tmpl
+COPY .reviewdog.yml /etc/vale/.reviewdog.yml
 
 # Git is useful for reporting with reviewdog.
 RUN apk add --no-cache git
 
 COPY --from=reviewdog /out/reviewdog /bin
-COPY --from=reviewdog /out/rdjsonl.tmpl /etc/vale
-COPY --from=reviewdog /out/.reviewdog.yml /etc/vale
 
 WORKDIR /etc/vale
 RUN vale sync

@@ -1,0 +1,9 @@
+"action":
+  "name": "remove"
+"extends": "existence"
+"level": "error"
+"link": "https://developers.google.com/style/exclamation-points"
+"message": "Don't use exclamation points in text."
+"nonword": true
+"tokens":
+  - "\\w+!(?:\\s|$)"

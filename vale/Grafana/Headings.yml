@@ -38,6 +38,7 @@ exceptions:
   - Redis
   - Tempo
   - TraceQL
+  - WebSockets
   - What's new
   - Writers' Toolkit
   - YouTube

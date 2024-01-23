@@ -27,6 +27,7 @@ exceptions:
   - macOS
   - Memcached
   - Mimir
+  - OpenCost
   - Prometheus
   - PromQL
   - Redis

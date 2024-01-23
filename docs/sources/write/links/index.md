@@ -38,8 +38,13 @@ For more information and examples, refer to [`docs/reference` shortcode](https:/
 
 ## Link to grafana.com pages
 
-Use a full URL with version substitution syntax (if needed).
+Use a full URL.
 
+{{< admonition type="note" >}}
+The `doc-validator` linter does not check links that use full URLs.
+{{< /admonition >}}
+
+If you are linking to versioned documentation, use a full URL with version substitution syntax.
 Version substitution is necessary for full URLs to link to the correct version of documentation.
 Usually, this is the current version of documentation.
 

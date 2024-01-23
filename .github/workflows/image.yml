@@ -21,7 +21,7 @@ jobs:
         uses: grafana/shared-workflows/actions/build-push-to-dockerhub@main
         with:
           repository: grafana/vale
-          context: .
+          context: vale
           tags: |-
             ${{ github.sha }}
             latest

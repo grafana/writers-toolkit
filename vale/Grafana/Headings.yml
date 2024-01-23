@@ -1,5 +1,8 @@
 extends: capitalization
-message: "Use sentence-style capitalization for '%s'."
+message: |
+  Use sentence-style capitalization for '%s'.
+
+  If your heading uses sentence capitalization but this error is reported, you need to add an exception to https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/Headings.yml.
 link: "https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings"
 level: warning
 scope: heading
@@ -7,14 +10,15 @@ match: $sentence
 exceptions:
   - Adaptive Metrics
   - Application Observability
-  - Cloud Metrics
+  - CLA
   - Cloud Logs
+  - Cloud Metrics
   - Cloud Traces
   - CPU
   - Grafana
   - Grafana Cloud
-  - Grafana Enterprise Metrics
   - Grafana Enterprise Logs
+  - Grafana Enterprise Metrics
   - Grafana Enterprise Traces
   - Grafana Labs
   - Helm
@@ -33,5 +37,6 @@ exceptions:
   - Tempo
   - TraceQL
   - What's new
+  - Writers' Toolkit
   - YouTube
   - Grafana Cloud Traces

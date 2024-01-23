@@ -1,0 +1,42 @@
+{{- /* Originally from https://raw.githubusercontent.com/errata-ai/vale-action/reviewdog/lib/rdjsonl.tmpl */ -}}
+{{- /* Range over the linted files */ -}}
+
+{{- range .Files}}
+
+{{- $path := .Path -}}
+
+{{- /* Range over the file's alerts */ -}}
+
+{{- range .Alerts -}}
+
+{{- $error := "" -}}
+{{- if eq .Severity "error" -}}
+    {{- $error = "ERROR" -}}
+{{- else if eq .Severity "warning" -}}
+    {{- $error = "WARNING" -}}
+{{- else -}}
+    {{- $error = "INFO" -}}
+{{- end}}
+
+{{- /* Variables setup */ -}}
+
+{{- $line := printf "%d" .Line -}}
+{{- $col := printf "%d" (index .Span 0) -}}
+{{- $check := printf "%s" .Check -}}
+{{- $message := printf "%s" .Message -}}
+
+{{- with .Link -}}
+{{- $message = printf "%s\n\nFor more information, refer to %s." $message . -}}
+{{- end -}}
+
+{{- $message := printf "%s\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=%s%%20%%3A%%20%%3CISSUE%%3E)." $message $check -}}
+
+
+{{- $message := printf "%s\n\nIf you have reason to diverge from the style guidance, to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules)." $message -}}
+
+
+{{- /* Output */ -}}
+
+{"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}
+{{end -}}
+{{end -}}

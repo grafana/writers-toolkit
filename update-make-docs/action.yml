@@ -89,6 +89,10 @@ runs:
           git push origin "refs/heads/${BRANCH}"
           # Set default options before the user-provided ones as later options appear to override earlier ones.
           # For example, in `gh pr create --web --title foo --title bar`, the resulting title is "bar".
-          gh pr create --title  'Update `make docs` procedure' --body '' "${OPTIONS_ARRAY[@]}"
+          if [[ ${#OPTIONS_ARRAY[@]} -eq 0 ]]; then
+            gh pr create --title  'Update `make docs` procedure' --body ''
+          else
+            gh pr create --title  'Update `make docs` procedure' --body '' "${OPTIONS_ARRAY[@]}"
+          fi
         fi
       shell: bash

@@ -26,3 +26,7 @@ SFX S   0     s          [^sxzhy]
 SFX A Y 2
 SFX A   e     able       e
 SFX A   0     able       .
+
+SFX R Y 2
+SFX R   0     r          e
+SFX R   0     ed         .

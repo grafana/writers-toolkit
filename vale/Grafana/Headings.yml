@@ -15,8 +15,10 @@ exceptions:
   - Cloud Metrics
   - Cloud Traces
   - CPU
+  - Frontend Observability
   - Grafana
   - Grafana Cloud
+  - Grafana Cloud Traces
   - Grafana Enterprise Logs
   - Grafana Enterprise Metrics
   - Grafana Enterprise Traces
@@ -39,4 +41,3 @@ exceptions:
   - What's new
   - Writers' Toolkit
   - YouTube
-  - Grafana Cloud Traces

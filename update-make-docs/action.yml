@@ -81,7 +81,9 @@ runs:
         # For example, pr_options: --label 'backport v10.0.x'
         OPTIONS_ARRAY=()
         while IFS= read -r -d '' arg; do
-          OPTIONS_ARRAY+=("$(printf "%q" "$arg")")
+          if [[ -n "${arg}" ]]; then
+            OPTIONS_ARRAY+=("$(printf '%q' "${arg}")")
+          fi
         done < <(echo "${PR_OPTIONS}" | xargs printf '%s\0')
 
         if ! git diff --exit-code; then

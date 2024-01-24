@@ -3,7 +3,7 @@ action:
 extends: substitution
 ignorecase: true
 level: error
-link: https://developers.google.com/style/abbreviations
+link: https://developers.google.com/style/abbreviations#dont-use
 message: Use '%s' instead of '%s'.
 nonword: true
 swap:

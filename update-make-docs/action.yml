@@ -82,7 +82,7 @@ runs:
         OPTIONS_ARRAY=()
         while IFS= read -r -d '' arg; do
           if [[ -n "${arg}" ]]; then
-            OPTIONS_ARRAY+=("$(printf '%q' "${arg}")")
+            OPTIONS_ARRAY+=("$(printf '%s' "${arg}")")
           fi
         done < <(echo "${PR_OPTIONS}" | xargs printf '%s\0')
 

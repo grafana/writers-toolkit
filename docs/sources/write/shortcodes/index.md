@@ -580,6 +580,15 @@ The following shortcode inserts a lists of links to child pages and includes the
 {{</* section withDescriptions="true"*/>}}
 ```
 
+## Table of contents
+
+The `table-of-contents` shortcode renders the pages table of contents in the page body.
+You should generally avoid using this shortcode because every documentation page already has a table of contents rendered with the page body.
+
+```markdown
+{{</* table-of-contents */>}}
+```
+
 ## Term
 
 The `term` shortcode enables a tooltip when a user hovers over text surrounded by the shortcode.

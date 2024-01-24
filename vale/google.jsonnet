@@ -1,6 +1,7 @@
 std.prune({
   'Grafana/GoogleAMPM.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/AMPM.yml')),
-  'Grafana/GoogleAcronyms.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Acronyms.yml')),
+  // Replaced by Grafana/Acronyms.yml.
+  'Grafana/GoogleAcronyms.yml': null,
   'Grafana/GoogleColons.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Colons.yml')),
   'Grafana/GoogleContractions.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Contractions.yml')),
   'Grafana/GoogleDateFormat.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/DateFormat.yml')),

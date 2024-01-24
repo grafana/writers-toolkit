@@ -582,7 +582,7 @@ The following shortcode inserts a lists of links to child pages and includes the
 
 ## Table of contents
 
-The `table-of-contents` shortcode renders the pages table of contents in the page body.
+The `table-of-contents` shortcode renders the page's table of contents in the page body.
 You should generally avoid using this shortcode because every documentation page already has a table of contents rendered with the page body.
 
 ```markdown

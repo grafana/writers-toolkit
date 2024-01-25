@@ -18,6 +18,7 @@ exceptions:
   - Cloud Traces
   - Cluster # Kubernetes
   - CPU
+  - Frontend Observability
   - Grafana
   - Grafana Cloud
   - Grafana Cloud Traces

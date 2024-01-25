@@ -7,6 +7,7 @@ Datadog/ po:noun
 Datadog/ po:adjective
 ESLint/ po:noun
 Firehose/ po:noun
+Fargate/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
 Grafana/ po:adjective
@@ -36,6 +37,7 @@ Webpack/ po:noun
 Zipkin/ po:noun
 Zipkin/ po:adjective
 allowlist/S po:noun
+autoscale/DGRS po:verb
 backport/DGS po:verb
 blockquote/S po:noun
 deliverable/S po:noun

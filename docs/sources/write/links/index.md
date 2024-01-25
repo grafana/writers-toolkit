@@ -102,7 +102,7 @@ Use the full URL. Include trailing slashes.
 For example:
 
 ```markdown
-https://github.com/
+https://github.com
 ```
 
 ## Link to page headings

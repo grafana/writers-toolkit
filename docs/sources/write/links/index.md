@@ -60,7 +60,7 @@ cascade:
 
 **Link to Grafana documentation**:
 
-Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path.
+Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path. Include trailing slashes.
 
 For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution, use:
 
@@ -97,12 +97,12 @@ https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
 
 ## Link to external pages
 
-Use the full URL.
+Use the full URL. Include trailing slashes.
 
 For example:
 
 ```markdown
-https://github.com
+https://github.com/
 ```
 
 ## Link to page headings
@@ -120,6 +120,7 @@ From a different page:
 ```markdown
 Read more in the [Grafana Open Source section of the Introduction page](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/fundamentals/#grafana-open-source).
 ```
+Include the trailing slash before the hash (#) that precedes the page heading.
 
 To convert a heading to an anchor, make the following changes:
 

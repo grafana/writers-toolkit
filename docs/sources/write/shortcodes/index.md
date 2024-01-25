@@ -657,6 +657,7 @@ The content within the shortcode tags is as follows:
 - _`REFERENCE`_ - The path to the destination file.
   This shortcode supports version substitution using values like `<GRAFANA VERSION>`.
   To learn about version substitution, refer to [About version substitution](#about-version-substitution).
+  Don't include trailing slashes in the path.
 
 Then add the link in the body of the file in the following format:
 

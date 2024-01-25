@@ -11,4 +11,8 @@
 # In each subsection folders are ordered first by depth, then alphabetically.
 # This should make it easy to add new rules without breaking existing ones.
 
-* @jdbaldry @josmperez @knylander-grafana
+* @jdbaldry @knylander-grafana
+
+/docs/sources/structure/  @jdbaldry @josmperez
+
+/docs/sources/write/style-guide/  @jdbaldry @josmperez

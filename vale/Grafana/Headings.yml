@@ -39,6 +39,7 @@ exceptions:
   - OpenTelemetry Collector
   - Prometheus
   - PromQL
+  - Promtail
   - Redis
   - SRE
   - Tempo

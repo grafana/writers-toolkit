@@ -9,23 +9,21 @@ aliases:
 keywords:
   - Hugo
   - shortcodes
+VARIABLE: test
 ---
 
 # Shortcodes
 
-Shortcodes are predefined templates used for rendering snippets in Hugo.
+Shortcodes are snippets you use in source files to calling built-in or custom templates.
+Shortcodes templates avoid the need for HTML in Markdown and ensure consistency across the documentation set.
 
-## Why use shortcodes?
+The following sections describe shortcodes available for use in Grafana Markdown files.
+To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
 
-Markdown is limited in its ability to render complex elements.
-Although you might be tempted to insert HTML directly into content to make up for its limitations, you can instead use shortcodes to ensure consistency across the Grafana website.
-
-The following sections describe shortcodes available for use in Grafana Markdown files. To learn about other shortcodes, refer to the Hugo [shortcode documentation](https://gohugo.io/content-management/shortcodes/).
-
-{{% admonition type="note" %}}
-The Grafana shortcode templates are defined in the `layouts/shortcodes` folder of the website repository which is only accessible to Grafana Labs employees.
+{{< admonition type="note" >}}
+The website team maintains shortcode templates in the `layouts/shortcodes` folder of the website repository which is only accessible to Grafana Labs employees.
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
-{{% /admonition %}}
+{{< /admonition >}}
 
 ## Admonition
 
@@ -40,45 +38,58 @@ and the type of admonition must be within quotes.
 | `type`    | The type of admonition. One of `caution`, `note`, `tip`, or `warning`. | yes      |
 
 Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
-Tips are intended to be helpful, additional information. You can think of some tips as tricks.
-Your reader can feel free to skip them if they wish because they do not contribute to core understanding.
+Tips should be helpful, additional information.
+You can think of some tips as tricks.
+Your reader can feel free to skip them if they wish because they don't contribute to core understanding.
 
-{{% admonition type="warning" %}}
+{{< admonition type="warning" >}}
 Reference style links such as `[link text][label]` or `[link text][]` don't work in the inner text of shortcodes if you use reference links defined at the topic level.
-To use reference links within an admonition, you must use standard inline markdown links or define the reference links within the admonition shortcode.
+To use reference links within an admonition, you must use standard inline Markdown links or define the reference links within the admonition shortcode.
 
 For more information, refer to [Markdown Reference Links in Shortcodes](https://discourse.gohugo.io/t/markdown-reference-links-in-shortcodes/5770/3).
-{{% /admonition %}}
+{{< /admonition >}}
 
-### Example
+### Examples
 
 The following example renders an admonition of type `note` with the message `Kingston is the capital of Jamaica.`:
 
 ```markdown
-{{%/* admonition type="note" */%}}
+{{</* admonition type="note" */>}}
 Kingston is the capital of Jamaica.
-{{%/* /admonition */%}}
+{{</* /admonition */>}}
 ```
 
-### Example
+Produces:
+
+{{< admonition type="note" >}}
+Kingston is the capital of Jamaica.
+{{< /admonition >}}
 
 The following example renders an admonition of type `tip` with the message `This also applies to headings that contain a forward slash or parentheses or square brackets.`:
 
 ```markdown
-{{%/* admonition type="tip" */%}}
+{{</* admonition type="tip" */>}}
 This also applies to headings that contain a forward slash or parentheses or square brackets.
-{{%/* /admonition */%}}
+{{</* /admonition */>}}
 ```
+
+Produces:
+
+{{< admonition type="tip" >}}
+This also applies to headings that contain a forward slash or parentheses or square brackets.
+{{< /admonition >}}
 
 ## Code
 
-The `code` shortcode provides the ability to show multiple snippets of code in different languages. When a language is selected, other code blocks on the page are toggled if the language is included. The selected language is saved to browser and persists across navigation.
+The `code` shortcode provides the ability to show multiple snippets of code in different languages.
+When a user selects a language, the website sets other code blocks on the page to that language.
+The website saves the selected language to browser storage and persists it across navigation.
 
 ### Example
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 If your repository uses `prettier` to format the files, use the HTML comments `<!-- prettier-ignore-start -->` and `<!-- prettier-ignore-end -->` around the shortcode tags to ensure correct rendering.
-{{% /admonition %}}
+{{< /admonition >}}
 
 <!-- prettier-ignore-start -->
 
@@ -124,6 +135,49 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 ````
 <!-- prettier-ignore-end -->
 
+Produces:
+
+<!-- prettier-ignore-start -->
+
+{{< code >}}
+
+```bash
+curl "https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity"
+```
+
+```go
+package main
+
+import (
+  "context"
+)
+
+func main() {
+
+  ...
+```
+
+```javascript
+import { GrafanaIncidentClient, ActivityService } from '@grafana/incident-node';
+
+// https://grafana.com/docs/grafana-cloud/incident/api/auth/#get-a-service-account-token
+const serviceAccountToken = process.env.GRAFANA_CLOUD_SERVICE_ACCOUNT_TOKEN;
+const client = new GrafanaIncidentClient(
+  "https://your-stack.grafana.net",
+  serviceAccountToken
+);
+
+...
+```
+
+```json
+POST https://your-stack.grafana.net/api/plugins/grafana-incident-app/resources/api/v1/ActivityService.AddActivity
+Content-Type="application/json; charset=utf-8"
+Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
+```
+
+{{< /code >}}
+
 ## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
@@ -148,10 +202,15 @@ Kingston is the capital of Jamaica.
 
 Use this shortcode for:
 
+<!-- vale Grafana.GooglePassive = NO -->
+
 - [Deprecated content](#deprecation-example): Features that have been deprecated, but still need to be documented for some time.
 - [Configuration options](#configuration-options-example): Features that have several ways they can be configured.
 
-Add a lead-in sentence and a title that, taken together, are descriptive enough for the reader to guess what's included in the collapsed content. Don't duplicate headings in the title parameter.
+<!-- vale Grafana.GooglePassive = YES -->
+
+Add a lead-in sentence and a title that, taken together, are descriptive enough for the reader to guess what's included in the collapsed content.
+Don't duplicate headings in the title parameter.
 
 You can't do the following with this shortcode:
 
@@ -164,10 +223,10 @@ You can't do the following with this shortcode:
 ```markdown
 #### BoltDB (deprecated)
 
-The following example is for a deprecated store and shouldn't be used for new Loki deployments:
+The following example is for a deprecated store and you shouldn't use it for new Loki deployments:
 
 {{</* collapse title="boltdb-shipper" */>}}
-Also known as _boltdb-shipper_ during development (and is still the schema store name).
+Also known as _boltdb-shipper_ during development.
 The single store configurations for Loki utilize the chunk store for both chunks and the index, requiring just one store to run Loki.
 {{</* /collapse */>}}
 ```
@@ -176,20 +235,19 @@ Produces:
 
 #### BoltDB (deprecated)
 
-The following example is for a deprecated store and shouldn't be used for new Loki deployments:
+The following example is for a deprecated store and you shouldn't use it for new Loki deployments:
 
 {{< collapse title="boltdb-shipper" >}}
-Also known as _boltdb-shipper_ during development (and is still the schema store name).
+Also known as _boltdb-shipper_ during development.
 The single store configurations for Loki to utilize the chunk store for both chunks and the index, which requires just one store to run Loki.
 {{< /collapse >}}
 
 ### Configuration options example
 
 ````markdown
-#### 6-Compactor-Snippet.yaml
+#### `6-Compactor-Snippet.yaml`
 
 The following partial configuration sets the compactor to use S3 and run the compaction every five minutes.
-Downloaded index files for compaction are stored in `/loki/compactor`.
 
 {{</* collapse title="Example" */>}}
 
@@ -205,10 +263,9 @@ compactor:
 
 Produces:
 
-#### 6-Compactor-Snippet.yaml
+#### `6-Compactor-Snippet.yaml`
 
 The following partial configuration sets the compactor to use Amazon S3 and runs the compaction every 5 minutes.
-Downloaded index files for compaction are stored in `/loki/compactor`.
 
 {{< collapse title="Example" >}}
 
@@ -299,29 +356,33 @@ Produces:
 
 ## Docs/shared
 
-The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories. The source content repository must explicitly share the page by placing it into its `shared` directory.
+The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories.
+The source content repository must explicitly share the page by placing it into its `shared` directory.
 
 To share content, follow these steps:
 
-1. Create a Markdown file containing the source to be shared and include `headless: true` in the front matter to prevent the website from publishing the page.
+1. Create a Markdown file containing the shared source and include `headless: true` in the front matter to prevent the website from publishing the page.
 1. Store the file in a shared folder.
 1. To include the shared content in a Markdown file, insert the `docs/shared` shortcode with the following named parameters:
 
-| Parameter     | Description                                                                                                                                                                                                                                                                                                          | Required |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                           | yes      |
-| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                     | yes      |
-| `version`     | Version of the source content to include. For source content that does not have a version, use the empty string `""` as the value. Version substitution is supported using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
-| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                    | no       |
+For more detailed instructions, refer to [Reuse shared content](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-shared-content).
 
-{{% admonition type="note" %}}
+| Parameter     | Description                                                                                                                                                                                                                                                                                                                    | Required |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                                     | yes      |
+| `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                               | yes      |
+| `version`     | Version of the source content to include. For source content that doesn't have a version, use the empty string `""` as the value. This shortcode supports version substitution using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
+| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                              | no       |
+
+{{< admonition type="note" >}}
 Hugo doesn't rebuild the destination file when a source file changes on disk.
 To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that, too.
-{{% /admonition %}}
+{{< /admonition >}}
 
 ### Examples
 
-The following shortcode inserts the content from the `oauth2-block.md` file. The _lookup_ path is relative to the `shared` folder in the `agent` source repository.
+The following shortcode inserts the content from the `oauth2-block.md` file.
+The _`lookup`_ path is relative to the `shared` folder in the `agent` source repository.
 
 ```markdown
 {{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" version="<AGENT VERSION>" */>}}
@@ -336,20 +397,21 @@ Headings are offset by one level, so if the source content contains an `h1`, the
 
 ## Figure
 
-The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element. This shortcode allows you more control over how an image is rendered, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide#images" >}}).
+The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element.
+This shortcode allows you more control over how to render an image, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide#images" >}}).
 
 To add a figure, insert the `figure` shortcode with the following named parameters:
 
 | Parameter       | Description                                                                                                                                                                                                                                                                                     | Required |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `alt`           | If set, `alt` specifies the alt text for the image.                                                                                                                                                                                                                                             | no       |
-| `animated-gif`  | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. Shortcode parameters other than the _caption_ and _maxWidth_ parameters are ignored.                                                                          | no       |
+| `animated-gif`  | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. When you set this parameter, the shortcode ignores other parameters except _`caption`_ and _`maxWidth`_.                                                      | no       |
 | `caption`       | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element.                                                                                                                                                                    | no       |
-| `caption-align` | Can be used to change the alignment of the `caption` property. Accepted values are `left`, `center`, and `right`.                                                                                                                                                                               | no       |
-| `class`         | Can be used to override the HTML class for the `<figure>` element.                                                                                                                                                                                                                              | no       |
-| `link-class`    | Can be used to override the HTML class for the `<a>` element.                                                                                                                                                                                                                                   | no       |
-| `lazy`          | If set to `"false"`, an additional `lazyload` class is **not** applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. Once the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.                          | no       |
-| `lightbox`      | If set to `"true"`, an additional `figure-wrapper__lightbox` class is applied to the `<figure>`.                                                                                                                                                                                                | no       |
+| `caption-align` | Change the alignment of the `caption` property. Accepted values are `left`, `center`, and `right`.                                                                                                                                                                                              | no       |
+| `class`         | Override the HTML class for the `<figure>` element.                                                                                                                                                                                                                                             | no       |
+| `link-class`    | Override the HTML class for the `<a>` element.                                                                                                                                                                                                                                                  | no       |
+| `lazy`          | If set to `"false"`, an additional `lazyload` class is **not** applied to the image. The `lazyload` class lets a browser render a page before the figure image loads. After the image loads, the placeholder box transitions to the loaded image. Defaults to `"true"`.                         | no       |
+| `lightbox`      | If set to `"true"`, the shortcode applies an additional `figure-wrapper__lightbox` class to the `<figure>`.                                                                                                                                                                                     | no       |
 | `link`          | If set the value overrides the `src` shortcode parameter as the value to the `href` in the `<a>` element in the `<figure>`.                                                                                                                                                                     | no       |
 | `height`        | If set, `_height_` controls the height of the `<img>` element using the [`height`](https://developer.mozilla.org/en-US/docs/Web/CSS/height) CSS property. When specifying a value, it should be an integer representing pixels without a `"px"` string at the end, for example `"500"`.         | no       |
 | `width`         | If set, `_width_` controls the width of the `<img>` element using the [`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width) CSS property. When specifying a value, it should be an integer representing pixels without a `"px"` string at the end, for example `"500"`.             | no       |
@@ -357,9 +419,11 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 | `show-caption`  | If set to `"true"`, the rendered `<figure>` includes a `<figcaption>` element with the caption set in _caption_. Defaults to `"true"`.                                                                                                                                                          | no       |
 | `src`           | Sets the source of the image.                                                                                                                                                                                                                                                                   | yes      |
 
-{{% admonition type="note" %}}
-Including the original image dimensions as the 'width' and 'height' properties is highly recommended, as it improves page performance and SEO. These values are _only_ used for determining the image aspect ratio and don't equate to the final displayed size.
-{{% /admonition %}}
+{{< admonition type="note" >}}
+Including the original image dimensions as the 'width' and 'height' properties is highly recommended, as it improves page performance and SEO.
+
+These values are _only_ used for determining the image aspect ratio and don't equate to the final displayed size.
+{{< /admonition >}}
 
 ### Example
 
@@ -369,13 +433,15 @@ In this example, the image has a CSS class that makes the image display floated 
 {{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-In this example, the image's display size is changed to have a maximum width of 50%. The `max-width` value must have a unit of measurement, such as pixels or percentages.
+This example sets the image's display size to have a maximum width of 50%.
+The `max-width` value must have a unit of measurement, such as pixels or percentages.
 
 ```markdown
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
-In this example, the image's display size is changed to have a maximum width of 500px, and the `class` and `link-class` properties are used to center the image on the page. The original `width` and `height` values from the image are included without any unit of measurement (such as pixels or percentages).
+This examples sets the image's display size to have a maximum width of 500px, and sets the `class` and `link-class` properties to center the image on the page.
+It sets the original `width` and `height` values of the image without any unit of measurement such as pixels or percentages.
 
 ```markdown
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
@@ -385,6 +451,8 @@ In this example, the image's display size is changed to have a maximum width of 
 
 ## Param
 
+<!-- vale Grafana.Spelling = YES -->
+
 The `param` shortcode provides build-time variable substitution.
 
 To add a new variable definition:
@@ -392,7 +460,11 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-> **Note:** If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`. For example: `{{%/* param VARIABLE */%}}`.
+{{% admonition type="note" %}}
+If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
+
+For example: `{﻿{% param VARIABLE %}}`.
+{{% /admonition %}}
 
 ### Example
 
@@ -415,14 +487,18 @@ The `param` shortcode in a topic heading:
 ## What's new in Grafana {{%/* param PRODUCT_VERSION */%}}.
 ```
 
+<!-- vale Grafana.Spelling = NO -->
+
 ## Relref
 
 <!-- vale Grafana.Spelling = YES -->
 
-{{% admonition type="warning" %}}
-This shortcode is present in the documentation, but is being deprecated in favor of fully qualified URLs.
+{{< admonition type="warning" >}}
+This shortcode is present in the documentation, but you should prefer full URLs.
 Don't use it when creating new or updating existing documentation.
-{{% /admonition %}}
+
+For more information, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links).
+{{< /admonition >}}
 
 The `relref` shortcode provides build-time link checking to ensure that the destination file exists.
 
@@ -441,8 +517,7 @@ To avoid this, omit the file extension and any `/_index` or `/index` part of the
 Using the previous example of the Grafana Cloud index page, the preferred `relref` shortcode argument is `{{</* relref "/docs/grafana-cloud" */>}}`.
 
 Hugo link checking only applies to the content available during the build.
-In most projects, the only content available during local builds and CI is the current project documentation,
-so you should be aware that just because a link uses a `relref`, it doesn't automatically follow that the link can be checked.
+In most projects, the only content available during local builds and CI is the current project documentation.
 
 {{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 
@@ -480,37 +555,20 @@ The relative path is `../../vans`
 
 If the source directory was `Vans` and the destination was `1999 F150`, the relative path would be `../trucks/F150/1999-F150`.
 
-## Responsive-table
-
-The `responsive-table` shortcode wraps the table within the shortcode tags with a class that makes the table responsive to the browser window.
-This results in a table with horizontal scrolling that is fixed to the width of the containing element.
-
-Without the `responsive-table` shortcode, a table can often overflow its containing element and text can be hidden by neighboring elements like the table of contents.
-
-### Example
-
-```markdown
-{{%/* responsive-table */%}}
-| Heading, column one | Heading, column two |
-| ------------------- | ------------------- |
-| Row one, column one | Row one, column two |
-{{%/* /responsive-table */%}}
-```
-
 ## Section
 
 The `section` shortcode renders an unordered list of links to a page's child pages. To add a section, insert the `section` shortcode with the following optional parameters:
 
-| Parameter          | Description                                                                                                                                                                                                                                                | Required |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `menuTitle`        | If set to `"true"`, the _menuTitle_ parameter modifies the template to use the child page's `menuTitle` front matter instead of the page title as the text in the link. If the child page doesn't have a `menuTitle` parameter, the title is used instead. | no       |
-| `ordered`          | If set to `"true"`, the _ordered_ parameter modifies the template to use an ordered list instead of an unordered list, displaying each item with a number marker                                                                                           | no       |
-| `withDescriptions` | If set to `"true"`, the _withDescriptions_ parameter modifies the template to include the front matter descriptions for child pages that have them.                                                                                                        | no       |
+| Parameter          | Description                                                                                                                                                                                                                                                             | Required |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `menuTitle`        | If set to `"true"`, the _menuTitle_ parameter modifies the template to use the child page's `menuTitle` front matter instead of the page title as the text in the link. If the child page doesn't have a `menuTitle` parameter, the shortcode uses the `title` instead. | no       |
+| `ordered`          | If set to `"true"`, the _ordered_ parameter modifies the template to use an ordered list instead of an unordered list, displaying each item with a number marker                                                                                                        | no       |
+| `withDescriptions` | If set to `"true"`, the _withDescriptions_ parameter modifies the template to include the front matter descriptions for child pages that have them.                                                                                                                     | no       |
 
 ### Examples
 
 The following shortcode inserts a list of links to child pages.
-The links are named using the value of `menuTitle` from the front matter of the child page.
+The link text uses the value of `menuTitle` from the front matter of the child page.
 
 ```markdown
 {{</* section menuTitle="true"*/>}}
@@ -522,9 +580,18 @@ The following shortcode inserts a lists of links to child pages and includes the
 {{</* section withDescriptions="true"*/>}}
 ```
 
+## Table of contents
+
+The `table-of-contents` shortcode renders the page's table of contents in the page body.
+You should generally avoid using this shortcode because every documentation page already has a table of contents rendered with the page body.
+
+```markdown
+{{</* table-of-contents */>}}
+```
+
 ## Term
 
-The `term` shortcode enables a tooltip when a user hovers above text surrounded by the shortcode.
+The `term` shortcode enables a tooltip when a user hovers over text surrounded by the shortcode.
 
 | Parameter  | Description         | Required |
 | ---------- | ------------------- | -------- |
@@ -544,8 +611,9 @@ Produces:
 
 Grafana comes with built-in support for many {{< term "data source" >}}data sources{{< /term >}}.
 
-Lookup keys and the associated definitions are defined internally.
+The Grafana Labs technical documentation team maintains the associated definitions internally.
 If you are a Grafana Labs employee and want to make changes, edit [`glossary.yaml`](https://github.com/grafana/website/blob/master/data/glossary.yaml).
+If you aren't a Grafana Labs employee, request changes by [creating an issue](https://github.com/grafana/writers-toolkit/issues/new).
 
 ### Guidance
 
@@ -558,10 +626,10 @@ Refer to the [`vimeo` and `youtube` shortcode documentation]({{< relref "../imag
 
 ## Docs/reference
 
-The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where the source file is published.
-Use this shortcode when content from one repository is published to more than one documentation set.
+The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
+Use this shortcode for links when you reuse content from one repository to more than one documentation set.
 
-All possible destinations are set in one part of the file (usually at end of the file, like a footer).
+You set all possible destinations in one part of the file, usually at end of the file, like a footer.
 
 For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
 The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
@@ -580,14 +648,14 @@ The content within the shortcode tags is as follows:
 `[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
 
 - _`LABEL`_ - The label you'll use in the reference-style links in the file.
-  In the example above, the label is `dashboards`.
-  The label can be multiple words (for example, [dashboard docs]) and can include spaces.
+  In the preceding example, the label is `dashboards`.
+  The label can be multiple words like `[dashboard docs]` and can include spaces.
 
 - _`PROJECT PATH PREFIX`_ - Designates the target project.
-  In the example above, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
+  In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
 
 - _`REFERENCE`_ - The path to the destination file.
-  Version substitution is supported using values like `<GRAFANA VERSION>`.
+  This shortcode supports version substitution using values like `<GRAFANA VERSION>`.
   To learn about version substitution, refer to [About version substitution](#about-version-substitution).
 
 Then add the link in the body of the file in the following format:
@@ -624,7 +692,7 @@ If you need to display the syntax for a shortcode, you can escape it using this 
 
 ![Escaped shortcode](./writers-toolkit-escaped-shortcode.png)
 
-This Markdown renders as:
+Produces:
 
 ```markdown
 {{</* myshortcode */>}}
@@ -638,8 +706,8 @@ It uses special syntax using angle bracket delimiters like `<GRAFANA_VERSION>`.
 As a convention, use the name of the target project all upper-case.
 For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA CLOUD`.
 
-The special syntax `<SOMETHING_VERSION>` is substituted by the version that is inferred from the page's URL.
-If the page's URL has the prefix `/docs/grafana/latest/`, the syntax `<SOMETHING_VERSION>` is replaced by `latest` in the final URL.
+The shortcode substitutes the special syntax `<SOMETHING_VERSION>` with the version inferred from the page's URL.
+If the page's URL has the prefix `/docs/grafana/latest/`, the shortcode replaces the syntax `<SOMETHING_VERSION>` with `latest` in the final URL.
 
 You can override version inference by including additional metadata in the front matter of the file.
 To override the value of `<GRAFANA_VERSION>`, set the `GRAFANA_VERSION` parameter in the page's front matter.

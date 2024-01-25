@@ -11,7 +11,9 @@
 # In each subsection folders are ordered first by depth, then alphabetically.
 # This should make it easy to add new rules without breaking existing ones.
 
-* @jdbaldry @knylander-grafana
+*  @jdbaldry
+
+/docs/sources/  @chri2547 @clayton-cornell @jdbaldry @knylander-grafana
 
 /docs/sources/structure/  @jdbaldry @josmperez
 

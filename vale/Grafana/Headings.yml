@@ -11,6 +11,7 @@ threshold: 0.6
 exceptions:
   - Adaptive Metrics
   - Application Observability
+  - BoltDB
   - CLA
   - Cloud Logs
   - Cloud Metrics

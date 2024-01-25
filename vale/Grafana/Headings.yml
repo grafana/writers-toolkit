@@ -37,6 +37,7 @@ exceptions:
   - Prometheus
   - PromQL
   - Redis
+  - SRE
   - Tempo
   - TraceQL
   - What's new

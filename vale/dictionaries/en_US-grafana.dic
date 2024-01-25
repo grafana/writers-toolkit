@@ -1,4 +1,4 @@
-62
+63
 Alertmanager/S po:noun
 Ansible/ po:noun
 Ansible/ po:adjective
@@ -28,6 +28,7 @@ SLI/S po:noun
 SLO/S po:noun
 Splunk/ po:noun
 Splunk/ po:adjective
+SRE/S po:noun
 UI/S po:noun
 URI/S po:noun
 VU/S po:noun

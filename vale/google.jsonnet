@@ -1,6 +1,7 @@
 std.prune({
   'Grafana/GoogleAMPM.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/AMPM.yml')),
-  'Grafana/GoogleAcronyms.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Acronyms.yml')),
+  // Replaced by Grafana/Acronyms.yml.
+  'Grafana/GoogleAcronyms.yml': null,
   'Grafana/GoogleColons.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Colons.yml')),
   'Grafana/GoogleContractions.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Contractions.yml')),
   'Grafana/GoogleDateFormat.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/DateFormat.yml')),
@@ -14,7 +15,8 @@ std.prune({
   'Grafana/GoogleHeadingPunctuation.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/HeadingPunctuation.yml')),
   // Replaced by Grafana/Headings.yml.
   'Grafana/GoogleHeadings.yml': null,
-  'Grafana/GoogleLatin.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Latin.yml')),
+  // Replaced by Grafana/Latin.yml.
+  'Grafana/GoogleLatin.yml': null,
   'Grafana/GoogleLyHyphens.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/LyHyphens.yml')),
   'Grafana/GoogleOptionalPlurals.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OptionalPlurals.yml')),
   'Grafana/GoogleOrdinal.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Ordinal.yml')),

@@ -7,13 +7,16 @@ link: "https://developers.google.com/style/capitalization#capitalization-in-titl
 level: warning
 scope: heading
 match: $sentence
+threshold: 0.6
 exceptions:
   - Adaptive Metrics
   - Application Observability
+  - BoltDB
   - CLA
   - Cloud Logs
   - Cloud Metrics
   - Cloud Traces
+  - Cluster # Kubernetes
   - CPU
   - Frontend Observability
   - Grafana
@@ -33,11 +36,16 @@ exceptions:
   - macOS
   - Memcached
   - Mimir
+  - OpenTelemetry
+  - OpenTelemetry Collector
   - Prometheus
   - PromQL
+  - Promtail
   - Redis
+  - SRE
   - Tempo
   - TraceQL
+  - WebSockets
   - What's new
   - Writers' Toolkit
   - YouTube

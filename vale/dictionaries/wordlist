@@ -6,6 +6,7 @@ Datadog/ po:noun
 Datadog/ po:adjective
 ESLint/ po:noun
 Firehose/ po:noun
+Fargate/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
 Grafana/ po:adjective
@@ -22,11 +23,13 @@ OpenTelemetry/ po:noun
 OpenTelemetry/ po:adjective
 Phlare/ po:noun
 Podman/ po:noun
+Promtail/ po:noun
 SDK/S po:noun
 SLI/S po:noun
 SLO/S po:noun
 Splunk/ po:noun
 Splunk/ po:adjective
+SRE/S po:noun
 UI/S po:noun
 URI/S po:noun
 VU/S po:noun
@@ -34,6 +37,7 @@ Webpack/ po:noun
 Zipkin/ po:noun
 Zipkin/ po:adjective
 allowlist/S po:noun
+autoscale/DGRS po:verb
 backport/DGS po:verb
 blockquote/S po:noun
 deliverable/S po:noun
@@ -48,6 +52,7 @@ misconfiguration/S po:noun
 namespace/S po:noun
 performant/ po:adjective
 preconfigure/D po:verb
+provision/dD po:verb
 query/DGS po:verb
 query/ po:noun
 query/A po:adjective

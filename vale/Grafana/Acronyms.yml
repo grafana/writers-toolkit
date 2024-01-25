@@ -9,14 +9,45 @@ second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
 # ... with the exception of these:
 exceptions:
   - API
+  - ASP
   - AWS
   - CLI
   - CPU
+  - CSS
+  - CSV
+  - DOM
+  - FAQ
+  - GPU
+  - GUI
+  - HTML
   - HTTP
+  - HTTPS
+  - IDE
+  - JAR
   - JSON
+  - JSX
+  - LESS
+  - OSS
+  - PDF
+  - PHP
+  - RAM
+  - REPL
+  - RSA
+  - SCM
+  - SCSS
   - SDK
+  - SEO
   - SQL
+  - SSH
+  - SSL
+  - SVG
+  - TCP
   - TSDB
+  - URI
   - URL
-  - WIP
+  - USB
+  - UTF
+  - XML
+  - XSS
   - YAML
+  - ZIP

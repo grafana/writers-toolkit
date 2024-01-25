@@ -1,4 +1,4 @@
-63
+64
 Alertmanager/S po:noun
 Ansible/ po:noun
 Ansible/ po:adjective
@@ -7,6 +7,7 @@ Datadog/ po:noun
 Datadog/ po:adjective
 ESLint/ po:noun
 Firehose/ po:noun
+Fargate/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
 Grafana/ po:adjective

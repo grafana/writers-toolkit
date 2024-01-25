@@ -16,6 +16,7 @@ exceptions:
   - Cloud Logs
   - Cloud Metrics
   - Cloud Traces
+  - Cluster # Kubernetes
   - CPU
   - Grafana
   - Grafana Cloud
@@ -34,6 +35,8 @@ exceptions:
   - macOS
   - Memcached
   - Mimir
+  - OpenTelemetry
+  - OpenTelemetry Collector
   - Prometheus
   - PromQL
   - Redis

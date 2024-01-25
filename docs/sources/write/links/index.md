@@ -38,8 +38,13 @@ For more information and examples, refer to [`docs/reference` shortcode](https:/
 
 ## Link to grafana.com pages
 
-Use a full URL with version substitution syntax (if needed).
+Use a full URL.
 
+{{< admonition type="note" >}}
+The `doc-validator` linter does not check links that use full URLs.
+{{< /admonition >}}
+
+If you are linking to versioned documentation, use a full URL with version substitution syntax.
 Version substitution is necessary for full URLs to link to the correct version of documentation.
 Usually, this is the current version of documentation.
 
@@ -55,7 +60,7 @@ cascade:
 
 **Link to Grafana documentation**:
 
-Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path.
+Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path. Include trailing slashes.
 
 For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution, use:
 
@@ -92,7 +97,7 @@ https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
 
 ## Link to external pages
 
-Use the full URL.
+Use the full URL. Copy the URL as it is from the address bar. If it includes a trailing slash, include it; if it doesn't, don't.
 
 For example:
 
@@ -115,6 +120,8 @@ From a different page:
 ```markdown
 Read more in the [Grafana Open Source section of the Introduction page](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/fundamentals/#grafana-open-source).
 ```
+
+Include the trailing slash before the hash (#) that precedes the page heading.
 
 To convert a heading to an anchor, make the following changes:
 

@@ -1,4 +1,4 @@
-62
+64
 Alertmanager/S po:noun
 Ansible/ po:noun
 Ansible/ po:adjective
@@ -7,6 +7,7 @@ Datadog/ po:noun
 Datadog/ po:adjective
 ESLint/ po:noun
 Firehose/ po:noun
+Fargate/ po:noun
 Goldmark/ po:noun
 Grafana/M po:noun
 Grafana/ po:adjective
@@ -28,6 +29,7 @@ SLI/S po:noun
 SLO/S po:noun
 Splunk/ po:noun
 Splunk/ po:adjective
+SRE/S po:noun
 UI/S po:noun
 URI/S po:noun
 VU/S po:noun
@@ -35,6 +37,7 @@ Webpack/ po:noun
 Zipkin/ po:noun
 Zipkin/ po:adjective
 allowlist/S po:noun
+autoscale/DGRS po:verb
 backport/DGS po:verb
 blockquote/S po:noun
 deliverable/S po:noun

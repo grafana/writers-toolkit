@@ -97,7 +97,7 @@ https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
 
 ## Link to external pages
 
-Use the full URL. Include trailing slashes.
+Use the full URL. Copy the URL as it is from the address bar. If it includes a trailing slash, include it; if it doesn't, don't.
 
 For example:
 

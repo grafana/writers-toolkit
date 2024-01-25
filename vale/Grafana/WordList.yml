@@ -117,5 +117,9 @@ swap:
   Kinesis Firehose: Kinesis Data Firehose
 
   pod: Pod
+  '(?:[dD][ae][ae]monset|d[ae][ae]monSet)': DaemonSet
+  '(?:[sS]tatefulset|statefulSet)': StatefulSet
 
   ad[- ]?hoc: free-form|user-written
+
+  '(?:[Oo]penshift|openShift)': OpenShift

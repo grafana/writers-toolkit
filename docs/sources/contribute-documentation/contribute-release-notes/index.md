@@ -103,32 +103,36 @@ If your entry is already live in both _What's new in Cloud_ and _What's new in G
 
 The following instructions are for the person directly responsible for creating the versioned release notes. This is typically someone on the Technical Writing team.
 
-1. After the cut-off date for What's new entries has passed, cut a branch and create a draft PR with an empty What's new file to be populated with the What's new content for the next release, along with the updated What's new index page. This PR:
+1. After the cut-off date for What's new entries has passed, cut a branch and create a draft PR with an empty `whats-new-in-vxx-x.md` file to be populated with the What's new content for the next release. This PR should include:
 
-   - Should include an update to the link and version number located on the What's new tile of `docs/sources/_index.md`.
-   - Should include the new Upgrade Guide page.
-   - Should have a `no-backport` label.
-   - May include a new Breaking changes guide page.
+   - Updates to the `whatsnew/_index.md`
+   - Update to the link and version number located on the What's new tile of `docs/sources/_index.md`
+   - The new upgrade guide
+   - The new breaking changes page, if needed
 
-1. Have the build engineer generate a markdown file from the _What's new in Cloud_ with the following conditions:
+1. Label the PR `no-backport` for now; this may change.
 
-   - Filtered by Grafana version
-   - Includes all front matter
-   - Grouped by tags; entries with multiple tags should only be included once grouped by their first tag alphabetically
+1. Have someone, typically the Tech Writing team build engineer, generate a markdown file from the _What's new in Cloud_ with the following conditions:
 
-1. Add the content of this markdown file to the What's new file using the tags data to group items.
+   - Filtered by the relevant Grafana version
+   - Includes front matter for each entry
+   - Grouped by tags; entries with multiple tags should only be included once, grouped by their first tag alphabetically
 
-    If YouTube videos aren't in the body text of the entries, you might need to add them later. The easiest way to do this is to have another markdown file generated and make updates from it.
+1. Add the content of this markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
 
-1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
+    If YouTube videos aren't yet in the body text of the entries, you might need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ and make updates from it.
 
-1. Have the PM review the content to adjust order, **but not copy**. All copy editing must take place when entries are added in the CMS.
+1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review. 
 
-1. Work with the PM to make final adjustments to the _Upgrade guide_ or _Breaking changes guide_.
+    Reviews **must not include any copy edits** unless there are inaccuracies or typos, because all copy edits should happen when entries are added in the _What's new in Cloud_. If there are any inaccuracies, those need to be corrected in both the Cloud and versioned What's new.
 
-1. Finalizes the What's new.
+1. Have the PM review the content to adjust the order, if needed.
 
-1. On the day before the release day, the DRI and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the DRI adds the appropriate backport label to the PR.
+1. Work with the PM to make final adjustments to the upgrade guide or breaking changes page.
+
+1. Add a backport label to the PR, if needed.
+
+1. On the day before release day, merge the What's new branch into `main`.
 
 <!-- vale Google.Will = NO -->
 <!-- This section speaks of the future -->

@@ -120,11 +120,11 @@ The following instructions are for the person directly responsible for creating 
 
 1. Add the content of this markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
 
-    If YouTube videos aren't yet in the body text of the entries, you might need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ and make updates from it.
+   If YouTube videos aren't yet in the body text of the entries, you might need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ and make updates from it.
 
-1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review. 
+1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
-    Reviews **must not include any copy edits** unless there are inaccuracies or typos, because all copy edits should happen when entries are added in the _What's new in Cloud_. If there are any inaccuracies, those need to be corrected in both the Cloud and versioned What's new.
+   Reviews **must not include any copy edits** unless there are inaccuracies or typos, because all copy edits should happen when entries are added in the _What's new in Cloud_. If there are any inaccuracies, those need to be corrected in both the Cloud and versioned What's new.
 
 1. Have the PM review the content to adjust the order, if needed.
 

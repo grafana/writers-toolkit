@@ -81,6 +81,8 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
 For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the versioned release notes](#create-the-versioned-release-notes)
 
+If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.  
+
 ### Edit What's new entries
 
 Regardless of the status of your entry, it's always best to use the CMS to make any changes. To make edits, follow these steps:
@@ -97,7 +99,9 @@ Regardless of the status of your entry, it's always best to use the CMS to make 
    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
    - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
 
-If your entry is already live in both _What's new in Cloud_ and _What's new in Grafana `vMAJOR.MINOR.x`_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person responsible for creating the versioned release notes.
+If your entry is already live in both _What's new in Cloud_ and it's between the cut-off date for a versioned release and the release date, update the CMS and then reach out to the person responsible for creating the versioned release notes.
+
+If your entry requires an update after it's live in both the Cloud and self-managed What's new, you'll need to update both entries.
 
 ### Create the versioned release notes
 

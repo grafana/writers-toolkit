@@ -10,4 +10,4 @@ action:
 swap:
   dialog box appears: dialog box opens
   modal: dialog box
-  'dialog(?! box)': dialog box
+  "dialog(?! box)": dialog box

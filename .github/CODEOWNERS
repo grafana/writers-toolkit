@@ -15,7 +15,7 @@
 
 /docs/sources/  @chri2547 @clayton-cornell @jdbaldry @knylander-grafana
 
-/docs/sources/structure/  @jdbaldry @josmperez
+/docs/sources/structure/  @chri2547 @clayton-cornell @jdbaldry @knylander-grafana @josmperez
 
-/docs/sources/contribute-documentation/contribute-release-notes/  @jdbaldry @imatwawana
-/docs/sources/write/style-guide/                                  @jdbaldry @josmperez
+/docs/sources/contribute-documentation/contribute-release-notes/  @chri2547 @clayton-cornell @jdbaldry @knylander-grafana @imatwawana
+/docs/sources/write/style-guide/                                  @chri2547 @clayton-cornell @jdbaldry @knylander-grafana @josmperez

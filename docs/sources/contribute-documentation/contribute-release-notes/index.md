@@ -120,7 +120,7 @@ The following instructions are for the person directly responsible for creating 
 
 1. Add the content of this markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
 
-   If YouTube videos aren't yet in the body text of the entries, you'll need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ and make updates from it in the `whats-new-in-vxx-x.md` file.
+   If YouTube videos aren't yet in the body text of the entries, you'll need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ closer to the release date and make updates in the `whats-new-in-vxx-x.md` file from it.
 
 1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
@@ -131,6 +131,8 @@ The following instructions are for the person directly responsible for creating 
 1. Work with the PM to make final adjustments to the upgrade guide or breaking changes page.
 
 1. Add a backport label to the PR, if needed.
+
+1. Two days before the release, get a final generated markdown file from the _What's new in Cloud_ and make any needed additions to the `whats-new-in-vxx-x.md` file.
 
 1. On the day before release day, merge the What's new branch into `main`.
 

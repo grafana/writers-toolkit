@@ -124,7 +124,7 @@ The following instructions are for the person directly responsible for creating 
 
 1. Add the content of this markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
 
-   If YouTube videos aren't yet in the body text of the entries, you'll need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ closer to the release date and make updates in the `whats-new-in-vxx-x.md` file from it.
+   If there are internal enablement videos listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ closer to the release date and make updates in the `whats-new-in-vxx-x.md` file from it.
 
 1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 

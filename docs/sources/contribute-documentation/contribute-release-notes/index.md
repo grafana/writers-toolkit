@@ -81,7 +81,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
 For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the versioned release notes](#create-the-versioned-release-notes)
 
-If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.  
+If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
 
 ### Edit What's new entries
 

@@ -11,10 +11,10 @@ help: ## Display this help
 help:
 	@awk 'BEGIN {FS = ": ##"; printf "Usage:\n  make <target>\n\nTargets:\n"} /^[a-zA-Z0-9_\.\-\/%]+: ##/ { printf "  %-45s %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
 
-en_US-grafana.dic: ## Generate the Grafana dictionary from the wordlist.
-en_US-grafana.dic: wordlist
-	cat <(wc -l <$< | tr -d ' ') $< > $@
+.PHONY: all
+all: ## Create all dictionaries.
+all: en_US-grafana.dic en_US-places.dic
 
-en_US-grafana.aff: ## Create the Grafana affix file.
-en_US-grafana.aff:
-	touch $@
+%.dic: ## Create a Hunspell dictionary from a wordlist.
+%.dic: %.wordlist
+	cat <(wc -l <$< | tr -d ' ') $< > $@

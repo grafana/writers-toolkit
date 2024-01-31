@@ -12,3 +12,4 @@ append: true
 dicpath: dictionaries
 dictionaries:
   - en_US-grafana
+  - en_US-places

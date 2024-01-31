@@ -270,7 +270,7 @@ Use `menuTitle` to specify a different heading in the sidebar navigation than th
 ### Slug
 
 The `slug` front matter overrides the last segment of the URL path.
-It's ineffective on `_index.md` files, also known as section pages, or branch bundles.
+It's ineffective on `_index.md` files which are also known as _section pages_ or _branch bundles_.
 For more information, refer to [Slug](https://gohugo.io/content-management/urls/#slug).
 
 You should prefer to update the filename instead of using the `slug` front matter because it makes it easier to find the correct source file for a URL.

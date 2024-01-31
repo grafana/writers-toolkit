@@ -1,0 +1,18 @@
+runner:
+  vale:
+    cmd: >
+      vale
+      '--glob=*.md'
+      --minAlertLevel=warning
+      --output=vale/rdjsonl.tmpl
+      docs/sources
+    format: rdjsonl
+  prettier:
+    cmd: >
+      npx prettier
+      --check
+      --write
+      docs/sources
+    errorformat:
+      - '[warn] %f'
+      - '%+G[warn] Code style issues fixed%.%#'

@@ -16,13 +16,14 @@ keywords:
 
 # Markdown guide
 
-This Markdown guide helps keep contributions consistent across all Grafana Labs documentation. Refer to the guide and update it as needed when a subject matter expert (SME) answers a question about Markdown syntax, or a decision is made about how to apply Markdown.
+This Markdown guide helps keep contributions consistent across all Grafana Labs documentation.
 
-We use the static site generator [Hugo](https://gohugo.io/) to generate the web site for the documentation.
+The Grafana website uses the static site generator [Hugo](https://gohugo.io/) to generate pages for the documentation.
 
-Hugo uses a Markdown parser named Goldmark, which supports the CommonMark flavor of Markdown including some extended features. For more information, see the [CommonMark specification](https://spec.commonmark.org/), and a [quick reference guide](https://commonmark.org/help/) for CommonMark.
+Hugo uses a Markdown parser named Goldmark, which supports the CommonMark flavor of Markdown including some extended features.
+For more information, refer to the [CommonMark specification](https://spec.commonmark.org/), and a [quick reference guide](https://commonmark.org/help/) for CommonMark.
 
-**Write in sentence case** throughout all technical documentation, be it long-form text or microcopy within a UI:
+Write in sentence case throughout all technical documentation, be it long-form text or microcopy within a UI:
 
 - This is sentence case
 - This is Headline Case
@@ -31,7 +32,7 @@ Hugo uses a Markdown parser named Goldmark, which supports the CommonMark flavor
 
 Similar to HTML headings (`<h1>`, `<h2>`, and `<h3>`), in Markdown, `#` symbols (or _hash tags_) create different heading levels:
 
-**Example**
+### Example
 
 - \# is a parent heading.
 - \#\# is a child heading.
@@ -41,32 +42,19 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 
 ### Heading don'ts
 
-- Avoid stacked headings; do not follow a heading with another without any content between the two.
+- Avoid stacked headings; don't follow a heading with another without any content between the two.
 - Avoid skipping heading levels. For example, after a single `#`, use `##`, rather than `###`.
-- Avoid having just one child-level heading:
-  - Valid: `#`, `##`, `##`, `###`, `###`, `##`, `##`
-  - Invalid: `#`, `##`, `###`, `##`, `###`, `##`
 - Avoid using hyphens in headings.
-- With the exception of `(Optional) `, do not include parenthesized words such as (Important).
+- With the exception of _(Optional)_, don't include parenthesized words such as _(Important)_.
 
 ## Bold and emphasis
 
-- To make text **bold**, surround the text with `**two asterisks**`. For example:
+- To make text **bold**, surround the text with `**two asterisks**`.
+- To _emphasize_ text, surround the text with `_single underscores_`̣.
 
-  > **Note:** It is important to use GitHub-flavored Markdown emojis consistently.
+Don't use single asterisks (`*`), because they can be easily confused with the two asterisks used for bold.
 
-- To emphasize text, surround the text with `_single underscores_`̣.
-  Do not use single asterisks (`*`), because they can be easily confused with two (for bold).
-
-```markdown
-**Note:** The distributor only passes _valid_ data to the ingesters.
-```
-
-Displays as:
-
-{{% admonition type="note" %}}
-The distributor only passes _valid_ data to the ingesters.
-{{% /admonition %}}
+To understand how to use bold and emphasis in documentation, refer to [Text formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#text-formatting).
 
 ## Links
 
@@ -81,7 +69,7 @@ The following snippet demonstrates an inline link with the text "Link text to di
 [Link text to display](https://example.com)
 ```
 
-When you create a reference-style link, you define your link text and then use a label to reference the link destination that is defined somewhere else in the document, usually at the end of the file.
+When you create a reference-style link, you define your link text and then use a label to reference the link destination that's defined somewhere else in the document, usually at the end of the file.
 Reference-style links let you define a link destination once, and then reuse the label multiple times in the document.
 
 The following snippet demonstrates a reference-style link with the text "Link text to display", the destination https://example.com, and uses the label "label".
@@ -106,36 +94,34 @@ The following snippet demonstrates the two different ways of writing reference-s
 
 ## Block quotes
 
-Include block quotes within text by using a right-angle bracket:
+Include block quotes within text by using a right-angle bracket (`>`).
+For note, tip, warning, and caution admonitions, prefer the [admonition shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition).
+
+### Example
 
 ```markdown
 > This text is in block quotes.
 ```
 
-**Example:**
+Produces:
 
-> Any important information about emojis
-> can be separated into a blockquote.
+> This text is in block quotes.
 
 ## Code blocks
 
-Code blocks within Markdown can highlight syntax that is specific to a language. Use three back tics to create a code block. For example, ` ``` ` immediately followed by `javascript` produces the following highlights:
+Use three backticks to create a code block.
 
-```javascript
-function testNum(a) {
-  if (a > 0) {
-    return "positive";
-  } else {
-    return "NOT positive";
-  }
-}
-```
+Code blocks with an info string highlight syntax that's specific to a language.
+
+In Markdown, an info string after the first three backticks describes the language contained within.
+The website uses this information to apply syntax highlighting to code examples.
+For more information, refer to [Highlight syntax](https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/#highlight-syntax).
 
 ## Tables
 
 Construct a table by separating the table headings by a `|` (pipe) character. Then, add a second line of dashes (`-`) separated by another `|` character. When constructing the table cells, separate each cell’s data with a `|`.
 
-**Example**:
+### Example
 
 ```markdown
 | Heading one   | Heading two   |
@@ -143,7 +129,7 @@ Construct a table by separating the table headings by a `|` (pipe) character. Th
 | Cell one data | Cell two data |
 ```
 
-When rendered, the preceding table displays as follows:
+Produces:
 
 | Heading one   | Heading two   |
 | ------------- | ------------- |
@@ -151,7 +137,19 @@ When rendered, the preceding table displays as follows:
 
 ## Numbered lists
 
-Use repetitive list numbering, to avoid inconsistent list numbering:
+Use repetitive list numbering, where you prefix every list entry with `1.` instead of the actual number, to avoid inconsistent list numbering.
+The Markdown renderer automatically increments the list.
+
+For sub-steps, use repetitive numbering as well.
+
+When writing paragraphs as list entries, you must use proper indentation:
+
+- Each line in the entry must match the indentation of the preceding list item.
+- Each new paragraph must have an empty line before it.
+
+For an numbered list in isolation, the indentation for the second sentence of a list entry is three spaces.
+
+### Examples
 
 ```markdown
 1. First
@@ -159,45 +157,29 @@ Use repetitive list numbering, to avoid inconsistent list numbering:
 1. Third
 ```
 
-The preceding list displays as:
+Produces:
 
 1. First
 1. Second
 1. Third
 
-For sub-steps, use repetitive numbering as well:
-
 ```markdown
 1. First
-
    1. Write a sub-step.
-
    1. Write another sub-step.
-
    1. Write yet another sub-step.
-
 1. Second
 1. Third
 ```
 
-When rendered, the preceding list displays as:
+Produces:
 
 1. First
-
    1. Write a sub-step.
-
    1. Write another sub-step.
-
    1. Write yet another sub-step.
-
 1. Second
 1. Third
-
-When writing paragraphs as list entries, you must use proper indentation.
-Each line in the entry must have three spaces before the first word.
-Each new paragraph must have an empty line before it.
-
-For example:
 
 ```markdown
 1. First paragraph in first entry.
@@ -208,7 +190,7 @@ For example:
 1. First paragraph in second entry.
 ```
 
-The example displays as follows:
+Produces:
 
 1. First paragraph in first entry.
    Second sentence in first paragraph.
@@ -219,7 +201,17 @@ The example displays as follows:
 
 ## Unordered lists
 
-Build a list of unordered items by using a hyphen (`-`):
+Build a list of unordered items by using a hyphen (`-`).
+Use unordered lists whenever the items have no particular sequence.
+
+When writing paragraphs as list entries, you must use proper indentation:
+
+- Each line in the entry must match the indentation of the preceding list item.
+- Each new paragraph must have an empty line before it.
+
+For an unordered list in isolation, the indentation for the second sentence of a list entry is two spaces.
+
+### Example
 
 ```markdown
 - One item
@@ -227,9 +219,7 @@ Build a list of unordered items by using a hyphen (`-`):
 - And another list item
 ```
 
-> **Note:** Use unordered lists whenever the items have no particular sequence.
-
-The preceding snippet displays as follows:
+Produces:
 
 - One item
 - Another item
@@ -237,34 +227,21 @@ The preceding snippet displays as follows:
 
 ## Images
 
-Include images in a document using the following syntax:
+Include images in a document using the following syntax `![<ALT TEXT>](<URL> "<TITLE>")`.
 
-```markdown
-![Alt text](link to image, starting with /static/img/docs/ if it is to an internal image "Title of image in sentence case")
-```
+{{< admonition type="note" >}}
+Alt text doesn't appear when the user hovers their cursor over the image.
+The title text does.
+{{< /admonition >}}
 
-> **Note:** Alternative text (alt text) doesn't appear when the user hovers their cursor over the image. The title text does.
-
-**Examples:**
+### Examples
 
 - `![Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
 - `![Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
 
-This follows the format `![alt text](URL)`.
-
-Alternatively, you can use the [figure shortcode]({{< relref "../shortcodes#figure" >}}) if you need more image options, such as adding captions or controlling the image size.
-
-Within Markdown, HTML is valid, but should be used sparingly:
-
-```html
-<img
-  src="example.png"
-  alt="Example image"
-  style="float: left; margin-right: 5px;"
-/>
-```
-
-In most cases, use Markdown syntax rather than HTML syntax. Only use HTML if you need to change the image in ways that Markdown does not support.
+If you need more image options, such as adding captions or controlling the image size, you can use the [`figure` shortcode]({{< relref "../shortcodes#figure" >}}).
+Within Markdown, HTML is valid, but you should avoid it.
+If you are unable to achieve the desired styling with the `figure` shortcode, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new).
 
 ## Description list
 
@@ -281,8 +258,6 @@ You can add more markup in a description list.
 For example, you can format the definition terms as bold text.
 
 ```markdown
-Reasons you might want to write programs in Go include the following:
-
 **Fast compile times**
 : The Go compiler is fast!
 
@@ -300,10 +275,12 @@ The preceding description list displays as follows:
 
 ## Comments
 
-You can include comments that do not display in published output:
+You can include comments that don't display in published output:
 
 `[comment]: <> (Comment text to display)`
 
 ## Shortcodes
 
-Shortcodes are predefined templates that let you reuse snippets of technical documentation. To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes" >}}).
+Shortcodes are snippets you use in source files to calling built-in or custom templates.
+Shortcodes templates avoid the need for HTML in Markdown and ensure consistency across the documentation set.
+To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes" >}}).

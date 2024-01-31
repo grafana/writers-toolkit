@@ -1,0 +1,19 @@
+runner:
+  vale:
+    cmd: >
+      vale
+      '--glob=*.md'
+      --minAlertLevel=warning
+      --output=vale/rdjsonl.tmpl
+      docs/sources
+    format: rdjsonl
+  prettier:
+    cmd: >
+      prettier
+      --write
+      docs/sources
+    errorformat:
+      - '%E[%trror] %f: %m (%l:%c)'
+      - '%C[error]%r'
+      - '%Z[error]%r'
+      - '%-G%r'

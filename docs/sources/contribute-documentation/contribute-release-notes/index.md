@@ -81,6 +81,8 @@ When you’re ready to add a What’s new entry, complete the following steps:
 
 For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date. Refer to [Creating the versioned release notes](#create-the-versioned-release-notes)
 
+If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
+
 ### Edit What's new entries
 
 Regardless of the status of your entry, it's always best to use the CMS to make any changes. To make edits, follow these steps:
@@ -97,32 +99,48 @@ Regardless of the status of your entry, it's always best to use the CMS to make 
    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
    - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
 
-If your entry is already live in both _What's new in Cloud_ and _What's new in Grafana `vMAJOR.MINOR.x`_, or it's after the cut-off date for a versioned release, update the CMS and then reach out to the person responsible for creating the versioned release notes.
+If your entry is already live in both _What's new in Cloud_ and it's between the cut-off date for a versioned release and the release date, update the CMS and then reach out to the person responsible for creating the versioned release notes.
+
+If your entry requires an update after it's live in both the Cloud and self-managed What's new, you'll need to update both entries.
 
 ### Create the versioned release notes
 
-1. After the previous version of Grafana is released, the directly responsible individual (DRI) cuts a branch and creates a draft PR with an empty What's new doc to be populated with the What's new content for the next release, along with the updated What's new index page. This PR:
+The following instructions are for the person directly responsible for creating the versioned release notes. This is typically someone on the Technical Writing team.
 
-   - Should include an update to the link and version number located on the What's new tile of `docs/sources/_index.md`.
-   - Should include the new Upgrade Guide page.
-   - Should have a `no-backport` label.
-   - May include a new Breaking changes guide page.
+1. After the cut-off date for What's new entries has passed, cut a branch and create a draft PR with an empty `whats-new-in-vxx-x.md` file to be populated with the What's new content for the next release. This PR should include:
 
-1. After the cut-off date for the self-managed/versioned release, the DRI collects the relevant What's new content (specifics TBD).
+   - Updates to the `whatsnew/_index.md`
+   - Update to the link and version number located on the What's new tile of `docs/sources/_index.md`
+   - The new upgrade guide
+   - The new breaking changes page, if needed
 
-1. The DRI adds this content to the What's new doc using the tags data to group items appropriately.
+1. Label the PR `no-backport` for now; this may change.
 
-1. The PM reviews the content to adjust order, **but not copy**. All copy editing must take place when entries are added in the CMS.
+1. Have someone, typically the Tech Writing team build engineer, generate a Markdown file from the _What's new in Cloud_ with the following conditions:
 
-1. The PM and the DRI work to make final adjustments to the Upgrade guide or Breaking changes guide.
+   - Filtered by the relevant Grafana version
+   - Includes front matter for each entry
+   - Grouped by tags; entries with multiple tags should only be included once, grouped by their first tag alphabetically
 
-1. A week before the release date, the DRI changes the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
+1. Add the content of this Markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
 
-1. The DRI finalizes the What's new.
+   If internal enablement videos are listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later.
+   To do this, generate another Markdown file from the _What's new in Cloud_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
 
-1. The DRI coordinates with the Release Guild and the GTM team for precise timing of when to merge the What's new doc into `main`.
+1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
-1. On release day, the DRI and merges the What's new branch into `main`. If `main` is no longer the same release as the upcoming release, the DRI adds the appropriate backport label to the PR.
+   Reviews _must not include any copy edits_ unless there are inaccuracies or typos, because all copy edits should happen when entries are added in the _What's new in Cloud_.
+   If there are any inaccuracies, those need to be corrected in both the Cloud and versioned What's new.
+
+1. Have the PM review the content to adjust the order, if needed.
+
+1. Work with the PM to make final adjustments to the upgrade guide or breaking changes page.
+
+1. Add a backport label to the PR, if needed.
+
+1. Two days before the release, get a final generated markdown file from the _What's new in Cloud_ and make any needed additions to the `whats-new-in-vxx-x.md` file.
+
+1. On the day before release day, merge the What's new branch into `main`.
 
 <!-- vale Google.Will = NO -->
 <!-- This section speaks of the future -->

@@ -21,7 +21,8 @@ std.prune({
   'Grafana/GoogleOptionalPlurals.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OptionalPlurals.yml')),
   'Grafana/GoogleOrdinal.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Ordinal.yml')),
   'Grafana/GoogleOxfordComma.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OxfordComma.yml')),
-  'Grafana/GoogleParens.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Parens.yml')),
+  // Replaced by Grafana/Parentheses.yml.
+  'Grafana/GoogleParens.yml': null,
   'Grafana/GooglePassive.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Passive.yml')),
   'Grafana/GooglePeriods.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Periods.yml')),
   // Google.Quotes more often a false positive for usage.

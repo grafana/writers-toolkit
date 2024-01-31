@@ -327,7 +327,7 @@ authors:
 
 The `summary` front matter defines a short summary used on the tutorial's card on https://grafana.com/tutorials/.
 
-The following YAML example demonstrates setting a the summary front matter.
+The following YAML example demonstrates summary front matter.
 You must incorporate it with the rest of your front matter.
 
 ```yaml
@@ -336,7 +336,7 @@ summary: Use Telegraf to stream live metrics to Grafana.
 
 ### Tags
 
-The `tags` front matter is a sequence of strings displayed as tags underneath the author section on the tutorials page.
+The `tags` front matter is a sequence of strings displayed as tags under the author section on the tutorials page.
 
 Typically, at least one of the tags is an expertise level.
 The expertise levels are:

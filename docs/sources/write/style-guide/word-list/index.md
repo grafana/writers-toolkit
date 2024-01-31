@@ -15,9 +15,9 @@ In most cases, you can refer to the [word list in the Google developer documenta
 - The word isn't included in Google guidelines.
 - It's still easy to use an incorrect word because it's widely used, generally or in other Grafana media.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 This page is a work in progress.
-{{% /admonition %}}
+{{< /admonition >}}
 
 <!-- vale off -->
 
@@ -28,17 +28,27 @@ This page is a work in progress.
 
 ## D
 
-**data source** - Use this rather than _datasource_ for the noun form.
+### data source
+
+Use this rather than _datasource_ for the noun form.
 
 Also, use _data source plugin_ rather than _data-source plugin_.
 
 While most compound adjectives require a hyphen, we've chosen to leave it out in this case to maintain consistency with the naming of data sources in the application and reduce confusion.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 For other compound adjectives, use a hyphen unless otherwise specified.
-{{% /admonition %}}
+{{< /admonition >}}
 
-**drop-down** - Use this rather than _dropdown_ or _drop down_.
+### dialog box
+
+Use this rather than _modal_ or _dialog_.
+
+This guidance intentionally differs from Google style guide advice which prefers just [_dialog_](https://developers.google.com/style/word-list#dialog) because _dialog box_ is a user friendly term that is easy to understand.
+
+### drop-down
+
+Use this rather than _dropdown_ or _drop down_.
 
 <!--
 ## E
@@ -47,7 +57,9 @@ For other compound adjectives, use a hyphen unless otherwise specified.
 
 ## H
 
-**hover over** - Use this rather than _hold the pointer over_ or _point to_.
+### hover over
+
+Use this rather than _hold the pointer over_ or _point to_.
 
 <!--
 ## I
@@ -58,7 +70,9 @@ For other compound adjectives, use a hyphen unless otherwise specified.
 
 ## M
 
-**menu icon** - Use this rather than _hamburger menu_ or _kebab menu_.
+### menu icon
+
+Use this rather than _hamburger menu_ or _kebab menu_.
 
 <!--
 ## N
@@ -68,14 +82,18 @@ For other compound adjectives, use a hyphen unless otherwise specified.
 
 ## R
 
-**README** - When naming a file or making a general reference to READMEs, spell using all caps. When referencing a specific README file, match the same capitalization of that file.
+### README
+
+When naming a file or making a general reference to READMEs, spell using all caps. When referencing a specific README file, match the same capitalization of that file.
 
 <!--
 ## S -->
 
 ## T
 
-**time series** - Use this rather than _timeseries_ for the noun form.
+### time series
+
+Use this rather than _timeseries_ for the noun form.
 
 When you need to use the adjective form, use _time-series_ rather than _timeseries_.
 

@@ -62,8 +62,6 @@ swap:
   data-?source: data source
   datacenter: data center
   de-duplicate: deduplicate
-  dialog box appears: dialog box opens
-  dialog: dialog box
   drop down: drop-down
   dropdown: drop-down
   ephemeral IP address: ephemeral external IP address
@@ -81,7 +79,6 @@ swap:
   memcached: Memcached
   meta data: metadata
   mix[ -]in: mixin
-  modal: dialog box
   mysql: MySQL
   network IP address: internal IP address
   omnibox: address bar

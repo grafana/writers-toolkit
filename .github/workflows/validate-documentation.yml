@@ -41,18 +41,20 @@ jobs:
         with:
           node-version: 20
       - run: npm install prettier
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: >
+      - run: >
           reviewdog
           --filter-mode=nofilter
           --runners prettier
           --tee
-      - uses: reviewdog/action-suggester@v1
-        with:
-          fail_on_error: true
-          tool_name: prettier
+      - run: >
+          git diff
+          | reviewdog
+          --f diff
+          --fail-on-error
+          --filter-mode nofilter
+          --reporter=github-pr-review
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
     runs-on: ubuntu-latest
     steps:

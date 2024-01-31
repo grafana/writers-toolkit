@@ -116,19 +116,21 @@ The following instructions are for the person directly responsible for creating 
 
 1. Label the PR `no-backport` for now; this may change.
 
-1. Have someone, typically the Tech Writing team build engineer, generate a markdown file from the _What's new in Cloud_ with the following conditions:
+1. Have someone, typically the Tech Writing team build engineer, generate a Markdown file from the _What's new in Cloud_ with the following conditions:
 
    - Filtered by the relevant Grafana version
    - Includes front matter for each entry
    - Grouped by tags; entries with multiple tags should only be included once, grouped by their first tag alphabetically
 
-1. Add the content of this markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
+1. Add the content of this Markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
 
-   If internal enablement videos are listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later. To do this, generate another markdown file from the _What's new in Cloud_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
+   If internal enablement videos are listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later.
+   To do this, generate another Markdown file from the _What's new in Cloud_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
 
 1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
-   Reviews **must not include any copy edits** unless there are inaccuracies or typos, because all copy edits should happen when entries are added in the _What's new in Cloud_. If there are any inaccuracies, those need to be corrected in both the Cloud and versioned What's new.
+   Reviews _must not include any copy edits_ unless there are inaccuracies or typos, because all copy edits should happen when entries are added in the _What's new in Cloud_.
+   If there are any inaccuracies, those need to be corrected in both the Cloud and versioned What's new.
 
 1. Have the PM review the content to adjust the order, if needed.
 

@@ -202,9 +202,8 @@ Use `description` to provide the short description of the topic to search engine
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
-Often, this doesn’t need to be original text, you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
-If it's too long, it is harmlessly truncated on social media.
-Use double quotes (`"`) to surround the title. Do not use smart quotes.
+Often, this doesn’t need to be original text, you can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
+If the description is too long, it's harmlessly truncated on social media.
 
 ### Draft
 
@@ -282,24 +281,3 @@ By default, topics are displayed in alphabetical order by `title`.
 Use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic earlier in the guide or section of the guide. Pages with the same weight are displayed in alphabetical order.
 
 Use increments of `100` for content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
-
-## Example with different page and menu titles
-
-```
----
-title: About Grafana Mimir architecture
-menuTitle: Architecture
----
-```
-
-## Description example
-
-On Twitter:
-
-![Twitter description](twitter.png)
-
-For example:
-
-- Add a panel using these steps.
-- Understand the configuration options provided by…
-- Learn more about hash rings and their usage

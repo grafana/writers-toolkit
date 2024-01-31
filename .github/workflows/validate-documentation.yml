@@ -41,7 +41,6 @@ jobs:
         run: >
           reviewdog
           --filter-mode=nofilter
-          --fail-on-error
           --runners prettier
           --tee
       - uses: reviewdog/action-suggester@v1

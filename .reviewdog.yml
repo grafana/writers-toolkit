@@ -10,10 +10,9 @@ runner:
   prettier:
     cmd: >
       prettier
+      --check
       --write
       docs/sources
     errorformat:
-      - '%E[%trror] %f: %m (%l:%c)'
-      - '%C[error]%r'
-      - '%Z[error]%r'
-      - '%-G%r'
+      - '[warn] %f'
+      - '%+G[warn] Code style issues fixed%.%#'

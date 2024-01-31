@@ -56,7 +56,6 @@ jobs:
           /bin/reviewdog
           --conf=/etc/vale/.reviewdog.yml
           --fail-on-error
-          --filter-mode=diff_context
           --reporter=github-pr-review
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

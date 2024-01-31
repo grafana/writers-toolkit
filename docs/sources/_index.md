@@ -35,5 +35,5 @@ If you're new to the guide, start with the [Get started]({{< relref "./get-start
 
 ## Questions and feedback
 
-Writers' Toolkit is open source and available at [grafana/writers-toolkit](https://github.com/grafana/writers-toolkit).
+  Writers' Toolkit is open source and available at [grafana/writers-toolkit](https://github.com/grafana/writers-toolkit).
 If you have questions, or feedback on how to improve this documentation, [open an issue](https://github.com/grafana/writers-toolkit/issues/new) and help make this an even better resource.

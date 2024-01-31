@@ -41,8 +41,9 @@ jobs:
         run: >
           reviewdog
           --filter-mode=nofilter
-          --reporter=local
-          --runners=prettier
+          --fail-on-error
+          --runners prettier
+          --tee
       - uses: reviewdog/action-suggester@v1
         with:
           tool_name: prettier

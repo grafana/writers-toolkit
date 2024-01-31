@@ -9,7 +9,7 @@ runner:
     format: rdjsonl
   prettier:
     cmd: >
-      prettier
+      npx prettier
       --check
       --write
       docs/sources

@@ -28,9 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: reviewdog/action-setup@v1
-        with:
-          reviewdog_version: latest
+      - run: >
+          curl
+          --location
+          --output reviewdog.tar.gz
+          https://github.com/jdbaldry/reviewdog/releases/download/v0.18.0-rc.1/reviewdog_v0.18.0-rc.1-next_Linux_x86_64.tar.gz
+      - run: |
+          tar zxf reviewdog.tar.gz reviewdog
+          sudo cp reviewdog /usr/local/bin/
+          rm -f reviewdog.tar.gz
       - uses: actions/setup-node@v4
         with:
           node-version: 20

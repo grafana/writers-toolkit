@@ -295,7 +295,7 @@ If you are a Grafana Labs employee, you can add view the associated technologies
 The `associated_technologies` value is the filename without the file extension.
 For example, to refer to author defined in the `mimir.yaml` file, use `mimir`.
 
-If you don't set the `associated_technologies` front matter, `grafana` is the good default.
+If you don't set the `associated_technologies` front matter, `grafana` is the default.
 
 The following YAML example demonstrates setting a single associated technology of `mimir`.
 You must incorporate it with the rest of your front matter.

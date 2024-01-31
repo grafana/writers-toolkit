@@ -281,3 +281,74 @@ By default, topics are displayed in alphabetical order by `title`.
 Use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic earlier in the guide or section of the guide. Pages with the same weight are displayed in alphabetical order.
 
 Use increments of `100` for content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
+
+## Tutorials
+
+There is additional front matter that you only need for tutorials.
+Tutorials should also include all the regular front matter.
+
+### Associated technologies
+
+The `associated_technologies` front matter is a sequence of strings that refer to taxonomies in the website data directory.
+If you are a Grafana Labs employee, you can add view and add authors to the [website data directory](https://github.com/grafana/website/tree/master/data/taxonomies/associated_technologies).
+
+The `associated_technologies` value is the filename without the file extension.
+For example, to refer to author defined in the `mimir.yaml` file, use `mimir`.
+
+If you don't set the `associated_technologies` front matter, `grafana` is the good default.
+
+The following YAML example demonstrates setting a single associated technology of `mimir`.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+associated_technologies:
+  - mimir
+```
+
+### Authors
+
+The `authors` front matter is a sequence of strings that refer to author files defined in the website data directory.
+If you are a Grafana Labs employee, you can add view and add authors to the [website data directory](https://github.com/grafana/website/tree/master/data/authors).
+
+The `authors` value is the filename without the file extension.
+For example, to refer to author defined in the `grafana_labs.yaml` file, use `grafana_labs`.
+
+If no appropriate author file exists, `grafana_labs` is a good default.
+
+The following YAML example demonstrates setting a single author of `grafana_labs`.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+authors:
+  - grafana_labs
+```
+
+### Summary
+
+The `summary` front matter defines a short summary used on the tutorial's card on https://grafana.com/tutorials/.
+
+The following YAML example demonstrates setting a the summary front matter.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+summary: Use Telegraf to stream live metrics to Grafana.
+```
+
+### Tags
+
+The `tags` front matter is a sequence of strings displayed as tags underneath the author section on the tutorials page.
+
+Typically, at least one of the tags is an expertise level.
+The expertise levels are:
+
+- Beginner
+- Intermediate
+- Advanced
+
+The following YAML example demonstrates setting a single tag of the expertise level `Beginner`.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+tags:
+  - Beginner
+```

@@ -267,6 +267,14 @@ cascade:
 
 Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 
+### Slug
+
+The `slug` front matter overrides the last segment of the URL path.
+It's ineffective on `_index.md` files which are also known as _section pages_ or _branch bundles_.
+For more information, refer to [Slug](https://gohugo.io/content-management/urls/#slug).
+
+You should prefer to update the filename instead of using the `slug` front matter because it makes it easier to find the correct source file for a URL.
+
 ### Title (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.

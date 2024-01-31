@@ -1,4 +1,4 @@
-64
+68
 Alertmanager/S po:noun
 Ansible/ po:noun
 Ansible/ po:adjective
@@ -58,6 +58,7 @@ query/DGS po:verb
 query/ po:noun
 query/A po:adjective
 redirection/S po:noun
+siloed/ po:adjective
 shortcode/S po:noun
 showback/S po:noun
 submenu/S po:noun

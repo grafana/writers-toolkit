@@ -5,13 +5,12 @@ on:
   workflow_dispatch:
 jobs:
   doc-validator:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     container:
-      image: "grafana/doc-validator:v4.0.0"
+      image: grafana/doc-validator:v4.0.0
     steps:
-      - name: "Checkout code"
-        uses: "actions/checkout@v3"
-      - name: "Run doc-validator tool"
+      - uses: actions/checkout@v4
+      - name: Run doc-validator tool
         run: >
           doc-validator
           '--skip-checks=^image.+$'
@@ -24,24 +23,43 @@ jobs:
           --name=doc-validator
           --reporter=github-pr-review
         env:
-          REVIEWDOG_GITHUB_API_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   prettier:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-      - uses: "actions/checkout@v3"
-      - uses: "EPMatt/reviewdog-action-prettier@v1"
+      - uses: actions/checkout@v4
+      - run: >
+          curl
+          --location
+          --output reviewdog.tar.gz
+          https://github.com/jdbaldry/reviewdog/releases/download/v0.18.0-rc.1/reviewdog_0.18.0-rc.1_Linux_x86_64.tar.gz
+      - run: |
+          tar zxf reviewdog.tar.gz reviewdog
+          sudo cp reviewdog /usr/local/bin/
+          rm -f reviewdog.tar.gz
+      - uses: actions/setup-node@v4
         with:
-          fail_on_error: true
-          filter_mode: "nofilter"
-          github_token: "${{ secrets.github_token }}"
-          level: "info"
-          reporter: "github-pr-review"
+          node-version: 20
+      - run: npm install prettier
+      - run: >
+          reviewdog
+          --filter-mode=nofilter
+          --runners prettier
+          --tee
+      - run: >
+          git diff
+          | reviewdog
+          --f diff
+          --fail-on-error
+          --filter-mode nofilter
+          --reporter=github-pr-review
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-      - name: "Check out code"
-        uses: "actions/checkout@v3"
-      - name: "Build website"
+      - uses: actions/checkout@v4
+      - name: Build website
         run: |
           docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
   vale:
@@ -56,7 +74,6 @@ jobs:
           /bin/reviewdog
           --conf=/etc/vale/.reviewdog.yml
           --fail-on-error
-          --filter-mode=diff_context
           --reporter=github-pr-review
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

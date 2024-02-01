@@ -40,11 +40,11 @@ Scenario: "You're planning on removing the feature or product in a future releas
 
 Example text:
 
-```
-{{% admonition type="caution" %}}
+```markdown
+{{</* admonition type="caution" */>}}
 Starting with <RELEASE>, <PRODUCT OR FEATURE NAME> is deprecated.
 It will be removed in a future release.
-{{% /admonition %}}
+{{</* /admonition */>}}
 ```
 
 If you know the release, enter the release instead of "future".
@@ -55,11 +55,11 @@ Scenario: "You've removed a feature."
 
 Example text:
 
-```
-{{% admonition type="warning" %}}
+```markdown
+{{</* admonition type="warning" */>}}
 <PRODUCT OR FEATURE NAME> is removed.
 It is no longer deployed, enhanced, or supported.
-{{% /admonition %}}
+{{</* /admonition */>}}
 ```
 
 ## Documentation deprecation
@@ -68,17 +68,21 @@ Scenario: There are situations in which you may deprecate documentation along wi
 
 Example text:
 
-```
-{{% admonition type="caution" %}}
- Starting with release <VERSION>`, the <TOPIC TITLE> documentation will no longer be published because <RATIONALE>.
-Link to documentation, if it exists.
-{{% /admonition %}}
-```
-
 <!-- vale Google.Will = NO -->
 <!-- vale Google.Passive = NO -->
 
-Example: "As of Grafana 9.2, release notes will no longer be published, because they duplicate the content available in the What’s New document and the CHANGELOG."
+```markdown
+{{</* admonition type="caution" */>}}
+Starting with release <VERSION>`, the <TOPIC TITLE> documentation will no longer be published because <RATIONALE>.
+Link to documentation, if it exists.
+{{</* /admonition */>}}
+```
+
+Concrete example:
+
+{{< admonition type="caution" >}}
+As of Grafana 9.2, release notes will no longer be published, because they duplicate the content available in the What’s New document and the CHANGELOG."
+{{< /admonition >}}
 
 <!-- vale Google.Passive = YES -->
 <!-- vale Google.Will = YES -->

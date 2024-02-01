@@ -291,7 +291,7 @@ Tutorials should also include all the regular front matter.
 ### Associated technologies
 
 The `associated_technologies` front matter is a sequence of strings that refer to taxonomies in the website data directory.
-If you are a Grafana Labs employee, you can add view the associated technologies in the [website data directory](https://github.com/grafana/website/tree/master/data/taxonomies/associated_technologies).
+If you are a Grafana Labs employee, you can view the associated technologies in the [website data directory](https://github.com/grafana/website/tree/master/data/taxonomies/associated_technologies).
 
 The `associated_technologies` value is the filename without the file extension.
 For example, to refer to author defined in the `mimir.yaml` file, use `mimir`.
@@ -309,7 +309,7 @@ associated_technologies:
 ### Authors
 
 The `authors` front matter is a sequence of strings that refer to author files defined in the website data directory.
-If you are a Grafana Labs employee, you can add view and add authors to the [website data directory](https://github.com/grafana/website/tree/master/data/authors).
+If you are a Grafana Labs employee, you can view and add authors to the [website data directory](https://github.com/grafana/website/tree/master/data/authors).
 
 The `authors` value is the filename without the file extension.
 For example, to refer to author defined in the `grafana_labs.yaml` file, use `grafana_labs`.

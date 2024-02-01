@@ -46,13 +46,12 @@ Using too many links on a page makes it difficult for a user to read the content
 
 ## Examples
 
-| Use                                                                                    | Do not use       |
-| -------------------------------------------------------------------------------------- | ---------------- |
-| `[Learn more about cluster navigation]()` or learn more about `[cluster navigation]()` | `[Learn more]()` |
-
-| `[our <company name> products]()` or `[<company name> products]()` | `[our products]()` |
-| visit the `[<company name> website]()` or visit` [<company name>.com`]() | `[visit our website]()` |
-| `[SNMP exporter]()` | `[exporter]()` |
-| `[KubeCon + CloudNativeCon North America 2022]()` | `[KubeCon event]()` |
-| The basic `[definition of cardinality]()` | The `[basic definition]()` of cardinality |
-| refer to `[Configure Kubernetes Monitoring]()` | `[refer to Configure Kubernetes Monitoring]()` |
+| Use                                                                                    | Don't use                                      |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `[Learn more about cluster navigation]()` or learn more about `[cluster navigation]()` | `[Learn more]()`                               |
+| `[our <company name> products]()` or `[<company name> products]()`                     | `[our products]()`                             |
+| visit the `[<company name> website]()` or visit` [<company name>.com`]()               | `[visit our website]()`                        |
+| `[SNMP exporter]()`                                                                    | `[exporter]()`                                 |
+| `[KubeCon + CloudNativeCon North America 2022]()`                                      | `[KubeCon event]()`                            |
+| The basic `[definition of cardinality]()`                                              | The `[basic definition]()` of cardinality      |
+| refer to `[Configure Kubernetes Monitoring]()`                                         | `[refer to Configure Kubernetes Monitoring]()` |

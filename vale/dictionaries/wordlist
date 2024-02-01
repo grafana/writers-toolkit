@@ -62,6 +62,7 @@ shortcode/S po:noun
 showback/S po:noun
 submenu/S po:noun
 subtask/S po:noun
+systemd/ po:noun
 tooltip/S po:noun
 triage/D po:verb
 webserver/S po:noun

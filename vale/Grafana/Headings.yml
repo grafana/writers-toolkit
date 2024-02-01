@@ -9,6 +9,7 @@ scope: heading
 match: $sentence
 threshold: 0.6
 exceptions:
+  - Ansible
   - Adaptive Metrics
   - Application Observability
   - BoltDB
@@ -20,6 +21,8 @@ exceptions:
   - CPU
   - Frontend Observability
   - Grafana
+  - Grafana Agent
+  - Grafana Agent Flow
   - Grafana Cloud
   - Grafana Cloud Traces
   - Grafana Enterprise Logs

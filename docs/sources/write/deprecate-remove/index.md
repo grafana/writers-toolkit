@@ -111,8 +111,6 @@ You may need to add the preceding notes to both the documentation _and_ the UI.
 
    GitHub automatically assigns the writer associated with those documentation as a reviewer of the PR.
 
-<!-- vale Google.Parens = NO -->
+1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation in the draft What’s New document.
 
-1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation (including links, if available) in the draft What’s New document.
-
-<!-- vale Google.Parens = YES -->
+   Include links, if available.

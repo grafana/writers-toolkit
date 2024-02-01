@@ -161,7 +161,7 @@ For example:
 > The following YAML example demonstrates the configuration of a single port numbered `80` using the `TCP` protocol.
 >
 > It's part of a Kubernetes Service specification.
-> It's not a complete Service specification and your must incorporate it with the rest of a Service specification.
+> It's not a complete Service specification and you must incorporate it with the rest of a Service specification.
 >
 > ```yaml
 > ports:
@@ -179,7 +179,7 @@ The following example extends the one in the previous section:
 > The following YAML example demonstrates the configuration of a single port numbered `80` using the `TCP` protocol.
 >
 > It's part of a Kubernetes Service specification.
-> It's not a complete Service specification and your must incorporate it with the rest of a Service specification.
+> It's not a complete Service specification and you must incorporate it with the rest of a Service specification.
 >
 > To incorporate the example, you must include it as the value to the Service `spec` mapping.
 > If there is an existing `ports` value, you must choose to replace it or merge the two.

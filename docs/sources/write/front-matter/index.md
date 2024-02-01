@@ -202,7 +202,8 @@ Use `description` to provide the short description of the topic to search engine
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
-Often, this doesn’t need to be original text, you can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
+Often, this doesn’t need to be original text.
+You can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
 If the description is too long, it's harmlessly truncated on social media.
 
 ### Draft

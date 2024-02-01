@@ -39,6 +39,7 @@ exceptions:
   - macOS
   - Memcached
   - Mimir
+  - Node [Ee]xporter
   - OpenTelemetry
   - OpenTelemetry Collector
   - Prometheus

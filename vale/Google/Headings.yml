@@ -26,3 +26,6 @@ exceptions:
   - Visual
   - VS
   - Windows
+  - SSO
+  - OAuth
+  - Terraform

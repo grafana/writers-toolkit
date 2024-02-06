@@ -1,3 +1,4 @@
+Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
 Ansible/ po:adjective
@@ -28,6 +29,7 @@ ingester/S po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
 JMeter/ po:noun
+Jsonnet/ po:noun
 JUnit/ po:noun
 Kinesis/ po:noun
 kubelet/ po:noun

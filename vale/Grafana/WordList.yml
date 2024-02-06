@@ -6,12 +6,11 @@ ignorecase: false
 action:
   name: replace
 swap:
-  "(?:API Console|dev|developer) [Kk]ey": API key
-  "(?:OAuth ?2|Oauth)": OAuth 2.0
-  "(?:WiFi|wifi)": Wi-Fi
   "(?:[aA]daptive metrics|adaptive Metrics)": Adaptive Metrics
   "(?:[gG]itHub]|Github)": GitHub
+  "(?:[kK]8s|kubernetes)": Kubernetes
   "(?:alert[Mm]anager|[Aa]lert [Mm]anager|AlertManager)": Alertmanager
+  "(?:API Console|dev|developer) [Kk]ey": API key
   "(?:cell ?phone|smart ?phone)": phone|mobile phone
   "(?:dev|developer|APIs) console": API console
   "(?:e-mail|Email|E-mail)": email
@@ -19,7 +18,9 @@ swap:
   "(?:hamburger menu|kebab menu)": menu icon
   "(?:hold the pointer over|point to)": hover over
   "(?:kill|terminate|abort)": stop|exit|cancel|end
+  "(?:OAuth ?2|Oauth)": OAuth 2.0
   "(?:ok|Okay)": OK|okay
+  "(?:WiFi|wifi)": Wi-Fi
   "[^/]grafana[^/]": Grafana
   "[cC]entos": CentOS
   "[cC]ontact support": contact Support
@@ -30,24 +31,14 @@ swap:
   "tap (?:&|and) hold": touch and hold
   "un(?:check|select)": clear
   '3\-D': 3D
-  'Google (?:I\-O|IO)': Google I/O
   '[\.]+apk': APK
-  API Key: API key
-  Ajax: AJAX
-  Android device: Android-powered device
-  Container Engine: Kubernetes Engine
-  De-duplicate: Deduplicate
-  Developers Console: API console
-  GME: GEM
-  Google API explorer: Google APIs Explorer
-  Googling: search with Google
-  HTTPs: HTTPS
-  Once: After
-  SHA1: SHA-1|HAS-SHA1
-  World Wide Web: web
+  'Google (?:I\-O|IO)': Google I/O
   above: preceding
   admin: administrator
+  Ajax: AJAX
+  Android device: Android-powered device
   android: Android
+  API Key: API key
   approx\.: approximately
   authN: authentication
   authZ: authorization
@@ -56,11 +47,14 @@ swap:
   chapter: documents|pages|sections
   check box: checkbox
   config file: configuration file
+  Container Engine: Kubernetes Engine
   content type: media type
   curated roles: predefined roles
   data-?source: data source
   datacenter: data center
+  De-duplicate: Deduplicate
   de-duplicate: deduplicate
+  Developers Console: API console
   drop down: drop-down
   dropdown: drop-down
   ephemeral IP address: ephemeral external IP address
@@ -68,10 +62,14 @@ swap:
   file name: filename
   firewalls: firewall rules
   git: Git
+  GME: GEM
+  Google API explorer: Google APIs Explorer
+  Googling: search with Google
   grayed-out: unavailable
+  HTTPs: HTTPS
   in order to: to
   ingest: import|load
-  k8s: Kubernetes
+  jsonnet: Jsonnet
   log(?:ql|QL): LogQL
   loki: Loki
   long press: touch and hold
@@ -82,6 +80,7 @@ swap:
   mysql: MySQL
   network IP address: internal IP address
   omnibox: address bar
+  Once: After
   open-source: open source
   overview screen: recents screen
   phlare: Phlare
@@ -93,6 +92,7 @@ swap:
   redis: Redis
   regex: regular expression
   repo: repository
+  SHA1: SHA-1|HAS-SHA1
   sign into: sign in to
   sign-?on: single sign-on
   sqlite: SQLite
@@ -109,6 +109,7 @@ swap:
   url: URL
   vs\.: versus
   whitelist: allowlist
+  World Wide Web: web
 
   Data Firehose: Kinesis Data Firehose
   Firehose: Kinesis Data Firehose

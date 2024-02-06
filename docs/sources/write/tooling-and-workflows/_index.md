@@ -377,9 +377,9 @@ GitHub CLI simplifies some git workflows when working with GitHub repositories.
 
 To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
 
-### Checkout a fork
+### Check out a fork
 
-To checkout a branch from a contributor's fork, use `gh pr checkout <PR NUMBER>`.
+To check out a branch from a contributor's fork, use `gh pr checkout <PR NUMBER>`.
 For more information, refer to [`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout).
 
 The GitHub CLI tool automatically configures the remote tracking branch so you can push and pull from the fork branch.

@@ -12,6 +12,7 @@ exceptions:
   - Ansible
   - Adaptive Metrics
   - Application Observability
+  - Beyla
   - BoltDB
   - CLA
   - Cloud Logs

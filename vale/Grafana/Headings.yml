@@ -14,12 +14,14 @@ exceptions:
   - Application Observability
   - Beyla
   - BoltDB
+  - BPF
   - CLA
   - Cloud Logs
   - Cloud Metrics
   - Cloud Traces
   - Cluster # Kubernetes
   - CPU
+  - eBPF
   - Frontend Observability
   - Grafana
   - Grafana Agent

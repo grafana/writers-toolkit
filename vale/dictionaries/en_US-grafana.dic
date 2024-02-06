@@ -1,4 +1,4 @@
-72
+73
 Alertmanager/S po:noun
 allowlist/S po:noun
 Ansible/ po:adjective
@@ -8,6 +8,7 @@ API/S po:noun
 autoscale/DGRS po:verb
 backport/DGS po:verb
 blockquote/S po:noun
+BPF/ po:noun
 cAdvisor/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun

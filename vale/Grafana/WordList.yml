@@ -68,6 +68,7 @@ swap:
   HTTPs: HTTPS
   in order to: to
   ingest: import|load
+  jsonnet: Jsonnet
   log(?:ql|QL): LogQL
   loki: Loki
   long press: touch and hold

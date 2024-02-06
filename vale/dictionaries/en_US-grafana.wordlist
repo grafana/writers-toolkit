@@ -62,6 +62,7 @@ submenu/S po:noun
 subtask/S po:noun
 systemd/ po:noun
 tooltip/S po:noun
+tracepoint/S po:noun
 triage/D po:verb
 UI/S po:noun
 URI/S po:noun

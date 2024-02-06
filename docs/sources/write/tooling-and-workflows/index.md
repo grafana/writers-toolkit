@@ -96,7 +96,7 @@ From github.com:grafana/mimir
 
 By convention, the remote repository in GitHub is the source of truth for a repository's history.
 The default branch of a repository is typically called `main` and occasionally called `master`.
-Note that Grafana prefers to use inclusive language, so `main` is the preferred name.
+Grafana prefers to use inclusive language, so `main` is the preferred name.
 
 After fetching the changes from the remote repository in GitHub, create a local branch to commit your changes.
 Working on your own branch separates and isolates your changes so that they can be later reviewed before incorporation into the main branch.

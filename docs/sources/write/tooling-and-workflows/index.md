@@ -376,3 +376,20 @@ GitHub CLI simplifies some git workflows when working with GitHub repositories.
 ### Install GitHub CLI
 
 To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
+
+### Check out a fork
+
+To check out a branch from a contributor's fork, use `gh pr checkout <PR NUMBER>`.
+For more information, refer to [`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout).
+
+The GitHub CLI tool automatically configures the remote tracking branch so you can push and pull from the fork branch.
+
+<!-- vale Grafana.Timeless = NO -->
+
+{{< admonition type="note" >}}
+You can only push to a fork if the PR author has enabled **Allow edits and access to secrets by maintainers** or **Allow edits by maintainers**.
+
+To enable maintainer edits, refer to [Enabling repository maintainer permissions on existing pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork#enabling-repository-maintainer-permissions-on-existing-pull-requests).
+{{< /admonition >}}
+
+<!-- vale Grafana.Timeless = YES -->

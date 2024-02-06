@@ -1,12 +1,13 @@
 extends: substitution
-message: Prefer '%s' instead of '%s'
+message: When linking in Markdown, use '%s' instead of '%s'.
 link: https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#links-and-references
-level: warning
+level: error
 ignorecase: false
 action:
   name: replace
+scope: raw
 swap:
-  Check out: Refer to
-  See: Refer to
-  check out: refer to
-  see: refer to
+  "Check out \\[": "Refer to ["
+  "See \\[": "Refer to ["
+  "check out \\[": "refer to ["
+  "see \\[": "refer to ["

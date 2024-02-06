@@ -67,6 +67,7 @@ swap:
   fewer data: less data
   file name: filename
   firewalls: firewall rules
+  git: Git
   grayed-out: unavailable
   in order to: to
   ingest: import|load

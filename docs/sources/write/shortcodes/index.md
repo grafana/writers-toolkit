@@ -564,6 +564,7 @@ The `section` shortcode renders an unordered list of links to a page's child pag
 | `menuTitle`        | If set to `"true"`, the _menuTitle_ parameter modifies the template to use the child page's `menuTitle` front matter instead of the page title as the text in the link. If the child page doesn't have a `menuTitle` parameter, the shortcode uses the `title` instead. | no       |
 | `ordered`          | If set to `"true"`, the _ordered_ parameter modifies the template to use an ordered list instead of an unordered list, displaying each item with a number marker                                                                                                        | no       |
 | `withDescriptions` | If set to `"true"`, the _withDescriptions_ parameter modifies the template to include the front matter descriptions for child pages that have them.                                                                                                                     | no       |
+| `depth`            | Controls how many levels of child pages to include in the output. The default depth is `"1"` which only shows the immediate children.                                                                                                                                   | no       |
 
 ### Examples
 

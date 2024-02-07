@@ -151,15 +151,22 @@ Sort lists and table rows alphabetically unless the order is important to unders
 <!-- vale Grafana.ReferTo = NO -->
 <!-- This usage is the advice that the rule is based on. -->
 
-You should use "Refer to" instead of "See" or "Check out" when referencing another document.
+You should use _refer to_ instead of _see_ or _check out_ when referencing another document.
 
 <!-- vale Grafana.ReferTo = YES -->
 
-Give the reader a sense of what to expect in the reference. Don't use generic references, such as "Refer to [this file]."
+Give the reader a sense of what to expect in the reference.
+Don't use generic references, such as "Refer to [this file]."
 
 As much as possible, use the exact title of the page or section you are linking to as the link text.
 
-**Example:** For more information about Grafana Labs products, refer to [Grafana documentation](/docs/grafana/latest/).
+For example:
+
+```markdown
+For more information about Grafana Labs products, refer to [Grafana documentation](/docs/grafana/latest/).
+```
+
+For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolki/write/style-guide/useful-link-text/)
 
 ## Admonitions
 

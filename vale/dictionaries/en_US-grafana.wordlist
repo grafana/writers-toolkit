@@ -1,11 +1,14 @@
+Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
 Ansible/ po:adjective
 Ansible/ po:noun
+Beyla/ po:noun
 API/S po:noun
 autoscale/DGRS po:verb
 backport/DGS po:verb
 blockquote/S po:noun
+BPF/ po:noun
 cAdvisor/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
@@ -13,6 +16,7 @@ deliverable/S po:noun
 disaggregate/DS po:verb
 don't/S po:noun
 enablement/ po:noun
+enqueue/DS po:verb
 ESLint/ po:noun
 Fargate/ po:noun
 Firehose/ po:noun
@@ -25,6 +29,7 @@ ingester/S po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
 JMeter/ po:noun
+Jsonnet/ po:noun
 JUnit/ po:noun
 Kinesis/ po:noun
 kubelet/ po:noun
@@ -59,6 +64,7 @@ submenu/S po:noun
 subtask/S po:noun
 systemd/ po:noun
 tooltip/S po:noun
+tracepoint/S po:noun
 triage/D po:verb
 UI/S po:noun
 URI/S po:noun

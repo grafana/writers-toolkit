@@ -5,5 +5,5 @@ runner:
       '--glob=*.md'
       --minAlertLevel=warning
       --output=/etc/vale/rdjsonl.tmpl
-      docs/sources/_index.md
+      docs/sources
     format: rdjsonl

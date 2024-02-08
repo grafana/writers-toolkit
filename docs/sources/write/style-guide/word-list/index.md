@@ -76,9 +76,9 @@ Use this rather than _hamburger menu_ or _kebab menu_.
 
 ## N
 
-### Node Explorer
+### Node Exporter
 
-When referring to the Prometheus Node Explorer, capitalize both words in the term _Node Explorer_. Don't use _Node explorer_ or _node explorer_.
+When referring to the Prometheus Node Exporter, capitalize both words in the term _Node Exporter. Don't use _Node exporter or _node exporter.
 
 <!--
 ## O

@@ -122,3 +122,6 @@ swap:
   ad[- ]?hoc: free-form|user-written
 
   "(?:[Oo]penshift|openShift)": OpenShift
+
+  [Rr]eact[Jj][Ss]: React
+  react\.js: React

@@ -74,7 +74,6 @@ Use this rather than _hold the pointer over_ or _point to_.
 
 Use this rather than _hamburger menu_ or _kebab menu_.
 
-
 ## N
 
 ### Node Explorer

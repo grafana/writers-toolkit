@@ -50,6 +50,7 @@ exceptions:
   - Prometheus
   - PromQL
   - Promtail
+  - Pyroscope
   - Redis
   - SRE
   - Tempo

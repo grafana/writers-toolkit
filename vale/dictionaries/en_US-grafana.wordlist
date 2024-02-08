@@ -47,6 +47,7 @@ Podman/ po:noun
 preconfigure/D po:verb
 Promtail/ po:noun
 provision/dD po:verb
+Pyroscope/ po:noun
 query/ po:noun
 query/A po:adjective
 query/DGS po:verb

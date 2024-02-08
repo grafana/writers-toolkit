@@ -74,8 +74,13 @@ Use this rather than _hold the pointer over_ or _point to_.
 
 Use this rather than _hamburger menu_ or _kebab menu_.
 
-<!--
 ## N
+
+### Node Exporter
+
+When referring to the Prometheus Node Exporter, capitalize both words in the term _Node Exporter_. Don't use _Node exporter_ or _node exporter_.
+
+<!--
 ## O
 ## P
 ## Q -->

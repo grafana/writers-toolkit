@@ -1,4 +1,4 @@
-75
+77
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -30,6 +30,7 @@ ingester/S po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
 JMeter/ po:noun
+Jsonnet/ po:noun
 JUnit/ po:noun
 Kinesis/ po:noun
 kubelet/ po:noun
@@ -47,6 +48,7 @@ Podman/ po:noun
 preconfigure/D po:verb
 Promtail/ po:noun
 provision/dD po:verb
+Pyroscope/ po:noun
 query/ po:noun
 query/A po:adjective
 query/DGS po:verb

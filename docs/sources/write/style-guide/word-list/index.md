@@ -27,7 +27,7 @@ This page is a work in progress.
 
 ### alert rule
 
-Grafana Alerting uses the term _alert rule_ to describe a feature including both [Grafana-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#grafana-managed-alert-rules) and [Data source-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#data-source-managed-alert-rules)
+Grafana Alerting uses the term _alert rule_ to describe the Grafana feature that includes both [Grafana-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#grafana-managed-alert-rules) and [Data source-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#data-source-managed-alert-rules).
 For more information, refer to [Alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/).
 
 {{< admonition type="caution" >}}

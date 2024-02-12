@@ -1,4 +1,4 @@
-testinvalid.md:1:1:Grafana.ReferTo:When linking, use 'Refer to [' instead of 'See ['.
-testinvalid.md:2:1:Grafana.ReferTo:When linking, use 'Refer to [' instead of 'Check out ['.
-testinvalid.md:4:23:Grafana.ReferTo:When linking, use 'refer to [' instead of 'see ['.
-testinvalid.md:5:23:Grafana.ReferTo:When linking, use 'refer to [' instead of 'check out ['.
+testinvalid.md:1:1:Grafana.ReferTo:When linking in Markdown, use 'Refer to [' instead of 'See ['.
+testinvalid.md:2:1:Grafana.ReferTo:When linking in Markdown, use 'Refer to [' instead of 'Check out ['.
+testinvalid.md:4:23:Grafana.ReferTo:When linking in Markdown, use 'refer to [' instead of 'see ['.
+testinvalid.md:5:23:Grafana.ReferTo:When linking in Markdown, use 'refer to [' instead of 'check out ['.

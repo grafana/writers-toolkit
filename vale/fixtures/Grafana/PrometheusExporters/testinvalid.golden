@@ -1,0 +1,2 @@
+testinvalid.md:3:3:Grafana.PrometheusExporters:Use 'Node Exporter' instead of 'Node exporter'.
+testinvalid.md:4:3:Grafana.PrometheusExporters:Use 'Node Exporter' instead of 'node exporter'.

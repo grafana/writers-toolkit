@@ -53,3 +53,15 @@ Grafana/Google: ## Generate the Grafana style from the Google style.
 Grafana/Google: google.jsonnet
 	jsonnet -S -m . google.jsonnet
 	prettier -w Grafana/Google*.yml
+
+
+fixtures/Grafana/%: ## Generate the scaffolding to test a new Grafana Vale rule.
+fixtures/Grafana/%:
+	mkdir -p $@
+	printf 'StylesPath = ../../../\nMinAlertLevel = suggestion\n[*.md]\nGrafana.%s = YES\n' $(@F) > $@/.vale.ini
+	touch $@/test{,in}valid.{golden,md}
+
+.PHONY: fixtures/Grafana
+fixtures/Grafana: ## Recreate the golden files for all the Grafana Vale rule fixtures.
+fixtures/Grafana:
+	find $@ -maxdepth 1 -mindepth 1 -print -exec /bin/bash -c 'cd {}; vale --output=line testvalid.md > testvalid.golden; vale --output=line testinvalid.md > testinvalid.golden; cd -' \;

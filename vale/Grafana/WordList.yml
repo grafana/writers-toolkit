@@ -123,9 +123,6 @@ swap:
 
   "(?:[Oo]penshift|openShift)": OpenShift
 
-  [Rr]eact[Jj][Ss]: React
-  react\.js: React
-
   "un(?:archive|compress|tar)": extract
   unzip: extract
   ZIP file: archive|compressed file

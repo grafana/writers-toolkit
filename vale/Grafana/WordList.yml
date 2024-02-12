@@ -121,5 +121,3 @@ swap:
   ad[- ]?hoc: free-form|user-written
 
   "(?:[Oo]penshift|openShift)": OpenShift
-
-  wish: need|want

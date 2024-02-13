@@ -26,10 +26,10 @@ jobs:
             git add .
             git config --local user.email bot@grafana.com
             git config --local user.name grafanabot
-            git commit --message 'Run `prettier`'
+            git commit --message 'Regenerate dictionaries'
           }
 
-          make all
+          make -B all
 
           if ! git diff --exit-code; then
             commit

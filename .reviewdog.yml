@@ -14,5 +14,5 @@ runner:
       --write
       docs/sources
     errorformat:
-      - '[warn] %f'
-      - '%+G[warn] Code style issues fixed%.%#'
+      - "[warn] %f"
+      - "%+G[warn] Code style issues fixed%.%#"

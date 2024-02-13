@@ -27,7 +27,7 @@ Report a problem when you want to make a suggestion or provide feedback about a 
 Reporting a problem gives you the freedom to express your ideas without committing language.
 Your suggestion can reflect a small change to wording or can reflect larger, more substantive changes.
 
-You make your request with an email to [docs@grafana.com](mailto:docs@grafana.com).
+You make your request with an email to [`docs@grafana.com`](mailto:docs@grafana.com).
 
 To report a problem:
 
@@ -73,7 +73,7 @@ In that case, you can use the GitHub code navigation to try and find the new loc
 <!-- vale Grafana.Timeless = YES -->
 
 For pages that don't have a **Suggest an edit** link, search the Grafana organization on GitHub for repositories that include the project name.
-For example, you can find the Loki repository, by [searching for "loki"](https://github.com/search?q=org%3Agrafana+loki&type=repositories).
+For example, you can find the Loki repository, by [searching for "Loki"](https://github.com/search?q=org%3Agrafana+Loki&type=repositories).
 
 [Grafana Cloud](https://grafana.com/docs/grafana-cloud/) is in the [website repository](https://github.com/grafana/website).
 

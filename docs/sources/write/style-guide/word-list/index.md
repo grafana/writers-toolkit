@@ -89,6 +89,10 @@ When referring to the tool, use `node_exporter`. The text should always be pre-f
 
 ## R
 
+### React
+
+Use this rather than _React.js_ or _ReactJS_.
+
 ### README
 
 When naming a file or making a general reference to READMEs, spell using all caps. When referencing a specific README file, match the same capitalization of that file.

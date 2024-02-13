@@ -31,7 +31,7 @@ Grafana Alerting uses the term _alert rule_ to describe the Grafana feature that
 For more information, refer to [Alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/).
 
 {{< admonition type="caution" >}}
-You mustn't confuse this with an [_alerting rule_ ](#alerting-rule).
+Don't confuse this with an [_alerting rule_ ](#alerting-rule).
 {{< /admonition >}}
 
 ### alerting rule
@@ -40,7 +40,7 @@ An _alerting rule_ is a Prometheus concept reused in Grafana Mimir.
 For more information refer to [Alerting Rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/).
 
 {{< admonition type="caution" >}}
-You mustn't confuse this with an [_alert rule_ ](#alert-rule).
+Don't confuse this with an [_alert rule_ ](#alert-rule).
 {{< /admonition >}}
 
 <!--

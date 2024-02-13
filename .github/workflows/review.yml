@@ -29,10 +29,37 @@ jobs:
           script: |
             const fs = require('fs')
 
-            github.rest.issues.create({
+            const opts = github.rest.issues.listForRepo.endpoint.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: 'Docs for review',
-              body: fs.readFileSync('.to-review.txt', 'utf-8'),
-              assignees: ['jdbaldry'],
+              state: 'all',
             });
+            const issues = await github.paginate(opts);
+
+            fs.readFileSync(".to-review.txt", "utf-8")
+              .split("\n")
+              .forEach((line) => {
+                const path = line.replace(/:1:1$/, "");
+                const title = `Review \`${path}\``;
+
+                if (path === "") {
+                  return
+                }
+
+                for (const issue of issues) {
+                  if (issue.pull_request) {
+                    continue
+                  }
+
+                  if (issue.title === title) {
+                    return
+                  }
+                }
+
+                github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  assignees: ['jdbaldry'],
+                });
+              });

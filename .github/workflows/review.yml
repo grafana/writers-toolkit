@@ -29,7 +29,7 @@ jobs:
           script: |
             const fs = require('fs')
 
-            octokit.rest.issues.create({
+            github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'Docs for review',

@@ -16,28 +16,31 @@ keywords:
 
 # Documentation tooling and workflows
 
-This section provides an overview of the documentation tools we use at Grafana and highlights some of the key processes we use to create and review documentation.
+Grafana manages documentation as code and stores it in version control using Git.
+To learn more about how to use Git, refer to [Use Git](#use-git).
 
-## Use git
+## Use Git
 
-This document explains how to use the `git` command line tool to contribute changes to a Grafana Labs repository.
-
-Although processes for contributing changes differ for each repository, at Grafana there is a generally consistent workflow defined below.
+Although processes for contributing changes differ for each repository, at Grafana there is a generally consistent workflow.
 
 ### Create a local repository
 
-Creating a local repository is only necessary when first contributing to a new repository.
+Creating a local repository is only necessary when first contributing to a GitHub repository.
 To create a local repository from a remote repository, use `git clone` with the URL of the repository.
+
+<!-- vale Grafana.Timeless = NO -->
 
 There are two types of URL used for cloning: SSH and HTTPS.
 Using SSH URLs means that you don't have to provide a username and personal access token when pushing commits.
 Instead, authentication with for URLs uses an SSH key.
 To set up SSH key authentication in GitHub, refer to [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
+<!-- vale Grafana.Timeless = YES -->
+
 The SSH URL for a Grafana repository is `git@github.com:grafana/<REPOSITORY>.git`.
 For example, the SSH URL for the Grafana Mimir repository is `git@github.com:grafana/mimir.git`.
 
-Cloning a repository creates a directory containing a git repository and a configured git remote named `origin` that refers to the remote repository.
+Cloning a repository creates a directory containing a Git repository and a configured Git remote named `origin` that refers to the remote repository.
 
 To clone the Grafana Mimir repository, for example:
 
@@ -63,11 +66,11 @@ You can then enter the repository by changing to the newly created directory.
 cd mimir
 ```
 
-For a full list of Grafana repositories, refer to [Grafana Labs](https://github.com/orgs/grafana/repositories).
+For a full list of Grafana repositories, refer to [the GitHub repository list for the Grafana organization](https://github.com/orgs/grafana/repositories).
 
 ### Download updated references from the remote repository
 
-Before contributing changes to a new repository, it's **critical** to have an up-to-date copy of the remote references so that your changes aren't out of date.
+Before contributing changes to a repository, it's important to have an up-to-date copy of the remote references so that your changes aren't out of date.
 To fetch the updated references from the remote repository, use `git fetch`.
 
 ```bash
@@ -89,18 +92,18 @@ From github.com:grafana/mimir
  * [new branch]          threaded-reader                  -> origin/threaded-reader
 ```
 
-### Create a new branch from the main remote branch
+### Create a branch from the default remote branch
 
 By convention, the remote repository in GitHub is the source of truth for a repository's history.
-The main branch of a repository is typically called `main` and occasionally called `master`.
-Note that we prefer to use inclusive language, so `main` is the preferred name.
+The default branch of a repository is typically called `main` and occasionally called `master`.
+Grafana prefers to use inclusive language, so `main` is the preferred name.
 
-After fetching the latest changes to your local repository from the remote repository in GitHub, create a local branch to commit your changes.
+After fetching the changes from the remote repository in GitHub, create a local branch to commit your changes.
 Working on your own branch separates and isolates your changes so that they can be later reviewed before incorporation into the main branch.
 
 A branch name should be unique.
 
-To create a new branch called `my-branch` from the remote branch called `main`:
+To create a branch called `my-branch` from the remote branch called `main`:
 
 ```bash
 git checkout -b my-branch origin/main
@@ -113,10 +116,14 @@ branch 'my-branch' set up to track 'origin/main'.
 Switched to a new branch 'my-branch'
 ```
 
-You are now on a new local branch and can begin to commit changes.
-This means that you are now working on a branch you've created to reflect the changes you're planning to make and can use this branch to develop your content and test different layouts/approaches/structures freely.
+<!-- vale Grafana.Timeless = NO -->
 
-To check which branch you currently working on, use `git branch`.
+You are now on a new local branch and can begin to commit changes.
+This means that you are now working on a branch you've created to reflect the changes you're planning to make and can use this branch to develop your content and test different layouts, approaches, or structures freely.
+
+<!-- vale Grafana.Timeless = YES -->
+
+To check which branch you are working on, use `git branch`.
 The command outputs a list of local branches with your current branch marked with an asterisk `*`.
 For example:
 
@@ -135,27 +142,29 @@ Indicating that you are on the branch `my-branch` and there is another local bra
 
 Alternatively, you can use `git status` to check your current branch and understand the status of the branch.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 `git status` relies on your local repository having the up-to-date references from the remote repository.
 
 Run `git fetch` before `git status` for the most accurate status.
-{{% /admonition %}}
+{{< /admonition >}}
 
 To understand the output of `git status`, refer to [Git - git-status Documentation](https://git-scm.com/docs/git-status#_output).
 
-### Checkout a PR branch from a fork
+### Check out a PR branch from a fork
 
-> A fork is a new repository that shares code and visibility settings with the original "upstream" repository.
+A fork is a repository that shares code and visibility settings with the original _upstream_ repository.
 
 For more information, refer to [About forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
-To checkout a PR branch from a fork, use the GitHub CLI (`gh`) tool.
+To check out a PR branch from a fork, use the GitHub CLI (`gh`) tool.
+To install the GitHub CLI tool, refer to [Install GitHub CLI](#install-github-cli).
+
 It fetches from the fork remote repository and configures a local branch in your repository to track that remote branch in the fork.
 
 To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
 
+Run the command from a directory within your local checkout of the upstream repository to check out a contributor's PR.
 Replace _`PR NUMBER`_ with the number of the pull request.
-Run the command from a directory within your local checkout of the upstream repository.
 
 ```shell
 gh pr checkout <PR NUMBER>
@@ -174,9 +183,17 @@ From github.com:grafana/grafana
 Switched to branch 'patch-2'
 ```
 
-The GitHub CLI tool (`gh`) sets up tracking information for the newly created local branch.
-If the contributor has allowed changes to their branch from maintainers, you can push to their branch with `git push`.
-For more information, refer to [Allowing changes to a pull request branch created from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
+The GitHub CLI tool automatically configures the remote tracking branch so you can push and pull from the fork branch.
+
+<!-- vale Grafana.Timeless = NO -->
+
+{{< admonition type="note" >}}
+You can only push to a fork if the PR author has enabled **Allow edits and access to secrets by maintainers** or **Allow edits by maintainers**.
+
+To enable maintainer edits, refer to [Enabling repository maintainer permissions on existing pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork#enabling-repository-maintainer-permissions-on-existing-pull-requests).
+{{< /admonition >}}
+
+<!-- vale Grafana.Timeless = YES -->
 
 ### Commit changes to your branch
 
@@ -207,14 +224,14 @@ Answering the prompt with `a` stages the hunk and any remaining hunks.
 
 Using the prompt, stage all hunks relevant to your current change.
 
-Once you have staged your changes, you can commit them with `git commit -s`.
+After you have staged your changes, you can commit them with `git commit -s`.
 `git` opens your text editor where you can type a commit message.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 The `-s` flag adds a `Signed-off-by` message to your commits that states you agree to the terms published at https://developercertificate.org/ for that particular commit.
 
 This is a requirement for a number of repositories.
-{{% /admonition %}}
+{{< /admonition >}}
 
 The first line of a message is the subject.
 Commit subjects should be descriptive and concise and are typically written in the imperative, present tense.
@@ -228,7 +245,7 @@ American English is preferred by our technical documentation style-guide.
 For more information, refer to https://github.com/grafana/technical-documentation/tree/main/docs/sources/style-guide.
 ```
 
-Finally, save and close the file opened by `git` to finish the commit.
+Save and close the file opened by `git` to finish the commit.
 
 For small changes where you only need write a subject, use the `-m` flag to provide the message without invoking your editor.
 For example:
@@ -277,16 +294,16 @@ Here, you can also edit the title and further detail in the larger text box as w
 
 If you rewrite local history, or your local branch diverges from the one in the remote for other reasons, you might need to force the remote to accept your changes.
 
-In such cases, prefer `--force-with-lease` over `--force`, which will overwrite the branch in the remote only if you have a tracking branch that is up to date.
+In such cases, prefer `--force-with-lease` over `--force`, which overwrites the branch in the remote only if you have a tracking branch that's up to date.
 That way, you won't accidentally overwrite commits pushed by others that you didn't know about.
 For more information, refer to the documentation of the option in `man git-push`.
 
 ### Merge changes from the main branch
 
-Because git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.
+Because Git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.
 From the point where you created your branch and when you're ready to merge the pull request, the main branch might have changed in significant ways, or even developed a conflict with your branch.
 
-If the changes don't conflict, you can use git to incorporate the changes made to the main branch with yours without making any additional changes.
+If the changes don't conflict, you can use Git to incorporate the changes made to the main branch with yours without making any additional changes.
 
 First, fetch changes to all branches and remotes:
 
@@ -301,7 +318,8 @@ git switch main
 git merge --ff-only
 ```
 
-After switching branches, git also lets you know if your local copy needs updating ("Your branch is behind 'origin/main'..."). The `--ff-only` flag means "fast-forwarding", which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
+After switching branches, Git also lets you know if your local copy needs updating with the message _Your branch is behind 'origin/main'_.
+The `--ff-only` flag means _fast-forwarding_, which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
 
 ```console
 Switched to branch 'main'
@@ -316,7 +334,7 @@ git switch my-branch
 git merge main
 ```
 
-If there are no changes to apply, git confirms this:
+If there are no changes to apply, Git confirms this:
 
 ```bash
 $ git merge main
@@ -328,7 +346,7 @@ The output is similar to the following:
 Already up to date.
 ```
 
-Otherwise, if successful, git outputs the changes being applied to your branch:
+Otherwise, if successful, Git outputs the changes it applied to your branch:
 
 ```bash
 $ git merge main
@@ -349,7 +367,7 @@ Merge made by the 'recursive' strategy.
 
 ### Resolve conflicts
 
-GitHub and git both warn you when the source branch and your branch directly conflict.
+GitHub and Git both warn you when the source branch and your branch directly conflict.
 
 GitHub notifies you in the pull request if your branch conflicts with the source branch.
 If the conflict is easy to resolve, GitHub offers to help you resolve it using the web editor.
@@ -357,7 +375,7 @@ For more information refer to [About merge conflicts](https://docs.github.com/en
 
 If the conflict is too complex to resolve in the web editor, GitHub directs you to resolve it on the command line.
 
-If there's a conflict when attempting to merge the main branch into yours, git also tells you which files are in conflict:
+If there's a conflict when attempting to merge the main branch into yours, Git also tells you which files are in conflict:
 
 ```bash
 $ git merge main
@@ -366,12 +384,12 @@ CONFLICT (content): Merge conflict in .github/CODEOWNERS
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-GitHub also has detailed, cross-platform instructions for resolving a merge conflict using git on the command line.
+GitHub also has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
 For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
 ## Use GitHub CLI
 
-GitHub CLI simplifies some git workflows when working with GitHub repositories.
+GitHub CLI simplifies some Git workflows when working with GitHub repositories.
 
 ### Install GitHub CLI
 

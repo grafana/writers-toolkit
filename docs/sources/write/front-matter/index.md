@@ -202,9 +202,9 @@ Use `description` to provide the short description of the topic to search engine
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
-Often, this doesn’t need to be original text, you can often scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
-If it's too long, it is harmlessly truncated on social media.
-Use double quotes (`"`) to surround the title. Do not use smart quotes.
+Often, this doesn’t need to be original text.
+You can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
+If the description is too long, it's harmlessly truncated on social media.
 
 ### Draft
 
@@ -267,6 +267,14 @@ cascade:
 
 Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 
+### Slug
+
+The `slug` front matter overrides the last segment of the URL path.
+It's ineffective on `_index.md` files which are also known as _section pages_ or _branch bundles_.
+For more information, refer to [Slug](https://gohugo.io/content-management/urls/#slug).
+
+You should prefer to update the filename instead of using the `slug` front matter because it makes it easier to find the correct source file for a URL.
+
 ### Title (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
@@ -283,23 +291,73 @@ Use `weight` to specify a different topic order within the left-hand sidebar on 
 
 Use increments of `100` for content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
 
-## Example with different page and menu titles
+## Tutorials
 
+There is additional front matter that you only need for tutorials.
+Tutorials should also include all the regular front matter.
+
+### Associated technologies
+
+The `associated_technologies` front matter is a sequence of strings that refer to taxonomies in the website data directory.
+If you are a Grafana Labs employee, you can view the associated technologies in the [website data directory](https://github.com/grafana/website/tree/master/data/taxonomies/associated_technologies).
+
+The `associated_technologies` value is the filename without the file extension.
+For example, to refer to author defined in the `mimir.yaml` file, use `mimir`.
+
+If you don't set the `associated_technologies` front matter, `grafana` is the default.
+
+The following YAML example demonstrates setting a single associated technology of `mimir`.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+associated_technologies:
+  - mimir
 ```
----
-title: About Grafana Mimir architecture
-menuTitle: Architecture
----
+
+### Authors
+
+The `authors` front matter is a sequence of strings that refer to author files defined in the website data directory.
+If you are a Grafana Labs employee, you can view and add authors to the [website data directory](https://github.com/grafana/website/tree/master/data/authors).
+
+The `authors` value is the filename without the file extension.
+For example, to refer to author defined in the `grafana_labs.yaml` file, use `grafana_labs`.
+
+If no appropriate author file exists, `grafana_labs` is a good default.
+
+The following YAML example demonstrates setting a single author of `grafana_labs`.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+authors:
+  - grafana_labs
 ```
 
-## Description example
+### Summary
 
-On Twitter:
+The `summary` front matter defines a short summary used on the tutorial's card on https://grafana.com/tutorials/.
 
-![Twitter description](twitter.png)
+The following YAML example demonstrates summary front matter.
+You must incorporate it with the rest of your front matter.
 
-For example:
+```yaml
+summary: Use Telegraf to stream live metrics to Grafana.
+```
 
-- Add a panel using these steps.
-- Understand the configuration options provided by…
-- Learn more about hash rings and their usage
+### Tags
+
+The `tags` front matter is a sequence of strings displayed as tags under the author section on the tutorials page.
+
+Typically, at least one of the tags is an expertise level.
+The expertise levels are:
+
+- Beginner
+- Intermediate
+- Advanced
+
+The following YAML example demonstrates setting a single tag of the expertise level `Beginner`.
+You must incorporate it with the rest of your front matter.
+
+```yaml
+tags:
+  - Beginner
+```

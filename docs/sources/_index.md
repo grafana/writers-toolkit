@@ -11,14 +11,14 @@ cascade:
   github_branch: main
   github_dir: /docs/sources
   replace_dir: docs/writers-toolkit/
-title: Writers' Toolkit
-description: Writers' Toolkit for technical documentation provided by Grafana Labs
-weight: 100
+date: 2024-02-13
+description: A toolkit for writing technical documentation.
 keywords:
   - writing guide
   - style guide
   - Grafana
   - documentation
+title: Writers' Toolkit
 ---
 
 # Writers' Toolkit
@@ -31,7 +31,7 @@ Writers' Toolkit helps you to create technical documentation that's consistent a
 The style guide extends [Google's developer documentation style guide](https://developers.google.com/style).
 If you can't find guidance on a specific topic in Writers' Toolkit, refer to Google's style guide.
 
-If you're new to the guide, start with the [Get started]({{< relref "./get-started" >}}) section.
+If it's your first time using the guide, start with the [Get started](https://grafana.com/docs/writers-toolkit/get-started/) section.
 
 ## Questions and feedback
 

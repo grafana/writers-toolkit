@@ -67,7 +67,7 @@ For other compound adjectives, use a hyphen unless otherwise specified.
 
 Use this rather than _modal_ or _dialog_.
 
-This guidance intentionally differs from Google style guide advice which prefers just [_dialog_](https://developers.google.com/style/word-list#dialog) because _dialog box_ is a user friendly term that's easy to understand.
+This guidance intentionally differs from Google style guide advice, which prefers just [_dialog_](https://developers.google.com/style/word-list#dialog) because _dialog box_ is a user-friendly term that's easy to understand.
 
 <!-- vale Grafana.YES = NO -->
 

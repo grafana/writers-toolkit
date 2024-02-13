@@ -32,7 +32,7 @@ jobs:
             octokit.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: 'Docs for review'
+              title: 'Docs for review',
               body: fs.readFileSync('.to-review.txt'),
               assignees: ['jdbaldry'],
             });

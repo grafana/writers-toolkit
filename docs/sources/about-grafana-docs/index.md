@@ -1,34 +1,35 @@
 ---
-title: Introduction to documentation
-menuTitle: Introduction
-description: Learn about Grafana's documentation
-weight: 100
 aliases:
   - /docs/writers-toolkit/writing-guide/about-grafana-docs
+date: 2024-02-13
+description: Learn about Grafana's documentation
 keywords:
   - Grafana
   - documentation
+menuTitle: Introduction
+title: Introduction to documentation
+weight: 100
 ---
 
 # Introduction to documentation
 
-All Grafana Enterprise and OSS documentation is located in the Grafana open source project GitHub repository: https://github.com/grafana/grafana/tree/main/docs/sources.
+Grafana Labs keeps technical documentation alongside the project code it documents.
 
-These are the other Grafana OSS project repositories:
+Some open source projects and their repositories are:
 
+- Grafana: https://github.com/grafana/grafana
 - Grafana Agent: https://github.com/grafana/agent
-- Loki: https://github.com/grafana/loki
-- Tempo: https://github.com/grafana/tempo
-- Mimir: https://github.com/grafana/mimir
-- k6: https://github.com/grafana/k6-docs
+- Grafana k6: https://github.com/grafana/k6-docs
+- Grafana Loki: https://github.com/grafana/loki
+- Grafana Mimir: https://github.com/grafana/mimir
+- Grafana Tempo: https://github.com/grafana/tempo
 
-Every repository contains a `docs/sources` directory, which is where we store our documentation.
+Each repository contains a `docs/sources` directory containing documentation source files.
 
 ## Topic-based authoring
 
 The technical writing team at Grafana Labs uses topic-based authoring.
 Topic-based authoring is a modular approach to content creation where content is structured around topics that can be mixed and reused in different contexts.
-The topic types we use at Grafana are concept, reference, and task.
 
 For more information on topic types, refer to [Topic types]({{< relref "../structure/topic-types" >}}).
 
@@ -44,18 +45,17 @@ Why is topic-based authoring important?
 
 ## Markdown
 
-We write our technical documentation using Markdown.
-For more information, refer to the [Markdown style guide]({{< relref "../write/markdown-guide" >}}).
+Grafana writes technical documentation using Markdown.
+For more information, refer to the [Markdown style guide](https://grafana.com/docs/writers-toolkit/write/markdown-guide/).
 
 ## Ways to contribute
 
-We're thrilled that you are considering contributing to the documentation.
 You can contribute content in the following ways:
 
-- [Request a change]({{< relref "../contribute-documentation#request-a-change" >}})
-- [Edit a topic]({{< relref "../contribute-documentation#edit-a-topic" >}})
-- [Create a topic]({{< relref "../structure/topic-types" >}})
+- [Report a problem](https://grafana.com/docs/writers-toolkit/contribute-documentation/#request-a-change)
+- [Edit a topic](https://grafana.com/docs/writers-toolkit/contribute-documentation/#edit-a-topic)
+- [Create a topic](https://grafana.com/docs/writers-toolkit/contribute-documentation/#create-a-topic)
 
-## Join our community
+## Join the community
 
-For general discussions about documentation, you’re welcome to join the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel on our public Grafana Slack team.
+For general discussions about documentation, you’re welcome to join the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel on the public Grafana Slack.

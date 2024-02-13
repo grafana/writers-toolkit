@@ -43,11 +43,11 @@ jobs:
                 const title = `Review \`${path}\``;
 
                 for (const issue of issues) {
-                  if (issue.title === title) {
-                    return
+                  if (issue.pull_request) {
+                    continue
                   }
 
-                  if (issue.pull_request) {
+                  if (issue.title === title) {
                     return
                   }
                 }

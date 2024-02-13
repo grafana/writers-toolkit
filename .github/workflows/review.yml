@@ -15,8 +15,10 @@ jobs:
           go-version: 1.21
 
       - name: Build tool
-        working-directory: ./tools
-        run: go build ./cmd/review
+        run: |
+          ls -al
+          cd tools
+          go build ./cmd/review
 
       - name: Run tool
         run: ./tools/review ./docs/sources | head -n 3 > .to-review.txt

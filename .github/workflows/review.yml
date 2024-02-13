@@ -1,0 +1,36 @@
+name: Check for pages that require review
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'
+  workflow_dispatch:
+jobs:
+  main:
+    if: github.repository == 'grafana/writers-toolkit'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+
+      - name: Build tool
+        working-directory: tools
+        run: go build ./cmd/review
+
+      - name: Run tool
+        run: ./tools/review ./docs/sources | head -n 3 > .to-review.txt
+
+      - run: Create issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+
+            octokit.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Docs for review'
+              body: fs.readFileSync('.to-review.txt'),
+              assignees: ['jdbaldry'],
+            });

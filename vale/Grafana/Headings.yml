@@ -45,11 +45,13 @@ exceptions:
   - Memcached
   - Mimir
   - Node Exporter
+  - OpenCost
   - OpenTelemetry
   - OpenTelemetry Collector
   - Prometheus
   - PromQL
   - Promtail
+  - Pyroscope
   - Redis
   - SRE
   - Tempo

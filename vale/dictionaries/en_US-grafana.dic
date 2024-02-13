@@ -1,21 +1,23 @@
-75
+81
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
 Ansible/ po:adjective
 Ansible/ po:noun
-Beyla/ po:noun
 API/S po:noun
 autoscale/DGRS po:verb
 backport/DGS po:verb
+Beyla/ po:noun
 blockquote/S po:noun
 BPF/ po:noun
 cAdvisor/ po:noun
+Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
 don't/S po:noun
+Dynatrace/ po:noun
 enablement/ po:noun
 enqueue/DS po:verb
 ESLint/ po:noun
@@ -29,7 +31,9 @@ inclusivity/ po:noun
 ingester/S po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
+Jira/ po:noun
 JMeter/ po:noun
+Jsonnet/ po:noun
 JUnit/ po:noun
 Kinesis/ po:noun
 kubelet/ po:noun
@@ -41,12 +45,14 @@ OpenTelemetry/ po:adjective
 OpenTelemetry/ po:noun
 OTel/ po:adjective
 OTel/ po:noun
+Parca/ po:noun
 performant/ po:adjective
 Phlare/ po:noun
 Podman/ po:noun
 preconfigure/D po:verb
 Promtail/ po:noun
 provision/dD po:verb
+Pyroscope/ po:noun
 query/ po:noun
 query/A po:adjective
 query/DGS po:verb

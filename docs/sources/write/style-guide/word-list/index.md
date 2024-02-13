@@ -99,13 +99,24 @@ Use this rather than _hold the pointer over_ or _point to_.
 
 Use this rather than _hamburger menu_ or _kebab menu_.
 
-<!--
 ## N
+
+### Node Exporter
+
+When referring to the product, Prometheus Node Exporter, capitalize both words in the term _Node Exporter_. Don't use _Node exporter_ or _node exporter_.
+
+When referring to the tool, use `node_exporter`. The text should always be pre-formatted (in "code" font).
+
+<!--
 ## O
 ## P
 ## Q -->
 
 ## R
+
+### React
+
+Use this rather than _React.js_ or _ReactJS_.
 
 ### README
 

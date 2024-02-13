@@ -15,7 +15,7 @@ jobs:
           go-version: 1.21
 
       - name: Build tool
-        working-directory: tools
+        working-directory: ./tools
         run: go build ./cmd/review
 
       - name: Run tool

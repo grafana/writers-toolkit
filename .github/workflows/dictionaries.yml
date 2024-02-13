@@ -1,9 +1,37 @@
 name: Rebuild the dictionaries on a branch
 on:
   workflow_dispatch:
+    inputs:
+      trace:
+        default: false
+        description: Print command traces?
+        required: false
+        type: boolean
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - run: make all
-        working-directory: vale/dictionaries
+      - uses: actions/checkout@v4
+
+      - working-directory: vale/dictionaries
+        run: |
+          set -euf -o pipefail
+
+          if ${{ inputs.trace }}; then
+            set -x
+          fi
+
+          # commit adds and commits the updated files as the Grafanabot GitHub user.
+          function commit {
+            git add .
+            git config --local user.email bot@grafana.com
+            git config --local user.name grafanabot
+            git commit --message 'Run `prettier`'
+          }
+
+          make all
+
+          if ! git diff --exit-code; then
+            commit
+            git push origin
+          fi

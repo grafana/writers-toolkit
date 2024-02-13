@@ -21,7 +21,7 @@ jobs:
       - name: Run tool
         run: ./tools/review ./docs/sources | head -n 3 > .to-review.txt
 
-      - run: Create issues
+      - name: Create issues
         uses: actions/github-script@v7
         with:
           script: |

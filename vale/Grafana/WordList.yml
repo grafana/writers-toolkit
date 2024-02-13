@@ -69,7 +69,6 @@ swap:
   grayed-out: unavailable
   HTTPs: HTTPS
   in order to: to
-  ingest: import|load
   jsonnet: Jsonnet
   log(?:ql|QL): LogQL
   loki: Loki

@@ -55,6 +55,7 @@ Pyroscope/ po:noun
 query/ po:noun
 query/A po:adjective
 query/DGS po:verb
+React/ po:noun
 redirection/S po:noun
 SDK/S po:noun
 shortcode/S po:noun

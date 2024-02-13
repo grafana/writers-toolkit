@@ -1,4 +1,4 @@
-81
+83
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -36,6 +36,7 @@ JMeter/ po:noun
 Jsonnet/ po:noun
 JUnit/ po:noun
 Kinesis/ po:noun
+KPI/S po:noun
 kubelet/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
@@ -56,6 +57,7 @@ Pyroscope/ po:noun
 query/ po:noun
 query/A po:adjective
 query/DGS po:verb
+React/ po:noun
 redirection/S po:noun
 SDK/S po:noun
 shortcode/S po:noun

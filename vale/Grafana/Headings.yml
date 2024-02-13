@@ -45,6 +45,7 @@ exceptions:
   - Memcached
   - Mimir
   - Node [Ee]xporter
+  - OpenCost
   - OpenTelemetry
   - OpenTelemetry Collector
   - Prometheus

@@ -29,14 +29,14 @@ jobs:
           script: |
             const fs = require('fs')
 
+            const opts = github.rest.issues.listForRepo.endpoint.merge({state: 'all'});
+            const issues = await github.paginate(opts);
+
             fs.readFileSync(".to-review.txt", "utf-8")
               .split("\n")
               .forEach((line) => {
                 const path = line.replace(/:1:1$/, "");
                 const title = `Review \`${path}\``;
-
-                const opts = github.rest.issues.listForRepo.endpoint.merge({state: 'all'});
-                const issues = await github.paginate(opts);
 
                 for (const issue of issues) {
                   if (issue.title === title) {

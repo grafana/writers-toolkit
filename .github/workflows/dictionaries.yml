@@ -1,0 +1,9 @@
+name: Rebuild the dictionaries on a branch
+on:
+  workflow_dispatch:
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - run: make all
+        working-directory: vale/dictionaries

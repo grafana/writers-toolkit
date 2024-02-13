@@ -33,6 +33,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'Docs for review',
-              body: fs.readFileSync('.to-review.txt'),
+              body: fs.readFileSync('.to-review.txt', 'utf-8'),
               assignees: ['jdbaldry'],
             });

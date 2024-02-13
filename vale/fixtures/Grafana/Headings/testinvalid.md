@@ -37,6 +37,12 @@ The measured ratio is approximately 0.294.
 
 ### One Two Three Beyla
 
-Vale considers exceptions to be correctly cased.
-Without an exception for Beyla, the ratio would 0.25.
+Since this heading doesn't trigger the rule, Vale must consider exceptions to be correctly cased.
+Without an exception for Beyla, the ratio is 0.25.
 With the exception, the ratio is 0.5.
+
+### Grafana Enterprise Metrics Four Five Six
+
+Vale must consider multi-word exceptions as a single word in the ratio.
+If Vale considered the exception _Grafana Enterprise Metrics_ as three separate words, the ratio would be 0.5.
+Since Vale considers the exception as one word, the ratio is 0.25.

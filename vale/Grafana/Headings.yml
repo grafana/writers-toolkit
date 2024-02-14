@@ -25,7 +25,7 @@ exceptions:
   - CPU
   - eBPF
   - Frontend Observability
-  - Generic
+  - Generic OAuth
   - GitHub
   - GitLab
   - Google

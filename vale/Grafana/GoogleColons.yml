@@ -1,8 +1,0 @@
-"extends": "existence"
-"level": "warning"
-"link": "https://developers.google.com/style/colons"
-"message": "'%s' should be in lowercase."
-"nonword": true
-"scope": "sentence"
-"tokens":
-  - ":\\s[A-Z]"

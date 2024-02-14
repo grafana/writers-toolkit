@@ -50,6 +50,7 @@ exceptions:
   - OpenCost
   - OpenTelemetry
   - OpenTelemetry Collector
+  - Personally Identifiable Information
   - Prometheus
   - PromQL
   - Promtail

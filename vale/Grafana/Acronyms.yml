@@ -25,12 +25,14 @@ exceptions:
   - HTTPS
   - IDE
   - JAR
+  - JPG
   - JSON
   - JSX
   - LESS
   - OSS
   - PDF
   - PHP
+  - PNG
   - RAM
   - REPL
   - RSA

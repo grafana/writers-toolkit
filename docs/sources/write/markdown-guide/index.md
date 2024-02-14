@@ -1,22 +1,20 @@
 ---
-title: Markdown guide
-menuTitle: Markdown guide
-description: Guidelines for writing technical documentation in Markdown.
-weight: 300
 aliases:
   - /docs/writers-toolkit/writing-guide/markdown-guide/
   - /docs/writers-toolkit/write/markdown-guide/
+date: 2024-02-13
+description: Guidelines for writing technical documentation in Markdown.
 keywords:
   - Markdown
   - headings
   - bold
   - tables
   - lists
+title: Markdown guide
+weight: 300
 ---
 
 # Markdown guide
-
-This Markdown guide helps keep contributions consistent across all Grafana Labs documentation.
 
 The Grafana website uses the static site generator [Hugo](https://gohugo.io/) to generate pages for the documentation.
 
@@ -119,7 +117,9 @@ For more information, refer to [Highlight syntax](https://grafana.com/docs/write
 
 ## Tables
 
-Construct a table by separating the table headings by a `|` (pipe) character. Then, add a second line of dashes (`-`) separated by another `|` character. When constructing the table cells, separate each cell’s data with a `|`.
+Construct a table by separating the table headings with pipe (`|`) characters.
+Separate the table heading row from the data with a line of columns where each cell is a series of dashes (`-`) separated by another pipe characters.
+Finally construct a series of table data rows by separating the cell data with pipe characters.
 
 ### Example
 
@@ -145,7 +145,7 @@ For sub-steps, use repetitive numbering as well.
 When writing paragraphs as list entries, you must use proper indentation:
 
 - Each line in the entry must match the indentation of the preceding list item.
-- Each new paragraph must have an empty line before it.
+- Each paragraph must have an empty line before it.
 
 For an numbered list in isolation, the indentation for the second sentence of a list entry is three spaces.
 
@@ -207,7 +207,7 @@ Use unordered lists whenever the items have no particular sequence.
 When writing paragraphs as list entries, you must use proper indentation:
 
 - Each line in the entry must match the indentation of the preceding list item.
-- Each new paragraph must have an empty line before it.
+- Each paragraph must have an empty line before it.
 
 For an unordered list in isolation, the indentation for the second sentence of a list entry is two spaces.
 
@@ -239,8 +239,9 @@ The title text does.
 - `![Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
 - `![Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
 
-If you need more image options, such as adding captions or controlling the image size, you can use the [`figure` shortcode]({{< relref "../shortcodes#figure" >}}).
+If you need more image options, such as adding captions or controlling the image size, you can use the [`figure` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#figure).
 Within Markdown, HTML is valid, but you should avoid it.
+
 If you are unable to achieve the desired styling with the `figure` shortcode, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new).
 
 ## Description list
@@ -283,4 +284,4 @@ You can include comments that don't display in published output:
 
 Shortcodes are snippets you use in source files to calling built-in or custom templates.
 Shortcodes templates avoid the need for HTML in Markdown and ensure consistency across the documentation set.
-To learn how to use shortcodes, refer to [Shortcodes]({{< relref "../shortcodes" >}}).
+To learn how to use shortcodes, refer to [Shortcodes](https://grafana.com/docs/writers-toolkit/shortcodes/).

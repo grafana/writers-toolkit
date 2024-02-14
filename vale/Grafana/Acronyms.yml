@@ -49,6 +49,7 @@ exceptions:
   - URI
   - URL
   - USB
+  - UTC
   - UTF
   - XML
   - XSS

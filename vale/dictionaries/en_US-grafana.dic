@@ -1,4 +1,4 @@
-84
+85
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -42,6 +42,7 @@ matcher/S po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
 OAuth/ po:noun
+Okta/ po:noun
 OnCall/ po:noun
 OpenTelemetry/ po:adjective
 OpenTelemetry/ po:noun

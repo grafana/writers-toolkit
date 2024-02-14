@@ -29,3 +29,10 @@ exceptions:
   - SSO
   - OAuth
   - Terraform
+  - GitLab
+  - GitHub
+  - Google
+  - Generic
+  - Okta
+  - Microsoft
+  - AzureAD

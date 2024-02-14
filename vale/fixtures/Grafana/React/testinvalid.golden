@@ -1,0 +1,5 @@
+testinvalid.md:3:3:Grafana.React:Use 'React' instead of 'ReactJS'.
+testinvalid.md:4:3:Grafana.React:Use 'React' instead of 'reactJS'.
+testinvalid.md:5:3:Grafana.React:Use 'React' instead of 'react.js'.
+testinvalid.md:6:3:Grafana.React:Use 'React' instead of 'react.JS'.
+testinvalid.md:7:3:Grafana.React:Use 'React' instead of 'react JS'.

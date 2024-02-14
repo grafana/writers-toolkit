@@ -1,0 +1,7 @@
+testinvalid.md:3:3:Grafana.Archives:Use 'extract' instead of 'unarchive'.
+testinvalid.md:4:3:Grafana.Archives:Use 'extract' instead of 'uncompress'.
+testinvalid.md:5:3:Grafana.Archives:Use 'extract' instead of 'untar'.
+testinvalid.md:7:3:Grafana.Archives:Use 'extract' instead of 'unzip'.
+testinvalid.md:9:3:Grafana.Archives:Use 'archive' or 'compressed file' instead of 'ZIP file'.
+testinvalid.md:11:3:Grafana.Archives:Use 'archive' or 'compressed file' instead of 'zip'.
+testinvalid.md:12:3:Grafana.Archives:Use 'archive' or 'compressed file' instead of 'ZIP'.

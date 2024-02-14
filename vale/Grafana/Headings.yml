@@ -7,19 +7,24 @@ link: "https://developers.google.com/style/capitalization#capitalization-in-titl
 level: warning
 scope: heading
 match: $sentence
-threshold: 0.6
+threshold: 0.3
 exceptions:
   - Ansible
   - Adaptive Metrics
   - Application Observability
+  - Beyla
   - BoltDB
+  - BPF
   - CLA
+  - CLI
   - Cloud Logs
   - Cloud Metrics
   - Cloud Traces
   - Cluster # Kubernetes
   - CPU
+  - eBPF
   - Frontend Observability
+  - GitHub
   - Grafana
   - Grafana Agent
   - Grafana Agent Flow
@@ -39,12 +44,15 @@ exceptions:
   - macOS
   - Memcached
   - Mimir
-  - Node [Ee]xporter
+  - Node Exporter
+  - OpenCost
   - OpenTelemetry
   - OpenTelemetry Collector
+  - Personally Identifiable Information
   - Prometheus
   - PromQL
   - Promtail
+  - Pyroscope
   - Redis
   - SRE
   - Tempo

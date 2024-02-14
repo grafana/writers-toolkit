@@ -1,0 +1,65 @@
+name: Check for pages that require review
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'
+  workflow_dispatch:
+jobs:
+  main:
+    if: github.repository == 'grafana/writers-toolkit'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+
+      - name: Build tool
+        working-directory: tools
+        run: go build ./cmd/review
+
+      - name: Run tool
+        run: ./tools/review ./docs/sources | head -n 3 > .to-review.txt
+
+      - name: Create issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+
+            const opts = github.rest.issues.listForRepo.endpoint.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+            });
+            const issues = await github.paginate(opts);
+
+            fs.readFileSync(".to-review.txt", "utf-8")
+              .split("\n")
+              .forEach((line) => {
+                const path = line.replace(/:1:1$/, "");
+                const title = `Review \`${path}\``;
+
+                if (path === "") {
+                  return
+                }
+
+                for (const issue of issues) {
+                  if (issue.pull_request) {
+                    continue
+                  }
+
+                  if (issue.title === title) {
+                    return
+                  }
+                }
+
+                github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  assignees: ['jdbaldry'],
+                });
+              });

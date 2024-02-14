@@ -23,13 +23,13 @@ This topic is only relevant for internal Grafana Labs contributors.
 
 ## What's new documentation development process
 
-You publish What’s new content to the website through the website Content Management System (CMS).
+What’s new content is published to the website through the website Content Management System (CMS).
 To add a new note, browse to the [What's new CMS collection](https://admin.grafana.com/content-admin/#/collections/whats-new).
 
 Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval.
-Quality assurance is a conversation within and between contributing teams and internal stakeholders, but there are some best practice guidelines described in the last two sections of this topic.
+_Quality assurance is a conversation within and between contributing teams and internal stakeholders_, but there are some best practice guidelines described in the last two sections of this topic.
 
-You should enter release notes into the CMS two to four weeks before the feature is available, depending on the size of the product or feature.
+Enter release notes into the CMS two to four weeks before the feature is available, depending on the size of the product or feature.
 This gives the Go To Market (GTM) team time for promotion and enablement.
 For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team.
 For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://grafana-intranet--simpplr.vf.force.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000004oOF7AAM).
@@ -117,7 +117,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
    1. In the **Status** drop-down, select **In review.**
 
       {{< admonition type="note" >}}
-      The Documentation Team doesn't automatically review these pull requests; teams that create What’s new entries are responsible for determining their own review process.
+      _The Documentation Team doesn't automatically review these pull requests; teams that create What’s new entries are responsible for determining their own review process._
 
       However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
 
@@ -138,7 +138,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
    1. In the **Publish** drop-down, click **Publish now**.
       The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the date you entered.
 
-For Grafana versioned releases, the content entered in the CMS is published in the versioned What’s new at a later date.
+For Grafana versioned releases, the content you enter in the CMS is published in the versioned What’s new at a later date.
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
 
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.

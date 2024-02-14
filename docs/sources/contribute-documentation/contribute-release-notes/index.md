@@ -34,14 +34,11 @@ This gives the Go To Market (GTM) team time for promotion and enablement.
 For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team.
 For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://grafana-intranet--simpplr.vf.force.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000004oOF7AAM).
 
-{{< admonition type="note" >}}
-In the context of the CMS, the word "published" has a slightly different meaning than in general use:
+It's important to understand that, in the context of the CMS, the word "published" has a slightly different meaning than in general use:
 
 - **Published**: Your entry is complete and in **Published** status.
   It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
 - **Live**: Your entry is visible on the _What's new in Cloud_ page.
-
-{{< /admonition >}}
 
 ### Create a What's new entry
 

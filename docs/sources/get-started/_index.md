@@ -86,5 +86,5 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 1. Backport, if required.
    For guidance, refer to [Backport changes](https://grafana.com/docs/writers-toolkit/review/backporting/).
 1. Add What’s new or release notes, if required.
-For guidance, refer to [Contribute to What’s new or release notes](https://grafana.com/docs/writers-toolkit/contribute-documentation/contribute-release-notes/).
+   For guidance, refer to [Contribute to What’s new or release notes](https://grafana.com/docs/writers-toolkit/contribute-documentation/contribute-release-notes/).
 <!-- vale Grafana.Timeless = YES -->

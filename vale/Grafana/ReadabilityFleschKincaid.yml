@@ -4,4 +4,4 @@
   (0.39 * (words / sentences)) + (11.8 * (syllables / words)) - 15.59
 "level": "suggestion"
 "link": "https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests"
-"message": "%s (aim for below 8)."
+"message": "%s aim for below 8."

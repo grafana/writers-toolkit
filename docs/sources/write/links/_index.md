@@ -49,7 +49,7 @@ If you are linking to versioned documentation, use a full URL with version subst
 For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
 
 When Hugo renders links with version substitution, it replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.
-You use full URLs with the substitution variable so that links will resolve to the correct version of documentation without requiring the writer to update the version for each release.
+You use full URLs with the substitution variable so that links resolve to the correct version of documentation without requiring the writer to update the version for each release.
 For examples of behavior, refer to [Examples](#examples).
 
 To override the version inferred by version substitution, set the preferred version in the root `_index.md` file for your documentation.

@@ -45,66 +45,97 @@ It's important to understand that, in the context of the CMS, the word "publishe
 When you’re ready to add a What’s new entry, complete the following steps:
 
 1. Fill out the fields:
-
-   - **FEATURE NAME**: Short headline for the feature.
-
-     For example, _Grafana OnCall integration for Alerting_.
-
-   - **FEATURE RELEASE DATE**: Date and time in UTC that you want this note to be live.
-
-     This should also be the feature release date.
-     If the feature is behind a feature toggle and gets rolled out only to a fraction of users the date is when the feature was first available to users opting in.
-
-     If you’ve opened a review PR, you must merge it before the date you've added here.
-     If you enter a date that has passed, the website publishes the note on the next build.
-
-   - **CONTACT**: First and last name.
-
-     The contents of this field aren't publicly viewable.
-
-   - **TAGS (OPTIONAL)**: Select category tags that users can use to filter their view.
-
-     Select as many as apply.
-
-   - **CLOUD AVAILABILITY**: Select the stage of the feature’s Cloud release.
-
-     If the feature isn't available in Cloud, select **None**.
-
-   - **CLOUD EDITIONS**: Select which account types have access to the feature.
-
-     If the feature isn't available in Cloud, select **None**.
-
-   - **SELF-MANAGED AVAILABILITY**: Select the stage of the feature's self-managed release.
-
-     If the feature isn't available in the self-managed product, select **None**.
-
-   - **SELF-MANAGED EDITIONS**: Select the on-premises offerings where this feature is available.
-
-     If the feature isn't available in the self-managed product, select **None**.
-
-     <!-- vale Grafana.GoogleWill = NO -->
-
-   - **SELF-MANAGED VERSION**: Select the version of self-managed product that will include the feature.
-
-     <!-- vale Grafana.GoogleWill = YES -->
-
-     If the feature isn't available in the self-managed product, select **None**.
-
-     If the version isn't available, select **No suitable option** and reach out in the #docs Slack channel so that a maintainer can add a new option.
-
-   - **BODY**: Include an overview of the feature and the problem it solves.
-
-     If you want to view some best practices around what to write here, refer to [Writing guidelines for What’s new](#writing-guidelines-for-whats-new-content).
-     Add any images and a link to your public YouTube video here.
-     If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).
-
-   - **DOCUMENTATION URL (OPTIONAL)**: URL to the public documentation for this feature.
-   - **ENABLEMENT VIDEO (OPTIONAL)**: Link to the video used for enablement.
-   - **INTERNAL INFORMATION (OPTIONAL)**: Information for Grafana Labs employees only.
-
-     For example, ProductDNA, Slack channel, FAQ, training documentation, or videos.
-     Used for training and internal announcements.
-     This is only visible on the [internal What's new page](https://admin.grafana.com/whats-new/), _not_ the [public What's New page](https://grafana.com/docs/grafana-cloud/whats-new/).
+   <table>
+     <thead>
+       <tr>
+         <th scope="col">Field</th>
+         <th scope="col">Description</th>
+         <th scope="col">Guidance</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th scope="row">FEATURE NAME</th>
+         <td>Short headline for the feature.</td>
+         <td>For example, <em>Grafana OnCall integration for Alerting</em>.</td>
+       </tr>
+       <tr>
+         <th scope="row">FEATURE RELEASE DATE</th>
+         <td>Date and time in UTC that you want this note to be live.</td>
+         <td>
+           <p>This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users the date is when the feature was first available to users opting in.</p>
+           <p>If you’ve opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build.</p>
+         </td>
+       </tr>
+       <tr>
+         <th scope="row">CONTACT</th>
+         <td>First and last name.</td>
+         <td>The contents of this field aren't publicly viewable.</td>
+       </tr>
+       <tr>
+         <th scope="row">TAGS (OPTIONAL)</th>
+         <td>Select category tags that users can use to filter their view.</td>
+         <td>Select as many as apply.</td>
+       </tr>
+       <tr>
+         <th scope="row">CLOUD AVAILABILITY</th>
+         <td>Select the stage of the feature’s Cloud release.</td>
+         <td>If the feature isn't available in Cloud, select <strong>None</strong>.</td>
+       </tr>
+       <tr>
+         <th scope="row">CLOUD EDITIONS</th>
+         <td>Select which account types have access to the feature.</td>
+         <td>If the feature isn't available in Cloud, select <strong>None</strong>.</td>
+       </tr>
+       <tr>
+         <th scope="row">SELF-MANAGED AVAILABILITY</th>
+         <td>Select the stage of the feature's self-managed release.</td>
+         <td>If the feature isn't available in the self-managed product, select <strong>None</strong>.</td>
+       </tr>
+       <tr>
+         <th scope="row">SELF-MANAGED EDITIONS</th>
+         <td>Select the on-premises offerings where this feature is available.</td>
+         <td>If the feature isn't available in the self-managed product, select <strong>None</strong>.</td>
+       </tr>
+       <tr>
+         <th scope="row">SELF-MANAGED VERSION</th>
+         <td>Select the version of self-managed product that will include the feature.</td>
+         <td>
+           <p>If the feature isn't available in the self-managed product, select <strong>None</strong>.</p>
+           <p>If the version isn't available, select <strong>No suitable option</strong> and reach out in the #docs Slack channel so that a maintainer can add a new option.
+           </p>
+         </td>
+       </tr>
+       <tr>
+         <th scope="row">BODY</th>
+         <td>Include an overview of the feature and the problem it solves.</td>
+         <td>
+           <p>If you want to view some best practices around what to write here, refer to <a href="#writing-guidelines-for-whats-new-content">Writing guidelines for What’s new</a>.</p>
+           <p>Add any images and a link to your public YouTube video here.</p>
+           <p>If you need more information on adding an image, refer to <a href="https://grafana.com/docs/writers-toolkit/write/image-guidelines/">Image, diagram, and screenshot guidelines</a>.</p>
+         </td>
+       </tr>
+       <tr>
+         <th scope="row">DOCUMENTATION URL (OPTIONAL)</th>
+         <td>URL to the public documentation for this feature.</td>
+         <td></td>
+       </tr>
+       <tr>
+         <th scope="row">ENABLEMENT VIDEO (OPTIONAL)</th>
+         <td>Link to the video used for enablement.</td>
+         <td></td>
+       </tr>
+       <tr>
+         <th scope="row">INTERNAL INFORMATION (OPTIONAL)</th>
+         <td>Information for Grafana Labs employees only.</td>
+         <td>
+           <p>For example, ProductDNA, Slack channel, FAQ, training documentation, or videos.</p>
+           <p>Used for training and internal announcements.</p>
+           <p>This is only visible on the <a href="https://admin.grafana.com/whats-new/">internal What's new page</a>, <em>not</em> the <a href="https://grafana.com/docs/grafana-cloud/whats-new/">public What's New page</a>.</p>
+         </td>
+       </tr>
+     </tbody>
+   </table>
 
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.

@@ -11,9 +11,10 @@ scope: heading
 match: $sentence
 threshold: 0.3
 exceptions:
-  - Ansible
   - Adaptive Metrics
+  - Ansible
   - Application Observability
+  - AzureAD
   - Beyla
   - BoltDB
   - BPF
@@ -26,7 +27,10 @@ exceptions:
   - CPU
   - eBPF
   - Frontend Observability
+  - Generic OAuth
   - GitHub
+  - GitLab
+  - Google
   - Grafana
   - Grafana Agent
   - Grafana Agent Flow
@@ -45,8 +49,11 @@ exceptions:
   - Loki
   - macOS
   - Memcached
+  - Microsoft
   - Mimir
   - Node Exporter
+  - OAuth
+  - Okta
   - OpenCost
   - OpenTelemetry
   - OpenTelemetry Collector
@@ -57,7 +64,9 @@ exceptions:
   - Pyroscope
   - Redis
   - SRE
+  - SSO
   - Tempo
+  - Terraform
   - TraceQL
   - WebSockets
   - What's new

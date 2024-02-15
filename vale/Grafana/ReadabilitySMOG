@@ -1,0 +1,6 @@
+"condition": "> 10"
+"extends": "metric"
+"formula": |
+  1.0430 * math.sqrt((polysyllabic_words * 30.0) / sentences) + 3.1291
+"link": "https://en.wikipedia.org/wiki/SMOG"
+"message": "Try to keep the SMOG grade (%s) below 10."{"level": "suggestion"}

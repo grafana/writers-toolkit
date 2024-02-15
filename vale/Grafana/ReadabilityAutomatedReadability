@@ -1,0 +1,6 @@
+"condition": "> 8"
+"extends": "metric"
+"formula": |
+  (4.71 * (characters / words)) + (0.5 * (words / sentences)) - 21.43
+"link": "https://en.wikipedia.org/wiki/Automated_readability_index"
+"message": "Try to keep the Automated Readability Index (%s) below 8."{"level": "suggestion"}

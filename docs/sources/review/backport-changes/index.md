@@ -19,9 +19,9 @@ Projects with versioned documentation typically maintain each version with the c
 The `main` branch has the most recent code and documentation.
 
 Project releases typically use long-lived branches that include the major and minor versions of the release.
-For example in the `grafana/grafana` repository, the `v9.0.x` long-lived release branch contains code and documentation for all patched versions of the major version `9` and minor version `0` of Grafana.
+For example, in the `grafana/grafana` repository, the `v9.0.x` long-lived release branch contains code and documentation for all patched versions of the major version `9` and minor version `0` of Grafana.
 
-Backporting takes a change from the `main` branch, and ports it back to another long-lived release branch.
+Backporting takes a change from the `main` branch and ports it back to another long-lived release branch.
 
 Every documentation pull request to a project with versioned documentation requires a decision about whether or not to backport it.
 
@@ -32,11 +32,11 @@ You should backport to all supported versions of the project affected by the pul
 To backport a change, add the appropriate `backport <BRANCH>` label.
 You can backport to more than one branch by using multiple labels.
 
-After the pull request is merged, Grot, the Grafana bot, creates a follow-up pull request for each of the `backport <BRANCH>` labels.
-If Grot is unable to automatically backport the changes, it comments on the first pull request with instructions about how to backport the change manually.
+After you merge the pull request, Grot, the Grafana bot, creates a follow-up pull request for each of the `backport <BRANCH>` labels.
+If Grot can't automatically backport the changes, it comments on the first pull request with instructions about how to backport the change manually.
 
 In repositories such as `grafana/grafana`, engineers sometimes create a branch for a release well before the release has shipped.
-If you intend to publish content against an imminent release, check for the existence of a backport label for the upcoming version before merging the pull request.
+If you intend to publish content against an imminent release, check for a backport label for the upcoming version before merging the pull request.
 Apply the label if it exists to ensure the content is automatically backported to the upcoming version's documentation.
 
 If you decide to _not_ backport a change, you don't need to add any label.
@@ -75,8 +75,8 @@ To decide whether to backport a pull request, use the following decision tree:
 
 ## Backporting tutorials
 
-Depending on the location from which the website mounts tutorials content, you might need to backport changes to them.
+Depending on the location from which the website mounts tutorial content, you might need to backport changes to them.
 
-For `grafana/grafana`, the website mounts tutorials content from the `next` version of documentation, so you don't need to backport changes.
+For `grafana/grafana`, the website mounts tutorial content from the `next` version of the documentation, so you don't need to backport changes.
 
 For other repositories, backport to the branch that corresponds with the version of the documentation on the website.

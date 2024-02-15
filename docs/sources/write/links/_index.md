@@ -1,11 +1,10 @@
 ---
-title: Links
-description: Understand how to link between pages.
-weight: 600
 aliases:
   - /docs/writers-toolkit/write/links/
   - /docs/writers-toolkit/write/references/
   - /docs/writers-toolkit/writing-guide/references/
+date: 2024-02-15
+description: Understand how to link between pages.
 keywords:
   - Hugo
   - link
@@ -14,6 +13,8 @@ keywords:
   - ref
   - references
   - relref
+title: Links
+weight: 600
 ---
 
 # Links
@@ -21,7 +22,7 @@ keywords:
 Choose your link type based on the applicable scenario:
 
 - [Link from source content that's used in multiple projects](#link-from-source-content-thats-used-in-multiple-projects)
-- [Link to grafana.com pages](#link-to-grafanacom-pages)
+- [Link to `grafana.com` pages](#link-to-grafanacom-pages)
 - [Link to external pages](#link-to-external-pages)
 - [Link to page headings](#link-to-page-headings)
 
@@ -36,20 +37,24 @@ Use the `docs/reference` shortcode.
 The source is reused as described in [Reuse directories of content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-directories/).
 For more information and examples, refer to [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
 
-## Link to grafana.com pages
+## Link to `grafana.com` pages
 
 Use a full URL.
 
 {{< admonition type="note" >}}
-The `doc-validator` linter does not check links that use full URLs.
+The `doc-validator` linter doesn't check links that use full URLs.
 {{< /admonition >}}
 
-If you are linking to versioned documentation, use a full URL with version substitution syntax.
-Version substitution is necessary for full URLs to link to the correct version of documentation.
-Usually, this is the current version of documentation.
+If you are linking to versioned documentation, use a full URL with version substitution syntax instead of the version path element.
+For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
 
-In versioned documentation, set the correct version in the root `_index.md` file for your documentation.
-The following YAML example merges with the existing front matter in the root `_index.md` file, and sets `GRAFANA_VERSION` to be `latest` for that page and all child pages.
+Version substitution replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.
+It's necessary for full URLs to link to the correct version of documentation without requiring the writer to update the version for each release.
+For examples of behavior, refer to [Examples](#examples).
+
+To override the version inferred by version substitution, set the preferred version in the root `_index.md` file for your documentation.
+The following YAML snippet sets `GRAFANA_VERSION` to be `latest` for that page and all child pages.
+You must merge the following YAML example with the front matter in the root `_index.md` file.
 
 ```yaml
 cascade:
@@ -62,7 +67,7 @@ cascade:
 
 Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path. Include trailing slashes.
 
-For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers) page with version substitution, use:
+For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers/) page with version substitution, use:
 
 ```markdown
 https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/
@@ -73,7 +78,7 @@ https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/
 
 **Link to Grafana Cloud documentation**:
 
-Grafana Cloud documentation is not versioned so no version substitution syntax is needed.
+Grafana Cloud documentation isn't versioned and doesn't require version substitution syntax.
 Use the full URL.
 
 For example, to link to the [Author and run tests](https://grafana.com/docs/grafana-cloud/k6/author-run/) page, use:
@@ -97,7 +102,9 @@ https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
 
 ## Link to external pages
 
-Use the full URL. Copy the URL as it is from the address bar. If it includes a trailing slash, include it; if it doesn't, don't.
+Use the full URL.
+Copy the URL exactly from the address bar.
+If it includes a trailing slash, include it; if it doesn't, don't.
 
 For example:
 

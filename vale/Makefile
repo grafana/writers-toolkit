@@ -41,7 +41,8 @@ grafana/vale/push: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
 .PHONY: sync
 sync: ## Update the vendored Google style.
 sync:
-	cd $(GIT_ROOT) && vale sync
+	cd $(GIT_ROOT) && vale sync; cd -
+	prettier -w .
 
 .vale.ini ../.vale.ini: ## Generate Vale INI configuration from the Jsonnet data template.
 .vale.ini ../.vale.ini: .vale.jsonnet

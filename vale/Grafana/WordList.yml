@@ -18,7 +18,6 @@ swap:
   "(?:hamburger menu|kebab menu)": menu icon
   "(?:hold the pointer over|point to)": hover over
   "(?:kill|terminate|abort)": stop|exit|cancel|end
-  "(?:OAuth ?2|Oauth)": OAuth 2.0
   "(?:ok|Okay)": OK|okay
   "(?:WiFi|wifi)": Wi-Fi
   "[^/]grafana[^/]": Grafana

@@ -1,0 +1,4 @@
+testinvalid.md:3:3:Grafana.OAuth:Use 'OAuth 2.0' instead of 'Oauth'.
+testinvalid.md:4:3:Grafana.OAuth:Use 'OAuth 2.0' instead of 'Oauth 2'.
+testinvalid.md:5:3:Grafana.OAuth:Use 'OAuth 2.0' instead of 'OAuth'.
+testinvalid.md:6:3:Grafana.OAuth:Use 'OAuth 2.0' instead of 'OAuth 2'.

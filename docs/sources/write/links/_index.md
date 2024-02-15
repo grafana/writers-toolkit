@@ -48,7 +48,7 @@ The `doc-validator` linter doesn't check links that use full URLs.
 If you are linking to versioned documentation, use a full URL with version substitution syntax instead of the version path element.
 For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
 
-Version substitution replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.
+When Hugo renders links with version substitution, it replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.
 You use full URLs with the substitution variable so that links will resolve to the correct version of documentation without requiring the writer to update the version for each release.
 For examples of behavior, refer to [Examples](#examples).
 

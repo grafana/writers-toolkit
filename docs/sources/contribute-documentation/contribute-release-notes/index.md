@@ -99,7 +99,9 @@ When you’re ready to add a What’s new entry, complete the following steps:
        </tr>
        <tr>
          <th scope="row">SELF-MANAGED VERSION</th>
+         <!-- vale Grafana.GoogleWill = NO -->
          <td>Select the version of self-managed product that will include the feature.</td>
+         <!-- vale Grafana.GoogleWill = YES -->
          <td>
            <p>If the feature isn't available in the self-managed product, select <strong>None</strong>.</p>
            <p>If the version isn't available, select <strong>No suitable option</strong> and reach out in the #docs Slack channel so that a maintainer can add a new option.

@@ -4,4 +4,4 @@
   (4.71 * (characters / words)) + (0.5 * (words / sentences)) - 21.43
 "level": "suggestion"
 "link": "https://en.wikipedia.org/wiki/Automated_readability_index"
-"message": "Automated Readability Index: %s (aim for below 8)."
+"message": "%s (aim for below 8)."

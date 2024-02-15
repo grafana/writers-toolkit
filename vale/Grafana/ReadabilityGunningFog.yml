@@ -4,4 +4,4 @@
   0.4 * ((words / sentences) + 100 * (complex_words / words))
 "level": "suggestion"
 "link": "https://en.wikipedia.org/wiki/Gunning_fog_index"
-"message": "Gunning-Fog index: %s (aim for below 10)."
+"message": "%s (aim for below 10)."

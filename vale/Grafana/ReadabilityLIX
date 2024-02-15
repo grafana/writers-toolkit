@@ -1,6 +1,0 @@
-"condition": "> 35"
-"extends": "metric"
-"formula": |
-  (words / sentences) + ((long_words * 100) / words)
-"link": "https://en.wikipedia.org/wiki/Lix_(readability_test)"
-"message": "Try to keep the LIX score (%s) below 35."{"level": "suggestion"}

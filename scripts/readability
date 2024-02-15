@@ -42,8 +42,8 @@ function readability {
   git show "${revision}:${file}" > "${tempfile}"
 
   # docs/sources/_index.md:1:1:Grafana.ReadabilityGunningFog:11.07 (aim for below 10).
-  while IFS=' :' read -r _file _line _col rule score _rest; do
-    printf '%s\t%s\t%s\n' "${file}" "${rule}" "${score}"
+  while IFS=' :' read -r _file _line _col rule score rest; do
+    printf '%s\t%s\t%s\t%s\n' "${file}" "${rule}" "${score}" "${rest}"
   done < <(vale --config=<(vale_config) --output=line "${tempfile}")
 }
 
@@ -67,10 +67,10 @@ case "${#}" in
     fi
 
     for ((i = 0; i < "${#before[@]}"; i++)); do
-      read -r _file rule before_score <<<"${before[$i]}"
-      read -r _file _rule after_score <<<"${after[$i]}"
+      read -r _file rule before_score guide <<<"${before[$i]}"
+      read -r _file _rule after_score _guide <<<"${after[$i]}"
       score="$(bc -l <<<"${after_score} - ${before_score}")"
-      printf '%s\t%s\t%.2f\t(Δ%+.2f)\n' "$1" "${rule}" "${before_score}" "${score}"
+      printf '%s\t%s\t%.2f\t(Δ%+.2f)\t%s\n' "$1" "${rule}" "${before_score}" "${score}" "${guide}"
     done
     ;;
   *)

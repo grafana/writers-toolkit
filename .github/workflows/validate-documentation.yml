@@ -80,6 +80,8 @@ jobs:
 
   report-readability:
     name: Report readability
+    container:
+      image: grafana/vale:latest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo with history

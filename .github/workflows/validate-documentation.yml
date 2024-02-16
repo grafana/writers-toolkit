@@ -88,10 +88,13 @@ jobs:
           fetch-depth: 0
       - name: Install Vale
         run: |
+          mkdir src
+          cd src
           wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.28.0_Linux_64-bit.tar.gz
           tar zxf vale_2.28.0_Linux_64-bit.tar.gz vale
           sudo cp vale /usr/local/bin/
-          rm -f rvale_2.28.0_Linux_64-bit.tar.gz
+          cd ..
+          rm -f src
       - name: Run tool
         run: |
           for file in "$(git --no-pager diff --name-only --diff-filter=ACMRT origin/${{ github.event.pull_request.base.ref }}...${{ github.event.pull_request.head.sha }} -- docs/sources)"; do

@@ -140,11 +140,7 @@ jobs:
                   body += `| ${file} |`;
                 }
 
-                const color =
-                  delta < 0 ||
-                  (rule === "Grafana.ReadabilityAutomatedReadability && delta > 0")
-                    ? "green"
-                    : "red";
+                const color = (delta < 0 || (rule === "Grafana.ReadabilityFleschReadingEase && delta > 0")) ? "green" : "red";
                 body += " $${" + score + "\\space\\color{" + color + "}" + delta + "}$$ |";
 
                 if (i === measures.length - 1) {

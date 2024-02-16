@@ -94,7 +94,7 @@ jobs:
           tar zxf vale_2.28.0_Linux_64-bit.tar.gz vale
           sudo cp vale /usr/local/bin/
           cd ..
-          rm -f src
+          rm -rf src
       - name: Run tool
         run: |
           for file in "$(git --no-pager diff --name-only --diff-filter=ACMRT origin/${{ github.event.pull_request.base.ref }}...${{ github.event.pull_request.head.sha }} -- docs/sources)"; do

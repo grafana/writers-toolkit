@@ -29,7 +29,13 @@ Grafana.ReadabilityFleschReadingEase = YES
 Grafana.ReadabilityGunningFog = YES
 Grafana.ReadabilityLIX = YES
 Grafana.ReadabilitySMOG = YES
-TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
+
+TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*, ({{[%<] .* [%>]}}.*?{{[%<] ?/.* [%>]}}), \
+(\[.+\]\({{< .+ >}}\)), \
+({{[%<] .+ [%>]}})
+BlockIgnores = (?sm)^({{[%<] [^{]*? [%>]}})\n$, \
+(?s) *({{< highlight [^>]* ?>}}.*?{{< ?/ ?highlight >}}), \
+({{[%<] .+ [%>]}})
 EOF
 }
 

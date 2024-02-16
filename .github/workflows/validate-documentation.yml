@@ -153,7 +153,8 @@ jobs:
                   body += `| ${file} |`;
                 }
 
-                body += ` ${score} ${delta} |`;
+                const color = (delta > 0 || (rule === "Grafana.ReadabilityAutomatedReadability && delta < 0")) ? "red" : "green";
+                body += ` ${color} ${score} <div style="color: ${color}">${delta}</div> |`;
 
                 if (i === measures.length - 1) {
                   body += "\n";

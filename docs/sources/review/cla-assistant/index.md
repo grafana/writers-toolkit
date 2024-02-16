@@ -10,7 +10,7 @@ title: Contributor License Agreement (CLA) assistant
 Grafana Labs uses [CLA assistant](https://cla-assistant.io/) to ensure that all contributors to a GitHub pull request have signed the Grafana Labs Contributor License Agreement (CLA).
 
 Grafana Labs doesn't operate the CLA assistant infrastructure.
-The CLA assistant project is open source and you can find the source code in the [`cla-assistant` repository](https://github.com/cla-assistant/cla-assistant).
+The CLA assistant project is open source, and you can find the source code in the [`cla-assistant` repository](https://github.com/cla-assistant/cla-assistant).
 
 The workflow runs automatically on all PRs.
 During periods of high load on the CLA assistant infrastructure, the workflow can fail to report a status.

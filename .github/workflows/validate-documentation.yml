@@ -78,6 +78,19 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  lexi:
+    name: Lexi
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo with history
+        uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+      - uses: Rebilly/lexi@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          glob: '**/*.md'
+
   report-readability:
     name: Report readability
     runs-on: ubuntu-latest
@@ -93,7 +106,7 @@ jobs:
           rm -rf src
 
       - name: Check out repository with history
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 

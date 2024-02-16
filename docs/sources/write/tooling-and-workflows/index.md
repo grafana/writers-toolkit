@@ -119,7 +119,7 @@ Switched to a new branch 'my-branch'
 ```
 
 <!-- vale Grafana.Timeless = NO -->
-<!-- This isn't discussin a new feature but instead a new result of a command -->
+<!-- This isn't discussing a new feature but instead a new result of a command -->
 
 You are now on a new local branch and can begin to commit changes.
 This means that you are now working on a branch you've created to reflect the changes you're planning to make and can use this branch to develop your content and test different layouts, approaches, or structures freely.

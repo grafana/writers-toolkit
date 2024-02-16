@@ -107,15 +107,55 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const fs = require('fs');
+            const fs = require("fs");
 
-            const body = fs.readFileSync(".output.txt", "utf-8");
+            const measures = [
+              "AutomatedReadability",
+              "ColemanLiau",
+              "FleschKincaid",
+              "FleschReadingEase",
+              "GunningFog",
+              "LIX",
+              "SMOG",
+            ];
 
-            if (body !== "") {
+            let body = "**Readability report**\n";
+            body += `| File | ${measures.join(" | ")} |\n`;
+            body += `| - |${" - |".repeat(measures.length)}\n`;
+
+            let i = 0;
+            const output = fs.readFileSync(".output.txt", "utf-8").split("\n");
+
+            output.forEach((line) => {
+              // docs/sources/_index.md	Grafana.ReadabilityAutomatedReadability	8.99	(Δ+0.84)	aim for below 8.
+              const re = new RegExp(
+                "^(?<file>[^\t]+?)\t(?<rule>[^\t]+?)\t(?<score>[^\t]+?)\t(?<delta>[^\t]+?)\t(?<guide>[^\t]+?)$",
+              );
+              const result = re.exec(line);
+
+              if (result !== null) {
+                const { file, rule, score, delta, guide } = result.groups;
+
+                if (i === 0) {
+                  body += `| ${file} |`;
+                }
+
+                body += ` ${score} ${delta} |`;
+
+                if (i === measures.length - 1) {
+                  body += "\n";
+                }
+              }
+
+              i = (i + 1) % measures.length;
+            });
+
+
+            if (output.length > 0) {
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: "```\n" + body + "```",
+                body,
               })
             }

@@ -158,7 +158,7 @@ jobs:
                   rule === "Grafana.ReadabilityAutomatedReadability && delta > 0"
                     ? "red"
                     : "green";
-                body += ` ${color} ${score}` + "$${color{" + color + `}${delta}}$$ |`;
+                body += ` ${color} ${score}` + "$${\\color{" + color + `}${delta}}$$ |`;
 
                 if (i === measures.length - 1) {
                   body += "\n";
@@ -184,10 +184,25 @@ jobs:
             </details>`;
 
             if (output.length > 0) {
-              github.rest.issues.createComment({
+              const comments = github.rest.pulls.listComments({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body,
-              })
+              }).filter((comment) => comment.body.match(new RegExp("^### Readability report")))
+
+              if (comments.length > 0) {
+                github.rest.issues.updateComment({
+                  comment_id: comment.id,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body,
+                })
+              } else {
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body,
+                })
+              }
             }

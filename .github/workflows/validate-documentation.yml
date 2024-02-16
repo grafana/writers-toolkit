@@ -155,9 +155,9 @@ jobs:
 
                 const color =
                   delta < 0 ||
-                  rule === "Grafana.ReadabilityAutomatedReadability && delta > 0"
-                    ? "red"
-                    : "green";
+                  (rule === "Grafana.ReadabilityAutomatedReadability && delta > 0")
+                    ? "green"
+                    : "red";
                 body += ` ${score} ` + "$${\\color{" + color + `}${delta}}$$ |`;
 
                 if (i === measures.length - 1) {

@@ -184,13 +184,14 @@ jobs:
             </details>`;
 
             if (output.length > 0) {
-              const comments = github.rest.issues.listComments({
+              const {data: comments} = await github.rest.issues.listComments({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-              }).filter((comment) => comment.body.match(new RegExp("^### Readability report")))
+              });
 
-              if (comments.length > 0) {
+              const existing = comments.filter((comment) => comment.body.match(new RegExp("^### Readability report")))
+              if (existing.length > 0) {
                 github.rest.issues.updateComment({
                   comment_id: comment.id,
                   owner: context.repo.owner,

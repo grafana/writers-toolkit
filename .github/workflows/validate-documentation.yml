@@ -110,13 +110,13 @@ jobs:
             const fs = require("fs");
 
             const measures = [
-              "AutomatedReadability (🎯 < 8)",
-              "ColemanLiau (🎯 < 9)",
-              "FleschKincaid (🎯 < 8)",
-              "FleschReadingEase (🎯 > 70)",
-              "GunningFog (🎯 < 10)",
-              "LIX (🎯 < 35)",
-              "SMOG (🎯 < 10)",
+              "AutomatedReadability",
+              "ColemanLiau",
+              "FleschKincaid",
+              "FleschReadingEase",
+              "GunningFog ",
+              "LIX",
+              "SMOG",
             ];
 
             let body = "### Readability report\n";
@@ -149,6 +149,23 @@ jobs:
 
               i = (i + 1) % measures.length;
             });
+
+            body += `
+            <details>
+            <summary>View metric targets</summary>
+            
+            | Metric | Range | Ideal score |
+            | --- | --- | --- |
+            | [AutomatedReadability](https://en.wikipedia.org/wiki/Automated_readability_index) | 6 (very easy read) to 14 (extremely difficult read) | 8 or less |
+            | [ColemanLiau](https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index) | 6 (very easy read) to 17 (extremely difficult read) |  9 or less |
+            | [FleschKincaid](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) | 6 (very easy read) to 17 (extremely difficult read) | 8 or less |
+            | [FleschReadingEase](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) | 100 (very easy read) to 0 (extremely difficult read) |  70 or more |
+            | [GunningFog](https://en.wikipedia.org/wiki/Gunning_fog_index) | 6 (very easy read) to 17 (extremely difficult read) | 10 or less |
+            | [LIX](https://en.wikipedia.org/wiki/Lix_(readability_test)) | 20 (very easy read) to 60+ (extremely difficult read) |  35 or less |
+            | [SMOG](https://en.wikipedia.org/wiki/SMOG) | 6 (very easy read) to 17 (extremely difficult read) |  10 or less |
+
+            </details>`
+
 
 
             if (output.length > 0) {

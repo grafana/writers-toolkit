@@ -110,16 +110,16 @@ jobs:
             const fs = require("fs");
 
             const measures = [
-              "AutomatedReadability",
-              "ColemanLiau",
-              "FleschKincaid",
-              "FleschReadingEase",
-              "GunningFog",
-              "LIX",
-              "SMOG",
+              "AutomatedReadability (🎯 < 8)",
+              "ColemanLiau (🎯 < 9)",
+              "FleschKincaid (🎯 < 8)",
+              "FleschReadingEase (🎯 > 70)",
+              "GunningFog (🎯 < 10)",
+              "LIX (🎯 < 35)",
+              "SMOG (🎯 < 10)",
             ];
 
-            let body = "**Readability report**\n";
+            let body = "### Readability report\n";
             body += `| File | ${measures.join(" | ")} |\n`;
             body += `| - |${" - |".repeat(measures.length)}\n`;
 

@@ -97,7 +97,7 @@ jobs:
           rm -rf src
       - name: Run tool
         run: |
-          for file in "$(git --no-pager diff --name-only --diff-filter=ACMRT origin/${{ github.event.pull_request.base.ref }}...${{ github.event.pull_request.head.sha }} -- docs/sources)"; do
+          for file in "$(git --no-pager diff --name-only --diff-filter=ACMRT origin/main | grep docs/sources)"; do
             ./scripts/readability "${file}" ${{ github.event.pull_request.base.ref }} ${{ github.event.pull_request.head.sha }} >> .output.txt
           done
       - uses: actions/github-script@v7

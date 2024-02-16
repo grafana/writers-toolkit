@@ -158,7 +158,7 @@ jobs:
                   (rule === "Grafana.ReadabilityAutomatedReadability && delta > 0")
                     ? "green"
                     : "red";
-                body += ` ${score}<br>` + "$${\\color{" + color + `}${delta}}$$ |`;
+                body += " $${" + score + "\\space\\color{" + color + "}" + delta "}$$ |";
 
                 if (i === measures.length - 1) {
                   body += "\n";

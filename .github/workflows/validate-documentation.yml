@@ -153,8 +153,12 @@ jobs:
                   body += `| ${file} |`;
                 }
 
-                const color = (delta > 0 || (rule === "Grafana.ReadabilityAutomatedReadability && delta < 0")) ? "red" : "green";
-                body += ` ${color} ${score} <div style="color: ${color}">${delta}</div> |`;
+                const color =
+                  delta < 0 ||
+                  rule === "Grafana.ReadabilityAutomatedReadability && delta > 0"
+                    ? "red"
+                    : "green";
+                body += ` ${color} ${score}` + "$${color{" + color + `}${delta}}$$ |`;
 
                 if (i === measures.length - 1) {
                   body += "\n";
@@ -164,10 +168,9 @@ jobs:
               i = (i + 1) % measures.length;
             });
 
-            body += `
-            <details>
+            body += `<details>
             <summary>View metric targets</summary>
-            
+
             | Metric | Range | Ideal score |
             | --- | --- | --- |
             | [AutomatedReadability](https://en.wikipedia.org/wiki/Automated_readability_index) | 6 (very easy read) to 14 (extremely difficult read) | 8 or less |
@@ -178,9 +181,7 @@ jobs:
             | [LIX](https://en.wikipedia.org/wiki/Lix_(readability_test)) | 20 (very easy read) to 60+ (extremely difficult read) |  35 or less |
             | [SMOG](https://en.wikipedia.org/wiki/SMOG) | 6 (very easy read) to 17 (extremely difficult read) |  10 or less |
 
-            </details>`
-
-
+            </details>`;
 
             if (output.length > 0) {
               github.rest.issues.createComment({

@@ -100,7 +100,7 @@ jobs:
       - name: Run tool
         run: |
           merge_base="$(git merge-base origin/${{ github.event.pull_request.base.ref }} ${{ github.event.pull_request.head.sha }})"
-          for file in "$(git --no-pager diff --name-only --diff-filter=ACMRT "${merge_base}" -- docs/sources)"; do
+          for file in $(git --no-pager diff --name-only --diff-filter=ACMRT "${merge_base}" -- docs/sources); do
             ./scripts/readability "${file}" "${merge_base}" ${{ github.event.pull_request.head.sha }} >> .output.txt
           done
 

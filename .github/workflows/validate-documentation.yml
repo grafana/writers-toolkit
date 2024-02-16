@@ -184,7 +184,7 @@ jobs:
             </details>`;
 
             if (output.length > 0) {
-              const comments = github.rest.pulls.listComments({
+              const comments = github.rest.issues.listComments({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,

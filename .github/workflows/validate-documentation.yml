@@ -193,7 +193,7 @@ jobs:
               const existing = comments.filter((comment) => comment.body.match(new RegExp("^### Readability report")))
               if (existing.length > 0) {
                 github.rest.issues.updateComment({
-                  comment_id: comment.id,
+                  comment_id: existing[0].id,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   body,

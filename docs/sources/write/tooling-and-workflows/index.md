@@ -1,17 +1,18 @@
 ---
-title: Documentation tooling and workflows
-menuTitle: Tooling and workflows
-description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
-weight: 200
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
   - /docs/writers-toolkit/write/tooling-and-workflows
+date: 2024-02-15
+description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
 keywords:
   - git
   - repository
   - github
   - review
   - approve
+menuTitle: Tooling and workflows
+title: Documentation tooling and workflows
+weight: 200
 ---
 
 # Documentation tooling and workflows
@@ -29,6 +30,7 @@ Creating a local repository is only necessary when first contributing to a GitHu
 To create a local repository from a remote repository, use `git clone` with the URL of the repository.
 
 <!-- vale Grafana.Timeless = NO -->
+<!-- Usage comes from the external page title -->
 
 There are two types of URL used for cloning: SSH and HTTPS.
 Using SSH URLs means that you don't have to provide a username and personal access token when pushing commits.
@@ -117,6 +119,7 @@ Switched to a new branch 'my-branch'
 ```
 
 <!-- vale Grafana.Timeless = NO -->
+<!-- This isn't discussing a new feature but instead a new result of a command -->
 
 You are now on a new local branch and can begin to commit changes.
 This means that you are now working on a branch you've created to reflect the changes you're planning to make and can use this branch to develop your content and test different layouts, approaches, or structures freely.
@@ -148,7 +151,7 @@ Alternatively, you can use `git status` to check your current branch and underst
 Run `git fetch` before `git status` for the most accurate status.
 {{< /admonition >}}
 
-To understand the output of `git status`, refer to [Git - git-status Documentation](https://git-scm.com/docs/git-status#_output).
+To understand the output of `git status`, refer to [Git - `git-status` Documentation](https://git-scm.com/docs/git-status#_output).
 
 ### Check out a PR branch from a fork
 
@@ -186,6 +189,7 @@ Switched to branch 'patch-2'
 The GitHub CLI tool automatically configures the remote tracking branch so you can push and pull from the fork branch.
 
 <!-- vale Grafana.Timeless = NO -->
+<!-- Usage comes from the external page title -->
 
 {{< admonition type="note" >}}
 You can only push to a fork if the PR author has enabled **Allow edits and access to secrets by maintainers** or **Allow edits by maintainers**.
@@ -369,13 +373,13 @@ Merge made by the 'recursive' strategy.
 
 GitHub and Git both warn you when the source branch and your branch directly conflict.
 
-GitHub notifies you in the pull request if your branch conflicts with the source branch.
+GitHub notifies you in the pull request if your branch conflicts with the target branch.
 If the conflict is easy to resolve, GitHub offers to help you resolve it using the web editor.
 For more information refer to [About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts).
 
 If the conflict is too complex to resolve in the web editor, GitHub directs you to resolve it on the command line.
 
-If there's a conflict when attempting to merge the main branch into yours, Git also tells you which files are in conflict:
+If there's a conflict when attempting to merge the target branch branch into yours, Git also tells you which files are in conflict:
 
 ```bash
 $ git merge main
@@ -384,7 +388,7 @@ CONFLICT (content): Merge conflict in .github/CODEOWNERS
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-GitHub also has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
+GitHub has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
 For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
 ## Use GitHub CLI

@@ -41,7 +41,8 @@ grafana/vale/push: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic
 .PHONY: sync
 sync: ## Update the vendored Google style.
 sync:
-	cd $(GIT_ROOT) && vale sync
+	cd $(GIT_ROOT) && vale sync; cd -
+	prettier -w .
 
 .vale.ini ../.vale.ini: ## Generate Vale INI configuration from the Jsonnet data template.
 .vale.ini ../.vale.ini: .vale.jsonnet
@@ -51,9 +52,16 @@ sync:
 .PHONY: Grafana/Google
 Grafana/Google: ## Generate the Grafana style from the Google style.
 Grafana/Google: google.jsonnet
+	rm -f $@*.yml
 	jsonnet -S -m . google.jsonnet
-	prettier -w Grafana/Google*.yml
+	prettier -w $@*.yml
 
+.PHONY: Grafana/Readability
+Grafana/Readability: ## Generate the Grafana style from the Readability style.
+Grafana/Readability: readability.jsonnet
+	rm -f $@*.yml
+	jsonnet -S -m . readability.jsonnet
+	prettier -w $@*.yml
 
 fixtures/Grafana/%: ## Generate the scaffolding to test a new Grafana Vale rule.
 fixtures/Grafana/%:

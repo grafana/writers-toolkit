@@ -46,7 +46,6 @@ swap:
   content type: media type
   curated roles: predefined roles
   data are: data is
-  deaggregate: disaggregate
   Developers Console: Google API Console|API Console
   disabled?: turn off|off
   ephemeral IP address: ephemeral external IP address
@@ -77,7 +76,6 @@ swap:
   tablename: table name
   tablet: device
   touch: tap
-  unaggregate: disaggregate
   url: URL
   vs\.: versus
   World Wide Web: web

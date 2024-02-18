@@ -13,19 +13,11 @@ aliases:
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
 To validate technical documentation with `doc-validator`, run `make doc-validator` from the `docs/` directory.
-Any linting errors are logged by the tool as JSON.
-
-For more human-readable output, pipe the output to [`jq`](https://jqlang.github.io/jq/).
-For example:
-
-```console
-make -s doc-validator | jq -r '"ERROR: \(.location.path):\(.location.range.start.line // 1):\(.location.range.start.column // 1): \(.message). Suggestion: \(.suggestions[0].text // "")"'
-```
 
 ## Error codes
 
 All errors include an error code.
-Each error code is documented in [Errata]({{< relref "./errata" >}}).
+You can find documentation for each error code in [Errata for `doc-validator`](https://grafana.com/docs/writers-toolkit/review/doc-validator/errata/).
 
 ## Run on specific files
 
@@ -33,7 +25,8 @@ The script that invokes `doc-validator` mounts projects using the Hugo website s
 All projects are subdirectories of `/hugo/content/docs/`.
 
 To run `doc-validator` on specific files, provide the _`DOC_VALIDATOR_INCLUDE`_ argument to your `make` command.
-It's value is a regular expression to be matched against file paths.
+It's value is a regular expression that the tool matches against file paths.
+`doc-validator` only lints the paths that the regular expression matches.
 
 ### Writers' Toolkit repository, `/docs/sources/write/` directory
 
@@ -45,10 +38,13 @@ make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/wr
 
 #### Explanation of the regular expression
 
-- `^` matches the empty string at the beginning of a line, effectively anchoring the regular expression to the start of the input.
-- Writers' Toolkit is not a versioned project so the content is mounted directly into the `/hugo/content/docs/writers-toolkit/` directory.
-- `write/` is appended to the literal string so that only the content in the `/docs/sources/write/` directory is validated.
-- `.*` matches zero or more additional characters, effectively matching any file paths in the `/hugo/content/docs/writers-toolkit/` directory.
+- `^` matches the empty string at the beginning of a line, anchoring the regular expression to the start of the input.
+- Writers' Toolkit isn't a versioned project and its documentation is synced directly into the `/hugo/content/docs/writers-toolkit/` directory in the website repository.
+
+  `make doc-validator` puts content in the same directories as the website.
+
+- `write/` matches literal string, only matching paths that contain `write/`.
+- `.*` matches zero or more additional characters, matching all pages under the `write/` directory.
 - `$` matches the empty string at the end of a line, effectively anchoring the regular expression to the end of the input.
 
 ### Grafana repository, `/docs/sources/developers/plugins/` directory
@@ -61,9 +57,9 @@ make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/grafana/latest/dev
 
 #### Explanation of the regular expression
 
-- `^` matches the empty string at the beginning of a line, effectively anchoring the regular expression to the start of the input.
+- `^` matches the empty string at the beginning of a line, anchoring the regular expression to the start of the input.
 - Grafana is a versioned project.
-  By default the script mounts Grafana content into the `/hugo/content/docs/grafana/latest/` directory.
-- `developers/plugins/` is appended to the literal string so hat only the content in the `/docs/sources/developers/plugins/` directory is validated.
-- `.*` matches zero or more additional characters, effectively matching any file paths in the `/hugo/content/docs/developers/plugins/` directory.
-- `$` matches the empty string at the end of a line, effectively anchoring the regular expression to the end of the input.
+  By default the script puts Grafana content into the `/hugo/content/docs/grafana/latest/` directory.
+- `developers/plugins/` matches the literal string, only matching paths that contain `developers/plugins/`
+- `.*` matches zero or more additional characters, matching all pages under the `developers/plugins/` directory.
+- `$` matches the empty string at the end of a line, anchoring the regular expression to the end of the input.

@@ -4,7 +4,7 @@
       StylesPath: '/etc/vale/styles',
       MinAlertLevel: 'suggestion',
 
-      Packages: 'Google, https://github.com/errata-ai/Hugo/releases/download/v0.2.0/Hugo.zip',
+      Packages: 'Google, https://github.com/errata-ai/Hugo/releases/download/v0.2.0/Hugo.zip, Readability',
     },
     sections: {
       '*': {

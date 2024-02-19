@@ -15,11 +15,12 @@ aliases:
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
 To lint prose with Vale, run `make vale` from the `docs/` directory.
-Any linting errors are logged by the tool.
+The tool prints linting errors to your terminal.
 
 Additionally, some repositories run Vale as part of Continuous Integration (CI).
 Repositories that run Vale in CI include:
 
+- [Grafana website](https://github.com/grafana/website)
 - [Writers' Toolkit](https://github.com/grafana/writers-toolkit)
 
 ## Skip rules
@@ -38,27 +39,31 @@ The task title contains a verb and an object. For example: "Create a dashboard".
 <!-- vale Grafana.Quotes = YES -->
 ```
 
-## Use Vale in VS Code
+## Use Vale in Visual Studio Code
 
-You can use Vale to lint your current document in VS Code.
+You can use Vale to lint your current document in Visual Studio Code.
 
 ### Before you begin
 
-If you are installing Vale on Linux, it may be possible to use the package repositories for your Linux distribution. The manual installation documented below is the preferred way to install Vale on Linux.
+If you are installing Vale on Linux, you may be able to install Vale from the package repositories for your Linux distribution.
+However, the following manual installation instructions are the preferred way to install Vale on Linux.
 
-{{% admonition type="note" %}}
-The Vale Snap is out of date and not maintained. Don't install Vale using the Ubuntu Snap store.
-{{% /admonition %}}
+{{< admonition type="note" >}}
+The Vale Snap is out of date and not maintained.
+Don't install Vale using the Ubuntu Snap store.
+{{< /admonition >}}
 
-If you are installing Vale on macOS, make sure that [Homebrew](https://brew.sh/) is installed.
+If you are installing Vale on macOS, first install [Homebrew](https://brew.sh/).
 
-If you are installing Vale on Windows, make sure that [Chocolatey](https://chocolatey.org/install) is installed.
+If you are installing Vale on Windows, first install [Chocolatey](https://chocolatey.org/install).
 
-{{% admonition type="note" %}}
-You can [download and manually install](https://vale.sh/docs/vale-cli/installation/#github-releases) Vale on Linux, macOS, or Windows. If you manually install Vale, you must configure your system to add Vale to your path or set the **Vale › Vale CLI: Path** in the Vale VS Code extension configuration.
-{{% /admonition %}}
+{{< admonition type="note" >}}
+You can [download and manually install](https://vale.sh/docs/vale-cli/installation/#github-releases) Vale on Linux, macOS, or Windows.
 
-### Install and configure Vale in VS Code
+If you manually install Vale, you must configure your system to add Vale to your path or set the **Vale › Vale CLI: Path** in the Vale Visual Studio Code extension configuration.
+{{< /admonition >}}
+
+### Install and configure Vale in Visual Studio Code
 
 1. Clone the [Writer's Toolkit](https://github.com/grafana/writers-toolkit/) repository.
 
@@ -70,16 +75,16 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
 
 1. Download and install [Vale](https://vale.sh/docs/vale-cli/installation/).
 
-   {{% admonition type="note" %}}
-   Verify that you are downloading the latest build of Vale for Linux.
-   To find the latest builds, refer to [Releases - errata-ai/vale](https://github.com/errata-ai/vale/releases).
-   {{% /admonition %}}
+   {{< admonition type="note" >}}
+   Verify that you are downloading the most recent build of Vale for Linux.
+   To find the most recent build, refer to [Releases - errata-ai/vale](https://github.com/errata-ai/vale/releases).
+   {{< /admonition >}}
 
    {{< code >}}
 
    ```linux-cli
-   wget https://github.com/errata-ai/vale/releases/download/v2.28.0/vale_2.29.0_Linux_64-bit.tar.gz
-   mkdir bin && tar -xvzf vale_2.29.0_Linux_64-bit.tar.gz -C bin
+   wget https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Linux_64-bit.tar.gz
+   mkdir bin && tar -xvzf vale_3.1.0_Linux_64-bit.tar.gz -C bin
    export PATH=./bin:"$PATH"
    ```
 
@@ -93,61 +98,74 @@ You can [download and manually install](https://vale.sh/docs/vale-cli/installati
 
    {{< /code >}}
 
-1. Create a `vale.ini` file in your home directory or in a working directory with the following contents:
+1. Create a `.vale.ini` file in your home directory or in a working directory with the following contents:
 
    ```bash
    MinAlertLevel = suggestion
-   StylesPath = /FULL_PATH_TO_REPO/writers-toolkit/vale
+   StylesPath = /<PATH TO WRITERS TOOLKIT REPOSITORY>/vale
+
    [*.md]
-   BasedOnStyles = Google, Grafana
-   Google.Quotes = NO
-   Google.Units = NO
-   Google.WordList = NO
+   BasedOnStyles = Grafana
    TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
    ```
 
-   Replace `FULL_PATH_TO_REPO` with the full path to the cloned Writer's Toolkit repository. The path depends on where you cloned the git repository. For example:
+   Replace _`PATH TO WRITERS TOOLKIT REPOSITORY`_ with the full path to your checkout of the Writer's Toolkit repository.
+   The path depends on where you cloned the Git repository. For example:
 
    - On Linux, you could set StylesPath to `/home/<USERNAME>/git-repos/writers-toolkit/vale`
    - On macOS, you could set StylesPath to `/Users/<USERNAME>/git-repos/writers-toolkit/vale`
    - On Windows, you could set StylesPath to `C:\Users\<USERNAME>\git-repos\writers-toolkit\vale`
 
-1. Install the [Vale VS Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in VS Code.
+1. Install the [Vale Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in Visual Studio Code.
 
-   1. Start VS Code.
-   1. Press Ctrl+P, paste the following command, and press Enter. Alternatively, click the **Extensions** icon, search for "Vale VS Code", open it, and click "Install".
+   1. Start Visual Studio Code.
+   1. Press Ctrl+P, paste the following command, and press Enter.
+      Alternatively, click the **Extensions** icon, search for "Vale VSCode", open it, and click **Install**.
 
-   ```
-   ext install ChrisChinchilla.vale-vscode
-   ```
+      ```
+      ext install ChrisChinchilla.vale-vscode
+      ```
 
-1. Configure the Vale VS Code extension.
+1. Configure the Vale Visual Studio Code extension.
 
-   1. Press Ctrl+Shift+X or click the **Extensions** icon and select the Vale VS Code extension.
+   1. Press Ctrl+Shift+X or click the **Extensions** icon and select the Vale Visual Studio Code extension.
    1. Select the gear icon.
-   1. Set **Vale › Vale CLI: Config** to the path to your `vale.ini` file. The path depends on where you created the `vale.ini` file. For example:
-      - On Linux, that could be `/home/<USERNAME>/vale.ini`
-      - On macOS, that could be `/Users/<USERNAME>/vale.ini`
-      - On Windows, that could be `C:\Users\<USERNAME>\vale.ini`
-   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable. The path depends on where you unzipped the Vale executable. For example, that could be `/home/<USERNAME>/bin/vale` on Linux.
+   1. To use your own Vale configuration for all repositories, set **Vale › Vale CLI: Config** to the path to your `.vale.ini` file.
+      The path depends on where you created the `.vale.ini` file. For example:
+      - On Linux, that could be `/home/<USERNAME>/.vale.ini`
+      - On macOS, that could be `/Users/<USERNAME>/.vale.ini`
+      - On Windows, that could be `C:\Users\<USERNAME>\.vale.ini`
+   1. For manual installations on Linux, macOS, or Windows, set **Vale › Vale CLI: Path** to the path for the Vale executable.
+      The path depends on where you extracted the Vale executable.
+      For example, that could be `/home/<USERNAME>/bin/vale` on Linux.
 
-1. Restart VS Code.
+1. Restart Visual Studio Code.
 
-Vale lints your current document every time you save your changes. The extension reports the linting results in two ways:
+Vale lints your current document every time you save your changes.
+The extension reports the linting results in two ways:
 
-- In-line edit marks. You can hover your mouse cursor over the edit marks to view the Vale warning or error.
-- A full report in the **PROBLEMS** tab. Each Vale warning or error in the report includes the line and column where the error occurs.
+- In-line edit marks.
+  You can hover your mouse cursor over the edit marks to view the Vale warning or error.
+- A full report in the **PROBLEMS** tab.
+  Each Vale warning or error in the report includes the line and column where the error occurs.
 
-## Errata for Vale
+## Vale error output
 
-When you write something that has an associated rule in one of the Vale linting files, an error is generated, such as:
+When you write something that has an associated rule in one of the Vale linting files, Vale outputs an error, such as:
 
 `Use '%s' instead of '%s'.`
 
 `Did you mean '%s' instead of '%s'?`
 
-Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words. However, the following rules require further explanation:
+Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words.
+However, the following rules require further explanation:
 
 ### Allows to
 
-Common wording error. The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to."
+<!-- vale Grafana.AllowsTo = NO -->
+<!-- This section explains the specific rule with examples. -->
+
+Common wording error.
+The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to".
+
+<!-- vale Grafana.AllowsTo = YES -->

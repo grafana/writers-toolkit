@@ -3,8 +3,8 @@ title: GNU Make help output
 description: Understand GNU Make and see and example of Make targets.
 ---
 
-All projects keep website documentation in the `docs/sources` directory.
-Additionally, all projects use [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to that documentation.
+Every project keeps technical documentation in the `docs/sources` directory.
+Additionally, every project uses [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to technical documentation.
 To learn more about GNU Make, refer to [GNU Make Manual](https://www.gnu.org/software/make/manual/).
 
 To see a list of targets and their descriptions, run `make` from the `docs/` directory.

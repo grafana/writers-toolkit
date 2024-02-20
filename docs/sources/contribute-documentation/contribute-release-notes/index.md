@@ -142,7 +142,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
-   If your entry is future-dated, it won't show up in the website-generated preview, but you can see it in the preview of the internal feed. To do so, remove `/docs/grafana-cloud` from the preview URL and add the heading for your entry at the end of the URL. It should look something like this: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+   If your entry is future-dated, it won't show up in the website-generated preview or in your local build, but you can see it in the preview of the internal feed. To do so, remove `/docs/grafana-cloud` from the preview URL and add the heading for your entry at the end of the URL. It should look something like this: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
 1. If your entry is ready to publish, proceed to step 4.
    If your entry requires review, follow these steps:

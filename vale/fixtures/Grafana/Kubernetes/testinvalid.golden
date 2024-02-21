@@ -1,0 +1,6 @@
+testinvalid.md:3:3:Grafana.Kubernetes:Use 'CronJob' instead of 'cron job'.
+testinvalid.md:4:3:Grafana.Kubernetes:Use 'DaemonSet' instead of 'deamonset'.
+testinvalid.md:5:3:Grafana.Kubernetes:Use 'Kubernetes Deployment' instead of 'Kubernetes deployment'.
+testinvalid.md:6:3:Grafana.Kubernetes:Use 'Pod' instead of 'pod'.
+testinvalid.md:7:3:Grafana.Kubernetes:Use 'ReplicaSet' instead of 'replicaset'.
+testinvalid.md:8:3:Grafana.Kubernetes:Use 'DaemonSet' instead of 'statefulset'.

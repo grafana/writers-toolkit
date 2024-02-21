@@ -142,7 +142,10 @@ jobs:
 
                   let color = "green";
                   const fl = parseFloat(delta.replace(new RegExp("\\(Δ(.+)\\)"), "$1"));
-                  if (fl > 0 || (rule === "Grafana.ReadabilityFleschReadingEase" && fl < 0)) {
+                  if (
+                    (rule !== "Grafana.ReadabilityFleschReadingEase" && fl > 0) ||
+                    (rule === "Grafana.ReadabilityFleschReadingEase" && fl < 0)
+                  ) {
                     color = "red";
                   }
                   if (fl === 0) {
@@ -154,21 +157,9 @@ jobs:
                   if (i === measures.length - 1) {
                     body += "\n";
                   }
-                }
 
-                let color = "green";
-                const fl = parseFloat(delta.replace(new RegExp("\\(Δ(.+)\\)"), "$1"));
-                if (
-                  (rule !== "Grafana.ReadabilityFleschReadingEase" && fl > 0) ||
-                  (rule === "Grafana.ReadabilityFleschReadingEase" && fl < 0)
-                ) {
-                  color = "red";
+                  i = (i + 1) % measures.length;
                 }
-                if (fl === 0) {
-                  color = "black";
-                }
-
-                i = (i + 1) % measures.length;
               });
 
               body += `<details>

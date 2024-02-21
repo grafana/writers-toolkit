@@ -51,7 +51,7 @@ jobs:
                     continue
                   }
 
-                  if (issue.title === title) {
+                  if (issue.title === title && issue.state === 'open') {
                     return
                   }
                 }

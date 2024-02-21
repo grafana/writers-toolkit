@@ -9,6 +9,7 @@ backport/DGS po:verb
 Beyla/ po:noun
 blockquote/S po:noun
 BPF/ po:noun
+burndown/ po:adjective
 cAdvisor/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
@@ -19,12 +20,14 @@ don't/S po:noun
 Dynatrace/ po:noun
 enablement/ po:noun
 enqueue/DS po:verb
+etcd/ po:noun
 ESLint/ po:noun
 Fargate/ po:noun
 Firehose/ po:noun
 Goldmark/ po:noun
 Grafana/ po:adjective
 Grafana/M po:noun
+Graylog/ po:noun
 hostname/S po:noun
 inclusivity/ po:noun
 ingester/S po:noun
@@ -34,10 +37,12 @@ Jira/ po:noun
 JMeter/ po:noun
 Jsonnet/ po:noun
 JUnit/ po:noun
+Kibana/ po:noun
 Kinesis/ po:noun
 KPI/S po:noun
 kubelet/ po:noun
 matcher/S po:noun
+memberlist/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
 OAuth/ po:noun
@@ -61,6 +66,7 @@ query/DGS po:verb
 React/ po:noun
 redirection/S po:noun
 SDK/S po:noun
+serverless/ po:adjective
 shortcode/S po:noun
 showback/S po:noun
 siloed/ po:adjective
@@ -73,6 +79,7 @@ SRE/S po:noun
 submenu/S po:noun
 subtask/S po:noun
 systemd/ po:noun
+Thanos/ po:noun
 tooltip/S po:noun
 tracepoint/S po:noun
 triage/D po:verb

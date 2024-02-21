@@ -1,5 +1,5 @@
 extends: existence
-level: warning
+level: suggestion
 link: https://developers.google.com/style/timeless-documentation
 message: |
   Avoid using '%s' to keep the documentation timeless.

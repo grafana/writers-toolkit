@@ -1,16 +1,17 @@
 ---
-title: Errata for doc-validator
-description: Error codes and descriptions for doc-validator errata.
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
   - /docs/writers-toolkit/review/doc-validator/errata/
+date: 2024-02-21
+description: Error codes and descriptions for doc-validator errata.
+title: Errata for doc-validator
 ---
 
 <!-- DO NOT EDIT. This file is generated from <https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl> -->
 
 # Errata for doc-validator
 
-## anchor-does-not-exist
+## `anchor-does-not-exist`
 
 **Severity**: error
 
@@ -18,7 +19,7 @@ aliases:
 
 ### Message
 
-The anchor '%s' does not exist in the file '%s'.
+The anchor '%s' doesn't exist in the file '%s'.
 
 ### Guide
 
@@ -26,7 +27,7 @@ Replace the anchor with one of the available anchors.
 
 Available anchors are: %q
 
-## canonical-does-not-match-pretty-URL
+## `canonical-does-not-match-pretty-URL`
 
 **Severity**: error
 
@@ -34,49 +35,39 @@ Available anchors are: %q
 
 ### Message
 
-The canonical '%s' in the front matter does not match the source file pretty URL path '%s'.
+The canonical '%s' in the front matter doesn't match the source file pretty URL path '%s'.
 
 ### Guide
 
-Update the canonical URL to match the pretty URL for the source file path.
+Update the canonical URL to match the pretty URL for the source path.
 
-To determine the pretty URL for the source file path:
+To determine the pretty URL for the source path:
 
 1. Start with the root documentation URL.
    For the Grafana project this would be `https://grafana.com/docs/grafana/latest/`.
 
-2. Append the source file path, ignoring the `docs/sources/` directory.
+2. Append the source path, ignoring the `docs/sources/` directory.
    For the path `docs/sources/administration/_index.md`, append the path `administration/_index.md`.
-   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/_index.md`.
+   The canonical URL becomes `https://grafana.com/docs/grafana/latest/administration/_index.md`.
 
    For the path `docs/sources/administration/users.md`, append the path `administration/users.md`.
-   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/users.md`.
+   The canonical URL becomes `https://grafana.com/docs/grafana/latest/administration/users.md`.
 
 3. Remove any `index.md`, `_index.md`, or `.md` from the URL.
    For the path `docs/sources/administration/_index.md`, remove `_index.md` from the canonical URL.
-   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/`
+   The canonical URL becomes `https://grafana.com/docs/grafana/latest/administration/`
 
    For the path `docs/sources/administration/users.md`, remove `.md` from the canonical URL.
-   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/users`
+   The canonical URL becomes `https://grafana.com/docs/grafana/latest/administration/users`
 
 4. Append a trailing slash if there isn't one already.
    For the path `docs/sources/administration/_index.md`, do nothing.
    The canonical URL remains `https://grafana.com/docs/grafana/latest/administration/`
 
    For the path `docs/sources/administration/users.md`, add a trailing slash.
-   The canonical URL is now `https://grafana.com/docs/grafana/latest/administration/users/`
+   The canonical URL becomes `https://grafana.com/docs/grafana/latest/administration/users/`
 
-## canonical-is-not-valid-url
-
-**Severity**: error
-
-**Categories**: front matter,canonical
-
-### Message
-
-The canonical '%s' in the front matter is not a valid URL.
-
-## canonical-validation-requires-additional-arguments
+## `canonical-is-not-valid-url`
 
 **Severity**: error
 
@@ -84,14 +75,24 @@ The canonical '%s' in the front matter is not a valid URL.
 
 ### Message
 
-`doc-validator` cannot validate canonical without the [URL PATH PREFIX] argument being set.
+The canonical '%s' in the front matter isn't a valid URL.
+
+## `canonical-validation-requires-additional-arguments`
+
+**Severity**: error
+
+**Categories**: front matter,canonical
+
+### Message
+
+`doc-validator` can't validate canonical without the `URL PATH PREFIX` argument being set.
 
 ### Guide
 
-Invoke `doc-validator` with the [URL PATH PREFIX] argument set to the path prefix for the project documentation.
-For the Grafana project, this path prefix is '/docs/grafana/latest/'.
+Invoke `doc-validator` with the `URL PATH PREFIX` argument set to the path prefix for the project documentation.
+For the Grafana project, this path prefix is `/docs/grafana/latest/`.
 
-## h1-does-not-match-title
+## `h1-does-not-match-title`
 
 **Severity**: error
 
@@ -99,13 +100,13 @@ For the Grafana project, this path prefix is '/docs/grafana/latest/'.
 
 ### Message
 
-The first heading '%s' does not match the title '%s'.
+The first heading '%s' doesn't match the title '%s'.
 
 ### Guide
 
-Decide which of the first heading or title is most applicable and change the other to match, or update them both to a new title.
+Decide which of the first heading or title is most applicable and change the other to match, or update them both.
 
-## image-does-not-exist
+## `image-does-not-exist`
 
 **Severity**: error
 
@@ -113,9 +114,9 @@ Decide which of the first heading or title is most applicable and change the oth
 
 ### Message
 
-The image '%s' does not exist.
+The image '%s' doesn't exist.
 
-## image-located-outside-bundle
+## `image-located-outside-bundle`
 
 **Severity**: error
 
@@ -125,7 +126,7 @@ The image '%s' does not exist.
 
 The image '%s' must be located in the same directory.
 
-## image-not-linked-from-bundle
+## `image-not-linked-from-bundle`
 
 **Severity**: error
 
@@ -139,7 +140,7 @@ The image '%s' can only be linked from an index.md or \_index.md file.
 
 Move '%s' to a Hugo bundle and the image inside the bundle directory.
 
-## invalid-alias
+## `invalid-alias`
 
 **Severity**: error
 
@@ -155,7 +156,7 @@ Remove the alias from the file front matter.
 
 If there are no other aliases in the front matter, remove the entire 'aliases' mapping entry.
 
-## invalid-description
+## `invalid-description`
 
 **Severity**: error
 
@@ -169,7 +170,7 @@ The front matter description is from the Writers' Toolkit template and must be r
 
 Update the front matter description following the guidance in https://grafana.com/docs/writers-toolkit/writing-guide/front-matter/.
 
-## link-does-not-exist
+## `link-does-not-exist`
 
 **Severity**: error
 
@@ -177,7 +178,7 @@ Update the front matter description following the guidance in https://grafana.co
 
 ### Message
 
-The link '%s' references a page in the project that does not exist.
+The link '%s' references a page in the project that doesn't exist.
 
 ### Guide
 
@@ -185,7 +186,7 @@ Check if the page has moved within the repository.
 
 Verify the link by building the docs locally using the `make docs` webserver.
 
-## link-invalid
+## `link-invalid`
 
 **Severity**: error
 
@@ -200,7 +201,7 @@ The link '%s' is invalid. Links must be an absolute URI, with either the scheme 
 For an explanation of absolute URIs, refer to https://www.rfc-editor.org/rfc/rfc3986#page-27.
 For an explanation of schemes, refer to https://www.rfc-editor.org/rfc/rfc3986#page-17.
 
-## parameter-must-be-present
+## `parameter-must-be-present`
 
 **Severity**: error
 
@@ -210,7 +211,7 @@ For an explanation of schemes, refer to https://www.rfc-editor.org/rfc/rfc3986#p
 
 The '%s' parameter in the front matter must be present.
 
-## parameter-must-be-string
+## `parameter-must-be-string`
 
 **Severity**: error
 
@@ -220,7 +221,7 @@ The '%s' parameter in the front matter must be present.
 
 The '%s' parameter in the front matter must be a string.
 
-## parameter-must-be-string-sequence
+## `parameter-must-be-string-sequence`
 
 **Severity**: error
 
@@ -230,7 +231,7 @@ The '%s' parameter in the front matter must be a string.
 
 The '%s' parameter in the front matter must be a YAML sequence of strings.
 
-## project-link-invalid
+## `project-link-invalid`
 
 **Severity**: error
 
@@ -244,7 +245,7 @@ Links to project pages must use a Hugo `relref` shortcode like `{{</* relref "./
 Links to project assets must be made from a bundle (index.md or \_index.md file).
 The asset must be contained within the bundle directory, it must have an extension, and must not have the extension `.md`.
 
-## relref-can-resolve-ambiguously
+## `relref-can-resolve-ambiguously`
 
 **Severity**: error
 
@@ -252,16 +253,16 @@ The asset must be contained within the bundle directory, it must have an extensi
 
 ### Message
 
-The `relref` shortcode argument '%s' can resolve ambiguously because it is not a relative or absolute path.
+The `relref` shortcode argument '%s' can resolve ambiguously because it isn't a relative or absolute path.
 
 ### Guide
 
-If a `relref` shortcode has ambiguous resolution, the link won't work and will instead point to the current page.
+If a `relref` shortcode has ambiguous resolution, the link destination is the current page and not the intended page.
 
 A relative path begins with either `./` or `../`.
 An absolute path begins with a `/`.
 
-## relref-has-trailing-slash
+## `relref-has-trailing-slash`
 
 **Severity**: error
 
@@ -278,7 +279,7 @@ You can reference an `_index.md` file only by its containing folder.
 
 Remove the trailing slash to make sure that changing the index type doesn't break the link.
 
-## relref-is-malformed
+## `relref-is-malformed`
 
 **Severity**: error
 

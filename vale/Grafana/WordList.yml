@@ -113,7 +113,6 @@ swap:
   Firehose: Kinesis Data Firehose
   Kinesis Firehose: Kinesis Data Firehose
 
-  pod: Pod
   "(?:[dD][ae][ae]monset|d[ae][ae]monSet)": DaemonSet
   "(?:[sS]tatefulset|statefulSet)": StatefulSet
 

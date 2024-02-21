@@ -5,3 +5,9 @@ Instead use:
 - Kubernetes Deployment
 - ReplicaSet
 - StatefulSet
+- `kubelet`
+- `kubectl`
+
+Also OK:
+
+- `k8s.daemonset.name`

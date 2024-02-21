@@ -6,3 +6,5 @@ Don't use:
 - pod
 - replicaset
 - statefulset
+- kubelet
+- kubectl

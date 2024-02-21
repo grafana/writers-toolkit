@@ -40,9 +40,11 @@ exceptions:
   - Grafana Enterprise Metrics
   - Grafana Enterprise Traces
   - Grafana Labs
+  - Graylog
   - Helm
   - HTTP
   - Hugo
+  - Kibana
   - Kinesis Data Firehose
   - Kubernetes Monitoring
   - LogQL

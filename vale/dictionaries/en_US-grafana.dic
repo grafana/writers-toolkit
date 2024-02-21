@@ -1,4 +1,4 @@
-90
+93
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -10,6 +10,7 @@ backport/DGS po:verb
 Beyla/ po:noun
 blockquote/S po:noun
 BPF/ po:noun
+burndown/ po:adjective
 cAdvisor/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
@@ -27,6 +28,7 @@ Firehose/ po:noun
 Goldmark/ po:noun
 Grafana/ po:adjective
 Grafana/M po:noun
+Graylog/ po:noun
 hostname/S po:noun
 inclusivity/ po:noun
 ingester/S po:noun
@@ -36,6 +38,7 @@ Jira/ po:noun
 JMeter/ po:noun
 Jsonnet/ po:noun
 JUnit/ po:noun
+Kibana/ po:noun
 Kinesis/ po:noun
 KPI/S po:noun
 kubelet/ po:noun

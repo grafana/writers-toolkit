@@ -46,7 +46,8 @@ If you're not sure of whether something is a product or not, consult the product
 
 ### Kubernetes objects
 
-When referring to Kubernetes objects, such as Jobs, Pods, and StatefulSets, capitalizing them makes it clear that you are not talking about generic jobs and pods.
+When referring to Kubernetes objects, such as Jobs, Pods, and StatefulSets, follow the guidance in the [Kubernetes documentation style guide](https://kubernetes.io/docs/contribute/style/style-guide/#use-upper-camel-case-for-api-objects).
+Capitalizing objects makes it clear that you aren't talking about generic jobs or deployments.
 
 In the first use, introduce the object as _Kubernetes XX_, then use it alone in subsequent uses.
 

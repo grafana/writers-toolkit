@@ -1,4 +1,4 @@
-87
+90
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -20,6 +20,7 @@ don't/S po:noun
 Dynatrace/ po:noun
 enablement/ po:noun
 enqueue/DS po:verb
+etcd/ po:noun
 ESLint/ po:noun
 Fargate/ po:noun
 Firehose/ po:noun
@@ -39,6 +40,7 @@ Kinesis/ po:noun
 KPI/S po:noun
 kubelet/ po:noun
 matcher/S po:noun
+memberlist/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
 OAuth/ po:noun
@@ -75,6 +77,7 @@ SRE/S po:noun
 submenu/S po:noun
 subtask/S po:noun
 systemd/ po:noun
+Thanos/ po:noun
 tooltip/S po:noun
 tracepoint/S po:noun
 triage/D po:verb

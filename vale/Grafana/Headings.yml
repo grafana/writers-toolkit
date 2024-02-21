@@ -40,9 +40,11 @@ exceptions:
   - Grafana Enterprise Metrics
   - Grafana Enterprise Traces
   - Grafana Labs
+  - Graylog
   - Helm
   - HTTP
   - Hugo
+  - Kibana
   - Kinesis Data Firehose
   - Kubernetes Monitoring
   - LogQL
@@ -67,6 +69,7 @@ exceptions:
   - SSO
   - Tempo
   - Terraform
+  - Thanos
   - TraceQL
   - WebSockets
   - What's new

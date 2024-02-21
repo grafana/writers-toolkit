@@ -1,4 +1,4 @@
-86
+87
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -62,6 +62,7 @@ query/DGS po:verb
 React/ po:noun
 redirection/S po:noun
 SDK/S po:noun
+serverless/ po:adjective
 shortcode/S po:noun
 showback/S po:noun
 siloed/ po:adjective

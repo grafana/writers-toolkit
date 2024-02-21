@@ -19,5 +19,5 @@ swap:
   "stateful[Ss]et": DaemonSet
   pod: Pod
 
-  kubelet: '`kubelet`'
-  kubectl: '`kubectl`'
+  "[Kk]ubelet": '`kubelet`'
+  "[Kk]ubectl": '`kubectl`'

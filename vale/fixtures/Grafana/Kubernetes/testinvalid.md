@@ -8,3 +8,5 @@ Don't use:
 - statefulset
 - kubelet
 - kubectl
+- Kubectl
+- Kubelet

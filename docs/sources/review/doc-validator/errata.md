@@ -1,9 +1,10 @@
 ---
-title: Errata for doc-validator
-description: Error codes and descriptions for doc-validator errata.
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
   - /docs/writers-toolkit/review/doc-validator/errata/
+date: 2024-02-21
+description: Error codes and descriptions for doc-validator errata.
+title: Errata for doc-validator
 ---
 
 <!-- DO NOT EDIT. This file is generated from <https://github.com/grafana/technical-documentation/blob/main/tools/cmd/doc-validator/errata.hcl> -->

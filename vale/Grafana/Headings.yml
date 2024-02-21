@@ -67,6 +67,7 @@ exceptions:
   - SSO
   - Tempo
   - Terraform
+  - Thanos
   - TraceQL
   - WebSockets
   - What's new

@@ -345,6 +345,3 @@ Follow these guidelines to ensure that your What's new or release notes content 
   Now, the state doesn't update."
 
 - **For changes or updates to features, provide brief descriptions.**
-
-
-  <p></p>

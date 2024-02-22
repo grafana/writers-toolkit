@@ -1,13 +1,14 @@
 ---
-title: Reuse content
-menuTitle: Reuse
-description: Learn about reusing content in your documentation.
-weight: 800
 aliases:
   - /docs/writers-toolkit/write/reuse-content
-Keywords:
+date: 2022-02-22
+description: Learn about reusing content in your documentation.
+keywords:
   - sharing
   - reuse content
+menuTitle: Reuse
+title: Reuse content
+weight: 800
 ---
 
 # Reuse content
@@ -15,6 +16,75 @@ Keywords:
 Grafana's publication process can handle reusing content from snippets to whole directories.
 
 There are some limited cases where it may be useful to reuse content in more than one location.
-Let's say that a procedure for adding a panel to a dashboard applies to an open source and enterprise product.
+For example, a procedure for adding a panel to a dashboard applies to an open source and enterprise product.
 
-{{< section withDescriptions="true" >}}
+## Before you begin
+
+Before you begin reusing content, it's important to understand the tradeoffs.
+Reusing content introduces maintenance overheads that can be greater than the overhead of maintaining separate content.
+
+You can reuse content in the following ways:
+
+1. Link to definitive content
+1. Share chunks of content
+1. Mount directories of content
+
+The following sections discuss each option in detail.
+
+### Link to definitive content
+
+Instead of including content directly in your documentation, you can link to the definitive source instead.
+
+#### Pros
+
+- You can reuse content immediately.
+
+#### Cons
+
+- You have no control over the content.
+
+  If the definitive content changes, your link may become out of date.
+
+### Share chunks of content
+
+You can reuse chunks of content using the `docs/shared` shortcode.
+To do this, refer to [Reuse shared content](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-shared-content/).
+
+#### Pros
+
+- You can reuse small amounts of content.
+- You can maintain the content in one place.
+- You can compose the shared content with other content.
+
+#### Cons
+
+- You need to perform initial setup to create the shared content.
+
+### Mount directories of content
+
+You can reuse whole directories of content using Hugo mounts.
+To do this, refer to [Reuse content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/hugo-mounts).
+
+With this option, you share not only content but also structure: each page has exactly the same heading structure.
+If you want flexibility in page structure, you need to use another option instead.
+
+#### Pros
+
+- You can reuse large amounts of content with minimal effort.
+- You can maintain the content in one place.
+
+#### Cons
+
+- There is no conditional text within pages.
+
+  Conditional text complicates the source file and makes it harder for external contributors to understand so it isn't implemented.
+
+- You have to maintain two destinations for each link.
+
+  Notably, for content reused between OSS and Grafana Cloud documentation, you want to within each documentation set rather than having the reused content link back to the OSS documentation.
+
+  To do so, use [`docs/reference`](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
+
+  If both pages link to the same place, then probably that link shouldn't exist in the reused documentation and this is an indication that the documentation isn't appropriate for reuse.
+
+- You may have to exclude certain files that aren't appropriate in the mount destination.

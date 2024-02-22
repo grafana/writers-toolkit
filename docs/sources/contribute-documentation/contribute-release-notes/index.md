@@ -115,7 +115,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
            <p>If you want to view some best practices around what to write here, refer to <a href="#writing-guidelines-for-whats-new-content">Writing guidelines for What’s new</a>.</p>
            <p>Add any images and a link to your public YouTube video here.</p>
            <p>If you need more information on adding an image, refer to <a href="https://grafana.com/docs/writers-toolkit/write/image-guidelines/">Image, diagram, and screenshot guidelines</a>.</p>
-           <p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the `traceToProfile` [feature toggle](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/setup-grafana/configure-grafana/feature-toggles/).</p>
+           <p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the <code>traceToProfile</code> <a href="https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/">feature toggle</a>.</p>
          </td>
        </tr>
        <tr>
@@ -345,3 +345,6 @@ Follow these guidelines to ensure that your What's new or release notes content 
   Now, the state doesn't update."
 
 - **For changes or updates to features, provide brief descriptions.**
+
+
+  <p></p>

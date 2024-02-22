@@ -24,29 +24,31 @@ const (
 	countSections
 )
 
-type Date time.Time
-
-func (d *Date) String() string {
-	return time.Time(*d).Format(time.DateOnly)
+type DateArgument struct {
+	time time.Time
 }
 
-func (d *Date) Set(str string) error {
-	t, err := time.Parse(time.DateOnly, str)
-	if err != nil {
-		return err
-	}
+func (d *DateArgument) String() string {
+	return d.time.Format(time.DateOnly)
+}
 
-	*d = Date(t)
+func (d *DateArgument) Set(str string) error {
+	if t, err := time.Parse(time.DateOnly, str); err != nil {
+		return err
+	} else {
+		d.time = t
+	}
 
 	return nil
 }
 
 type metadata struct {
-	Date time.Time `yaml:"date"`
+	Date     time.Time `yaml:"date"`
+	Headless bool      `yaml:"headless"`
 }
 
 func main() {
-	before := Date(time.Now().AddDate(0, 0, -90))
+	before := DateArgument{time: time.Now().AddDate(0, 0, -90)}
 
 	flag.Var(&before, "before", "YYYY-MM-DD date after which to include documents, defaults to ninety days ago.")
 
@@ -101,7 +103,7 @@ func main() {
 			return fmt.Errorf("unable to unmarshal front matter in %q: %w", path, err)
 		}
 
-		if frontMatter.Date.Before(time.Time(before)) {
+		if frontMatter.Date.Before(before.time) && !frontMatter.Headless {
 			pages = append(pages, path)
 		}
 

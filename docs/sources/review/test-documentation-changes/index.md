@@ -16,15 +16,15 @@ weight: 200
 To run the local documentation web server, run `make docs` from the `docs/` directory.
 
 {{< admonition type="note" >}}
-Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the documentation web server.
-To run the web server, ensure that you are in the `docs/` directory.
+Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
+To run the local documentation web server, ensure that you are in the `docs/` directory.
 {{< /admonition >}}
 
 ## Run with specific projects
 
-Each repository has a list of projects to build by default when running `make docs` that's defined by the `PROJECTS` variable in `docs/variables.mk`.
+Each repository has a list of projects to build by default when running `make docs`, defined by the `PROJECTS` variable in `docs/variables.mk`.
 To override the defaults, provide the `PROJECTS` option to `make docs`.
-The argument is a space separated list of names of the projects.
+The argument is a space-separated list of names of the projects.
 
 The project name for a repository is the sub-directory of the `/docs/` directory in the website where the repository publishes documentation.
 For example:
@@ -103,7 +103,7 @@ Refer to the following sections for examples of more complicated usage of `make 
 make docs 'PROJECTS=grafana:next'
 ```
 
-#### Mount `v9.3.x` and default version of Grafana documentation together
+#### Mount `v9.3.x` and the default version of Grafana documentation together
 
 Run the following command from the root of the repository to add a worktree that contains the `v9.3.x` branch:
 
@@ -132,7 +132,7 @@ git worktree remove v9.3.x
 ### Arguments
 
 Each argument to the `make-docs` script is a project to be mounted into the local build.
-Each argument has four fields separated by colons (`:`) and optional fields can be omitted.
+Each argument has four fields separated by colons (`:`), and optional fields can be omitted.
 
 `<PROJECT>[:VERSION[:REPOSITORY[:DIRECTORY]]]`
 
@@ -159,12 +159,12 @@ Each argument has four fields separated by colons (`:`) and optional fields can 
 
 - _`REPOSITORY`_: is the the name of the directory that the project is cloned to.
 
-  The _`REPOSITORY`_ field is optional and defaults to the scripts internal mapping of project names to repository names.
+  The _`REPOSITORY`_ field is optional and defaults to the script's internal mapping of project names to repository names.
   For most projects, this is the same as the project name.
 
 - _`DIRECTORY`_: is the directory path within the repository containing the technical documentation documentation.
 
-  The _`DIRECTORY`_ field is optional and defaults to the scripts internal mapping of project names to documentation source directories.
+  The _`DIRECTORY`_ field is optional and defaults to the script's internal mapping of project names to documentation source directories.
   For most projects, it's the `docs/sources` directory.
 
 #### `REPOS_PATH`
@@ -179,7 +179,7 @@ With a directory structure similar to the following `tree` command:
 
 ```console
 $ tree -L 1 -d ~/ext/grafana
-/home/jdb/ext/grafana
+/home/username/ext/grafana
 ├── agent
 ├── grafana
 ├── loki
@@ -193,7 +193,7 @@ $ tree -L 1 -d ~/ext/grafana
 9 directories
 ```
 
-When you run `make docs` from the Grafana repository, the script sets `REPOS_PATH` to be `/home/jdb/ext/grafana`.
+When you run `make docs` from the Grafana repository, the script sets `REPOS_PATH` to be `/home/username/ext/grafana`.
 
 #### `DEBUG`
 

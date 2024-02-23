@@ -43,7 +43,7 @@ Instead of including content directly in your documentation, you can link to the
 
 - You have no control over the content.
 
-  If the definitive content changes, your link may become out of date.
+  If the definitive content changes, your link may need to be updated.
 
 ### Share chunks of content
 
@@ -58,7 +58,7 @@ To do this, refer to [Reuse shared content](https://grafana.com/docs/writers-too
 
 #### Cons
 
-- You need to perform initial setup to create the shared content.
+- You need to perform the initial setup to create the shared content.
 
 ### Mount directories of content
 
@@ -66,7 +66,7 @@ You can reuse whole directories of content using Hugo mounts.
 To do this, refer to [Reuse content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/hugo-mounts).
 
 With this option, you share not only content but also structure: each page has exactly the same heading structure.
-If you want flexibility in page structure, you need to use another option instead.
+If you want flexibility in your page structure, you need to use another option instead.
 
 #### Pros
 
@@ -77,14 +77,14 @@ If you want flexibility in page structure, you need to use another option instea
 
 - There is no conditional text within pages.
 
-  Conditional text complicates the source file and makes it harder for external contributors to understand so it isn't implemented.
+  Conditional text complicates the source file and makes it harder for external contributors to understand, so it isn't implemented.
 
 - You have to maintain two destinations for each link.
 
-  Notably, for content reused between OSS and Grafana Cloud documentation, you want to within each documentation set rather than having the reused content link back to the OSS documentation.
+  Notably, for content reused between OSS and Grafana Cloud documentation, you want stay to within each documentation set rather than having the reused content link back to the OSS documentation.
 
   To do so, use [`docs/reference`](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
 
-  If both pages link to the same place, then probably that link shouldn't exist in the reused documentation and this is an indication that the documentation isn't appropriate for reuse.
+  If both pages link to the same place, then that link probably shouldn't exist in the reused documentation, and this indicates that the documentation isn't appropriate for reuse.
 
 - You may have to exclude certain files that aren't appropriate in the mount destination.

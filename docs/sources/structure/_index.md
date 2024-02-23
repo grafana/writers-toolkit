@@ -91,8 +91,13 @@ The table of contents consists of the following section levels.
 
 ![Grafana table of contents](/media/docs/writers-toolkit/grafana-toc.png)
 
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- Valid use of future tense. -->
+
 **Top-level:** A table of contents top-level represents groups of features and functions of a product.
 The first step in contributing to the documentation is to identify which top-level entity you will be contributing to.
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 {{< admonition type="note" >}}
 Don't add a top-level entity to the table of contents.

@@ -274,7 +274,7 @@ It's OK to use bold for a the first sentence in unordered lists that are followe
 
 For example,
 
-- **Thing**: about the thing.
+- **Thing**: About the thing.
 
 ### Italic
 

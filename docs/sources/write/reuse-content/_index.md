@@ -33,7 +33,7 @@ The following sections discuss each option in detail.
 
 ### Link to definitive content
 
-Instead of including content directly in your documentation, you can link to the definitive source instead.
+Instead of directly including content in your documentation, you can link to the definitive source.
 
 #### Pros
 
@@ -65,7 +65,8 @@ To do this, refer to [Reuse shared content](https://grafana.com/docs/writers-too
 You can reuse whole directories of content using Hugo mounts.
 To do this, refer to [Reuse content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/hugo-mounts).
 
-With this option, you share not only content but also structure: each page has exactly the same heading structure.
+With this option, you share content and structure.
+Each page has exactly the same heading structure.
 If you want flexibility in your page structure, you need to use another option instead.
 
 #### Pros
@@ -81,7 +82,7 @@ If you want flexibility in your page structure, you need to use another option i
 
 - You have to maintain two destinations for each link.
 
-  Notably, for content reused between OSS and Grafana Cloud documentation, you want stay to within each documentation set rather than having the reused content link back to the OSS documentation.
+  Notably, you want to stay within each documentation set for content reused between OSS and Grafana Cloud documentation rather than have the reused content link back to the OSS documentation.
 
   To do so, use [`docs/reference`](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
 

@@ -2,6 +2,7 @@ Don't use:
 
 - A SQL database
 - a SQL database
+- a SQL server
 
 Also don't use:
 

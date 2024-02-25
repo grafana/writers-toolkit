@@ -15,5 +15,6 @@ ignorecase: false
 action:
   name: replace
 swap:
-  "[Aa] SQL(?! Server)": an SQL
+  "[Aa] SQL server": an SQL server|a SQL Server
+  "[Aa] SQL(?! [Ss]erver)": an SQL
   "[Aa]n SQL Server": a SQL Server

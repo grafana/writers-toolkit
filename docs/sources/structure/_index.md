@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/
   - /docs/writers-toolkit/structure
+date: 2024-02-26
 description: How to organize concepts and tasks in the repository.
 keywords:
   - information architecture
@@ -15,7 +16,7 @@ weight: 300
 
 The Grafana Labs Docs squad makes intentional decisions about how to organize and structure product documentation.
 The topic levels discussed on this page reflect common user goals.
-For example, a first-time Grafana user needs to understand the basic concepts before installing the product.
+For example, a first-time Grafana user must understand the basic concepts before installing the product.
 
 Before you begin contributing to documentation, it's important to understand the structure of the content.
 

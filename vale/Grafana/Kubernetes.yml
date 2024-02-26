@@ -16,7 +16,7 @@ swap:
 
   "d[ae][ae]mon[Ss]et": DaemonSet
   "replica[Ss]et": ReplicaSet
-  "stateful[Ss]et": DaemonSet
+  "stateful[Ss]et": StatefulSet
   pod: Pod
 
   "[Kk]ubelet": '`kubelet`'

@@ -9,13 +9,16 @@ keywords:
   - documentation
   - page design
 menuTitle: Documentation design
-title: About documentation design
+title: About documentation design at Grafana Labs
 weight: 100
 ---
 
-# About documentation design
+# About documentation design at Grafana Labs
 
-The documentation website uses a modern design approach to make technical documentation accessible and scalable.
+<!-- vale Grafana.GoogleWe = NO -->
+<!-- According to https://developers.google.com/style/pronouns#personal-pronouns, it is acceptable to use personal pronouns "after using your organization's name". -->
+
+Our documentation website uses a modern design approach to make technical documentation accessible and scalable.
 
 Documentation pages take advantage of the static site generator Hugo.
 As a result, several elements of the page are automatically managed during the publication of the page using Hugo's taxonomy.
@@ -36,4 +39,4 @@ Pages also include:
 - **Feedback.**
   Thumbs up and thumbs down feedback.
 
-You can read about the redesign of the documentation pages in [Grafana documentation: A look at the new and improved design](https://grafana.com/blog/2023/02/03/grafana-documentation-a-look-at-the-new-and-improved-design/).
+You can read about the redesign of our documentation pages in [Grafana documentation: A look at the new and improved design](https://grafana.com/blog/2023/02/03/grafana-documentation-a-look-at-the-new-and-improved-design/).

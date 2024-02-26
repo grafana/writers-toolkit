@@ -14,7 +14,7 @@ weight: 300
 
 # Documentation structure
 
-The Grafana Labs Docs squad makes intentional decisions about how to organize and structure product documentation.
+The Grafana Labs documentation team makes intentional decisions about how to organize and structure product documentation.
 The topic levels discussed on this page reflect common user goals.
 For example, a first-time Grafana user must understand the basic concepts before installing the product.
 

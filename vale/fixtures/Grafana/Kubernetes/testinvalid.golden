@@ -3,7 +3,7 @@ testinvalid.md:4:3:Grafana.Kubernetes:Use 'DaemonSet' instead of 'deamonset'.
 testinvalid.md:5:3:Grafana.Kubernetes:Use 'Kubernetes Deployment' instead of 'Kubernetes deployment'.
 testinvalid.md:6:3:Grafana.Kubernetes:Use 'Pod' instead of 'pod'.
 testinvalid.md:7:3:Grafana.Kubernetes:Use 'ReplicaSet' instead of 'replicaset'.
-testinvalid.md:8:3:Grafana.Kubernetes:Use 'DaemonSet' instead of 'statefulset'.
+testinvalid.md:8:3:Grafana.Kubernetes:Use 'StatefulSet' instead of 'statefulset'.
 testinvalid.md:9:3:Grafana.Kubernetes:Use '`kubelet`' instead of 'kubelet'.
 testinvalid.md:10:3:Grafana.Kubernetes:Use '`kubectl`' instead of 'kubectl'.
 testinvalid.md:11:3:Grafana.Kubernetes:Use '`kubectl`' instead of 'Kubectl'.

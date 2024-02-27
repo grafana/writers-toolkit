@@ -67,11 +67,23 @@ Make content relevant to the user's context. The more familiar you are with the 
 
 When you write in present tense, avoid words such as have, has, had, been, should, would, and will.
 
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- This sentence is demonstrating an exception where this rule doesn't apply. -->
+
+However, similar to [Google's style guide](https://developers.google.com/style/tense), it's okay to use future tense (will) when writing [tutorials](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/) or to distinguish an action that will occur in the future.
+
+<!-- vale Grafana.GoogleWill = YES -->
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- The table includes a demonstration of an acceptable use of the word will in the context of tutorials. -->
+
 | Use                                                                 | Don't use                                                                    |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | The panel opens.                                                    | The panel will open.                                                         |
 | The system **prompts** you to verify the deletion.                  | The system **will prompt** you to verify the deletion.                       |
 | After you log in, your account **begins** the verification process. | After you log in, your account **will then begin** the verification process. |
+| In this tutorial, you will:                                         |
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 ### Be positive
 

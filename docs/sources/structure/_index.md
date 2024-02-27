@@ -22,8 +22,7 @@ Before you begin contributing to documentation, it's important to understand the
 
 ## User goals and documentation structure
 
-When writing documentation, focus on what your user's goals are.
-For more information, refer to [Focus on user goals](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#focus-on-user-goals).
+When writing documentation, [focus on what your user's goals](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#focus-on-user-goals) are.
 
 Use the structure of your documentation to reflect the user’s goals.
 Think about what your users want to do, what they need to know, and how they can accomplish the tasks.

@@ -41,7 +41,7 @@ A _concept_ topic includes the following elements:
 - **Body:** Provide as much content as needed to explain the concept thoroughly.
   There can be sections, visuals, and text in the body of a concept.
 
-{{< figure src="https://grafana.com/media/docs/writers-toolkit/concept.png" alt="Annotated example of a concept page's structure" >}}
+{{< figure src="/media/docs/writers-toolkit/concept.png" alt="Annotated example of a concept page's structure" >}}
 
 ## Write a concept topic
 

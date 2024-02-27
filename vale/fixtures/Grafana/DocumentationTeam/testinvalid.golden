@@ -1,0 +1,8 @@
+testinvalid.md:3:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'docs squad'.
+testinvalid.md:4:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'Docs squad'.
+testinvalid.md:5:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'docs Squad'.
+testinvalid.md:6:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'Docs Squad'.
+testinvalid.md:7:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'docs team'.
+testinvalid.md:8:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'Docs team'.
+testinvalid.md:9:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'docs Team'.
+testinvalid.md:10:3:Grafana.DocumentationTeam:Use 'the Grafana Labs documentation team' rather than 'Docs team'.

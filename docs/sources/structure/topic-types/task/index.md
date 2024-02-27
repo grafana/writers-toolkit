@@ -20,35 +20,38 @@ Task topics include numbered steps that describe how to achieve an outcome.
 
 A _task_ topic includes the following elements:
 
-**Topic title:** Write a task topic title that combines a verb and an object.
+- **Topic title:** Write a task topic title that combines a verb and an object.
 
-**Introduction:** Provide an introduction that explains why the end user should care about the task.
+- **Introduction:** Provide an introduction that explains why the end user should care about the task.
 
-- There might be conceptual material in this section of a task topic. Limit conceptual information to only what is relevant to the task at hand.
-- If you find yourself writing a long introduction, consider creating a concept topic, and then writing a shorter form of that concept in the task introduction. The longer concept topic can be accessed for more information by linking to it.
+  There might be conceptual material in this section of a task topic. Limit conceptual information to only what's relevant to the task at hand.
 
-**Before you begin: (optional)** Add links to tasks that need to be completed before the current one. The links might sometimes be unrelated to the product, such as “Have this thing at hand”.
+  If you find yourself writing a long introduction, consider creating a concept topic, and then writing a shorter form of that concept in the task introduction.
+  You can link to the longer concept topic from this introduction.
 
-- Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the task.
-- If there are no prerequisites, do not include this section.
+- **Before you begin: (optional)** Add links to tasks that need to be completed before the current one.
+  The links might sometimes be unrelated to the product, such as “Have this thing at hand”.
 
-**Steps heading**: The steps heading indicates that the steps are about to begin.
+  Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the task.
 
-**Stem sentence:** The stem sentence introduces the steps. Use the following convention when you write a stem sentence:
+  If there are no prerequisites, don't include this section.
 
-- To [name of task], follow these steps:
-- Example: To create a dashboard, follow these steps:
+- **Steps heading**: The steps heading indicates that the steps are about to begin.
 
-For more information about stem sentences, refer to [Procedures](https://developers.google.com/style/procedures) in the [Google developer documentation style guide](https://developers.google.com/style).
+- **Stem sentence:** The stem sentence introduces the steps.
 
-**Steps:** Users are provided with a directive through numbered steps.
+  Use the following convention when you write a stem sentence: To [name of task], follow these steps:
+  For example: To create a dashboard, follow these steps:
 
-- Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value_ or _Save and quit the program._
-- Unless a sentence instructs the reader to act, it isn't a step.
+  For more information about stem sentences, refer to [Procedures](https://developers.google.com/style/procedures) in the [Google developer documentation style guide](https://developers.google.com/style).
 
-<figure>
-<img src="task.png" alt="Task structure" width="600">
-</figure>
+- **Steps:** Users are provided with a directive through numbered steps.
+
+  Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value_ or _Save and quit the program._
+
+  Unless a sentence instructs the reader to act, it isn't a step.
+
+{{< figure src="/media/docs/writers-toolkit/task.png" alt="Annotated example of a task page's structure" >}}
 
 ## Write a task topic
 
@@ -60,16 +63,11 @@ To write a task, follow these steps:
    - The directory name should include a verb and an object.
    - Use lowercase letters.
    - Add a hyphen between words.
-     <br>
-     <br>
-     For example: - manage-dashboard-permissions - manage-organization-users
-     <br>
-     <br>
 
 1. Create an `index.md` file within the task directory.
 1. Add front matter to the `index` file.
 
-   For more information about front matter, refer to [Front matter]({{< relref "../../../write/front-matter" >}}).
+   For more information about front matter, refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/).
 
 1. Add the content to a copy of the [Task template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/task-template.md).
 
@@ -77,9 +75,9 @@ To write a task, follow these steps:
 
 Refer to the following topics for task topic examples:
 
-- [Create a service account](/docs/grafana/latest/administration/service-accounts/#create-a-service-account-in-grafana)
-- [Create an organization](/docs/grafana/latest/administration/organization-management/#create-an-organization)
-- [Create a dashboard and add a panel](/docs/grafana/latest/dashboards/add-organize-panels/#create-a-dashboard-and-add-a-panel)
+- [Create a service account](https://grafana.com/docs/grafana/latest/administration/service-accounts/#create-a-service-account-in-grafana)
+- [Create an organization](https://grafana.com/docs/grafana/latest/administration/organization-management/#create-an-organization)
+- [Create a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)
 
 ## Task template
 
@@ -87,28 +85,40 @@ When you are ready to write, make a copy of the [Task template](https://github.c
 
 ## When to combine tasks into a single topic
 
-In some cases, task topics are standalone and do not contain any other content. Other times, multiple task topics can be combined into a single Markdown file. By combining tasks into a single topic, the table of contents entities can be reduced in number, which reduces scrolling and clicking for users.
+In some cases, task topics are standalone and don't contain any other content.
+Other times, multiple task topics can be combined into a single Markdown file.
+By combining tasks into a single topic, the table of contents entities can be reduced in number, which reduces scrolling and clicking for users.
 
-> **Note:** It is not a good idea to combine content in the same Markdown file at random. If you combine content incorrectly, you may inadvertently hide information from the user.
+{{< admonition type="note" >}}
+It's not a good idea to combine content in the same Markdown file at random.
+If you combine content incorrectly, you may inadvertently hide information from the user.
+{{< /admonition >}}
 
 When combining multiple topics into one, follow these guidelines:
 
 - When you document more than one approach to accomplishing the same user goal.
 
-  In the [Assign RBAC roles](/docs/grafana/latest/administration/roles-and-permissions/access-control/assign-rbac-roles/) topic, a user can use the user interface or provisioning to assign roles. There is no need to create two task topic files in this case.
+  In the [Assign RBAC roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/assign-rbac-roles/) topic, a user can use the user interface or provisioning to assign roles.
+  There is no need to create two task topic files in this case.
 
 - When tasks are likely to be completed around the same time.
 
-  Users might find it useful to have all task documentation available on the same page if they are likely to complete a number of tasks simultaneously.
+  Users might find it useful to have all task documentation available on the same page if they're likely to complete a number of tasks simultaneously.
 
-  In the [Data source management](/docs/grafana/latest/administration/data-source-management/) topic, it is likely that an Admin user will enable permissions immediately after adding a data source.
+  <!-- vale Grafana.GoogleWill = NO -->
+  <!-- This is talking about the future -->
+
+  In the [Data source management](https://grafana.com/docs/grafana/latest/administration/data-source-management/) topic, it's likely that an Admin user will enable permissions immediately after adding a data source.
+
+  <!-- vale Grafana.GoogleWill = YES -->
 
 - When you document CRUD operations.
 
-  Create, read, update, and delete tasks can be combined into one topic. The [Manage organizations](/docs/grafana/latest/administration/organization-management/) topic includes tasks such as viewing, creating, editing, and deleting organizations all under the umbrella topic title of **Manage**.
+  Create, read, update, and delete tasks can be combined into one topic.
+  The [Manage organizations](https://grafana.com/docs/grafana/latest/administration/organization-management/) topic includes tasks such as viewing, creating, editing, and deleting organizations all under the umbrella topic title of **Manage**.
 
 - When you document a user workflow.
 
   Combine tasks when the user should start at the beginning, complete the first task, and then complete the remaining tasks in sequence.
 
-  In [Activate a Grafana Enterprise license from AWS Marketplace on EKS](/docs/grafana/latest/administration/enterprise-licensing/activate-aws-marketplace-license/activate-license-on-eks/), the user is guided through all the tasks necessary to activate their license.
+  In [Activate a Grafana Enterprise license from AWS Marketplace on EKS](https://grafana.com/docs/grafana/latest/administration/enterprise-licensing/activate-aws-marketplace-license/activate-license-on-eks/), the user is guided through all the tasks necessary to activate their license.

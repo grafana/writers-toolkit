@@ -267,7 +267,14 @@ It's a good idea to take a consistent approach to bold, italic, and other text f
 
 ### Bold
 
-Use bold formatting (\*\* in Markdown), for UI elements. Don't use bold to draw attention to a word or phrase.
+Use bold formatting (\*\* in Markdown), for UI elements.
+Don't use bold to draw attention to a word or phrase within a sentence, instead use italic emphasis.
+
+It's OK to use bold for a the first sentence in unordered lists that are followed by more information.
+
+For example,
+
+- **Thing**: About the thing.
 
 ### Italic
 

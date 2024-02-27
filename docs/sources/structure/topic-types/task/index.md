@@ -50,7 +50,7 @@ A _task_ topic includes the following elements:
 
   Write steps so that they contain one action, or possibly two related actions, such as _Copy and paste a value_ or _Save and quit the program._
 
-  Unless a sentence instructs the reader to act, it isn't a step.
+  A step must instruct the reader to perform a specific task.
 
 {{< figure src="/media/docs/writers-toolkit/task.png" alt="Annotated example of a task page's structure" >}}
 

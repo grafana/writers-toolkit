@@ -547,7 +547,7 @@ Insert the same simple hero using shortcode parameters:
 
 ```markdown
 {{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
-```  
+```
 
 <!-- vale Grafana.Spelling = NO -->
 

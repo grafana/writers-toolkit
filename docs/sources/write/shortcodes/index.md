@@ -84,6 +84,7 @@ This also applies to headings that contain a forward slash or parentheses or squ
 The `card-grid` shortcode renders a responsive grid of card elements that fits the width of its container.
 
 ### Grid parameters
+
 <!-- prettier-ignore-start -->
 | Parameter       | Description                                                                                                                                                                                                                                                   | Required |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------- |
@@ -95,7 +96,9 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `grid_class`    | Optional CSS class for the grid element.                                                                                                                                                                                                                      | No       |
 | `card_class`    | Optional CSS class for the cards.                                                                                                                                                                                                                             | No       |
 <!-- prettier-ignore-end -->
+
 ### Card parameters (type="simple")
+
 <!-- prettier-ignore-start -->
 | Parameter     | Description                                                                                                                                                                                                                                    | Required |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |

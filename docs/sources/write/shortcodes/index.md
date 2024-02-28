@@ -78,13 +78,12 @@ Produces:
 {{< admonition type="tip" >}}
 This also applies to headings that contain a forward slash or parentheses or square brackets.{{< /admonition >}}
 
-## Card Grid
+## Card grid
 
 The `card-grid` shortcode renders a responsive grid of card elements that fits the width of its container.
 
 ### Grid parameters
 
-<!-- prettier-ignore-start -->
 | Parameter       | Description                                                                                                                                                                                                                                                   | Required |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------- |
 | `key`           | Front matter parameter name of hero fields. Default: `hero`.                                                                                                                                                                                                  | Yes      |
@@ -94,28 +93,22 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `wrapper_class` | Optional CSS class for the wrapper element.                                                                                                                                                                                                                   | No       |
 | `grid_class`    | Optional CSS class for the grid element.                                                                                                                                                                                                                      | No       |
 | `card_class`    | Optional CSS class for the cards.                                                                                                                                                                                                                             | No       |
-<!-- prettier-ignore-end -->
 
 ### Card parameters (type="simple")
 
-<!-- prettier-ignore-start -->
 | Parameter     | Description                                                                                                                                                                                                                                    | Required |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `title`       | Card title text.                                                                                                                                                                                                                               | No       |
 | `href`        | URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)                                                                                                                                     | Yes      |
 | `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
-| `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`.   | No       |
-| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |  
-<!-- prettier-ignore-end -->
+| `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`.   | No       |
+| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`. | No       |
 
 ### Examples
 
 Render a card grid with a minimum card width of `sm` and a `simple` card type:
 
-<!-- vale Grafana.GoogleHeadingPunctuation = NO -->
-
-<!-- prettier-ignore-start -->
 ```markdown
 ---
 my_card_grid:
@@ -135,11 +128,9 @@ my_card_grid:
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
       height: 24
 ---
+
 {{</* card-grid key="my_card_grid" */>}}
 ```
-<!-- prettier-ignore-end -->
-
-<!-- vale Grafana.GoogleHeadingPunctuation = YES -->
 
 ## Code
 
@@ -511,16 +502,19 @@ It sets the original `width` and `height` values of the image without any unit o
 
 ## Hero (simple)
 
-The `hero-simple` shortcode renders a hero section with an optional title, description, and image. To add a simple hero, insert the `hero-simple` shortcode using the following named parameters:
-<!-- prettier-ignore-start -->
+A hero section is a large section that contains a title, description, and image, usually placed at the top of a page.
+
+The `hero-simple` shortcode renders a hero section with an optional title, description, and image.
+To add a simple hero, insert the `hero-simple` shortcode using the following named parameters:
+
 | Parameter           | Description                                                                                                                                                                                                                                    | Required |
 | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `key`               | Front matter parameter name of hero fields. Default: `hero`.                                                                                                                                                                                   | No       |
 | `title`             | Heading title text.                                                                                                                                                                                                                            | No       |
 | `level`             | Heading level. Default: `3`.                                                                                                                                                                                                                   | No       |
 | `image`             | Image URL.                                                                                                                                                                                                                                     | No       |
-| `width`             | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`.   | No       |
-| `height`            | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |
+| `width`             | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`.   | No       |
+| `height`            | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`. | No       |
 | `description`       | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `wrapper_class`     | Optional CSS class for the wrapper element.                                                                                                                                                                                                    | No       |
 | `hero_class`        | Optional CSS class for the hero element.                                                                                                                                                                                                       | No       |
@@ -529,15 +523,18 @@ The `hero-simple` shortcode renders a hero section with an optional title, descr
 | `description_class` | Optional CSS class for the description element.                                                                                                                                                                                                | No       |
 <!-- prettier-ignore-end -->
 
-These parameters can be placed in a page's front matter and referenced via the `key` parameter, added directly to the shortcode itself, or used in combination. Parameters added via the shortcode override those in the front matter. If no parameters are provided, the shortcode uses the default values.
+You can provide shortcode arguments by:
+
+- Adding front matter and referencing it front matter with the `key` argument.
+- Adding them directly to the shortcode itself.
+
+Shortcode arguments override those in the front matter.
+If you don't provide any arguments, the shortcode uses default values.
 
 ### Examples
 
-Insert a simple hero using front matter parameters:
+Insert a simple hero using front matter:
 
-<!-- vale Grafana.GoogleHeadingPunctuation = NO -->
-
-<!-- prettier-ignore-start -->
 ```markdown
 ---
 my_hero:
@@ -549,17 +546,15 @@ my_hero:
   description: >-
     Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
 ---
+
 {{</* hero-simple key="my_hero" */>}}
 ```
-<!-- prettier-ignore-end -->
 
-Insert a simple hero using shortcode parameters:
+Insert a simple hero using shortcode arguments:
 
 ```markdown
 {{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
 ```
-
-<!-- vale Grafana.GoogleHeadingPunctuation = YES -->
 
 <!-- vale Grafana.Spelling = NO -->
 

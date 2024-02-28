@@ -124,7 +124,7 @@ my_card_grid:
       href: /docs/grafana-cloud/alerting-and-irm/slo/
       description: Provides a framework for measuring the quality of service you provide to users. Use SLOs to collect data on the reliability of your systems over time and as a result, help engineering teams reduce alert fatigue, focus on reliability, and provide better service to your customers.
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
-      height: 24  
+      height: 24
 ---
 {{</* card-grid key="my_card_grid" */>}}
 ```

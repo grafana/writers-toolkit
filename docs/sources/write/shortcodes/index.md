@@ -527,8 +527,8 @@ These parameters can be placed in a page's front matter and referenced via the `
 
 Insert a simple hero using front matter parameters:
 
-Insert a simple hero using frontmatter parameters:
----
+## Insert a simple hero using frontmatter parameters:
+
 my_hero:
   title: Alerts and IRM
   level: 1

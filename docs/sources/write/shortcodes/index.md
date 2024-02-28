@@ -79,8 +79,6 @@ Produces:
 This also applies to headings that contain a forward slash or parentheses or square brackets.
 {{< /admonition >}}  
 
-<!-- vale Grafana.Spelling = NO -->
-
 ## Card Grid
 
 The `card-grid` shortcode renders a responsive grid of card elements that fits the width of its container.
@@ -106,9 +104,15 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
 | `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`.   | No       |
-| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |
+| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |  
 
 ### Examples
+
+Render a card grid with a minimum card width of `sm` and a `simple` card type:
+
+<!-- vale Grafana.GoogleHeadingPunctuation = NO -->
+
+```markdown
 ---
 my_card_grid:
   type: simple
@@ -127,9 +131,9 @@ my_card_grid:
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
       height: 24
 ---
-
----
-```
+{{</* card-grid key="my_card_grid" */>}}
+```  
+<!-- vale Grafana.GoogleHeadingPunctuation = YES -->
 
 ## Code
 
@@ -499,8 +503,6 @@ It sets the original `width` and `height` values of the image without any unit o
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
-<!-- vale Grafana.Spelling = NO -->
-
 ## Hero (simple)
 
 The `hero-simple` shortcode renders a hero section with an optional title, description, and image. To add a simple hero, insert the `hero-simple` shortcode using the following named parameters:
@@ -526,28 +528,28 @@ These parameters can be placed in a page's front matter and referenced via the `
 
 Insert a simple hero using front matter parameters:
 
-## Insert a simple hero using frontmatter parameters:
+<!-- vale Grafana.GoogleHeadingPunctuation = NO -->
 
+```markdown
+---
 my_hero:
-title: Alerts and IRM
-level: 1
-image: /media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg
-width: 110
-height: 110
-description: >-
-Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
-
+  title: Alerts and IRM
+  level: 1
+  image: /media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg
+  width: 110
+  height: 110
+  description: >-
+    Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
 ---
+{{</* hero-simple key="my_hero" */>}}
+```  
 
----
+Insert a simple hero using shortcode parameters:
 
-````
-
-Insert the same simple hero using shortcode parameters:
-
-Insert the same simple hero using shortcode parameters:
+```markdown
 {{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
-```
+```  
+<!-- vale Grafana.GoogleHeadingPunctuation = YES -->
 
 <!-- vale Grafana.Spelling = NO -->
 

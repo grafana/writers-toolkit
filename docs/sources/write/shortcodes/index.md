@@ -536,7 +536,8 @@ my_hero:
   description: >-
     Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
 ---
-{{</* hero-simple key="my_hero" */>}}
+
+---
 ```
 
 Insert the same simple hero using shortcode parameters:

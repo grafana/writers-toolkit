@@ -527,6 +527,7 @@ These parameters can be placed in a page's frontmatter and referenced via the `k
 ### Examples
 
 Insert a simple hero using frontmatter parameters:
+
 ```markdown
 ---
 my_hero:

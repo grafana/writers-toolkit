@@ -507,20 +507,20 @@ It sets the original `width` and `height` values of the image without any unit o
 
 The `hero-simple` shortcode renders a hero section with an optional title, description, and image. To add a simple hero, insert the `hero-simple` shortcode using the following named parameters:
 
-|Parameter|Description|Required|
-|:----|:----|:----|
-|key|Frontmatter parameter name of hero fields. Default: `hero`.|No|
-|title|Heading title text.|No|
-|level|Heading level. Default: `3`.|No|
-|image|Image URL.|No|
-|width|For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
-|height|For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
-|description|Description text. Accepts markdown.|No|
-|wrapper_class|Optional CSS class for the wrapper element.|No|
-|hero_class|Optional CSS class for the hero element.|No|
-|img_class|Optional CSS class for the image container element.|No|
-|title_class|Optional CSS class for the heading element.|No|
-|description_class|Optional CSS class for the description element.|No|
+| Parameter         | Description                                                                                                                                                                                                                            | Required |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| key               | Frontmatter parameter name of hero fields. Default: `hero`.                                                                                                                                                                            | No       |
+| title             | Heading title text.                                                                                                                                                                                                                    | No       |
+| level             | Heading level. Default: `3`.                                                                                                                                                                                                           | No       |
+| image             | Image URL.                                                                                                                                                                                                                             | No       |
+| width             | For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.   | No       |
+| height            | For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`. | No       |
+| description       | Description text. Accepts markdown.                                                                                                                                                                                                    | No       |
+| wrapper_class     | Optional CSS class for the wrapper element.                                                                                                                                                                                            | No       |
+| hero_class        | Optional CSS class for the hero element.                                                                                                                                                                                               | No       |
+| img_class         | Optional CSS class for the image container element.                                                                                                                                                                                    | No       |
+| title_class       | Optional CSS class for the heading element.                                                                                                                                                                                            | No       |
+| description_class | Optional CSS class for the description element.                                                                                                                                                                                        | No       |
 
 These parameters can be placed in a page's frontmatter and referenced via the `key` parameter, added directly to the shortcode itself, or used in combination. Parameters added via the shortcode will override those in the frontmatter. If no parameters are provided, the shortcode will use the default values.
 

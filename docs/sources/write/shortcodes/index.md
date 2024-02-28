@@ -96,14 +96,15 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | card_class    | Optional CSS class for the cards.                                                                                                                                                                                                                                      | No       |
 
 ### Card parameters (type="simple")
-|Parameter|Description|Required|
-|:----|:----|:----|
-|title|Card title text.|No|
-|href|URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)|Yes|
-|description|Description text. Accepts markdown.|No|
-|logo|Logo image URL.|No|
-|width|For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
-|height|For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
+
+| Parameter   | Description                                                                                                                                                                                                                            | Required |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| title       | Card title text.                                                                                                                                                                                                                       | No       |
+| href        | URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)                                                                                                                             | Yes      |
+| description | Description text. Accepts markdown.                                                                                                                                                                                                    | No       |
+| logo        | Logo image URL.                                                                                                                                                                                                                        | No       |
+| width       | For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.   | No       |
+| height      | For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`. | No       |
 
 ### Examples
 Render a card grid with a minimum card width of `sm` and a `simple` card type:

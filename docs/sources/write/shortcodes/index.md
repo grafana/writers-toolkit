@@ -107,6 +107,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | height      | For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`. | No       |
 
 ### Examples
+
 Render a card grid with a minimum card width of `sm` and a `simple` card type:
 ```markdown
 ---

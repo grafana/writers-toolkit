@@ -77,39 +77,37 @@ Produces:
 
 {{< admonition type="tip" >}}
 This also applies to headings that contain a forward slash or parentheses or square brackets.
-{{< /admonition >}}
+{{< /admonition >}}  
+
+<!-- vale Grafana.Spelling = NO -->
 
 ## Card Grid
 
 The `card-grid` shortcode renders a responsive grid of card elements that fits the width of its container.
 
 ### Grid parameters
-
-| Parameter     | Description                                                                                                                                                                                                                                                            | Required |
-| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| key           | Frontmatter parameter name of hero fields. Default: `hero`.                                                                                                                                                                                                            | Yes      |
-| items         | Frontmatter array of card parameters                                                                                                                                                                                                                                   | Yes      |
-| type          | The type of card to use. Only current option is: `simple`. Default: `simple`.                                                                                                                                                                                          | No       |
-| min           | Sets the mininum card width. This will affect the number of cards in each row, as well as the breakpoints at which the cards will wrap. Options: `xs`, `sm`, `md`, `lg`. These correspond to minimum card widths of `100px`, `250px`, `350px`, `500px`. Default: `sm`. | No       |
-| wrapper_class | Optional CSS class for the wrapper element.                                                                                                                                                                                                                            | No       |
-| grid_class    | Optional CSS class for the grid element.                                                                                                                                                                                                                               | No       |
-| card_class    | Optional CSS class for the cards.                                                                                                                                                                                                                                      | No       |
+|Parameter|Description|Required|
+|:----|:----|:----|
+|key|Frontmatter parameter name of hero fields. Default: `hero`.|Yes|
+|items|Frontmatter array of card parameters|Yes|
+|type|The type of card to use. Only current option is: `simple`. Default: `simple`.|No|
+|min|Sets the mininum card width. This will affect the number of cards in each row, as well as the breakpoints at which the cards will wrap. Options: `xs`, `sm`, `md`, `lg`. These correspond to minimum card widths of `100px`, `250px`, `350px`, `500px`. Default: `sm`.|No|
+|wrapper_class|Optional CSS class for the wrapper element.|No|
+|grid_class|Optional CSS class for the grid element.|No|
+|card_class|Optional CSS class for the cards.|No|  
 
 ### Card parameters (type="simple")
-
-| Parameter   | Description                                                                                                                                                                                                                            | Required |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| title       | Card title text.                                                                                                                                                                                                                       | No       |
-| href        | URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)                                                                                                                             | Yes      |
-| description | Description text. Accepts markdown.                                                                                                                                                                                                    | No       |
-| logo        | Logo image URL.                                                                                                                                                                                                                        | No       |
-| width       | For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.   | No       |
-| height      | For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`. | No       |
+|Parameter|Description|Required|
+|:----|:----|:----|
+|title|Card title text.|No|
+|href|URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)|Yes|
+|description|Description text. Accepts markdown.|No|
+|logo|Logo image URL.|No|
+|width|For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
+|height|For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
 
 ### Examples
-
 Render a card grid with a minimum card width of `sm` and a `simple` card type:
-
 ```markdown
 ---
 my_card_grid:
@@ -125,9 +123,8 @@ my_card_grid:
       href: /docs/grafana-cloud/alerting-and-irm/slo/
       description: Provides a framework for measuring the quality of service you provide to users. Use SLOs to collect data on the reliability of your systems over time and as a result, help engineering teams reduce alert fatigue, focus on reliability, and provide better service to your customers.
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
-      height: 24
+      height: 24  
 ---
-
 {{</* card-grid key="my_card_grid" */>}}
 ```
 
@@ -497,37 +494,35 @@ It sets the original `width` and `height` values of the image without any unit o
 
 ```markdown
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
-```
+```  
+
 
 <!-- vale Grafana.Spelling = NO -->
 
 ## Hero (simple)
 
-<!-- vale Grafana.Spelling = YES -->
-
 The `hero-simple` shortcode renders a hero section with an optional title, description, and image. To add a simple hero, insert the `hero-simple` shortcode using the following named parameters:
 
-| Parameter         | Description                                                                                                                                                                                                                            | Required |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| key               | Frontmatter parameter name of hero fields. Default: `hero`.                                                                                                                                                                            | No       |
-| title             | Heading title text.                                                                                                                                                                                                                    | No       |
-| level             | Heading level. Default: `3`.                                                                                                                                                                                                           | No       |
-| image             | Image URL.                                                                                                                                                                                                                             | No       |
-| width             | For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.   | No       |
-| height            | For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`. | No       |
-| description       | Description text. Accepts markdown.                                                                                                                                                                                                    | No       |
-| wrapper_class     | Optional CSS class for the wrapper element.                                                                                                                                                                                            | No       |
-| hero_class        | Optional CSS class for the hero element.                                                                                                                                                                                               | No       |
-| img_class         | Optional CSS class for the image container element.                                                                                                                                                                                    | No       |
-| title_class       | Optional CSS class for the heading element.                                                                                                                                                                                            | No       |
-| description_class | Optional CSS class for the description element.                                                                                                                                                                                        | No       |
+|Parameter|Description|Required|
+|:----|:----|:----|
+|key|Frontmatter parameter name of hero fields. Default: `hero`.|No|
+|title|Heading title text.|No|
+|level|Heading level. Default: `3`.|No|
+|image|Image URL.|No|
+|width|For raster images (png, jpg, webp), this is the image's natural width. For vector images (svg), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
+|height|For raster images (png, jpg, webp), this is the image's natural height. For vector images (svg), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include "px". Default: `auto`.|No|
+|description|Description text. Accepts markdown.|No|
+|wrapper_class|Optional CSS class for the wrapper element.|No|
+|hero_class|Optional CSS class for the hero element.|No|
+|img_class|Optional CSS class for the image container element.|No|
+|title_class|Optional CSS class for the heading element.|No|
+|description_class|Optional CSS class for the description element.|No|
 
 These parameters can be placed in a page's frontmatter and referenced via the `key` parameter, added directly to the shortcode itself, or used in combination. Parameters added via the shortcode will override those in the frontmatter. If no parameters are provided, the shortcode will use the default values.
 
 ### Examples
 
 Insert a simple hero using frontmatter parameters:
-
 ```markdown
 ---
 my_hero:
@@ -539,15 +534,13 @@ my_hero:
   description: >-
     Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
 ---
-
 {{</* hero-simple key="my_hero" */>}}
 ```
 
 Insert the same simple hero using shortcode parameters:
-
 ```markdown
 {{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
-```
+```  
 
 <!-- vale Grafana.Spelling = NO -->
 

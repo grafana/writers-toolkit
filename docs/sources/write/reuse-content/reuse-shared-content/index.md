@@ -92,4 +92,4 @@ To reuse shared content, follow these steps:
 
 1. Verify the include.
 
-   To review the changes to the documentation, refer to the steps in [Review your changes](https://grafana.com/docs/writers-toolkit/contribute#review-your-changes)
+   To review the changes to the documentation, refer to the steps in [Review your changes](https://grafana.com/docs/writers-toolkit/contribute/#review-your-changes)

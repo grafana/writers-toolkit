@@ -135,7 +135,7 @@ New users or members of other teams are very helpful for these tests.
 Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work.
 For more information on using Git, refer to [Use Git](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#use-git).
 
-To view a local build, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes)
+To view a local build, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/)
 
 ## Push changes and create a pull request
 

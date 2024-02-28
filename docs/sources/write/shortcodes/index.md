@@ -106,11 +106,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
 | `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`.   | No       |
-| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |
-
-### Examples
-
-### Examples
+| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |  
 
 ### Examples
 ---
@@ -120,12 +116,14 @@ my_card_grid:
   items:
     - title: Grafana Alerting
       href: /docs/grafana-cloud/alerting-and-irm/alerting/
-      description: Allows you to learn about problems in your systems moments after they occur. Monitor your incoming metrics data or log entries and set up your Alerting system to watch for specific events or circumstances and then send notifications when those things are found.
+      description: >-
+        Allows you to learn about problems in your systems moments after they occur. Monitor your incoming metrics data or log entries and set up your Alerting system to watch for specific events or circumstances and then send notifications when those things are found.
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
       height: 24
     - title: Grafana SLO
       href: /docs/grafana-cloud/alerting-and-irm/slo/
-      description: Provides a framework for measuring the quality of service you provide to users. Use SLOs to collect data on the reliability of your systems over time and as a result, help engineering teams reduce alert fatigue, focus on reliability, and provide better service to your customers.
+      description: >-
+        Provides a framework for measuring the quality of service you provide to users. Use SLOs to collect data on the reliability of your systems over time and as a result, help engineering teams reduce alert fatigue, focus on reliability, and provide better service to your customers.
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
       height: 24
 ---

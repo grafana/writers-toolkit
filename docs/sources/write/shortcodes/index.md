@@ -106,6 +106,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`.   | No       |
 | `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |  
 <!-- prettier-ignore-end -->
+
 ### Examples
 
 Render a card grid with a minimum card width of `sm` and a `simple` card type:
@@ -523,6 +524,7 @@ The `hero-simple` shortcode renders a hero section with an optional title, descr
 | `title_class`       | Optional CSS class for the heading element.                                                                                                                                                                                                    | No       |
 | `description_class` | Optional CSS class for the description element.                                                                                                                                                                                                | No       |
 <!-- prettier-ignore-end -->
+
 These parameters can be placed in a page's front matter and referenced via the `key` parameter, added directly to the shortcode itself, or used in combination. Parameters added via the shortcode override those in the front matter. If no parameters are provided, the shortcode uses the default values.
 
 ### Examples

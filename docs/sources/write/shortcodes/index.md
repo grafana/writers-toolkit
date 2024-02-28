@@ -77,7 +77,7 @@ Produces:
 
 {{< admonition type="tip" >}}
 This also applies to headings that contain a forward slash or parentheses or square brackets.
-{{< /admonition >}}  
+{{< /admonition >}}
 
 ## Card Grid
 

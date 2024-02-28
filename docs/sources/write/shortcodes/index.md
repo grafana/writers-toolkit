@@ -109,6 +109,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 ### Examples
 
 Render a card grid with a minimum card width of `sm` and a `simple` card type:
+
 ```markdown
 ---
 my_card_grid:

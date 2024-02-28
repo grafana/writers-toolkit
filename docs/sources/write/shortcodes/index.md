@@ -76,8 +76,7 @@ This also applies to headings that contain a forward slash or parentheses or squ
 Produces:
 
 {{< admonition type="tip" >}}
-This also applies to headings that contain a forward slash or parentheses or square brackets.
-{{< /admonition >}}  
+This also applies to headings that contain a forward slash or parentheses or square brackets.{{< /admonition >}}
 
 ## Card Grid
 

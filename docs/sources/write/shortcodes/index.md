@@ -106,7 +106,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
 | `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`.   | No       |
-| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |  
+| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values should NOT include `px`. Default: `auto`. | No       |
 
 ### Examples
 ---

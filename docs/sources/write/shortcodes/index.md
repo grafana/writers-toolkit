@@ -126,7 +126,8 @@ my_card_grid:
       logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
       height: 24
 ---
-{{</* card-grid key="my_card_grid" */>}}
+
+---
 ```
 
 ## Code

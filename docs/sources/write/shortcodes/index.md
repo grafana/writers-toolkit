@@ -541,7 +541,8 @@ Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, w
 ---
 
 ---
-```
+
+````
 
 Insert the same simple hero using shortcode parameters:
 

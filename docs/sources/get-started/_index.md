@@ -69,7 +69,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 ### 4. Review the docs
 
 1. Build the docs locally.
-   For instructions, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/).
+   For instructions, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/).
 1. Open a pull request and use the label `type/docs`.
 1. Use `doc-validator` and the Vale prose linter.
    These are often automatic checks from within the PR itself.
@@ -84,8 +84,8 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
    If you are a Grafana Labs employee, reach out in the #docs channel on the internal Slack workspace.
    If you aren't a Grafana Labs employee, reach out in the #docs channel on the [community Slack workspace](https://grafana.slack.com/archives/CNCRV74GP).
 1. Backport, if required.
-   For guidance, refer to [Backport changes](https://grafana.com/docs/writers-toolkit/review/backporting/).
+   For guidance, refer to [Backport changes](https://grafana.com/docs/writers-toolkit/review/backport-changes/).
 1. Add What’s new or release notes, if required.
-   For guidance, refer to [Contribute to What’s new or release notes](https://grafana.com/docs/writers-toolkit/contribute-documentation/contribute-release-notes/).
+   For guidance, refer to [Contribute to What’s new or release notes](https://grafana.com/docs/writers-toolkit/contribute/release-notes/).
 
 <!-- vale Grafana.Timeless = YES -->

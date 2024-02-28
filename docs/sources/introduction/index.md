@@ -1,6 +1,8 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/about-grafana-docs
+  - /docs/writers-toolkit/about-grafana-docs/
+  - /docs/writers-toolkit/introduction/
+  - /docs/writers-toolkit/writing-guide/about-grafana-docs/
 date: 2024-02-13
 description: Learn about Grafana's documentation
 keywords:
@@ -52,9 +54,9 @@ For more information, refer to the [Markdown style guide](https://grafana.com/do
 
 You can contribute content in the following ways:
 
-- [Report a problem](https://grafana.com/docs/writers-toolkit/contribute-documentation/#request-a-change)
-- [Edit a topic](https://grafana.com/docs/writers-toolkit/contribute-documentation/#edit-a-topic)
-- [Create a topic](https://grafana.com/docs/writers-toolkit/contribute-documentation/#create-a-topic)
+- [Report a problem](https://grafana.com/docs/writers-toolkit/contribute/#report-a-problem)
+- [Suggest an edit](https://grafana.com/docs/writers-toolkit/contribute/#suggest-an-edit)
+- [Develop a new topic](https://grafana.com/docs/writers-toolkit/contribute/#develop-a-new-topic)
 
 ## Join the community
 

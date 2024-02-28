@@ -63,7 +63,7 @@ To do this, refer to [Reuse shared content](https://grafana.com/docs/writers-too
 ### Mount directories of content
 
 You can reuse whole directories of content using Hugo mounts.
-To do this, refer to [Reuse content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/hugo-mounts).
+To do this, refer to [Reuse directories of content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-directories/).
 
 With this option, you share content and structure.
 Each page has exactly the same heading structure.

@@ -1,6 +1,8 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/contribute-documentation
+  - /docs/writers-toolkit/contribute/
+  - /docs/writers-toolkit/contribute-documentation/
+  - /docs/writers-toolkit/writing-guide/contribute-documentation/
 date: 2024-02-13
 description: This section describes the different ways of contributing to documentation.
 keywords:
@@ -133,7 +135,7 @@ New users or members of other teams are very helpful for these tests.
 Prior to pushing your changes to GitHub, you can view a local build of the documentation so that you can review your work.
 For more information on using Git, refer to [Use Git](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#use-git).
 
-To view a local build, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/#test-documentation-changes)
+To view a local build, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes)
 
 ## Push changes and create a pull request
 
@@ -160,7 +162,7 @@ When you edit the `main` branch of a project, it affects the content in the `nex
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.
 
 To backport a change, use the `backport <BRANCH>` labels on the GitHub pull request.
-For more information, refer to [Backport changes](https://grafana.com/docs/writers-toolkit/review/backporting/).
+For more information, refer to [Backport changes](https://grafana.com/docs/writers-toolkit/review/backport-changes/).
 
 Grot, the Grafana bot, automatically creates a backport pull request if the merge commit can be cherry-picked without a conflict.
 If this process fails due to a merge conflict, Grot posts a comment explaining how to manually backport the change.

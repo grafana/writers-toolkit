@@ -497,8 +497,7 @@ It sets the original `width` and `height` values of the image without any unit o
 
 ```markdown
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
-```  
-
+```
 
 <!-- vale Grafana.Spelling = NO -->
 

@@ -524,7 +524,8 @@ These parameters can be placed in a page's front matter and referenced via the `
 ### Examples
 
 Insert a simple hero using front matter parameters:
-```markdown
+
+Insert a simple hero using frontmatter parameters:
 ---
 my_hero:
   title: Alerts and IRM

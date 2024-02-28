@@ -84,15 +84,16 @@ This also applies to headings that contain a forward slash or parentheses or squ
 The `card-grid` shortcode renders a responsive grid of card elements that fits the width of its container.
 
 ### Grid parameters
-|Parameter|Description|Required|
-|:----|:----|:----|
-|key|Frontmatter parameter name of hero fields. Default: `hero`.|Yes|
-|items|Frontmatter array of card parameters|Yes|
-|type|The type of card to use. Only current option is: `simple`. Default: `simple`.|No|
-|min|Sets the mininum card width. This will affect the number of cards in each row, as well as the breakpoints at which the cards will wrap. Options: `xs`, `sm`, `md`, `lg`. These correspond to minimum card widths of `100px`, `250px`, `350px`, `500px`. Default: `sm`.|No|
-|wrapper_class|Optional CSS class for the wrapper element.|No|
-|grid_class|Optional CSS class for the grid element.|No|
-|card_class|Optional CSS class for the cards.|No|  
+
+| Parameter     | Description                                                                                                                                                                                                                                                            | Required |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| key           | Frontmatter parameter name of hero fields. Default: `hero`.                                                                                                                                                                                                            | Yes      |
+| items         | Frontmatter array of card parameters                                                                                                                                                                                                                                   | Yes      |
+| type          | The type of card to use. Only current option is: `simple`. Default: `simple`.                                                                                                                                                                                          | No       |
+| min           | Sets the mininum card width. This will affect the number of cards in each row, as well as the breakpoints at which the cards will wrap. Options: `xs`, `sm`, `md`, `lg`. These correspond to minimum card widths of `100px`, `250px`, `350px`, `500px`. Default: `sm`. | No       |
+| wrapper_class | Optional CSS class for the wrapper element.                                                                                                                                                                                                                            | No       |
+| grid_class    | Optional CSS class for the grid element.                                                                                                                                                                                                                               | No       |
+| card_class    | Optional CSS class for the cards.                                                                                                                                                                                                                                      | No       |
 
 ### Card parameters (type="simple")
 |Parameter|Description|Required|

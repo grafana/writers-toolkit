@@ -116,6 +116,7 @@ Render a card grid with a minimum card width of `sm` and a `simple` card type:
 
 <!-- vale Grafana.GoogleHeadingPunctuation = NO -->
 
+<!-- prettier-ignore-start -->
 ```markdown
 ---
 my_card_grid:
@@ -137,6 +138,7 @@ my_card_grid:
 ---
 {{</* card-grid key="my_card_grid" */>}}
 ```
+<!-- prettier-ignore-end -->
 
 <!-- vale Grafana.GoogleHeadingPunctuation = YES -->
 
@@ -536,6 +538,7 @@ Insert a simple hero using front matter parameters:
 
 <!-- vale Grafana.GoogleHeadingPunctuation = NO -->
 
+<!-- prettier-ignore-start -->
 ```markdown
 ---
 my_hero:
@@ -549,6 +552,7 @@ my_hero:
 ---
 {{</* hero-simple key="my_hero" */>}}
 ```
+<!-- prettier-ignore-end -->
 
 Insert a simple hero using shortcode parameters:
 

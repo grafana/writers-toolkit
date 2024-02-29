@@ -168,7 +168,7 @@ The front matter description is from the Writers' Toolkit template and must be r
 
 ### Guide
 
-Update the front matter description following the guidance in https://grafana.com/docs/writers-toolkit/writing-guide/front-matter/.
+Update the front matter description following the guidance in https://grafana.com/docs/writers-toolkit/write/front-matter/.
 
 ## `link-does-not-exist`
 

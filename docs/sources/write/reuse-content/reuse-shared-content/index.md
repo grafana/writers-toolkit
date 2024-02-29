@@ -45,7 +45,7 @@ To reuse shared content, follow these steps:
    ```
 
    The `index.md` file tells Hugo that the `docs/sources/shared` directory is a leaf bundle which is necessary for the `docs/shared` shortcode to access files stored within.
-   For more information about leaf bundles, refer to [Pages and page bundles]({{< relref "../../../structure#pages-and-page-bundles" >}}).
+   For more information about leaf bundles, refer to [Pages and page bundles](https://grafana.com/docs/writers-toolkit/structure/#pages-and-page-bundles).
 
    After performing the preceding instructions for the first time in a new repository, the directory structure looks similar to the following:
 
@@ -88,8 +88,8 @@ To reuse shared content, follow these steps:
    {{</* docs/shared source="tempo" lookup="common-introduction.md" version="latest" */>}}
    ```
 
-   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode]({{< relref "../../shortcodes#docsshared" >}}).
+   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes#docsshared).
 
 1. Verify the include.
 
-   To review the changes to the documentation, refer to the steps in [Review your changes]({{< relref "../../../contribute-documentation#review-your-changes" >}})
+   To review the changes to the documentation, refer to the steps in [Review your changes](https://grafana.com/docs/writers-toolkit/contribute/#review-your-changes)

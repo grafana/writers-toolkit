@@ -76,8 +76,61 @@ This also applies to headings that contain a forward slash or parentheses or squ
 Produces:
 
 {{< admonition type="tip" >}}
-This also applies to headings that contain a forward slash or parentheses or square brackets.
-{{< /admonition >}}
+This also applies to headings that contain a forward slash or parentheses or square brackets.{{< /admonition >}}
+
+## Card grid
+
+The `card-grid` shortcode renders a responsive grid of card elements that fits the width of its container.
+
+### Grid parameters
+
+| Parameter       | Description                                                                                                                                                                                                                                                   | Required |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------- |
+| `key`           | Front matter parameter name of hero fields. Default: `hero`.                                                                                                                                                                                                  | Yes      |
+| `items`         | Front matter array of card parameters                                                                                                                                                                                                                         | Yes      |
+| `type`          | The type of card to use. Only current option is: `simple`. Default: `simple`.                                                                                                                                                                                 | No       |
+| `min`           | Sets the minimum card width. This affects the number of cards in each row, as well as the breakpoints at which the cards wrap. Options: `xs`, `sm`, `md`, `lg`. These correspond to minimum card widths of `100px`, `250px`, `350px`, `500px`. Default: `sm`. | No       |
+| `wrapper_class` | Optional CSS class for the wrapper element.                                                                                                                                                                                                                   | No       |
+| `grid_class`    | Optional CSS class for the grid element.                                                                                                                                                                                                                      | No       |
+| `card_class`    | Optional CSS class for the cards.                                                                                                                                                                                                                             | No       |
+
+### Card parameters (type="simple")
+
+| Parameter     | Description                                                                                                                                                                                                                                    | Required |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| `title`       | Card title text.                                                                                                                                                                                                                               | No       |
+| `href`        | URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)                                                                                                                                     | Yes      |
+| `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
+| `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
+| `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`.   | No       |
+| `height`      | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`. | No       |
+
+### Examples
+
+Render a card grid with a minimum card width of `sm` and a `simple` card type:
+
+```markdown
+---
+my_card_grid:
+  type: simple
+  min: sm
+  items:
+    - title: Grafana Alerting
+      href: /docs/grafana-cloud/alerting-and-irm/alerting/
+      description: >-
+        Allows you to learn about problems in your systems moments after they occur. Monitor your incoming metrics data or log entries and set up your Alerting system to watch for specific events or circumstances and then send notifications when those things are found.
+      logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
+      height: 24
+    - title: Grafana SLO
+      href: /docs/grafana-cloud/alerting-and-irm/slo/
+      description: >-
+        Provides a framework for measuring the quality of service you provide to users. Use SLOs to collect data on the reliability of your systems over time and as a result, help engineering teams reduce alert fatigue, focus on reliability, and provide better service to your customers.
+      logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-slo.svg
+      height: 24
+---
+
+{{</* card-grid key="my_card_grid" */>}}
+```
 
 ## Code
 
@@ -447,6 +500,62 @@ It sets the original `width` and `height` values of the image without any unit o
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
+## Hero (simple)
+
+A hero section is a large section that contains a title, description, and image, usually placed at the top of a page.
+
+The `hero-simple` shortcode renders a hero section with an optional title, description, and image.
+To add a simple hero, insert the `hero-simple` shortcode using the following named parameters:
+
+| Parameter           | Description                                                                                                                                                                                                                                    | Required |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| `key`               | Front matter parameter name of hero fields. Default: `hero`.                                                                                                                                                                                   | No       |
+| `title`             | Heading title text.                                                                                                                                                                                                                            | No       |
+| `level`             | Heading level. Default: `3`.                                                                                                                                                                                                                   | No       |
+| `image`             | Image URL.                                                                                                                                                                                                                                     | No       |
+| `width`             | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`.   | No       |
+| `height`            | For raster images (`png`, `jpg`, `webp`), this is the image's natural height. For vector images (`svg`), this is the desired display height. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`. | No       |
+| `description`       | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
+| `wrapper_class`     | Optional CSS class for the wrapper element.                                                                                                                                                                                                    | No       |
+| `hero_class`        | Optional CSS class for the hero element.                                                                                                                                                                                                       | No       |
+| `img_class`         | Optional CSS class for the image container element.                                                                                                                                                                                            | No       |
+| `title_class`       | Optional CSS class for the heading element.                                                                                                                                                                                                    | No       |
+| `description_class` | Optional CSS class for the description element.                                                                                                                                                                                                | No       |
+<!-- prettier-ignore-end -->
+
+You can provide shortcode arguments by:
+
+- Adding front matter and referencing it front matter with the `key` argument.
+- Adding them directly to the shortcode itself.
+
+Shortcode arguments override those in the front matter.
+If you don't provide any arguments, the shortcode uses default values.
+
+### Examples
+
+Insert a simple hero using front matter:
+
+```markdown
+---
+my_hero:
+  title: Alerts and IRM
+  level: 1
+  image: /media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg
+  width: 110
+  height: 110
+  description: >-
+    Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
+---
+
+{{</* hero-simple key="my_hero" */>}}
+```
+
+Insert a simple hero using shortcode arguments:
+
+```markdown
+{{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
+```
+
 <!-- vale Grafana.Spelling = NO -->
 
 ## Param
@@ -521,7 +630,7 @@ In most projects, the only content available during local builds and CI is the c
 
 {{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 
-For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/).
+For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/).
 
 ### Determine `relref` shortcode arguments
 

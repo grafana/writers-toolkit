@@ -1,6 +1,8 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/contribute-release-notes
+  - /docs/writers-toolkit/contribute-release-notes/
+  - /docs/writers-toolkit/contribute/release-notes/
+  - /docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/
 date: 2024-02-14
 description: This section describes the different ways of contributing to the What's new document or release notes.
 keywords:

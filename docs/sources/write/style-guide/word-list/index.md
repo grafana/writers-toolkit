@@ -122,8 +122,15 @@ Use this rather than _React.js_ or _ReactJS_.
 
 When naming a file or making a general reference to READMEs, spell using all caps. When referencing a specific README file, match the same capitalization of that file.
 
-<!--
-## S -->
+## S
+
+### SQL (Structured Query Language)
+
+The article&mdash;_a_ or _an_&mdash;that you use before the acronym _SQL_ depends on how the word is pronounced.
+
+When referring to the product Microsoft SQL Server, _SQL_ should be pronounced "sequel". In this case, use the article _a_, as in _a SQL Server analysis_.
+
+When referring to the term in any other context, such as SQL databases, errors, or servers, _SQL_ should be pronounced "ess-cue-el". In this case, use the article _an_, as in _an SQL error_.
 
 ## T
 

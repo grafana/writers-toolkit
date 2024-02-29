@@ -79,7 +79,7 @@ To write a tutorial, complete these steps:
 
 1. Add a `docs/sources/tutorials` directory to your project repository if one doesn't yet exist.
 
-   The tutorial committed alongside the other documentation in your repository and after it's published it's displayed on the Grafana [Tutorials](https://grafana.com/tutorials/) page.
+   The tutorial is committed alongside the other documentation in your repository, and after it's published, it's displayed on the Grafana [Tutorials](https://grafana.com/tutorials/) page.
    For more information, refer to [Publish your tutorial](#publish-your-tutorial).
 
 1. Create a child directory within the `tutorials` directory that follows this naming convention:

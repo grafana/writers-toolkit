@@ -131,7 +131,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
          <td>
            <p>Enablement videos are perhaps the fastest, most engaging tool for employees and users to learn about your feature. Use them for maximum engagement.</p>
            <p>Follow these instructions to create and upload a video: <a href="https://docs.google.com/document/d/1nCiG62FxJ9J_qLTnlzNopSsT-VEAlxCUCsrAEpWL68U/edit#heading=h.fierz9i4q8ft">Enablement video instructions</a>.</p>
-           <p>When you upload an enablement video, our Content team will be notified and, if applicable, edit it for the public and upload it to YouTube to concide with your feature going live. They need a few weeks' lead time for this.</p>
+           <p>When you upload an enablement video, the Content team receives a notification, edits it for the public, and uploads it to YouTube to coincide with your feature's release. They need a few weeks' lead time for this.</p>
          </td>
        </tr>
        <tr>

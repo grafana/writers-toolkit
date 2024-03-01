@@ -65,6 +65,8 @@ exceptions:
   - Promtail
   - Pyroscope
   - Redis
+  - Service Level Objective
+  - SLO
   - SRE
   - SSO
   - Tempo

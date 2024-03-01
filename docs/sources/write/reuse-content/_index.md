@@ -45,6 +45,12 @@ Instead of directly including content in your documentation, you can link to the
 
   If the definitive content changes, your link may need to be updated.
 
+- The linked content might lead to a more complex page that could potentially confuse readers.
+
+- Users might lose context by following the link to another page or section.
+
+  This concern hasn't been validated with UX research.
+
 ### Share chunks of content
 
 You can reuse chunks of content using the `docs/shared` shortcode.

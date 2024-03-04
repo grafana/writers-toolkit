@@ -163,7 +163,7 @@ For example:
 For more information about Grafana Labs products, refer to [Grafana documentation](/docs/grafana/latest/).
 ```
 
-For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolki/write/style-guide/useful-link-text/)
+For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolkit/write/links/useful-link-text/)
 
 ## Admonitions
 

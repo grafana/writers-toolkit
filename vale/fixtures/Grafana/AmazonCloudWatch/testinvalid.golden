@@ -1,0 +1,4 @@
+testinvalid.md:3:3:Grafana.AmazonCloudWatch:Use 'Amazon CloudWatch' instead of 'AWS CloudWatch'.
+testinvalid.md:4:3:Grafana.AmazonCloudWatch:Use 'CloudWatch' instead of 'cloudwatch'.
+testinvalid.md:5:3:Grafana.AmazonCloudWatch:Use 'CloudWatch' instead of 'Cloudwatch'.
+testinvalid.md:6:3:Grafana.AmazonCloudWatch:Use 'CloudWatch' instead of 'cloudWatch'.

@@ -56,6 +56,13 @@ In the first use, introduce the object as _Kubernetes XX_, then use it alone in 
 - Create the Kubernetes Job and check the logs to retrieve the generated token:
 - The Job requires the token be submitted as …
 
+### Amazon products
+
+When referring to Amazon products such as [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html), include the "Amazon" name prefix.
+After the first use, it's OK to use just the product name.
+
+In headings, always use the full name including "Amazon".
+
 ## Punctuation guidelines
 
 Refer to the following punctuation guidelines when you write technical content.

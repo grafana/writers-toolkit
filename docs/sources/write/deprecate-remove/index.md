@@ -1,27 +1,30 @@
 ---
-title: Deprecate or remove content
-menuTitle: Deprecate or remove
+aliases:
+  - /docs/writers-toolkit/write/deprecate-remove/
+date: 2024-03-01
 description: Learn about deprecating or removing content in your documentation.
 weight: 900
-aliases:
-  - /docs/writers-toolkit/write/deprecate-remove
-Keywords:
+keywords:
   - deprecate
   - remove
+menuTitle: Deprecate or remove
+title: Deprecate or remove content
 ---
 
 # Deprecate or remove content
 
-<!-- vale Google.Passive = NO -->
+<!-- vale Grafana.GooglePassive = NO -->
+<!-- vale Grafana.Timeless = NO -->
 
-**Deprecation** occurs when a feature or product is planned for removal in a future release.
+_Deprecation_ occurs when a feature or product is planned for removal in a future release.
 In the period between deprecation and removal, it's in maintenance.
 
-**Removal** is when the product or feature is removed and no longer supported.
+_Removal_ is when the product or feature is removed and no longer supported.
 
 The process for handling these scenarios varies according to how the product or feature is being phased out or maintained.
 
-<!-- vale Google.Passive = YES -->
+<!-- vale Grafana.GooglePassive = YES -->
+<!-- vale Grafana.Timeless = YES -->
 
 You should notify users two minor releases in advance of any planned removal of a feature.
 For example, if you plan to remove a feature in Grafana v9.5, then you should begin communicating that information to users in Grafana v9.3.
@@ -36,6 +39,8 @@ To ensure that users are fully aware of the stages of deprecation for their prod
 
 ## Deprecation
 
+<!-- vale Grafana.Timeless = NO -->
+
 Scenario: "You're planning on removing the feature or product in a future release."
 
 Example text:
@@ -48,6 +53,8 @@ It will be removed in a future release.
 ```
 
 If you know the release, enter the release instead of "future".
+
+<!-- vale Grafana.Timeless = YES -->
 
 ### Removal
 
@@ -68,8 +75,8 @@ Scenario: There are situations in which you may deprecate documentation along wi
 
 Example text:
 
-<!-- vale Google.Will = NO -->
-<!-- vale Google.Passive = NO -->
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- vale Grafana.GooglePassive = NO -->
 
 ```markdown
 {{</* admonition type="caution" */>}}
@@ -84,8 +91,8 @@ Concrete example:
 As of Grafana 9.2, release notes will no longer be published, because they duplicate the content available in the What’s New document and the CHANGELOG."
 {{< /admonition >}}
 
-<!-- vale Google.Passive = YES -->
-<!-- vale Google.Will = YES -->
+<!-- vale Grafana.GooglePassive = YES -->
+<!-- vale Grafana.GoogleWill = YES -->
 
 ## How to address deprecation
 
@@ -102,10 +109,10 @@ You may need to add the preceding notes to both the documentation _and_ the UI.
 
    <!-- vale Grafana.Spelling = YES -->
 
-1. If you don't have a writer assigned to your team, Engineers or Product Managers communicate with the Docs Squad and provide links to the impacted documentation, the rationale for the deprecation, and timing.
+1. If you don't have a writer assigned to your team, Engineers or Product Managers communicate with the Grafana Labs documentation team and provide links to the impacted documentation, the rationale for the deprecation, and timing.
    Post your message in the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel.
 
-   The Docs Team triage process makes a writer aware of any pending documentation deprecation.
+   The Grafana Labs documentation team triage process makes a writer aware of any pending documentation deprecation.
 
 1. In the PR that deprecates the documentation, writers, engineers, or Product Managers provide the rationale for deprecating the documentation in the comments using the documentation deprecation language identified in the preceding table, and if there is alternative documentation that a user can refer to, provide a link.
 

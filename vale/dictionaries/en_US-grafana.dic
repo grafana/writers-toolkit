@@ -1,4 +1,4 @@
-93
+94
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -12,6 +12,7 @@ blockquote/S po:noun
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/ po:noun
+CRD/s po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun

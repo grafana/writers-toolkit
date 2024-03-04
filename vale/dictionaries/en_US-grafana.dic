@@ -1,4 +1,4 @@
-93
+94
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -79,6 +79,7 @@ Splunk/ po:noun
 SRE/S po:noun
 submenu/S po:noun
 subtask/S po:noun
+subnet/S po:noun
 systemd/ po:noun
 Thanos/ po:noun
 tooltip/S po:noun

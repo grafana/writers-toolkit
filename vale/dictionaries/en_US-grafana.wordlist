@@ -46,6 +46,7 @@ matcher/S po:noun
 memberlist/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
+nginx/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
 OnCall/ po:noun

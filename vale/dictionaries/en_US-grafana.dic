@@ -1,4 +1,4 @@
-94
+96
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -47,6 +47,7 @@ matcher/S po:noun
 memberlist/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
+nginx/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
 OnCall/ po:noun

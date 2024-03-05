@@ -1,5 +1,6 @@
 ---
 aliases:
+  - /docs/writers-toolkit/write/style-guide/useful-link-text/
   - /docs/writers-toolkit/write/useful-link-text/
 title: Write useful link text
 description: Learn how to write useful link text.

@@ -343,45 +343,15 @@ Use the `video-embed` shortcode to embed the video on the page:
 
 ## Videos
 
-The Creative Services team periodically creates videos for blog posts and other collateral. Most of these videos are hosted on Vimeo or YouTube.
-
-{{< admonition type="note" >}}
-Embed videos only from official Grafana sources.
-{{< /admonition >}}
-
-### Embed Vimeo videos
-
-You can embed a Vimeo-hosted video by using the `vimeo` shortcode and the video ID: `{{</* vimeo 1111111*/>}}`.
-
-In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`.
-You can find the video ID at the end of the URL.
-
-```
-{{</* vimeo 773194063 */>}}
-```
-
-### Embed YouTube videos
-
-You can also embed videos hosted on YouTube.
+The Creative Services team creates videos for blog posts and other content.
+They upload these videos to Vimeo or YouTube.
 The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
 
-Use the `youtube` shortcode to embed the video.
-The `id` is the `v` URL parameter in the YouTube URL.
+You can embed these videos in your pages.
 
-For example, for the YouTube URL `https://www.youtube.com/watch?v=g97CjKOZqT4`, the shortcode is the following:
+{{< admonition type="note" >}}
+Only embed videos from official Grafana sources.
+{{< /admonition >}}
 
-```markdown
-{{</* youtube id="g97CjKOZqT4" */>}}
-```
-
-You can configure `start` and `end`, in seconds, with:
-
-```markdown
-{{</* youtube id="g97CjKOZqT4" start="100" end="200" */>}}
-```
-
-You can configure automatic playback with:
-
-```markdown
-{{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
-```
+To embed YouTube videos, use the [`youtube` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#youtube).
+To embed Vimeo videos, use the [`vimeo` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#vimeo).

@@ -1,4 +1,4 @@
-96
+97
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -26,6 +26,7 @@ etcd/ po:noun
 ESLint/ po:noun
 Fargate/ po:noun
 Firehose/ po:noun
+flamegraph/S po:noun
 Goldmark/ po:noun
 Grafana/ po:adjective
 Grafana/M po:noun

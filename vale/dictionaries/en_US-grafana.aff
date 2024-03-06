@@ -17,9 +17,10 @@ SFX G   0     ing        [^e]
 SFX M Y 1
 SFX M   0     's         .
 
-SFX S Y 4
+SFX S Y 5
 SFX S   y     ies        [^aeiou]y
 SFX S   0     s          [aeiou]y
+SFX S   0     s          ph
 SFX S   0     es         [sxzh]
 SFX S   0     s          [^sxzhy]
 

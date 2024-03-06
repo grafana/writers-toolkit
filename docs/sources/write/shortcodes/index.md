@@ -407,6 +407,69 @@ Produces:
 
 {{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
+## Docs/reference
+
+The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
+Use this shortcode for links when you reuse content from one repository to more than one documentation set.
+
+You set all possible destinations in one part of the file, usually at end of the file, like a footer.
+
+For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
+The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
+
+Set the reference at the end of the page as follows:
+
+```markdown
+{{%/* docs/reference */%}}
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
+[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
+{{%/* /docs/reference */%}}
+```
+
+The content within the shortcode tags is as follows:
+
+`[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
+
+- _`LABEL`_ - The label you'll use in the reference-style links in the file.
+  In the preceding example, the label is `dashboards`.
+  The label can be multiple words like `[dashboard docs]` and can include spaces.
+
+- _`PROJECT PATH PREFIX`_ - Designates the target project.
+  In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
+
+- _`REFERENCE`_ - The path to the destination file.
+  This shortcode supports version substitution using values like `<GRAFANA VERSION>`.
+  To learn about version substitution, refer to [About version substitution](#about-version-substitution).
+  Don't include trailing slashes in the path.
+
+Then add the link in the body of the file in the following format:
+
+```markdown
+For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+```
+
+- If the page you're on is `/docs/grafana-cloud/alerting/`, the returned link is `/docs/grafana-cloud/dashboards/`.
+- If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned link is `/docs/grafana/latest/dashboards/`.
+- If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned link is `/docs/grafana/next/dashboards/`.
+
+### Other use cases
+
+Markdown reference-style links are also useful when you want to link to the same destination multiple times in one file.
+It allows you to specify the link destination once while you use the label multiple times.
+For example:
+
+**Reference:**
+
+```markdown
+[Grafana website]: www.grafana.com
+```
+
+**Body text:**
+
+```markdown
+Find more information on [Grafana][Grafana website].
+```
+
 ## Docs/shared
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories.
@@ -730,71 +793,52 @@ If you aren't a Grafana Labs employee, request changes by [creating an issue](ht
 For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
 For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
 
-## Video shortcodes
+## Vimeo
 
-Refer to the [`vimeo` and `youtube` shortcode documentation]({{< relref "../image-guidelines#videos" >}}) for information about these shortcodes.
+The `vimeo` shortcode embeds videos hosted on vimeo.com.
 
-## Docs/reference
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| position 0 | Video ID    | yes      |
 
-The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
-Use this shortcode for links when you reuse content from one repository to more than one documentation set.
+The shortcode requires a single argument which is the video ID.
+For example, `{{</* vimeo 1111111*/>}}`.
 
-You set all possible destinations in one part of the file, usually at end of the file, like a footer.
+You can find the video ID at the end of the URL.
+In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`.
 
-For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
-The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
-
-Set the reference at the end of the page as follows:
-
-```markdown
-{{%/* docs/reference */%}}
-[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
-[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
-{{%/* /docs/reference */%}}
+```
+{{</* vimeo 773194063 */>}}
 ```
 
-The content within the shortcode tags is as follows:
+## YouTube
 
-`[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
+The `youtube` shortcode embed videos hosted on YouTube.
 
-- _`LABEL`_ - The label you'll use in the reference-style links in the file.
-  In the preceding example, the label is `dashboards`.
-  The label can be multiple words like `[dashboard docs]` and can include spaces.
+| Parameter  | Description                                     | Required |
+| ---------- | ----------------------------------------------- | -------- |
+| `id`       | Video ID                                        | yes      |
+| `start`    | Start time in seconds                           | no       |
+| `end`      | End time in seconds                             | no       |
+| `autoplay` | Set to `"true"` to automatically play the video | no       |
 
-- _`PROJECT PATH PREFIX`_ - Designates the target project.
-  In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-
-- _`REFERENCE`_ - The path to the destination file.
-  This shortcode supports version substitution using values like `<GRAFANA VERSION>`.
-  To learn about version substitution, refer to [About version substitution](#about-version-substitution).
-  Don't include trailing slashes in the path.
-
-Then add the link in the body of the file in the following format:
+The `id` is the `v` URL parameter in the YouTube URL.
+For example, for the YouTube URL `https://www.youtube.com/watch?v=g97CjKOZqT4`, the shortcode is the following:
 
 ```markdown
-For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+{{</* youtube id="g97CjKOZqT4" */>}}
 ```
 
-- If the page you're on is `/docs/grafana-cloud/alerting/`, the returned link is `/docs/grafana-cloud/dashboards/`.
-- If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned link is `/docs/grafana/latest/dashboards/`.
-- If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned link is `/docs/grafana/next/dashboards/`.
-
-### Other use cases
-
-Markdown reference-style links are also useful when you want to link to the same destination multiple times in one file.
-It allows you to specify the link destination once while you use the label multiple times.
-For example:
-
-**Reference:**
+You can configure `start` and `end`, in seconds, with:
 
 ```markdown
-[Grafana website]: www.grafana.com
+{{</* youtube id="g97CjKOZqT4" start="100" end="200" */>}}
 ```
 
-**Body text:**
+You can configure automatic playback with:
 
 ```markdown
-Find more information on [Grafana][Grafana website].
+{{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
 ## Escaping Hugo shortcodes

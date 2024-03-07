@@ -8,6 +8,7 @@ autoscale/DGRS po:verb
 backport/DGS po:verb
 Beyla/ po:noun
 blockquote/S po:noun
+boolean/ po:adjective
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/ po:noun

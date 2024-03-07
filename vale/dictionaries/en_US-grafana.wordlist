@@ -12,6 +12,7 @@ boolean/ po:adjective
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/ po:noun
+CIDR/s po:noun
 CRD/s po:noun
 Databricks/ po:noun
 Datadog/ po:adjective

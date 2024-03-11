@@ -1,4 +1,4 @@
-97
+100
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -9,10 +9,12 @@ autoscale/DGRS po:verb
 backport/DGS po:verb
 Beyla/ po:noun
 blockquote/S po:noun
+boolean/S po:noun
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/ po:noun
-CRD/s po:noun
+CIDR/S po:noun
+CRD/S po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun

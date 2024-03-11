@@ -1,4 +1,4 @@
-97
+99
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -44,6 +44,7 @@ Kibana/ po:noun
 Kinesis/ po:noun
 KPI/S po:noun
 kubelet/ po:noun
+Istio/ po:noun
 matcher/S po:noun
 memberlist/ po:noun
 misconfiguration/S po:noun

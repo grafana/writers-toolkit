@@ -11,6 +11,7 @@ blockquote/S po:noun
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/ po:noun
+CRD/s po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
@@ -24,6 +25,7 @@ etcd/ po:noun
 ESLint/ po:noun
 Fargate/ po:noun
 Firehose/ po:noun
+flamegraph/S po:noun
 Goldmark/ po:noun
 Grafana/ po:adjective
 Grafana/M po:noun
@@ -45,6 +47,7 @@ matcher/S po:noun
 memberlist/ po:noun
 misconfiguration/S po:noun
 namespace/S po:noun
+nginx/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
 OnCall/ po:noun
@@ -87,6 +90,7 @@ triage/D po:verb
 UI/S po:noun
 URI/S po:noun
 VU/S po:noun
+VUH/S po:noun
 Webpack/ po:noun
 webserver/S po:noun
 worktree/ po:noun

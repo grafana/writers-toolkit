@@ -1,3 +1,7 @@
+# This file contains all the redirects for the Writers' Toolkit project: https://grafana.com/docs/writers-toolkit/
+# Lines beginning with a '#' are comments.
+# The format is:
+# FROM                                                                                              TO
 /docs/writers-toolkit/about-grafana-docs/                                                           /docs/writers-toolkit/introduction/
 /docs/writers-toolkit/contribute-documentation/                                                     /docs/writers-toolkit/contribute/
 /docs/writers-toolkit/contribute-release-notes/                                                     /docs/writers-toolkit/contribute/release-notes/

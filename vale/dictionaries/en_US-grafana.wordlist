@@ -8,10 +8,12 @@ autoscale/DGRS po:verb
 backport/DGS po:verb
 Beyla/ po:noun
 blockquote/S po:noun
+boolean/S po:noun
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/ po:noun
-CRD/s po:noun
+CIDR/S po:noun
+CRD/S po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
@@ -43,6 +45,7 @@ Kibana/ po:noun
 Kinesis/ po:noun
 KPI/S po:noun
 kubelet/ po:noun
+Istio/ po:noun
 matcher/S po:noun
 memberlist/ po:noun
 misconfiguration/S po:noun

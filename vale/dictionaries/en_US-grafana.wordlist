@@ -6,7 +6,7 @@ Ansible/ po:noun
 API/S po:noun
 autoscale/DGRS po:verb
 backport/DGS po:verb
-Beyla/ po:noun
+Beyla/M po:noun
 blockquote/S po:noun
 boolean/S po:noun
 BPF/ po:noun
@@ -44,6 +44,7 @@ JUnit/ po:noun
 Kibana/ po:noun
 Kinesis/ po:noun
 KPI/S po:noun
+Kprobe/S po:noun
 kubelet/ po:noun
 Istio/ po:noun
 matcher/S po:noun
@@ -72,6 +73,7 @@ query/DGS po:verb
 React/ po:noun
 redirection/S po:noun
 SDK/S po:noun
+sandbox/DG po:verb
 serverless/ po:adjective
 shortcode/S po:noun
 showback/S po:noun
@@ -86,14 +88,17 @@ submenu/S po:noun
 subtask/S po:noun
 subnet/S po:noun
 systemd/ po:noun
-Thanos/ po:noun
+Thanos/M po:noun
+toolset/S po:noun
 tooltip/S po:noun
 tracepoint/S po:noun
 triage/D po:verb
 UI/S po:noun
+uprobe/S po:noun
 URI/S po:noun
 VU/S po:noun
 VUH/S po:noun
+walkthrough/S po:noun
 Webpack/ po:noun
 webserver/S po:noun
 worktree/ po:noun

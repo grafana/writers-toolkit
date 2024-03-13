@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+make vale \
+| grep 'Grafana\.Spelling' \
+| jq '.message' \
+| perl -ne '/'"'"'(.*)'"'"'\?/ && print "$1\n"' \
+| sort -u

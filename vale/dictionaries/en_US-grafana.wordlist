@@ -14,11 +14,13 @@ burndown/ po:adjective
 cAdvisor/ po:noun
 CIDR/S po:noun
 CRD/S po:noun
+CVE/S po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
+distroless/ po:adjective
 don't/S po:noun
 Dynatrace/ po:noun
 enablement/ po:noun
@@ -29,6 +31,7 @@ Fargate/ po:noun
 Firehose/ po:noun
 flamegraph/S po:noun
 Goldmark/ po:noun
+goroutine/S po:noun
 Grafana/ po:adjective
 Grafana/M po:noun
 Graylog/ po:noun
@@ -71,6 +74,7 @@ Pyroscope/ po:noun
 query/ po:noun
 query/A po:adjective
 query/DGS po:verb
+querier/S po:noun
 React/ po:noun
 redirection/S po:noun
 SDK/S po:noun

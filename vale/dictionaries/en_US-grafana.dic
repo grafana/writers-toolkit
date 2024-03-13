@@ -1,4 +1,4 @@
-106
+107
 Aerospike/ po:noun
 Alertmanager/S po:noun
 allowlist/S po:noun
@@ -51,6 +51,7 @@ Istio/ po:noun
 matcher/S po:noun
 memberlist/ po:noun
 misconfiguration/S po:noun
+Moodle/M po:noun
 namespace/S po:noun
 nginx/ po:noun
 OAuth/ po:noun

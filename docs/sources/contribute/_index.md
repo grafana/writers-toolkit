@@ -146,15 +146,15 @@ When you are ready for other people to review your work, perform the following t
 1. Push your changes to GitHub.
 1. Create a pull request in GitHub.
 1. When writing the description for your pull request, use [GitHub keywords](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue), for example "Fixes #1234", to link your pull request to the issue and take advantage of GitHub automation for status updates and closing resolved issues.
-1. Add the `type/docs` label, so the Docs team can track the issue.
+1. Add the `type/docs` label, so the Grafana Labs documentation team can track the issue.
 
    The docs build system automatically conducts a series of tests to ensure that the content doesn't conflict with other content in the docs repository.
 
 ## Pull request review and approval workflow
 
-When you add a pull request to a repository and assign the `type/docs` label, it's added to a queue that's regularly reviewed by a member of the Docs Squad.
+When you add a pull request to a repository and assign the `type/docs` label, it's added to a queue that's regularly reviewed by a member of the Grafana Labs documentation team.
 
-The Docs Squad aims to review all PRs in a timely fashion.
+The Grafana Labs documentation team aims to review all PRs in a timely fashion.
 
 ## Contributing across versions
 

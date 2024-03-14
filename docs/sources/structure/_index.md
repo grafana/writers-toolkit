@@ -98,7 +98,7 @@ If you're not sure where your documentation belongs, contact the technical docum
 **Parent:** Each top-level entity has one or more parents, which are groups of related feature content.
 Parent topics assist users in navigating to child topics.
 
-**Child:** This level of the information architecture includes includes concepts, tasks, or reference topics.
+**Child:** This level of the information architecture includes concepts, tasks, or reference topics.
 
 ## Parent directory structure
 

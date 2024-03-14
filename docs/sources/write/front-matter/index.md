@@ -263,7 +263,12 @@ cascade:
       - cloud
 ```
 
+<!-- vale Grafana.Headings = NO -->
+<!-- False positive due to the PascalCase that results from capitalizing camelCased shortcodes -->
+
 ### MenuTitle
+
+<!-- vale Grafana.Headings = YES -->
 
 Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 

@@ -103,7 +103,13 @@ Use this rather than _hamburger menu_ or _kebab menu_.
 
 ### Node Exporter
 
-When referring to the product, Prometheus Node Exporter, capitalize both words in the term _Node Exporter_. Don't use _Node exporter_ or _node exporter_.
+<!-- vale Grafana.PrometheusExporters = NO -->
+<!-- This is demonstrating improper usage. -->
+
+When referring to the product, Prometheus Node Exporter, capitalize both words in the term _Node Exporter_.
+Don't use _Node exporter_ or _node exporter_.
+
+<!-- vale Grafana.PrometheusExporters = YES -->
 
 When referring to the tool, use `node_exporter`. The text should always be pre-formatted (in "code" font).
 
@@ -116,7 +122,12 @@ When referring to the tool, use `node_exporter`. The text should always be pre-f
 
 ### React
 
+<!-- vale Grafana.React = NO -->
+<!-- This is demonstrating improper usage. -->
+
 Use this rather than _React.js_ or _ReactJS_.
+
+<!-- vale Grafana.React = YES -->
 
 ### README
 

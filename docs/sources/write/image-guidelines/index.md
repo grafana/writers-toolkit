@@ -151,65 +151,85 @@ General rules:
 - Don’t use abbreviations that may cause issues with localization.
   - For example, spell out `database` instead of using `db`.
   - When in doubt, don’t use an abbreviation.
-  <table>
-      <thead>
-          <tr>
-              <th>Asset type</th>
-              <th>Naming convention</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td align="left" valign="top">Screenshot</td>
-              <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description]-[version, if applicable].png <br><br><b>Examples:</b><br>
-  <ul><li>screenshot-grafana-loki-uptime-dashboard.png</li>
-  <li>screenshot-grafana-mimir-data-flow-diagram.png</li>
-  <li>screenshot-grafana-9-kubernetes-dashboard.png (or)</li>
-  <li>screenshot-grafana-9.0-kubernetes-dashboard.png</li>
-  <li>screenshot-simple-scalable-test-environment-grafana-loki.png</li>
-  </ul>
-  </td>
-          </tr>
-          <tr>
-              <td align="left" valign="top">Icon</td>
-              <td align="left" valign="top">Be as descriptive as possible.<br><br>
-              For example, use `icon-bar-graph.svg` or `icon-graph-bar.svg` instead of `icon-graph.svg`.<br>
-              <b>Naming convention:</b> [asset type]-[visual description].svg<br><br>
-              <b>Examples:</b>
-  <ul><li>icon-bar-graph.svg</li>
-  <li>icon-prometheus.svg</li>
-  </ul>
-          </tr>
-          <tr>
-              <td align="left" valign="top">Logo</td>
-              <td align="left" valign="top">When you name Grafana logo files, be sure to include the word “Grafana”.<br><br>
-              <b>Naming convention:</b> [asset type]-[visual description]-[color + orientation].[file type]
-  <br><br>
-              <b>Examples:</b>
-  <ul><li>logo-prometheus-full-horizontal.svg</li>
-  <li>logo-grafana-loki-full-horizontal.svg</li>
-  </ul>
-          </tr>
-         <tr>
-              <td align="left" valign="top">Photo</td>
-              <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description].jpg
-  <br><br>
-              <b>Examples:</b>
-  <ul><li>photo-raji-on-stage-grafanacon-keynote-2022.jpg</li>
-  <li>photo-grafanacon-team-marketing.jpg</li>
-  <li>photo-headshot-mike-szczys.jpg</li>
-  </ul>
-          </tr>
-          <tr>
-              <td align="left" valign="top">Recording</td>
-              <td align="left" valign="top"><b>Naming convention:</b> [asset type]-[visual description].[file type]
-  <br><br>
-              <b>Example:</b>
-  <ul><li>gif-grafana-share-playlist.mp4</li>
-  </ul>
-          </tr>
-      </tbody>
-  </table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asset type</th>
+      <th>Naming convention</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left" valign="top">Screenshot</td>
+      <td align="left" valign="top">
+        <b>Naming convention:</b> [asset type]-[visual description]-[version, if applicable].png<br>
+        <br>
+        <b>Examples:</b><br>
+        <ul>
+          <li><code>screenshot-grafana-loki-uptime-dashboard.png</code></li>
+          <li><code>screenshot-grafana-mimir-data-flow-diagram.png</code></li>
+          <li><code>screenshot-grafana-9-kubernetes-dashboard.png</code></li>
+          <li><code>screenshot-grafana-9.0-kubernetes-dashboard.png</code></li>
+          <li><code>screenshot-simple-scalable-test-environment-grafana-loki.png</code></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">Icon</td>
+      <td align="left" valign="top">
+        Be as descriptive as possible.<br>
+        <br>
+        For example, use `icon-bar-graph.svg` or `icon-graph-bar.svg` instead of `icon-graph.svg`.<br>
+        <b>Naming convention:</b> [asset type]-[visual description].svg<br>
+        <br>
+        <b>Examples:</b>
+        <ul>
+          <li><code>icon-bar-graph.svg</code></li>
+          <li><code>icon-prometheus.svg</code></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">Logo</td>
+      <td align="left" valign="top">
+        When you name Grafana logo files, be sure to include the word “Grafana”.<br>
+        <br>
+        <b>Naming convention:</b> [asset type]-[visual description]-[color + orientation].[file type]<br>
+        <br>
+        <b>Examples:</b>
+        <ul>
+          <li><code>logo-prometheus-full-horizontal.svg</code></li>
+          <li><code>logo-grafana-loki-full-horizontal.svg</code></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">Photo</td>
+      <td align="left" valign="top">
+        <b>Naming convention:</b> [asset type]-[visual description].jpg<br>
+        <br>
+        <b>Examples:</b>
+        <ul>
+          <li><code>photo-raji-on-stage-grafanacon-keynote-2022.jpg</code></li>
+          <li><code>photo-grafanacon-team-marketing.jpg</code></li>
+          <li><code>photo-headshot-mike-szczys.jpg</code></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">Recording</td>
+      <td align="left" valign="top">
+        <b>Naming convention:</b> [asset type]-[visual description].[file type]<br>
+        <br>
+        <b>Example:</b>
+        <ul>
+          <li><code>gif-grafana-share-playlist.mp4</code></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Recommended image editors
 
@@ -233,42 +253,46 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
 {{< /admonition >}}
 
 <table>
-    <thead>
-        <tr>
-            <th>If you are a...</th>
-            <th>Complete these steps</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left" valign="top">Grafana Labs employee</td>
-            <td align="left" valign="top">
-<ol><li>Create a PR against the local repository that includes the Markdown file.
-</li>
-<li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.</li>
-<li>Find or create a directory under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
-<li>Use a free image optimizer like <a href="https://tinypng.com/">TinyPNG</a> to decrease the image file size.</li>
-<li>Browse and select assets to upload.</li>
-<li>Click <strong>Upload</strong>.</li>
-<li>The asset is available under https://grafana.com/media/ in the directory where you uploaded it.</li>
-<li>Click <strong>Copy</strong> to copy the path (reference) of the file to your clipboard.</li>
-<li>Add the reference to the Markdown file.<br><br>
-The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</li>
-</ol>
-</td>
-        </tr>
-        <tr>
-            <td align="left" valign="top">Grafana Labs community contributor</td>
-            <td align="left" valign="top">
-<ol><li>Create a PR against the local repository that includes the Markdown file.
-</li>
-<li>Add the image reference to the Markdown file.<br><br>
-You don't need to test that the image renders in a local build of the documentation. The Grafana technical documentation team reviewing the PR ensures that the image reference works correctly.</li><br>
-<li>Attach the image to the GitHub PR description.</li>
-</ol>
-</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>If you are a</th>
+      <th>Complete these steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left" valign="top">Grafana Labs employee</td>
+      <td align="left" valign="top">
+        <ol>
+          <li>Create a PR against the local repository that includes the Markdown file.</li>
+          <li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.
+          </li>
+          <li>Find or create a directory under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
+          <li>Use a free image optimizer like <a href="https://tinypng.com/">TinyPNG</a> to decrease the image file size.
+          </li>
+          <li>Browse and select assets to upload.</li>
+          <li>Click <strong>Upload</strong>.</li>
+          <li>The asset is available under https://grafana.com/media/ in the directory where you uploaded it.</li>
+          <li>Click <strong>Copy</strong> to copy the path (reference) of the file to your clipboard.</li>
+          <li>Add the reference to the Markdown file.<br>
+          <br>
+          The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">Grafana Labs community contributor</td>
+      <td align="left" valign="top">
+        <ol>
+          <li>Create a PR against the local repository that includes the Markdown file.</li>
+          <li>Add the image reference to the Markdown file.<br>
+          <br>
+          You don't need to test that the image renders in a local build of the documentation. The Grafana technical documentation team reviewing the PR ensures that the image reference works correctly.<br></li>
+          <li>Attach the image to the GitHub PR description.</li>
+        </ol>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Add an image to a Markdown file

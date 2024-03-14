@@ -68,9 +68,10 @@ In headings, always use the full name including "Amazon".
 Refer to the following punctuation guidelines when you write technical content.
 
 - After a period, add one space, not two.
-- When listing a series of items, insert a comma before _and_ or _or_. This is known as using serial commas or the Oxford comma.
-  - Example: "During lunch, we enjoyed quiche, quinoa, _and_ kale salad.”
-- Do not abbreviate _and_ with an ampersand (_&_).
+- When listing a series of items, insert a comma before _and_ or _or_.
+  This is known as using serial commas or the Oxford comma.
+  - Example: "During lunch, they enjoyed quiche, quinoa, _and_ kale salad.”
+- Don't abbreviate _and_ with an ampersand (_&_).
   - Exception: If the UI uses an ampersand, match the UI.
 - At the end of a paragraph, remove extra space characters.
 - Use bold to indicate paths within a web application, and greater-than symbols (>) to indicate path separators.

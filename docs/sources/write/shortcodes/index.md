@@ -40,7 +40,7 @@ and the type of admonition must be within quotes.
 Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
 Tips should be helpful, additional information.
 You can think of some tips as tricks.
-Your reader can feel free to skip them if they wish because they don't contribute to core understanding.
+Your reader can feel free to skip them if they want because they don't contribute to core understanding.
 
 {{< admonition type="warning" >}}
 Reference style links such as `[link text][label]` or `[link text][]` don't work in the inner text of shortcodes if you use reference links defined at the topic level.

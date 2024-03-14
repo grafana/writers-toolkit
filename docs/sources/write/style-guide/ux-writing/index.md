@@ -12,27 +12,36 @@ keywords:
 
 # UX writing
 
-These guidelines provide guidance on creating text, style, and tone in the different components that make up the UI. They help us build UIs that enhance the user experience, are easy to use, consistent, and inclusive. These guidelines focus on UX writing. For more details on UI elements, refer to the [Grafana Storybook React component library](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-intro--page).
+These guidelines provide guidance on creating text, style, and tone in the different components that make up the UI.
+They help you build UIs that enhance the user experience, are easy to use, consistent, and inclusive.
+These guidelines focus on UX writing.
+For more details on UI elements, refer to the [Grafana Storybook React component library](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-intro--page).
 
-## Our top tips for writing UI text
+## Tips for writing UI text
 
-Read some of our tips for writing clear and concise UX microcopy.
+The following are tips for writing clear and concise UX microcopy.
 
-### Use a voice that is friendly and not too formal
+### Use a voice that's friendly and not too formal
 
 <!-- vale Grafana.Please = NO -->
 
 Be conversational but don't use the voice you use when texting a friend.
 
-- Talk to our users like you're an engineer casually talking to other engineers.
-- Sound human and show empathy. We're here to help people complete their work and resolve issues.
+- Talk to users like you're an engineer casually talking to other engineers.
+- Sound human and show empathy.
+  Grafana projects are tools to help people complete their work and resolve issues.
 - Refrain from using "please" in your UI text.
 
 <!-- vale Grafana.Please = YES -->
 
+<!-- vale Grafana.GoogleWe = NO -->
+<!-- UX microcopy has different guidelines to technical documentation and encourages writing like you're an engineer talking to other engineers. -->
+
 **Use:**
 
 > We’ll guide you through the process of creating your SLOs.
+
+<!-- vale Grafana.GoogleWe = YES -->
 
 **Don't use:**
 
@@ -98,9 +107,9 @@ Use active voice to make clear who is performing the action.
 
 Capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns (people, places, products).
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 If you're not sure of whether something is a product or not, consult the product manager, or if there isn't one, the responsible squad.
-{{% /admonition %}}
+{{< /admonition >}}
 
 **Use:**
 
@@ -158,14 +167,20 @@ Don't use colons after labels.
 
 Use periods for multiple sentences.
 
+<!-- vale Grafana.GoogleWe = NO -->
+<!-- UX microcopy has different guidelines to technical documentation and encourages writing like you're an engineer talking to other engineers. -->
+
 **Use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion. For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
+> Metrics, Logs, and Traces are billed based on ingestion.
+> For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
 
 **Don't use:**
 
 > Metrics, Logs, and Traces are billed based on ingestion<br>
 > For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
+
+<!-- vale Grafana.GoogleWe = YES -->
 
 ### Write scannable descriptive text
 
@@ -195,7 +210,7 @@ The following sections provide writing guidelines for common UI elements:
 - Headings
 - Links
 
-If you'd like us to add a UI element, refer to the template at the bottom of this topic.
+If you'd like Grafana Labs to add a UI element, refer to the template at the bottom of this topic.
 
 ### Buttons
 
@@ -203,22 +218,25 @@ Use buttons when you want users to take actions, such as adding or creating new 
 
 - Start button labels with a verb.
 - Aim for using one to two words, with a maximum of four words.
-- Make button labels descriptive, and tell the user what action will occur if they click it. Rather than using **OK** or **Cancel**, be specific. For example, use **Save** / **Don't save** rather than **Save** / **Cancel**.
+  <!-- vale Grafana.GoogleWill = NO -->
+  <!-- This is talking about the future. -->
+- Make button labels descriptive, and tell the user what action occurs if they click it. Rather than using **OK** or **Cancel**, be specific. For example, use **Save** / **Don't save** rather than **Save** / **Cancel**.
+  <!-- vale Grafana.GoogleWill = YES -->
 - Use sentence case without punctuation. For example, use **Save changes** rather than **Save Changes.**
 
 #### Common use cases for buttons
 
-| Button  | When to use it                                                                                                                                                                   | Examples                                                                                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | **Create**<br>**Create incident**<br>**Create entry**                                                                                                           |
-| Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | **Add details**<br>**Add contact**                                                                                                                              |
-| Save    | Save something to a server.                                                                                                                                                      | **Save**<br>**Save and exit**<br>**Save changes**                                                                                                               |
-| Edit    | Change or update something that already exists. This doesn’t affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                        |
-| Preview | Preview a runtime version of whatever you are working on. This action doesn’t take you away from or override the page you’re already on.                                         | **Preview**                                                                                                                                                     |
-| Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | **Cancel**                                                                                                                                                      |
-| Close   | Close a window.                                                                                                                                                                  | **Close**                                                                                                                                                       |
-| Delete  | Permanently delete something from the server. This usually prompts a confirmation modal, asking you to confirm your decision.                                                    | **Delete notification policy**<br>Deleting this notification policy will permanently remove it. Are you sure you want to delete this policy?<br>**Yes, delete** |
-| Remove  | Remove an item from a list.                                                                                                                                                      | **Remove**                                                                                                                                                      |
+| Button  | When to use it                                                                                                                                                                   | Examples                                                                                                                                                    |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | **Create**<br>**Create incident**<br>**Create entry**                                                                                                       |
+| Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | **Add details**<br>**Add contact**                                                                                                                          |
+| Save    | Save something to a server.                                                                                                                                                      | **Save**<br>**Save and exit**<br>**Save changes**                                                                                                           |
+| Edit    | Change or update something that already exists. This doesn’t affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                    |
+| Preview | Preview a runtime version of whatever you are working on. This action doesn’t take you away from or override the page you’re already on.                                         | **Preview**                                                                                                                                                 |
+| Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | **Cancel**                                                                                                                                                  |
+| Close   | Close a window.                                                                                                                                                                  | **Close**                                                                                                                                                   |
+| Delete  | Permanently delete something from the server. This usually prompts a confirmation dialog box, asking you to confirm your decision.                                               | **Delete notification policy**<br>Deleting this notification policy permanently removes it. Are you sure you want to delete this policy?<br>**Yes, delete** |
+| Remove  | Remove an item from a list.                                                                                                                                                      | **Remove**                                                                                                                                                  |
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/buttons-button--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/buttons-button--basic).
 
@@ -277,13 +295,16 @@ Refer to the Grafana Storybook React component library for an example of an [inp
 
 ## Alert modals
 
+<!-- vale Grafana.DialogBox = NO -->
+<!-- This section is about the UX element that is called a modal and notes that in documentation one should use "dialog box" instead. -->
+
 An alert modal displays an important message in a way that attracts the user's attention without interrupting the user's task.
 
 Assume that some of your users might not understand technical terms and need simple, clear alert messages. Like other UI elements, use sentence case, plain language, and active voice in alerts.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 The word "modal" is considered jargon and should not be used when writing documentation, except for developer documentation of code referencing a `modal`. Use "dialog box" instead.
-{{% /admonition %}}
+{{< /admonition >}}
 
 ### Severity levels
 
@@ -295,6 +316,8 @@ Alert modals have severity levels (error, warning, info, and success) with diffe
 | ![Warning alert](warning.png) | Use a warning to say "don't do this," for example, if the step might be irreversible, leading to permanent data loss. |
 | ![Info alert](info.png)       | Use as a note to provide useful but not critical information.                                                         |
 | ![Success alert](success.png) | Use to indicate that an action has completed without errors.                                                          |
+
+<!-- vale Grafana.DialogBox = YES -->
 
 ### Actionable instructions
 
@@ -315,6 +338,9 @@ For error messages, provide actionable instructions to help users complete their
 > You'll need additional permissions to perform this action.
 
 ## Confirm modals
+
+<!-- vale Grafana.DialogBox = NO -->
+<!-- This section is about the UX element that is called a modal and notes that in documentation one should use "dialog box" instead. -->
 
 Use confirm modals to request the user to confirm an action, for example, a deletion. Confirm modals interrupt the user in their flow and force them to deal with the action in the modal. Only use a modal if this interruption is a good thing, for example, when the cost of an error is high.
 
@@ -342,6 +368,8 @@ Use tooltips to identify UI objects, such as icons. Users hover over a UI object
 
 Refer to the Grafana Storybook React component library for tooltip modal [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/overlays-tooltip--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/overlays-tooltip--basic).
 
+<!-- vale Grafana.DialogBox = YES -->
+
 ## Headings
 
 A heading gives structure to your UI elements. Use headings whenever you need to break your content down into hierarchical chunks, often in windows, dialog boxes, and wizards.
@@ -361,9 +389,14 @@ A heading gives structure to your UI elements. Use headings whenever you need to
 
 If your product is complex, you might be unable to provide relevant details concisely in the UI text. In this case, you can provide links to documentation for details.
 
-- Use links sparingly. Try first to write concise and complete UI text. If you include a link, make sure the referenced content will help the user with the task they are completing in the UI.
+- Use links sparingly. Try first to write concise and complete UI text.
+  If you include a link, make sure the referenced content helps the user with the task they're completing in the UI.
+  <!-- vale Grafana.GoogleWill = NO -->
+  <!-- This is talking about the future. -->
 - Your link text should be descriptive, telling the user what content they will find upon clicking. Use the exact title of the topic they're linking to so that if the link breaks, they can search for the topic. Like headings, front-load the link text by putting the word people are looking for at the front of your link.
-- Include the link either at the beginning or end of a sentence, not in the middle. Do not include preceding articles as part of the linked text.
+  <!-- vale Grafana.GoogleWill = NO -->
+- Include the link either at the beginning or end of a sentence, not in the middle.
+  Don't include preceding articles as part of the linked text.
 - For overview text, you can link to relevant overview documentation and Grafana University courses.
 
 **Use**
@@ -382,7 +415,9 @@ If your product is complex, you might be unable to provide relevant details conc
 
 ## Additional elements
 
-The UI elements described here are not exhaustive. If you'd like specific types of UI elements added, let us know. Internal contributors can reach out on Slack and external contributors can reach us using our docs@grafana.com email.
+The UI elements described here aren't exhaustive.
+If you'd like specific types of UI elements added, let Grafana Labs know.
+Internal contributors can reach out on Slack and external contributors can email `docs@grafana.com`.
 
 Use the following template to provide input.
 

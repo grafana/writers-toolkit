@@ -74,6 +74,8 @@ exceptions:
   - Terraform
   - Thanos
   - TraceQL
+  - UI
+  - UX
   - WebSockets
   - What's new
   - Writers' Toolkit

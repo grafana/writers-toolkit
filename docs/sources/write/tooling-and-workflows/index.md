@@ -379,7 +379,7 @@ For more information refer to [About merge conflicts](https://docs.github.com/en
 
 If the conflict is too complex to resolve in the web editor, GitHub directs you to resolve it on the command line.
 
-If there's a conflict when attempting to merge the target branch branch into yours, Git also tells you which files are in conflict:
+If there's a conflict when attempting to merge the target branch into yours, Git also tells you which files are in conflict:
 
 ```bash
 $ git merge main

@@ -157,7 +157,7 @@ Each argument has four fields separated by colons (`:`), and optional fields can
 
   The _`VERSION`_ field is optional and defaults to `latest` for versioned projects and is empty for other projects.
 
-- _`REPOSITORY`_: is the the name of the directory that the project is cloned to.
+- _`REPOSITORY`_: is the name of the directory that the project is cloned to.
 
   The _`REPOSITORY`_ field is optional and defaults to the script's internal mapping of project names to repository names.
   For most projects, this is the same as the project name.

@@ -16,6 +16,7 @@ exceptions:
   - Amazon Kinesis Data Firehose
   - Ansible
   - Application Observability
+  - AWS Observability
   - AzureAD
   - Beyla
   - BoltDB

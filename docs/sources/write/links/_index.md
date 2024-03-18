@@ -37,6 +37,10 @@ Although these other types of links still function, replace them with one of the
 
 Use `ref` URIs.
 
+{{< admonition type="note" >}}
+If you are using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
+{{< /admonition >}}
+
 `ref` URIs lookup destinations based upon the page's URL path and the definitions in the page's front matter.
 
 A link with a `ref` URI looks like:

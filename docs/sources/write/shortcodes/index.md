@@ -418,8 +418,6 @@ For more information, refer to [Links](https://grafana.com/docs/write/links/).
 
 The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
 
-Use this shortcode for links when you reuse content from one repository to more than one documentation set.
-
 You set all possible destinations in one part of the file, usually at end of the file, like a footer.
 
 For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.

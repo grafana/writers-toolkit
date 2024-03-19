@@ -1,4 +1,4 @@
-133
+134
 ACL/S po:noun
 Aerospike/ po:noun
 Alertmanager/MS po:noun
@@ -77,6 +77,8 @@ performant/ po:adjective
 Phlare/M po:noun
 Podman/M po:noun
 preconfigure/D po:verb
+profile/DGRS po:verb
+profiler/DGRS po:noun
 Promtail/M po:noun
 provision/dD po:verb
 proxy/DG po:verb

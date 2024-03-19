@@ -1,5 +1,6 @@
 ---
 aliases:
+  - /docs/writers-toolkit/contribute-documentation/contribute-release-notes/
   - /docs/writers-toolkit/contribute-release-notes/
   - /docs/writers-toolkit/contribute/release-notes/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/

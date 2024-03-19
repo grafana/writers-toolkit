@@ -1,8 +1,9 @@
-132
+133
 ACL/S po:noun
 Aerospike/ po:noun
 Alertmanager/MS po:noun
 allowlist/S po:noun
+allowlist/DGS po:verb
 Ansible/ po:adjective
 Ansible/ po:noun
 API/S po:noun

@@ -24,9 +24,8 @@ Choose your link type based on your goal:
 - [Link from source content that's used in multiple projects](#link-from-source-content-thats-used-in-multiple-projects)
 - [Link to `grafana.com` pages](#link-to-grafanacom-pages)
 - [Link to external pages](#link-to-external-pages)
-
-You may want to link to a heading within a page.
-To do so, use one of the preceding options and then refer to [Link to page headings](#link-to-page-headings).
+- [Link to page headings](#link-to-page-headings)
+  - Use this with one of the preceding options.
 
 Although these other types of links still function, replace them with one of the preceding options:
 

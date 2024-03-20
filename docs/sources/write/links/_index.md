@@ -50,6 +50,7 @@ A link with a `ref` URI looks like:
 ```
 
 Hugo looks up _`KEY`_ in the value for the `refs` field in the page's front matter.
+_`KEY`_ must only use alphabetic and hyphen (`-`) characters.
 If there is no _`KEY`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+2" >}}

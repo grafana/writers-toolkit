@@ -274,7 +274,7 @@ Use `menuTitle` to specify a different heading in the sidebar navigation than th
 
 ### Refs
 
-You use the `refs` front matter with `ref` URIs to link to different pages in reused content.
+Use the `refs` front matter with `ref` URIs to link to different pages in reused content.
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 

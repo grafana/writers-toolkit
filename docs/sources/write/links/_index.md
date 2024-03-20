@@ -31,7 +31,7 @@ To do so, use one of the preceding options and then refer to [Link to page headi
 Although these other types of links still function, replace them with one of the preceding options:
 
 - [Hugo `relref` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#relref)
-- [`docs/reference shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference)
+- [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference)
 
 ## Link from source content that's used in multiple projects
 

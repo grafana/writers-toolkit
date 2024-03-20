@@ -26,8 +26,7 @@ The _`FULL URL`_ destination has the same behavior as described in [Link to `gra
 The following Markdown snippet demonstrates the `refs` front matter and link that uses a `ref` URI.
 
 In the [Grafana page](https://grafana.com/docs/grafana/latest/alerting/set-up/), the link destination is https://grafana.com/docs/grafana/latest/alerting/fundamentals/data-source-alerting/.
-Hugo replaces the version substitution syntax `<GRAFANA_VERSION>` with the version inferred from the current page.
-For more information about version substitution, refer to [About version substitution](https://grafana.com/docs/writers-toolkit/write/shortcodes/#about-version-substitution).
+Hugo replaces the [version substitution syntax](https://grafana.com/docs/writers-toolkit/write/shortcodes/#about-version-substitution) `<GRAFANA_VERSION>` with the version inferred from the current page.
 
 In the page [Grafana Cloud page](https://grafana.com/docs/grafana/latest/alerting/set-up/), the link destination is https://grafana.com/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/alert-rules/.
 

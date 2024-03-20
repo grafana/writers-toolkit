@@ -39,6 +39,9 @@ Use `ref` URIs.
 
 {{< admonition type="note" >}}
 If you are using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
+
+`doc-validator` no longer checks link destinations.
+You must manually check link destinations in the local preview or fix broken links identified by the weekly website crawl.
 {{< /admonition >}}
 
 `ref` URIs lookup destinations based upon the page's URL path and the definitions in the page's front matter.

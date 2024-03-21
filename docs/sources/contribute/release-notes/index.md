@@ -184,7 +184,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 
 If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry. For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
 
-You don't have to make the new entry as robust as the previous one. Instead, you can keep the new entry brief by referring to or linking to refer the previous entry.
+You don't have to make the new entry as robust as the previous one. Instead, you can keep the new entry brief by referring to or linking to the previous entry.
 
 ### Edit What's new entries
 

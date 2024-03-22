@@ -541,6 +541,21 @@ Including the original image dimensions as the 'width' and 'height' properties i
 These values are _only_ used for determining the image aspect ratio and don't equate to the final displayed size.
 {{< /admonition >}}
 
+### Center an image example
+
+You can center an image using the `figure` shortcode by adding the following properties:
+
+- Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. This should be lower than the image's width.
+- Add the `class="w-100p"` property 
+- Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property
+- Optionally, you can add the `width` and `height` parameters with the original image values, without pixels or percentages. For example, for a 800x600 image, you can add `width="800" height="600"`.
+
+This is an example for centering an image that's 1275x738 pixels:
+
+```markdown
+{{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
+```
+
 ### Example
 
 In this example, the image has a CSS class that makes the image display floated to the right.
@@ -554,13 +569,6 @@ The `max-width` value must have a unit of measurement, such as pixels or percent
 
 ```markdown
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
-```
-
-This examples sets the image's display size to have a maximum width of 500px, and sets the `class` and `link-class` properties to center the image on the page.
-It sets the original `width` and `height` values of the image without any unit of measurement such as pixels or percentages.
-
-```markdown
-{{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
 ## Hero (simple)

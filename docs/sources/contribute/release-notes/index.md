@@ -180,6 +180,12 @@ To understand the process of creating release notes for Grafana versioned releas
 
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
 
+#### Updated release stage
+
+If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry. For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
+
+You don't have to make the new entry as robust as the previous one. Instead, you can keep the new entry brief by referring to or linking to the previous entry.
+
 ### Edit What's new entries
 
 Regardless of the status of your entry, it's always best to use the CMS to make any changes.

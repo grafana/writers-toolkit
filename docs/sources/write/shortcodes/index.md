@@ -545,7 +545,7 @@ These values are _only_ used for determining the image aspect ratio and don't eq
 
 You can center an image using the `figure` shortcode by adding the following properties:
 
-- Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. This should be lower than the image's width.
+- Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. The value should be lower than the original image's width.
 - Add the `class="w-100p"` property 
 - Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property
 - Optionally, you can add the `width` and `height` parameters with the original image values, without pixels or percentages. For example, for a 800x600 image, you can add `width="800" height="600"`.

@@ -366,7 +366,8 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
   Grafana's style normally prefers second person ("you") and avoids first person ("I"/"we").
   Release notes, like blog posts, use a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available."
-  
-  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.GoogleWe` rule. You can use this check at the beginning of your file after the front matter: 
+
+  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.GoogleWe` rule. You can use this check at the beginning of your file after the front matter:
   `<!-- vale Grafana.GoogleWe = NO -->`
+
 <!-- vale Grafana.GoogleWe = YES -->

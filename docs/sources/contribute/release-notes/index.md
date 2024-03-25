@@ -360,7 +360,9 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **For changes or updates to features, provide brief descriptions.**
 
-- **Release notes and What's new are written in more of a blog-like style.**
+<!-- vale Grafana.GoogleWe = NO -->
+- **You can use first person plural, such as "we".**
 
   Grafana's style normally prefers second person ("you") and avoids first person ("I"/"we").
-  Release notes, like blog posts, are written in a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available..."
+  Release notes, like blog posts, use a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available."
+<!-- vale Grafana.GoogleWe = YES -->

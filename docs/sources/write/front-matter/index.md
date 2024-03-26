@@ -272,6 +272,14 @@ cascade:
 
 Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
 
+### Refs
+
+Use the `refs` front matter with `ref` URIs to link to different pages in reused content.
+
+{{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
+
+For more information, refer to [Link from source content that’s used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+
 ### Slug
 
 The `slug` front matter overrides the last segment of the URL path.

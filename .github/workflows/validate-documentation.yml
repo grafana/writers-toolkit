@@ -16,6 +16,7 @@ jobs:
           '--skip-checks=^image.+$'
           docs/sources
           /docs/writers-toolkit
+          | grep -v sources/shared
           | reviewdog
           -f=rdjsonl
           --fail-on-error

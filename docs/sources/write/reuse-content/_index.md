@@ -90,7 +90,7 @@ If you want flexibility in your page structure, you need to use another option i
 
   Notably, you want to stay within each documentation set for content reused between OSS and Grafana Cloud documentation rather than have the reused content link back to the OSS documentation.
 
-  To do so, use [`docs/reference`](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
+  To do so, use [`ref` URIs](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
 
   If both pages link to the same place, then that link probably shouldn't exist in the reused documentation, and this indicates that the documentation isn't appropriate for reuse.
 

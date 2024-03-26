@@ -1,4 +1,4 @@
-134
+136
 ACL/S po:noun
 Aerospike/ po:noun
 Alertmanager/MS po:noun
@@ -36,6 +36,8 @@ Goldmark/M po:noun
 goroutine/S po:noun
 Grafana/ po:adjective
 Grafana/M po:noun
+Gravatar/ po:adjective
+Gravatar/M po:noun
 Graylog/M po:noun
 Gzip/ po:noun
 heatmap/S po:noun

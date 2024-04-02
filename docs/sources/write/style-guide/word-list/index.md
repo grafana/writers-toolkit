@@ -44,8 +44,13 @@ Don't confuse this with an [_alert rule_ ](#alert-rule).
 {{< /admonition >}}
 
 <!--
-## B
-## C -->
+## B -->
+
+## C
+
+### CHANGELOG
+
+When naming a file or making a general reference to CHANGELOGs, spell using all caps. When referencing a specific CHANGELOG file, match the same capitalization of that file.
 
 ## D
 
@@ -115,8 +120,13 @@ When referring to the tool, use `node_exporter`. The text should always be pre-f
 
 <!--
 ## O
-## P
-## Q -->
+## P -->
+
+## Q
+
+### quickstart
+
+Use the compound adjective without a hyphen whether the noun is implied or explicit. For example, you can use _quickstart guide_ or just _quickstart_. If you are using the noun form, write as two words.
 
 ## R
 

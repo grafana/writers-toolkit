@@ -15,7 +15,10 @@ refs:
       destination: <FULL URL>
 ```
 
-Hugo checks each `pattern` and `destination` pair, in order, against the page's URL.
+
+- _`URL PATH PREFIX`_ - Enter the part of the page URL that represents the project in which these docs will appear. 
+- `destination` - Enter the full URL of the destination page for that project including trailing slashes.
+
 If the page's URL matches the pattern _`URL PATH PREFIX`_, then Hugo uses `destination` as the link destination.
 If no pattern matches the current page, Hugo logs a build error.
 

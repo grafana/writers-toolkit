@@ -34,16 +34,21 @@ Although these other types of links still function, replace them with one of the
 
 ## Link from source content that's used in multiple projects
 
-Use `ref` URIs.
+Use `ref` URIs. `Ref` URIs have two components:
+
+- [Link](#link)
+- [Front matter](#front-matter)
 
 {{< admonition type="note" >}}
-If you are using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
+If you're using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
 
 `doc-validator` no longer checks link destinations.
 You must manually check link destinations in the local preview or fix broken links identified by the weekly website crawl.
 {{< /admonition >}}
 
-`ref` URIs lookup destinations based upon the page's URL path and the definitions in the page's front matter.
+`ref` URIs look up destinations based upon the page's URL path and the definitions in the page's front matter.
+
+### Link
 
 A link with a `ref` URI looks like:
 
@@ -51,9 +56,13 @@ A link with a `ref` URI looks like:
 [LINK TEXT](ref:<KEY>)
 ```
 
+
+For the _`KEY`_ , enter an alphabetic term. It can include hyphens (`-`).
+
 Hugo looks up _`KEY`_ in the value for the `refs` field in the page's front matter.
-_`KEY`_ must only use alphabetic and hyphen (`-`) characters.
 If there is no _`KEY`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
+
+### Front matter
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+2" >}}
 

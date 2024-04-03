@@ -556,6 +556,28 @@ This is an example for centering an image that's 1275x738 pixels:
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
+For more details about what each parameter does, refer to the section below.
+
+{{< collapse title="Center image properties" >}}
+
+When centering an image on a page, each property you have to add to the `<figure>` shortcode has a different purpose:
+
+- The `class="w-100p"` property specifies that the `<figure>` element should take up 100% of the width of its container.
+- The `link-class` attribute values are:
+  - `w-fit` specifies that the width of the <a> element that wraps around the image should fit its contents. For example, if the image's width is 500px, the width of its parent <a> element will be set to match.
+  - `mx-auto` sets the x-axis margin on either side of the link to automatically take up whatever space remains in the container. For example, if the figure's container is 750px wide and the image is 500px wide, the margin on either side of the image will be 125px ((750 - 500) / 2) . This is what actually does the centering.
+  - `d-flex` sets the figure element to be a flex container.
+  - `flex-direction-column` specifies the direction of the flex container's layout. In this case, the child elements are stacked vertically, as opposed to flex-direction-row, which displays the child elements horizontally.
+- The `width`, or `max-width` property, is necessary to calculate the difference between the image's width and the container size. While only the `width` or `max-width` value is necessary for the purposes of centering, it's best practice to set both `width` and `height`.
+
+Setting the `width` and `height` properties is recommended because it allows the browser to optimize delivery of the image and account for the user's device and display dimensions, and service up a smaller image if the full-sized image isn't needed. Providing both values also allows the browser to correctly calculate a placeholder space when images are lazy loaded. This helps with [preventing reflow](https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/), which is the cause of most instances where links in an article's Table of Contents don't land on the correct section.
+
+For raster images, such as PNG or JPG files, width and height should usually be set to the original dimensions of the image. That provides the greatest flexibility for image optimization. However, for SVG images, width should typically be set to 100% and height left blank. That will expand the image to fill its container while maintaining the image's aspect ratio.
+
+In cases where the desired display width of an image is smaller than the max width of the container, it's important to calculate the correct height so as to maintain the image's aspect ratio without warping the image. To do this, you can divide the desired image width by the image's full width and multiply by the original height: (new-width / full-width) * full-height = new-height . For example, if the original image dimensions are 1000px x 750px and you want the image displayed at 500px wide, you'd calculate (500 / 1000) * 750 = 325, or width="500" height="325".
+
+{{< /collapse >}}
+
 ### Example
 
 In this example, the image has a CSS class that makes the image display floated to the right.

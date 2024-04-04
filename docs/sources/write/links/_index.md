@@ -56,7 +56,6 @@ A link with a `ref` URI looks like:
 [LINK TEXT](ref:<KEY>)
 ```
 
-
 For the _`KEY`_ , enter an alphabetic term. It can include hyphens (`-`).
 
 Hugo looks up _`KEY`_ in the value for the `refs` field in the page's front matter.

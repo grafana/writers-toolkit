@@ -15,8 +15,7 @@ refs:
       destination: <FULL URL>
 ```
 
-
-- _`URL PATH PREFIX`_ - Enter the part of the page URL that represents the project in which these docs will appear. 
+- _`URL PATH PREFIX`_ - Enter the part of the page URL that represents the project in which the documentation is published.
 - `destination` - Enter the full URL of the destination page for that project including trailing slashes.
 
 If the page's URL matches the pattern _`URL PATH PREFIX`_, then Hugo uses `destination` as the link destination.

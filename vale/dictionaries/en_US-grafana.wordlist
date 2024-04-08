@@ -15,6 +15,7 @@ burndown/ po:adjective
 cAdvisor/M po:noun
 CRD/S po:noun
 CVE/S po:noun
+Couchbase/M po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/M po:noun

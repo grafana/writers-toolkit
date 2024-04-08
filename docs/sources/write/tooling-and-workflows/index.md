@@ -1,8 +1,8 @@
 ---
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
-  - /docs/writers-toolkit/write/tooling-and-workflows
-date: 2024-02-15
+  - /docs/writers-toolkit/write/tooling-and-workflows/
+date: 2024-04-08
 description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
 keywords:
   - git
@@ -101,7 +101,7 @@ The default branch of a repository is typically called `main` and occasionally c
 Grafana prefers to use inclusive language, so `main` is the preferred name.
 
 After fetching the changes from the remote repository in GitHub, create a local branch to commit your changes.
-Working on your own branch separates and isolates your changes so that they can be later reviewed before incorporation into the main branch.
+Working on your own branch separates and isolates your changes so that they can be later reviewed before incorporation into the default branch.
 
 A branch name should be unique.
 
@@ -141,7 +141,7 @@ The output is similar to the following:
 main
 ```
 
-Indicating that you are on the branch `my-branch` and there is another local branch named `main`.
+The output indicates that you are on the branch `my-branch` and there is another local branch named `main`.
 
 Alternatively, you can use `git status` to check your current branch and understand the status of the branch.
 
@@ -249,19 +249,23 @@ American English is preferred by our technical documentation style-guide.
 For more information, refer to https://github.com/grafana/technical-documentation/tree/main/docs/sources/style-guide.
 ```
 
-Save and close the file opened by `git` to finish the commit.
+Save and close the file opened by Git to finish the commit.
 
-For small changes where you only need write a subject, use the `-m` flag to provide the message without invoking your editor.
+For small changes where you only need write a subject, use the `-m` option to provide the message without invoking your editor.
 For example:
 
 ```bash
 git commit -s -m "Use American English spellings"
 ```
 
+You can provide the`-m` option multiple times.
+Git uses the argument to the first option as the commit subject.
+The arguments to the other options become the commit body paragraphs.
+
 ### Push changes to the remote repository
 
 Pushing changes to the remote repository allows other people to look at your commits and review them.
-It's also the first step in getting your changes incorporated into the main branch.
+It's also the first step in getting your changes into the default branch.
 
 Push your changes using `git push`.
 
@@ -292,22 +296,22 @@ branch 'my-branch' set up to track 'origin/my-branch'.
 
 The response from GitHub includes a link used to open a pull request for your remote branch.
 Click the link to open GitHub, then click the green button on the upper left of the screen to open the pull request for reviewers.
-Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the Settings icon and entering reviewer GitHub usernames.
+Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the **settings** icon and entering reviewer GitHub usernames.
 
 ### Force push changes
 
 If you rewrite local history, or your local branch diverges from the one in the remote for other reasons, you might need to force the remote to accept your changes.
 
-In such cases, prefer `--force-with-lease` over `--force`, which overwrites the branch in the remote only if you have a tracking branch that's up to date.
+In such cases, prefer `--force-with-lease` over `--force`, which overwrites the branch in the remote only if your local branch is up to date.
 That way, you won't accidentally overwrite commits pushed by others that you didn't know about.
 For more information, refer to the documentation of the option in `man git-push`.
 
 ### Merge changes from the main branch
 
-Because Git and GitHub are naturally collaborative, others are also making and merging pull requests at the same time as you.
-From the point where you created your branch and when you're ready to merge the pull request, the main branch might have changed in significant ways, or even developed a conflict with your branch.
+Git and GitHub allow many authors to make and merge pull requests at the same time as you.
+From the point where you created your branch and when you're ready to merge the pull request, the default branch might have changed in significant ways, or even developed a conflict with your branch.
 
-If the changes don't conflict, you can use Git to incorporate the changes made to the main branch with yours without making any additional changes.
+If the changes don't conflict, you can use Git to incorporate the changes made to the default branch with yours without making any additional changes.
 
 First, fetch changes to all branches and remotes:
 
@@ -331,19 +335,14 @@ Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
 ```
 
-Now switch back to your branch and merge the main branch into it, applying its changes into yours:
+Now switch back to your branch and merge the default branch into it, applying its changes into yours:
 
 ```bash
 git switch my-branch
 git merge main
 ```
 
-If there are no changes to apply, Git confirms this:
-
-```bash
-$ git merge main
-```
-
+If there are no changes to apply, Git confirms this.
 The output is similar to the following:
 
 ```console
@@ -351,11 +350,6 @@ Already up to date.
 ```
 
 Otherwise, if successful, Git outputs the changes it applied to your branch:
-
-```bash
-$ git merge main
-```
-
 The output is similar to the following:
 
 ```console

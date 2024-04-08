@@ -296,7 +296,7 @@ branch 'my-branch' set up to track 'origin/my-branch'.
 
 The response from GitHub includes a link used to open a pull request for your remote branch.
 Click the link to open GitHub, then click the green button on the upper left of the screen to open the pull request for reviewers.
-Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the **settings** icon and entering reviewer GitHub usernames.
+Here, you can also edit the title and further detail in the larger text box as well as add reviewers by clicking the **Reviewers** configuration section and entering reviewer GitHub usernames.
 
 ### Force push changes
 

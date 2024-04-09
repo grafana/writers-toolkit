@@ -153,6 +153,20 @@ Run `git fetch` before `git status` for the most accurate status.
 
 To understand the output of `git status`, refer to [Git - `git-status` Documentation](https://git-scm.com/docs/git-status#_output).
 
+### Check out a PR branch
+
+To check out a PR branch, use the GitHub CLI (`gh`) tool.
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
+
+It fetches from the remote repository and configures a local branch in your repository to track that remote branch.
+
+Run the command from a directory within your local checkout of the repository to check out a contributor's PR.
+Replace _`PR NUMBER`_ with the number of the pull request.
+
+```shell
+gh pr checkout <PR NUMBER>
+```
+
 ### Check out a PR branch from a fork
 
 A fork is a repository that shares code and visibility settings with the original _upstream_ repository.
@@ -160,11 +174,9 @@ A fork is a repository that shares code and visibility settings with the origina
 For more information, refer to [About forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 To check out a PR branch from a fork, use the GitHub CLI (`gh`) tool.
-To install the GitHub CLI tool, refer to [Install GitHub CLI](#install-github-cli).
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
 
 It fetches from the fork remote repository and configures a local branch in your repository to track that remote branch in the fork.
-
-To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
 
 Run the command from a directory within your local checkout of the upstream repository to check out a contributor's PR.
 Replace _`PR NUMBER`_ with the number of the pull request.

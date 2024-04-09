@@ -548,9 +548,9 @@ You can center an image using the `figure` shortcode by adding the following pro
 - Add the `class="w-100p"` property.
 - Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property.
 - Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. The value should be lower than the original image's width.
-- Optionally, you can add the `width` and `height` properties with the original image values, without pixels or percentages. For example, for a 800x600 image, you can add `width="800" height="600"`.
+- Optionally, you can add the `width` and `height` properties to help optimize the page. If you're using a raster image, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages. For example, for a 800x600 image, you can add `width="800" height="600"`. For a vector image, you have to calculate the values based on the width you want for the image with the formula: (new-width / full-width) * full-height = new-height. For a detailed explanation about this step, refer to the Center image properties section below.
 
-This is an example for centering an image that's 1275x738 pixels:
+This is an example for centering a PNG image that's 1275x738 pixels:
 
 ```markdown
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}

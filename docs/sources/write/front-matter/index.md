@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/writing-guide/front-matter/
   - /docs/writers-toolkit/write/front-matter/
 date: 2024-04-09
-description: Learn about how we build front matter to properly enable the publication and search of our technical documentation.
+description: Learn about how Grafana builds front matter to properly enable the publication and search of our technical documentation.
 keywords:
   - front matter
   - alias

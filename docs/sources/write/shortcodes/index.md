@@ -409,8 +409,14 @@ Produces:
 
 ## Docs/reference
 
+{{< admonition type="warning" >}}
+This shortcode is present in the documentation, but you should prefer `ref` URIs.
+Don’t use it when creating new or updating existing documentation.
+
+For more information, refer to [Links](https://grafana.com/docs/write/links/).
+{{< /admonition >}}
+
 The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
-Use this shortcode for links when you reuse content from one repository to more than one documentation set.
 
 You set all possible destinations in one part of the file, usually at end of the file, like a footer.
 
@@ -421,7 +427,7 @@ Set the reference at the end of the page as follows:
 
 ```markdown
 {{%/* docs/reference */%}}
-[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA_VERSION>/dashboards"
 [dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
 {{%/* /docs/reference */%}}
 ```
@@ -438,7 +444,7 @@ The content within the shortcode tags is as follows:
   In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
 
 - _`REFERENCE`_ - The path to the destination file.
-  This shortcode supports version substitution using values like `<GRAFANA VERSION>`.
+  This shortcode supports version substitution using values like `<GRAFANA_VERSION>`.
   To learn about version substitution, refer to [About version substitution](#about-version-substitution).
   Don't include trailing slashes in the path.
 
@@ -487,7 +493,7 @@ For more detailed instructions, refer to [Reuse shared content](https://grafana.
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
 | `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                                     | yes      |
 | `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                               | yes      |
-| `version`     | Version of the source content to include. For source content that doesn't have a version, use the empty string `""` as the value. This shortcode supports version substitution using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
+| `version`     | Version of the source content to include. For source content that doesn't have a version, use the empty string `""` as the value. This shortcode supports version substitution using values like `<GRAFANA_VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
 | `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                              | no       |
 
 {{< admonition type="note" >}}

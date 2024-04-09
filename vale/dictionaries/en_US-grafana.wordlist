@@ -15,6 +15,7 @@ burndown/ po:adjective
 cAdvisor/M po:noun
 CRD/S po:noun
 CVE/S po:noun
+Couchbase/M po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/M po:noun
@@ -35,6 +36,8 @@ Goldmark/M po:noun
 goroutine/S po:noun
 Grafana/ po:adjective
 Grafana/M po:noun
+Gravatar/ po:adjective
+Gravatar/M po:noun
 Graylog/M po:noun
 Gzip/ po:noun
 heatmap/S po:noun
@@ -55,6 +58,7 @@ Kinesis/M po:noun
 KPI/S po:noun
 Kprobe/S po:noun
 kubelet/ po:noun
+Linode/M po:noun
 lookup/S po:noun
 marshal/u po:verb
 matcher/S po:noun

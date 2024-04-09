@@ -19,23 +19,51 @@ weight: 600
 
 # Links
 
-Choose your link type based on the applicable scenario:
+Choose your link type based on your goal:
 
 - [Link from source content that's used in multiple projects](#link-from-source-content-thats-used-in-multiple-projects)
 - [Link to `grafana.com` pages](#link-to-grafanacom-pages)
 - [Link to external pages](#link-to-external-pages)
 - [Link to page headings](#link-to-page-headings)
+  - Use this with one of the preceding options.
 
-Although these other types of links still function, replace them with full URLs:
+Although these other types of links still function, replace them with one of the preceding options:
 
 - [Hugo `relref` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#relref)
+- [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference)
 
 ## Link from source content that's used in multiple projects
 
-Use the `docs/reference` shortcode.
+Use `ref` URIs. `Ref` URIs have two components:
 
-The source is reused as described in [Reuse directories of content with Hugo mounts](https://grafana.com/docs/writers-toolkit/write/reuse-content/reuse-directories/).
-For more information and examples, refer to [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference).
+- [Link](#link)
+- [Front matter](#front-matter)
+
+{{< admonition type="note" >}}
+If you're using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
+
+`doc-validator` no longer checks link destinations.
+You must manually check link destinations in the local preview or fix broken links identified by the weekly website crawl.
+{{< /admonition >}}
+
+`ref` URIs look up destinations based upon the page's URL path and the definitions in the page's front matter.
+
+### Link
+
+A link with a `ref` URI looks like:
+
+```markdown
+[LINK TEXT](ref:<KEY>)
+```
+
+For the _`KEY`_ , enter an alphabetic term. It can include hyphens (`-`).
+
+Hugo looks up _`KEY`_ in the value for the `refs` field in the page's front matter.
+If there is no _`KEY`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
+
+### Front matter
+
+{{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+2" >}}
 
 ## Link to `grafana.com` pages
 

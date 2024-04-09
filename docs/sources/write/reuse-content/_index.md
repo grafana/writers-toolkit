@@ -1,7 +1,7 @@
 ---
 aliases:
-  - /docs/writers-toolkit/write/reuse-content
-date: 2022-02-22
+  - /docs/writers-toolkit/write/reuse-content/
+date: 2024-04-09
 description: Learn about reusing content in your documentation.
 keywords:
   - sharing
@@ -13,10 +13,10 @@ weight: 800
 
 # Reuse content
 
-Grafana's publication process can handle reusing content from snippets to whole directories.
-
 There are some limited cases where it may be useful to reuse content in more than one location.
 For example, a procedure for adding a panel to a dashboard applies to an open source and enterprise product.
+
+The Grafana website supports reusing content from snippets to whole directories.
 
 ## Before you begin
 

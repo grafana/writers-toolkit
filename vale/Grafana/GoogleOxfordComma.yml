@@ -4,4 +4,4 @@
 "message": "Use the Oxford comma in '%s'."
 "scope": "sentence"
 "tokens":
-  - "(?:[^,]+,){1,}\\s\\w+\\s(?:and|or)"
+  - "(?:[^\\s,]+,){1,} \\w+ (?:and|or) \\w+[.?!]"

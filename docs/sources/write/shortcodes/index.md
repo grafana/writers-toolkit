@@ -560,11 +560,13 @@ For more details about what each parameter does, refer to the section below.
 
 {{< collapse title="Center image properties" >}}
 
+<!-- vale Grafana.GoogleWill = NO -->
+
 When centering an image on a page, each property you have to add to the `<figure>` shortcode has a different purpose:
 
 - The `class="w-100p"` property specifies that the `<figure>` element should take up 100% of the width of its container.
 - The `link-class` attribute values are:
-  - `w-fit` specifies that the width of the <a> element that wraps around the image should fit its contents. For example, if the image's width is 500px, the width of its parent <a> element will be set to match.
+  - `w-fit` specifies that the width of the `<a>` element that wraps around the image should fit its contents. For example, if the image's width is 500px, the width of its parent `<a>` element will be set to match.
   - `mx-auto` sets the x-axis margin on either side of the link to automatically take up whatever space remains in the container. For example, if the figure's container is 750px wide and the image is 500px wide, the margin on either side of the image will be 125px ((750 - 500) / 2) . This is what actually does the centering.
   - `d-flex` sets the figure element to be a flex container.
   - `flex-direction-column` specifies the direction of the flex container's layout. In this case, the child elements are stacked vertically, as opposed to flex-direction-row, which displays the child elements horizontally.
@@ -575,6 +577,8 @@ Setting the `width` and `height` properties is recommended because it allows the
 For raster images, such as PNG or JPG files, width and height should usually be set to the original dimensions of the image. That provides the greatest flexibility for image optimization. However, for SVG images, width should typically be set to 100% and height left blank. That will expand the image to fill its container while maintaining the image's aspect ratio.
 
 In cases where the desired display width of an image is smaller than the max width of the container, it's important to calculate the correct height so as to maintain the image's aspect ratio without warping the image. To do this, you can divide the desired image width by the image's full width and multiply by the original height: (new-width / full-width) * full-height = new-height . For example, if the original image dimensions are 1000px x 750px and you want the image displayed at 500px wide, you'd calculate (500 / 1000) * 750 = 325, or width="500" height="325".
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 {{< /collapse >}}
 

@@ -231,6 +231,8 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 
 {{< /code >}}
 
+<!-- prettier-ignore-end -->
+
 ## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
@@ -370,10 +372,10 @@ Produces:
 
 The `docs/play` shortcode produces a note admonition with the preferred copy for linking to a Grafana Play dashboard.
 
-| Parameter     | Description                                                              | Required |
-| ------------- | ------------------------------------------------------------------------ | -------- |
-| `title`     | The title of the Grafana Play dashboard.                                      | yes      |
-| `url` | The URL of the Grafana Play dashboard. | yes      |
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `title`   | The title of the Grafana Play dashboard. | yes      |
+| `url`     | The URL of the Grafana Play dashboard.   | yes      |
 
 ### Example
 
@@ -609,6 +611,7 @@ To add a simple hero, insert the `hero-simple` shortcode using the following nam
 | `img_class`         | Optional CSS class for the image container element.                                                                                                                                                                                            | No       |
 | `title_class`       | Optional CSS class for the heading element.                                                                                                                                                                                                    | No       |
 | `description_class` | Optional CSS class for the description element.                                                                                                                                                                                                | No       |
+
 <!-- prettier-ignore-end -->
 
 You can provide shortcode arguments by:

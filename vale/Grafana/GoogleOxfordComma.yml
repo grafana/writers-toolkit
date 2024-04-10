@@ -1,7 +1,0 @@
-"extends": "existence"
-"level": "warning"
-"link": "https://developers.google.com/style/commas"
-"message": "Use the Oxford comma in '%s'."
-"scope": "sentence"
-"tokens":
-  - "(?:[^\\s,]+,){1,} \\w+ (?:and|or) \\w+[.?!]"

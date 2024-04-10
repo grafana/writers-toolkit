@@ -173,6 +173,12 @@ For more information about Grafana Labs products, refer to [Grafana documentatio
 
 For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolkit/write/links/useful-link-text/)
 
+## Numbers
+
+For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of ordinals.
+
+For ordinals, write out first through ninth. For 10th on, use numerals.
+
 ## Admonitions
 
 To focus a user's attention, Grafana Labs documentation includes notes, cautions, and warnings.

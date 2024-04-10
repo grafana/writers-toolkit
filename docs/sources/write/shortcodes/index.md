@@ -366,6 +366,25 @@ Produces:
 
 {{< docs/experimental product="experimental-feature" featureFlag="its-feature-flag" >}}
 
+## Docs/play
+
+The `docs/play` shortcode produces a note admonition with the preferred copy for linking to a Grafana Play dashboard.
+
+| Parameter     | Description                                                              | Required |
+| ------------- | ------------------------------------------------------------------------ | -------- |
+| `title`     | The title of the Grafana Play dashboard.                                      | yes      |
+| `url` | The URL of the Grafana Play dashboard. | yes      |
+
+### Example
+
+```markdown
+{{</* docs/play title="Time Series Visualizations" url="https://play.grafana.org/d/000000016/1-time-series-graphs" */>}}
+```
+
+Produces:
+
+{{< docs/play title="Time Series Visualizations" url="https://play.grafana.org/d/000000016/1-time-series-graphs" >}}
+
 ## Docs/private-preview
 
 The `docs/private-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in private preview.

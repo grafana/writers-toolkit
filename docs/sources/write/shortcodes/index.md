@@ -554,15 +554,21 @@ You can center an image using the `figure` shortcode by adding the following pro
 - Add the `class="w-100p"` property.
 - Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property.
 - Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. The value should be lower than the original image's width.
-- Optionally, you can add the `width` and `height` properties to help optimize the page. If you're using a raster image, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages. For example, for a 800x600 image, you can add `width="800" height="600"`. For a vector image, you have to calculate the values based on the width you want for the image with the formula: (new-width / full-width) * full-height = new-height. For a detailed explanation about this step, refer to the Center image properties section below.
+- Optionally, you can add the `width` and `height` properties to help optimize the page.
+  
+  If you're using a raster image, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages.
+  For example, for a 800x600 image, you can add `width="800" height="600"`.
+  
+  For a vector image, you have to calculate the values based on the width you want for the image with the formula: (new_width / full_width) * full_height = new_height.
+  For a detailed explanation about this step, refer to the later **Center image properties** section.
 
-This is an example for centering a PNG image that's 1275x738 pixels:
+The following example shows how to center a PNG file whose original dimensions are 1275x738 pixels:
 
 ```markdown
 {{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
-For more details about what each parameter does, refer to the section below.
+For more details about what each parameter does, refer to the following section.
 
 {{< collapse title="Center image properties" >}}
 
@@ -580,7 +586,7 @@ When centering an image on a page, each property you have to add to the `<figure
 
 Setting the `width` and `height` properties is recommended because it allows the browser to optimize delivery of the image and account for the user's device and display dimensions, and service up a smaller image if the full-sized image isn't needed. Providing both values also allows the browser to correctly calculate a placeholder space when images are lazy loaded. This helps with [preventing reflow](https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/), which is the cause of most instances where links in an article's Table of Contents don't land on the correct section.
 
-For raster images, such as PNG or JPG files, width and height should usually be set to the original dimensions of the image. That provides the greatest flexibility for image optimization. However, for SVG images, width should typically be set to 100% and height left blank. That will expand the image to fill its container while maintaining the image's aspect ratio.
+For raster images, such as PNG or JPG files, `width` and `height` should usually be set to the original dimensions of the image. Doing so provides the greatest flexibility for image optimization. For SVG images, however, `width` should typically be set to 100% and height left blank. That will expand the image to fill its container while maintaining the image's aspect ratio.
 
 In cases where the desired display width of an image is smaller than the max width of the container, it's important to calculate the correct height so as to maintain the image's aspect ratio without warping the image. To do this, you can divide the desired image width by the image's full width and multiply by the original height: (new-width / full-width) * full-height = new-height . For example, if the original image dimensions are 1000px x 750px and you want the image displayed at 500px wide, you'd calculate (500 / 1000) * 750 = 325, or width="500" height="325".
 

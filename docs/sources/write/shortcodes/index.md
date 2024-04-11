@@ -559,7 +559,7 @@ You can center an image using the `figure` shortcode by adding the following pro
   If you're using a raster image, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages.
   For example, for a 800x600 image, you can add `width="800" height="600"`.
   
-  For a vector image, you have to calculate the values based on the width you want for the image with the formula: (new_width / full_width) * full_height = new_height.
+  For a vector image, you have to calculate the values based on the width you want for the image with the formula: `(new_width / full_width) * full_height = new_height`.
   For a detailed explanation about this step, refer to the later **Center image properties** section.
 
 The following example shows how to center a PNG file whose original dimensions are 1275x738 pixels:

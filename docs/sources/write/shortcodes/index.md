@@ -573,6 +573,7 @@ For more details about what each parameter does, refer to the following section.
 {{< collapse title="Center image properties" >}}
 
 <!-- vale Grafana.GoogleWill = NO -->
+<!-- vale Grafana.GoogleOxfordComma = NO -->
 
 When centering an image on a page, each property you have to add to the `<figure>` shortcode has a different purpose:
 
@@ -591,6 +592,7 @@ For raster images, such as PNG or JPG files, `width` and `height` should usually
 In cases where the desired display width of an image is smaller than the max width of the container, it's important to calculate the correct height so as to maintain the image's aspect ratio without warping the image. To do this, you can divide the desired image width by the image's full width and multiply by the original height: (new-width / full-width) * full-height = new-height . For example, if the original image dimensions are 1000px x 750px and you want the image displayed at 500px wide, you'd calculate (500 / 1000) * 750 = 325, or width="500" height="325".
 
 <!-- vale Grafana.GoogleWill = YES -->
+<!-- vale Grafana.GoogleOxfordComma = YES -->
 
 {{< /collapse >}}
 

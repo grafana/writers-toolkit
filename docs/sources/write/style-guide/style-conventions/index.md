@@ -175,7 +175,7 @@ For more comprehensive guidance, refer to [Write useful link text](https://grafa
 
 ## Numbers
 
-For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of ordinals.
+For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of _ordinals_. An ordinal number is a number that indicates the position or order of something in relation to other numbers, like first, second, third, and so on.
 
 For ordinals, write out first through ninth. For 10th on, use numerals.
 

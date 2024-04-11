@@ -554,12 +554,12 @@ You can center an image using the `figure` shortcode by adding the following pro
 - Add the `class="w-100p"` property.
 - Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property.
 - Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. The value should be lower than the original image's width.
-- Optionally, you can add the `width` and `height` properties to help optimize the page.
+- Optionally, you can add the `width` and `height` properties as a best practice to help with image and page optimization.
   
-  If you're using a raster image, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages.
-  For example, for a 800x600 image, you can add `width="800" height="600"`.
+  For raster images, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages.
+  For example, for a PNG file whose original dimensions are 800x600 pixels, you can add `width="800" height="600"`.
   
-  For a vector image, you have to calculate the values based on the width you want for the image with the formula: `(new_width / full_width) * full_height = new_height`.
+  For a vector image, calculate the values based on the desired image width by using the formula: `(new_width / full_width) * full_height = new_height`.
   For a detailed explanation about this step, refer to the later **Center image properties** section.
 
 The following example shows how to center a PNG file whose original dimensions are 1275x738 pixels:

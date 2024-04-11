@@ -8,3 +8,4 @@ action:
 swap:
   '[Cc]hangelog\.md': CHANGELOG.md
   '[Cc]hangelog': CHANGELOG
+  '[Cc]hangelogs': CHANGELOGs

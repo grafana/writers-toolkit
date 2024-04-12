@@ -1,31 +1,28 @@
 ---
-title: Front matter
-menuTitle: Front matter
-description: Learn about how we build front matter to properly enable the publication and search of our technical documentation.
 aliases:
   - /docs/writers-toolkit/writing-guide/front-matter/
   - /docs/writers-toolkit/write/front-matter/
-weight: 400
+date: 2024-04-09
+description: Learn about how Grafana builds front matter to properly enable the publication and search of our technical documentation.
 keywords:
   - front matter
   - alias
+title: Front matter
+weight: 400
 ---
 
 # Front matter
 
-Grafana technical documentation includes front matter to help organize the content, develop the TOC (as published in the left-hand sidebar of the website), and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
+The source files of Grafana documentation use front matter to organize the content, order the project table of contents, and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
 
 Use YAML for all front matter.
-In certain presentations, all front matter characters might render literally.
-For this reason, _do not_ include any special Markdown formatting, like italics, in front matter.
+Unless a front matter field is documented as supporting Markdown, _do not_ include any special Markdown formatting, like italics, in that field.
 
-Here’s a correctly built example:
+Here's a correctly built example:
 
 ```
 ---
-aliases:
-  - /docs/mimir/latest/old-architecture/
-description: Learn more about Grafana Mimir’s microservices-based architecture.
+description: Learn more about Grafana Mimir's microservices-based architecture.
 labels:
   products:
     - oss
@@ -37,13 +34,11 @@ menuTitle: Architecture
 title: About Grafana Mimir architecture
 weight: 100
 ---
-
-# About Grafana Mimir architecture
 ```
 
 ## Reference
 
-The following headings describe what each element does and provides guidelines for its content.
+The following headings describe what each front matter field does and provides guidelines for using it.
 
 ### Aliases
 
@@ -54,7 +49,8 @@ In some cases, for example when you have deleted content or split a file into mu
 
 ### Example
 
-The following Markdown front matter snippet defines an alias `/original-url/`:
+The following Markdown front matter snippet defines an alias `/original-url/`.
+You must incorporate it with any existing front matter.
 
 ```markdown
 ---
@@ -92,7 +88,7 @@ aliases:
 
 ##### Determine the relative alias
 
-To determine the relative alias, you must first understand the meaning of the current directory (`.`) and parent directory (`..`) path elements when they are used at the start of an alias.
+To determine the relative alias, you must first understand the meaning of the current directory (`.`) and parent directory (`..`) path elements when they're used at the start of an alias.
 
 For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
@@ -106,11 +102,11 @@ For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
 In the following table:
 
-- **FROM PAGE**: is the page that requires a redirect, for example because the page has been moved or no longer exists.
-- **TO PAGE**: is the page where readers are redirected to, for example the renamed page or where the content has been moved.
-- **RELATIVE ALIAS**: is the alias that must be added to the front matter of the file for **TO PAGE** to create the proper redirect.
+- **From page**: is the page that requires a redirect, for example because the page has been moved or no longer exists.
+- **To page**: is the page where readers are redirected to, for example the renamed page or where the content has been moved.
+- **Relative alias**: is the alias that must be added to the front matter of the file for **To page** to create the proper redirect.
 
-| FROM PAGE                                                            | TO PAGE                                               | RELATIVE ALIAS                           |
+| From page                                                            | To page                                               | Relative alias                           |
 | -------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------- |
 | `/docs/grafana/latest/alerting/`                                     | `/docs/grafana/latest/alerting/manage-notifications/` | `./`                                     |
 | `/docs/grafana/latest/alerting/silences/`                            | `/docs/grafana/latest/alerting/manage-notifications/` | `./silences/`                            |
@@ -157,7 +153,7 @@ To test an alias results in the correct redirect, use your browser or a command-
 
 ### Canonical
 
-`canonical` indicates the preferred URL for duplicate or very similar pages.
+The `canonical` front matter sets the preferred URL for duplicate or very similar pages.
 Search engines use this information and only index the canonical URL.
 
 The value of the `canonical` URL should be the full URL of the canonical page.
@@ -167,7 +163,8 @@ For content reused in Grafana Cloud, prefer the open source documentation as the
 
 ### Cascade
 
-`cascade` is a map of front matter keys. The values are passed down from the parent to the page descendants.
+`cascade` is a map of front matter fields.
+The fields are passed down from the parent to the page descendants.
 
 You can use `cascade` to define variables. For example:
 
@@ -177,11 +174,7 @@ cascade:
   PRODUCT_NAME: Grafana
 ```
 
-<!-- vale Grafana.Spelling = NO -->
-
-Use the [param](https://grafana.com/docs/writers-toolkit/write/shortcodes#param) shortcode in the topic body text wherever you need to insert the variable.
-
-<!-- vale Grafana.Spelling = YES -->
+Use the [`param`](https://grafana.com/docs/writers-toolkit/write/shortcodes#param) shortcode in the topic body text wherever you need to insert the variable.
 
 ### Date
 
@@ -198,13 +191,14 @@ Pages with more recent dates are lower in the menu.
 
 ### Description (required)
 
-Use `description` to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site. The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
+Use `description` to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site.
+The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
 
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
-Often, this doesn’t need to be original text.
+Often, this doesn't need to be original text.
 You can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
-If the description is too long, it's harmlessly truncated on social media.
+If the description is too long, it's truncated on social media.
 
 ### Draft
 
@@ -214,7 +208,7 @@ Use the command-line flag `--buildDrafts` to generate content marked as `draft: 
 ### Keywords
 
 The website uses `keywords` to generate links to related pages in the _Related content_ sections.
-They do not appear in the resulting HTML source for the page and do not affect search engine optimization (SEO).
+They don't appear in the resulting HTML source for the page and don't affect search engine optimization (SEO).
 
 Ideally, use single terms as opposed to phrases.
 
@@ -236,7 +230,6 @@ For `labels.stages`, the supported values and the resulting published labels are
 - `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
 
 Labels can be inherited through cascading front matter.
-Each project has a set of default labels that are defined in the root `_index.md` file of the project.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.
 For other projects, the `_index.md` file resides in the project’s repository.
@@ -245,7 +238,7 @@ If the default labels are incorrect for a page or directory of pages, update the
 Also, if you are adding a new page, consider whether the default labels are appropriate.
 For each page, include a label in the `labels.products` sequence for every product that the page relates to.
 
-For example, if a **single page** describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
+For example, if a _single page_ describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
 
 ```yaml
 labels:
@@ -254,7 +247,7 @@ labels:
     - enterprise
 ```
 
-For a **directory of pages** that describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front matter should include the following:
+For a _directory of pages_ that describe a feature only available in Grafana Cloud, the branch bundle `_index.md` file front matter should include the following:
 
 ```yaml
 cascade:
@@ -290,19 +283,26 @@ You should prefer to update the filename instead of using the `slug` front matte
 
 ### Title (required)
 
-Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter. If the `doc-validator` linter has been implemented on your repository, your topic heading must exactly match the title in the metadata.
+Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
+Your `title` should match your first heading for search engine optimization (SEO).
+The `doc-validator` linter enforces this.
 
-The `title` becomes the document title element in the HTML. Often, browsers display this in the tab for the page.
+The `title` becomes the document title element in the HTML.
+Often, browsers display this in the tab for the page.
 
-Optimize the title for search engines. Use double quotes (`"`) to surround the title. Do not use smart quotes.
+Optimize the title for search engines.
 
 ### Weight
 
 By default, topics are displayed in alphabetical order by `title`.
 
-Use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com. Smaller numbers place the topic earlier in the guide or section of the guide. Pages with the same weight are displayed in alphabetical order.
+Use `weight` to specify a different topic order within the left-hand sidebar on https://grafana.com.
+Smaller numbers place the topic earlier in the guide or section of the guide.
+Pages with the same weight are displayed in alphabetical order.
 
-Use increments of `100` for content files. Doing so makes it easier for you to re-order existing topics when you add new topics. Weights are per directory.
+Use increments of `100` for content files.
+Doing so makes it easier for you to re-order existing topics when you add new topics.
+Weights are per directory.
 
 ## Tutorials
 

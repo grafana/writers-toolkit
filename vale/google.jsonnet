@@ -20,7 +20,8 @@ std.prune({
   'Grafana/GoogleLatin.yml': null,
   'Grafana/GoogleLyHyphens.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/LyHyphens.yml')),
   'Grafana/GoogleOptionalPlurals.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OptionalPlurals.yml')),
-  'Grafana/GoogleOrdinal.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Ordinal.yml')),
+  // Replaced by Grafana/Ordinal.yml.
+  'Grafana/GoogleOrdinal.yml': null,
   'Grafana/GoogleOxfordComma.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OxfordComma.yml')),
   // Replaced by Grafana/Parentheses.yml.
   'Grafana/GoogleParens.yml': null,

@@ -4,4 +4,4 @@ link: https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-
 level: warning
 
 first: '\b(CloudWatch)\b'
-second: 'Amazon (CloudWatch)'
+second: "Amazon (CloudWatch)"

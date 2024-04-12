@@ -103,7 +103,7 @@ swap:
   the Grafana Agent: Grafana Agent
   timeseries: time series|time-series
   touch: tap
-  'trace(?:ql|QL)': TraceQL
+  "trace(?:ql|QL)": TraceQL
   url: URL
   vs\.: versus
   whitelist: allowlist

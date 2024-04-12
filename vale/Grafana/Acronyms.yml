@@ -1,58 +1,55 @@
-extends: conditional
-message: "Spell out '%s', if it is unfamiliar to the audience."
-link: "https://developers.google.com/style/abbreviations"
-level: suggestion
-ignorecase: false
-# Ensures that the existence of 'first' implies the existence of 'second'.
-first: '\b([A-Z]{3,5})\b'
-second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
-# ... with the exception of these:
-exceptions:
-  - API
-  - ASP
-  - AWS
-  - BPF
-  - CLI
-  - CPU
-  - CSS
-  - CSV
-  - DOM
-  - FAQ
-  - GNU
-  - GPU
-  - GUI
-  - HTML
-  - HTTP
-  - HTTPS
-  - IDE
-  - JAR
-  - JPG
-  - JSON
-  - JSX
-  - LESS
-  - OSS
-  - PDF
-  - PHP
-  - PNG
-  - RAM
-  - REPL
-  - RSA
-  - SCM
-  - SCSS
-  - SDK
-  - SEO
-  - SQL
-  - SSH
-  - SSL
-  - SVG
-  - TCP
-  - TSDB
-  - URI
-  - URL
-  - USB
-  - UTC
-  - UTF
-  - XML
-  - XSS
-  - YAML
-  - ZIP
+"exceptions":
+  - "API"
+  - "AWS"
+  - "BPF"
+  - "CLI"
+  - "CPU"
+  - "CSS"
+  - "CSV"
+  - "DOM"
+  - "FAQ"
+  - "GNU"
+  - "GPU"
+  - "GUI"
+  - "HTML"
+  - "HTTP"
+  - "HTTPS"
+  - "IDE"
+  - "JAR"
+  - "JPG"
+  - "JSON"
+  - "JSX"
+  - "LESS"
+  - "OSS"
+  - "PDF"
+  - "PHP"
+  - "PNG"
+  - "RAM"
+  - "REPL"
+  - "RSA"
+  - "SCM"
+  - "SCSS"
+  - "SDK"
+  - "SEO"
+  - "SQL"
+  - "SSD"
+  - "SSH"
+  - "SSL"
+  - "SVG"
+  - "TCP"
+  - "TSDB"
+  - "URI"
+  - "URL"
+  - "USB"
+  - "UTC"
+  - "UTF"
+  - "XML"
+  - "YAML"
+  - "ZIP"
+"extends": "conditional"
+"first": "\\b([A-Z]{3,5})\\b"
+"ignorecase": false
+"level": "suggestion"
+"link": "https://developers.google.com/style/abbreviations"
+"message": "Spell out '%s', if it is unfamiliar to the audience."
+"second": "(?:\\b[A-Z][a-z]+ )+\\(([A-Z]{3,5})\\)"

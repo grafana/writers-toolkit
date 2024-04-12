@@ -15,6 +15,11 @@ help:
 all: ## Create all dictionaries.
 all: en_US-grafana.dic en_US-places.dic
 
-%.dic: ## Create a Hunspell dictionary from a wordlist.
-%.dic: %.wordlist
+en_US-places.dic: ## Create a Hunspell dictionary of places from a wordlist.
+en_US-places.dic: %.wordlist
 	cat <(wc -l <$< | tr -d ' ') $< > $@
+
+en_US-grafana.dic: ## Create a Hunspell dictionary for Grafana from the Jsonnet dictionary.
+en_US-grafana.dic: en_US-grafana.jsonnet ../dictionary.jsonnet
+	jsonnet -S en_US-grafana.jsonnet > $@
+

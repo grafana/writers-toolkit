@@ -1,15 +1,17 @@
-138
+143
 ACL/S po:noun
 Aerospike/ po:noun
+Agent/ po:noun
 Alertmanager/MS po:noun
 allowlist/S po:noun
 allowlist/DGS po:verb
+Alloy/ po:noun
 Ansible/ po:adjective
 Ansible/ po:noun
 API/S po:noun
 autoscale/DGRS po:verb
 backport/DGS po:verb
-Beyla/M po:noun
+Beyla/ po:noun
 blockquote/S po:noun
 BPF/ po:noun
 burndown/ po:adjective
@@ -36,7 +38,7 @@ Firehose/M po:noun
 Goldmark/M po:noun
 goroutine/S po:noun
 Grafana/ po:adjective
-Grafana/M po:noun
+Grafana/ po:noun
 Gravatar/ po:adjective
 Gravatar/M po:noun
 Graylog/M po:noun
@@ -60,10 +62,12 @@ KPI/S po:noun
 Kprobe/S po:noun
 kubelet/ po:noun
 Linode/M po:noun
+Loki/ po:noun
 lookup/S po:noun
 marshal/u po:verb
 matcher/S po:noun
 memberlist/ po:noun
+Mimir/M po:noun
 misconfiguration/S po:noun
 mixin/S po:noun
 Moodle/M po:noun
@@ -87,7 +91,7 @@ provision/dD po:verb
 proxy/DG po:verb
 Puppetfile/S po:noun
 PVC/S po:noun
-Pyroscope/M po:noun
+Pyroscope/ po:noun
 quantile/S po:noun
 querier/MS po:noun
 query/ po:noun
@@ -118,6 +122,7 @@ subnet/S po:noun
 subquery/S po:noun
 subtask/S po:noun
 systemd/ po:noun
+Tempo/ po:noun
 Thanos/M po:noun
 toolset/S po:noun
 tooltip/S po:noun

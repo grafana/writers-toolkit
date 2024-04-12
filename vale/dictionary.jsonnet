@@ -48,6 +48,11 @@
       po: 'noun',
     },
     {
+      word: 'Apdex',
+      affixes: '',
+      po: 'noun',
+    },
+    {
       word: 'API',
       affixes: 'S',
       po: 'noun',
@@ -646,6 +651,11 @@
     },
     {
       word: 'tracepoint',
+      affixes: 'S',
+      po: 'noun',
+    },
+    {
+      word: 'traceroute',
       affixes: 'S',
       po: 'noun',
     },

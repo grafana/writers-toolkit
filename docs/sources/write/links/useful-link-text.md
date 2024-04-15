@@ -2,8 +2,9 @@
 aliases:
   - /docs/writers-toolkit/write/style-guide/useful-link-text/
   - /docs/writers-toolkit/write/useful-link-text/
-title: Write useful link text
 description: Learn how to write useful link text.
+date: 2024-04-15
+title: Write useful link text
 ---
 
 # Write useful link text
@@ -15,7 +16,7 @@ The primary purpose of link text is to give users a short summary of the link de
 
 ## Summary
 
-When writing link text, pay attention to words, quantity of links, and the length of link text.
+When writing link text, pay attention to the words used and the length of the link text.
 
 ### Words
 
@@ -50,8 +51,8 @@ Using too many links on a page makes it difficult for a user to read the content
 | Use                                                                                    | Don't use                                      |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | `[Learn more about cluster navigation]()` or learn more about `[cluster navigation]()` | `[Learn more]()`                               |
-| `[our <company name> products]()` or `[<company name> products]()`                     | `[our products]()`                             |
-| visit the `[<company name> website]()` or visit` [<company name>.com`]()               | `[visit our website]()`                        |
+| `[our Grafana products]()` or `[Grafana products]()`                                   | `[our products]()`                             |
+| visit the `[Grafana website]()`                                                        | `[visit our website]()`                        |
 | `[SNMP exporter]()`                                                                    | `[exporter]()`                                 |
 | `[KubeCon + CloudNativeCon North America 2022]()`                                      | `[KubeCon event]()`                            |
 | The basic `[definition of cardinality]()`                                              | The `[basic definition]()` of cardinality      |

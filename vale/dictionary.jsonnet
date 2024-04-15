@@ -21,7 +21,6 @@ local newWord(word, affixes, po) = {
 
 {
   words: [
-    newWord("don't", 'S', 'noun'),
     newWord('ACL', 'S', 'noun') { acronym: true },
     newWord('Aerospike', '', 'noun'),
     newWord('Agent', '', 'noun') { product: true },
@@ -32,7 +31,6 @@ local newWord(word, affixes, po) = {
     newWord('Ansible', '', 'adjective'),
     newWord('Ansible', '', 'noun'),
     newWord('API', 'S', 'noun') { acronym: true, established_acronym: true },
-    newWord('ASP', '', 'noun') { acronym: true },
     newWord('autoscale', 'DGRS', 'verb'),
     newWord('AWS', '', 'noun') { acronym: true, established_acronym: true },
     newWord('backport', 'DGS', 'verb'),

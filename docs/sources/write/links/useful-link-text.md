@@ -16,7 +16,7 @@ The primary purpose of link text is to give users a short summary of the link de
 
 ## Summary
 
-When writing link text, pay attention to the words used and the length of link text.
+When writing link text, pay attention to the words used and the length of the link text.
 
 ### Words
 

@@ -284,6 +284,13 @@ For example,
 
 - **Thing**: About the thing.
 
+Use bold to indicate paths within a web application, and greater-than symbols (`>`) to indicate path separators.
+For example:
+
+```markdown
+To add an administrator to the list of local users, navigate to **Appliance** > **Configuration** > **Access**.
+```
+
 ### Italic
 
 Use italics formatting (\_ in Markdown), to emphasize a specific word or phrase. This is particularly useful when defining a term for the first time.

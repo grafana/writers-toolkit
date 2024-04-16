@@ -1,4 +1,4 @@
-143
+145
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -8,6 +8,7 @@ allowlist/DGS po:verb
 Alloy/ po:noun
 Ansible/ po:adjective
 Ansible/ po:noun
+Apdex/ po:noun
 API/S po:noun
 autoscale/DGRS po:verb
 backport/DGS po:verb
@@ -127,6 +128,7 @@ Thanos/M po:noun
 toolset/S po:noun
 tooltip/S po:noun
 tracepoint/S po:noun
+traceroute/S po:noun
 triage/D po:verb
 TSDB/S po:noun
 TTL/S po:noun

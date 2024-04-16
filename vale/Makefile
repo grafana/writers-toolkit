@@ -14,7 +14,12 @@ help:
 PODMAN := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
 GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
-dictionaries/en_US-grafana.%: dictionaries/wordlist
+.PHONY: all
+all: dictionaries/en_US-grafana.dic Grafana/Google .vale.ini Grafana/ProductPossessives.yml Grafana/WordList.yml Grafana/Acronyms.yml Grafana/Readability ## Regenerate everything.
+all:
+	:
+
+dictionaries/en_US-grafana.%:
 	$(MAKE) -C $(@D) $(@F)
 
 .PHONY: grafana/vale
@@ -58,6 +63,11 @@ Grafana/Google: google.jsonnet
 
 Grafana/ProductPossessives.yml: ## Generate the Grafana style for product possessives.
 Grafana/ProductPossessives.yml: ProductPossessives.jsonnet dictionary.jsonnet
+	jsonnet -S $< > $@
+	prettier -w $@
+
+Grafana/Wordlist.yml: ## Generate the Grafana style for word list.
+Grafana/WordList.yml: WordList.jsonnet dictionary.jsonnet
 	jsonnet -S $< > $@
 	prettier -w $@
 

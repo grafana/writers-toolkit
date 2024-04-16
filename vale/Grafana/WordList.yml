@@ -1,118 +1,116 @@
-extends: substitution
-message: "Use '%s' instead of '%s'."
-link: "https://developers.google.com/style/word-list"
-level: warning
-ignorecase: false
-action:
-  name: replace
-swap:
-  "(?:[aA]daptive metrics|adaptive Metrics)": Adaptive Metrics
-  "(?:[gG]itHub]|Github)": GitHub
-  "(?:[kK]8s|kubernetes)": Kubernetes
-  "(?:alert[Mm]anager|[Aa]lert [Mm]anager|AlertManager)": Alertmanager
-  "(?:API Console|dev|developer) [Kk]ey": API key
-  "(?:cell ?phone|smart ?phone)": phone|mobile phone
-  "(?:dev|developer|APIs) console": API console
-  "(?:e-mail|Email|E-mail)": email
-  "(?:file ?path|path ?name)": path
-  "(?:hamburger menu|kebab menu)": menu icon
-  "(?:hold the pointer over|point to)": hover over
-  "(?:kill|terminate|abort)": stop|exit|cancel|end
-  "(?:ok|Okay)": OK|okay
-  "(?:WiFi|wifi)": Wi-Fi
-  "[^/]grafana[^/]": Grafana
-  "[cC]entos": CentOS
-  "[cC]ontact support": contact Support
-  "back[ -]end": backend
-  "front[ -]end": frontend
-  "left[- ]hand[- ]side": left-side
-  "right[- ]hand[- ]side": right-side
-  "tap (?:&|and) hold": touch and hold
-  "un(?:check|select)": clear
-  '3\-D': 3D
-  '[\.]+apk': APK
-  'Google (?:I\-O|IO)': Google I/O
-  above: preceding
-  admin: administrator
-  Ajax: AJAX
-  Android device: Android-powered device
-  android: Android
-  API Key: API key
-  approx\.: approximately
-  authN: authentication
-  authZ: authorization
-  autoupdate: automatically update
-  blacklist: blocklist
-  chapter: documents|pages|sections
-  check box: checkbox
-  config: configuration
-  config file: configuration file
-  Container Engine: Kubernetes Engine
-  content type: media type
-  curated roles: predefined roles
-  data-?source: data source
-  datacenter: data center
-  De-duplicate: Deduplicate
-  de-duplicate: deduplicate
-  Developers Console: API console
-  drop down: drop-down
-  dropdown: drop-down
-  ephemeral IP address: ephemeral external IP address
-  fewer data: less data
-  file name: filename
-  firewalls: firewall rules
-  git: Git
-  GME: GEM
-  Google API explorer: Google APIs Explorer
-  Googling: search with Google
-  grayed-out: unavailable
-  HTTPs: HTTPS
-  in order to: to
-  jsonnet: Jsonnet
-  log(?:ql|QL): LogQL
-  loki: Loki
-  long press: touch and hold
-  markdown: Markdown
-  memcached: Memcached
-  meta data: metadata
-  mix[ -]in: mixin
-  mysql: MySQL
-  network IP address: internal IP address
-  omnibox: address bar
-  Once: After
-  open-source: open source
-  overview screen: recents screen
-  phlare: Phlare
-  postgres: Postgres
-  postgresql: PostgreSQL
-  prom(?:ql|QL): PromQL
-  prometheus: Prometheus
-  "(?<!lambda-)promtail": Promtail
-  redis: Redis
-  regex: regular expression
-  repo: repository
-  SHA1: SHA-1|HAS-SHA1
-  sign into: sign in to
-  sign-?on: single sign-on
-  sqlite: SQLite
-  stylesheet: style sheet
-  synch: sync
-  tablename: table name
-  tablet: device
-  tempo: Tempo
-  the Grafana Agent: Grafana Agent
-  timeseries: time series|time-series
-  touch: tap
-  'trace(?:ql|QL)': TraceQL
-  url: URL
-  vs\.: versus
-  whitelist: allowlist
-  World Wide Web: web
-
-  "Data Firehose(?! Firehose)": Kinesis Data Firehose
-  "(?<!Kinesis Data )Firehose": Kinesis Data Firehose
-  Kinesis Firehose: Kinesis Data Firehose
-
-  ad[- ]?hoc: free-form|user-written
-
-  "(?:[Oo]penshift|openShift)": OpenShift
+"action":
+  "name": "replace"
+"extends": "substitution"
+"ignorecase": false
+"level": "warning"
+"link": "https://developers.google.com/style/word-list"
+"message": "Use '%s' instead of '%s'."
+"swap":
+  "(?:API Console|dev|developer) [Kk]ey": "API key"
+  "(?:WiFi|wifi)": "Wi-Fi"
+  "(?:[Oo]penshift|openShift)": "OpenShift"
+  "(?:[aA]daptive metrics|adaptive Metrics)": "Adaptive Metrics"
+  "(?:[gG]itHub]|Github)": "GitHub"
+  "(?:[kK]8s|kubernetes)": "Kubernetes"
+  "(?:alert[Mm]anager|[Aa]lert [Mm]anager|AlertManager)": "Alertmanager"
+  "(?:cell ?phone|smart ?phone)": "phone|mobile phone"
+  "(?:dev|developer|APIs) console": "API console"
+  "(?:e-mail|Email|E-mail)": "email"
+  "(?:file ?path|path ?name)": "path"
+  "(?:hamburger menu|kebab menu)": "menu icon"
+  "(?:hold the pointer over|point to)": "hover over"
+  "(?:kill|terminate|abort)": "stop|exit|cancel|end"
+  "(?:ok|Okay)": "OK|okay"
+  "(?<!Kinesis Data )Firehose": "Kinesis Data Firehose"
+  "(?<!lambda-)promtail": "Promtail"
+  "3\\-D": "3D"
+  "API Key": "API key"
+  "Ajax": "AJAX"
+  "Android device": "Android-powered device"
+  "Container Engine": "Kubernetes Engine"
+  "Data Firehose(?! Firehose)": "Kinesis Data Firehose"
+  "De-duplicate": "Deduplicate"
+  "Developers Console": "API console"
+  "GME": "GEM"
+  "Google (?:I\\-O|IO)": "Google I/O"
+  "Google API explorer": "Google APIs Explorer"
+  "Googling": "search with Google"
+  "HTTPs": "HTTPS"
+  "Kinesis Firehose": "Kinesis Data Firehose"
+  "Once": "After"
+  "SHA1": "SHA-1|HAS-SHA1"
+  "World Wide Web": "web"
+  "[\\.]+apk": "APK"
+  "[cC]entos": "CentOS"
+  "[cC]ontact support": "contact Support"
+  "above": "preceding"
+  "ad[- ]?hoc": "free-form|user-written"
+  "admin": "administrator"
+  "android": "Android"
+  "approx\\.": "approximately"
+  "authN": "authentication"
+  "authZ": "authorization"
+  "autoupdate": "automatically update"
+  "back[ -]end": "backend"
+  "blacklist": "blocklist"
+  "chapter": "documents|pages|sections"
+  "check box": "checkbox"
+  "config": "configuration"
+  "config file": "configuration file"
+  "content type": "media type"
+  "curated roles": "predefined roles"
+  "data-?source": "data source"
+  "datacenter": "data center"
+  "de-duplicate": "deduplicate"
+  "drop down": "drop-down"
+  "dropdown": "drop-down"
+  "ephemeral IP address": "ephemeral external IP address"
+  "fewer data": "less data"
+  "file name": "filename"
+  "firewalls": "firewall rules"
+  "front[ -]end": "frontend"
+  "git": "Git"
+  "grafana": "Grafana"
+  "grayed-out": "unavailable"
+  "in order to": "to"
+  "jsonnet": "Jsonnet"
+  "left[- ]hand[- ]side": "left-side"
+  "log(?:ql|QL)": "LogQL"
+  "loki": "Loki"
+  "long press": "touch and hold"
+  "markdown": "Markdown"
+  "memcached": "Memcached"
+  "meta data": "metadata"
+  "mix[ -]in": "mixin"
+  "mysql": "MySQL"
+  "network IP address": "internal IP address"
+  "omnibox": "address bar"
+  "open-source": "open source"
+  "overview screen": "recents screen"
+  "phlare": "Phlare"
+  "postgres": "Postgres"
+  "postgresql": "PostgreSQL"
+  "prom(?:ql|QL)": "PromQL"
+  "prometheus": "Prometheus"
+  "query frontend": "query-frontend"
+  "redis": "Redis"
+  "regex": "regular expression"
+  "repo": "repository"
+  "right[- ]hand[- ]side": "right-side"
+  "sign into": "sign in to"
+  "sign-?on": "single sign-on"
+  "sqlite": "SQLite"
+  "stylesheet": "style sheet"
+  "synch": "sync"
+  "tablename": "table name"
+  "tablet": "device"
+  "tap (?:&|and) hold": "touch and hold"
+  "tempo": "Tempo"
+  "the Grafana Agent": "Grafana Agent"
+  "timeseries": "time series|time-series"
+  "touch": "tap"
+  "trace(?:ql|QL)": "TraceQL"
+  "un(?:check|select)": "clear"
+  "url": "URL"
+  "vs\\.": "versus"
+  "whitelist": "allowlist"

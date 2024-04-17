@@ -41,6 +41,7 @@ local newWord(word, affixes, po) = {
     newWord('burndown', '', 'adjective'),
     newWord('cAdvisor', 'M', 'noun'),
     newWord('CLI', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('composable', '', 'adjective'),
     newWord('Couchbase', 'M', 'noun'),
     newWord('CPU', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('CRD', 'S', 'noun'),

@@ -54,6 +54,20 @@ Depending on your product design and maturity, you may not need every topic:
 Some topics are optional and are usually found in specific contexts.
 For example, the _Create_ and _Monitor_ topics are used in Grafana OnCall, but aren't used in Grafana Tempo.
 
+### Give prominence to important topics
+
+When you don't have a long top-level table of contents, you can include them at the top level as individual topics or modifications to the standard topic list.
+
+For example, _Metrics-generator_ and _TraceQL_ are two of the most viewed topics in Tempo documentation.
+_Metrics-generator_ is a top-level topic and _TraceQL_ is in the topic _Query with TraceQL_, a modification of the standard _Query data_ topic.
+
+### Avoid extra hierarchy
+
+When you only have a single topic don't nest it inside a standard topic just to use the standard topic list.
+
+For example, in the Tempo documentation, _API documentation_ would be the only entry under _References_ standard topic.
+Instead of adding another layer in the table of contents, _API documentation_ is at the top level.
+
 ### Topic list
 
 You can use the following high-level topics to group content.
@@ -164,6 +178,8 @@ For example, a conceptual page explaining metrics would go under the _Introducti
     </tr>
   </tbody>
 <table>
+
+#### Map the topic list to your table of contents
 
 ## Table of contents levels
 

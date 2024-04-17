@@ -1,4 +1,4 @@
-184
+187
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -8,6 +8,7 @@ allowlist/S po:noun
 Alloy/ po:noun
 Ansible/ po:adjective
 Ansible/ po:noun
+Apdex/ po:noun
 API/S po:noun
 autoscale/DGRS po:verb
 AWS/ po:noun
@@ -18,6 +19,7 @@ BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/M po:noun
 CLI/ po:noun
+composable/ po:adjective
 Couchbase/M po:noun
 CPU/S po:noun
 CRD/S po:noun
@@ -159,6 +161,7 @@ Tempo/ po:noun
 Thanos/M po:noun
 toolset/S po:noun
 tooltip/S po:noun
+traceroute/S po:noun
 tracepoint/S po:noun
 triage/D po:verb
 TSDB/S po:noun

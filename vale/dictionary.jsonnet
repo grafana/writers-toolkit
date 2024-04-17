@@ -123,6 +123,7 @@ local newWord(word, affixes, po) = {
     newWord('OSS', '', 'noun') { acronym: true, established_acronym: true },
     newWord('OTel', '', 'adjective'),
     newWord('OTel', 'M', 'noun'),
+    newWord('overbill', 'DG', 'verb'),
     newWord('Parca', 'M', 'noun'),
     newWord('PDF', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('performant', '', 'adjective'),

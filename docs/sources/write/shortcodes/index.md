@@ -574,7 +574,7 @@ You can center an image using the `figure` shortcode by adding the following pro
 
 - Add the `class="w-100p"` property.
 - Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property.
-- Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the value you want for your image. The value should be lower than the original image's width.
+- Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the maximum width value you want to display your image. This property only affects raster images, such as PNG or JPG files, whose original width is greater than the property value.
 - Optionally, you can add the `width` and `height` properties as a best practice to help with image and page optimization.
 
   For raster images, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages.

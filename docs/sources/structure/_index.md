@@ -63,7 +63,7 @@ _Metrics-generator_ is a top-level topic and _TraceQL_ is in the topic _Query wi
 
 ### Avoid extra hierarchy
 
-When you only have a single topic don't nest it inside a standard topic just to use the standard topic list.
+When you only have a single topic, don't nest it inside a standard topic just to use the standard topic list.
 
 For example, in the Tempo documentation, _API documentation_ would be the only entry under _References_ standard topic.
 Instead of adding another layer in the table of contents, _API documentation_ is at the top level.

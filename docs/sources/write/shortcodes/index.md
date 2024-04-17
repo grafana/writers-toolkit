@@ -1,15 +1,14 @@
 ---
-title: Shortcodes
-menuTitle: Shortcodes
-description: Understand what shortcodes are and how to use them in your Markdown.
-weight: 500
 aliases:
-  - /docs/writers-toolkit/writing-guide/shortcodes/
   - /docs/writers-toolkit/write/shortcodes/
+  - /docs/writers-toolkit/writing-guide/shortcodes/
+date: 2024-04-15
+description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo
   - shortcodes
-VARIABLE: test
+title: Shortcodes
+weight: 500
 ---
 
 # Shortcodes
@@ -531,11 +530,12 @@ The _`lookup`_ path is relative to the `shared` folder in the `agent` source rep
 {{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" version="<AGENT VERSION>" */>}}
 ```
 
-The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` project.
+The following shortcode inserts `shared-page.md` from the `shared` folder in the `enterprise-metrics` project.
+The version used matches the version of the page including the file.
 Headings are offset by one level, so if the source content contains an `h1`, the resulting heading is an `h2`.
 
 ```markdown
-{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM VERSION>" leveloffset="+1" */>}}
+{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM_VERSION>" leveloffset="+1" */>}}
 ```
 
 ## Figure
@@ -716,11 +716,11 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
 
 For example: `{﻿{% param VARIABLE %}}`.
-{{% /admonition %}}
+{{< /admonition >}}
 
 ### Example
 
@@ -929,7 +929,7 @@ You can configure automatic playback with:
 
 If you need to display the syntax for a shortcode, you can escape it using this syntax:
 
-![Escaped shortcode](./writers-toolkit-escaped-shortcode.png)
+![Escaped shortcode](/media/docs/writers-toolkit/writers-toolkit-escaped-shortcode.png)
 
 Produces:
 
@@ -943,7 +943,7 @@ Version substitution enables the use of absolute paths that resolve correctly, i
 It uses special syntax using angle bracket delimiters like `<GRAFANA_VERSION>`.
 
 As a convention, use the name of the target project all upper-case.
-For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA CLOUD`.
+For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA_CLOUD`.
 
 The shortcode substitutes the special syntax `<SOMETHING_VERSION>` with the version inferred from the page's URL.
 If the page's URL has the prefix `/docs/grafana/latest/`, the shortcode replaces the syntax `<SOMETHING_VERSION>` with `latest` in the final URL.

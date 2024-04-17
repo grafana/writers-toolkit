@@ -103,18 +103,15 @@ swap:
   the Grafana Agent: Grafana Agent
   timeseries: time series|time-series
   touch: tap
-  trace(?:ql|QL): TraceQL
+  "trace(?:ql|QL)": TraceQL
   url: URL
   vs\.: versus
   whitelist: allowlist
   World Wide Web: web
 
-  Data Firehose: Kinesis Data Firehose
-  Firehose: Kinesis Data Firehose
+  "Data Firehose(?! Firehose)": Kinesis Data Firehose
+  "(?<!Kinesis Data )Firehose": Kinesis Data Firehose
   Kinesis Firehose: Kinesis Data Firehose
-
-  "(?:[dD][ae][ae]monset|d[ae][ae]monSet)": DaemonSet
-  "(?:[sS]tatefulset|statefulSet)": StatefulSet
 
   ad[- ]?hoc: free-form|user-written
 

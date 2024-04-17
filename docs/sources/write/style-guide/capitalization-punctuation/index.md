@@ -1,13 +1,14 @@
 ---
-title: Capitalization and punctuation
-description: Guidelines for use of capitalization and punctuation.
-weight: 400
 aliases:
   - /docs/writers-toolkit/style-guide/capitalization-punctuation
   - /docs/writers-toolkit/write/style-guide/capitalization-punctuation
+date: 2024-04-15
+description: Guidelines for use of capitalization and punctuation.
 keywords:
   - capitalization
   - punctuation
+title: Capitalization and punctuation
+weight: 400
 ---
 
 # Capitalization and punctuation
@@ -16,21 +17,23 @@ This section includes capitalization and punctuation guidelines.
 
 ## Capitalization
 
+Write headings in sentence case.
+
 Consult the following capitalization guidelines when you write.
 
-### Sentence-case capitalization
+### Sentence case
 
-Use sentence-case capitalization to capitalize the first word of a sentence, the first word of a heading, and all proper nouns.
+Sentence case capitalizes the first word of a heading and all proper nouns.
 
 This style is primarily lowercase and is considered the quickest form to read.
 
-### All caps capitalization
+### Capitalize abbreviations
 
-Use all-caps capitalization exclusively for abbreviations, such as `API`, `HTTP`, `ID`, `JSON`, `SQL`, or `URL`.
+Use all-caps capitalization for abbreviations, such as `API`, `HTTP`, `ID`, `JSON`, `SQL`, or `URL`.
 
-### Capitalizing proper nouns
+### Capitalize proper nouns
 
-The names of people, places, and products take initial capitals because they are proper nouns.
+The names of people, places, and products take initial capitals because they're proper nouns.
 
 If you're not sure of whether something is a product or not, consult the product manager, or if there isn't one, the responsible squad.
 
@@ -54,7 +57,7 @@ In the first use, introduce the object as _Kubernetes XX_, then use it alone in 
 **Examples:**
 
 - Create the Kubernetes Job and check the logs to retrieve the generated token:
-- The Job requires the token be submitted as …
+- The Job requires the token
 
 ### Amazon products
 
@@ -73,6 +76,3 @@ Refer to the following punctuation guidelines when you write technical content.
   - Example: "During lunch, they enjoyed quiche, quinoa, _and_ kale salad.”
 - Don't abbreviate _and_ with an ampersand (_&_).
   - Exception: If the UI uses an ampersand, match the UI.
-- At the end of a paragraph, remove extra space characters.
-- Use bold to indicate paths within a web application, and greater-than symbols (>) to indicate path separators.
-  - Example: “To add an administrator to the list of local users, navigate to **Appliance** > **Configuration** > **Access**.”

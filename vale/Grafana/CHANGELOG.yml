@@ -7,5 +7,5 @@ action:
   name: replace
 swap:
   '[Cc]hangelog\.md': CHANGELOG.md
-  '[Cc]hangelog': CHANGELOG
-  '[Cc]hangelogs': CHANGELOGs
+  "[Cc]hangelog": CHANGELOG
+  "[Cc]hangelogs": CHANGELOGs

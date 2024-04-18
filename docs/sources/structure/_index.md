@@ -179,8 +179,6 @@ For example, a conceptual page explaining metrics would go under the _Introducti
   </tbody>
 <table>
 
-#### Map the topic list to your table of contents
-
 ## Table of contents levels
 
 The table of contents consists of the following section levels.

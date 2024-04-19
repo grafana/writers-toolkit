@@ -164,6 +164,7 @@ local newWord(word, affixes, po) = {
     newWord('shortcode', 'S', 'noun'),
     newWord('showback', 'S', 'noun'),
     newWord('siloed', '', 'adjective'),
+    newWord('SLA', 'S', 'noun') { acronym: true },
     newWord('SLI', 'S', 'noun') { acronym: true },
     newWord('SLO', 'S', 'noun') { acronym: true },
     newWord('spanset', 'S', 'noun'),

@@ -36,6 +36,7 @@ local newWord(word, affixes, po) = {
     newWord('AWS', '', 'noun') { acronym: true, established_acronym: true },
     newWord('backport', 'DGS', 'verb'),
     newWord('Beyla', '', 'noun') { product: true },
+    newWord('blackbox', '', 'noun'),
     newWord('blockquote', 'S', 'noun'),
     newWord('BPF', '', 'noun') { acronym: true, established_acronym: true },
     newWord('burndown', '', 'adjective'),

@@ -8,14 +8,14 @@ keywords:
   - image
   - screenshot
   - guideline
-menuTitle: Image and media guidelines
-title: Image, diagram, and screenshot guidelines
+menuTitle: Media guidelines
+title: Image, diagram, screenshot, and video guidelines
 weight: 750
 ---
 
-# Image, diagram, and screenshot guidelines
+# Image, diagram, screenshot, and video guidelines
 
-At Grafana Labs, images are an essential part of helpful, clear, and concise content.
+At Grafana Labs, media are an essential part of helpful, clear, and concise content.
 Follow the standards in this section when creating images for your documents.
 
 ## Image and diagram guidelines
@@ -138,6 +138,18 @@ Consult the following guidelines when you create screenshots:
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 - **Alt text**: Make sure to include [alt text](#alt-text) for every image.
+
+## Video guidelines
+
+- Use videos only from official Grafana sources.
+- Use videos that are relevant and specific to the topic.
+- Include an introduction to the video that explains what readers can expect to find in the video.
+
+  This is important for accessibility and to save readers from watching videos that aren't important to them.
+
+- Use videos sparingly.
+
+  Video content is much more difficult to update than textual documentation.
 
 ## Media asset file naming conventions
 

@@ -1,4 +1,4 @@
-188
+190
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -14,6 +14,7 @@ autoscale/DGRS po:verb
 AWS/ po:noun
 backport/DGS po:verb
 Beyla/ po:noun
+blackbox/ po:noun
 blockquote/S po:noun
 BPF/ po:noun
 burndown/ po:adjective
@@ -141,6 +142,7 @@ shard/DG po:verb
 shortcode/S po:noun
 showback/S po:noun
 siloed/ po:adjective
+SLA/S po:noun
 SLI/S po:noun
 SLO/S po:noun
 spanset/S po:noun

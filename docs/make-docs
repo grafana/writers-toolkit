@@ -6,6 +6,14 @@
 # [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 # Changes are relevant to this script and the support docs.mk GNU Make interface.
 #
+# ## 6.1.0 (2024-04-22)
+#
+# ### Added
+#
+# - Pseudo project for including only website resources and no website content.
+#
+#   Facilitates testing shortcodes and layout changes with a small documentation set instead of Grafana Cloud or the entire website.
+#
 # ## 6.0.1 (2024-02-28)
 #
 # ### Added

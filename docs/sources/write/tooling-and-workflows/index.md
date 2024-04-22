@@ -27,7 +27,50 @@ Although processes for contributing changes differ for each repository, at Grafa
 ### Create a local repository
 
 Creating a local repository is only necessary when first contributing to a GitHub repository.
-To create a local repository from a remote repository, use `git clone` with the URL of the repository.
+To create a local repository from a remote repository, use either:
+
+- `git clone <URL>`: where _`URL`_ is the URL of the repository.
+
+  For more information, refer to [Clone with Git](#clone-with-git).
+
+- `gh repo clone <REPOSITORY>`: where _`REPOSITORY`_ is the name of the repository.
+  For example, `grafana/writers-toolkit`
+
+  For more information, refer to [Clone with GitHub CLI](#clone-with-github-cli).
+
+#### Clone with GitHub CLI
+
+You must first have installed GitHub CLI and authenticated with GitHub.
+To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
+To authenticate with GitHub, refer to [Authenticate with GitHub](#authenticate-with-github).
+
+To clone the `grafana/writers-toolkit` repository, change to the directory containing your repositories and run:
+
+```bash
+gh repo clone grafana/writers-toolkit
+```
+
+The output is similar to the following:
+
+```console
+Cloning into 'writers-toolkit'...
+remote: Enumerating objects: 5599, done.
+remote: Counting objects: 100% (1493/1493), done.
+remote: Compressing objects: 100% (682/682), done.
+remote: Total 5599 (delta 1065), reused 1086 (delta 750), pack-reused 4106
+Receiving objects: 100% (5599/5599), 8.11 MiB | 4.68 MiB/s, done.
+Resolving deltas: 100% (3314/3314), done.
+```
+
+You can then enter the repository by changing to the newly created directory.
+
+```bash
+cd mimir
+```
+
+For a full list of Grafana repositories, refer to [the GitHub repository list for the Grafana organization](https://github.com/orgs/grafana/repositories).
+
+#### Clone with Git
 
 <!-- vale Grafana.Timeless = NO -->
 <!-- Usage comes from the external page title -->
@@ -387,8 +430,7 @@ If the conflict is too complex to resolve in the web editor, GitHub directs you 
 
 If there's a conflict when attempting to merge the target branch into yours, Git also tells you which files are in conflict:
 
-```bash
-$ git merge main
+```console
 Auto-merging .github/CODEOWNERS
 CONFLICT (content): Merge conflict in .github/CODEOWNERS
 Automatic merge failed; fix conflicts and then commit the result.
@@ -397,6 +439,16 @@ Automatic merge failed; fix conflicts and then commit the result.
 GitHub has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
 For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
+## Sync a fork with its upstream
+
+To sync a fork with its upstream repository, change to the directory of your repository checkout and run:
+
+```bash
+gh repo sync <FORK REPOSITORY>
+```
+
+For more information about the command's options, refer to the [`gh repo sync` documentation](https://cli.github.com/manual/gh_repo_sync).
+
 ## Use GitHub CLI
 
 GitHub CLI simplifies some Git workflows when working with GitHub repositories.
@@ -404,3 +456,16 @@ GitHub CLI simplifies some Git workflows when working with GitHub repositories.
 ### Install GitHub CLI
 
 To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/cli#installation).
+
+### Authenticate with GitHub
+
+After installing GitHub CLI you must authenticate with GitHub.
+To authenticate with GitHub, run `gh auth login` and follow the interactive setup.
+
+You can also use `gh` as a credential helper for Git.
+To use `gh` as a credential helper for Git, run `gh auth setup-git`.
+For more information about Git credential helpers, refer to [Git - `gitcredentials` Documentation](https://git-scm.com/docs/gitcredentials).
+
+```
+
+```

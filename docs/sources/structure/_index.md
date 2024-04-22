@@ -31,15 +31,6 @@ This approach applies not only to content on a page but also to how you organize
 
 With well-structured content, you can find what you need quickly and easily. Topics flow in a logical progression.
 
-<!--
-Commenting this paragraph out until we have an actual section on information architecture.
-
-https://github.com/grafana/writers-toolkit/issues/532
-
-According to STC’s [Information Design and Information Architecture: Why Technical Communicators Should Care About These Fields](https://www.stc.org/intercom/2022/05/information-design-and-information-architecture-why-technical-communicators-should-care-about-these-fields/),
-information architecture is "...the practice of organizing, structuring, and labeling information to it’s easy to find, use, and understand..."
--->
-
 ## Structure of published content
 
 Generally, documentation structure determines how content is:
@@ -107,7 +98,7 @@ If you're not sure where your documentation belongs, contact the technical docum
 **Parent:** Each top-level entity has one or more parents, which are groups of related feature content.
 Parent topics assist users in navigating to child topics.
 
-**Child:** This level of the information architecture includes includes concepts, tasks, or reference topics.
+**Child:** This level of the information architecture includes concepts, tasks, or reference topics.
 
 ## Parent directory structure
 

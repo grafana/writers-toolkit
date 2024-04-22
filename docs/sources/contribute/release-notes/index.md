@@ -1,6 +1,9 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/contribute-release-notes
+  - /docs/writers-toolkit/contribute-documentation/contribute-release-notes/
+  - /docs/writers-toolkit/contribute-release-notes/
+  - /docs/writers-toolkit/contribute/release-notes/
+  - /docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/
 date: 2024-02-14
 description: This section describes the different ways of contributing to the What's new document or release notes.
 keywords:
@@ -20,6 +23,11 @@ This topic explains the decisions and actions associated with collecting, writin
 {{< admonition type="note" >}}
 This topic is only relevant for internal Grafana Labs contributors.
 {{< /admonition >}}
+
+The information on this page can be used for Grafana products that use the What's new or CMS to publish notes about new and updated features.
+However, not every product uses the What's new process for their release notes.
+For example, the release notes for Grafana Tempo are created within the Tempo repository.
+The Grafana Cloud Traces updates are published using the What's new.
 
 ## What's new documentation development process
 
@@ -176,6 +184,12 @@ For Grafana versioned releases, the content you enter in the CMS is published in
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
 
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
+
+#### Updated release stage
+
+If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry. For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
+
+You don't have to make the new entry as robust as the previous one. Instead, you can keep the new entry brief by referring to or linking to the previous entry.
 
 ### Edit What's new entries
 
@@ -345,3 +359,15 @@ Follow these guidelines to ensure that your What's new or release notes content 
   Now, the state doesn't update."
 
 - **For changes or updates to features, provide brief descriptions.**
+
+<!-- vale Grafana.GoogleWe = NO -->
+
+- **You can use first person plural, such as "we".**
+
+  Grafana's style normally prefers second person ("you") and avoids first person ("I"/"we").
+  Release notes, like blog posts, use a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available."
+
+  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.GoogleWe` rule. You can use this check at the beginning of your file after the front matter:
+  `<!-- vale Grafana.GoogleWe = NO -->`
+
+<!-- vale Grafana.GoogleWe = YES -->

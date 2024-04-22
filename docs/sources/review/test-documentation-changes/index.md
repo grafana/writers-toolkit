@@ -157,7 +157,7 @@ Each argument has four fields separated by colons (`:`), and optional fields can
 
   The _`VERSION`_ field is optional and defaults to `latest` for versioned projects and is empty for other projects.
 
-- _`REPOSITORY`_: is the the name of the directory that the project is cloned to.
+- _`REPOSITORY`_: is the name of the directory that the project is cloned to.
 
   The _`REPOSITORY`_ field is optional and defaults to the script's internal mapping of project names to repository names.
   For most projects, this is the same as the project name.
@@ -205,7 +205,15 @@ If you experience confusing behavior with the `make docs` procedure, report the 
 
 To stop the `make docs` command, press Commmand/Ctrl + C.
 
-If this doesn't work, do one of the following:
+Sometimes an old build process can be running in another terminal.
+If this is the case, when you run `make docs`, you see output similar to the following:
+
+```console
+docker: Error response from daemon: driver failed programming external connectivity on endpoint eloquent_nightingale (eb2c4546727b41bbc44354ac616a14404c57f30c312f6869b147c578ac5de6bf): Bind for 0.0.0.0:3002 failed: port is already allocated.
+make: *** [docs] Error 125
+```
+
+To remove an old build process, do one of the following:
 
 - Open Docker Desktop, go to **Containers**, and stop all running containers or just the one for your local build.
 - To remove all running containers, run `docker rm -f $(docker ps -q)`.

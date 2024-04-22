@@ -11,6 +11,9 @@ keywords:
 
 # Inclusive writing
 
+<!-- vale Grafana.GoogleWe = NO -->
+<!-- This page talks about the voice and tone of our organization. -->
+
 When writing for Grafana Labs, always use inclusive terminology and phrasing. Avoid all statements that perpetuate gender, racial, or cultural stereotypes; do not use gendered words or demographically oriented terms that are irrelevant to the content.
 
 ## Writing about people
@@ -69,12 +72,17 @@ Cultural references are references that relate to the culture of a community, co
 **Examples:**
 
 - “Her ambition is a clear reflection of the American dream.”
-- “I'm so glad you came to help like a good Samaritan.”
+- “You came to help like a good Samaritan.”
 - “They grew up in a typical nuclear family.”
 
 ## Avoid charged language
 
+<!-- vale Grafana.WordList = NO -->
+<!-- This is demonstrating improper usage. -->
+
 Avoid using charged language such as _blacklist_, _master_, and _slave_.
+
+<!-- vale Grafana.WordList = YES -->
 
 ### Allow, block
 
@@ -85,7 +93,12 @@ When referring to _allowing_ or _blocking_ content or traffic, use a form of _al
 
 Example: _To **allow** outgoing traffic, add the IP to the **allowlist**._
 
+<!-- vale Grafana.WordList = NO -->
+<!-- This is demonstrating improper usage. -->
+
 Avoid _whitelist_ or _blacklist_.
+
+<!-- vale Grafana.WordList = YES -->
 
 ### Primary and secondary
 

@@ -29,7 +29,7 @@ To address users clearly and directly, write directives in the imperative second
 
 Exception:
 
-- You can use first person in UI elements that are specific to the user, such as “My profile" or “My account."
+- You can use first person in UI elements that are specific to the user, such as **My profile** or **My account**.
 
 | Use                                                           | Don't use                                                         |
 | ------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -52,7 +52,10 @@ Simple, direct communication is the key to effective technical communication.
 - Use short words whenever possible, such as "use," not "utilize."
   - If possible, replace "use" and its variants (utilize, make use of) with a more descriptive verb.
 - Make your sentences shorter than 25 words.
+  <!-- vale Grafana.WordList = NO -->
+  <!-- This sentence notes that "in order to" can be shortened to just "to" -->
   - If you can remove a word without losing meaning, do so (typical culprits: there is; there are; in order to; it is important to; keep in mind).
+  <!-- vale Grafana.WordList = YES -->
   - Consider writing shorter sentences or using a bulleted list if you find yourself writing long sentences.
 - Use simple verbs and tenses.
 - Consider the characteristics of your audience when choosing a term.
@@ -65,7 +68,12 @@ Make content relevant to the user's context. The more familiar you are with the 
 
 ### Write in present tense
 
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- This sentence notes words that should be avoided. -->
+
 When you write in present tense, avoid words such as have, has, had, been, should, would, and will.
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This sentence is demonstrating an exception where this rule doesn't apply. -->
@@ -163,7 +171,13 @@ For example:
 For more information about Grafana Labs products, refer to [Grafana documentation](/docs/grafana/latest/).
 ```
 
-For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolki/write/style-guide/useful-link-text/)
+For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolkit/write/links/useful-link-text/)
+
+## Numbers
+
+For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of _ordinals_. An ordinal number is a number that indicates the position or order of something in relation to other numbers, like first, second, third, and so on.
+
+For ordinals, write out first through ninth. For 10th on, use numerals.
 
 ## Admonitions
 
@@ -235,11 +249,8 @@ You might not be able to recover a dashboard if it's deleted.
 
 ## Semantic line breaks
 
-The [Semantic Line Breaks organization](https://sembr.org/) suggests adding line breaks in your writing.
-We find this can help with reviews.
-
-Note that we don't require that this suggestion be followed.
-We share the Semantic Line Breaks rules so that you can discuss with your review team and adapt to your circumstance.
+The [Semantic Line Breaks organization](https://sembr.org/) suggests adding semantic line breaks in your writing .
+Adding a line break after each sentence makes it easier to understand the shape and structure of the source text
 
 With line breaks:
 
@@ -255,7 +266,7 @@ Without line breaks:
 When you write in active voice, you identify the subject of the sentence and the action that the subject performs. For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is “The car was driven by John.”
 ```
 
-The output is the same in both cases.
+The HTML output is the same in both cases.
 However, the first is easier to review and edit and is less subject to the screen and text editor settings of each contributor.
 
 ## Text formatting
@@ -272,6 +283,13 @@ It's OK to use bold for a the first sentence in unordered lists that are followe
 For example,
 
 - **Thing**: About the thing.
+
+Use bold to indicate paths within a web application, and greater-than symbols (`>`) to indicate path separators.
+For example:
+
+```markdown
+To add an administrator to the list of local users, navigate to **Appliance** > **Configuration** > **Access**.
+```
 
 ### Italic
 

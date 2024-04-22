@@ -1,4 +1,8 @@
 ---
+aliases:
+  - /docs/writers-toolkit/writing-guide/reuse-directories/
+  - /docs/writers-toolkit/write/reuse-content/reuse-directories/
+date: 2024-03-14
 description: Learn to reuse directories of content with Hugo mounts.
 keywords:
   - content reuse
@@ -6,14 +10,13 @@ keywords:
   - Hugo
 menuTitle: Reuse directories of content
 title: Reuse directories of content with Hugo mounts
-aliases:
-  - /docs/writers-toolkit/writing-guide/reuse-directories/
-  - /docs/writers-toolkit/write/reuse-content/reuse-directories/
 ---
 
 # Reuse directories of content with Hugo mounts
 
-> **Note:** The following task can only be performed by a Grafana Labs employee.
+{{< admonition type="note" >}}
+The following task can only be performed by a Grafana Labs employee.
+{{< /admonition >}}
 
 Before Hugo performs a build, _Hugo mounts_ mount a source directory at a destination directory.
 Use Hugo mounts to reuse a whole directory of content in another part of the published technical documentation.
@@ -22,11 +25,16 @@ Use Hugo mounts to reuse a whole directory of content in another part of the pub
 
 - Identify a directory of content that you want to reuse.
 - Identify any pages to exclude.
-  Typically, excluded pages do not make sense in the context of the target directory.
-  > **Warning:** Pages in the directory might have relative links to other pages that would be broken by their exclusion.
-  > If the excluded page is replaced by another in the target directory, relative links will continue to work.
-  > Otherwise, the broken relative links should be made absolute.
-  > That way, they will always refer to the page in the source directory.
+  Typically, excluded pages don't make sense in the context of the target directory.
+
+  {{< admonition type="warning" >}}
+  Pages in the directory might have relative links to other pages that would be broken by their exclusion.
+
+  If the excluded page is replaced by another in the target directory, relative links continue to work.
+
+  Otherwise, the broken relative links should be made absolute.
+  That way, they always refer to the page in the source directory.
+  {{< /admonition >}}
 
 ## Steps
 
@@ -41,14 +49,14 @@ To reuse a shared directory:
    Similarly, the target directory has the path prefix `content/docs`.
    For the destination URL `https://grafana.com/docs/target-directory/`, the path is `content/docs/target-directory`.
 
-1. For every page in the source directory, set the canonical URL using the `canonical` front matter, to the currently published open source page.
+1. For every page in the source directory, set the canonical URL using the `canonical` front matter, to the currently published open source page URL.
 
    The `canonical` front matter indicates the preferred URL for duplicate or very similar pages.
    For more information, refer to [Canonical](https://grafana.com/docs/writers-toolkit/write/front-matter/#canonical).
 
 1. Update the website repository Hugo configuration.
 
-   The configuration is in the in the `website` repository in the `config/_default/config.yaml` file.
+   The configuration is in the `website` repository in the `config/_default/config.yaml` file.
 
    Append the mount to the `docs.manual_mount` key in the YAML configuration.
 

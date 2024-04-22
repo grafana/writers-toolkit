@@ -1,0 +1,43 @@
+# This file contains all the redirects for the Writers' Toolkit project: https://grafana.com/docs/writers-toolkit/
+# Lines beginning with a '#' are comments.
+# The format is:
+# FROM                                                                                              TO
+/docs/writers-toolkit/about-grafana-docs/                                                           /docs/writers-toolkit/introduction/
+/docs/writers-toolkit/contribute-documentation/                                                     /docs/writers-toolkit/contribute/
+/docs/writers-toolkit/contribute-release-notes/                                                     /docs/writers-toolkit/contribute/release-notes/
+/docs/writers-toolkit/review/backporting/                                                           /docs/writers-toolkit/review/backport-changes/
+/docs/writers-toolkit/review/run-a-local-webserver/                                                 /docs/writers-toolkit/review/test-documentation-changes/
+/docs/writers-toolkit/style-guide/                                                                  /docs/writers-toolkit/write/style-guide/
+/docs/writers-toolkit/style-guide/capitalization-punctuation/                                       /docs/writers-toolkit/write/style-guide/capitalization-punctuation/
+/docs/writers-toolkit/style-guide/inclusive-writing/                                                /docs/writers-toolkit/write/style-guide/inclusive-writing/
+/docs/writers-toolkit/style-guide/style-conventions/                                                /docs/writers-toolkit/write/style-guide/style-conventions/
+/docs/writers-toolkit/style-guide/ux-writing/                                                       /docs/writers-toolkit/write/style-guide/ux-writing/
+/docs/writers-toolkit/style-guide/voice-tone-guidelines/                                            /docs/writers-toolkit/write/style-guide/voice-tone-guidelines/
+/docs/writers-toolkit/style-guide/write-for-developers/                                             /docs/writers-toolkit/write/style-guide/write-for-developers/
+/docs/writers-toolkit/write/references/                                                             /docs/writers-toolkit/write/links/
+/docs/writers-toolkit/write/useful-link-text/                                                       /docs/writers-toolkit/write/links/useful-link-text/
+/docs/writers-toolkit/writing-guide/                                                                /docs/writers-toolkit/write/
+/docs/writers-toolkit/writing-guide/about-documentation-design/                                     /docs/writers-toolkit/structure/about-documentation-design/
+/docs/writers-toolkit/writing-guide/about-grafana-docs/                                             /docs/writers-toolkit/introduction/
+/docs/writers-toolkit/writing-guide/contribute-documentation/                                       /docs/writers-toolkit/contribute/
+/docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/              /docs/writers-toolkit/contribute/release-notes/
+/docs/writers-toolkit/writing-guide/documentation-structure/                                        /docs/writers-toolkit/structure/
+/docs/writers-toolkit/writing-guide/documentation-structure/topic-types/                            /docs/writers-toolkit/structure/topic-types/
+/docs/writers-toolkit/writing-guide/documentation-structure/topic-types/concept/                    /docs/writers-toolkit/structure/topic-types/concept/
+/docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference/                  /docs/writers-toolkit/structure/topic-types/reference/
+/docs/writers-toolkit/writing-guide/documentation-structure/topic-types/task/                       /docs/writers-toolkit/structure/topic-types/task/
+/docs/writers-toolkit/writing-guide/documentation-structure/topic-types/tutorial/                   /docs/writers-toolkit/structure/topic-types/tutorial/
+/docs/writers-toolkit/writing-guide/front-matter/                                                   /docs/writers-toolkit/write/front-matter/
+/docs/writers-toolkit/writing-guide/image-guidelines/                                               /docs/writers-toolkit/write/image-guidelines/
+/docs/writers-toolkit/writing-guide/markdown-guide/                                                 /docs/writers-toolkit/write/markdown-guide/
+/docs/writers-toolkit/writing-guide/references/                                                     /docs/writers-toolkit/write/links/
+/docs/writers-toolkit/writing-guide/reuse-directories/                                              /docs/writers-toolkit/write/reuse-content/reuse-directories/
+/docs/writers-toolkit/writing-guide/reuse-shared-content/                                           /docs/writers-toolkit/write/reuse-content/reuse-shared-content/
+/docs/writers-toolkit/writing-guide/shortcodes/                                                     /docs/writers-toolkit/write/shortcodes/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/                                          /docs/writers-toolkit/review/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/                                          /docs/writers-toolkit/write/tooling-and-workflows/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/backporting/                              /docs/writers-toolkit/review/backport-changes/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/lint-prose/                               /docs/writers-toolkit/review/lint-prose/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/run-a-local-webserver/                    /docs/writers-toolkit/review/test-documentation-changes/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/         /docs/writers-toolkit/review/doc-validator/
+/docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/  /docs/writers-toolkit/review/doc-validator/errata/

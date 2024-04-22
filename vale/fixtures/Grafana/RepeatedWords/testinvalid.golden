@@ -1,0 +1,2 @@
+testinvalid.md:1:1:Grafana.RepeatedWords:'the' is repeated
+testinvalid.md:2:1:Grafana.RepeatedWords:'no' is repeated

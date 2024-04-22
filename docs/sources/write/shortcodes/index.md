@@ -1,15 +1,14 @@
 ---
-title: Shortcodes
-menuTitle: Shortcodes
-description: Understand what shortcodes are and how to use them in your Markdown.
-weight: 500
 aliases:
-  - /docs/writers-toolkit/writing-guide/shortcodes/
   - /docs/writers-toolkit/write/shortcodes/
+  - /docs/writers-toolkit/writing-guide/shortcodes/
+date: 2024-04-15
+description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo
   - shortcodes
-VARIABLE: test
+title: Shortcodes
+weight: 500
 ---
 
 # Shortcodes
@@ -40,7 +39,7 @@ and the type of admonition must be within quotes.
 Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
 Tips should be helpful, additional information.
 You can think of some tips as tricks.
-Your reader can feel free to skip them if they wish because they don't contribute to core understanding.
+Your reader can feel free to skip them if they want because they don't contribute to core understanding.
 
 {{< admonition type="warning" >}}
 Reference style links such as `[link text][label]` or `[link text][]` don't work in the inner text of shortcodes if you use reference links defined at the topic level.
@@ -231,6 +230,8 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 
 {{< /code >}}
 
+<!-- prettier-ignore-end -->
+
 ## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
@@ -366,6 +367,25 @@ Produces:
 
 {{< docs/experimental product="experimental-feature" featureFlag="its-feature-flag" >}}
 
+## Docs/play
+
+The `docs/play` shortcode produces a note admonition with the preferred copy for linking to a Grafana Play dashboard.
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `title`   | The title of the Grafana Play dashboard. | yes      |
+| `url`     | The URL of the Grafana Play dashboard.   | yes      |
+
+### Example
+
+```markdown
+{{</* docs/play title="Time Series Visualizations" url="https://play.grafana.org/d/000000016/1-time-series-graphs" */>}}
+```
+
+Produces:
+
+{{< docs/play title="Time Series Visualizations" url="https://play.grafana.org/d/000000016/1-time-series-graphs" >}}
+
 ## Docs/private-preview
 
 The `docs/private-preview` shortcode produces a note admonition with the preferred copy for explaining that the described product or feature is in private preview.
@@ -407,6 +427,75 @@ Produces:
 
 {{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
 
+## Docs/reference
+
+{{< admonition type="warning" >}}
+This shortcode is present in the documentation, but you should prefer `ref` URIs.
+Don’t use it when creating new or updating existing documentation.
+
+For more information, refer to [Links](https://grafana.com/docs/write/links/).
+{{< /admonition >}}
+
+The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
+
+You set all possible destinations in one part of the file, usually at end of the file, like a footer.
+
+For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
+The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
+
+Set the reference at the end of the page as follows:
+
+```markdown
+{{%/* docs/reference */%}}
+[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA_VERSION>/dashboards"
+[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
+{{%/* /docs/reference */%}}
+```
+
+The content within the shortcode tags is as follows:
+
+`[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
+
+- _`LABEL`_ - The label you'll use in the reference-style links in the file.
+  In the preceding example, the label is `dashboards`.
+  The label can be multiple words like `[dashboard docs]` and can include spaces.
+
+- _`PROJECT PATH PREFIX`_ - Designates the target project.
+  In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
+
+- _`REFERENCE`_ - The path to the destination file.
+  This shortcode supports version substitution using values like `<GRAFANA_VERSION>`.
+  To learn about version substitution, refer to [About version substitution](#about-version-substitution).
+  Don't include trailing slashes in the path.
+
+Then add the link in the body of the file in the following format:
+
+```markdown
+For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+```
+
+- If the page you're on is `/docs/grafana-cloud/alerting/`, the returned link is `/docs/grafana-cloud/dashboards/`.
+- If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned link is `/docs/grafana/latest/dashboards/`.
+- If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned link is `/docs/grafana/next/dashboards/`.
+
+### Other use cases
+
+Markdown reference-style links are also useful when you want to link to the same destination multiple times in one file.
+It allows you to specify the link destination once while you use the label multiple times.
+For example:
+
+**Reference:**
+
+```markdown
+[Grafana website]: www.grafana.com
+```
+
+**Body text:**
+
+```markdown
+Find more information on [Grafana][Grafana website].
+```
+
 ## Docs/shared
 
 The `docs/shared` shortcode lets you reuse content across the Grafana website by including shared pages from source content repositories.
@@ -424,7 +513,7 @@ For more detailed instructions, refer to [Reuse shared content](https://grafana.
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
 | `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                                     | yes      |
 | `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                               | yes      |
-| `version`     | Version of the source content to include. For source content that doesn't have a version, use the empty string `""` as the value. This shortcode supports version substitution using values like `<GRAFANA VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
+| `version`     | Version of the source content to include. For source content that doesn't have a version, use the empty string `""` as the value. This shortcode supports version substitution using values like `<GRAFANA_VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
 | `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                              | no       |
 
 {{< admonition type="note" >}}
@@ -441,11 +530,12 @@ The _`lookup`_ path is relative to the `shared` folder in the `agent` source rep
 {{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" version="<AGENT VERSION>" */>}}
 ```
 
-The following shortcode inserts the latest version of `shared-page.md` from the `shared` folder in the `enterprise-metrics` project.
+The following shortcode inserts `shared-page.md` from the `shared` folder in the `enterprise-metrics` project.
+The version used matches the version of the page including the file.
 Headings are offset by one level, so if the source content contains an `h1`, the resulting heading is an `h2`.
 
 ```markdown
-{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM VERSION>" leveloffset="+1" */>}}
+{{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM_VERSION>" leveloffset="+1" */>}}
 ```
 
 ## Figure
@@ -478,6 +568,69 @@ Including the original image dimensions as the 'width' and 'height' properties i
 These values are _only_ used for determining the image aspect ratio and don't equate to the final displayed size.
 {{< /admonition >}}
 
+### Center an image example
+
+You can center an image using the `figure` shortcode by adding the following properties:
+
+- Add the `class="w-100p"` property.
+- Add the `link-class="w-fit mx-auto d-flex flex-direction-column"` property.
+- Add the `max-width="WIDTHpx"` property, replacing `WIDTH` with the maximum width value you want to display your image. This property only affects raster images, such as PNG or JPG files, whose original width is greater than the property value.
+- Optionally, you can add the `width` and `height` properties as a best practice to help with image and page optimization.
+
+  For raster images, such as a PNG or JPG file, you can set the properties with the original image values, without pixels or percentages.
+  For example, for a PNG file whose original dimensions are 800x600 pixels, you can add `width="800" height="600"`.
+
+  For a vector image, calculate the values based on the desired image width by using the formula: `(new_width / full_width) * full_height = new_height`.
+  For a detailed explanation about this step, refer to the later **Center image properties** section.
+
+The following example shows how to center a PNG file whose original dimensions are 1275x738 pixels:
+
+```markdown
+{{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
+```
+
+For more details about what each parameter does, refer to the following section.
+
+{{< collapse title="Center image properties" >}}
+
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- vale Grafana.GoogleOxfordComma = NO -->
+
+When centering an image on a page, each property you have to add to the `<figure>` shortcode has a different purpose:
+
+- The `class="w-100p"` property specifies that the `<figure>` element should take up 100% of the width of its container.
+- The `link-class` attribute values are:
+  - `w-fit` specifies that the width of the `<a>` element that wraps around the image should fit its contents.
+    For example, if the image's width is 500px, the width of its parent `<a>` element will be set to match.
+  - `mx-auto` sets the x-axis margin on either side of the link to automatically take up whatever space remains in the container.
+    For example, if the figure's container is 750px wide and the image is 500px wide, the margin on either side of the image will be 125px ((750 - 500) / 2) .
+    This is what actually does the centering.
+  - `d-flex` sets the figure element to be a flex container.
+  - `flex-direction-column` specifies the direction of the flex container's layout.
+    In this case, the child elements are stacked vertically, as opposed to flex-direction-row, which displays the child elements horizontally.
+- The `width`, or `max-width` property, is necessary to calculate the difference between the image's width and the container size.
+  While only the `width` or `max-width` value is necessary for the purposes of centering, it's best practice to set both `width` and `height`.
+
+Setting the `width` and `height` properties is recommended because it allows the browser to optimize delivery of the image and account for the user's device and display dimensions, and service up a smaller image if the full-sized image isn't needed.
+Providing both values also allows the browser to correctly calculate a placeholder space when images are lazy loaded.
+This helps with [preventing reflow](https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/), which is the cause of most instances where links in an article's Table of Contents don't land on the correct section.
+
+For raster images, such as PNG or JPG files, `width` and `height` should usually be set to the original dimensions of the image.
+Doing so provides the greatest flexibility for image optimization.
+For SVG images, however, `width` should typically be set to 100% and height left blank.
+That will expand the image to fill its container while maintaining the image's aspect ratio.
+
+In cases where the desired display width of an image is smaller than the max width of the container, it's important to calculate the correct height so as to maintain the image's aspect ratio without warping the image.
+To do this, you can divide the desired image width by the image's full width and multiply by the original height:
+`(new_width / full_width) * full_height = new_height`.
+For example, if the original image dimensions are 1000px x 750px and you want the image displayed at 500px wide,
+you'd calculate `(500 / 1000) * 750 = 325`, or width="500" height="325".
+
+<!-- vale Grafana.GoogleWill = YES -->
+<!-- vale Grafana.GoogleOxfordComma = YES -->
+
+{{< /collapse >}}
+
 ### Example
 
 In this example, the image has a CSS class that makes the image display floated to the right.
@@ -491,13 +644,6 @@ The `max-width` value must have a unit of measurement, such as pixels or percent
 
 ```markdown
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
-```
-
-This examples sets the image's display size to have a maximum width of 500px, and sets the `class` and `link-class` properties to center the image on the page.
-It sets the original `width` and `height` values of the image without any unit of measurement such as pixels or percentages.
-
-```markdown
-{{</* figure src="/static/img/docs/grafana-cloud/k8sPods.png" width="1275" height="738" max-width="500px" class="w-100p" link-class="w-fit mx-auto d-flex flex-direction-column" caption="Pod view in Grafana Kubernetes Monitoring" caption-align="center" */>}}
 ```
 
 ## Hero (simple)
@@ -521,6 +667,7 @@ To add a simple hero, insert the `hero-simple` shortcode using the following nam
 | `img_class`         | Optional CSS class for the image container element.                                                                                                                                                                                            | No       |
 | `title_class`       | Optional CSS class for the heading element.                                                                                                                                                                                                    | No       |
 | `description_class` | Optional CSS class for the description element.                                                                                                                                                                                                | No       |
+
 <!-- prettier-ignore-end -->
 
 You can provide shortcode arguments by:
@@ -569,11 +716,11 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
 
 For example: `{﻿{% param VARIABLE %}}`.
-{{% /admonition %}}
+{{< /admonition >}}
 
 ### Example
 
@@ -630,7 +777,7 @@ In most projects, the only content available during local builds and CI is the c
 
 {{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}
 
-For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/).
+For additional information about Hugo error output, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/).
 
 ### Determine `relref` shortcode arguments
 
@@ -730,78 +877,59 @@ If you aren't a Grafana Labs employee, request changes by [creating an issue](ht
 For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
 For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
 
-## Video shortcodes
+## Vimeo
 
-Refer to the [`vimeo` and `youtube` shortcode documentation]({{< relref "../image-guidelines#videos" >}}) for information about these shortcodes.
+The `vimeo` shortcode embeds videos hosted on vimeo.com.
 
-## Docs/reference
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| position 0 | Video ID    | yes      |
 
-The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
-Use this shortcode for links when you reuse content from one repository to more than one documentation set.
+The shortcode requires a single argument which is the video ID.
+For example, `{{</* vimeo 1111111*/>}}`.
 
-You set all possible destinations in one part of the file, usually at end of the file, like a footer.
+You can find the video ID at the end of the URL.
+In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`.
 
-For example, a page in versioned Grafana documentation is also mounted in the Grafana Cloud documentation.
-The page in Grafana should link to the Grafana dashboards page but the page in Grafana Cloud should link to the Grafana Cloud dashboards page.
-
-Set the reference at the end of the page as follows:
-
-```markdown
-{{%/* docs/reference */%}}
-[dashboards]: "/docs/grafana/ -> /docs/grafana/<GRAFANA VERSION>/dashboards"
-[dashboards]: "/docs/grafana-cloud/ -> /docs/grafana-cloud/dashboards"
-{{%/* /docs/reference */%}}
+```
+{{</* vimeo 773194063 */>}}
 ```
 
-The content within the shortcode tags is as follows:
+## YouTube
 
-`[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
+The `youtube` shortcode embed videos hosted on YouTube.
 
-- _`LABEL`_ - The label you'll use in the reference-style links in the file.
-  In the preceding example, the label is `dashboards`.
-  The label can be multiple words like `[dashboard docs]` and can include spaces.
+| Parameter  | Description                                     | Required |
+| ---------- | ----------------------------------------------- | -------- |
+| `id`       | Video ID                                        | yes      |
+| `start`    | Start time in seconds                           | no       |
+| `end`      | End time in seconds                             | no       |
+| `autoplay` | Set to `"true"` to automatically play the video | no       |
 
-- _`PROJECT PATH PREFIX`_ - Designates the target project.
-  In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
-
-- _`REFERENCE`_ - The path to the destination file.
-  This shortcode supports version substitution using values like `<GRAFANA VERSION>`.
-  To learn about version substitution, refer to [About version substitution](#about-version-substitution).
-  Don't include trailing slashes in the path.
-
-Then add the link in the body of the file in the following format:
+The `id` is the `v` URL parameter in the YouTube URL.
+For example, for the YouTube URL `https://www.youtube.com/watch?v=g97CjKOZqT4`, the shortcode is the following:
 
 ```markdown
-For more information about Grafana dashboards, refer to [Dashboards][dashboards].
+{{</* youtube id="g97CjKOZqT4" */>}}
 ```
 
-- If the page you're on is `/docs/grafana-cloud/alerting/`, the returned link is `/docs/grafana-cloud/dashboards/`.
-- If the page you're on is `/docs/grafana/latest/alerting/`, the inferred version is `latest`, and the returned link is `/docs/grafana/latest/dashboards/`.
-- If the page you're on is `/docs/grafana/next/alerting/`, the inferred version is `next`, and the returned link is `/docs/grafana/next/dashboards/`.
-
-### Other use cases
-
-Markdown reference-style links are also useful when you want to link to the same destination multiple times in one file.
-It allows you to specify the link destination once while you use the label multiple times.
-For example:
-
-**Reference:**
+You can configure `start` and `end`, in seconds, with:
 
 ```markdown
-[Grafana website]: www.grafana.com
+{{</* youtube id="g97CjKOZqT4" start="100" end="200" */>}}
 ```
 
-**Body text:**
+You can configure automatic playback with:
 
 ```markdown
-Find more information on [Grafana][Grafana website].
+{{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
 ## Escaping Hugo shortcodes
 
 If you need to display the syntax for a shortcode, you can escape it using this syntax:
 
-![Escaped shortcode](./writers-toolkit-escaped-shortcode.png)
+![Escaped shortcode](/media/docs/writers-toolkit/writers-toolkit-escaped-shortcode.png)
 
 Produces:
 
@@ -815,7 +943,7 @@ Version substitution enables the use of absolute paths that resolve correctly, i
 It uses special syntax using angle bracket delimiters like `<GRAFANA_VERSION>`.
 
 As a convention, use the name of the target project all upper-case.
-For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA CLOUD`.
+For example, `grafana` becomes `GRAFANA`, `grafana-cloud` becomes `GRAFANA_CLOUD`.
 
 The shortcode substitutes the special syntax `<SOMETHING_VERSION>` with the version inferred from the page's URL.
 If the page's URL has the prefix `/docs/grafana/latest/`, the shortcode replaces the syntax `<SOMETHING_VERSION>` with `latest` in the final URL.

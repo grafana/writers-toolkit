@@ -8,3 +8,4 @@ action:
 swap:
   '[Rr]eadme\.md': README.md
   "[Rr]eadme": README
+  "[Rr]eadmes": READMEs

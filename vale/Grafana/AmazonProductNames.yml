@@ -1,0 +1,7 @@
+extends: conditional
+message: Use the full Amazon product name in the first instance.
+link: https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#amazon-products
+level: warning
+
+first: '\b(CloudWatch)\b'
+second: "Amazon (CloudWatch)"

@@ -56,6 +56,16 @@ Grafana/Google: google.jsonnet
 	jsonnet -S -m . google.jsonnet
 	prettier -w $@*.yml
 
+Grafana/ProductPossessives.yml: ## Generate the Grafana style for product possessives.
+Grafana/ProductPossessives.yml: ProductPossessives.jsonnet dictionary.jsonnet
+	jsonnet -S $< > $@
+	prettier -w $@
+
+Grafana/Acronyms.yml: ## Generate the Grafana style for acronyms.
+Grafana/Acronyms.yml: Acronyms.jsonnet dictionary.jsonnet
+	jsonnet -S $< > $@
+	prettier -w $@
+
 .PHONY: Grafana/Readability
 Grafana/Readability: ## Generate the Grafana style from the Readability style.
 Grafana/Readability: readability.jsonnet

@@ -12,8 +12,11 @@ match: $sentence
 threshold: 0.3
 exceptions:
   - Adaptive Metrics
+  - Amazon CloudWatch
+  - Amazon Kinesis Data Firehose
   - Ansible
   - Application Observability
+  - AWS Observability
   - AzureAD
   - Beyla
   - BoltDB
@@ -45,7 +48,6 @@ exceptions:
   - HTTP
   - Hugo
   - Kibana
-  - Kinesis Data Firehose
   - Kubernetes Monitoring
   - LogQL
   - Loki
@@ -65,12 +67,16 @@ exceptions:
   - Promtail
   - Pyroscope
   - Redis
+  - Service Level Objective
+  - SLO
   - SRE
   - SSO
   - Tempo
   - Terraform
   - Thanos
   - TraceQL
+  - UI
+  - UX
   - WebSockets
   - What's new
   - Writers' Toolkit

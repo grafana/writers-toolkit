@@ -284,4 +284,4 @@ You can include comments that don't display in published output:
 
 Shortcodes are snippets you use in source files to calling built-in or custom templates.
 Shortcodes templates avoid the need for HTML in Markdown and ensure consistency across the documentation set.
-To learn how to use shortcodes, refer to [Shortcodes](https://grafana.com/docs/writers-toolkit/shortcodes/).
+To learn how to use shortcodes, refer to [Shortcodes](https://grafana.com/docs/writers-toolkit/write/shortcodes/).

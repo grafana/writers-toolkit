@@ -1,0 +1,15 @@
+local defs = (import './dictionary.jsonnet').words;
+std.manifestYamlDoc({
+  extends: 'existence',
+  level: 'warning',
+  link: 'https://developers.google.com/style/possessives#product,-feature,-and-company-names',
+  message: |||
+    Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it.
+    Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship.
+  |||,
+  tokens: [
+    "%s's" % def.word
+    for def in defs
+    if 'product' in def && def.product
+  ],
+})

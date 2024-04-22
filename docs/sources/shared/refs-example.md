@@ -41,7 +41,7 @@ refs:
 
 ## Before you begin
 
-- Check which data sources are compatible with and supported by [Grafana Alerting][ref:grafana-alerting].
+- Check which data sources are compatible with and supported by [Grafana Alerting](ref:grafana-alerting).
 ```
 
 In the [Grafana page](https://grafana.com/docs/grafana/latest/alerting/set-up/), the link destination is https://grafana.com/docs/grafana/latest/alerting/fundamentals/data-source-alerting/.

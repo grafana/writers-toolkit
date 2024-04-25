@@ -20,7 +20,7 @@ Concepts answer the question “what is it?”. Readers learn about features thr
 
 The following types of content can be included in concepts:
 
-- Detailed overviews of Grafana's features with benefits and clearly defined terms
+- Detailed overviews of features with benefits and clearly defined terms
 - Diagrams that help users understand the components of a system
 - Process flow diagrams
 - Best practice guidelines

@@ -30,7 +30,7 @@ For example, instead of covering the fundamentals of UI design _in general_, exp
 
 The foundation of strong documentation is well-written comments in code that are concise, relevant, and current.
 
-For do's and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-\* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
+For dos and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-\* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
 
 For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your favorite programming language.
 

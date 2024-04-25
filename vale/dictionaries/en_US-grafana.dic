@@ -1,4 +1,4 @@
-190
+192
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -34,6 +34,7 @@ deliverable/S po:noun
 disaggregate/DS po:verb
 distroless/ po:adjective
 DOM/ po:noun
+don'ts/ po:noun
 downsample/DG po:verb
 duplicate/dDSN po:noun
 Dynatrace/M po:noun
@@ -124,6 +125,7 @@ query/ po:noun
 query/A po:adjective
 query/DGS po:verb
 RAM/ po:noun
+reachability/ po:noun
 React/M po:noun
 redirection/S po:noun
 register/dG po:verb

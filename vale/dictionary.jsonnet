@@ -147,6 +147,7 @@ local newWord(word, affixes, po) = {
     newWord('query', 'A', 'adjective'),
     newWord('query', 'DGS', 'verb'),
     newWord('RAM', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('reachability', '', 'noun') { description: 'A product metric in Synthetic Monitoring' },
     newWord('React', 'M', 'noun'),
     newWord('redirection', 'S', 'noun'),
     newWord('register', 'dG', 'verb'),

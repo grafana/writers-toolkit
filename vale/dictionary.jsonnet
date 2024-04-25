@@ -56,6 +56,7 @@ local newWord(word, affixes, po) = {
     newWord('disaggregate', 'DS', 'verb'),
     newWord('distroless', '', 'adjective'),
     newWord('DOM', '', 'noun') { acronym: true, established_acronym: true },
+    newWord("don'ts", '', 'noun'),
     newWord('downsample', 'DG', 'verb'),
     newWord('duplicate', 'dDSN', 'noun'),
     newWord('Dynatrace', 'M', 'noun'),

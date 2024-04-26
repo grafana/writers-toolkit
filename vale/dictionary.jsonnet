@@ -38,6 +38,7 @@ local newWord(word, affixes, po) = {
     newWord('Beyla', '', 'noun') { product: true },
     newWord('blackbox', '', 'noun'),
     newWord('blockquote', 'S', 'noun'),
+    newWord('boolean', '', 'noun'),
     newWord('BPF', '', 'noun') { acronym: true, established_acronym: true },
     newWord('burndown', '', 'adjective'),
     newWord('cAdvisor', 'M', 'noun'),

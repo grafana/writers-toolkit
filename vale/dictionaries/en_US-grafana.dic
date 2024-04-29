@@ -1,4 +1,4 @@
-192
+193
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -16,6 +16,7 @@ backport/DGS po:verb
 Beyla/ po:noun
 blackbox/ po:noun
 blockquote/S po:noun
+boolean/ po:noun
 BPF/ po:noun
 burndown/ po:adjective
 cAdvisor/M po:noun

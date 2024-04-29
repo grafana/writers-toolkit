@@ -14,6 +14,8 @@ help:
 PODMAN := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
 GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
+all: fixtures/Grafana Grafana/Google Grafana/Readability Grafana/ProductPossessives.yml Grafana/Acronyms.yml
+
 dictionaries/en_US-grafana.%: dictionaries/wordlist
 	$(MAKE) -C $(@D) $(@F)
 

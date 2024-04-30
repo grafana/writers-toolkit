@@ -1,4 +1,4 @@
-193
+194
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -179,6 +179,7 @@ URL/ po:noun
 USB/ po:noun
 UTC/ po:noun
 UTF/ po:noun
+Velero/ po:noun
 VU/S po:noun
 VUH/S po:noun
 WAL/S po:noun

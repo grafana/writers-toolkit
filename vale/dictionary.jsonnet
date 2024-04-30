@@ -201,6 +201,7 @@ local newWord(word, affixes, po) = {
     newWord('USB', '', 'noun') { acronym: true, established_acronym: true },
     newWord('UTC', '', 'noun') { acronym: true, established_acronym: true },
     newWord('UTF', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('Velero', '', 'noun') { description: 'Velero is an open source tool to safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes.', product: true },
     newWord('VU', 'S', 'noun') { acronym: true },
     newWord('VUH', 'S', 'noun') { acronym: true },
     newWord('WAL', 'S', 'noun') { acronym: true },

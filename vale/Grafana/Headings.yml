@@ -13,9 +13,10 @@ threshold: 0.3
 exceptions:
   - Adaptive Metrics
   - Amazon CloudWatch
-  - Amazon Kinesis Data Firehose
+  - Amazon Data Firehose
   - Ansible
   - Application Observability
+  - AWS
   - AWS Observability
   - AzureAD
   - Beyla

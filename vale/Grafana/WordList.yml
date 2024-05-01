@@ -109,9 +109,9 @@ swap:
   whitelist: allowlist
   World Wide Web: web
 
-  "Data Firehose(?! Firehose)": Kinesis Data Firehose
-  "(?<!Kinesis Data )Firehose": Kinesis Data Firehose
-  Kinesis Firehose: Kinesis Data Firehose
+  "Kinesis Data Firehose": Data Firehose
+  "(?<!Data )Firehose": Data Firehose
+  Kinesis Firehose: Data Firehose
 
   ad[- ]?hoc: free-form|user-written
 

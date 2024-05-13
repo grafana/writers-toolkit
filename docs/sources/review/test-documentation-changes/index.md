@@ -79,7 +79,7 @@ where:
 - _`LANGUAGE`_ may be present
 - _`MESSAGE`_ is the issue
 
-### Example: Succesful build
+### Example: Successful build
 
 If the `make docs` command runs correctly, the console should print a message similar to the following:
 

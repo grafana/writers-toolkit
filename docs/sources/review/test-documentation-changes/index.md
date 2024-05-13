@@ -81,7 +81,7 @@ where:
 
 ### Example: Succesful build
 
-If the `make docs` command runs correctly, the console should print a message similar to the following"
+If the `make docs` command runs correctly, the console should print a message similar to the following:
 
 ```
 View documentation locally:

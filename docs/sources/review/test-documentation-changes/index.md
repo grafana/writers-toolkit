@@ -13,7 +13,7 @@ weight: 200
 
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
-To run the local documentation web server, run `make docs` from the `docs/` directory. The output message should include a URL that you can follow to visualize the changes to the documentation in the browser. See the [example of a successful build](#example-succesful-build)
+To run the local documentation web server, run `make docs` from the `docs/` directory. The output message should include a URL that you can follow to view the changes to the documentation in the browser. See the [example of a successful build](#example-succesful-build).
 
 {{< admonition type="note" >}}
 Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.

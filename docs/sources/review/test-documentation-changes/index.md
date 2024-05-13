@@ -94,7 +94,6 @@ Press Ctrl+C to stop the server
 To test tutorial changes the address is `http://localhost:3002/docs/grafana/latest/tutorials/`
 {{< /admonition >}}
 
-
 ### Example: Page not found
 
 {{< docs/shared source="writers-toolkit" lookup="hugo-error-example-bad-link.md" version="" >}}

@@ -194,6 +194,8 @@ Pages with more recent dates are lower in the menu.
 Use `description` to provide the short description of the topic to search engines, including the search engine used in the Grafana documentation site.
 The description is also displayed on social media, such as Twitter, to provide a clue to users about the page contents.
 
+Since the reader isn't on the Grafana website, your description should include contextual information, such as the product name.
+
 The number of characters vary by media, so make the description concise.
 Provide enough information to guide users to the content by describing what content the link leads to.
 Often, this doesn't need to be original text.

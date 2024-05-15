@@ -266,9 +266,9 @@ When the release branch is promoted to GA, the What's new will also be part of t
 Grafana publishes a What's new [documentation page](https://grafana.com/docs/grafana/latest/whatsnew/) and [blog post](/blog/2022/11/29/grafana-9.3-release/) along with every minor and major release.
 
 These posts are popular, and a good way for users to learn about the exciting new things Grafana has released.
-What's new also drives Grafana's go-to-market enablement: it's used to train the field and make videos on the topics in What's new.
+What's new also drives go-to-market enablement: it's used to train the field and make videos on the topics in What's new.
 
-However, unlike a comprehensive changelog, What's new is curated.
+However, unlike a comprehensive CHANGELOG, What's new is curated.
 If it contained every update and a detailed What's new post for every little bug fix, it would be too noisy for people to read.
 
 So how do you decide whether to write a What's new post for your latest improvement?
@@ -308,7 +308,7 @@ Err on the side of _yes, put it in What's new_.
 
 ### Examples of what _not_ to include in What's new
 
-These are important improvements, but are better placed in the changelog than What's new:
+These are important improvements, but are better placed in the CHANGELOG than What's new:
 
 - [A documentation update](https://github.com/grafana/grafana/pull/60352)
   - This update doesn't require customers to change their behavior—they'll simply see better instructions the next time they use the docs.
@@ -316,7 +316,7 @@ These are important improvements, but are better placed in the changelog than Wh
   - This is a bug fix that doesn't require customer action.
 - [A usability improvement to an existing transformation](https://github.com/grafana/grafana/pull/59074)
   - Nice fix, but very detailed.
-    Should be in the changelog but not What's new.
+    Should be in the CHANGELOG but not What's new.
 - [Change regular expression to accommodate a new branching strategy in Enterprise](https://github.com/grafana/grafana/pull/59429)
   - This change is invisible to customers.
 
@@ -364,7 +364,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **You can use first person plural, such as "we".**
 
-  Grafana's style normally prefers second person ("you") and avoids first person ("I"/"we").
+  Our style normally prefers second person ("you") and avoids first person ("I"/"we").
   Release notes, like blog posts, use a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available."
 
   If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.GoogleWe` rule. You can use this check at the beginning of your file after the front matter:

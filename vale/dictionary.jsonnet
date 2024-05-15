@@ -11,12 +11,20 @@ local newWord(word, affixes, po) = {
   //   - 'adjective'
   po: po,
 
+  // description is a string that defines the word.
+  // It's mostly used for jargon or products.
+  description: null,
+
   // acronym is a boolean that indicates whether the word is an acronym.
   acronym: false,
   // established_acronym is a boolean that indicates whether the word is an established acronym that doesn't need explanation in general.
   established_acronym: false,
+
   // product is a boolean that indicates whether the word is a product name.
   product: false,
+
+  // Amazon is a boolean that indicates whether the word is an Amazon product.
+  Amazon: false,
 };
 
 {
@@ -42,9 +50,12 @@ local newWord(word, affixes, po) = {
     newWord('BPF', '', 'noun') { acronym: true, established_acronym: true },
     newWord('burndown', '', 'adjective'),
     newWord('cAdvisor', 'M', 'noun'),
+    newWord('CLA', '', 'noun') { acronym: true, description: 'Contributor License Agreement' },
     newWord('CLI', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('CloudWatch', '', 'noun') { Amazon: true, product: true },
     newWord('composable', '', 'adjective'),
     newWord('Couchbase', 'M', 'noun'),
+    newWord('Data Firehose', '', 'noun') { Amazon: true, product: true },
     newWord('CPU', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('CRD', 'S', 'noun'),
     newWord('CSS', '', 'noun') { acronym: true, established_acronym: true },
@@ -61,6 +72,7 @@ local newWord(word, affixes, po) = {
     newWord('downsample', 'DG', 'verb'),
     newWord('duplicate', 'dDSN', 'noun'),
     newWord('Dynatrace', 'M', 'noun'),
+    newWord('eBPF', '', 'noun') { acronym: true, established_acronym: true },
     newWord('enablement', '', 'noun'),
     newWord('enqueue', 'DS', 'verb'),
     newWord('ESLint', 'M', 'noun'),
@@ -149,6 +161,8 @@ local newWord(word, affixes, po) = {
     newWord('query', 'A', 'adjective'),
     newWord('query', 'DGS', 'verb'),
     newWord('RAM', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('RDS', '', 'noun') { acronym: true, description: 'Amazon Relational Database Service', product: true },
+    newWord('Relational Database Service', '', 'noun') { Amazon: true, description: 'Amazon Relational Database Service', product: true },
     newWord('reachability', '', 'noun') { description: 'A product metric in Synthetic Monitoring' },
     newWord('React', 'M', 'noun'),
     newWord('redirection', 'S', 'noun'),
@@ -179,6 +193,7 @@ local newWord(word, affixes, po) = {
     newWord('SSD', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('SSH', '', 'noun') { acronym: true, established_acronym: true },
     newWord('SSL', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('SSO', '', 'noun') { acronym: true, established_acronym: true },
     newWord('submenu', 'S', 'noun'),
     newWord('subnet', 'S', 'noun'),
     newWord('subquery', 'S', 'noun'),
@@ -195,7 +210,8 @@ local newWord(word, affixes, po) = {
     newWord('triage', 'D', 'verb'),
     newWord('TSDB', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('TTL', 'S', 'noun'),
-    newWord('UI', 'S', 'noun'),
+    newWord('UI', 'S', 'noun') { acronym: true, established_acronym: true },
+    newWord('UX', '', 'noun') { acronym: true, established_acronym: true },
     newWord('uprobe', 'S', 'noun'),
     newWord('URI', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('URL', '', 'noun') { acronym: true, established_acronym: true },

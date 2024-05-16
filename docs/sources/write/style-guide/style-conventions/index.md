@@ -1,31 +1,33 @@
 ---
-title: Style conventions
-description: Style conventions
-weight: 200
 aliases:
   - /docs/writers-toolkit/style-guide/style-conventions
   - /docs/writers-toolkit/write/style-guide/style-conventions
+date: 2024-05-16
+description: A non-exhaustive list of technical writing techniques and styles you should consider when you write technical documentation for Grafana Labs.
 keywords:
   - style conventions
+title: Style conventions
+weight: 200
 ---
 
 # Style conventions
 
-This section includes a non-exhaustive list of technical writing techniques and styles to consider when you write technical content. For questions you might have that are not addressed in these guidelines topic, refer to
-[Google developer documentation style guide](https://developers.google.com/style).
+Consider this non-exhaustive list of technical writing techniques and styles when you write technical documentation.
+For questions you might have that aren't addressed in these guidelines topic, refer to [Google developer documentation style guide](https://developers.google.com/style).
 
 ## Focus on user goals
 
 Before you begin writing, clearly identify the goal of the user, and write content that supports the user reaching that goal.
 
-- Do not document implementation details, specifications, or backend system operations that have no clear consequence to the user.
+- Don't document implementation details, specifications, or backend system operations that have no clear consequence to the user.
   - Providing unnecessary information can lead to bloated content that forces the user to determine which content is relevant.
 - Avoid marketing clichés and hyperbole.
   - Instead, use evidence-based or quantifiable language to focus and refine the information, and to offer value propositions.
 
 ## Address users clearly
 
-To address users clearly and directly, write directives in the imperative second person where the unspoken 'you' is implied. Avoid making “the user” or their role (“system administrator”) the subject of a sentence, as in: “Users configure the Cloud using a secure shell.”.
+To address users clearly and directly, write directives in the imperative second person where the unspoken 'you' is implied.
+Avoid making the user or their role, such as _system administrator_, the subject of a sentence, as in: "Users configure the Cloud using a secure shell.".
 
 Exception:
 
@@ -38,7 +40,9 @@ Exception:
 
 ### Write in active voice
 
-When you write in _active voice_, you identify the subject of the sentence and the action that the subject performs. For example, "John drove the car" is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is "The car was driven by John."
+When you write in _active voice_, you identify the subject of the sentence and the action that the subject performs.
+For example, "John drove the car" is active voice because it's clear that John (the subject) performed an action (drove).
+The passive voice variation is "The car was driven by John."
 
 | Use                                               | Don't use                                                               |
 | ------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -64,7 +68,8 @@ Simple, direct communication is the key to effective technical communication.
   - Condense the text, add more headings, or do both.
 - Use contractions in common and negative cases to express a conversational style: _you’re_, _that’s_, _isn’t_ or \_don’t, for example.
 
-Make content relevant to the user's context. The more familiar you are with the user’s context, the better you can communicate without using a lot of words.
+Make content relevant to the user's context.
+The more familiar you are with the user’s context, the better you can communicate without using a lot of words.
 
 ### Write in present tense
 
@@ -78,7 +83,7 @@ When you write in present tense, avoid words such as have, has, had, been, shoul
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This sentence is demonstrating an exception where this rule doesn't apply. -->
 
-However, similar to [Google's style guide](https://developers.google.com/style/tense), it's okay to use future tense (will) when writing [tutorials](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/) or to distinguish an action that will occur in the future.
+However, similar to [Google's style guide](https://developers.google.com/style/tense), it's OK to use future tense (will) when writing [tutorials](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/) or to make it clear that an action that will occur in the future.
 
 <!-- vale Grafana.GoogleWill = YES -->
 <!-- vale Grafana.GoogleWill = NO -->
@@ -95,7 +100,8 @@ However, similar to [Google's style guide](https://developers.google.com/style/t
 
 ### Be positive
 
-Write positive sentences instead of negative sentences. Positive sentences are easier for the user to understand and are usually shorter than negative sentences.
+Write positive sentences instead of negative sentences.
+Positive sentences are easier for the user to understand and are usually shorter than negative sentences.
 
 | Use                                                               | Don't use                                                             |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -104,7 +110,8 @@ Write positive sentences instead of negative sentences. Positive sentences are e
 
 ## Write scannable content
 
-Users often scan content rather than read. Long blocks of text minimize readability - they bury information and are particularly uninviting online.
+Users often scan content rather than read.
+Long blocks of text minimize readability as they bury information.
 
 Use the following techniques to make content easier to scan.
 
@@ -115,7 +122,7 @@ Use the following techniques to make content easier to scan.
 
 ## Lists
 
-For a discussion about lists and tables, read the [Lists](https://developers.google.com/style/lists) page in the Google developer documentation style guide.
+For a discussion about lists and tables, refer to the [Lists](https://developers.google.com/style/lists) page in the Google developer documentation style guide.
 
 ### Ordered lists
 
@@ -127,17 +134,20 @@ For guidelines when writing numbered lists in Markdown, refer to [Numbered lists
 
 Refer to the following guidelines when you write unordered lists.
 
-- Begin list items with a capital letter unless there is a strong reason not to. For example, when you list case-sensitive parameters.
-- If they're complete sentences, end list items with a period. If one item in a list ends with a period, then apply periods to all items in the list.
+- Begin list items with a capital letter unless there is a strong reason not to.
+  For example, when you list case-sensitive parameters.
+- If they're complete sentences, end list items with a period.
+  If one item in a list ends with a period, then apply periods to all items in the list.
 
 For more guidance, refer to [Lists](https://developers.google.com/style/lists) in the [Google developer style guide](https://developers.google.com/style/).
 
 ### Definition lists
 
-Definition lists often used for providing a list of a term and indented definition. For example, you can use a definition list to document commands and their meanings:
+Definition lists often used for providing a list of a term and indented definition.
+For example, you can use a definition list to document commands and their meanings:
 
 Feature
-: Creates a new feature
+: Creates a feature
 
 Features
 : Creates more than one feature
@@ -175,9 +185,11 @@ For more comprehensive guidance, refer to [Write useful link text](https://grafa
 
 ## Numbers
 
-For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of _ordinals_. An ordinal number is a number that indicates the position or order of something in relation to other numbers, like first, second, third, and so on.
+For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of _ordinals_.
+An ordinal number is a number that indicates the position or order of something in relation to other numbers, like first, second, third, and so on.
 
-For ordinals, write out first through ninth. For 10th on, use numerals.
+For ordinals, write out first through ninth.
+For 10th on, use numerals.
 
 ## Admonitions
 
@@ -185,7 +197,7 @@ To focus a user's attention, Grafana Labs documentation includes notes, cautions
 
 To standardize styling, each admonition has a special shortcode declaration.
 The following sections provide examples how to write each type.
-For the complete syntax reference, refer to [Shortcodes]({{< relref "../../../write/shortcodes" >}}).
+For the complete syntax reference, refer to [Shortcodes](https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition).
 
 ### Notes
 
@@ -195,16 +207,16 @@ Notes are the most common admonition.
 The syntax for a note admonition is as follows:
 
 ```markdown
-{{%/* admonition type="note" */%}}
+{{</* admonition type="note" */>}}
 This page describes a feature for Grafana 9.0 beta.
-{{%/* /admonition */%}}
+{{</* /admonition */>}}
 ```
 
 On the published page, this note renders as follows:
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 This page describes a feature for Grafana 9.0 beta.
-{{% /admonition %}}
+{{< /admonition >}}
 
 ### Cautions
 
@@ -214,17 +226,19 @@ A caution emphasizes a course of action's potential downsides.
 The syntax for a caution admonition is as follows:
 
 ```markdown
-{{%/* admonition type="caution" */%}}
+{{</* admonition type="caution" */>}}
 By disabling authentication requirements, anyone can access your Grafana instance.
 There is a considerable security risk associated with this.
-{{%/* /admonition */%}}
+{{</* /admonition */>
+}}
 ```
 
 On the published page, this caution renders as follows:
 
-{{% admonition type="caution" %}}
-By disabling authentication requirements, anyone can access your Grafana instance. There is a considerable security risk associated with this.
-{{% /admonition %}}
+{{< admonition type="caution" >}}
+By disabling authentication requirements, anyone can access your Grafana instance.
+There is a considerable security risk associated with this.
+{{< /admonition >}}
 
 ### Warnings
 
@@ -234,18 +248,18 @@ Warnings are reserved for actions that could cause harm to hardware, software, o
 The syntax for a warning admonition is as follows:
 
 ```markdown
-{{%/* admonition type="warning" */%}}
+{{</* admonition type="warning" */>}}
 Don't back up your dashboards in Grafana.
 You might not be able to recover a dashboard if it's deleted.
-{{%/* /admonition */%}}
+{{</* /admonition */>}}
 ```
 
 On the published page, this warning renders as follows:
 
-{{% admonition type="warning" %}}
+{{< admonition type="warning" >}}
 Don't back up your dashboards in Grafana.
 You might not be able to recover a dashboard if it's deleted.
-{{% /admonition %}}
+{{< /admonition >}}
 
 ## Semantic line breaks
 
@@ -275,7 +289,7 @@ It's a good idea to take a consistent approach to bold, italic, and other text f
 
 ### Bold
 
-Use bold formatting (\*\* in Markdown), for UI elements.
+Use bold formatting (`**`), for UI elements.
 Don't use bold to draw attention to a word or phrase within a sentence, instead use italic emphasis.
 
 It's OK to use bold for a the first sentence in unordered lists that are followed by more information.
@@ -293,7 +307,8 @@ To add an administrator to the list of local users, navigate to **Appliance** > 
 
 ### Italic
 
-Use italics formatting (\_ in Markdown), to emphasize a specific word or phrase. This is particularly useful when defining a term for the first time.
+Use italics formatting (`_`), to emphasize a specific word or phrase.
+This is particularly useful when defining a term for the first time.
 
 For example:
 
@@ -301,7 +316,7 @@ For example:
 
 ### Code
 
-Use code formatting (\` in Markdown) to refer to:
+Use code formatting (\`) to refer to:
 
 - File names
 - Configuration options

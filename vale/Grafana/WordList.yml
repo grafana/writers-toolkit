@@ -87,7 +87,7 @@ swap:
   postgresql: PostgreSQL
   prom(?:ql|QL): PromQL
   prometheus: Prometheus
-  promtail: Promtail
+  "(?<!lambda-)promtail": Promtail
   redis: Redis
   regex: regular expression
   repo: repository
@@ -95,7 +95,6 @@ swap:
   sign into: sign in to
   sign-?on: single sign-on
   sqlite: SQLite
-  static IP address: static external IP address
   stylesheet: style sheet
   synch: sync
   tablename: table name
@@ -104,19 +103,15 @@ swap:
   the Grafana Agent: Grafana Agent
   timeseries: time series|time-series
   touch: tap
-  trace(?:ql|QL): TraceQL
+  "trace(?:ql|QL)": TraceQL
   url: URL
   vs\.: versus
   whitelist: allowlist
   World Wide Web: web
 
-  Data Firehose: Kinesis Data Firehose
-  Firehose: Kinesis Data Firehose
-  Kinesis Firehose: Kinesis Data Firehose
-
-  pod: Pod
-  "(?:[dD][ae][ae]monset|d[ae][ae]monSet)": DaemonSet
-  "(?:[sS]tatefulset|statefulSet)": StatefulSet
+  "Kinesis Data Firehose": Data Firehose
+  "(?<!Data )Firehose": Data Firehose
+  Kinesis Firehose: Data Firehose
 
   ad[- ]?hoc: free-form|user-written
 

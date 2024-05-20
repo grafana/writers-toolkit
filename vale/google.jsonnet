@@ -20,7 +20,8 @@ std.prune({
   'Grafana/GoogleLatin.yml': null,
   'Grafana/GoogleLyHyphens.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/LyHyphens.yml')),
   'Grafana/GoogleOptionalPlurals.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OptionalPlurals.yml')),
-  'Grafana/GoogleOrdinal.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Ordinal.yml')),
+  // Replaced by Grafana/Ordinal.yml.
+  'Grafana/GoogleOrdinal.yml': null,
   'Grafana/GoogleOxfordComma.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OxfordComma.yml')),
   // Replaced by Grafana/Parentheses.yml.
   'Grafana/GoogleParens.yml': null,
@@ -35,7 +36,8 @@ std.prune({
   'Grafana/GoogleSpelling.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Spelling.yml')),
   // More often than not, we need to be consistent with Prometheus units or units used Grafana UI which are not represented in the form encouraged by SI.
   'Grafana/GoogleUnits.yml': null,
-  'Grafana/GoogleWe.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/We.yml')),
+  // Replaced by Grafana/We.yml.
+  'Grafana/GoogleWe.yml': null,
   'Grafana/GoogleWill.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Will.yml') {
     message: super.message + '\n\n' + |||
       Use present tense for statements that describe general behavior that's not associated with a particular time.

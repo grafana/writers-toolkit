@@ -1,16 +1,13 @@
 ---
-headless: true
-description: Shared file for example Hugo error output.
-labels:
-  products:
-    - oss
+date: 2024-02-22
+description: Understand the REF_NOT_FOUND error Hugo emits for broken relref links.
+title: REF_NOT_FOUND Hugo output
 ---
 
 [//]: # "This file documents an example Hugo error output for relref and links."
 [//]: # "This shared file is included in these locations:"
-[//]: # "/writers-toolkit/review/run-a-local-webserver"
-[//]: # "/writers-toolkit/write/references/index.md"
-[//]: # "/tempo/docs/sources/tempo/traceql/query_editor.md"
+[//]: # "- Page: [/docs/writers-toolkit/review/run-a-local-webserver/](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/)"
+[//]: # "  Source: [run-a-local-webserver.md](https://github.com/grafana/writers-toolkit/tree/main/docs/sources/review/run-a-local-webserver/index.md)"
 [//]: #
 [//]: # "If you make changes to this file, verify that the meaning and content are not changed in any place where the file is included."
 [//]: # "Any links should be fully qualified and not relative: /docs/grafana/ instead of ../grafana/."

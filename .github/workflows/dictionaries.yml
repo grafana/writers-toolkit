@@ -9,6 +9,8 @@ on:
         type: boolean
 jobs:
   main:
+    container:
+      image: bitnami/jsonnet@sha256:3d8b084da1b74f5d38bc35e1ebf02f4a57c0410ec59d4edbc25dd2fec5f5541c
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -29,7 +29,7 @@ To address users clearly and directly, write directives in the imperative second
 
 Exception:
 
-- You can use first person in UI elements that are specific to the user, such as “My profile" or “My account."
+- You can use first person in UI elements that are specific to the user, such as **My profile** or **My account**.
 
 | Use                                                           | Don't use                                                         |
 | ------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -52,7 +52,10 @@ Simple, direct communication is the key to effective technical communication.
 - Use short words whenever possible, such as "use," not "utilize."
   - If possible, replace "use" and its variants (utilize, make use of) with a more descriptive verb.
 - Make your sentences shorter than 25 words.
+  <!-- vale Grafana.WordList = NO -->
+  <!-- This sentence notes that "in order to" can be shortened to just "to" -->
   - If you can remove a word without losing meaning, do so (typical culprits: there is; there are; in order to; it is important to; keep in mind).
+  <!-- vale Grafana.WordList = YES -->
   - Consider writing shorter sentences or using a bulleted list if you find yourself writing long sentences.
 - Use simple verbs and tenses.
 - Consider the characteristics of your audience when choosing a term.
@@ -65,13 +68,30 @@ Make content relevant to the user's context. The more familiar you are with the 
 
 ### Write in present tense
 
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- This sentence notes words that should be avoided. -->
+
 When you write in present tense, avoid words such as have, has, had, been, should, would, and will.
+
+<!-- vale Grafana.GoogleWill = YES -->
+
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- This sentence is demonstrating an exception where this rule doesn't apply. -->
+
+However, similar to [Google's style guide](https://developers.google.com/style/tense), it's okay to use future tense (will) when writing [tutorials](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/) or to distinguish an action that will occur in the future.
+
+<!-- vale Grafana.GoogleWill = YES -->
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- The table includes a demonstration of an acceptable use of the word will in the context of tutorials. -->
 
 | Use                                                                 | Don't use                                                                    |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | The panel opens.                                                    | The panel will open.                                                         |
 | The system **prompts** you to verify the deletion.                  | The system **will prompt** you to verify the deletion.                       |
 | After you log in, your account **begins** the verification process. | After you log in, your account **will then begin** the verification process. |
+| In this tutorial, you will:                                         |
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 ### Be positive
 
@@ -99,24 +119,9 @@ For a discussion about lists and tables, read the [Lists](https://developers.goo
 
 ### Ordered lists
 
-Refer to the following guidelines when you write ordered lists.
+Ordered lists are also known as numbered lists.
 
-In general, Grafana Labs guidance matches the [Google Markdown style guide for lists](https://google.github.io/styleguide/docguide/style.html#lists).
-
-Because any list may change, we recommend using lazy numbering for ordered lists.
-Markdown is smart enough to let the resulting HTML render your numbered lists correctly.
-
-```markdown
-1.  Foo.
-1.  Bar.
-    1.  Foofoo.
-    1.  Barbar.
-1.  Baz.
-```
-
-The resulting HTML "numbering" type for lazy numbering depends on the website style.
-Presently, all levels of nested numbering results in numbers.
-For more information about the available types of "numbering" types, refer to [The Ordered List element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol#attributes).
+For guidelines when writing numbered lists in Markdown, refer to [Numbered lists](https://grafana.com/docs/writers-toolkit/write/markdown-guide/#numbered-lists).
 
 ### Unordered lists
 
@@ -166,7 +171,13 @@ For example:
 For more information about Grafana Labs products, refer to [Grafana documentation](/docs/grafana/latest/).
 ```
 
-For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolki/write/style-guide/useful-link-text/)
+For more comprehensive guidance, refer to [Write useful link text](https://grafana.com/docs/writers-toolkit/write/links/useful-link-text/)
+
+## Numbers
+
+For direction on how to style numbers, follow the [Google style guide](https://developers.google.com/style/numbers) except in the case of _ordinals_. An ordinal number is a number that indicates the position or order of something in relation to other numbers, like first, second, third, and so on.
+
+For ordinals, write out first through ninth. For 10th on, use numerals.
 
 ## Admonitions
 
@@ -238,11 +249,8 @@ You might not be able to recover a dashboard if it's deleted.
 
 ## Semantic line breaks
 
-The [Semantic Line Breaks organization](https://sembr.org/) suggests adding line breaks in your writing.
-We find this can help with reviews.
-
-Note that we don't require that this suggestion be followed.
-We share the Semantic Line Breaks rules so that you can discuss with your review team and adapt to your circumstance.
+The [Semantic Line Breaks organization](https://sembr.org/) suggests adding semantic line breaks in your writing .
+Adding a line break after each sentence makes it easier to understand the shape and structure of the source text
 
 With line breaks:
 
@@ -258,7 +266,7 @@ Without line breaks:
 When you write in active voice, you identify the subject of the sentence and the action that the subject performs. For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is “The car was driven by John.”
 ```
 
-The output is the same in both cases.
+The HTML output is the same in both cases.
 However, the first is easier to review and edit and is less subject to the screen and text editor settings of each contributor.
 
 ## Text formatting
@@ -267,7 +275,21 @@ It's a good idea to take a consistent approach to bold, italic, and other text f
 
 ### Bold
 
-Use bold formatting (\*\* in Markdown), for UI elements. Don't use bold to draw attention to a word or phrase.
+Use bold formatting (\*\* in Markdown), for UI elements.
+Don't use bold to draw attention to a word or phrase within a sentence, instead use italic emphasis.
+
+It's OK to use bold for a the first sentence in unordered lists that are followed by more information.
+
+For example,
+
+- **Thing**: About the thing.
+
+Use bold to indicate paths within a web application, and greater-than symbols (`>`) to indicate path separators.
+For example:
+
+```markdown
+To add an administrator to the list of local users, navigate to **Appliance** > **Configuration** > **Access**.
+```
 
 ### Italic
 

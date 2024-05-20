@@ -74,7 +74,7 @@ In that case, you can use the GitHub code navigation to try and find the new loc
 
 <!-- vale Grafana.Timeless = YES -->
 
-For pages that don't have a **Suggest an edit** link, the documentation isn't open source.
+If pages don't have a **Suggest an edit** link, the documentation isn't open source.
 Only Grafana Labs employees can update to closed source documentation.
 
 For example, [Grafana Cloud](https://grafana.com/docs/grafana-cloud/) is in the [website repository](https://github.com/grafana/website).

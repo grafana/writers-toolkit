@@ -4,8 +4,8 @@ aliases:
   - /docs/writers-toolkit/contribute-release-notes/
   - /docs/writers-toolkit/contribute/release-notes/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/
-date: 2024-02-14
-description: This section describes the different ways of contributing to the What's new document or release notes.
+date: 2024-05-16
+description: Learn the different ways of contributing to the Grafana Labs What's new document and Grafana release notes.
 keywords:
   - what's new
   - release notes
@@ -24,14 +24,14 @@ This topic explains the decisions and actions associated with collecting, writin
 This topic is only relevant for internal Grafana Labs contributors.
 {{< /admonition >}}
 
-The information on this page can be used for Grafana products that use the What's new or CMS to publish notes about new and updated features.
+The information on this page can be used for Grafana products that use the What's new or Content Management System (CMS) to publish notes about new and updated features.
 However, not every product uses the What's new process for their release notes.
 For example, the release notes for Grafana Tempo are created within the Tempo repository.
 The Grafana Cloud Traces updates are published using the What's new.
 
 ## What's new documentation development process
 
-What’s new content is published to the website through the website Content Management System (CMS).
+What’s new content is published to the website through the website CMS.
 To add a new note, browse to the [What's new CMS collection](https://admin.grafana.com/content-admin/#/collections/whats-new).
 
 Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval.
@@ -289,10 +289,10 @@ Err on the side of _yes, put it in What's new_.
 
 ### Examples of what to include in What's new
 
-- A new Transformation: [Partition by values](/docs/grafana/latest/whatsnew/whats-new-in-v9-3/#new-transformation-partition-by-values).
+- A new Transformation: [Partition by values](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v9-3/#new-transformation-partition-by-values).
   - This is one of many transformations, but it's also brand-new functionality that a user might not notice if they didn't read the What's new document.
     What's new is also a low-effort place to describe some nice use cases and examples for the feature so that users adopt it.
-- The new [Candlestick visualization](/docs/grafana/latest/whatsnew/whats-new-in-v8-3/#candlestick-panel-beta).
+- The new [Candlestick visualization](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v8-3/#candlestick-panel-beta).
   - This was a beta feature, but still listed in What's new to get the word out and encourage users to try it.
 - All-new Swagger docs for the API.
   - This is significant because it makes Grafana documentation much easier to use, and it's a new place for users to go for help when using the API.
@@ -350,8 +350,6 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
   **Example:**
   Use custom branding to make Grafana your observability tool by adding your own sign-in page, help links, logo, application name, and more.
-
-  For more information, refer to [insert link to documentation].
 
 - **Don't refer to how the feature used to work.**
 

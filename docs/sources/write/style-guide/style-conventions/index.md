@@ -13,7 +13,7 @@ weight: 200
 # Style conventions
 
 Consider this non-exhaustive list of technical writing techniques and styles when you write technical documentation.
-For questions you might have that aren't addressed in these guidelines topic, refer to [Google developer documentation style guide](https://developers.google.com/style).
+For questions you might have that aren't addressed in these guidelines, refer to the [Google developer documentation style guide](https://developers.google.com/style).
 
 ## Focus on user goals
 
@@ -229,8 +229,7 @@ The syntax for a caution admonition is as follows:
 {{</* admonition type="caution" */>}}
 By disabling authentication requirements, anyone can access your Grafana instance.
 There is a considerable security risk associated with this.
-{{</* /admonition */>
-}}
+{{</* /admonition */>}}
 ```
 
 On the published page, this caution renders as follows:
@@ -307,7 +306,7 @@ To add an administrator to the list of local users, navigate to **Appliance** > 
 
 ### Italic
 
-Use italics formatting (`_`), to emphasize a specific word or phrase.
+Use italic formatting (`_`), to emphasize a specific word or phrase.
 This is particularly useful when defining a term for the first time.
 
 For example:

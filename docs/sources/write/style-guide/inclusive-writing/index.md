@@ -16,8 +16,8 @@ title: Inclusive writing
 <!-- This page talks about the voice and tone of our organization. -->
 
 When writing for Grafana Labs, always use inclusive terminology and phrasing.
-Avoid all statements that perpetuate gender, racial, or cultural stereotypes;
-don't use gendered words or demographically oriented terms that are irrelevant to the content.
+Avoid all statements that perpetuate gender, racial, or cultural stereotypes.
+Don't use gendered words or demographically oriented terms that are irrelevant to the content.
 
 ## Writing about people
 
@@ -29,7 +29,7 @@ With that in mind, there are important distinctions between the ways that differ
 - Users are every person who uses our products, whether or not they use a commercial version of one of our products. Customers are people and companies who pay to use our products.
 - Visitors are people who visit our website for any reason, whether it's as a potential user, customer, or employee. We appreciate all interest in our hard work.
 - Our customers (and users) often have their own customers (and users).
-  Generally speaking, we refer to these customers of our customers as users, because it does an okay job of encapsulating all the ways different customers might interact with the people using their products.
+  Generally speaking, we refer to these customers of our customers as users, because it does an OK job of encapsulating all the ways different customers might interact with the people using their products.
 - Employees are people who work at Grafana Labs.
 
 ### Best practices

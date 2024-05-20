@@ -13,7 +13,7 @@ weight: 200
 
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
-To run the local documentation web server, run `make docs` from the `docs/` directory.
+To run the local documentation web server, run `make docs` from the `docs/` directory. The output message should include a URL that you can follow to view the changes to the documentation in the browser. See the [example of a successful build](#example-succesful-build).
 
 {{< admonition type="note" >}}
 Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
@@ -78,6 +78,21 @@ where:
 - _`LEVEL`_ is one of `WARN` or `ERROR`
 - _`LANGUAGE`_ may be present
 - _`MESSAGE`_ is the issue
+
+### Example: Successful build
+
+If the `make docs` command runs correctly, the console should print a message similar to the following:
+
+```
+View documentation locally:
+  http://localhost:3002/docs/grafana/latest/
+
+Press Ctrl+C to stop the server
+```
+
+{{< admonition type="note" >}}
+To test tutorial changes the address is `http://localhost:3002/docs/grafana/latest/tutorials/`
+{{< /admonition >}}
 
 ### Example: Page not found
 

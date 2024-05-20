@@ -514,12 +514,20 @@ For more detailed instructions, refer to [Reuse shared content](https://grafana.
 | `lookup`      | Path to the included content relative to the root of the shared directory.                                                                                                                                                                                                                                                     | yes      |
 | `source`      | Name of the source content as shown on the website. For example, for https://grafana.com/docs/enterprise-metrics/ content, the _source_ is `enterprise-metrics`.                                                                                                                                                               | yes      |
 | `version`     | Version of the source content to include. For source content that doesn't have a version, use the empty string `""` as the value. This shortcode supports version substitution using values like `<GRAFANA_VERSION>`. To learn about version substitution, refer to [About version substitution](#about-version-substitution). | yes      |
-| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are currently supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                              | no       |
+| `leveloffset` | Manipulates source content headings up to a maximum level of `h6`. Only positive offsets are supported. `leveloffset="+5"` ensures an `h1` in the source content is an `h6` in the destination content.                                                                                                                        | no       |
 
 {{< admonition type="note" >}}
 Hugo doesn't rebuild the destination file when a source file changes on disk.
 To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that, too.
 {{< /admonition >}}
+
+### Guidance
+
+When the page with the `docs/shared` shortcode includes a shared page from the same project, you should use version substitution syntax for the `version` parameter.
+This ensures that the `docs/shared` shortcode includes the page from the same version as the page the shortcode is in.
+
+Otherwise, you should use a version appropriate for your documentation.
+Use version substitution syntax and set the desired version in cascading front matter in your project's root `_index.md` file.
 
 ### Examples
 

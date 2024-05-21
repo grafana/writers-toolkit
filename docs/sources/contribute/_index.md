@@ -3,8 +3,8 @@ aliases:
   - /docs/writers-toolkit/contribute/
   - /docs/writers-toolkit/contribute-documentation/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/
-date: 2024-02-13
-description: This section describes the different ways of contributing to documentation.
+date: 2024-05-16
+description: Learn how you can contribute to Grafana Labs documentation.
 keywords:
   - contribute
   - request change
@@ -39,7 +39,7 @@ To report a problem:
 1. Include a link to your current page in the email.
 1. Send your email.
 
-The Doc Squad checks the email inbox regularly and responds to emails in a timely fashion.
+The Grafana Labs documentation team checks the email inbox regularly and responds to emails in a timely fashion.
 
 ## Suggest an edit
 
@@ -69,15 +69,15 @@ Because development happens in the `main` branch on GitHub which generally corre
 
 The latest version of documentation is typically published from a different _version_ branch, and the **Suggest an edit** link can result in a 404 error from GitHub.
 
-In that case, you can use the GitHub code navigation to try and find the new location or reach out to a Technical Writer for support.
+In that case, you can use the GitHub code navigation to try and find the new location or reach out to the Grafana Labs documentation team for support.
 {{< /admonition >}}
 
 <!-- vale Grafana.Timeless = YES -->
 
-For pages that don't have a **Suggest an edit** link, search the Grafana organization on GitHub for repositories that include the project name.
-For example, you can find the Loki repository, by [searching for "Loki"](https://github.com/search?q=org%3Agrafana+Loki&type=repositories).
+If pages don't have a **Suggest an edit** link, the documentation isn't open source.
+Only Grafana Labs employees can update closed source documentation.
 
-[Grafana Cloud](https://grafana.com/docs/grafana-cloud/) is in the [website repository](https://github.com/grafana/website).
+For example, [Grafana Cloud](https://grafana.com/docs/grafana-cloud/) is in the [website repository](https://github.com/grafana/website).
 
 {{< admonition type="note" >}}
 The website repository is private and only accessible to Grafana Labs employees.
@@ -156,7 +156,7 @@ When you add a pull request to a repository and assign the `type/docs` label, it
 
 The Grafana Labs documentation team aims to review all PRs in a timely fashion.
 
-## Contributing across versions
+## Contribute across versions
 
 When you edit the `main` branch of a project, it affects the content in the `next` directory of the website.
 To edit a previous version, or `latest` (the most recent release), you must backport the changes into the long-lived version branches in the project repository.

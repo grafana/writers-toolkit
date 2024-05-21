@@ -1,7 +1,7 @@
 ---
 aliases:
   - /docs/writers-toolkit/write/deprecate-remove/
-date: 2024-03-01
+date: 2024-05-16
 description: Learn about deprecating or removing content in your documentation.
 weight: 900
 keywords:
@@ -121,3 +121,11 @@ You may need to add the preceding notes to both the documentation _and_ the UI.
 1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation in the draft What’s New document.
 
    Include links, if available.
+
+## Documentation removal
+
+Search engines can take time to update their indexes after you remove a page.
+Until search engines update their indexes, users see 404s for the page linked from search results.
+
+To speed up the re-indexing process, reach out to `@anne.bluntschli` in the `#seo` channel in Slack.
+You need to provide the full URL of the removed page and Anne can then submit it for removal from the search engine index.

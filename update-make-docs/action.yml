@@ -86,11 +86,22 @@ runs:
           fi
         done < <(echo "${PR_OPTIONS}" | xargs printf '%s\0')
 
+        read -r -d '' body << EOF || true
+        To test the changes, run the following and browse to URL output by the script:
+
+        \`\`\`console
+        git fetch
+        git checkout origin/update-make-docs
+        cd docs
+        make docs
+        \`\`\`
+        EOF
+
         if ! git diff --exit-code; then
           commit
           git push origin "refs/heads/${BRANCH}"
           # Set default options before the user-provided ones as later options appear to override earlier ones.
           # For example, in `gh pr create --web --title foo --title bar`, the resulting title is "bar".
-          gh pr create --title  'Update `make docs` procedure' --body '' "${OPTIONS_ARRAY[@]}"
+          gh pr create --title  'Update `make docs` procedure' --body "${body}" "${OPTIONS_ARRAY[@]}"
         fi
       shell: bash

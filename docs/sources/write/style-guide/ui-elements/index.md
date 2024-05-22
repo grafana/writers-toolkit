@@ -1,21 +1,25 @@
 ---
-title: UI elements list
+date: 2024-05-16
 description: Guidelines for referring to UI elements in Grafana documentation.
-weight: 700
 keywords:
   - Grafana
   - ui elements
+title: UI elements list
+weight: 700
 ---
 
 # UI elements list
 
 This list provides guidance for how to refer to user interface (UI) elements in Grafana.
 
-{{% admonition type="note" %}}
+{{< admonition type="note" >}}
 To view the images in this table, click **Expand Table** at the top-right corner of the table.
-{{% /admonition %}}
+{{< /admonition >}}
 
 <!-- prettier-ignore-start -->
+<!-- vale Grafana.DialogBox = NO -->
+<!-- vale Grafana.WordList = NO -->
+<!-- This table includes examples of improper usage of modal, dialog, and hamburger menu. -->
 
 | UI element | Description | Image | Notes |
 |------------|-------------|-------|-------|
@@ -28,4 +32,6 @@ To view the images in this table, click **Expand Table** at the top-right corner
 | switch | Used to turn UI features on and off. | ![Switch](/media/docs/writers-toolkit/ui-elements/switch.png) | Don't refer to this as a _toggle_. |
 | tab | An element that lets multiple pages exist within one screen. | ![Tab](/media/docs/writers-toolkit/ui-elements/screenshot-tab-10.2.png) | Other UI elements, such as radio button groups ([example 1](/media/docs/writers-toolkit/ui-elements/screenshot-radio-button-group-1-10.2.png), [example 2](/media/docs/writers-toolkit/ui-elements/screenshot-radio-button-group-2-10.2.png)), behave much like tabs, but shouldn't be referred to as tabs; avoid naming these elements, using just the element label instead. |
 
+<!-- vale Grafana.WordList = YES -->
+<!-- vale Grafana.DialogBox = YES -->
 <!-- prettier-ignore-end -->

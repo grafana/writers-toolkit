@@ -29,9 +29,9 @@ To run `doc-validator` on specific files, provide the _`DOC_VALIDATOR_INCLUDE`_ 
 It's value is a regular expression that the tool matches against file paths.
 `doc-validator` only lints the paths that the regular expression matches.
 
-### Writers' Toolkit repository, `/docs/sources/write/` directory
+### Example
 
-When in the writers-toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
+When in the Writers' Toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
 
 ```console
 make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/write/.*$'

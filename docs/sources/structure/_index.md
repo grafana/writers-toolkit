@@ -31,15 +31,6 @@ This approach applies not only to content on a page but also to how you organize
 
 With well-structured content, you can find what you need quickly and easily. Topics flow in a logical progression.
 
-<!--
-Commenting this paragraph out until we have an actual section on information architecture.
-
-https://github.com/grafana/writers-toolkit/issues/532
-
-According to STC’s [Information Design and Information Architecture: Why Technical Communicators Should Care About These Fields](https://www.stc.org/intercom/2022/05/information-design-and-information-architecture-why-technical-communicators-should-care-about-these-fields/),
-information architecture is "...the practice of organizing, structuring, and labeling information to it’s easy to find, use, and understand..."
--->
-
 ## Structure of published content
 
 Generally, documentation structure determines how content is:
@@ -80,7 +71,7 @@ For example, a conceptual page explaining metrics would go under the _Introducti
 | _Integrate (with) [product]_ or _Send data_ | [Connect your data to Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-infrastructure/get-started-data/)                               | How to set up data integrations, product integrations, data sources, clients, plugins, and more.                                                                                                                                                                                                                                             |
 | _Query data_                                | [TraceQL](https://grafana.com/docs/tempo/latest/traceql/)                                                                                           | Query languages, query tools, and examples.                                                                                                                                                                                                                                                                                                  |
 | _Visualize data_                            | [Dashboards](https://grafana.com/docs/grafana/latest/dashboards/)                                                                                   | Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here.                                                                                                                                                                                                   |
-| _Alert_                                     | [Alerting and recording rules](https://grafana.com/docs/loki/latest/alert/)                                                                         | This topic level is used for pages that discuss alerting features, like Grafana Loki's alerting rules. It provides a place for alerting content that's not specific to the Grafana Operations products.                                                                                                                                      |
+| _Alert_                                     | [Alerting and recording rules](https://grafana.com/docs/loki/latest/alert/)                                                                         | This topic level is used for pages that discuss alerting features, like alerting rules in Grafana Loki. It provides a place for alerting content that's not specific to the Grafana Operations products.                                                                                                                                     |
 | _Manage [product]_                          | [Manage users and teams with Grafana OnCall](https://grafana.com/docs/grafana-cloud/alerting-and-irm/oncall/manage/user-and-team-management/)       | Information about managing a Grafana Labs product. For example, content in this topic helps you view, edit, and iterate on the Grafana product you installed.                                                                                                                                                                                |
 | _Monitor [product]_                         | [Monitor Mimir](https://grafana.com/docs/mimir/latest/operators-guide/monitor-grafana-mimir/)                                                       | Information about using tools to monitor a Grafana Labs product.                                                                                                                                                                                                                                                                             |
 | _References_                                | [HTTP API reference](https://grafana.com/docs/grafana-cloud/developer-resources/api-reference/http-api/)                                            | APIs, configuration references, SDKs, and more. Material that is usually not procedural.                                                                                                                                                                                                                                                     |
@@ -107,7 +98,7 @@ If you're not sure where your documentation belongs, contact the technical docum
 **Parent:** Each top-level entity has one or more parents, which are groups of related feature content.
 Parent topics assist users in navigating to child topics.
 
-**Child:** This level of the information architecture includes includes concepts, tasks, or reference topics.
+**Child:** This level of the information architecture includes concepts, tasks, or reference topics.
 
 ## Parent directory structure
 

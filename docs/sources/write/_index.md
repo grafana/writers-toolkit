@@ -1,29 +1,37 @@
 ---
-title: Write documentation
-menuTitle: Write
-description: Learn about Grafana Labs' technical documentation writing guidelines.
-weight: 400
 aliases:
   - /docs/writers-toolkit/writing-guide/
   - /docs/writers-toolkit/write/
-Keywords:
+date: 2024-03-14
+description: Learn about Grafana Labs' technical documentation writing guidelines.
+keywords:
   - writing
   - guidelines
+menuTitle: Write
+title: Write documentation
+weight: 400
 ---
 
 # Write documentation
 
-This writing guide defines the structured authoring environment we use to create documentation at Grafana Labs.
+This writing guide defines how Grafana Labs writes documentation.
+
+The guidelines are for anyone who's interested in improving Grafana Labs' technical content.
+They're intended to guide you on your documentation journey, whether you are requesting a change, editing a topic, or writing a set of documentation for a product or feature from scratch.
+
 If you write technical documentation for Grafana Labs, familiarize yourself with these guidelines.
 
-We write our documentation using [U.S. English](https://developers.google.com/style/translation).
+If you don't find what you're looking for, email [the Grafana Labs documentation team](mailto:docs@grafana.com).
 
-The guidelines are for anyone who is interested in improving Grafana Labs' technical content. They are intended to guide you on your documentation journey, whether you are requesting a change, editing a topic, or writing a set of documentation for a new product or feature from scratch.
+## Before you write
 
-If you are already familiar with the guidelines, feel free to get started from one of the [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
+To learn how to structure documentation, refer to [Structure](https://grafana.com/docs/writers-toolkit/structure/).
 
-We hope you find what you are looking for. If you don't, provide us with the feedback, so we can continuously improve this writing guide.
+For guidelines for writing documentation, refer to the following sections:
+
+{{< section menuTitle="true" withDescriptions="true" >}}
 
 ## After you write
 
-Once you've written your content, the next step is to build the content locally, review the output, and then publish. For details, refer to the [Review section]({{< relref "../review" >}}).
+After you've written your content, the next step is to build the content locally, review the output, and then publish it.
+For details, refer to the [Build and review section](https://grafana.com/docs/writers-toolkit/review/).

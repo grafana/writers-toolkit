@@ -19,5 +19,5 @@ swap:
   "stateful[Ss]et": StatefulSet
   pod: Pod
 
-  "[Kk]ubelet": '`kubelet`'
-  "[Kk]ubectl": '`kubectl`'
+  "[Kk]ubelet": "`kubelet`"
+  "[Kk]ubectl": "`kubectl`"

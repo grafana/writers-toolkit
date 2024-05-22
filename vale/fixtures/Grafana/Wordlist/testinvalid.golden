@@ -1,1 +1,4 @@
-testinvalid.md:3:3:Grafana.Wordlist:Use 'Promtail' instead of 'promtail'.
+testinvalid.md:5:3:Grafana.Wordlist:Use 'Promtail' instead of 'promtail'.
+testinvalid.md:11:3:Grafana.Wordlist:Use 'Data Firehose' instead of 'Kinesis Data Firehose'.
+testinvalid.md:12:3:Grafana.Wordlist:Use 'Data Firehose' instead of 'Firehose'.
+testinvalid.md:13:3:Grafana.Wordlist:Use 'Data Firehose' instead of 'Kinesis Firehose'.

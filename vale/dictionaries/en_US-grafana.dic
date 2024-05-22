@@ -1,4 +1,4 @@
-203
+206
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -19,6 +19,7 @@ blockquote/S po:noun
 boolean/ po:noun
 BPF/ po:noun
 burndown/ po:adjective
+bundler/S po:noun
 cAdvisor/M po:noun
 CLA/ po:noun
 CLI/ po:noun
@@ -140,6 +141,7 @@ register/dG po:verb
 register/uD po:adjective
 REPL/ po:noun
 rollout/S po:noun
+Rollup/ po:noun
 RSA/ po:noun
 runbook/S po:noun
 sandbox/DG po:verb
@@ -189,6 +191,7 @@ USB/ po:noun
 UTC/ po:noun
 UTF/ po:noun
 Velero/ po:noun
+Vite/ po:noun
 VU/S po:noun
 VUH/S po:noun
 WAL/S po:noun

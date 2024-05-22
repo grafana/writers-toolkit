@@ -332,6 +332,19 @@ compactor:
 
 {{< /collapse >}}
 
+## Docs/alias
+
+The `docs/alias` shortcode determines the relative alias between two pages.
+It can render as inline code, a table row, or a full table of the output.
+
+| Parameter | Description                                                         | Required |
+| --------- | ------------------------------------------------------------------- | -------- |
+| `from`    | The URL path of the old page.                                       | yes      |
+| `to`      | The URL path of the new page.                                       | yes      |
+| `output`  | One of `"table"`, `"row"`, or `"string"`. The default is `"table"`. | no       |
+
+For specific usage instructions, refer to [Use the `docs/alias` shortcode](https://grafana.com/docs/writers-toolkit/write/front-matter/#use-the-docsalias-shortcode).
+
 ## Docs/experimental-deployment
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

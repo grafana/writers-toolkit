@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/get-started/
 description: Everything you need to complete your documentation project from start to finish.
-date: 2024-02-14
+date: 2024-05-22
 menuTitle: Get started
 title: Get started with writing documentation
 weight: 50
@@ -43,11 +43,12 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 
 ### 2. Create the structure
 
-1. Add docs to your GitHub repository.
+1. Add documentation to your GitHub repository.
    Add a `docs/sources` directory to your repository, if it doesn’t already exist.
 
 1. Create the folders and structure.
    Use the content framework for consistency across product documentation.
+   For more information about the content framework, refer to [Documentation structure](https://grafana.com/docs/writers-toolkit/structure/).
 
 ### 3. Draft the documentation
 
@@ -64,11 +65,11 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
    To add samples with Markdown, refer to [Code blocks](https://grafana.com/docs/writers-toolkit/write/markdown-guide/#code-blocks).
    For style guidance, refer to [Code examples](https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/#code-examples).
    For samples in multiple languages, refer to [Code](https://grafana.com/docs/writers-toolkit/write/shortcodes/#code).
-1. Refer to the [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/).
+1. Refer to the [Style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/).
 
-### 4. Review the docs
+### 4. Review the documentation
 
-1. Build the docs locally.
+1. Build the documentation locally.
    For instructions, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/).
 1. Open a pull request and use the label `type/docs`.
 1. Use `doc-validator` and the Vale prose linter.
@@ -76,16 +77,16 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
    To learn more about [`doc-validator`], refer to [Automated validation with doc-validator](https://grafana.com/docs/writers-toolkit/review/doc-validator/).
    To learn more about the Vale prose linter, refer to [Lint prose with the Vale linter](https://grafana.com/docs/writers-toolkit/review/lint-prose/).
 
-### 5. Publish the docs
+### 5. Publish the documentation
 
 <!-- vale Grafana.Timeless = NO -->
 
 1. Review publishing options.
-   If you are a Grafana Labs employee, reach out in the #docs channel on the internal Slack workspace.
-   If you aren't a Grafana Labs employee, reach out in the #docs channel on the [community Slack workspace](https://grafana.slack.com/archives/CNCRV74GP).
+   If you are a Grafana Labs employee, reach out in the `#docs` channel on the internal Slack workspace.
+   If you aren't a Grafana Labs employee, reach out in the `#docs` channel on the [community Slack workspace](https://grafana.slack.com/archives/CNCRV74GP).
 1. Backport, if required.
    For guidance, refer to [Backport changes](https://grafana.com/docs/writers-toolkit/review/backport-changes/).
-1. Add What’s new or release notes, if required.
-   For guidance, refer to [Contribute to What’s new or release notes](https://grafana.com/docs/writers-toolkit/contribute/release-notes/).
+1. Add What's new or release notes, if required.
+   For guidance, refer to [Contribute to What's new or release notes](https://grafana.com/docs/writers-toolkit/contribute/release-notes/).
 
 <!-- vale Grafana.Timeless = YES -->

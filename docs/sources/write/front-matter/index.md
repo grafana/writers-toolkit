@@ -106,13 +106,36 @@ In the following table:
 - **To page**: is the page where readers are redirected to, for example the renamed page or where the content has been moved.
 - **Relative alias**: is the alias that must be added to the front matter of the file for **To page** to create the proper redirect.
 
-| From page                                                            | To page                                               | Relative alias                           |
-| -------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------- |
-| `/docs/grafana/latest/alerting/`                                     | `/docs/grafana/latest/alerting/manage-notifications/` | `./`                                     |
-| `/docs/grafana/latest/alerting/silences/`                            | `/docs/grafana/latest/alerting/manage-notifications/` | `./silences/`                            |
-| `/docs/grafana/latest/alerting/manage-notifications/create-silence/` | `/docs/grafana/latest/alerting/manage-notifications/` | `./manage-notifications/create-silence/` |
-| `/docs/grafana/latest/`                                              | `/docs/grafana/latest/alerting/manage-notifications/` | `../`                                    |
-| `/docs/grafana/latest/old-alerting/`                                 | `/docs/grafana/latest/alerting/manage-notifications/` | `../old-alerting/`                       |
+<table>
+  <thead>
+    <tr>
+      <th scope="col">FROM PAGE</th>
+      <th scope="col">TO PAGE</th>
+      <th scope="col">RELATIVE ALIAS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{< docs/alias from="/docs/grafana/latest/alerting.md" to="/docs/grafana/latest/alerting/manage-notifications/_index.md" output="row" >}}
+    {{< docs/alias from="/docs/grafana/latest/alerting/silences/_index.md" to="/docs/grafana/latest/alerting/manage-notifications.md" output="row" >}}
+    {{< docs/alias from="/docs/grafana/latest/alerting/manage-notifications/create-silence/index.md" to="/docs/grafana/latest/alerting/manage-notifications/_index.md" output="row" >}}
+    {{< docs/alias from="/docs/grafana/latest/" to="/docs/grafana/latest/alerting/manage-notifications/" output="row" >}}
+    {{< docs/alias from="/docs/grafana/latest/old-alerting/" to="/docs/grafana/latest/alerting/manage-notifications/" output="row" >}}
+  </tbody>
+</table>
+
+###### Use the `docs/alias` shortcode
+
+You can use the `docs/alias` shortcode to determine the relative alias but you can't use the shortcode in the front matter.
+
+You must first use the shortcode in your source file and then copy the result from the page in the local web server into the front matter of the source file.
+
+```markdown
+{{</* docs/alias from="/docs/grafana/latest/old-alerting/" to="/docs/grafana/latest/alerting/manage-notifications/" */>}}
+```
+
+Produces:
+
+{{< docs/alias from="/docs/grafana/latest/old-alerting/" to="/docs/grafana/latest/alerting/manage-notifications/" >}}
 
 #### Other projects
 

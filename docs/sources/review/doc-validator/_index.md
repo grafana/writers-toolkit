@@ -2,8 +2,8 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/
   - /docs/writers-toolkit/review/doc-validator/
-date: 2024-02-21
-description: How to validate technical documentation with the doc-validator tool.
+date: 2024-05-23
+description: How to validate Grafana Labs technical documentation with the doc-validator tool.
 menuTitle: Automated validation
 title: Automated validation with doc-validator
 weight: 300

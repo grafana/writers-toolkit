@@ -54,6 +54,8 @@ local newWord(word, affixes, po) = {
     newWord('CLA', '', 'noun') { acronym: true, description: 'Contributor License Agreement' },
     newWord('CLI', '', 'noun') { acronym: true, established_acronym: true },
     newWord('CloudWatch', '', 'noun') { Amazon: true, product: true },
+    newWord('codespace', 'S', 'noun') { description: "A codespace is a development environment that's hosted in the cloud. https://docs.github.com/en/codespaces/overview" },
+    newWord('Codespaces', '', 'noun') { description: 'GitHub Codespaces https://docs.github.com/en/codespaces/overview', product: true },
     newWord('composable', '', 'adjective'),
     newWord('Couchbase', 'M', 'noun'),
     newWord('Data Firehose', '', 'noun') { Amazon: true, product: true },

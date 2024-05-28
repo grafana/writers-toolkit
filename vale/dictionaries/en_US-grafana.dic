@@ -1,4 +1,4 @@
-206
+208
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -24,6 +24,8 @@ cAdvisor/M po:noun
 CLA/ po:noun
 CLI/ po:noun
 CloudWatch/ po:noun
+codespace/S po:noun
+Codespaces/ po:noun
 composable/ po:adjective
 Couchbase/M po:noun
 Data Firehose/ po:noun

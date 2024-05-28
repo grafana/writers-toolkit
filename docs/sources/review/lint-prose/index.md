@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/lint-prose/
   - /docs/writers-toolkit/review/lint-prose/
 date: 2024-02-21
-description: How to lint prose with the Vale linter.
+description: How to lint prose for Grafana Labs style with the Vale linter.
 menuTitle: Lint prose
 title: Lint prose with the Vale linter
 weight: 300

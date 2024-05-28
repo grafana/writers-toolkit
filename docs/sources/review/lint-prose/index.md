@@ -149,24 +149,3 @@ The extension reports the linting results in two ways:
   You can hover your mouse cursor over the edit marks to view the Vale warning or error.
 - A full report in the **PROBLEMS** tab.
   Each Vale warning or error in the report includes the line and column where the error occurs.
-
-## Vale error output
-
-When you write something that has an associated rule in one of the Vale linting files, Vale outputs an error, such as:
-
-`Use '%s' instead of '%s'.`
-
-`Did you mean '%s' instead of '%s'?`
-
-Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words.
-However, the following rules require further explanation:
-
-### Allows to
-
-<!-- vale Grafana.AllowsTo = NO -->
-<!-- This section explains the specific rule with examples. -->
-
-Common wording error.
-The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to".
-
-<!-- vale Grafana.AllowsTo = YES -->

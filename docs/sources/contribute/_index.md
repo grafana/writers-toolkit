@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/contribute/
   - /docs/writers-toolkit/contribute-documentation/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/
-date: 2024-05-16
+review_date: 2024-05-16
 description: Learn how you can contribute to Grafana Labs documentation.
 keywords:
   - contribute

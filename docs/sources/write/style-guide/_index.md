@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/style-guide/
   - /docs/writers-toolkit/write/style-guide
-date: 2024-02-13
+review_date: 2024-02-13
 description: Style guide for Grafana Labs
 keywords:
   - Grafana

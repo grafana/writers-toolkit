@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
   - /docs/writers-toolkit/review/doc-validator/errata/
-date: 2024-05-23
+review_date: 2024-05-23
 description: A reference of error codes and descriptions reported by doc-validator when linting Grafana Labs technical documentation.
 title: Errata for doc-validator
 ---

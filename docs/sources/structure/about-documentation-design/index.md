@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/about-documentation-design/
   - /docs/writers-toolkit/structure/about-documentation-design/
-date: 2024-02-26
+review_date: 2024-02-26
 description: Learn about the design of Grafana's documentation pages
 keywords:
   - Grafana

@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/lint-prose/
   - /docs/writers-toolkit/review/lint-prose/
-date: 2024-05-28
+review_date: 2024-05-28
 description: How to lint prose for Grafana Labs style with the Vale linter.
 menuTitle: Lint prose
 title: Lint prose with the Vale linter

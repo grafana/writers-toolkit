@@ -1,5 +1,5 @@
 ---
-date: 2024-05-28
+review_date: 2024-05-28
 description: Understand the REF_NOT_FOUND error Hugo emits for broken relref links.
 title: REF_NOT_FOUND Hugo output
 ---

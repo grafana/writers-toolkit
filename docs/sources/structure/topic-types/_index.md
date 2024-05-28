@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/
   - /docs/writers-toolkit/structure/topic-types/
-date: 2024-02-13
+review_date: 2024-02-13
 description: Learn to write different types of topics.
 keywords:
   - topic types

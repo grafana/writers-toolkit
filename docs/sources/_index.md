@@ -11,7 +11,7 @@ cascade:
   github_branch: main
   github_dir: /docs/sources
   replace_dir: docs/writers-toolkit/
-date: 2024-05-16
+review_date: 2024-05-16
 description: |
   A toolkit for writing technical documentation for Grafana Labs.
   Use it as the source of truth for voice and tone, grammar, style, templates, and more.

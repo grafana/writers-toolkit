@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/write/links/
   - /docs/writers-toolkit/write/references/
   - /docs/writers-toolkit/writing-guide/references/
-date: 2024-02-15
+review_date: 2024-02-15
 description: Understand how to link between pages.
 keywords:
   - Hugo

@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
   - /docs/writers-toolkit/review/
-date: 2024-05-22
+review_date: 2024-05-22
 description: Build and review your content locally. Learn how to use documentation tools and understand our workflows.
 keywords:
   - build

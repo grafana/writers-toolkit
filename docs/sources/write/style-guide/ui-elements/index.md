@@ -1,5 +1,5 @@
 ---
-date: 2024-05-16
+review_date: 2024-05-16
 description: Guidelines for referring to UI elements in Grafana documentation.
 keywords:
   - Grafana

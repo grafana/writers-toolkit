@@ -1,5 +1,8 @@
 extends: substitution
-message: Did you mean '%s' instead of '%s'?
+message: |
+  Did you mean '%s' instead of '%s'?
+
+  Allows to is a common wording error.
 link: https://grafana.com/docs/writers-toolkit/word-list#allows-to
 level: warning
 ignorecase: false

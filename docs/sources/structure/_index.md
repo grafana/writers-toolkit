@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/
   - /docs/writers-toolkit/structure
-date: 2024-02-26
+review_date: 2024-02-26
 description: How to organize concepts and tasks in the repository.
 keywords:
   - information architecture

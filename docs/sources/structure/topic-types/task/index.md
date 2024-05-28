@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/task
   - /docs/writers-toolkit/structure/topic-types/task/
-date: 2024-02-27
+review_date: 2024-02-27
 description: Learn how to write a task topic.
 keywords:
   - topic types

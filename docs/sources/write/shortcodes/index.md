@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/write/shortcodes/
   - /docs/writers-toolkit/writing-guide/shortcodes/
-date: 2024-04-15
+review_date: 2024-04-15
 description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo

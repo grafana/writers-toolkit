@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/image-guidelines/
   - /docs/writers-toolkit/write/image-guidelines/
-date: 2024-02-13
+review_date: 2024-02-13
 description: How to include images and other media in your documentation.
 keywords:
   - image

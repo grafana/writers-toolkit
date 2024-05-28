@@ -4,7 +4,7 @@ aliases:
   - /docs/writers-toolkit/contribute-release-notes/
   - /docs/writers-toolkit/contribute/release-notes/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/
-date: 2024-05-16
+review_date: 2024-05-16
 description: Learn the different ways of contributing to the Grafana Labs What's new document and Grafana release notes.
 keywords:
   - what's new

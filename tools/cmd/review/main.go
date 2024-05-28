@@ -43,8 +43,8 @@ func (d *DateArgument) Set(str string) error {
 }
 
 type metadata struct {
-	Date     time.Time `yaml:"date"`
-	Headless bool      `yaml:"headless"`
+	ReviewDate time.Time `yaml:"review_date"`
+	Headless   bool      `yaml:"headless"`
 }
 
 func main() {
@@ -103,7 +103,7 @@ func main() {
 			return fmt.Errorf("unable to unmarshal front matter in %q: %w", path, err)
 		}
 
-		if frontMatter.Date.Before(before.time) && !frontMatter.Headless {
+		if frontMatter.ReviewDate.Before(before.time) && !frontMatter.Headless {
 			pages = append(pages, path)
 		}
 

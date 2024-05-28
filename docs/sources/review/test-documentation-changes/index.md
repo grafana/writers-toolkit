@@ -93,7 +93,7 @@ Press Ctrl+C to stop the server
 ```
 
 {{< admonition type="note" >}}
-To test Grafana tutorial changes the address is `http://localhost:3002/docs/grafana/latest/tutorials/`
+To test Grafana tutorial changes, the address is `http://localhost:3002/docs/grafana/latest/tutorials/`.
 {{< /admonition >}}
 
 ### Example: Page not found

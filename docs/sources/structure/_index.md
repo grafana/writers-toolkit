@@ -2,19 +2,19 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/
   - /docs/writers-toolkit/structure
-date: 2024-04-16
-description: How to organize concepts and tasks in the repository.
+description: How to organize concepts and tasks in a Grafana Labs repository.
 keywords:
   - information architecture
   - structure
 menuTitle: Structure
+review_date: 2024-05-29
 title: Documentation structure
 weight: 300
 ---
 
 # Documentation structure
 
-The Grafana Labs documentation team makes intentional decisions about how to organize and structure product documentation.
+The Grafana Labs documentation team makes decisions about how to organize and structure product documentation.
 The topic levels discussed on this page reflect common user goals.
 For example, a first-time Grafana user must understand the basic concepts before installing the product.
 
@@ -24,12 +24,13 @@ Before you begin contributing to documentation, it's important to understand the
 
 When writing documentation, [focus on what your user's goals](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#focus-on-user-goals) are.
 
-Use the structure of your documentation to reflect the user’s goals.
+Use the structure of your documentation to reflect the user's goals.
 Think about what your users want to do, what they need to know, and how they can accomplish the tasks.
 
 This approach applies not only to content on a page but also to how you organize a set of documentation, whether it's for a product or a feature.
 
-With well-structured content, you can find what you need quickly and easily. Topics flow in a logical progression.
+With well-structured content, you can find what you need quickly and easily.
+Topics flow in a logical progression.
 
 ## Structure of published content
 

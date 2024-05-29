@@ -2,29 +2,29 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/about-documentation-design/
   - /docs/writers-toolkit/structure/about-documentation-design/
-review_date: 2024-02-26
 description: Learn about the design of Grafana's documentation pages
 keywords:
   - Grafana
   - documentation
   - page design
 menuTitle: Documentation design
+review_date: 2024-05-29
 title: About documentation design at Grafana Labs
 weight: 100
 ---
 
 # About documentation design at Grafana Labs
 
-<!-- vale Grafana.GoogleWe = NO -->
+<!-- vale Grafana.We = NO -->
 <!-- According to https://developers.google.com/style/pronouns#personal-pronouns, it is acceptable to use personal pronouns "after using your organization's name". -->
 
 Our documentation website uses a modern design approach to make technical documentation accessible and scalable.
 
-Documentation pages take advantage of the static site generator Hugo.
-As a result, several elements of the page are automatically managed during the publication of the page using Hugo's taxonomy.
+The documentation website uses the static site generator Hugo.
+Many elements of the page are automatically managed during the publication of the page using Hugo's taxonomy.
 Thus, the source Markdown files _don't need to hand management_ of these elements and _don't require_ contributors to curate them.
 
-Pages also include:
+Pages include:
 
 - **Navigation to preview primary topics.**
   The left-hand sidebar broadly outlines key topics, with nested related topics underneath.

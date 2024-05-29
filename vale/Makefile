@@ -21,7 +21,7 @@ RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/Headings.ym
 
 all: $(DICTIONARIES) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
 
-dictionaries/en_US-grafana.%:
+dictionaries/en_US-grafana.%: dictionary.jsonnet
 	$(MAKE) -C $(@D) $(@F)
 
 .PHONY: grafana/vale

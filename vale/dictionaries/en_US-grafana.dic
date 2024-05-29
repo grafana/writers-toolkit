@@ -1,4 +1,4 @@
-208
+210
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -131,8 +131,8 @@ Pyroscope/ po:noun
 quantile/S po:noun
 querier/MS po:noun
 query/ po:noun
-query/A po:adjective
 query/DGS po:verb
+queryable/ po:adjective
 RAM/ po:noun
 RDS/ po:noun
 Relational Database Service/ po:noun
@@ -141,6 +141,8 @@ React/M po:noun
 redirection/S po:noun
 register/dG po:verb
 register/uD po:adjective
+retry/DGS po:verb
+retryable/ po:adjective
 REPL/ po:noun
 rollout/S po:noun
 Rollup/ po:noun

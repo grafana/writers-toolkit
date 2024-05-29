@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/write/style-guide/useful-link-text/
   - /docs/writers-toolkit/write/useful-link-text/
 description: Learn how to write useful link text.
-date: 2024-04-15
+review_date: 2024-04-15
 title: Write useful link text
 ---
 

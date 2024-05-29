@@ -3,8 +3,8 @@ aliases:
   - /docs/writers-toolkit/review/backport-changes/
   - /docs/writers-toolkit/review/backporting/
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/backporting/
-date: 2024-02-15
-description: How and when to backport changes
+review_date: 2024-05-22
+description: Understand how and when to backport changes to Grafana repositories.
 keywords:
   - backporting
   - backport
@@ -26,6 +26,8 @@ Backporting takes a change from the `main` branch and ports it back to another l
 Every documentation pull request to a project with versioned documentation requires a decision about whether or not to backport it.
 
 You should backport to all supported versions of the project affected by the pull request changes.
+
+If you are unsure, ask for advice from a maintainer on the pull request.
 
 ## Backport a change
 

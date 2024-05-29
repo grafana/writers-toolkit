@@ -2,8 +2,8 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/lint-prose/
   - /docs/writers-toolkit/review/lint-prose/
-date: 2024-02-21
-description: How to lint prose with the Vale linter.
+review_date: 2024-05-28
+description: How to lint prose for Grafana Labs style with the Vale linter.
 menuTitle: Lint prose
 title: Lint prose with the Vale linter
 weight: 300
@@ -149,24 +149,3 @@ The extension reports the linting results in two ways:
   You can hover your mouse cursor over the edit marks to view the Vale warning or error.
 - A full report in the **PROBLEMS** tab.
   Each Vale warning or error in the report includes the line and column where the error occurs.
-
-## Vale error output
-
-When you write something that has an associated rule in one of the Vale linting files, Vale outputs an error, such as:
-
-`Use '%s' instead of '%s'.`
-
-`Did you mean '%s' instead of '%s'?`
-
-Most of these error messages and suggestions are self-explanatory and include preferred spellings or alternate words.
-However, the following rules require further explanation:
-
-### Allows to
-
-<!-- vale Grafana.AllowsTo = NO -->
-<!-- This section explains the specific rule with examples. -->
-
-Common wording error.
-The linter suggests replacing "allows to" to with the grammatically correct "allows you to", since there is no use case for the phrase "allows to".
-
-<!-- vale Grafana.AllowsTo = YES -->

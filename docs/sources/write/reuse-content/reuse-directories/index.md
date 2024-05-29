@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/reuse-directories/
   - /docs/writers-toolkit/write/reuse-content/reuse-directories/
-date: 2024-03-14
+review_date: 2024-03-14
 description: Learn to reuse directories of content with Hugo mounts.
 keywords:
   - content reuse

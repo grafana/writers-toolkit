@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/concept
   - /docs/writers-toolkit/structure/topic-types/concept
-date: 2024-02-26
+review_date: 2024-02-26
 description: Learn how to write a concept topic.
 keywords:
   - topic types
@@ -20,7 +20,7 @@ Concepts answer the question “what is it?”. Readers learn about features thr
 
 The following types of content can be included in concepts:
 
-- Detailed overviews of Grafana's features with benefits and clearly defined terms
+- Detailed overviews of features with benefits and clearly defined terms
 - Diagrams that help users understand the components of a system
 - Process flow diagrams
 - Best practice guidelines

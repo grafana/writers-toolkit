@@ -36,7 +36,8 @@ std.prune({
   'Grafana/GoogleSpelling.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Spelling.yml')),
   // More often than not, we need to be consistent with Prometheus units or units used Grafana UI which are not represented in the form encouraged by SI.
   'Grafana/GoogleUnits.yml': null,
-  'Grafana/GoogleWe.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/We.yml')),
+  // Replaced by Grafana/We.yml.
+  'Grafana/GoogleWe.yml': null,
   'Grafana/GoogleWill.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Will.yml') {
     message: super.message + '\n\n' + |||
       Use present tense for statements that describe general behavior that's not associated with a particular time.

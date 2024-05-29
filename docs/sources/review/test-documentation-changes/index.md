@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/review/run-a-local-webserver/
   - /docs/writers-toolkit/review/test-documentation-changes/
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/run-a-local-webserver/
-date: 2024-02-22
+review_date: 2024-05-28
 description: Test documentation changes by running a local documentation web server
 title: Test documentation changes
 weight: 200
@@ -14,6 +14,8 @@ weight: 200
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
 To run the local documentation web server, run `make docs` from the `docs/` directory.
+The output message includes a URL that you can follow to view the changes to the documentation in the browser.
+Refer to an [example of a successful build](#example-succesful-build).
 
 {{< admonition type="note" >}}
 Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
@@ -58,7 +60,7 @@ make docs PROJECTS="tempo::tempo-doc-work"
 ```
 
 The format is `<PROJECT>[:VERSION[:REPOSITORY[:DIRECTORY]]].`
-The example mounts the `PROJECT` `tempo`, at the default `VERSION` (since the `VERSION` is left empty), using the `REPOSITORY` `tempo-doc-work`, and the default documentation `DIRECTORY` `docs/sources`.
+The example mounts the `PROJECT` `tempo`, at the default `VERSION` (since the `VERSION` argument is empty), using the `REPOSITORY` `tempo-doc-work`, and the default documentation `DIRECTORY` `docs/sources`.
 This example builds the Tempo documentation from the local working directory, `tempo-doc-work`, instead of the standard `tempo` directory.
 
 ## Understand Hugo output from `make docs`
@@ -78,6 +80,21 @@ where:
 - _`LEVEL`_ is one of `WARN` or `ERROR`
 - _`LANGUAGE`_ may be present
 - _`MESSAGE`_ is the issue
+
+### Example: Successful build
+
+If the `make docs` command runs correctly, the console prints a message similar to the following:
+
+```
+View documentation locally:
+  http://localhost:3002/docs/grafana/latest/
+
+Press Ctrl+C to stop the server
+```
+
+{{< admonition type="note" >}}
+To test Grafana tutorial changes, the address is `http://localhost:3002/docs/grafana/latest/tutorials/`.
+{{< /admonition >}}
 
 ### Example: Page not found
 

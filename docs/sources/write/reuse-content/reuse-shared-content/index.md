@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/reuse-shared-content/
   - /docs/writers-toolkit/write/reuse-content/reuse-shared-content/
-date: 2024-03-14
+review_date: 2024-03-14
 description: Learn to reuse chunks of content between pages.
 keywords:
   - content reuse

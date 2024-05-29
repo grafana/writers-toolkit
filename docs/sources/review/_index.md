@@ -2,11 +2,13 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
   - /docs/writers-toolkit/review/
-date: 2024-02-14
-description: Build and review your content locally; learn how to use documentation tools and understand our workflows.
+review_date: 2024-05-22
+description: Build and review your content locally. Learn how to use documentation tools and understand our workflows.
 keywords:
-  - documentation review
-  - build documentation
+  - build
+  - documentation
+  - review
+  - test
 menuTitle: Build and review
 title: Build and review documentation
 weight: 800

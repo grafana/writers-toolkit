@@ -1,10 +1,11 @@
 ---
-title: UI elements list
+review_date: 2024-05-16
 description: Guidelines for referring to UI elements in Grafana documentation.
-weight: 700
 keywords:
   - Grafana
   - ui elements
+title: UI elements list
+weight: 700
 ---
 
 # UI elements list

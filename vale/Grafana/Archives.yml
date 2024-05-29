@@ -4,7 +4,6 @@ link: https://developers.google.com/style/word-list#extract
 message: Use '%s' instead of '%s'.
 
 ignorecase: false
-nonword: true
 
 action:
   name: replace

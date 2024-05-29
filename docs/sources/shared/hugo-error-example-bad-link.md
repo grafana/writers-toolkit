@@ -1,16 +1,15 @@
 ---
-date: 2024-02-22
+review_date: 2024-05-28
 description: Understand the REF_NOT_FOUND error Hugo emits for broken relref links.
 title: REF_NOT_FOUND Hugo output
 ---
 
 [//]: # "This file documents an example Hugo error output for relref and links."
 [//]: # "This shared file is included in these locations:"
-[//]: # "- Page: [/docs/writers-toolkit/review/run-a-local-webserver/](https://grafana.com/docs/writers-toolkit/review/run-a-local-webserver/)"
-[//]: # "  Source: [run-a-local-webserver.md](https://github.com/grafana/writers-toolkit/tree/main/docs/sources/review/run-a-local-webserver/index.md)"
+[//]: # "- Page: [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/#example-rebuild-failed-due-to-missing-shortcode)"
+[//]: # "  Source: [test-documentation-changes/index.md](https://github.com/grafana/writers-toolkit/blob/main/docs/sources/review/test-documentation-changes/index.md?plain=1#L99)"
 [//]: #
 [//]: # "If you make changes to this file, verify that the meaning and content are not changed in any place where the file is included."
-[//]: # "Any links should be fully qualified and not relative: /docs/grafana/ instead of ../grafana/."
 
 Hugo emits `REF_NOT_FOUND` warnings indicating the filename and location of such references when building the docs, for example with `make docs` in `grafana/grafana` or `make server-quick` in `grafana/website`:
 
@@ -25,4 +24,6 @@ In this example,
 - `:14` represents the line number containing the unresolved reference
 - `:47` represents the character in that line where the unresolved reference begins
 
-If the reference's destination appears to be invalid, for example due to a typo in the reference or the depth of the`relref` directory, then you should be able to resolve this by correcting the reference target.
+If you see this error, then the reference's destination is invalid.
+This may be due to a typo in the reference or having the incorrect path to the destination directory.
+Fix the error by correcting the reference target.

@@ -2,8 +2,8 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/
   - /docs/writers-toolkit/review/doc-validator/
-date: 2024-02-21
-description: How to validate technical documentation with the doc-validator tool.
+review_date: 2024-05-23
+description: How to validate Grafana Labs technical documentation with the doc-validator tool.
 menuTitle: Automated validation
 title: Automated validation with doc-validator
 weight: 300
@@ -29,9 +29,9 @@ To run `doc-validator` on specific files, provide the _`DOC_VALIDATOR_INCLUDE`_ 
 It's value is a regular expression that the tool matches against file paths.
 `doc-validator` only lints the paths that the regular expression matches.
 
-### Writers' Toolkit repository, `/docs/sources/write/` directory
+### Example
 
-When in the writers-toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
+When in the Writers' Toolkit repository, to only validate content in the `/docs/sources/write/` directory, run the following command:
 
 ```console
 make doc-validator DOC_VALIDATOR_INCLUDE='^/hugo/content/docs/writers-toolkit/write/.*$'

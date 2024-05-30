@@ -179,6 +179,7 @@ local newWord(word, affixes, po) = {
     newWord('RSA', '', 'noun') { acronym: true, established_acronym: true },
     newWord('runbook', 'S', 'noun'),
     newWord('sandbox', 'DG', 'verb'),
+    newWord('scheduler', 'MS', 'noun') { description: 'A Kubernetes component that schedules workloads' },
     newWord('SCM', '', 'noun') { acronym: true, established_acronym: true },
     newWord('SCSS', '', 'noun') { acronym: true, established_acronym: true },
     newWord('SDK', 'S', 'noun') { acronym: true, established_acronym: true },

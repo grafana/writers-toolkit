@@ -24,7 +24,7 @@ The following types of content can be included in concepts:
 - Diagrams that help users understand the components of a system
 - Process flow diagrams
 - Best practice guidelines
-- An example of how a feature is used.
+- An example of how a feature is used
   Examples might include screenshots or other supporting visuals
 
 A concept topic doesn't include:

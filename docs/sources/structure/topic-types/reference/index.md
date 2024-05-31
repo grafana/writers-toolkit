@@ -1,14 +1,14 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference
   - /docs/writers-toolkit/structure/topic-types/reference/
-review_date: 2024-02-27
+  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference
 description: Learn how to write a reference topic.
 keywords:
   - topic types
   - template
   - reference
 menuTitle: Reference
+review_date: 2024-05-30
 title: Reference topic
 weight: 300
 ---
@@ -49,7 +49,7 @@ To write a reference, complete these steps:
    - Add a hyphen between words.
 
 1. Create an `index.md` file within the reference directory.
-1. Add front matter to the `index` file.
+1. Add front matter to the `index.md` file.
 
    For more information about front matter, refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/).
 

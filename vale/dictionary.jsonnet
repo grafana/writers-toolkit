@@ -143,6 +143,7 @@ local newWord(word, affixes, po) = {
     newWord('OTel', 'M', 'noun'),
     newWord('OTLP', '', 'noun') { acronym: true, established_acronym: true },
     newWord('overbill', 'DG', 'verb'),
+    newWord('overutilization', 'S', 'noun'),
     newWord('Parca', 'M', 'noun'),
     newWord('PDF', 'S', 'noun') { acronym: true, established_acronym: true },
     newWord('performant', '', 'adjective'),

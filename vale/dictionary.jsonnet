@@ -232,6 +232,7 @@ local newWord(word, affixes, po) = {
     newWord('walkthrough', 'S', 'noun'),
     newWord('Webpack', '', 'noun'),
     newWord('webserver', 'S', 'noun'),
+    newWord('windows_exporter', 'S', 'noun') { description: 'The Prometheus exporter for Windows machines (https://github.com/prometheus-community/windows_exporter)', product: true },
     newWord('worktree', '', 'noun'),
     newWord('XML', '', 'noun') { acronym: true, established_acronym: true },
     newWord('XSS', '', 'noun') { acronym: true },

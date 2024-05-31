@@ -1,8 +1,7 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/
   - /docs/writers-toolkit/structure/topic-types/
-review_date: 2024-02-13
+  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/
 description: Learn to write different types of topics.
 keywords:
   - topic types
@@ -10,6 +9,7 @@ keywords:
   - concept
   - task
   - reference
+review_date: 2024-05-30
 title: Topic types
 weight: 400
 ---
@@ -26,13 +26,13 @@ Depending on the needs of a particular product area, select a topic type from th
 **[Concept](https://grafana.com/docs/writers-toolkit/structure/topic-types/concept/)**
 : Provides an overview and background information. Answers the question "What is it?".
 
-**[Task]({{< relref "./task" >}})**
+**[Task](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/)**
 : Provides numbered steps that describe how to achieve an outcome. Answers the question "How do I?".
 
-**[Reference]({{< relref "./reference" >}})**
+**[Reference](https://grafana.com/docs/writers-toolkit/structure/topic-types/reference/)**
 : Provides users with the information they might need to refer to during a task. Answers the question "What details do I need to accomplish this task?".
 
-**[Tutorial]({{< relref "./tutorial" >}})**
+**[Tutorial](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/)**
 : Provides procedures that users can safely reproduce and learn from. Answers the question: "Can you teach me to …?"
 
 <!-- vale Grafana.GoogleFirstPerson = YES -->
@@ -45,6 +45,6 @@ In addition to the primary topic types, there are also templates for specific to
 
 These [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates) are in the same directory as the topic type templates.
 
-| Type                                              | Description                                                                          |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [Visualization]({{< relref "./visualization" >}}) | Describes a visualization type. May include conceptual, task, and reference content. |
+| Type                                                                                           | Description                                                                          |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [Visualization](https://grafana.com/docs/writers-toolkit/structure/topic-types/visualization/) | Describes a visualization type. May include conceptual, task, and reference content. |

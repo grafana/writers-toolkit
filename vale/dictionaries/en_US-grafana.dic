@@ -1,4 +1,4 @@
-210
+211
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -149,6 +149,7 @@ Rollup/ po:noun
 RSA/ po:noun
 runbook/S po:noun
 sandbox/DG po:verb
+scheduler/MS po:noun
 SCM/ po:noun
 SCSS/ po:noun
 SDK/S po:noun
@@ -202,6 +203,7 @@ WAL/S po:noun
 walkthrough/S po:noun
 Webpack/ po:noun
 webserver/S po:noun
+windows_exporter/S po:noun
 worktree/ po:noun
 XML/ po:noun
 XSS/ po:noun

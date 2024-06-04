@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/style-guide/inclusive-writing
   - /docs/writers-toolkit/write/style-guide/inclusive-writing
 date: 2024-05-16
-description: Understand the importantance of inclusive writing at Grafana Labs and learn how to write inclusively.
+description: Understand the importance of inclusive writing at Grafana Labs and learn how to write inclusively.
 weight: 400
 keywords:
   - inclusive writing
@@ -29,7 +29,7 @@ With that in mind, there are important distinctions between the ways that differ
 - Users are every person who uses our products, whether or not they use a commercial version of one of our products. Customers are people and companies who pay to use our products.
 - Visitors are people who visit our website for any reason, whether it's as a potential user, customer, or employee. We appreciate all interest in our hard work.
 - Our customers (and users) often have their own customers (and users).
-  Generally speaking, we refer to these customers of our customers as users, because it does an OK job of encapsulating all the ways different customers might interact with the people using their products.
+  Generally speaking, we refer to these customers of our customers as users.
 - Employees are people who work at Grafana Labs.
 
 ### Best practices

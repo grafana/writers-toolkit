@@ -231,6 +231,7 @@ local newWord(word, affixes, po) = {
     newWord('UTF', '', 'noun') { acronym: true, established_acronym: true },
     newWord('Velero', '', 'noun') { description: 'Velero is an open source tool to safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes.', product: true },
     newWord('Vite', '', 'noun') { description: 'Next Generation Frontend Tooling (https://vitejs.dev/)', product: true },
+    newWord('viewport', 'S', 'noun') { description: 'A viewport is a polygon viewing region in computer graphics (https://en.wikipedia.org/wiki/Viewport)' },
     newWord('VU', 'S', 'noun') { acronym: true },
     newWord('VUH', 'S', 'noun') { acronym: true },
     newWord('WAL', 'S', 'noun') { acronym: true },

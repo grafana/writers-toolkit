@@ -51,6 +51,7 @@ local newWord(word, affixes, po) = {
     newWord('burndown', '', 'adjective'),
     newWord('bundler', 'S', 'noun'),
     newWord('cAdvisor', 'M', 'noun'),
+    newWord('CDN', '', 'noun') { acronym: true, description: 'Content Delivery Network' },
     newWord('CLA', '', 'noun') { acronym: true, description: 'Contributor License Agreement' },
     newWord('CLI', '', 'noun') { acronym: true, established_acronym: true },
     newWord('CloudWatch', '', 'noun') { Amazon: true, product: true },

@@ -1,0 +1,5 @@
+testinvalid.md:3:3:Grafana.Shortcodes:Use `{{<` and `>}}` instead of `{{%` and `%}}`. The former has the most consistent semantics. The latter is used for special behavior that isn't required with this shortcode. 
+testinvalid.md:4:3:Grafana.Shortcodes:Use `{{<` and `>}}` instead of `{{%` and `%}}`. The former has the most consistent semantics. The latter is used for special behavior that isn't required with this shortcode. 
+testinvalid.md:5:3:Grafana.Shortcodes:Use `{{<` and `>}}` instead of `{{%` and `%}}`. The former has the most consistent semantics. The latter is used for special behavior that isn't required with this shortcode. 
+testinvalid.md:6:3:Grafana.Shortcodes:Use `{{<` and `>}}` instead of `{{%` and `%}}`. The former has the most consistent semantics. The latter is used for special behavior that isn't required with this shortcode. 
+testinvalid.md:7:3:Grafana.Shortcodes:Use `{{<` and `>}}` instead of `{{%` and `%}}`. The former has the most consistent semantics. The latter is used for special behavior that isn't required with this shortcode. 

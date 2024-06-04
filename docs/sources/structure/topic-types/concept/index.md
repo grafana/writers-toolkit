@@ -1,14 +1,14 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/concept
-  - /docs/writers-toolkit/structure/topic-types/concept
-review_date: 2024-02-26
+  - /docs/writers-toolkit/structure/topic-types/concept/
+  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/concept/
 description: Learn how to write a concept topic.
 keywords:
   - topic types
   - template
   - concept
 menuTitle: Concept
+review_date: 2024-05-30
 title: Concept topic
 weight: 100
 ---
@@ -16,7 +16,7 @@ weight: 100
 # Concept topic
 
 A concept provides an overview and background information to help end users understand a product, interface, or task.
-Concepts answer the question “what is it?”. Readers learn about features through concepts.
+Concepts answer the question "what is it?". Readers learn about features through concepts.
 
 The following types of content can be included in concepts:
 
@@ -24,7 +24,8 @@ The following types of content can be included in concepts:
 - Diagrams that help users understand the components of a system
 - Process flow diagrams
 - Best practice guidelines
-- An example of how a feature is used. Examples might include screenshots or other supporting visuals
+- An example of how a feature is used
+  Examples might include screenshots or other supporting visuals
 
 A concept topic doesn't include:
 
@@ -35,7 +36,7 @@ A concept topic doesn't include:
 
 A _concept_ topic includes the following elements:
 
-- **Topic title:** Topic titles should be nouns, for example, Grafana panels.
+- **Topic title:** Topic titles should be nouns, for example, _Grafana panels_.
   By using this naming convention, readers are able to distinguish between conceptual topics and tasks that begin with verbs.
 - **Introduction:** Include an introduction that explains what this topic is about.
 - **Body:** Provide as much content as needed to explain the concept thoroughly.
@@ -47,7 +48,7 @@ A _concept_ topic includes the following elements:
 
 To write a concept topic, follow these steps.
 
-1. Decide which top-level entity you want to add documentation to by reviewing Grafana Labs' product documentation.
+1. Determine where you want to add concept documentation to the Grafana Labs product documentation.
 1. Within the top-level entity, create a parent directory with the following naming convention:
 
    - Use a noun
@@ -55,7 +56,7 @@ To write a concept topic, follow these steps.
    - Add a hyphen between words
 
 1. Within the parent directory, create an `_index.md` file.
-1. Add front matter to the `_index` file.
+1. Add front matter to the `_index.md` file.
 
    For more information about front matter, refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/).
 
@@ -68,7 +69,7 @@ To write a concept topic, follow these steps.
 Refer to the following topics for concept topic examples:
 
 - [Roles and permissions](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/)
-- [Deployment modes](https://grafana.com/docs/loki/latest/get-started/deployment-modes/)
+- [Loki deployment modes](https://grafana.com/docs/loki/latest/get-started/deployment-modes/)
 - [Grafana dashboard best practices](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/)
 
 ## Concept template

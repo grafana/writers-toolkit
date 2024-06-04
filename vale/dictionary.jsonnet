@@ -48,6 +48,7 @@ local newWord(word, affixes, po) = {
     newWord('blockquote', 'S', 'noun'),
     newWord('boolean', '', 'noun'),
     newWord('BPF', '', 'noun') { acronym: true, established_acronym: true },
+    newWord('Brotli', '', 'noun') { description: 'Brotli is a lossless data compression algorithm developed by Google' },
     newWord('burndown', '', 'adjective'),
     newWord('bundler', 'S', 'noun'),
     newWord('cAdvisor', 'M', 'noun'),

@@ -206,6 +206,7 @@ local newWord(word, affixes, po) = {
     newWord('subnet', 'S', 'noun'),
     newWord('subquery', 'S', 'noun'),
     newWord('subtask', 'S', 'noun'),
+    newWord('SUT', '', 'noun') { acronym: true, description: 'System Under Test' },
     newWord('SVG', '', 'noun') { acronym: true, established_acronym: true },
     newWord('systemd', '', 'noun'),
     newWord('TCP', '', 'noun') { acronym: true, established_acronym: true },

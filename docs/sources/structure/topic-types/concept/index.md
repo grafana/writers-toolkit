@@ -48,7 +48,7 @@ A _concept_ topic includes the following elements:
 
 To write a concept topic, follow these steps.
 
-1. Decide which top-level entity you want to add documentation to by reviewing product documentation.
+1. Determine where you want to add concept documentation to the Grafana Labs product documentation.
 1. Within the top-level entity, create a parent directory with the following naming convention:
 
    - Use a noun

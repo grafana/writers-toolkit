@@ -1,4 +1,4 @@
-211
+217
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -18,9 +18,11 @@ blackbox/ po:noun
 blockquote/S po:noun
 boolean/ po:noun
 BPF/ po:noun
+Brotli/ po:noun
 burndown/ po:adjective
 bundler/S po:noun
 cAdvisor/M po:noun
+CDN/ po:noun
 CLA/ po:noun
 CLI/ po:noun
 CloudWatch/ po:noun
@@ -113,6 +115,7 @@ OTel/ po:adjective
 OTel/M po:noun
 OTLP/ po:noun
 overbill/DG po:verb
+overutilization/S po:noun
 Parca/M po:noun
 PDF/S po:noun
 performant/ po:adjective
@@ -175,6 +178,7 @@ submenu/S po:noun
 subnet/S po:noun
 subquery/S po:noun
 subtask/S po:noun
+SUT/ po:noun
 SVG/ po:noun
 systemd/ po:noun
 TCP/ po:noun
@@ -197,6 +201,7 @@ UTC/ po:noun
 UTF/ po:noun
 Velero/ po:noun
 Vite/ po:noun
+viewport/S po:noun
 VU/S po:noun
 VUH/S po:noun
 WAL/S po:noun

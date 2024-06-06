@@ -19,7 +19,7 @@ When writing for Grafana Labs, always use inclusive terminology and phrasing.
 Avoid all statements that perpetuate gender, racial, or cultural stereotypes.
 Don't use gendered words or demographically oriented terms that are irrelevant to the content.
 
-## Writing about people
+## Write about people
 
 When writing about people, be compassionate, inclusive, and respectful.
 

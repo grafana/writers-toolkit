@@ -38,7 +38,12 @@ Similar to HTML headings (`<h1>`, `<h2>`, and `<h3>`), in Markdown, `#` symbols 
 
 For the title of the page, use one `#`. For each child heading, use two `##` symbols.
 
+<!-- vale Grafana.Gerunds = NO -->
+<!-- A false positive because the noun heading looks like a gerund. -->
+
 ### Heading don'ts
+
+<!-- vale Grafana.Gerunds = YES -->
 
 - Avoid stacked headings; don't follow a heading with another without any content between the two.
 - Avoid skipping heading levels. For example, after a single `#`, use `##`, rather than `###`.

@@ -324,7 +324,7 @@ These are important improvements, but are better placed in the CHANGELOG than Wh
 - [Change regular expression to accommodate a new branching strategy in Enterprise](https://github.com/grafana/grafana/pull/59429)
   - This change is invisible to customers.
 
-## Writing guidelines for What's new content
+## Guidelines for What's new content
 
 Follow these guidelines to ensure that your What's new or release notes content is clear, helpful, and easy to understand.
 

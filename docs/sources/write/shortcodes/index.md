@@ -946,7 +946,7 @@ You can configure automatic playback with:
 {{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
-## Escaping Hugo shortcodes
+## Escape Hugo shortcodes
 
 If you need to display the syntax for a shortcode, you can escape it using this syntax:
 

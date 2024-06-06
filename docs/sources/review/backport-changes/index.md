@@ -75,7 +75,7 @@ To decide whether to backport a pull request, use the following decision tree:
 
 <!-- vale Grafana.Timeless = YES -->
 
-## Backporting tutorials
+## Backport tutorials
 
 Depending on the location from which the website mounts tutorial content, you might need to backport changes to them.
 

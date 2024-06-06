@@ -1,0 +1,2 @@
+testinvalid.md:3:4:Grafana.HTTP:Use 'https://grafana.com' instead of 'http://grafana.com'. The HTTP scheme is insecure and all grafana.com links must use HTTPS. 
+testinvalid.md:4:15:Grafana.HTTP:Use 'https://grafana.com' instead of 'http://grafana.com'. The HTTP scheme is insecure and all grafana.com links must use HTTPS. 

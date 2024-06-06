@@ -8,15 +8,14 @@ message: |
   For a conceptual or non-task-based heading, use a [noun phrase](https://en.wikipedia.org/wiki/Noun_phrase) that doesn't start with an -ing verb.
 
   Noun-phrase headings are frequently used in concept documentation.
-
 link: https://developers.google.com/style/headings#heading-and-title-text
-scope: raw
+scope: heading
 script: |
   text := import("text")
 
   matches := []
 
-  for match in text.re_find(`(?m)^#+ [A-Z][a-zA-Z]*ing .*$`, scope, -1) {
+  for match in text.re_find(`^ *[A-Z][a-zA-Z]*ing .*$`, scope, -1) {
       matches = append(matches, {begin: match[0].begin, end: match[0].end})
     }
   }

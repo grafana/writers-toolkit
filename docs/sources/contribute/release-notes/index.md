@@ -324,7 +324,7 @@ These are important improvements, but are better placed in the CHANGELOG than Wh
 - [Change regular expression to accommodate a new branching strategy in Enterprise](https://github.com/grafana/grafana/pull/59429)
   - This change is invisible to customers.
 
-## Writing guidelines for What's new content
+## Guidelines for What's new content
 
 Follow these guidelines to ensure that your What's new or release notes content is clear, helpful, and easy to understand.
 
@@ -362,14 +362,14 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **For changes or updates to features, provide brief descriptions.**
 
-<!-- vale Grafana.GoogleWe = NO -->
+<!-- vale Grafana.We = NO -->
 
 - **You can use first person plural, such as "we".**
 
   Our style normally prefers second person ("you") and avoids first person ("I"/"we").
   Release notes, like blog posts, use a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available."
 
-  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.GoogleWe` rule. You can use this check at the beginning of your file after the front matter:
-  `<!-- vale Grafana.GoogleWe = NO -->`
+  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.We` rule. You can use this check at the beginning of your file after the front matter:
+  `<!-- vale Grafana.We = NO -->`
 
-<!-- vale Grafana.GoogleWe = YES -->
+<!-- vale Grafana.We = YES -->

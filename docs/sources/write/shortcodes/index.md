@@ -446,7 +446,7 @@ Produces:
 This shortcode is present in the documentation, but you should prefer `ref` URIs.
 Don’t use it when creating new or updating existing documentation.
 
-For more information, refer to [Links](https://grafana.com/docs/write/links/).
+For more information, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 {{< /admonition >}}
 
 The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.

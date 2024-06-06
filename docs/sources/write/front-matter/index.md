@@ -303,7 +303,7 @@ For more information, refer to [Link from source content that’s used in multip
 Use the `review_date` front matter to set the time you last reviewed a page for correctness.
 
 Set the date using the `YYYYY-MM-DD` format, and separate the elements by using hyphens.
-For example, to set the last review date as June 6, 2024, use `2024-06-06`.
+For example, to set the last review date to June 6, 2024, use `2024-06-06`.
 
 The website includes the review date at the foot of the page's content.
 You can see how this renders on the [Writers' Toolkit home page](https://grafana.com/docs/writers-toolkit/#:~:text=Last%20reviewed%3A).

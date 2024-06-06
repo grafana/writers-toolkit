@@ -1,30 +1,13 @@
+// The structure of the word object is documented in https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#word-metadata.
 local newWord(word, affixes, po) = {
-  // word is the word to be defined.
-  word: word,
-  // affixes is a string of Hunspell affixes that can be applied to the word.
-  affixes: affixes,
-  // po is the part of speech of the word.
-  // TODO: Determine the full list of acceptable values.
-  // Known acceptable values:
-  //   - 'noun'
-  //   - 'verb'
-  //   - 'adjective'
-  po: po,
-
-  // description is a string that defines the word.
-  // It's mostly used for jargon or products.
-  description: null,
-
-  // acronym is a boolean that indicates whether the word is an acronym.
   acronym: false,
-  // established_acronym is a boolean that indicates whether the word is an established acronym that doesn't need explanation in general.
-  established_acronym: false,
-
-  // product is a boolean that indicates whether the word is a product name.
-  product: false,
-
-  // Amazon is a boolean that indicates whether the word is an Amazon product.
+  affixes: affixes,
   Amazon: false,
+  description: null,
+  established_acronym: false,
+  po: po,
+  product: false,
+  word: word,
 };
 
 {

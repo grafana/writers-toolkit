@@ -192,10 +192,9 @@ The script only checks for projects in the directories specified in `REPOS_PATH`
 By default, the script determines the `REPOS_PATH` to be the parent directory of the current project.
 If you keep all repositories in the same directory, you don't need to set `REPOS_PATH`.
 
-With a directory structure similar to the following `tree` command:
+With a directory structure similar to the following output from the `tree -L 1 -d ~/ext/grafana` command:
 
 ```console
-$ tree -L 1 -d ~/ext/grafana
 /home/username/ext/grafana
 ├── agent
 ├── grafana

@@ -298,6 +298,16 @@ Use the `refs` front matter with `ref` URIs to link to different pages in reused
 
 For more information, refer to [Link from source content that’s used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
 
+### Review date
+
+Use the `review_date` front matter to set the time you last reviewed a page for correctness.
+
+Set the date using the `YYYYY-MM-DD` format, and separate the elements by using hyphens.
+For example, to set the last review date as June 6, 2024, use `2024-06-06`.
+
+The website includes the review date at the foot of the page's content.
+You can see how this renders on the [Writers' Toolkit home page](https://grafana.com/docs/writers-toolkit/#:~:text=Last%20reviewed%3A).
+
 ### Slug
 
 The `slug` front matter overrides the last segment of the URL path.

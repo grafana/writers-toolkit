@@ -7,8 +7,8 @@ title: Grafana Labs' dictionary
 
 # Grafana Labs' dictionary
 
-The Grafana Labs documentation squad maintains a dictionary used for spell checking.
-The same dictionary is also used to generate some Vale rules from the words metadata.
+The Grafana Labs documentation team maintains a dictionary used for spell checking.
+The same dictionary is used to generate some Vale rules from the metadata in the word definition.
 
 The dictionary uses the [Hunspell format](https://github.com/hunspell/hunspell) generated from a Jsonnet template.
 
@@ -28,7 +28,7 @@ The structure of that metadata is a Jsonnet object with the following fields:
 | `description`         | `string`   | A description of the word.                                                                                                             |
 | `acronym`             | `boolean`  | If `true`, the word is an acronym. Defaults to `false`.                                                                                |
 | `established_acronym` | `boolean`  | If `true`, the acronym doesn't generally need explaining, like the acronym HTTP. Defaults to `false`                                   |
-| `product`             | `boolean`  | If `true`, the word is the name of a product, like Mimir. Defaults to `false`.                                                         |
+| `product`             | `boolean`  | If `true`, the word is the name of any product, like Mimir or Facebook. Defaults to `false`.                                           |
 | `Amazon`              | `boolean`  | If `true`, the word is the name of an Amazon product, like CloudWatch. Defaults to `false`.                                            |
 
 You don't create the object directly in the dictionary file.

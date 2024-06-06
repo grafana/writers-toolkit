@@ -14,13 +14,15 @@ weight: 200
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
 To run the local documentation web server, run `make docs` from the `docs/` directory.
-The output message includes a URL that you can follow to view the changes to the documentation in the browser.
-Refer to an [example of a successful build](#example-succesful-build).
+If you are in the website repository, run `make docs` from the root of the repository instead.
 
 {{< admonition type="note" >}}
-Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
+Apart from in the website repository, running `make docs` from the root produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
 To run the local documentation web server, ensure that you are in the `docs/` directory.
 {{< /admonition >}}
+
+The output message includes a URL that you can follow to view the changes to the documentation in the browser.
+Refer to an [example of a successful build](#example-succesful-build).
 
 ## Run with specific projects
 
@@ -41,13 +43,13 @@ You must have the repository cloned locally for any projects specified in the sp
 To build only the Grafana documentation:
 
 ```bash
-make docs PROJECTS='grafana'
+make docs PROJECTS=grafana
 ```
 
 To build Grafana and Grafana Cloud documentation:
 
 ```bash
-make docs PROJECTS='grafana grafana-cloud'
+make docs 'PROJECTS=grafana grafana-cloud'
 ```
 
 If your local repository name doesn't match the upstream repository name.
@@ -56,7 +58,7 @@ You can use the `PROJECTS` option to override the directory.
 For example, if you have the Tempo repository `tempo` cloned into a directory called `tempo-doc-work`.
 
 ```bash
-make docs PROJECTS="tempo::tempo-doc-work"
+make docs PROJECTS=tempo::tempo-doc-work
 ```
 
 The format is `<PROJECT>[:VERSION[:REPOSITORY[:DIRECTORY]]].`
@@ -117,7 +119,7 @@ Refer to the following sections for examples of more complicated usage of `make 
 #### Mount documentation to a different version
 
 ```
-make docs 'PROJECTS=grafana:next'
+make docs PROJECTS=grafana:next
 ```
 
 #### Mount `v9.3.x` and the default version of Grafana documentation together

@@ -13,7 +13,8 @@ The same dictionary is used to generate some Vale rules from the metadata in the
 The dictionary uses the [Hunspell format](https://github.com/hunspell/hunspell) generated from a Jsonnet template.
 
 If a word doesn't yet exist in the dictionary, you can add one by modifying the [dictionary template file](https://github.com/grafana/writers-toolkit/blob/main/vale/dictionary.jsonnet).
-The template file uses the Jsonnet programming language but you don't need to know Jsonnet to add a new word.
+
+To add a new word to the dictionary, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
 
 ## Word metadata
 
@@ -34,19 +35,7 @@ The structure of that metadata is a Jsonnet object with the following fields:
 You don't create the object directly in the dictionary file.
 Instead, you use the `newWord` function which prescribes the required fields.
 
-To create new word, add the following line to the dictionary.
-The line goes in the `words` array, after an existing entry.
-The entries are ordered alphabetically.
-
-```jsonnet
-newWord(<WORD>, <AFFIXES>, <PO>)
-```
-
-For example, to add the verb downsample, with affixes for past tense and the gerund, add the following line:
-
-```jsonnet
-newWord('downsample', 'DG', 'verb')
-```
+To add new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
 
 To understand the Hunspell affixes, refer to [Hunspell affixes](#hunspell-affixes).
 

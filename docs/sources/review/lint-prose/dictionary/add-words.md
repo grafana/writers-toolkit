@@ -1,0 +1,105 @@
+---
+description: How to add a word to the Grafana Labs dictionary template.
+menuTitle: Add words
+title: Add words to the Grafana Labs dictionary
+---
+
+# Add words to the Grafana Labs dictionary
+
+The Grafana Labs documentation team maintains a dictionary used for spell checking.
+The same dictionary is used to generate some Vale rules from the metadata in the word definition.
+
+The template file uses the Jsonnet programming language but you don't need to know Jsonnet to add a new word.
+
+This topic explains how to perform the following tasks:
+
+- [Add a verb](#add-a-verb)
+- [Add a product](#add-a-product)
+- [Add an abbreviation](#add-an-abbreviation)
+
+For more complicated words, if you're comfortable with writing Jsonnet, refer to [word metadata reference](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#word-metadata.
+If you're not comfortable writing Jsonnet, [create an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CWORD%3E), and a maintainer can add it for you.
+
+## Before you begin
+
+- Clone the [Writers' Toolkit repository](https://github.com/grafana/writers-toolkit).
+
+  For more information, refer to [Create a local repository](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#create-a-local-repository).
+
+- Create a branch for your change.
+
+  For more information, refer to [Create a branch from the default remote branch](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#create-a-branch-from-the-default-remote-branch).
+
+## Add a verb
+
+A verb generally describes an action.
+It may take prefixes and suffixes that you can add as part of the definition.
+
+### Steps
+
+To add a verb:
+
+1. Open the `vale/dictionary.jsonnet` template file in your editor.
+1. Add a line for your word definition.
+
+   Your line goes in the `words` array, between the other entries.
+   Entries look like the following:
+
+   ```jsonnet
+   newWord(<STEM>, <AFFIXES>, <PART OF SPEECH>),
+   ```
+
+   The entries are ordered alphabetically.
+
+1. Fill out the required fields _`STEM`_, _`AFFIXES`_, and _`PART OF SPEECH`_.
+
+   1. Replace _`STEM`_ with the word stem.
+
+      This is the word without any prefixes or suffixes.
+      For the verb _downsampling_, the stem is _downsample_.
+
+      You must put the word stem between single quotes (`'`).
+
+      Your line should look similar to the following:
+
+      ```jsonnet
+      newWord('run', <AFFIXES>, <PART OF SPEECH>),
+      ```
+
+   1. Replace _`AFFIXES`_ with the concatenation of the Hunspell affixes.
+
+      To learn which affixes you can add, refer to the [Hunspell affixes table](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#hunspell-affixes).
+
+      You must put the affixes between single quotes (`'`).
+
+      To add affixes for the past tense and gerund forms, your line should look similar to the following:
+
+      ```jsonnet
+      newWord('downsample', 'DG', <PART OF SPEECH>),
+      ```
+
+   1. Replace _`PART OF SPEECH`_ with `'verb'`.
+
+      Your completed line should look similar to the following:
+
+   ```jsonnet
+   newWord('downsample', 'DG', 'verb'),
+   ```
+
+## Add a product
+
+A product can be a Grafana Labs' product, another company's product, or the name of a project.
+
+### Steps
+
+To add a product:
+
+## Add an abbreviation
+
+An abbreviation is a shortened form of a phrase.
+If the abbreviation is commonly known, like HTTP, you don't need to explain it in your writing.
+You can say that the abbreviation is commonly known in your definition.
+
+### Steps
+
+To add an abbreviation:

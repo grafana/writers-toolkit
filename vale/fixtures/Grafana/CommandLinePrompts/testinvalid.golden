@@ -1,0 +1,4 @@
+testinvalid.md:4:3:Grafana.CommandLinePrompts:Don't add `$`, or `#` before commands. Make it easy for users to copy and paste commands. 
+testinvalid.md:7:3:Grafana.CommandLinePrompts:Don't add `$`, or `#` before commands. Make it easy for users to copy and paste commands. 
+testinvalid.md:10:3:Grafana.CommandLinePrompts:Don't add `$`, or `#` before commands. Make it easy for users to copy and paste commands. 
+testinvalid.md:13:3:Grafana.CommandLinePrompts:Don't add `$`, or `#` before commands. Make it easy for users to copy and paste commands. 

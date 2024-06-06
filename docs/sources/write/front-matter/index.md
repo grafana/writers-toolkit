@@ -300,7 +300,7 @@ For more information, refer to [Link from source content that’s used in multip
 
 ### Review date
 
-Use the `review_date` front matter to set the time you last reviewed a page for correctness.
+Use the `review_date` front matter to set the date you last reviewed a page for correctness.
 
 Set the date using the `YYYYY-MM-DD` format, and separate the elements by using hyphens.
 For example, to set the last review date to June 6, 2024, use `2024-06-06`.

@@ -5,10 +5,14 @@ title: GNU Make help output
 ---
 
 Every project keeps technical documentation that's published to the website in the `docs/sources` directory.
+That documentation is published to the `content/docs` directory in the website repository.
+
 Additionally, every project uses [GNU Make](https://www.gnu.org/software/make/) to perform tasks related to technical documentation.
 To learn more about GNU Make, refer to [GNU Make Manual](https://www.gnu.org/software/make/manual/).
 
-To see a list of targets and their descriptions, run `make` from the `docs/` directory.
+To see a list of targets and their descriptions, run `make help` from the `docs/` directory.
+If you are in the website repository, run `make help` from the root of the repository instead.
+
 The output is similar to the following:
 
 ```console

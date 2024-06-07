@@ -17,11 +17,11 @@ To run the local documentation web server, run `make docs` from the `docs/` dire
 If you are in the website repository, run `make docs` from the root of the repository instead.
 
 {{< admonition type="note" >}}
-Apart from in the website repository, running `make docs` from the root produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
-To run the local documentation web server, ensure that you are in the `docs/` directory.
+Running `make docs` from the wrong directory, produces the output `make: Nothing to be done for 'docs'.` or `make: *** No rule to make target 'docs'.  Stop.`, and the local documentation web server is not started.
+To run the local documentation web server, ensure that you are in the right directory.
 {{< /admonition >}}
 
-The output message includes a URL that you can follow to view the changes to the documentation in the browser.
+The output message of a successful build includes a URL that you can follow to view the changes to the documentation in the browser.
 Refer to an [example of a successful build](#example-succesful-build).
 
 ## Run with specific projects

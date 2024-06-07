@@ -79,9 +79,9 @@ These messages are in the following format:
 
 where:
 
-- _`LEVEL`_ is one of `WARN` or `ERROR`
-- _`LANGUAGE`_ may be present
-- _`MESSAGE`_ is the issue
+- _`<LEVEL>`_ is one of `WARN` or `ERROR`
+- _`<LANGUAGE>`_ may be present
+- _`<MESSAGE>`_ is the issue
 
 ### Example: Successful build
 
@@ -155,12 +155,12 @@ Each argument has four fields separated by colons (`:`), and optional fields can
 
 `<PROJECT>[:VERSION[:REPOSITORY[:DIRECTORY]]]`
 
-- _`PROJECT`_: is the sub-directory of the `/docs/` directory in the website where the repository publishes documentation.
+- _`<PROJECT>`_: is the sub-directory of the `/docs/` directory in the website where the repository publishes documentation.
 
   For example:
 
-  - For Grafana, _`PROJECT`_ is `grafana` (`https://grafana.com/docs/grafana/`)
-  - For Grafana Cloud, _`PROJECT`_ is `grafana-cloud` (`https://grafana.com/docs/grafana-cloud/`).
+  - For Grafana, _`<PROJECT>`_ is `grafana` (`https://grafana.com/docs/grafana/`)
+  - For Grafana Cloud, _`<PROJECT>`_ is `grafana-cloud` (`https://grafana.com/docs/grafana-cloud/`).
 
   Pseudo projects mount multiple source directories.
 
@@ -169,21 +169,21 @@ Each argument has four fields separated by colons (`:`), and optional fields can
   - `traces`: mounts Tempo and Grafana Enterprise Traces (GET) directories.
 
   {{< admonition type="note" >}}
-  Pseudo projects don't support the _`REPOSITORY`_ or _`DIR`_ fields.
+  Pseudo projects don't support the _`<REPOSITORY>`_ or _`<DIR>`_ fields.
   {{< /admonition >}}
 
-- _`VERSION`_: is the name of the version directory to mount the documentation in.
+- _`<VERSION>`_: is the name of the version directory to mount the documentation in.
 
-  The _`VERSION`_ field is optional and defaults to `latest` for versioned projects and is empty for other projects.
+  The _`<VERSION>`_ field is optional and defaults to `latest` for versioned projects and is empty for other projects.
 
-- _`REPOSITORY`_: is the name of the directory that the project is cloned to.
+- _`<REPOSITORY>`_: is the name of the directory that the project is cloned to.
 
-  The _`REPOSITORY`_ field is optional and defaults to the script's internal mapping of project names to repository names.
+  The _`<REPOSITORY>`_ field is optional and defaults to the script's internal mapping of project names to repository names.
   For most projects, this is the same as the project name.
 
-- _`DIRECTORY`_: is the directory path within the repository containing the technical documentation documentation.
+- _`<DIRECTORY>`_: is the directory path within the repository containing the technical documentation documentation.
 
-  The _`DIRECTORY`_ field is optional and defaults to the script's internal mapping of project names to documentation source directories.
+  The _`<DIRECTORY>`_ field is optional and defaults to the script's internal mapping of project names to documentation source directories.
   For most projects, it's the `docs/sources` directory.
 
 #### `REPOS_PATH`

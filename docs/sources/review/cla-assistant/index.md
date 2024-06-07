@@ -36,8 +36,8 @@ You can request that the CLA assistant run again by browsing to the check URL fo
 
 The format of the URL is `https://cla-assistant.io/check/grafana/<REPOSITORY>?pullRequest=<PULL REQUEST>`.
 
-- _`REPOSITORY`_ is the GitHub repository name.
-- _`PULL REQUEST`_ is the pull request number in the repository.
+- _`<REPOSITORY>`_ is the GitHub repository name.
+- _`<PULL REQUEST>`_ is the pull request number in the repository.
 
 For example, to trigger the CLA assistant workflow for the pull request `https://github.com/grafana/grafana/pull/1`, the URL is `https://cla-assistant.io/check/grafana/grafana?pullRequest=1`.
 

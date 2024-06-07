@@ -15,13 +15,13 @@ refs:
       destination: <FULL URL>
 ```
 
-- _`URL PATH PREFIX`_ - Enter the part of the page URL that represents the project in which the documentation is published.
+- _`<URL PATH PREFIX>`_ - Enter the part of the page URL that represents the project in which the documentation is published.
 - `destination` - Enter the full URL of the destination page for that project including trailing slashes.
 
-If the page's URL matches the pattern _`URL PATH PREFIX`_, then Hugo uses `destination` as the link destination.
+If the page's URL matches the pattern _`<URL PATH PREFIX>`_, then Hugo uses `destination` as the link destination.
 If no pattern matches the current page, Hugo logs a build error.
 
-The _`FULL URL`_ destination has the same behavior as described in [Link to `grafana.com` pages](https://grafana.com/docs/writers-toolkit/write/links/#link-to-grafanacom-pages)
+The _`<FULL URL>`_ destination has the same behavior as described in [Link to `grafana.com` pages](https://grafana.com/docs/writers-toolkit/write/links/#link-to-grafanacom-pages)
 
 # Example
 

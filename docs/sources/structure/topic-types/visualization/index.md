@@ -56,7 +56,7 @@ A visualization topic includes the following elements:
   The body must include the following sections:
 
   - **Supported data formats:** Provide guidance about which data formats are supported by the visualization type, with example use cases.
-  - **[Section] options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
+  - **_`<SECTION>`_ options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
     For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
     This doesn't include the sections linked from the **Other options** section.
   - **Other visualization options:** Include a section for links to the documentation for common UI options:
@@ -91,7 +91,7 @@ A widget topic includes the following elements:
 - **Body:** The body may include task/how-to information as needed.
   The body must include the following sections:
 
-  - **[Section] options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
+  - **_`<SECTION>`_ options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
     For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
 
 ## Visualization naming conventions

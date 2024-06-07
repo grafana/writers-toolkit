@@ -1,0 +1,3 @@
+testinvalid.md:3:3:Grafana.DatadogProxy:Use 'Datadog proxy' instead of 'The Datadog proxy'.
+testinvalid.md:4:3:Grafana.DatadogProxy:Use 'Datadog proxy' instead of 'The datadog proxy'.
+testinvalid.md:5:3:Grafana.DatadogProxy:Use 'Datadog proxy' instead of 'Datadog Proxy'.

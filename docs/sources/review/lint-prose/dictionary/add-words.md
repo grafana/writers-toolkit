@@ -51,9 +51,9 @@ To add a verb:
 
    The entries are ordered alphabetically.
 
-1. Fill out the required fields _`STEM`_, _`AFFIXES`_, and _`PART OF SPEECH`_.
+1. Fill out the required fields _`<STEM>`_, _`<AFFIXES>`_, and _`<PART OF SPEECH>`_.
 
-   1. Replace _`STEM`_ with the word stem.
+   1. Replace _`<STEM>`_ with the word stem.
 
       This is the word without any prefixes or suffixes.
       For the verb _downsampling_, the stem is _downsample_.
@@ -66,7 +66,7 @@ To add a verb:
       newWord('run', <AFFIXES>, <PART OF SPEECH>),
       ```
 
-   1. Replace _`AFFIXES`_ with the concatenation of the Hunspell affixes.
+   1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
 
       To learn which affixes you can add, refer to the [Hunspell affixes table](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#hunspell-affixes).
 
@@ -78,7 +78,7 @@ To add a verb:
       newWord('downsample', 'DG', <PART OF SPEECH>),
       ```
 
-   1. Replace _`PART OF SPEECH`_ with the part of speech.
+   1. Replace _`<PART OF SPEECH>`_ with the part of speech.
 
       For verbs, this is `'verb'`.
 
@@ -108,9 +108,9 @@ To add a product:
 
    The entries are ordered alphabetically.
 
-1. Fill out the required fields _`STEM`_, _`AFFIXES`_, and _`PART OF SPEECH`_.
+1. Fill out the required fields _`<STEM>`_, _`<AFFIXES>`_, and _`<PART OF SPEECH>`_.
 
-   1. Replace _`STEM`_ with the word stem.
+   1. Replace _`<STEM>`_ with the word stem.
 
       For products, this is the product name.
 
@@ -118,7 +118,7 @@ To add a product:
       newWord('GitHub', <AFFIXES>, <PART OF SPEECH>),
       ```
 
-   1. Replace _`AFFIXES`_ with the concatenation of the Hunspell affixes.
+   1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
 
       Products generally have no affixes.
 
@@ -126,7 +126,7 @@ To add a product:
       newWord('downsample', '', <PART OF SPEECH>),
       ```
 
-   1. Replace _`PART OF SPEECH`_ with the part of speech.
+   1. Replace _`<PART OF SPEECH>`_ with the part of speech.
 
       For products, this is `'noun'`.
 
@@ -178,9 +178,9 @@ To add an abbreviation:
 
    The entries are ordered alphabetically.
 
-1. Fill out the required fields _`STEM`_, _`AFFIXES`_, and _`PART OF SPEECH`_.
+1. Fill out the required fields _`<STEM>`_, _`<AFFIXES>`_, and _`<PART OF SPEECH>`_.
 
-   1. Replace _`STEM`_ with the word stem.
+   1. Replace _`<STEM>`_ with the word stem.
 
       For abbreviation, this is the abbreviation letters.
 
@@ -188,7 +188,7 @@ To add an abbreviation:
       newWord('SUT', <AFFIXES>, <PART OF SPEECH>),
       ```
 
-   1. Replace _`AFFIXES`_ with the concatenation of the Hunspell affixes.
+   1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
 
       To learn which affixes you can add, refer to the [Hunspell affixes table](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#hunspell-affixes).
 
@@ -201,7 +201,7 @@ To add an abbreviation:
       newWord('SUT', 's', <PART OF SPEECH>),
       ```
 
-   1. Replace _`PART OF SPEECH`_ with the part of speech.
+   1. Replace _`<PART OF SPEECH>`_ with the part of speech.
 
       For abbreviations, this is `'noun'`.
 

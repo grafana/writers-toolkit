@@ -78,7 +78,9 @@ To add a verb:
       newWord('downsample', 'DG', <PART OF SPEECH>),
       ```
 
-   1. Replace _`PART OF SPEECH`_ with `'verb'`.
+   1. Replace _`PART OF SPEECH`_ with the part of speech.
+
+      For verbs, this is `'verb'`.
 
       Your completed line should look similar to the following:
 
@@ -94,6 +96,66 @@ A product can be a Grafana Labs' product, another company's product, or the name
 
 To add a product:
 
+1. Open the `vale/dictionary.jsonnet` template file in your editor.
+1. Add a line for your word definition.
+
+   Your line goes in the `words` array, between the other entries.
+   Entries look like the following:
+
+   ```jsonnet
+   newWord(<STEM>, <AFFIXES>, <PART OF SPEECH>),
+   ```
+
+   The entries are ordered alphabetically.
+
+1. Fill out the required fields _`STEM`_, _`AFFIXES`_, and _`PART OF SPEECH`_.
+
+   1. Replace _`STEM`_ with the word stem.
+
+      For products, this is the product name.
+
+      ```jsonnet
+      newWord('GitHub', <AFFIXES>, <PART OF SPEECH>),
+      ```
+
+   1. Replace _`AFFIXES`_ with the concatenation of the Hunspell affixes.
+
+      Products generally have no affixes.
+
+      ```jsonnet
+      newWord('downsample', '', <PART OF SPEECH>),
+      ```
+
+   1. Replace _`PART OF SPEECH`_ with the part of speech.
+
+      For products, this is `'noun'`.
+
+      Your line should look similar to the following:
+
+      ```jsonnet
+      newWord('GitHub', '', 'noun'),
+      ```
+
+1. Extend the definition to indicate it's a product.
+
+   Add the object `{ product: true }` between the right bracket (`)`), and the end of line comma (`,`).
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('GitHub', '', 'noun') { product: true },
+   ```
+
+1. If the product is an Amazon product, extend the definition to include this.
+
+   Update the object to have an additional field, `Amazon: true`.
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('GitHub', '', 'noun') { Amazon: true, product: true },
+   ```
+
 ## Add an abbreviation
 
 An abbreviation is a shortened form of a phrase.
@@ -103,3 +165,78 @@ You can say that the abbreviation is commonly known in your definition.
 ### Steps
 
 To add an abbreviation:
+
+1. Open the `vale/dictionary.jsonnet` template file in your editor.
+1. Add a line for your word definition.
+
+   Your line goes in the `words` array, between the other entries.
+   Entries look like the following:
+
+   ```jsonnet
+   newWord(<STEM>, <AFFIXES>, <PART OF SPEECH>),
+   ```
+
+   The entries are ordered alphabetically.
+
+1. Fill out the required fields _`STEM`_, _`AFFIXES`_, and _`PART OF SPEECH`_.
+
+   1. Replace _`STEM`_ with the word stem.
+
+      For abbreviation, this is the abbreviation letters.
+
+      ```jsonnet
+      newWord('SUT', <AFFIXES>, <PART OF SPEECH>),
+      ```
+
+   1. Replace _`AFFIXES`_ with the concatenation of the Hunspell affixes.
+
+      To learn which affixes you can add, refer to the [Hunspell affixes table](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#hunspell-affixes).
+
+      You must put the affixes between single quotes (`'`).
+
+      Some abbreviations have a plural suffix.
+      To add the plural suffix, include `s`.
+
+      ```jsonnet
+      newWord('SUT', 's', <PART OF SPEECH>),
+      ```
+
+   1. Replace _`PART OF SPEECH`_ with the part of speech.
+
+      For abbreviations, this is `'noun'`.
+
+      Your line should look similar to the following:
+
+      ```jsonnet
+      newWord('SUT', 's', 'noun'),
+      ```
+
+1. Extend the definition to indicate it's an abbreviation.
+
+   Add the object `{ acronym: true }` between the right bracket (`)`), and the end of line comma (`,`).
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('SUT', 's', 'noun') { acronym: true },
+   ```
+
+1. Extend the definition to include a description: `description: <DESCRIPTION>`.
+
+   The description should at least include the expanded abbreviation.
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('SUT', 's', 'noun') { acronym: true, description: 'System Under Test' },
+   ```
+
+1. If you don't need to expand the acronym for the general reader, extend the definition to include this.
+
+   Update the object to have an additional field, `established_acronym: true`.
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('SUT', 's', 'noun') { acronym: true, description: 'System Under Test', established_acronym: true },
+   ```

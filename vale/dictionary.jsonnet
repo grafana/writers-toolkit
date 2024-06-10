@@ -44,6 +44,7 @@ local newWord(word, affixes, po) = {
     newWord('Codespaces', '', 'noun') { description: 'GitHub Codespaces https://docs.github.com/en/codespaces/overview', product: true },
     newWord('composable', '', 'adjective'),
     newWord('configure', 'mpDS', 'verb'),
+    newWord('contentful', '', 'adjective'),
     newWord('Couchbase', 'M', 'noun'),
     newWord('Data Firehose', '', 'noun') { Amazon: true, product: true },
     newWord('CPU', 'S', 'noun') { abbreviation: true, established_abbreviation: true },

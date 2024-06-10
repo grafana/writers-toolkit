@@ -17,7 +17,7 @@ This topic explains how to perform the following tasks:
 - [Add a product](#add-a-product)
 - [Add an abbreviation](#add-an-abbreviation)
 
-For more complicated words, if you're comfortable with writing Jsonnet, refer to [word metadata reference](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#word-metadata.
+For more complicated words, if you're comfortable with writing Jsonnet, refer to [word metadata reference](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#word-metadata).
 If you're not comfortable writing Jsonnet, [create an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CWORD%3E), and a maintainer can add it for you.
 
 ## Before you begin
@@ -63,7 +63,7 @@ To add a verb:
       Your line should look similar to the following:
 
       ```jsonnet
-      newWord('run', <AFFIXES>, <PART OF SPEECH>),
+      newWord('downsample', <AFFIXES>, <PART OF SPEECH>),
       ```
 
    1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
@@ -115,7 +115,7 @@ To add a product:
       For products, this is the product name.
 
       ```jsonnet
-      newWord('GitHub', <AFFIXES>, <PART OF SPEECH>),
+      newWord('CloudWatch', <AFFIXES>, <PART OF SPEECH>),
       ```
 
    1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
@@ -123,7 +123,7 @@ To add a product:
       Products generally have no affixes.
 
       ```jsonnet
-      newWord('downsample', '', <PART OF SPEECH>),
+      newWord('CloudWatch', '', <PART OF SPEECH>),
       ```
 
    1. Replace _`<PART OF SPEECH>`_ with the part of speech.
@@ -133,7 +133,7 @@ To add a product:
       Your line should look similar to the following:
 
       ```jsonnet
-      newWord('GitHub', '', 'noun'),
+      newWord('CloudWatch', '', 'noun'),
       ```
 
 1. Extend the definition to indicate it's a product.
@@ -143,7 +143,7 @@ To add a product:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('GitHub', '', 'noun') { product: true },
+   newWord('CloudWatch', '', 'noun') { product: true },
    ```
 
 1. If the product is an Amazon product, extend the definition to include this.
@@ -153,7 +153,7 @@ To add a product:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('GitHub', '', 'noun') { Amazon: true, product: true },
+   newWord('CloudWatch', '', 'noun') { Amazon: true, product: true },
    ```
 
 ## Add an abbreviation

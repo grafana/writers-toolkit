@@ -29,6 +29,7 @@ CloudWatch/ po:noun
 codespace/S po:noun
 Codespaces/ po:noun
 composable/ po:adjective
+configure/mpDS po:verb
 Couchbase/M po:noun
 Data Firehose/ po:noun
 CPU/S po:noun
@@ -123,7 +124,6 @@ Phlare/M po:noun
 PHP/ po:noun
 PNG/ po:noun
 Podman/M po:noun
-preconfigure/D po:verb
 profile/DGRS po:verb
 Promtail/M po:noun
 provision/dD po:verb

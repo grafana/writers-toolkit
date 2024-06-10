@@ -58,6 +58,8 @@ The affix rules are defined in [`en_US-grafana.aff`](https://github.com/grafana/
 | Letter | Kind   | Description                                                                   |
 | ------ | ------ | ----------------------------------------------------------------------------- |
 | `d`    | Prefix | Adds the `de` prefix to the stem, making deprovision from provision.          |
+| `m`    | Prefix | Adds the `mis` prefix to the stem, making misconfigure from configure.        |
+| `p`    | Prefix | Adds the `pre` prefix to the stem, making preconfigure from configure.        |
 | `u`    | Prefix | Adds the `un` prefix to the stem, making unregister from register.            |
 | `D`    | Suffix | Adds the past tense suffix `ed` to the stem, making ingested from ingest.     |
 | `G`    | Suffix | Adds the gerund suffix `ing` to the stem, making singing from sing.           |

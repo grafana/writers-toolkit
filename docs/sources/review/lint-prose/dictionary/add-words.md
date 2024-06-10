@@ -84,9 +84,9 @@ To add a verb:
 
       Your completed line should look similar to the following:
 
-   ```jsonnet
-   newWord('downsample', 'DG', 'verb'),
-   ```
+      ```jsonnet
+      newWord('downsample', 'DG', 'verb'),
+      ```
 
 ## Add a product
 
@@ -213,12 +213,12 @@ To add an abbreviation:
 
 1. Extend the definition to indicate it's an abbreviation.
 
-   Add the object `{ acronym: true }` between the right bracket (`)`), and the end of line comma (`,`).
+   Add the object `{ abbreviation: true }` between the right bracket (`)`), and the end of line comma (`,`).
 
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('SUT', 's', 'noun') { acronym: true },
+   newWord('SUT', 's', 'noun') { abbreviation: true },
    ```
 
 1. Extend the definition to include a description: `description: <DESCRIPTION>`.
@@ -228,15 +228,15 @@ To add an abbreviation:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('SUT', 's', 'noun') { acronym: true, description: 'System Under Test' },
+   newWord('SUT', 's', 'noun') { abbreviation: true, description: 'System Under Test' },
    ```
 
-1. If you don't need to expand the acronym for the general reader, extend the definition to include this.
+1. If you don't need to expand the abbreviation for the general reader, extend the definition to include this.
 
-   Update the object to have an additional field, `established_acronym: true`.
+   Update the object to have an additional field, `established_abbreviation: true`.
 
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('SUT', 's', 'noun') { acronym: true, description: 'System Under Test', established_acronym: true },
+   newWord('SUT', 's', 'noun') { abbreviation: true, description: 'System Under Test', established_abbreviation: true },
    ```

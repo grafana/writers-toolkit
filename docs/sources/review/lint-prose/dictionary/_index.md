@@ -21,16 +21,16 @@ To add a new word to the dictionary, refer to [Add words to the Grafana Labs dic
 Each word in the dictionary has metadata that describes it.
 The structure of that metadata is a Jsonnet object with the following fields:
 
-| Key                   | Value type | Description                                                                                                                            |
-| --------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `word`                | `string`   | The spelling of the word.                                                                                                              |
-| `affixes`             | `string`   | A concatenation of the letters corresponding to Hunspell affixes. For more information, refer to [Hunspell affixes](#hunspell-affixes) |
-| `po`                  | `string`   | The part of speech descriptor for the word. Known acceptable values include `'noun'`, `'adjective'`, and `'verb'`.                     |
-| `description`         | `string`   | A description of the word.                                                                                                             |
-| `acronym`             | `boolean`  | If `true`, the word is an acronym. Defaults to `false`.                                                                                |
-| `established_acronym` | `boolean`  | If `true`, the acronym doesn't generally need explaining, like the acronym HTTP. Defaults to `false`                                   |
-| `product`             | `boolean`  | If `true`, the word is the name of any product, like Mimir or Facebook. Defaults to `false`.                                           |
-| `Amazon`              | `boolean`  | If `true`, the word is the name of an Amazon product, like CloudWatch. Defaults to `false`.                                            |
+| Key                        | Value type | Description                                                                                                                            |
+| -------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `word`                     | `string`   | The spelling of the word.                                                                                                              |
+| `affixes`                  | `string`   | A concatenation of the letters corresponding to Hunspell affixes. For more information, refer to [Hunspell affixes](#hunspell-affixes) |
+| `po`                       | `string`   | The part of speech descriptor for the word. Known acceptable values include `'noun'`, `'adjective'`, and `'verb'`.                     |
+| `description`              | `string`   | A description of the word.                                                                                                             |
+| `abbreviation`             | `boolean`  | If `true`, the word is an abbreviation. Defaults to `false`.                                                                           |
+| `established_abbreviation` | `boolean`  | If `true`, the abbreviation doesn't generally need explaining, like the abbreviation HTTP. Defaults to `false`                         |
+| `product`                  | `boolean`  | If `true`, the word is the name of any product, like Mimir or Facebook. Defaults to `false`.                                           |
+| `Amazon`                   | `boolean`  | If `true`, the word is the name of an Amazon product, like CloudWatch. Defaults to `false`.                                            |
 
 You don't create the object directly in the dictionary file.
 Instead, you use the `newWord` function which prescribes the required fields.

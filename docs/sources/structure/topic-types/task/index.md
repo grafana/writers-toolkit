@@ -2,13 +2,13 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/task
   - /docs/writers-toolkit/structure/topic-types/task/
-review_date: 2024-02-27
 description: Learn how to write a task topic.
 keywords:
   - topic types
   - template
   - task
 menuTitle: Task
+review_date: 2024-06-07
 title: Task topic
 weight: 200
 ---
@@ -25,7 +25,8 @@ A _task_ topic includes the following elements:
 
 - **Introduction:** Provide an introduction that explains why the end user should care about the task.
 
-  There might be conceptual material in this section of a task topic. Limit conceptual information to only what's relevant to the task at hand.
+  There might be conceptual material in this section of a task topic.
+  Limit conceptual information to only what's relevant to the task at hand.
 
   If you find yourself writing a long introduction, consider creating a concept topic, and then writing a shorter form of that concept in the task introduction.
   You can link to the longer concept topic from this introduction.
@@ -41,7 +42,7 @@ A _task_ topic includes the following elements:
 
 - **Stem sentence:** The stem sentence introduces the steps.
 
-  Use the following convention when you write a stem sentence: To [name of task], follow these steps:
+  Use the following convention when you write a stem sentence: To _`<NAME OF TASK>`_, follow these steps:
   For example: To create a dashboard, follow these steps:
 
   For more information about stem sentences, refer to [Procedures](https://developers.google.com/style/procedures) in the [Google developer documentation style guide](https://developers.google.com/style).

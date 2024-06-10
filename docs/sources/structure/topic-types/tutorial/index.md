@@ -139,7 +139,7 @@ To hide your tutorial from your documentation's table of contents:
 
 1. Open your project's `docs/sources/_index.md` file.
 
-1. Add the following YAML to the page's front matter, replacing _`PROJECT`_ with your project URL path.
+1. Add the following YAML to the page's front matter, replacing _`<PROJECT>`_ with your project URL path.
 
    If the `cascade` front matter already exists, you must merge this snippet with the existing front matter.
 
@@ -162,8 +162,8 @@ To add your tutorial to the Tutorials page:
 
 1. Add the following YAML to the `manual_mounts` field in the `config/_default/config.yaml` file in the website repository.
 
-   Replace _`PROJECT`_ with your project name, _`TUTORIAL`_ with the directory of your tutorial, and _`VERSION`_ with the version of documentation you want to mount.
-   Typically _`VERSION`_ is either "next" or "latest".
+   Replace _`<PROJECT>`_ with your project name, _`<TUTORIAL>`_ with the directory of your tutorial, and _`<VERSION>`_ with the version of documentation you want to mount.
+   Typically _`<VERSION>`_ is either "next" or "latest".
 
    ```yaml
    - source: content/docs/<PROJECT>/<VERSION>/tutorials/<TUTORIAL>
@@ -172,7 +172,7 @@ To add your tutorial to the Tutorials page:
 
 1. Add the following YAML to the `list` field in the `data/tutorials.yaml` file in the website repository.
 
-   Replace _`TUTORIAL`_ with the directory of your tutorial and _`LEVEL`_ with one of "beginner", "intermediate", or "advanced" depending on the difficulty of your tutorial.
+   Replace _`<TUTORIAL>`_ with the directory of your tutorial and _`<LEVEL>`_ with one of "beginner", "intermediate", or "advanced" depending on the difficulty of your tutorial.
 
    ```yaml
    - page: /tutorials/<TUTORIAL>

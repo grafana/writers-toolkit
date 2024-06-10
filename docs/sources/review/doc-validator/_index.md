@@ -25,7 +25,7 @@ You can find documentation for each error code in [Errata for `doc-validator`](h
 The script that invokes `doc-validator` mounts projects using the Hugo website structure.
 All projects are subdirectories of `/hugo/content/docs/`.
 
-To run `doc-validator` on specific files, provide the _`DOC_VALIDATOR_INCLUDE`_ argument to your `make` command.
+To run `doc-validator` on specific files, provide the _`<DOC_VALIDATOR_INCLUDE>`_ argument to your `make` command.
 It's value is a regular expression that the tool matches against file paths.
 `doc-validator` only lints the paths that the regular expression matches.
 

@@ -110,7 +110,7 @@ If you manually install Vale, you must configure your system to add Vale to your
    TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
    ```
 
-   Replace _`PATH TO WRITERS TOOLKIT REPOSITORY`_ with the full path to your checkout of the Writer's Toolkit repository.
+   Replace _`<PATH TO WRITERS TOOLKIT REPOSITORY>`_ with the full path to your checkout of the Writer's Toolkit repository.
    The path depends on where you cloned the Git repository. For example:
 
    - On Linux, you could set StylesPath to `/home/<USERNAME>/git-repos/writers-toolkit/vale`

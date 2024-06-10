@@ -114,7 +114,8 @@ Depending on the application, your tutorial's data might be:
 - In demo repositories that the user clones locally
 
 For example, the [Play with Grafana Mimir](https://grafana.com/tutorials/play-with-grafana-mimir/) tutorial provides a repository that users can clone to complete the tutorial.
-In contrast, the [Store exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/manage/use-exemplars/store-exemplars/) topic is a pure task that a user would follow to complete their work. For guidance on writing tasks, see [Tasks](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/).
+In contrast, the [Store exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/manage/use-exemplars/store-exemplars/) topic is a pure task that a user would follow to complete their work.
+For guidance on writing tasks, refer to [Tasks](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/).
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial.
 If getting access to the data is straightforward, include it in the "Before you begin" section.

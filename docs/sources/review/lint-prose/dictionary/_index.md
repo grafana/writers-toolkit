@@ -44,6 +44,11 @@ To understand the Hunspell affixes, refer to [Hunspell affixes](#hunspell-affixe
 Hunspell affixes teach the dictionary multiple words by applying affix rules to the stem word.
 The affix rules are defined in [`en_US-grafana.aff`](https://github.com/grafana/writers-toolkit/blob/master/vale/dictionaries/en_US-grafana.aff).
 
+{{< admonition type="note" >}}
+Affixes are case sensitive.
+`d` is a different affix to `D`
+{{< /admonition >}}
+
 | Letter | Kind   | Description                                                                   |
 | ------ | ------ | ----------------------------------------------------------------------------- |
 | `d`    | Prefix | Adds the `de` prefix to the stem, making deprovision from provision.          |

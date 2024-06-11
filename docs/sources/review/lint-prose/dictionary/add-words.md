@@ -199,6 +199,7 @@ To add an abbreviation:
 
       Some abbreviations have a plural suffix.
       To add the plural suffix, include `s`.
+      All affixes are case sensitive.
 
       ```jsonnet
       newWord('SUT', 's', <PART OF SPEECH>),

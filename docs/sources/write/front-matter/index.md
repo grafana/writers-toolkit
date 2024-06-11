@@ -289,9 +289,9 @@ cascade:
 <!-- vale Grafana.Headings = YES -->
 
 Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element.
-For example, if you want to abbreviate the topic heading in the table of contents.
+For example, if you want to abbreviate the topic title in the table of contents.
 
-Don't remove the verb from [task topic](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/) headings.
+Don't remove the verb from [task topic](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/) titles.
 The verb helps the reader know that they're navigating to a task topic before they follow the link.
 
 ### Refs

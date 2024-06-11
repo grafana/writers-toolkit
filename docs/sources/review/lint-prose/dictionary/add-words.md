@@ -91,6 +91,16 @@ To add a general word:
       newWord('downsample', 'DG', 'verb'),
       ```
 
+1. If the word isn't well known, extend the definition to include a description: `description: <DESCRIPTION>`.
+
+   The description should define the word.
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('downsample', 'DG', 'verb') { description: 'To reduce the sampling rate of a signal.' },
+   ```
+
 ## Add a product name
 
 A product can be a Grafana Labs' product, another company's product, or the name of a project.
@@ -157,6 +167,16 @@ To add a product:
 
    ```jsonnet
    newWord('CloudWatch', '', 'noun') { Amazon: true, product: true },
+   ```
+
+1. Extend the definition to include a description: `description: <DESCRIPTION>`.
+
+   The description should at least include a link to the product's primary documentation.
+
+   Your line should look similar to the following:
+
+   ```jsonnet
+   newWord('CloudWatch', '', 'noun') { Amazon: true, description: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html', product: true },
    ```
 
 ## Add an abbreviation

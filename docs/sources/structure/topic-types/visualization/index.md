@@ -144,8 +144,6 @@ To write a visualization or widget topic, follow these steps.
 
    For more information about front matter, refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/).
 
-<!-- https://github.com/grafana/writers-toolkit/issues/560 -->
-
 ## Visualization template
 
 When you're ready to write, make a copy of the [Visualization template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/visualization-template.md) and add your content.

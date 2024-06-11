@@ -239,8 +239,8 @@ To add an abbreviation:
 
    Update the object to have an additional field, `established_abbreviation: true`.
 
-   Your line should look similar to the following:
+   For the well-known abbreviation HTTP, your line should look similar to the following:
 
    ```jsonnet
-   newWord('SUT', 's', 'noun') { abbreviation: true, description: 'System Under Test', established_abbreviation: true },
+   newWord('HTTP', '', 'noun') { abbreviation: true, description: 'Hypertext Transfer Protocol', established_abbreviation: true },
    ```

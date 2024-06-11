@@ -13,8 +13,8 @@ The template file uses the Jsonnet programming language but you don't need to kn
 
 This topic explains how to perform the following tasks:
 
-- [Add a verb](#add-a-verb)
-- [Add a product](#add-a-product)
+- [Add a general word (noun, verb, or adjective)](#add-a-general-word-noun-verb-or-adjective)
+- [Add a product name](#add-a-product-name)
 - [Add an abbreviation](#add-an-abbreviation)
 
 For more complicated words, if you're comfortable with writing Jsonnet, refer to [word metadata reference](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/#word-metadata).
@@ -30,14 +30,15 @@ If you're not comfortable writing Jsonnet, [create an issue](https://github.com/
 
   For more information, refer to [Create a branch from the default remote branch](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#create-a-branch-from-the-default-remote-branch).
 
-## Add a verb
+## Add a general word (noun, verb, or adjective)
 
+A noun is a word that represents a concrete or abstract thing.
 A verb generally describes an action.
-It may take prefixes and suffixes that you can add as part of the definition.
+Adjectives describe nouns.
 
 ### Steps
 
-To add a verb:
+To add a general word:
 
 1. Open the `vale/dictionary.jsonnet` template file in your editor.
 1. Add a line for your word definition.
@@ -81,6 +82,8 @@ To add a verb:
    1. Replace _`<PART OF SPEECH>`_ with the part of speech.
 
       For verbs, this is `'verb'`.
+      For nouns, this is `'noun'`.
+      For adjectives, this is `'adjective'`.
 
       Your completed line should look similar to the following:
 
@@ -88,7 +91,7 @@ To add a verb:
       newWord('downsample', 'DG', 'verb'),
       ```
 
-## Add a product
+## Add a product name
 
 A product can be a Grafana Labs' product, another company's product, or the name of a project.
 

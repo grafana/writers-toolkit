@@ -9,7 +9,8 @@ title: Add words to the Grafana Labs dictionary
 The Grafana Labs documentation team maintains a dictionary used for spell checking.
 The same dictionary is used to generate some Vale rules from the metadata in the word definition.
 
-The template file uses the Jsonnet programming language but you don't need to know Jsonnet to add a new word.
+The template file uses the [Jsonnet](https://jsonnet.org) programming language but you don't need to know Jsonnet to add a new word.
+Unlike YAML, Jsonnet isn't sensitive to whitespace.
 
 This topic explains how to perform the following tasks:
 

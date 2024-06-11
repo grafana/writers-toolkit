@@ -10,7 +10,7 @@ title: Grafana Labs' dictionary
 The Grafana Labs documentation team maintains a dictionary used for spell checking.
 The same dictionary is used to generate some Vale rules from the metadata in the word definition.
 
-The dictionary uses the [Hunspell format](https://github.com/hunspell/hunspell) generated from a Jsonnet template.
+The dictionary uses the [Hunspell format](https://github.com/hunspell/hunspell) generated from a [Jsonnet](https://jsonnet.org) template.
 
 If a word doesn't yet exist in the dictionary, you can add one by modifying the [dictionary template file](https://github.com/grafana/writers-toolkit/blob/main/vale/dictionary.jsonnet).
 

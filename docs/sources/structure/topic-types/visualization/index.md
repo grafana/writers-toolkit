@@ -1,7 +1,7 @@
 ---
 aliases:
   - /docs/writers-toolkit/structure/topic-types/visualization
-review_date: 2024-02-29
+review_date: 2024-06-12
 description: Learn how to write a visualization topic.
 keywords:
   - topic types

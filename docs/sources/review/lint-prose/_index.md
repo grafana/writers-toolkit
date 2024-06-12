@@ -26,7 +26,7 @@ Repositories that run Vale in CI include:
 
 ## Skip rules
 
-To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule.
+To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule. Include the specific rule name in the comment, for example `Grafana.We` or `Grafana.Google.Ellipses`. The `Grafana.Quotes` rule is a made up example rule to illustrate how to disable a rule.
 
 To disable the `Grafana.Quotes` rule:
 

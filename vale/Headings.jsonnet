@@ -21,7 +21,7 @@ std.manifestYamlDoc({
     [
       def.word
       for def in defs
-      if 'acronym' in def && def.acronym
+      if 'abbreviation' in def && def.abbreviation
     ] +
     [
       'Adaptive Metrics',

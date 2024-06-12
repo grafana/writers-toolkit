@@ -35,6 +35,7 @@ local newWord(word, affixes, po) = {
     newWord('burndown', '', 'adjective'),
     newWord('bundler', 'S', 'noun'),
     newWord('cAdvisor', 'M', 'noun'),
+    newWord('callee', 'S', 'noun') { description: 'A function that is called by another function' },
     newWord('CDN', '', 'noun') { abbreviation: true, description: 'Content Delivery Network' },
     newWord('CLA', '', 'noun') { abbreviation: true, description: 'Contributor License Agreement' },
     newWord('CLI', '', 'noun') { abbreviation: true, established_abbreviation: true },

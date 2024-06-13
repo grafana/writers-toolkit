@@ -1,13 +1,13 @@
 ---
 aliases:
   - /docs/writers-toolkit/structure/topic-types/visualization
-review_date: 2024-06-12
 description: Learn how to write a visualization topic.
 keywords:
   - topic types
   - template
   - visualization
 menuTitle: Visualization
+review_date: 2024-06-12
 title: Visualization topic
 weight: 400
 ---
@@ -143,6 +143,14 @@ To write a visualization or widget topic, follow these steps.
 1. Add additional front matter to the `index.md` file.
 
    For more information about front matter, refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/).
+
+## Visualization topic examples
+
+Refer to the following topics for visualization topic examples:
+
+- [Alert list](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/)
+- [Node graph](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/node-graph/)
+- [Time series](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
 
 ## Visualization template
 

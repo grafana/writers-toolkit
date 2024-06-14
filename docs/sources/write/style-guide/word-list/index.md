@@ -25,6 +25,10 @@ This page is a work in progress.
 
 ## A
 
+### agentless
+
+Don't use. Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology. See [no collector](#no-collector).
+
 ### alert rule
 
 Grafana Alerting uses the term _alert rule_ to describe the Grafana feature that includes both [Grafana-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#grafana-managed-alert-rules) and [Data source-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#data-source-managed-alert-rules).
@@ -105,6 +109,10 @@ Use this rather than _hold the pointer over_ or _point to_.
 Use this rather than _hamburger menu_ or _kebab menu_.
 
 ## N
+
+### no collector
+
+Use this to refer to deployments that don't have a collector. Use this instead of _agentless_.
 
 ### Node Exporter
 

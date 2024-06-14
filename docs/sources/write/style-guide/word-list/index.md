@@ -25,6 +25,19 @@ This page is a work in progress.
 
 ## A
 
+<!-- vale Grafana.Agentless = NO -->
+
+### agentless
+
+Grafana Alloy is a vendor-neutral distribution of the OpenTelemetry (OTel) Collector.
+It's not an agent.
+
+If you're talking about why and how to send signals directly from app to prefer no-collector to agentless.
+
+This is consistent with [OTel documentation](https://opentelemetry.io/docs/collector/deployment/no-collector/).
+
+<!-- vale Grafana.Agentless = YES -->
+
 ### alert rule
 
 Grafana Alerting uses the term _alert rule_ to describe the Grafana feature that includes both [Grafana-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#grafana-managed-alert-rules) and [Data source-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/alert-rule-types/#data-source-managed-alert-rules).

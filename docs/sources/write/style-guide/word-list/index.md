@@ -27,7 +27,7 @@ This page is a work in progress.
 
 ### agentless
 
-Don't use. Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology. See [no collector](#no-collector).
+Don't use. Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology. Refer to [no collector](#no-collector).
 
 ### alert rule
 

@@ -1,7 +1,6 @@
 extends: substitution
 message: |
-  Grafana Alloy is a vendor-neutral distribution of the OpenTelemetry (OTel) Collector.
-  It's not an agent.
+  Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology.
 
   If you're talking about why and how to send signals directly from app to prefer no-collector to agentless.
 

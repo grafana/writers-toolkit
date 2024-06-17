@@ -118,8 +118,12 @@ Use this rather than _hamburger menu_ or _kebab menu_.
 
 ### no-collector
 
+<!-- vale Grafana.Agentless = NO -->
+
 Use this to refer to deployments that don't have a collector.
 Use this instead of _agentless_.
+
+<!-- vale Grafana.Agentless = YES -->
 
 ### Node Exporter
 

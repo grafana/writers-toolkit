@@ -33,7 +33,6 @@ swap:
   '[\.]+apk': APK
   'Google (?:I\-O|IO)': Google I/O
   above: preceding
-  admin: administrator
   Ajax: AJAX
   Android device: Android-powered device
   android: Android

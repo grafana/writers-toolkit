@@ -29,12 +29,9 @@ This page is a work in progress.
 
 ### agentless
 
-Grafana Alloy is a vendor-neutral distribution of the OpenTelemetry (OTel) Collector.
-It's not an agent.
-
-If you're talking about why and how to send signals directly from app to prefer no-collector to agentless.
-
-This is consistent with [OTel documentation](https://opentelemetry.io/docs/collector/deployment/no-collector/).
+Don't use.
+Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology.
+Refer to [no-collector](#no-collector).
 
 <!-- vale Grafana.Agentless = YES -->
 
@@ -118,6 +115,11 @@ Use this rather than _hold the pointer over_ or _point to_.
 Use this rather than _hamburger menu_ or _kebab menu_.
 
 ## N
+
+### no-collector
+
+Use this to refer to deployments that don't have a collector.
+Use this instead of _agentless_.
 
 ### Node Exporter
 

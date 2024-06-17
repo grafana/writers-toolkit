@@ -26,18 +26,15 @@ Repositories that run Vale in CI include:
 
 ## Skip rules
 
-To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule. Include the specific rule name in the comment, for example `Grafana.We` or `Grafana.Google.Ellipses`. The `Grafana.Quotes` rule is a made up example rule to illustrate how to disable a rule.
-
-To disable the `Grafana.Quotes` rule:
+To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule. Include the specific rule name in the comment, for example `Grafana.We` or `Grafana.GoogleEllipses`. The following example shows how to disable the `Grafana.GooglePassive` rule:
 
 ```markdown
-<!-- vale Grafana.Quotes = NO -->
+<!-- vale Grafana.GooglePassive = NO -->
 
-The task title is required.
-The task title succinctly describes the goal to be accomplished as the result of following the instruction.
-The task title contains a verb and an object. For example: "Create a dashboard".
+- [Deprecated content](#deprecation-example): Features that have been deprecated, but still need to be documented for some time.
+- [Configuration options](#configuration-options-example): Features that have several ways they can be configured.
 
-<!-- vale Grafana.Quotes = YES -->
+<!-- vale Grafana.GooglePassive = YES -->
 ```
 
 ## Use Vale in Visual Studio Code

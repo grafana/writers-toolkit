@@ -85,7 +85,7 @@ swap:
   postgres: Postgres
   postgresql: PostgreSQL
   prom(?:ql|QL): PromQL
-  prometheus: Prometheus
+  "(?<!kube-)prometheus": Prometheus
   "(?<!lambda-)promtail": Promtail
   redis: Redis
   regex: regular expression

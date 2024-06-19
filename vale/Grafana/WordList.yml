@@ -33,7 +33,6 @@ swap:
   '[\.]+apk': APK
   'Google (?:I\-O|IO)': Google I/O
   above: preceding
-  admin: administrator
   Ajax: AJAX
   Android device: Android-powered device
   android: Android
@@ -86,7 +85,7 @@ swap:
   postgres: Postgres
   postgresql: PostgreSQL
   prom(?:ql|QL): PromQL
-  prometheus: Prometheus
+  "(?<!kube-)prometheus": Prometheus
   "(?<!lambda-)promtail": Promtail
   redis: Redis
   regex: regular expression

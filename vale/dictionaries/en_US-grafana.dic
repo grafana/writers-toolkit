@@ -1,4 +1,4 @@
-218
+222
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -10,6 +10,7 @@ Ansible/ po:adjective
 Ansible/ po:noun
 Apdex/ po:noun
 API/S po:noun
+APT/ po:noun
 autoscale/DGRS po:verb
 AWS/ po:noun
 backport/DGS po:verb
@@ -31,6 +32,7 @@ codespace/S po:noun
 Codespaces/ po:noun
 composable/ po:adjective
 configure/mpDS po:verb
+contentful/ po:adjective
 Couchbase/M po:noun
 Data Firehose/ po:noun
 CPU/S po:noun
@@ -90,6 +92,7 @@ JSX/ po:noun
 JUnit/M po:noun
 KEDA/M po:noun
 Kibana/M po:noun
+Killercoda/ po:noun
 Kinesis/M po:noun
 KPI/S po:noun
 Kprobe/S po:noun
@@ -150,6 +153,7 @@ retryable/ po:adjective
 REPL/ po:noun
 rollout/S po:noun
 Rollup/ po:noun
+RPM/ po:noun
 RSA/ po:noun
 runbook/S po:noun
 sandbox/DG po:verb

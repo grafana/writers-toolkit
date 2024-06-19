@@ -2,13 +2,13 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/image-guidelines/
   - /docs/writers-toolkit/write/image-guidelines/
-review_date: 2024-02-13
-description: How to include images and other media in your documentation.
+description: How to include images and other media in your Grafana Labs documentation.
 keywords:
   - image
   - screenshot
   - guideline
 menuTitle: Media guidelines
+review_date: 2024-06-14
 title: Image, diagram, screenshot, and video guidelines
 weight: 750
 ---
@@ -105,9 +105,9 @@ Do _not_ use screenshots for the following items:
 
 - Simple create operations, such as create a user, a team, an organization, and so on
 - Primary or secondary navigation items
-- Code samples (show code samples in code blocks)
+- Code samples (instead, show code samples in code blocks)
 - Dialog boxes that are easy to understand
-- Message text (instead show message text within the Markdown)
+- Message text (instead, show message text within the Markdown)
 - Progress bars
 - Simple pages, such as Wizard pages and Welcome pages
 - Tables created in another authoring tool
@@ -116,10 +116,10 @@ Do _not_ use screenshots for the following items:
 ### Screenshot alternatives
 
 Only add screenshots to your documentation when necessary.
-Instead of providing screenshots, you can consider being explicit about the user interface elements with which the user interacts.
+Instead of screenshots, you can consider being explicit about the user interface elements with which the user interacts.
 Add the names of buttons, navigation items, toggles, menus, and so on as they appear on the user interface.
 
-For example, don't include a screenshot to illustrate simple instructions like, "To add a dashboard, click **Dashboard > New Dashboard**”.
+For example, don't include a screenshot to illustrate instructions like, "To add a dashboard, click **Dashboard > New Dashboard**".
 
 ### Screenshots in tasks
 
@@ -141,6 +141,8 @@ Consult the following guidelines when you create screenshots:
 
 ## Video guidelines
 
+Use the following guidelines when you add video content:
+
 - Use videos only from official Grafana sources.
 - Use videos that are relevant and specific to the topic.
 - Include an introduction to the video that explains what readers can expect to find in the video.
@@ -150,6 +152,14 @@ Consult the following guidelines when you create screenshots:
 - Use videos sparingly.
 
   Video content is much more difficult to update than textual documentation.
+
+The Creative Services team creates videos for blog posts and other content.
+They upload these videos to Vimeo or YouTube.
+The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
+
+You can embed these videos in your pages.
+To embed YouTube videos, use the [`youtube` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#youtube).
+To embed Vimeo videos, use the [`vimeo` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#vimeo).
 
 ## Media asset file naming conventions
 
@@ -175,7 +185,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Screenshot</td>
       <td align="left" valign="top">
-        <b>Naming convention:</b> [asset type]-[visual description]-[version, if applicable].png<br>
+        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;VERSION, IF APPLICABLE?&gt;.png</code><br>
         <br>
         <b>Examples:</b><br>
         <ul>
@@ -193,7 +203,7 @@ General rules:
         Be as descriptive as possible.<br>
         <br>
         For example, use `icon-bar-graph.svg` or `icon-graph-bar.svg` instead of `icon-graph.svg`.<br>
-        <b>Naming convention:</b> [asset type]-[visual description].svg<br>
+        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION?&gt;.svg</code><br>
         <br>
         <b>Examples:</b>
         <ul>
@@ -207,7 +217,7 @@ General rules:
       <td align="left" valign="top">
         When you name Grafana logo files, be sure to include the word “Grafana”.<br>
         <br>
-        <b>Naming convention:</b> [asset type]-[visual description]-[color + orientation].[file type]<br>
+        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;COLOR + ORIENTATION&GT;.&LT;FILE TYPE?&gt;</code><br>
         <br>
         <b>Examples:</b>
         <ul>
@@ -219,7 +229,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Photo</td>
       <td align="left" valign="top">
-        <b>Naming convention:</b> [asset type]-[visual description].jpg<br>
+        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION?&gt;.jpg</code><br>
         <br>
         <b>Examples:</b>
         <ul>
@@ -232,7 +242,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Recording</td>
       <td align="left" valign="top">
-        <b>Naming convention:</b> [asset type]-[visual description].[file type]<br>
+        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;.&LT;FILE TYPE?&gt;</code><br>
         <br>
         <b>Example:</b>
         <ul>
@@ -285,7 +295,7 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
           <li>Browse and select assets to upload.</li>
           <li>Click <strong>Upload</strong>.</li>
           <li>The asset is available under https://grafana.com/media/ in the directory where you uploaded it.</li>
-          <li>Click <strong>Copy</strong> to copy the path (reference) of the file to your clipboard.</li>
+          <li>Click <strong>Copy</strong> to copy the path of the file to your clipboard.</li>
           <li>Add the reference to the Markdown file.<br>
           <br>
           The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</li>
@@ -312,13 +322,14 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
 To add an image to a Markdown file, insert a reference to the image below the associated step and indent it so that the reference aligns with the step text.
 
 The image reference path conforms to the following convention:
-`![<Short description of image>](/media/<path-to-image/image-file.png>)`
+
+`![<ALT TEXT>](/media/<PATH TO IMAGE>)`
 
 For example:
 
-1. In the Visualization list, select a visualization type.
-
-   `![Visualization types](/media/docs/panel-editor/select-visualization.png)`
+```
+![A table from the console bot showing the Property, Location, and Diff of the breaking changes.](/media/breaking-changes-console-screenshot-1.png)
+```
 
 ## Test images in a local build
 
@@ -341,13 +352,13 @@ The text is used in situations where the image isn't visible, such as when peopl
 In Markdown, the alt text is the text in square brackets when declaring an image:
 
 ```markdown
-![Alt text](/media/<path-to-image/image-file.png>)
+![<ALT TEXT>](/media/<PATH TO IMAGE>)
 ```
 
-Or, if you're using the `figure` [shortcode]({{< relref "../shortcodes#figure" >}}), you can use the `alt` parameter:
+Or, if you're using the `figure` [shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#figure), you can use the `alt` parameter:
 
 ```markdown
-{{</* figure alt="Alt text"  src="/media/<path-to-image/image-file.png>" */>}}
+{{</* figure alt="<ALT TEXT>"  src="/media/<PATH TO IMAGE>" */>}}
 ```
 
 Every image that you add to the Grafana documentation should have an alt text.
@@ -378,16 +389,3 @@ Use the `video-embed` shortcode to embed the video on the page:
 ```
 
 ## Videos
-
-The Creative Services team creates videos for blog posts and other content.
-They upload these videos to Vimeo or YouTube.
-The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
-
-You can embed these videos in your pages.
-
-{{< admonition type="note" >}}
-Only embed videos from official Grafana sources.
-{{< /admonition >}}
-
-To embed YouTube videos, use the [`youtube` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#youtube).
-To embed Vimeo videos, use the [`vimeo` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#vimeo).

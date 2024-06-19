@@ -1,5 +1,6 @@
 "exceptions":
   - "API"
+  - "APT"
   - "AWS"
   - "BPF"
   - "CLI"
@@ -28,6 +29,7 @@
   - "PNG"
   - "RAM"
   - "REPL"
+  - "RPM"
   - "RSA"
   - "SCM"
   - "SCSS"

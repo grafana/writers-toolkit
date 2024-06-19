@@ -72,6 +72,7 @@ local newWord(word, affixes, po) = {
     newWord('FAQ', 'S', 'noun') { abbreviation: true, established_abbreviation: true },
     newWord('Fargate', 'M', 'noun'),
     newWord('Firehose', 'M', 'noun'),
+    newWord('glob', 'G', 'noun') { description: 'In computer programming, glob patterns specify sets of filenames with wildcard characters.' },
     newWord('GNU', '', 'noun') { abbreviation: true, established_abbreviation: true },
     newWord('Goldmark', 'M', 'noun'),
     newWord('goroutine', 'S', 'noun'),
@@ -234,5 +235,6 @@ local newWord(word, affixes, po) = {
     newWord('ZIP', '', 'noun') { abbreviation: true, established_abbreviation: true },
     newWord('Zipkin', '', 'adjective'),
     newWord('Zipkin', 'M', 'noun'),
+    newWord('zlib', '', 'noun') { description: 'zlib is a general-purpose lossless data-compression library.' },
   ],
 }

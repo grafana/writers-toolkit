@@ -107,6 +107,7 @@ local newWord(word, affixes, po) = {
     newWord('JUnit', 'M', 'noun'),
     newWord('KEDA', 'M', 'noun'),
     newWord('keepalive', '', 'noun') { description: 'A message sent by one device to another to check that the link between the two is operating (https://en.wikipedia.org/wiki/Keepalive).' },
+    newWord('Kerberos', '', 'noun'), { description: 'A computer network authentication protocol (https://en.wikipedia.org/wiki/Kerberos_(protocol)).' },
     newWord('Kibana', 'M', 'noun'),
     newWord('Killercoda', '', 'noun') { product: true },
     newWord('Kinesis', 'M', 'noun'),

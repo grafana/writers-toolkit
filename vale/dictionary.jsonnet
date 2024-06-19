@@ -106,6 +106,7 @@ local newWord(word, affixes, po) = {
     newWord('JSX', '', 'noun') { abbreviation: true, established_abbreviation: true },
     newWord('JUnit', 'M', 'noun'),
     newWord('KEDA', 'M', 'noun'),
+    newWord('keepalive', '', 'noun') { description: 'A message sent by one device to another to check that the link between the two is operating (https://en.wikipedia.org/wiki/Keepalive).' },
     newWord('Kibana', 'M', 'noun'),
     newWord('Killercoda', '', 'noun') { product: true },
     newWord('Kinesis', 'M', 'noun'),

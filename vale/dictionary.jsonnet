@@ -46,6 +46,7 @@ local newWord(word, affixes, po) = {
     newWord('composable', '', 'adjective'),
     newWord('configure', 'mpDS', 'verb'),
     newWord('contentful', '', 'adjective') { description: 'Having content. Used in Web Vital metrics, such as Largest Contentful Paint: https://web.dev/articles/lcp' },
+    newWord('CORS', '', 'noun') { abbreviation: true, established_abbreviation: true description: 'Cross-origin resource sharing. Allows a web page to access restricted resources from a server on a domain different than the domain that served the web page. },
     newWord('Couchbase', 'M', 'noun'),
     newWord('Data Firehose', '', 'noun') { Amazon: true, product: true },
     newWord('CPU', 'S', 'noun') { abbreviation: true, established_abbreviation: true },
@@ -203,6 +204,7 @@ local newWord(word, affixes, po) = {
     newWord('TCP', '', 'noun') { abbreviation: true, established_abbreviation: true },
     newWord('Tempo', '', 'noun') { product: true },
     newWord('Thanos', 'M', 'noun'),
+    newWord('TLS', '', 'noun'), { abbreviation: true, established_abbreviation: true description: 'Transport Layer Security. A cryptographic protocol designed to provide secure communications over network.' }
     newWord('toolset', 'S', 'noun'),
     newWord('tooltip', 'S', 'noun'),
     newWord('traceroute', 'S', 'noun'),

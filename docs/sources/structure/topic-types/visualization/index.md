@@ -149,8 +149,8 @@ To write a visualization or widget topic, follow these steps.
 Refer to the following topics for visualization topic examples:
 
 - [Alert list](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/)
-- [Node graph](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/node-graph/)
-- [Time series](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
+- [Heatmap](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/heatmap/)
+- [Stat](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/stat/)
 
 ## Visualization template
 

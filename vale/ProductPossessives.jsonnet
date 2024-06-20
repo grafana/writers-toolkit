@@ -7,9 +7,9 @@ std.manifestYamlDoc({
     Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it.
     Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship.
   |||,
-  tokens: [
-    "%s's" % def.word
+  tokens: std.flattenArrays([
+    ["%s's" % def.word, '%s’s' % def.word]
     for def in defs
     if 'product' in def && def.product
-  ],
+  ]),
 })

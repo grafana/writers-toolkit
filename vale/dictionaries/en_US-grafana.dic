@@ -1,4 +1,4 @@
-222
+229
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -33,6 +33,7 @@ Codespaces/ po:noun
 composable/ po:adjective
 configure/mpDS po:verb
 contentful/ po:adjective
+CORS/ po:noun
 Couchbase/M po:noun
 Data Firehose/ po:noun
 CPU/S po:noun
@@ -59,6 +60,8 @@ etcd/ po:noun
 FAQ/S po:noun
 Fargate/M po:noun
 Firehose/M po:noun
+glob/G po:noun
+globbing/ po:verb
 GNU/ po:noun
 Goldmark/M po:noun
 goroutine/S po:noun
@@ -91,6 +94,8 @@ Jsonnet/M po:noun
 JSX/ po:noun
 JUnit/M po:noun
 KEDA/M po:noun
+keepalive/ po:noun
+Kerberos/ po:noun
 Kibana/M po:noun
 Killercoda/ po:noun
 Kinesis/M po:noun
@@ -189,6 +194,7 @@ systemd/ po:noun
 TCP/ po:noun
 Tempo/ po:noun
 Thanos/M po:noun
+TLS/ po:noun
 toolset/S po:noun
 tooltip/S po:noun
 traceroute/S po:noun
@@ -221,3 +227,4 @@ YAML/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective
 Zipkin/M po:noun
+zlib/ po:noun

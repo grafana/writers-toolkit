@@ -1,0 +1,2 @@
+testinvalid.md:3:3:Grafana.ProductPossessives:Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it. Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship. 
+testinvalid.md:4:3:Grafana.ProductPossessives:Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it. Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship. 

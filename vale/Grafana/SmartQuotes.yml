@@ -1,0 +1,17 @@
+extends: script
+message: |
+  Avoid smart quotes in the source file, especially in code blocks.
+
+  In some contexts, Unicode characters aren't supported and break configurations.
+
+  The website renders paired quotes using smart quotes in paragraphs.
+scope: raw
+script: |
+  text := import("text")
+
+  matches := []
+
+  for match in text.re_find(`[‘’ʼ“”]`, scope, -1) {
+      matches = append(matches, {begin: match[0].begin, end: match[0].end})
+    }
+  }

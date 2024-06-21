@@ -1,4 +1,4 @@
-229
+232
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -35,6 +35,7 @@ configure/mpDS po:verb
 contentful/ po:adjective
 CORS/ po:noun
 Couchbase/M po:noun
+CLS/ po:noun
 Data Firehose/ po:noun
 CPU/S po:noun
 CRD/S po:noun
@@ -43,7 +44,7 @@ CSV/ po:noun
 CVE/S po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
-Datadog/M po:noun
+Datadog/ po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
 distroless/ po:adjective
@@ -51,7 +52,7 @@ DOM/ po:noun
 don'ts/ po:noun
 downsample/DG po:verb
 duplicate/dDSN po:noun
-Dynatrace/M po:noun
+Dynatrace/ po:noun
 eBPF/ po:noun
 enablement/ po:noun
 enqueue/DS po:verb
@@ -59,18 +60,20 @@ ESLint/M po:noun
 etcd/ po:noun
 FAQ/S po:noun
 Fargate/M po:noun
+FCP/ po:noun
+FID/ po:noun
 Firehose/M po:noun
 glob/G po:noun
 globbing/ po:verb
 GNU/ po:noun
-Goldmark/M po:noun
+Goldmark/ po:noun
 goroutine/S po:noun
 GPU/S po:noun
 Grafana/ po:adjective
 Grafana/ po:noun
 Gravatar/ po:adjective
-Gravatar/M po:noun
-Graylog/M po:noun
+Gravatar/ po:noun
+Graylog/ po:noun
 GUI/S po:noun
 Gzip/ po:noun
 heatmap/S po:noun
@@ -84,9 +87,9 @@ inclusivity/ po:noun
 ingester/MS po:noun
 Istio/ po:noun
 Jaeger/ po:adjective
-Jaeger/M po:noun
+Jaeger/ po:noun
 JAR/ po:noun
-Jira/M po:noun
+Jira/ po:noun
 JMeter/M po:noun
 JPG/ po:noun
 JSON/ po:noun
@@ -95,13 +98,13 @@ JSX/ po:noun
 JUnit/M po:noun
 KEDA/M po:noun
 keepalive/ po:noun
-Kerberos/ po:noun
-Kibana/M po:noun
+Kibana/ po:noun
 Killercoda/ po:noun
-Kinesis/M po:noun
+Kinesis/ po:noun
 KPI/S po:noun
 Kprobe/S po:noun
 kubelet/ po:noun
+LCP/ po:noun
 LESS/ po:noun
 Linode/M po:noun
 Loki/ po:noun
@@ -112,29 +115,29 @@ memberlist/ po:noun
 Mimir/M po:noun
 misconfiguration/S po:noun
 mixin/S po:noun
-Moodle/M po:noun
+Moodle/ po:noun
 namespace/S po:noun
 nginx/ po:noun
 OAuth/ po:noun
-Okta/M po:noun
-OnCall/M po:noun
+Okta/ po:noun
+OnCall/ po:noun
 OpenTelemetry/ po:adjective
-OpenTelemetry/M po:noun
+OpenTelemetry/ po:noun
 OSS/ po:noun
 OTel/ po:adjective
-OTel/M po:noun
+OTel/ po:noun
 OTLP/ po:noun
 overbill/DG po:verb
 overutilization/S po:noun
-Parca/M po:noun
+Parca/ po:noun
 PDF/S po:noun
 performant/ po:adjective
 Phlare/M po:noun
 PHP/ po:noun
 PNG/ po:noun
-Podman/M po:noun
+Podman/ po:noun
 profile/DGRS po:verb
-Promtail/M po:noun
+Promtail/ po:noun
 provision/dD po:verb
 proxy/DG po:verb
 Puppetfile/S po:noun
@@ -149,7 +152,7 @@ RAM/ po:noun
 RDS/ po:noun
 Relational Database Service/ po:noun
 reachability/ po:noun
-React/M po:noun
+React/ po:noun
 redirection/S po:noun
 register/dG po:verb
 register/uD po:adjective
@@ -177,7 +180,7 @@ SLI/S po:noun
 SLO/S po:noun
 spanset/S po:noun
 Splunk/ po:adjective
-Splunk/M po:noun
+Splunk/ po:noun
 SQL/ po:noun
 SRE/S po:noun
 SSD/S po:noun
@@ -193,7 +196,7 @@ SVG/ po:noun
 systemd/ po:noun
 TCP/ po:noun
 Tempo/ po:noun
-Thanos/M po:noun
+Thanos/ po:noun
 TLS/ po:noun
 toolset/S po:noun
 tooltip/S po:noun
@@ -226,5 +229,5 @@ XSS/ po:noun
 YAML/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective
-Zipkin/M po:noun
+Zipkin/ po:noun
 zlib/ po:noun

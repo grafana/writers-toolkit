@@ -8,7 +8,9 @@ std.manifestYamlDoc({
     Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship.
   |||,
   tokens: std.flattenArrays([
-    ["%s's" % def.word, '%s’s' % def.word]
+    (if def.word[std.length(def.word) - 1] == 's'
+     then [def.word + "'", def.word + '’']
+     else [def.word + "'s", def.word + '’s'])
     for def in defs
     if 'product' in def && def.product
   ]),

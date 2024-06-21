@@ -235,6 +235,7 @@ local newWord(word, affixes, po) = {
     newWord('walkthrough', 'S', 'noun'),
     newWord('Webpack', '', 'noun'),
     newWord('webserver', 'S', 'noun'),
+    newWord('WildFly', '', 'noun') { description: 'WildFly, formerly known as JBoss AS, or simply JBoss, is an application server written by JBoss, now developed by Red Hat (https://en.wikipedia.org/wiki/WildFly)', product: true },
     newWord('windows_exporter', 'S', 'noun') { description: 'The Prometheus exporter for Windows machines (https://github.com/prometheus-community/windows_exporter)', product: true },
     newWord('worktree', '', 'noun'),
     newWord('XML', '', 'noun') { abbreviation: true, elaboration: 'Extensible Markup Language', established_abbreviation: true },

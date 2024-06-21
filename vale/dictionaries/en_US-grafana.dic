@@ -1,4 +1,4 @@
-232
+233
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -222,6 +222,7 @@ WAL/S po:noun
 walkthrough/S po:noun
 Webpack/ po:noun
 webserver/S po:noun
+WildFly/ po:noun
 windows_exporter/S po:noun
 worktree/ po:noun
 XML/ po:noun

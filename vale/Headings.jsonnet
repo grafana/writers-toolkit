@@ -24,6 +24,11 @@ std.manifestYamlDoc({
       if 'abbreviation' in def && def.abbreviation
     ] +
     [
+      def.elaboration
+      for def in defs
+      if ('abbreviation' in def && def.abbreviation) && ('elaboration' in def && std.any(std.map(function(c) local cp = std.codepoint(c); cp >= 65 && cp < 97, std.stringChars(def.elaboration))))
+    ] +
+    [
       'Adaptive Metrics',
       'Ansible',
       'Application Observability',

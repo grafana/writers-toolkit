@@ -5,7 +5,6 @@ ignorecase: true
 level: error
 link: https://developers.google.com/style/abbreviations#dont-use
 message: Use '%s' instead of '%s'.
-nonword: true
 swap:
-  '\b(?:eg|e\.g\.)\b': for example
-  '\b(?:ie|i\.e\.)\b': that is
+  'e\.?g[,.]?': for example
+  'i\.?e[,.]?': that is

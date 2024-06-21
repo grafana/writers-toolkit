@@ -51,11 +51,8 @@ To reuse shared content, follow these steps:
    After performing the preceding instructions for the first time in a repository, the directory structure looks similar to the following:
 
    ```console
-   $ tree docs/sources/shared
    docs/sources/shared
    └── index.md
-
-   0 directories, 1 file
    ```
 
 ### Create a shared file

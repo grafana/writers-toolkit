@@ -2,13 +2,13 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/tutorial
   - /docs/writers-toolkit/structure/topic-types/tutorial/
-review_date: 2024-02-29
 description: Learn how to write a tutorial topic.
 keywords:
   - topic types
   - template
   - tutorial
 menuTitle: Tutorial
+review_date: 2024-06-07
 title: Tutorial topic
 weight: 400
 ---
@@ -114,7 +114,8 @@ Depending on the application, your tutorial's data might be:
 - In demo repositories that the user clones locally
 
 For example, the [Play with Grafana Mimir](https://grafana.com/tutorials/play-with-grafana-mimir/) tutorial provides a repository that users can clone to complete the tutorial.
-As a comparison, the [Store exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/operators-guide/use-exemplars/storing-exemplars/) topic is a pure task that a user would follow to complete their work.
+In contrast, the [Store exemplars in Grafana Mimir](https://grafana.com/docs/mimir/latest/manage/use-exemplars/store-exemplars/) topic is a pure task that a user would follow to complete their work.
+For guidance on writing tasks, refer to [Tasks](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/).
 
 If getting access to the tutorial data is complex, include the instructions in the steps of the tutorial.
 If getting access to the data is straightforward, include it in the "Before you begin" section.
@@ -139,7 +140,7 @@ To hide your tutorial from your documentation's table of contents:
 
 1. Open your project's `docs/sources/_index.md` file.
 
-1. Add the following YAML to the page's front matter, replacing _`PROJECT`_ with your project URL path.
+1. Add the following YAML to the page's front matter, replacing _`<PROJECT>`_ with your project URL path.
 
    If the `cascade` front matter already exists, you must merge this snippet with the existing front matter.
 
@@ -162,8 +163,8 @@ To add your tutorial to the Tutorials page:
 
 1. Add the following YAML to the `manual_mounts` field in the `config/_default/config.yaml` file in the website repository.
 
-   Replace _`PROJECT`_ with your project name, _`TUTORIAL`_ with the directory of your tutorial, and _`VERSION`_ with the version of documentation you want to mount.
-   Typically _`VERSION`_ is either "next" or "latest".
+   Replace _`<PROJECT>`_ with your project name, _`<TUTORIAL>`_ with the directory of your tutorial, and _`<VERSION>`_ with the version of documentation you want to mount.
+   Typically _`<VERSION>`_ is either "next" or "latest".
 
    ```yaml
    - source: content/docs/<PROJECT>/<VERSION>/tutorials/<TUTORIAL>
@@ -172,7 +173,7 @@ To add your tutorial to the Tutorials page:
 
 1. Add the following YAML to the `list` field in the `data/tutorials.yaml` file in the website repository.
 
-   Replace _`TUTORIAL`_ with the directory of your tutorial and _`LEVEL`_ with one of "beginner", "intermediate", or "advanced" depending on the difficulty of your tutorial.
+   Replace _`<TUTORIAL>`_ with the directory of your tutorial and _`<LEVEL>`_ with one of "beginner", "intermediate", or "advanced" depending on the difficulty of your tutorial.
 
    ```yaml
    - page: /tutorials/<TUTORIAL>

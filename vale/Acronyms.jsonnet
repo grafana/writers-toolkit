@@ -12,6 +12,6 @@ std.manifestYamlDoc({
   exceptions: [
     '%s' % def.word
     for def in defs
-    if 'acronym' in def && def.acronym && 'established_acronym' in def && def.established_acronym
+    if 'abbreviation' in def && def.abbreviation && 'established_abbreviation' in def && def.established_abbreviation
   ],
 })

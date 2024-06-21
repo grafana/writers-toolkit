@@ -1,0 +1,1 @@
+testinvalid.md:3:3:Grafana.Admin:Use administrator instead of admin unless it's the name of the UI label like in the Grafana 'Admin' role. 

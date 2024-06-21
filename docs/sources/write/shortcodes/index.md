@@ -446,7 +446,7 @@ Produces:
 This shortcode is present in the documentation, but you should prefer `ref` URIs.
 Don’t use it when creating new or updating existing documentation.
 
-For more information, refer to [Links](https://grafana.com/docs/write/links/).
+For more information, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 {{< /admonition >}}
 
 The `docs/reference` shortcode lets you specify different destinations for the same link that depend on where you publish the source file.
@@ -469,14 +469,14 @@ The content within the shortcode tags is as follows:
 
 `[LABEL]: "PROJECT PATH PREFIX -> REFERENCE"`
 
-- _`LABEL`_ - The label you'll use in the reference-style links in the file.
+- _`<LABEL>`_ - The label you'll use in the reference-style links in the file.
   In the preceding example, the label is `dashboards`.
   The label can be multiple words like `[dashboard docs]` and can include spaces.
 
-- _`PROJECT PATH PREFIX`_ - Designates the target project.
+- _`<PROJECT PATH PREFIX>`_ - Designates the target project.
   In the preceding example, the path prefixes are `/docs/grafana/` for Grafana and `/docs/grafana-cloud/` for Cloud.
 
-- _`REFERENCE`_ - The path to the destination file.
+- _`<REFERENCE>`_ - The path to the destination file.
   This shortcode supports version substitution using values like `<GRAFANA_VERSION>`.
   To learn about version substitution, refer to [About version substitution](#about-version-substitution).
   Don't include trailing slashes in the path.
@@ -545,7 +545,7 @@ Use version substitution syntax and set the desired version in cascading front m
 ### Examples
 
 The following shortcode inserts the content from the `oauth2-block.md` file.
-The _`lookup`_ path is relative to the `shared` folder in the `agent` source repository.
+The `lookup` path is relative to the `shared` folder in the `agent` source repository.
 
 ```markdown
 {{</* docs/shared lookup="flow/reference/components/oauth2-block.md" source="agent" version="<AGENT VERSION>" */>}}
@@ -569,7 +569,7 @@ To add a figure, insert the `figure` shortcode with the following named paramete
 | Parameter       | Description                                                                                                                                                                                                                                                                                     | Required |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `alt`           | If set, `alt` specifies the alt text for the image.                                                                                                                                                                                                                                             | no       |
-| `animated-gif`  | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. When you set this parameter, the shortcode ignores other parameters except _`caption`_ and _`maxWidth`_.                                                      | no       |
+| `animated-gif`  | If set, the HTML contains a div with an image link instead of a `<figure>` element. It's typically used for animated screenshots. When you set this parameter, the shortcode ignores other parameters except `caption` and `maxWidth`.                                                          | no       |
 | `caption`       | Describes the figure using a [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element. If you don't set `alt`, the shortcode uses `caption` as the alt text.                                                                                              | no       |
 | `caption-align` | Change the alignment of the `caption` property. Accepted values are `left`, `center`, and `right`.                                                                                                                                                                                              | no       |
 | `class`         | Override the HTML class for the `<figure>` element.                                                                                                                                                                                                                                             | no       |
@@ -946,7 +946,7 @@ You can configure automatic playback with:
 {{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
-## Escaping Hugo shortcodes
+## Escape Hugo shortcodes
 
 If you need to display the syntax for a shortcode, you can escape it using this syntax:
 

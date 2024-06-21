@@ -1,13 +1,13 @@
 ---
 aliases:
   - /docs/writers-toolkit/structure/topic-types/visualization
-review_date: 2024-02-29
 description: Learn how to write a visualization topic.
 keywords:
   - topic types
   - template
   - visualization
 menuTitle: Visualization
+review_date: 2024-06-12
 title: Visualization topic
 weight: 400
 ---
@@ -56,7 +56,7 @@ A visualization topic includes the following elements:
   The body must include the following sections:
 
   - **Supported data formats:** Provide guidance about which data formats are supported by the visualization type, with example use cases.
-  - **[Section] options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
+  - **_`<SECTION>`_ options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
     For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
     This doesn't include the sections linked from the **Other options** section.
   - **Other visualization options:** Include a section for links to the documentation for common UI options:
@@ -91,7 +91,7 @@ A widget topic includes the following elements:
 - **Body:** The body may include task/how-to information as needed.
   The body must include the following sections:
 
-  - **[Section] options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
+  - **_`<SECTION>`_ options:** For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options".
     For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
 
 ## Visualization naming conventions
@@ -144,7 +144,13 @@ To write a visualization or widget topic, follow these steps.
 
    For more information about front matter, refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/).
 
-<!-- https://github.com/grafana/writers-toolkit/issues/560 -->
+## Visualization topic examples
+
+Refer to the following topics for visualization topic examples:
+
+- [Alert list](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/)
+- [Heatmap](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/heatmap/)
+- [Stat](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/stat/)
 
 ## Visualization template
 

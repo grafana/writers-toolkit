@@ -288,7 +288,14 @@ cascade:
 
 <!-- vale Grafana.Headings = YES -->
 
-Use `menuTitle` to specify a different heading in the sidebar navigation than the `title` element; for example, if you want to abbreviate the topic heading in the table of contents.
+Use `menuTitle` to specify a different title in the sidebar navigation than in the `title` element.
+For example, if you want to abbreviate the topic title in the table of contents.
+
+Don't remove the verb from [task topic](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/) titles.
+The verb helps the reader know that they're navigating to a task topic before they follow the link.
+
+It is OK to remove the verb from the `menuTitle` if it's implied by the containing section.
+For example, the page 'Install Grafana Alloy in a Docker container' can be shortened to 'Docker' if it's in a section named 'Install'.
 
 ### Refs
 
@@ -297,6 +304,16 @@ Use the `refs` front matter with `ref` URIs to link to different pages in reused
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
 For more information, refer to [Link from source content that’s used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+
+### Review date
+
+Use the `review_date` front matter to set the date you last reviewed a page for correctness.
+
+Set the date using the `YYYYY-MM-DD` format, and separate the elements by using hyphens.
+For example, to set the last review date to June 6, 2024, use `2024-06-06`.
+
+The website includes the review date at the foot of the page's content.
+You can see how this renders on the [Writers' Toolkit home page](https://grafana.com/docs/writers-toolkit/#:~:text=Last%20reviewed%3A).
 
 ### Slug
 

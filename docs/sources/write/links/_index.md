@@ -56,10 +56,10 @@ A link with a `ref` URI looks like:
 [LINK TEXT](ref:<KEY>)
 ```
 
-For the _`KEY`_ , enter an alphabetic term. It can include hyphens (`-`).
+For the _`<KEY>`_ , enter an alphabetic term. It can include hyphens (`-`).
 
-Hugo looks up _`KEY`_ in the value for the `refs` field in the page's front matter.
-If there is no _`KEY`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
+Hugo looks up _`<KEY>`_ in the value for the `refs` field in the page's front matter.
+If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
 
 ### Front matter
 

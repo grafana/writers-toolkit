@@ -13,7 +13,7 @@ weight: 300
 
 # Voice and tone guidelines
 
-<!-- vale Grafana.GoogleWe = NO -->
+<!-- vale Grafana.We = NO -->
 <!-- This page talks about the voice and tone of our organization. -->
 
 At Grafana, we like our company to sound like a real person.

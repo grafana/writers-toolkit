@@ -29,11 +29,11 @@ Although processes for contributing changes differ for each repository, at Grafa
 Creating a local repository is only necessary when first contributing to a GitHub repository.
 To create a local repository from a remote repository, use either:
 
-- `git clone <URL>`: where _`URL`_ is the URL of the repository.
+- `git clone <URL>`: where _`<URL>`_ is the URL of the repository.
 
   For more information, refer to [Clone with Git](#clone-with-git).
 
-- `gh repo clone <REPOSITORY>`: where _`REPOSITORY`_ is the name of the repository.
+- `gh repo clone <REPOSITORY>`: where _`<REPOSITORY>`_ is the name of the repository.
   For example, `grafana/writers-toolkit`
 
   For more information, refer to [Clone with GitHub CLI](#clone-with-github-cli).
@@ -204,7 +204,7 @@ To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/c
 It fetches from the remote repository and configures a local branch in your repository to track that remote branch.
 
 Run the command from a directory within your local checkout of the repository to check out a contributor's PR.
-Replace _`PR NUMBER`_ with the number of the pull request.
+Replace _`<PR NUMBER>`_ with the number of the pull request.
 
 ```shell
 gh pr checkout <PR NUMBER>
@@ -222,7 +222,7 @@ To install the GitHub CLI tool, refer to [Installation](https://github.com/cli/c
 It fetches from the fork remote repository and configures a local branch in your repository to track that remote branch in the fork.
 
 Run the command from a directory within your local checkout of the upstream repository to check out a contributor's PR.
-Replace _`PR NUMBER`_ with the number of the pull request.
+Replace _`<PR NUMBER>`_ with the number of the pull request.
 
 ```shell
 gh pr checkout <PR NUMBER>

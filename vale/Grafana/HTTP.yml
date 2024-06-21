@@ -1,0 +1,11 @@
+extends: substitution
+message: |
+  Use '%s' instead of '%s'.
+
+  The HTTP scheme is insecure and all grafana.com links must use HTTPS.
+level: error
+action:
+  name: replace
+scope: raw
+swap:
+  'http://grafana.com': 'https://grafana.com'

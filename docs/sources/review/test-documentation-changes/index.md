@@ -14,13 +14,15 @@ weight: 200
 {{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
 
 To run the local documentation web server, run `make docs` from the `docs/` directory.
-The output message includes a URL that you can follow to view the changes to the documentation in the browser.
-Refer to an [example of a successful build](#example-succesful-build).
+If you are in the website repository, run `make docs` from the root of the repository instead.
 
 {{< admonition type="note" >}}
-Running `make docs` from the root of a repository produces the output `make: Nothing to be done for 'docs'.` instead of running the local documentation web server.
-To run the local documentation web server, ensure that you are in the `docs/` directory.
+Running `make docs` from the wrong directory, produces the output `make: Nothing to be done for 'docs'.` or `make: *** No rule to make target 'docs'.  Stop.`, and the local documentation web server is not started.
+To run the local documentation web server, ensure that you are in the right directory.
 {{< /admonition >}}
+
+The output message of a successful build includes a URL that you can follow to view the changes to the documentation in the browser.
+Refer to an [example of a successful build](#example-succesful-build).
 
 ## Run with specific projects
 
@@ -41,13 +43,13 @@ You must have the repository cloned locally for any projects specified in the sp
 To build only the Grafana documentation:
 
 ```bash
-make docs PROJECTS='grafana'
+make docs PROJECTS=grafana
 ```
 
 To build Grafana and Grafana Cloud documentation:
 
 ```bash
-make docs PROJECTS='grafana grafana-cloud'
+make docs 'PROJECTS=grafana grafana-cloud'
 ```
 
 If your local repository name doesn't match the upstream repository name.
@@ -56,7 +58,7 @@ You can use the `PROJECTS` option to override the directory.
 For example, if you have the Tempo repository `tempo` cloned into a directory called `tempo-doc-work`.
 
 ```bash
-make docs PROJECTS="tempo::tempo-doc-work"
+make docs PROJECTS=tempo::tempo-doc-work
 ```
 
 The format is `<PROJECT>[:VERSION[:REPOSITORY[:DIRECTORY]]].`
@@ -77,9 +79,9 @@ These messages are in the following format:
 
 where:
 
-- _`LEVEL`_ is one of `WARN` or `ERROR`
-- _`LANGUAGE`_ may be present
-- _`MESSAGE`_ is the issue
+- _`<LEVEL>`_ is one of `WARN` or `ERROR`
+- _`<LANGUAGE>`_ may be present
+- _`<MESSAGE>`_ is the issue
 
 ### Example: Successful build
 
@@ -117,7 +119,7 @@ Refer to the following sections for examples of more complicated usage of `make 
 #### Mount documentation to a different version
 
 ```
-make docs 'PROJECTS=grafana:next'
+make docs PROJECTS=grafana:next
 ```
 
 #### Mount `v9.3.x` and the default version of Grafana documentation together
@@ -153,12 +155,12 @@ Each argument has four fields separated by colons (`:`), and optional fields can
 
 `<PROJECT>[:VERSION[:REPOSITORY[:DIRECTORY]]]`
 
-- _`PROJECT`_: is the sub-directory of the `/docs/` directory in the website where the repository publishes documentation.
+- _`<PROJECT>`_: is the sub-directory of the `/docs/` directory in the website where the repository publishes documentation.
 
   For example:
 
-  - For Grafana, _`PROJECT`_ is `grafana` (`https://grafana.com/docs/grafana/`)
-  - For Grafana Cloud, _`PROJECT`_ is `grafana-cloud` (`https://grafana.com/docs/grafana-cloud/`).
+  - For Grafana, _`<PROJECT>`_ is `grafana` (`https://grafana.com/docs/grafana/`)
+  - For Grafana Cloud, _`<PROJECT>`_ is `grafana-cloud` (`https://grafana.com/docs/grafana-cloud/`).
 
   Pseudo projects mount multiple source directories.
 
@@ -167,21 +169,21 @@ Each argument has four fields separated by colons (`:`), and optional fields can
   - `traces`: mounts Tempo and Grafana Enterprise Traces (GET) directories.
 
   {{< admonition type="note" >}}
-  Pseudo projects don't support the _`REPOSITORY`_ or _`DIR`_ fields.
+  Pseudo projects don't support the _`<REPOSITORY>`_ or _`<DIR>`_ fields.
   {{< /admonition >}}
 
-- _`VERSION`_: is the name of the version directory to mount the documentation in.
+- _`<VERSION>`_: is the name of the version directory to mount the documentation in.
 
-  The _`VERSION`_ field is optional and defaults to `latest` for versioned projects and is empty for other projects.
+  The _`<VERSION>`_ field is optional and defaults to `latest` for versioned projects and is empty for other projects.
 
-- _`REPOSITORY`_: is the name of the directory that the project is cloned to.
+- _`<REPOSITORY>`_: is the name of the directory that the project is cloned to.
 
-  The _`REPOSITORY`_ field is optional and defaults to the script's internal mapping of project names to repository names.
+  The _`<REPOSITORY>`_ field is optional and defaults to the script's internal mapping of project names to repository names.
   For most projects, this is the same as the project name.
 
-- _`DIRECTORY`_: is the directory path within the repository containing the technical documentation documentation.
+- _`<DIRECTORY>`_: is the directory path within the repository containing the technical documentation documentation.
 
-  The _`DIRECTORY`_ field is optional and defaults to the script's internal mapping of project names to documentation source directories.
+  The _`<DIRECTORY>`_ field is optional and defaults to the script's internal mapping of project names to documentation source directories.
   For most projects, it's the `docs/sources` directory.
 
 #### `REPOS_PATH`
@@ -192,10 +194,9 @@ The script only checks for projects in the directories specified in `REPOS_PATH`
 By default, the script determines the `REPOS_PATH` to be the parent directory of the current project.
 If you keep all repositories in the same directory, you don't need to set `REPOS_PATH`.
 
-With a directory structure similar to the following `tree` command:
+With a directory structure similar to the following output from the `tree -L 1 -d ~/ext/grafana` command:
 
 ```console
-$ tree -L 1 -d ~/ext/grafana
 /home/username/ext/grafana
 ├── agent
 ├── grafana

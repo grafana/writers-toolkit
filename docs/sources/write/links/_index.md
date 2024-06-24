@@ -3,7 +3,6 @@ aliases:
   - /docs/writers-toolkit/write/links/
   - /docs/writers-toolkit/write/references/
   - /docs/writers-toolkit/writing-guide/references/
-review_date: 2024-02-15
 description: Understand how to link between pages.
 keywords:
   - Hugo
@@ -13,6 +12,7 @@ keywords:
   - ref
   - references
   - relref
+review_date: 2024-06-24
 title: Links
 weight: 600
 ---
@@ -34,7 +34,8 @@ Although these other types of links still function, replace them with one of the
 
 ## Link from source content that's used in multiple projects
 
-Use `ref` URIs. `Ref` URIs have two components:
+Use `ref` URIs.
+`Ref` URIs have two components:
 
 - [Link](#link)
 - [Front matter](#front-matter)
@@ -56,7 +57,8 @@ A link with a `ref` URI looks like:
 [LINK TEXT](ref:<KEY>)
 ```
 
-For the _`<KEY>`_ , enter an alphabetic term. It can include hyphens (`-`).
+For the _`<KEY>`_ , enter an alphabetic term.
+It can include hyphens (`-`).
 
 Hugo looks up _`<KEY>`_ in the value for the `refs` field in the page's front matter.
 If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
@@ -95,7 +97,8 @@ cascade:
 
 **Link to Grafana documentation**:
 
-Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL path. Include trailing slashes.
+Start with `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`, and add the rest of the URL.
+Include trailing slashes.
 
 For example, to link to the [Developers](https://grafana.com/docs/grafana/latest/developers/) page with version substitution, use:
 
@@ -134,7 +137,8 @@ https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
 
 Use the full URL.
 Copy the URL exactly from the address bar.
-If it includes a trailing slash, include it; if it doesn't, don't.
+If it includes a trailing slash, include it.
+If it doesn't include a trailing slash, don't add one.
 
 For example:
 

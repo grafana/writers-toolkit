@@ -1,6 +1,7 @@
 ---
 aliases:
   - /docs/writers-toolkit/write/deprecate-remove/
+date: "2024-01-15T16:40:48+01:00"
 description: Learn about deprecating or removing content in your documentation.
 keywords:
   - deprecate

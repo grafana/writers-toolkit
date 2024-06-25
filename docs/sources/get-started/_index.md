@@ -1,6 +1,7 @@
 ---
 aliases:
   - /docs/writers-toolkit/get-started/
+date: "2023-07-11T10:24:20-04:00"
 description:
   Everything you need to complete your documentation project from start
   to finish.

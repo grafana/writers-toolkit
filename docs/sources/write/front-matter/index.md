@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/front-matter/
   - /docs/writers-toolkit/write/front-matter/
+date: "2022-06-27T11:51:13-05:00"
 description:
   Learn about how Grafana builds front matter to properly enable the publication
   and search of our technical documentation.

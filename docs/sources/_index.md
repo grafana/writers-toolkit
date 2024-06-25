@@ -10,6 +10,7 @@ cascade:
   replace_dir: docs/writers-toolkit/
   search_section: Writers' Toolkit
   search_type: doc
+date: "2022-06-23T11:09:48+01:00"
 description: |
   A toolkit for writing technical documentation for Grafana Labs.
   Use it as the source of truth for voice and tone, grammar, style, templates, and more.

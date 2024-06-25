@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/style-guide/ux-writing
   - /docs/writers-toolkit/write/style-guide/ux-writing
+date: "2023-01-09T09:14:32-05:00"
 description: Guidelines on creating text, style, and tone in UI components
 keywords:
   - Grafana

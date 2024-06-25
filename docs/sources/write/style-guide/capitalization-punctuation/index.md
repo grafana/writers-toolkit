@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/style-guide/capitalization-punctuation
   - /docs/writers-toolkit/write/style-guide/capitalization-punctuation
+date: "2022-06-27T11:51:13-05:00"
 description: Guidelines for use of capitalization and punctuation.
 keywords:
   - capitalization

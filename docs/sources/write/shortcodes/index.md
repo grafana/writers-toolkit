@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/write/shortcodes/
   - /docs/writers-toolkit/writing-guide/shortcodes/
+date: "2022-10-18T18:16:25-04:00"
 description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo

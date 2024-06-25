@@ -1,6 +1,7 @@
 ---
 aliases:
   - /docs/writers-toolkit/structure/topic-types/visualization
+date: "2023-09-21T13:35:38-04:00"
 description: Learn how to write a visualization topic.
 keywords:
   - topic types

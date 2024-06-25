@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/
   - /docs/writers-toolkit/review/doc-validator/
+date: "2023-06-14T12:58:30+01:00"
 description:
   How to validate Grafana Labs technical documentation with the doc-validator
   tool.

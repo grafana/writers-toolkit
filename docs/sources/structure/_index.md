@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/
   - /docs/writers-toolkit/structure
+date: "2022-06-27T11:51:13-05:00"
 description: How to organize concepts and tasks in a Grafana Labs repository.
 keywords:
   - information architecture

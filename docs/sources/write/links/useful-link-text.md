@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/write/style-guide/useful-link-text/
   - /docs/writers-toolkit/write/useful-link-text/
+date: "2024-02-07T18:29:24+00:00"
 description: Learn how to write useful link text.
 review_date: "2024-04-15"
 title: Write useful link text

@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/tutorial
   - /docs/writers-toolkit/structure/topic-types/tutorial/
+date: "2022-10-27T16:43:50-04:00"
 description: Learn how to write a tutorial topic.
 keywords:
   - topic types

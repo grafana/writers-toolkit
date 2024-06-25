@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/style-guide/write-for-developers
   - /docs/writers-toolkit/write/style-guide/write-for-developers
+date: "2023-03-27T13:09:54-07:00"
 description: Learn to write documentation for software developers and engineers.
 keywords:
   - Grafana

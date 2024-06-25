@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/style-guide/style-conventions
   - /docs/writers-toolkit/write/style-guide/style-conventions
+date: "2022-06-27T11:51:13-05:00"
 description:
   A non-exhaustive list of technical writing techniques and styles you
   should consider when you write technical documentation for Grafana Labs.

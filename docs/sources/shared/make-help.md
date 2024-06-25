@@ -1,4 +1,5 @@
 ---
+date: "2023-10-05T10:43:16+01:00"
 description: Understand GNU Make and see and example of Make targets.
 review_date: "2024-05-29"
 title: GNU Make help output

@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/
   - /docs/writers-toolkit/write/
+date: "2022-06-30T17:58:48+01:00"
 description: Learn about Grafana Labs' technical documentation writing guidelines.
 keywords:
   - writing

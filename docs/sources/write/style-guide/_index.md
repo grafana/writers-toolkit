@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/style-guide/
   - /docs/writers-toolkit/write/style-guide
+date: "2022-06-27T11:51:13-05:00"
 description: Style guide for Grafana Labs
 keywords:
   - Grafana

@@ -2,6 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/markdown-guide/
   - /docs/writers-toolkit/write/markdown-guide/
+date: "2022-06-27T13:38:07-05:00"
 description: Guidelines for writing technical documentation in Markdown.
 keywords:
   - Markdown

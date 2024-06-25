@@ -1,10 +1,10 @@
 extends: script
 message: |
-  Use `{{<` and `>}}` instead of `{{%%` and `%%}}`.
+  Prefer `{{< admonition type="<TYPE>" >}}`.
 
-  The former has the most consistent semantics.
+  It has the most consistent semantics.
 
-  The latter is used for special behavior that isn't required with this shortcode.
+  The percent syntax is used for special behavior that isn't required with this shortcode.
 link: https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition
 scope: raw
 script: |

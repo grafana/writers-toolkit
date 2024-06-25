@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# https://stackoverflow.com/questions/2390199/finding-the-date-time-a-file-was-first-added-to-a-git-repository
+
+set -euf -o pipefail
+
+function usage {
+  cat <<EOF
+Output the the first commit date of a file.
+
+Usage:
+  $0 <PATH>
+
+Examples:
+  $0 docs/sources/_index.md
+EOF
+}
+
+if [[ $# -ne 1 ]]; then
+  usage
+  exit 1
+fi
+
+git log --follow --format=%ad --date iso-strict -- "$1" | tail -1

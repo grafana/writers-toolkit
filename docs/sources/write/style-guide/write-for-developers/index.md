@@ -1,13 +1,13 @@
 ---
-title: Write for developers
-description: Learn to write documentation for software developers and engineers.
-weight: 500
 aliases:
   - /docs/writers-toolkit/style-guide/write-for-developers
   - /docs/writers-toolkit/write/style-guide/write-for-developers
+description: Learn to write documentation for software developers and engineers.
 keywords:
   - Grafana
   - Docs for developers
+title: Write for developers
+weight: 500
 ---
 
 # Write for developers

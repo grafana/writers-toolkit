@@ -1,9 +1,11 @@
 ---
 aliases:
   - /docs/writers-toolkit/get-started/
-description: Everything you need to complete your documentation project from start to finish.
-review_date: 2024-05-22
+description:
+  Everything you need to complete your documentation project from start
+  to finish.
 menuTitle: Get started
+review_date: "2024-05-22"
 title: Get started with writing documentation
 weight: 50
 ---

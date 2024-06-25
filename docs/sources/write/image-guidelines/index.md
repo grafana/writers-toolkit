@@ -8,7 +8,7 @@ keywords:
   - screenshot
   - guideline
 menuTitle: Media guidelines
-review_date: 2024-06-14
+review_date: "2024-06-14"
 title: Image, diagram, screenshot, and video guidelines
 weight: 750
 ---

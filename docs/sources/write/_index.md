@@ -2,12 +2,12 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/
   - /docs/writers-toolkit/write/
-review_date: 2024-03-14
 description: Learn about Grafana Labs' technical documentation writing guidelines.
 keywords:
   - writing
   - guidelines
 menuTitle: Write
+review_date: "2024-03-14"
 title: Write documentation
 weight: 400
 ---

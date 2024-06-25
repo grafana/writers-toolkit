@@ -1,10 +1,10 @@
 ---
-title: Word list
 description: Guidelines for words to use in writing Grafana documentation.
-weight: 600
 keywords:
   - Grafana
   - word list
+title: Word list
+weight: 600
 ---
 
 # Word list

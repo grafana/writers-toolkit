@@ -7,7 +7,7 @@ keywords:
   - information architecture
   - structure
 menuTitle: Structure
-review_date: 2024-05-29
+review_date: "2024-05-29"
 title: Documentation structure
 weight: 300
 ---

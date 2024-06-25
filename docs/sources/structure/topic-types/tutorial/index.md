@@ -8,7 +8,7 @@ keywords:
   - template
   - tutorial
 menuTitle: Tutorial
-review_date: 2024-06-07
+review_date: "2024-06-07"
 title: Tutorial topic
 weight: 400
 ---

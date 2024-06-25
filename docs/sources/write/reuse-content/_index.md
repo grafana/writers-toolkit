@@ -1,12 +1,12 @@
 ---
 aliases:
   - /docs/writers-toolkit/write/reuse-content/
-review_date: 2024-04-09
 description: Learn about reusing content in your documentation.
 keywords:
   - sharing
   - reuse content
 menuTitle: Reuse
+review_date: "2024-04-09"
 title: Reuse content
 weight: 800
 ---

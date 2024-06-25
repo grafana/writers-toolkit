@@ -1,14 +1,14 @@
 ---
 aliases:
   - /docs/writers-toolkit/write/deprecate-remove/
-review_date: 2024-05-16
 description: Learn about deprecating or removing content in your documentation.
-weight: 900
 keywords:
   - deprecate
   - remove
 menuTitle: Deprecate or remove
+review_date: "2024-05-16"
 title: Deprecate or remove content
+weight: 900
 ---
 
 # Deprecate or remove content

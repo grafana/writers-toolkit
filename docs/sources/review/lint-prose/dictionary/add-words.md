@@ -1,7 +1,7 @@
 ---
 description: How to add a word to the Grafana Labs dictionary template.
 menuTitle: Add words
-review_date: 2024-06-04
+review_date: "2024-06-04"
 title: Add words to the Grafana Labs dictionary
 ---
 

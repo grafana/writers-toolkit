@@ -8,7 +8,7 @@ keywords:
   - template
   - concept
 menuTitle: Concept
-review_date: 2024-05-30
+review_date: "2024-05-30"
 title: Concept topic
 weight: 100
 ---

@@ -1,6 +1,6 @@
 ---
 description: Understand GNU Make and see and example of Make targets.
-review_date: 2024-05-29
+review_date: "2024-05-29"
 title: GNU Make help output
 ---
 

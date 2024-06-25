@@ -2,11 +2,11 @@
 aliases:
   - /docs/writers-toolkit/style-guide/
   - /docs/writers-toolkit/write/style-guide
-review_date: 2024-02-13
 description: Style guide for Grafana Labs
 keywords:
   - Grafana
   - style guide
+review_date: "2024-02-13"
 title: Style guide
 weight: 100
 ---

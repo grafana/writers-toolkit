@@ -2,11 +2,11 @@
 aliases:
   - /docs/writers-toolkit/style-guide/capitalization-punctuation
   - /docs/writers-toolkit/write/style-guide/capitalization-punctuation
-review_date: 2024-04-15
 description: Guidelines for use of capitalization and punctuation.
 keywords:
   - capitalization
   - punctuation
+review_date: "2024-04-15"
 title: Capitalization and punctuation
 weight: 400
 ---

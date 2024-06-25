@@ -1,7 +1,9 @@
 ---
-description: Understand the CLA assistant and its use on GitHub pull requests in Grafana repositories.
-review_date: 2024-05-23
+description:
+  Understand the CLA assistant and its use on GitHub pull requests in Grafana
+  repositories.
 menuTitle: CLA assistant
+review_date: "2024-05-23"
 title: Contributor License Agreement (CLA) assistant
 ---
 

@@ -2,11 +2,11 @@
 aliases:
   - /docs/writers-toolkit/style-guide/voice-tone-guidelines
   - /docs/writers-toolkit/write/style-guide/voice-tone-guidelines
-review_date: 2024-03-14
 description: Guidelines for voice and tone in Grafana Labs' documentation.
 keywords:
   - Grafana
   - voice and tone
+review_date: "2024-03-14"
 title: Voice and tone guidelines
 weight: 300
 ---

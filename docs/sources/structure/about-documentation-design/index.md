@@ -8,7 +8,7 @@ keywords:
   - documentation
   - page design
 menuTitle: Documentation design
-review_date: 2024-05-29
+review_date: "2024-05-29"
 title: About documentation design at Grafana Labs
 weight: 100
 ---

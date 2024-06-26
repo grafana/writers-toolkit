@@ -1,4 +1,4 @@
-233
+234
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -149,6 +149,7 @@ query/ po:noun
 query/DGS po:verb
 queryable/ po:adjective
 RAM/ po:noun
+RBAC/ po:noun
 RDS/ po:noun
 Relational Database Service/ po:noun
 reachability/ po:noun

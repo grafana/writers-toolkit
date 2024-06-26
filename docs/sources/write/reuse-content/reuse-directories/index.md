@@ -19,7 +19,8 @@ title: Reuse directories of content with Hugo mounts
 Only a Grafana Labs employee can perform the following task.
 {{< /admonition >}}
 
-Before Hugo performs a build, [_Hugo module mounts_](https://gohugo.io/hugo-modules/configuration/#module-configuration-mounts) mount a source directory at a destination directory.
+Before Hugo performs a build, it reads the [_Hugo module mounts_](https://gohugo.io/hugo-modules/configuration/#module-configuration-mounts) configuration to construct a virtual filesystem.
+Each mount mounts a source directory at a destination directory within that filesystem.
 You can use Hugo mounts to reuse a whole directory of content in another part of the published technical documentation.
 
 ## Before you begin

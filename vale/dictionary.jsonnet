@@ -162,6 +162,7 @@ local newWord(word, affixes, po) = {
     newWord('query', 'DGS', 'verb'),
     newWord('queryable', '', 'adjective'),
     newWord('RAM', '', 'noun') { abbreviation: true, elaboration: 'random access memory', established_abbreviation: true },
+    newWord('RBAC', '', 'noun') { abbreviation: true, elaboration: 'Role-based Access Control', established_abbreviation: true },
     newWord('RDS', '', 'noun') { abbreviation: true, elaboration: 'Relational Database Service', product: true },
     newWord('Relational Database Service', '', 'noun') { Amazon: true, description: 'Amazon Relational Database Service', product: true },
     newWord('reachability', '', 'noun') { description: 'A product metric in Synthetic Monitoring' },

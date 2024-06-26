@@ -18,8 +18,13 @@ DICTIONARIES := dictionaries/en_US-grafana.dic
 TESTS := fixtures/Grafana
 STYLES := Grafana/Google Grafana/Readability
 RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/Headings.yml Grafana/ProductPossessives.yml
+DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
-all: $(DICTIONARIES) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
+all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
+
+$(DOCUMENTATION): $(wildcard Grafana/*)
+	cd ../tools/ && go run ./cmd/generate-documentation ../ vale/Grafana docs/sources/review/lint-prose/rules.md
+	prettier -w $(DOCUMENTATION)
 
 dictionaries/en_US-grafana.%: dictionary.jsonnet
 	$(MAKE) -C $(@D) $(@F)

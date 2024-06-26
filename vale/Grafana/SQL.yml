@@ -6,9 +6,11 @@ message: |
 
   The article—a or an—that you use before the acronym SQL depends on how the word is pronounced.
 
-  When referring to the product Microsoft SQL Server, SQL should be pronounced "sequel". In this case, use the article a, as in a SQL Server analysis.
+  When referring to the product Microsoft SQL Server, SQL should be pronounced "sequel".
+  In this case, use the article 'a', as in "a SQL Server analysis".
 
-  When referring to the term in any other context, such as SQL databases, errors, or servers, SQL should be pronounced "ess-cue-el". In this case, use the article an, as in an SQL error.
+  When referring to the term in any other context, such as SQL databases, errors, or servers, SQL should be pronounced "ess-cue-el".
+  In this case, use the article 'an', as in "an SQL error".
 
 ignorecase: false
 

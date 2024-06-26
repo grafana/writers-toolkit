@@ -10,7 +10,7 @@ keywords:
   - bold
   - tables
   - lists
-review_date: "2024-02-13"
+review_date: "2024-06-26"
 title: Markdown guide
 weight: 300
 ---
@@ -46,8 +46,10 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 
 <!-- vale Grafana.Gerunds = YES -->
 
-- Avoid stacked headings; don't follow a heading with another without any content between the two.
-- Avoid skipping heading levels. For example, after a single `#`, use `##`, rather than `###`.
+- Avoid stacked headings.
+  Don't follow a heading with another without any content between the two.
+- Avoid skipping heading levels.
+  For example, after a single `#`, use `##`, rather than `###`.
 - Avoid using hyphens in headings.
 - With the exception of _(Optional)_, don't include parenthesized words such as _(Important)_.
 
@@ -113,11 +115,9 @@ Produces:
 
 ## Code blocks
 
-Use three backticks to create a code block.
+Use three backticks to create a fenced code block.
 
-Code blocks with an info string highlight syntax that's specific to a language.
-
-In Markdown, an info string after the first three backticks describes the language contained within.
+The info string, after the first three backticks, describes the language contained within.
 The website uses this information to apply syntax highlighting to code examples.
 For more information, refer to [Highlight syntax](https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/#highlight-syntax).
 
@@ -242,8 +242,8 @@ The title text does.
 
 ### Examples
 
-- `![Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
-- `![Example](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
+- `![The Grafana logo](/link/to/grafanalogo/logo.png "Grafana logo")`
+- `![An alert test rule](/static/img/docs/folder_name/alert_test_rule.png "Example title")`
 
 If you need more image options, such as adding captions or controlling the image size, you can use the [`figure` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#figure).
 Within Markdown, HTML is valid, but you should avoid it.

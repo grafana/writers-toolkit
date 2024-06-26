@@ -2,11 +2,14 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/front-matter/
   - /docs/writers-toolkit/write/front-matter/
-review_date: 2024-04-09
-description: Learn about how Grafana builds front matter to properly enable the publication and search of our technical documentation.
+date: "2022-06-27T11:51:13-05:00"
+description:
+  Learn about how Grafana builds front matter to properly enable the publication
+  and search of our technical documentation.
 keywords:
   - front matter
   - alias
+review_date: "2024-04-09"
 title: Front matter
 weight: 400
 ---

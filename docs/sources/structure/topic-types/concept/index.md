@@ -2,13 +2,14 @@
 aliases:
   - /docs/writers-toolkit/structure/topic-types/concept/
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/concept/
+date: "2022-10-27T16:43:50-04:00"
 description: Learn how to write a concept topic.
 keywords:
   - topic types
   - template
   - concept
 menuTitle: Concept
-review_date: 2024-05-30
+review_date: "2024-05-30"
 title: Concept topic
 weight: 100
 ---

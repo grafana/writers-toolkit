@@ -3,12 +3,13 @@ aliases:
   - /docs/writers-toolkit/about-grafana-docs/
   - /docs/writers-toolkit/introduction/
   - /docs/writers-toolkit/writing-guide/about-grafana-docs/
-review_date: 2024-05-16
+date: "2022-07-08T16:42:14+01:00"
 description: Learn about how Grafana Labs manages technical documentation.
 keywords:
   - Grafana
   - documentation
 menuTitle: Introduction
+review_date: "2024-05-16"
 title: Introduction to documentation
 weight: 100
 ---

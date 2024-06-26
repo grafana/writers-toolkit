@@ -2,13 +2,14 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/about-documentation-design/
   - /docs/writers-toolkit/structure/about-documentation-design/
+date: "2023-04-03T19:32:10+01:00"
 description: Learn about the design of Grafana's documentation pages
 keywords:
   - Grafana
   - documentation
   - page design
 menuTitle: Documentation design
-review_date: 2024-05-29
+review_date: "2024-05-29"
 title: About documentation design at Grafana Labs
 weight: 100
 ---

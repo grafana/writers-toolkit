@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/contribute/
   - /docs/writers-toolkit/contribute-documentation/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/
-review_date: 2024-05-16
+date: "2022-07-08T16:42:14+01:00"
 description: Learn how you can contribute to Grafana Labs documentation.
 keywords:
   - contribute
@@ -11,6 +11,7 @@ keywords:
   - edit documentation
   - review documentation
 menuTitle: Contribute
+review_date: "2024-05-16"
 title: Contribute to documentation
 weight: 200
 ---

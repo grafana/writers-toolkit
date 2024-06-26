@@ -2,13 +2,14 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/image-guidelines/
   - /docs/writers-toolkit/write/image-guidelines/
+date: "2022-07-29T21:26:08-05:00"
 description: How to include images and other media in your Grafana Labs documentation.
 keywords:
   - image
   - screenshot
   - guideline
 menuTitle: Media guidelines
-review_date: 2024-06-14
+review_date: "2024-06-14"
 title: Image, diagram, screenshot, and video guidelines
 weight: 750
 ---

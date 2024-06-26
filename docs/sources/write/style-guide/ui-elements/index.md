@@ -1,9 +1,10 @@
 ---
-review_date: 2024-05-16
+date: "2023-09-27T17:05:44-04:00"
 description: Guidelines for referring to UI elements in Grafana documentation.
 keywords:
   - Grafana
   - ui elements
+review_date: "2024-05-16"
 title: UI elements list
 weight: 700
 ---

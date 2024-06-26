@@ -1,10 +1,11 @@
 ---
-title: Word list
+date: "2023-09-21T15:26:25-04:00"
 description: Guidelines for words to use in writing Grafana documentation.
-weight: 600
 keywords:
   - Grafana
   - word list
+title: Word list
+weight: 600
 ---
 
 # Word list

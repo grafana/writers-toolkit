@@ -2,12 +2,14 @@
 aliases:
   - /docs/writers-toolkit/style-guide/inclusive-writing
   - /docs/writers-toolkit/write/style-guide/inclusive-writing
-date: 2024-05-16
-description: Understand the importance of inclusive writing at Grafana Labs and learn how to write inclusively.
-weight: 400
+date: "2022-06-27T11:51:13-05:00"
+description:
+  Understand the importance of inclusive writing at Grafana Labs and learn
+  how to write inclusively.
 keywords:
   - inclusive writing
 title: Inclusive writing
+weight: 400
 ---
 
 # Inclusive writing

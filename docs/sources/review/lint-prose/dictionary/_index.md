@@ -1,7 +1,8 @@
 ---
+date: "2024-06-06T12:17:39+01:00"
 description: Learn about the Grafana Labs dictionary template format.
 menuTitle: Dictionary
-review_date: 2024-06-04
+review_date: "2024-06-04"
 title: Grafana Labs' dictionary
 ---
 

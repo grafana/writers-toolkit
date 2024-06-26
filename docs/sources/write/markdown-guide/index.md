@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/markdown-guide/
   - /docs/writers-toolkit/write/markdown-guide/
-review_date: 2024-02-13
+date: "2022-06-27T13:38:07-05:00"
 description: Guidelines for writing technical documentation in Markdown.
 keywords:
   - Markdown
@@ -10,6 +10,7 @@ keywords:
   - bold
   - tables
   - lists
+review_date: "2024-02-13"
 title: Markdown guide
 weight: 300
 ---

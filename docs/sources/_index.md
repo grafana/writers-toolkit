@@ -1,17 +1,16 @@
 ---
 cascade:
+  github_branch: main
+  github_dir: /docs/sources
+  github_repo: https://github.com/grafana/writers-toolkit/
   labels:
     products:
       - oss
   public_docs: true
+  replace_dir: docs/writers-toolkit/
   search_section: Writers' Toolkit
   search_type: doc
-  public_docs: true
-  github_repo: https://github.com/grafana/writers-toolkit/
-  github_branch: main
-  github_dir: /docs/sources
-  replace_dir: docs/writers-toolkit/
-review_date: 2024-05-16
+date: "2022-06-23T11:09:48+01:00"
 description: |
   A toolkit for writing technical documentation for Grafana Labs.
   Use it as the source of truth for voice and tone, grammar, style, templates, and more.
@@ -20,6 +19,7 @@ keywords:
   - style guide
   - Grafana
   - documentation
+review_date: "2024-05-16"
 title: Writers' Toolkit
 ---
 

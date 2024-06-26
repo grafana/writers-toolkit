@@ -1,7 +1,7 @@
 local defs = (import './dictionary.jsonnet').words;
 std.manifestYamlDoc({
   extends: 'conditional',
-  message: "Spell out '%s', if it is unfamiliar to the audience.",
+  message: "Spell out '%s', if it's unfamiliar to the audience.",
   link: 'https://developers.google.com/style/abbreviations',
   level: 'suggestion',
   ignorecase: false,

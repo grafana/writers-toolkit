@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-06-25"
+review_date: "2024-06-26"
 title: Vale rules
 ---
 
@@ -12,7 +12,7 @@ title: Vale rules
 <!-- vale Grafana.We = NO -->
 
 Vale codifies our style guide into a series of rules that can be checked against your prose.
-The following is a list of all the rules that we have defined.
+The following is a list of all the rules that we've defined.
 
 <!-- This page breaks a number of rules in demonstrating them. -->
 <!-- vale Grafana.Acronyms = NO -->
@@ -84,6 +84,8 @@ The following is a list of all the rules that we have defined.
 <!-- vale Grafana.WordList = NO -->
 
 ## Errors
+
+The following rules are considered errors and must be fixed.
 
 ### Grafana.GoogleAMPM
 
@@ -246,6 +248,8 @@ The spell checker doesn't check words with code formatting.
 
 ## Warnings
 
+The following rules are warnings and may need to be fixed or otherwise require consideration.
+
 ### Grafana.Admin
 
 Extends: substitution
@@ -270,7 +274,7 @@ Extends: substitution
 
 Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology.
 
-If you're talking about why and how to send signals directly from app to prefer no-collector to agentless.
+If you're talking about why and how to send signals directly from an application to Grafana Cloud, prefer no-collector to agentless.
 
 This is consistent with [OTel documentation](https://opentelemetry.io/docs/collector/deployment/no-collector/).
 
@@ -314,7 +318,7 @@ Extends: existence
 
 Avoid writing and/or except when space is limited, such as in tables.
 
-Often, and implies or, so you don't need to write both words.
+Often, 'and' implies 'or', so you don't need to write both words.
 
 If you need to specify both in your content, write something like "You can export raw events, processed events, or both."
 
@@ -324,7 +328,7 @@ If you need to specify both in your content, write something like "You can expor
 
 Extends: substitution
 
-Use '%s' instead of '%s' unless you are referring to a specific file which has that spelling.
+Use '%s' instead of '%s' unless you're referring to a specific file which has that spelling.
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#changelog)
 
@@ -332,9 +336,11 @@ Use '%s' instead of '%s' unless you are referring to a specific file which has t
 
 Extends: script
 
-Don't add `$` or `#` as prompts before commands. Make it easy for users to copy and paste commands.
+Don't add `$` or `#` as prompts before commands.
+Make it easy for users to copy and paste commands.
 
-Also don't use `#` to include comments in commands. That explanation should be outside of the code block.
+Also, don't use `#` to include comments in commands.
+That explanation should be outside of the code block.
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/#command-lines)
 
@@ -480,7 +486,7 @@ Use the compound adjective without a hyphen whether the noun is implied or expli
 
 Extends: substitution
 
-Use '%s' instead of '%s' unless you are referring to a specific file which has that spelling.
+Use '%s' instead of '%s' unless you're referring to a specific file which has that spelling.
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#readme)
 
@@ -500,9 +506,11 @@ Use '%s' instead of '%s'.
 
 The article—a or an—that you use before the acronym SQL depends on how the word is pronounced.
 
-When referring to the product Microsoft SQL Server, SQL should be pronounced "sequel". In this case, use the article a, as in a SQL Server analysis.
+When referring to the product Microsoft SQL Server, SQL should be pronounced "sequel".
+In this case, use the article 'a', as in "a SQL Server analysis".
 
-When referring to the term in any other context, such as SQL databases, errors, or servers, SQL should be pronounced "ess-cue-el". In this case, use the article an, as in an SQL error.
+When referring to the term in any other context, such as SQL databases, errors, or servers, SQL should be pronounced "ess-cue-el".
+In this case, use the article 'an', as in "an SQL error".
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#sql-structured-query-language)
 
@@ -548,11 +556,13 @@ Use '%s' instead of '%s'.
 
 ## Suggestions
 
+The following rules are suggestions to consider a certain point of style.
+
 ### Grafana.Acronyms
 
 Extends: conditional
 
-Spell out '%s', if it is unfamiliar to the audience.
+Spell out '%s', if it's unfamiliar to the audience.
 
 [More information ->](https://developers.google.com/style/abbreviations)
 

@@ -3,9 +3,11 @@ scope: raw
 level: warning
 link: https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/#command-lines
 message: |
-  Don't add `$` or `#` as prompts before commands. Make it easy for users to copy and paste commands.
+  Don't add `$` or `#` as prompts before commands.
+  Make it easy for users to copy and paste commands.
 
-  Also don't use `#` to include comments in commands. That explanation should be outside of the code block.
+  Also, don't use `#` to include comments in commands.
+  That explanation should be outside of the code block.
 script: |
   text := import("text")
   matches := []

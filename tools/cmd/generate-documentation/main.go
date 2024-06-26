@@ -35,7 +35,7 @@ title: {{ .Title }}
 <!-- vale Grafana.We = NO -->
 
 Vale codifies our style guide into a series of rules that can be checked against your prose.
-The following is a list of all the rules that we have defined.
+The following is a list of all the rules that we've defined.
 
 <!-- This page breaks a number of rules in demonstrating them. -->
 {{ range .Rules -}}

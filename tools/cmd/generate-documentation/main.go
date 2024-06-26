@@ -44,6 +44,8 @@ The following is a list of all the rules that we have defined.
 
 ## Errors
 
+The following rules are considered errors and must be fixed.
+
 {{ range .Rules -}}
 {{ if or (eq .Level "error") -}}
 
@@ -59,6 +61,9 @@ Extends: {{ .Extends }}
 {{ end -}}
 
 ## Warnings
+
+The following rules are warnings and may need to be fixed or otherwise require consideration.
+
 {{ range .Rules -}}
 {{ if or (eq .Level "warning") (eq .Level "") -}}
 ### {{ .Name }}
@@ -73,6 +78,9 @@ Extends: {{ .Extends }}
 {{ end -}}
 
 ## Suggestions
+
+The following rules are suggestions to consider a certain point of style.
+
 {{ range .Rules -}}
 {{ if or (eq .Level "suggestion") -}}
 ### {{ .Name }}

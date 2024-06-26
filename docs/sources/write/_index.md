@@ -8,7 +8,7 @@ keywords:
   - writing
   - guidelines
 menuTitle: Write
-review_date: "2024-03-14"
+review_date: "2024-06-26"
 title: Write documentation
 weight: 400
 ---
@@ -26,7 +26,7 @@ If you don't find what you're looking for, email [the Grafana Labs documentation
 
 ## Before you write
 
-To learn how to structure documentation, refer to [Structure](https://grafana.com/docs/writers-toolkit/structure/).
+To learn how to structure documentation, refer to [Documentation structure](https://grafana.com/docs/writers-toolkit/structure/).
 
 For guidelines for writing documentation, refer to the following sections:
 
@@ -35,4 +35,4 @@ For guidelines for writing documentation, refer to the following sections:
 ## After you write
 
 After you've written your content, the next step is to build the content locally, review the output, and then publish it.
-For details, refer to the [Build and review section](https://grafana.com/docs/writers-toolkit/review/).
+For details, refer to [Build and review](https://grafana.com/docs/writers-toolkit/review/).

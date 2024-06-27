@@ -7,7 +7,7 @@ description: Guidelines for voice and tone in Grafana Labs' documentation.
 keywords:
   - Grafana
   - voice and tone
-review_date: "2024-03-14"
+review_date: "2024-06-27"
 title: Voice and tone guidelines
 weight: 300
 ---

@@ -4,14 +4,28 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
 
+	"github.com/grafana/writers-toolkit/tools/exit"
 	"gopkg.in/yaml.v3"
 )
+
+const command = "review"
+
+func usage(w io.Writer, fs *flag.FlagSet) {
+	fmt.Fprintf(w, "Usage of %s:\n", command)
+	fs.PrintDefaults()
+
+	fmt.Fprintln(w, "  <DIRECTORY>")
+	fmt.Fprintln(w, "    	Path to documentation directory")
+}
+
+var errNotDateString = fmt.Errorf("not a date string")
 
 const frontMatterDelim = "---"
 
@@ -25,52 +39,37 @@ const (
 )
 
 type DateArgument struct {
-	time time.Time
+	time.Time
 }
 
 func (d *DateArgument) String() string {
-	return d.time.Format(time.DateOnly)
+	return d.Time.Format(time.DateOnly)
 }
 
 func (d *DateArgument) Set(str string) error {
 	if t, err := time.Parse(time.DateOnly, str); err != nil {
 		return err
 	} else {
-		d.time = t
+		d.Time = t
 	}
 
 	return nil
 }
 
-type metadata struct {
-	ReviewDate time.Time `yaml:"review_date"`
-	Headless   bool      `yaml:"headless"`
-}
-
-func main() {
-	before := DateArgument{time: time.Now().AddDate(0, 0, -90)}
-
-	flag.Var(&before, "before", "YYYY-MM-DD date after which to include documents, defaults to ninety days ago.")
-
-	flag.Parse()
-
-	if flag.NArg() != 1 {
-		command := "review"
-		if len(os.Args) != 0 {
-			command = os.Args[0]
-		}
-
-		fmt.Fprintln(os.Stderr, "Usage of "+command)
-		flag.PrintDefaults()
-
-		fmt.Fprintln(os.Stderr, "  <DIRECTORY>")
-		fmt.Fprintln(os.Stderr, "    	Path to documentation directory")
-
-		os.Exit(2)
+func (d *DateArgument) UnmarshalYAML(value *yaml.Node) error {
+	if value.Kind != yaml.ScalarNode {
+		return errNotDateString
 	}
 
-	srcDir := flag.Arg(0)
-	fsys := os.DirFS(srcDir)
+	return d.Set(value.Value)
+}
+
+type metadata struct {
+	ReviewDate DateArgument `yaml:"review_date"`
+	Headless   bool         `yaml:"headless"`
+}
+
+func toReview(fsys fs.FS, before DateArgument) ([]string, error) {
 	pages := []string{}
 
 	if err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
@@ -103,16 +102,47 @@ func main() {
 			return fmt.Errorf("unable to unmarshal front matter in %q: %w", path, err)
 		}
 
-		if frontMatter.ReviewDate.Before(before.time) && !frontMatter.Headless {
+		if frontMatter.ReviewDate.Before(before.Time) && !frontMatter.Headless {
 			pages = append(pages, path)
 		}
 
 		return nil
 	}); err != nil {
-		fmt.Fprintf(os.Stderr, "Error traversing documentation: %v\n", err)
+		return pages, fmt.Errorf("unable to walk directory: %w", err)
+	}
+
+	return pages, nil
+}
+
+func main() {
+	const (
+		requiredSrcDirPath = iota
+		requiredArgCount
+	)
+
+	before := DateArgument{Time: time.Now().AddDate(0, 0, -90)}
+
+	flag.Var(&before, "before", "YYYY-MM-DD date after which to include documents, defaults to ninety days ago.")
+
+	flag.Parse()
+
+	if flag.NArg() != requiredArgCount {
+		usage(os.Stderr, flag.CommandLine)
+
+		os.Exit(exit.UsageError)
+	}
+
+	srcDirPath := flag.Arg(requiredSrcDirPath)
+	fsys := os.DirFS(srcDirPath)
+
+	pages, err := toReview(fsys, before)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+
+		os.Exit(exit.RuntimeError)
 	}
 
 	for _, page := range pages {
-		fmt.Println(filepath.Join(srcDir, page) + ":1:1")
+		fmt.Println(filepath.Join(srcDirPath, page) + ":1:1")
 	}
 }

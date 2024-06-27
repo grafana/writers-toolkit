@@ -7,7 +7,7 @@ description: Learn to reuse chunks of content between pages.
 keywords:
   - content reuse
   - shared content
-review_date: "2024-03-14"
+review_date: "2024-06-27"
 title: Reuse shared content
 ---
 
@@ -78,8 +78,6 @@ To reuse shared content, follow these steps:
    ---
    ```
 
-   You can include `relref` style links in the content. When doing so, set the destination path in relation to the location of the shared content file.
-
 1. In the consuming project, use the `docs/shared` shortcode to include the shared content.
 
    To consume the file `docs/sources/shared/common-introduction.md` from the latest version of the `tempo` project documentation, the shortcode would be the following:
@@ -88,7 +86,7 @@ To reuse shared content, follow these steps:
    {{</* docs/shared source="tempo" lookup="common-introduction.md" version="latest" */>}}
    ```
 
-   For more information about the `docs/shared` shortcode parameters, refer to [docs/shared shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes#docsshared).
+   For more information about the `docs/shared` shortcode parameters, refer to the [`docs/shared` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes#docsshared) reference.
 
 1. Verify the include.
 

@@ -1,16 +1,18 @@
 ---
 date: "2023-09-21T15:26:25-04:00"
-description: Guidelines for words to use in writing Grafana documentation.
+description: Guidelines for words to use in writing Grafana Labs documentation.
 keywords:
   - Grafana
   - word list
+review_date: "2024-06-27"
 title: Word list
 weight: 600
 ---
 
 # Word list
 
-In most cases, you can refer to the [word list in the Google developer documentation style guide](https://developers.google.com/style/word-list) to determine if you should use a word or not. The following guidelines cover cases in which:
+In most cases, you can refer to the [word list in the Google developer documentation style guide](https://developers.google.com/style/word-list) to determine if you should use a word or not.
+The following guidelines cover cases in which:
 
 - Grafana guidelines differ from Google guidelines.
 - The word isn't included in Google guidelines.
@@ -47,7 +49,7 @@ Don't confuse this with an [_alerting rule_ ](#alerting-rule).
 
 ### alerting rule
 
-An _alerting rule_ is a Prometheus concept reused in Grafana Mimir.
+An _alerting rule_ is a Prometheus concept reused in Grafana Mimir and Grafana Loki.
 For more information refer to [Alerting Rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/).
 
 {{< admonition type="caution" >}}
@@ -61,7 +63,8 @@ Don't confuse this with an [_alert rule_ ](#alert-rule).
 
 ### CHANGELOG
 
-When naming a file or making a general reference to CHANGELOGs, spell using all caps. When referencing a specific CHANGELOG file, match the same capitalization of that file.
+When naming a file or making a general reference to CHANGELOGs, spell using all caps.
+When referencing a specific CHANGELOG file, match the same capitalization of that file.
 
 ## D
 
@@ -136,7 +139,8 @@ Don't use _Node exporter_ or _node exporter_.
 
 <!-- vale Grafana.PrometheusExporters = YES -->
 
-When referring to the tool, use `node_exporter`. The text should always be pre-formatted (in "code" font).
+When referring to the tool, use `node_exporter`.
+The text should always be pre-formatted as inline code (between backticks (\`)).
 
 <!--
 ## O
@@ -146,7 +150,9 @@ When referring to the tool, use `node_exporter`. The text should always be pre-f
 
 ### quickstart
 
-Use the compound adjective without a hyphen whether the noun is implied or explicit. For example, you can use _quickstart guide_ or just _quickstart_. If you are using the noun form, write as two words.
+Use the compound adjective without a hyphen whether the noun is implied or explicit.
+For example, you can use _quickstart guide_ or just _quickstart_.
+If you're using the noun form, write as two words.
 
 ## R
 
@@ -161,17 +167,20 @@ Use this rather than _React.js_ or _ReactJS_.
 
 ### README
 
-When naming a file or making a general reference to READMEs, spell using all caps. When referencing a specific README file, match the same capitalization of that file.
+When naming a file or making a general reference to READMEs, spell using all caps.
+When referencing a specific README file, match the same capitalization of that file.
 
 ## S
 
 ### SQL (Structured Query Language)
 
-The article&mdash;_a_ or _an_&mdash;that you use before the acronym _SQL_ depends on how the word is pronounced.
+The article, _a_ or _an_, that you use before the acronym _SQL_ depends on how the word is pronounced.
 
-When referring to the product Microsoft SQL Server, _SQL_ should be pronounced "sequel". In this case, use the article _a_, as in _a SQL Server analysis_.
+When referring to the product Microsoft SQL Server, _SQL_ should be pronounced "sequel".
+In this case, use the article _a_, as in _a SQL Server analysis_.
 
-When referring to the term in any other context, such as SQL databases, errors, or servers, _SQL_ should be pronounced "ess-cue-el". In this case, use the article _an_, as in _an SQL error_.
+When referring to the term in any other context, such as SQL databases, errors, or servers, _SQL_ should be pronounced "ess-cue-el".
+In this case, use the article _an_, as in _an SQL error_.
 
 ## T
 
@@ -192,5 +201,3 @@ When you need to use the adjective form, use _time-series_ rather than _timeseri
 ## X
 
 -->
-
-<!-- vale on -->

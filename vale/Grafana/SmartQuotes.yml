@@ -1,0 +1,15 @@
+scope: raw
+extends: existence
+level: warning
+message: |
+  Avoid smart quotes in the source file, especially in code blocks.
+
+  In some contexts, Unicode characters aren't supported and break configurations.
+
+  The website renders paired quotes using smart quotes in paragraphs.
+tokens:
+  - ‘
+  - ’
+  - ʼ
+  - “
+  - ”

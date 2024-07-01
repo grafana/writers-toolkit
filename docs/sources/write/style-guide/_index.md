@@ -7,7 +7,7 @@ description: Style guide for Grafana Labs
 keywords:
   - Grafana
   - style guide
-review_date: "2024-02-13"
+review_date: "2024-06-27"
 title: Style guide
 weight: 100
 ---

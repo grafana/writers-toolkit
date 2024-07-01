@@ -3,10 +3,11 @@ aliases:
   - /docs/writers-toolkit/style-guide/write-for-developers
   - /docs/writers-toolkit/write/style-guide/write-for-developers
 date: "2023-03-27T13:09:54-07:00"
-description: Learn to write documentation for software developers and engineers.
+description: Learn to write documentation for software developers and engineers using Grafana Labs products.
 keywords:
   - Grafana
   - Docs for developers
+review_date: "2024-06-27"
 title: Write for developers
 weight: 500
 ---
@@ -15,7 +16,7 @@ weight: 500
 
 The guidelines that follow provide suggestions for writing documentation for software developers and engineers.
 Follow these tips to write useful API documentation, code examples, and other technical material.
-To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide]({{< relref "../../style-guide" >}}).
+To learn how to communicate effectively with the developers who enhance and work with the code of Grafana Labs projects or products, read these guidelines in the context of the [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/).
 
 ## Developer documentation basics
 
@@ -23,8 +24,9 @@ Writing technical content for software developers is similar to writing content 
 However, developer-facing documentation tends to be more technical, and relies on certain important conventions.
 Because this type of documentation contains details about code, it's important to know how to structure, format, and identify common problems that might arise.
 
-When your readers are developers, you can assume that they are familiar with general programming concepts.
-There is no need to explain elementary ideas. Instead, introduce those concepts and features that are specific to Grafana Labs products.
+When your readers are developers, you can assume that they're familiar with general programming concepts.
+There is no need to explain elementary ideas.
+Instead, introduce those concepts and features that are specific to Grafana Labs products.
 For example, instead of covering the fundamentals of UI design _in general_, explain how Grafana Labs software or APIs _interpret_ those principles.
 
 ## Code comments
@@ -33,17 +35,18 @@ The foundation of strong documentation is well-written comments in code that are
 
 For dos and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-\* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
 
-For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your favorite programming language.
+For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your programming language.
 
 ## Reference docs
 
-Whenever possible, automatically generate API and other reference documentation from source-code comments. However documentation is created, make sure it conforms to the [style conventions]({{< relref "../../style-guide/style-conventions" >}}).
+Whenever possible, automatically generate API and other reference documentation from source-code comments.
+However documentation is created, make sure it conforms to the [style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/).
 Pay particular attention to properly formatting the elements of code.
 
 ### Auto-generated documentation
 
 The advantages of automating documentation programmatically are well-known, and include increased consistency and a reduction in human-made errors.
-But behind every line of auto-generated content is a human author who is responsible for following the [style guide]({{< relref "../../style-guide" >}}).
+But behind every line of auto-generated content is a human author who is responsible for following the style guide.
 
 When writing documentation used by an auto-generated program to create publishable content, keep the following things in mind:
 
@@ -74,7 +77,8 @@ The following suggestions help you to write more complete and consistent documen
 
 Additional tips:
 
-- Remember to write concisely. Don't say "This method adds a user." when you could "Adds a user.".
+- Remember to write concisely.
+  Don't say "This method adds a user." when you could "Adds a user.".
   If your linter requires the description to begin with the element name, you may say "The AddUser method adds a user." to avoid an error message.
 - When the names of code elements are singular, don't make them plural.
   Instead, add a plural noun to describe them.
@@ -90,7 +94,9 @@ However, it isn't necessary for every code example to be runnable in production.
 Some code examples are written to illustrate a point so that the developer can learn how to do something similar on their own.
 Such examples should be clearly marked as partial.
 
-When providing an example, give a written description. You can put it either in the body of the document or as explanatory comments within the example code.
+When providing an example, give a written description.
+You can put it either in the body of the document or as explanatory comments within the example code.
+However, don't put comments in command line examples.
 
 Remember the basic rule: explain _why_ your code does what it does, rather than describe _what_ it does.
 For an in-depth, external resource about writing developer documentation, refer to [_Docs for Developers_](https://docsfordevelopers.com/).
@@ -155,14 +161,14 @@ In JSON or YAML, the partial example should be valid on its own.
 
 In programming language code examples, if the example won't compile on its own, make sure the snippet is a recognizable unit of a source file.
 
-<!-- vale Google.Parens = NO -->
+<!-- vale Grafana.Parentheses = NO -->
 
 Don't use an ellipsis (`…`) or three periods (`...`) to omit information.
 
 It breaks the readers ability to copy-paste the example and provides no additional context for the omission.
 Instead use the preceding sentences or valid code comments to clearly explain the scope of the example and what's omitted.
 
-<!-- vale Google.Parens = YES -->
+<!-- vale Grafana.Parentheses = YES -->
 
 For example:
 
@@ -218,15 +224,18 @@ The use of _dot notation_ for nested fields is common in other engineering docum
 
 ### Paths, filenames, and URLs
 
-Many types of information belong in fixed-width font. Among these are path names, file names, directories, or folders. However, don't format domain names or URLs as code if you intend the user to follow the link.
+Many types of information belong in fixed-width font.
+Among these are path names, file names, directories, or folders.
+However, don't format domain names or URLs as code if you intend the user to follow the link.
 
 ## Command lines
 
 Use the following conventions when you include commands on the command line in technical content.
 
-- Do not assume everyone is using Linux. Make sure instructions include enough information for Windows and Mac users to successfully complete procedures.
+- Don't assume everyone is using Linux. Make sure instructions include enough information for Windows and Mac users to successfully complete procedures.
 
-- Do not add `$` before commands. Make it easy for users to copy and paste commands.
+- Don't add `$` before commands.
+  Make it easy for users to copy and paste commands.
 
   - **Right:** `sudo yum install grafana`
   - **Wrong:** `$ sudo yum install grafana`
@@ -283,18 +292,20 @@ Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
-If an argument is optional, enclose it in square brackets. For example, prefer the following raw Markdown:
+If an argument is optional, enclose it in square brackets.
+For required arguments, refer to [Placeholder variables](#placeholder-variables).
+For example, prefer the following raw Markdown:
 
 ````markdown
-```typescript
-ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
+```bash
+ssh-rsa <KEY_VALUE> <USERNAME> [FILENAME]
 ```
 ````
 
 It produces:
 
-```typescript
-ssh-rsa KEY_VALUE USERNAME [_FILENAME_]
+```bash
+ssh-rsa <KEY_VALUE> <USERNAME> [FILENAME]
 ```
 
 ## Placeholder variables

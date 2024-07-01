@@ -8,6 +8,7 @@ description:
   how to write inclusively.
 keywords:
   - inclusive writing
+review_date: 2024-06-27
 title: Inclusive writing
 weight: 400
 ---
@@ -28,8 +29,10 @@ When writing about people, be compassionate, inclusive, and respectful.
 No matter the context, we always make sure to view people as people.
 With that in mind, there are important distinctions between the ways that different people interact with our product and, thus, how we refer to those people.
 
-- Users are every person who uses our products, whether or not they use a commercial version of one of our products. Customers are people and companies who pay to use our products.
-- Visitors are people who visit our website for any reason, whether it's as a potential user, customer, or employee. We appreciate all interest in our hard work.
+- Users are every person who uses our products, whether or not they use a commercial version of one of our products.
+  Customers are people and companies who pay to use our products.
+- Visitors are people who visit our website for any reason, whether it's as a potential user, customer, or employee.
+  We appreciate all interest in our hard work.
 - Our customers (and users) often have their own customers (and users).
   Generally speaking, we refer to these customers of our customers as users.
 - Employees are people who work at Grafana Labs.
@@ -48,7 +51,7 @@ Consider the following best practices to ensure inclusivity in your writing.
 
 ## Write for an international audience
 
-Grafana Labs uses U.S. English as our standard for spelling, grammar, punctuation, and more.
+Grafana Labs uses US English as our standard for spelling, grammar, punctuation, and more.
 We write for an international audience with the following guidelines in mind:
 
 ### Avoid acronyms

@@ -52,6 +52,9 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
   For example, after a single `#`, use `##`, rather than `###`.
 - Avoid using hyphens in headings.
 - With the exception of _(Optional)_, don't include parenthesized words such as _(Important)_.
+- Avoid duplicate headings.
+  If you need to reuse the same heading, try to keep the meaning consistent.
+  Do what's best to avoid confusing the user.
 
 ## Bold and emphasis
 

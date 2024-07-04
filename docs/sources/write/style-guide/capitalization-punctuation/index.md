@@ -47,6 +47,7 @@ If you're not sure of whether something is a product or not, consult the product
   - Lowercase _dashboard_ when referring to a dashboard generally.
   - Lowercase _dashboards_ when referring to multiple dashboards.
 - **Exceptions:** If a term is lowercase in the Grafana UI, then match the UI.
+- Abstract UI concepts such as roles (Admin, Editor, Viewer) when you're not directly referring to the UI.
 
 ### Kubernetes objects
 

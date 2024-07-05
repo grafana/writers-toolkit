@@ -381,6 +381,37 @@ Produces:
 
 {{< docs/experimental product="experimental-feature" featureFlag="its-feature-flag" >}}
 
+## Docs/ignore
+
+The `docs/ignore` shortcode ignores the content between the start and end markers so it doesn't appear in the rendered webpage.
+
+Use this shortcode when you want to transform source documentation into Killercoda tutorials and want some content to only exist in the tutorial output.
+You should only use ordinary Markdown as the inner content of the shortcode.
+
+For more information about Killercoda transformation, refer to [About the transformer tool](https://github.com/grafana/killercoda/blob/staging/docs/transformer.md#about-the-transformer-tool).
+
+### Example
+
+```markdown
+This is rendered before the ignore.
+
+{{</* docs/ignore */>}}
+This isn't rendered.
+{{</* /docs/ignore */>}}
+
+This is rendered after the ignore.
+```
+
+Produces:
+
+This is rendered before the ignore.
+
+{{< docs/ignore >}}
+This isn't rendered.
+{{< /docs/ignore >}}
+
+This is rendered after the ignore.
+
 ## Docs/play
 
 The `docs/play` shortcode produces a note admonition with the preferred copy for linking to a Grafana Play dashboard.

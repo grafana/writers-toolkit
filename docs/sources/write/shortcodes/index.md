@@ -393,24 +393,24 @@ For more information about Killercoda transformation, refer to [About the transf
 ### Example
 
 ```markdown
-This is before the ignore.
+This is rendered before the ignore.
 
 {{</* docs/ignore */>}}
 This isn't rendered.
 {{</* /docs/ignore */>}}
 
-This is after the ignore.
+This is rendered after the ignore.
 ```
 
 Produces:
 
-This is before the ignore.
+This is rendered before the ignore.
 
 {{< docs/ignore >}}
 This isn't rendered.
 {{< /docs/ignore >}}
 
-This is after the ignore.
+This is rendered after the ignore.
 
 ## Docs/play
 

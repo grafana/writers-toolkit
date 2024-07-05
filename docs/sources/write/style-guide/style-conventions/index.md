@@ -291,10 +291,11 @@ It's a good idea to take a consistent approach to bold, italic, and other text f
 
 ### Bold
 
-Use bold formatting (`**`), for UI elements.
-Don't use bold to draw attention to a word or phrase within a sentence, instead use italic emphasis.
+Use bold formatting (`**`) when directly referring to UI elements.
+When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word; just capitalize it.
+It's okay to use bold inline with other prose in a table, but don't use bold for the all text in the first column, even if it's a table of UI elements.
 
-It's OK to use bold for a the first sentence in unordered lists that are followed by more information.
+It's okay to use bold for a the first sentence in unordered lists that are followed by more information.
 
 For example,
 
@@ -306,6 +307,8 @@ For example:
 ```markdown
 To add an administrator to the list of local users, navigate to **Appliance** > **Configuration** > **Access**.
 ```
+
+Don't use bold to draw attention to a word or phrase within a sentence, instead use italic emphasis.
 
 ### Italic
 

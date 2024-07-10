@@ -47,7 +47,8 @@ If you're not sure of whether something is a product or not, consult the product
   - Lowercase _dashboard_ when referring to a dashboard generally.
   - Lowercase _dashboards_ when referring to multiple dashboards.
 - **Exceptions:** If a term is lowercase in the Grafana UI, then match the UI.
-- When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word. Capitalize the word and use it as an adjective, followed by the noun that it's describing. For example: Users with the Viewer role can't edit settings.
+- When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word. Capitalize the word and use it as an adjective, followed by the noun that it's describing. For example:
+    - Users with the Viewer role can't edit settings.
 
 ### Kubernetes objects
 

@@ -27,6 +27,12 @@ Before you begin writing, clearly identify the goal of the user, and write conte
 - Avoid marketing clichés and hyperbole.
   - Instead, use evidence-based or quantifiable language to focus and refine the information, and to offer value propositions.
 
+## Avoid mentioning other companies
+
+Avoid mentioning other companies in technical documentation. Competitive content belongs in marketing materials.
+
+There are some situations where you must mention another company, such as in data source plugin documentation or a migration guide. Otherwise, avoid doing so.
+
 ## Address users clearly
 
 To address users clearly and directly, write directives in the imperative second person where the unspoken 'you' is implied.

@@ -307,9 +307,9 @@ Users with the Viewer role can't edit settings.
 
 It's okay to use bold inline with other prose in a table, but don't use bold for the entire contents of a cell, even if it's a UI element. For example:
 
-| Option | Description                                                       |
-| ------ | ----------------------------------------------------------------- |
-| Title | Text entered in this field appears at the top of your panel in the panel editor and in the dashboard. You can use variables you have defined in the **Title** field, but not global variables. |
+| Option | Description                                                                                                                                                                                    |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Title  | Text entered in this field appears at the top of your panel in the panel editor and in the dashboard. You can use variables you have defined in the **Title** field, but not global variables. |
 
 It's okay to use bold for the first sentence in unordered lists that are followed by more information.
 

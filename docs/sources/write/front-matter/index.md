@@ -47,10 +47,14 @@ The following headings describe what each front matter field does and provides g
 
 Use `aliases` to create redirects from the previous URL to the new URL when a page changes or moves.
 
-When you rename or move files, you must create an alias with a reference to the previous URL path to create a redirect from the old URL to the new URL.
+When you rename or move files, you must create an alias with a reference to the previous URL path to create a redirect from the previous URL to the new URL.
 In some cases, for example when you have deleted content or split a file into multiple topics, it may not be possible to create an alias for the moved content.
 
-### Example
+{{< admonition type="caution">}}
+Only rename a file in cases where the previous filename in the URL would be confusing for a reader.
+{{< /admonition >}}
+
+#### Example
 
 The following Markdown front matter snippet defines an alias `/original-url/`.
 You must incorporate it with any existing front matter.
@@ -62,11 +66,11 @@ aliases:
 ---
 ```
 
-### Guidelines
+#### Guidelines
 
 The correct way to use aliases depends on whether the project is versioned or not.
 
-#### Versioned projects
+##### Versioned projects
 
 Aliases must be relative to avoid redirecting latest content to old versions.
 
@@ -126,7 +130,7 @@ In the following table:
   </tbody>
 </table>
 
-###### Use the `docs/alias` shortcode
+##### Use the `docs/alias` shortcode
 
 You can use the `docs/alias` shortcode to determine the relative alias but you can't use the shortcode in the front matter.
 
@@ -140,18 +144,18 @@ Produces:
 
 {{< docs/alias from="/docs/grafana/latest/old-alerting/" to="/docs/grafana/latest/alerting/manage-notifications/" >}}
 
-#### Other projects
+##### Other projects
 
 - Include an `aliases` entry for the current URL path.
 - Add an `aliases` entry to make it safer to move content around, as the redirect from old to new page location is already in place.
   Hugo doesn't create a redirect `.html` file when the directory is already populated with content.
 - When a page is moved, update the `aliases` with the new URL path.
 
-### Test an alias
+#### Test an alias
 
 To test an alias results in the correct redirect, use your browser or a command-line tool for making HTTP requests.
 
-#### Use the browser
+##### Use the browser
 
 1. Start the documentation webserver with `make docs`.
 1. Browse to the URL of the page that should be redirected.
@@ -159,7 +163,7 @@ To test an alias results in the correct redirect, use your browser or a command-
 
    For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: http://localhost:3002/docs/grafana/latest/panels/working-with-panels/.
 
-#### Use `cURL`
+##### Use `cURL`
 
 1. Start the documentation webserver with `make docs`.
 1. In a separate terminal, make an HTTP GET request to the URL of the page that should be redirected.

@@ -27,6 +27,12 @@ Before you begin writing, clearly identify the goal of the user, and write conte
 - Avoid marketing clichés and hyperbole.
   - Instead, use evidence-based or quantifiable language to focus and refine the information, and to offer value propositions.
 
+## Avoid mentioning other companies
+
+Avoid mentioning other companies in technical documentation. Competitive content belongs in marketing materials.
+
+There are some situations where you must mention another company, such as in data source plugin documentation or a migration guide. Otherwise, avoid doing so.
+
 ## Address users clearly
 
 To address users clearly and directly, write directives in the imperative second person where the unspoken 'you' is implied.
@@ -292,12 +298,20 @@ It's a good idea to take a consistent approach to bold, italic, and other text f
 ### Bold
 
 Use bold formatting (`**`) when directly referring to UI elements.
-When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word; just capitalize it.
-It's okay to use bold inline with other prose in a table, but don't use bold for the all text in the first column, even if it's a table of UI elements.
 
-It's okay to use bold for a the first sentence in unordered lists that are followed by more information.
+When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word. Capitalize the word and use it as an adjective, followed by the noun that it's describing. For example:
 
-For example,
+```markdown
+Users with the Viewer role can't edit settings.
+```
+
+It's okay to use bold inline with other prose in a table, but don't use bold for the entire contents of a cell, even if it's a UI element. For example:
+
+| Option | Description                                                                                                                                                                                    |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Title  | Text entered in this field appears at the top of your panel in the panel editor and in the dashboard. You can use variables you have defined in the **Title** field, but not global variables. |
+
+It's okay to use bold for the first sentence in unordered lists that are followed by more information.
 
 - **Thing**: About the thing.
 

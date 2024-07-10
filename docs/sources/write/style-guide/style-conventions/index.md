@@ -292,12 +292,16 @@ It's a good idea to take a consistent approach to bold, italic, and other text f
 ### Bold
 
 Use bold formatting (`**`) when directly referring to UI elements.
-When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word; just capitalize it.
-It's okay to use bold inline with other prose in a table, but don't use bold for the all text in the first column, even if it's a table of UI elements.
 
-It's okay to use bold for a the first sentence in unordered lists that are followed by more information.
+When you're referring to an abstract UI element, such as a role (Admin, Editor, Viewer), without directly referencing the UI, don't bold the word. Capitalize the word and use it as an adjective, followed by the noun that it's describing. For example:
 
-For example,
+```markdown
+Users with the Viewer role can't edit settings.
+```
+
+It's okay to use bold inline with other prose in a table, but don't use bold for the entire contents of a cell, even if it's a UI element.
+
+It's okay to use bold for the first sentence in unordered lists that are followed by more information.
 
 - **Thing**: About the thing.
 

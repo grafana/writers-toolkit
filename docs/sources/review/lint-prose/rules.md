@@ -462,7 +462,8 @@ Use '%s' instead of '%s'.
 
 Extends: existence
 
-Use okay instead of '%s'.
+Use okay instead of '%s' unless you are directly referencing the UI.
+In that case, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#okay)
 

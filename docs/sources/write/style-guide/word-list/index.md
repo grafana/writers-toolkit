@@ -142,8 +142,13 @@ Don't use _Node exporter_ or _node exporter_.
 When referring to the tool, use `node_exporter`.
 The text should always be pre-formatted as inline code (between backticks (\`)).
 
-<!--
 ## O
+
+### okay
+
+Use _okay_ rather than _OK_ unless you're referencing the UI.
+
+<!--
 ## P -->
 
 ## Q

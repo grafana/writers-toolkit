@@ -566,6 +566,14 @@ Hugo doesn't rebuild the destination file when a source file changes on disk.
 To trigger a rebuild after changes to a source file, perform a trivial change to the destination file and save that, too.
 {{< /admonition >}}
 
+{{< admonition type="note" >}}
+Hugo renders the shortcode separately to the page.
+If the same heading exists in a shared file and in the page that includes it, they'll have the same heading identifier.
+
+To work around this, set the heading identifier in the shared file.
+To set a heading identifier, refer to the [Markdown guide](https://grafana.com/docs/writers-toolkit/write/markdown-guide/#identifiers).
+{{< /admonition >}}
+
 ### Guidance
 
 When the page with the `docs/shared` shortcode includes a shared page from the same project, you should use version substitution syntax for the `version` parameter.

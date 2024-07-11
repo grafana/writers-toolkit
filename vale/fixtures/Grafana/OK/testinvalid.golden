@@ -1,0 +1,13 @@
+testinvalid.md:4:3:Grafana.OK:Use okay instead of 'OK'.
+testinvalid.md:5:3:Grafana.OK:Use okay instead of 'ok'.
+testinvalid.md:6:3:Grafana.OK:Use okay instead of 'Ok'.
+testinvalid.md:10:3:Grafana.OK:Use okay instead of 'A-OK'.
+testinvalid.md:11:3:Grafana.OK:Use okay instead of 'hokay'.
+testinvalid.md:12:3:Grafana.OK:Use okay instead of 'k'.
+testinvalid.md:13:3:Grafana.OK:Use okay instead of 'keh'.
+testinvalid.md:14:3:Grafana.OK:Use okay instead of 'kk'.
+testinvalid.md:15:3:Grafana.OK:Use okay instead of 'M'kay'.
+testinvalid.md:16:3:Grafana.OK:Use okay instead of 'oka'.
+testinvalid.md:17:3:Grafana.OK:Use okay instead of 'okeh'.
+testinvalid.md:18:3:Grafana.OK:Use okay instead of 'Okie dokie'.
+testinvalid.md:19:3:Grafana.OK:Use okay instead of 'Okily Dokily'.

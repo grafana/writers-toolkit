@@ -1,0 +1,21 @@
+extends: existence
+message: "Use okay instead of '%s'."
+link: https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#okay
+level: warning
+ignorecase: false
+tokens:
+  - O.K.
+  - OK
+  - ok
+  - Ok
+
+  - A-OK
+  - hokay
+  - k
+  - keh
+  - kk
+  - M'kay
+  - oka
+  - okeh
+  - Okie dokie
+  - Okily Dokily

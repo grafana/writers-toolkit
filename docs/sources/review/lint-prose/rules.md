@@ -59,6 +59,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.Latin = NO -->
 <!-- vale Grafana.OAuth = NO -->
 <!-- vale Grafana.OK = NO -->
+<!-- vale Grafana.Okay = NO -->
 <!-- vale Grafana.Ordinal = NO -->
 <!-- vale Grafana.Parentheses = NO -->
 <!-- vale Grafana.Please = NO -->
@@ -462,10 +463,19 @@ Use '%s' instead of '%s'.
 
 Extends: existence
 
-Use okay instead of '%s' unless you are directly referencing the UI.
+Avoid using '%s' unless you are directly referencing the UI.
 In that case, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
 
-[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#okay)
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#ok-okay)
+
+### Grafana.Okay
+
+Extends: existence
+
+Avoid using '%s' unless you are directly referencing the UI.
+In that case, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#ok-okay)
 
 ### Grafana.ProductPossessives
 

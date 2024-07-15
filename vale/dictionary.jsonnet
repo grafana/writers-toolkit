@@ -160,6 +160,7 @@ local newWord(word, affixes, po) = {
     newWord('querier', 'MS', 'noun'),
     newWord('query', '', 'noun'),
     newWord('query', 'DGS', 'verb'),
+    newWord('queryless', '', 'adjective') { description: 'In contrast to using a query language like PromQL or SQL' },
     newWord('queryable', '', 'adjective'),
     newWord('RAM', '', 'noun') { abbreviation: true, elaboration: 'random access memory', established_abbreviation: true },
     newWord('RBAC', '', 'noun') { abbreviation: true, elaboration: 'Role-based Access Control', established_abbreviation: true },

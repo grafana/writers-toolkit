@@ -150,8 +150,7 @@ The text should always be pre-formatted as inline code (between backticks (\`)).
 
 Avoid using _OK_ or _okay_ in technical documentation because it's too informal. The exceptions are when you're referencing or quoting:
 
-
-
+- A user interface
 - HTTP status codes or other code
 
 <!-- vale Grafana.OK = YES -->

@@ -388,5 +388,3 @@ Use the `video-embed` shortcode to embed the video on the page:
 ```
 {{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}
 ```
-
-## Videos

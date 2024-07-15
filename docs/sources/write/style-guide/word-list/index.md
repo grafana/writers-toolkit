@@ -145,6 +145,7 @@ The text should always be pre-formatted as inline code (between backticks (\`)).
 ## O
 
 <!-- vale Grafana.OK = NO -->
+
 ### OK, okay
 
 Avoid using _OK_ or _okay_ in technical documentation because it's too informal. The exceptions are when you're referencing or quoting:

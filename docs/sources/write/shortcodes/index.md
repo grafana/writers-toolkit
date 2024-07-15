@@ -568,7 +568,7 @@ To trigger a rebuild after changes to a source file, perform a trivial change to
 
 ### Shared files and headings
 
-Hugo renders the shortcode separately to the page. As a result, if the same heading exists in a shared file as well as in the page that includes it, they'll have the same heading identifier. This duplication of heading identifiers breaks the ability link to the headings properly.
+Hugo renders the shortcode separately to the page. As a result, if the same heading exists in a shared file and the page that includes it, they'll have the same heading identifier. This duplication of heading identifiers breaks the ability to link to the headings properly.
 
 To work around this, set a heading identifier in the shared file.
 If there are two shared files with the same heading, you only need to set a heading identifier in one of them.

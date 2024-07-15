@@ -144,9 +144,12 @@ The text should always be pre-formatted as inline code (between backticks (\`)).
 
 ## O
 
+<!-- vale Grafana.OK = NO -->
 ### OK, okay
 
 Avoid using _OK_ or _okay_ unless you're referencing the UI, because it's too informal.
+
+<!-- vale Grafana.OK = YES -->
 
 <!--
 ## P -->

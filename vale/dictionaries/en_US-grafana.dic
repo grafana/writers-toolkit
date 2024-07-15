@@ -1,4 +1,4 @@
-234
+235
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -147,6 +147,7 @@ quantile/S po:noun
 querier/MS po:noun
 query/ po:noun
 query/DGS po:verb
+queryless/ po:adjective
 queryable/ po:adjective
 RAM/ po:noun
 RBAC/ po:noun

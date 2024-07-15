@@ -144,9 +144,9 @@ The text should always be pre-formatted as inline code (between backticks (\`)).
 
 ## O
 
-### okay
+### OK, okay
 
-Use _okay_ rather than _OK_ unless you're referencing the UI.
+Avoid using _OK_ or _okay_ unless you're referencing the UI, because it's too informal.
 
 <!--
 ## P -->

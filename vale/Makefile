@@ -17,7 +17,7 @@ GIT_ROOT := $(shell git rev-parse --show-toplevel)
 DICTIONARIES := dictionaries/en_US-grafana.dic
 TESTS := fixtures/Grafana
 STYLES := Grafana/Google Grafana/Readability
-RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/Headings.yml Grafana/ProductPossessives.yml
+RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/ApacheProjectNames.yml Grafana/Headings.yml Grafana/ProductPossessives.yml
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.

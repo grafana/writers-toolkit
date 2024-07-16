@@ -10,6 +10,7 @@ std.manifestYamlDoc({
     for def in defs
     if 'product' in def && def.product && 'Amazon' in def && def.Amazon
   ]),
-  first: '\b(%s)\b' % regexp,
+  first: '\\b(%s)\\b' % regexp,
   second: 'Amazon (%s)' % regexp,
+  scope: 'text',
 })

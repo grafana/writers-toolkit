@@ -4,6 +4,8 @@ Don't use:
 - OK
 - ok
 - Ok
+- okay
+- Okay
 
 Also avoid:
 

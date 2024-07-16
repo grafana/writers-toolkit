@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-07-11"
+review_date: "2024-07-16"
 title: Vale rules
 ---
 
@@ -462,10 +462,13 @@ Use '%s' instead of '%s'.
 
 Extends: existence
 
-Use okay instead of '%s' unless you are directly referencing the UI.
-In that case, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
+Don't use any variation of okay in prose.
+The exceptions are when you’re referencing or quoting:
 
-[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#okay)
+- A user interface
+- HTTP status codes or other code
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#ok-okay)
 
 ### Grafana.ProductPossessives
 

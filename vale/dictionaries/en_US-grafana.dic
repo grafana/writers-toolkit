@@ -1,4 +1,4 @@
-236
+238
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -11,7 +11,8 @@ Ansible/ po:noun
 Apdex/ po:noun
 API/S po:noun
 APT/ po:noun
-autoscale/DGRS po:verb
+autoscale/DGS po:verb
+autoscaler/S po:noun
 AWS/ po:noun
 backport/DGS po:verb
 Beyla/ po:noun
@@ -110,6 +111,7 @@ Linode/M po:noun
 Loki/ po:noun
 lookup/S po:noun
 marshal/u po:verb
+manage/uD po:verb
 matcher/S po:noun
 memberlist/ po:noun
 Mesos/ po:noun

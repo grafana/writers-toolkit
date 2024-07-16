@@ -35,8 +35,9 @@ If you are unsure, ask for advice from a maintainer on the pull request.
 To backport a change, add the appropriate `backport <BRANCH>` label.
 You can backport to more than one branch by using multiple labels.
 
-After you merge the pull request, Grot, the Grafana bot, creates a follow-up pull request for each of the `backport <BRANCH>` labels.
-If Grot can't automatically backport the changes, it comments on the first pull request with instructions about how to backport the change manually.
+For merged pull requests, Grot, the Grafana bot, creates a follow-up pull request for each of the `backport <BRANCH>` labels.
+You can add the `backport <BRANCH>` labels either before or after you merge the pull request.
+If Grot can't automatically backport the changes, it comments on the original pull request with instructions about how to backport the change manually.
 
 In repositories such as `grafana/grafana`, engineers sometimes create a branch for a release well before the release has shipped.
 If you intend to publish content against an imminent release, check for a backport label for the upcoming version before merging the pull request.

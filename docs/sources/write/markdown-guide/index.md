@@ -42,6 +42,18 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 <!-- vale Grafana.Gerunds = NO -->
 <!-- A false positive because the noun heading looks like a gerund. -->
 
+### Identifiers
+
+Each heading has an auto-generated identifier that you can use to link to the heading within the page.
+To derive the generated identifier from a heading, refer to [Link to page headings](https://grafana.com/docs/writers-toolkit/write/links/#link-to-page-headings).
+
+You can also explicitly set the heading identifier.
+The following Markdown example sets the heading identifier to be `alternative-heading-id`:
+
+```markdown
+# Heading {#alternative-heading-id}
+```
+
 ### Heading don'ts
 
 <!-- vale Grafana.Gerunds = YES -->

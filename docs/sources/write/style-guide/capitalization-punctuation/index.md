@@ -71,7 +71,7 @@ In headings, always use the full name including "Amazon".
 
 ### Apache projects
 
-When referring to Apache projects such as [Mesos](https://mesos.apache.org/), include the "Apache" name prefix.
+When referring to Apache projects such as [Apache Mesos](https://mesos.apache.org/), include the "Apache" name prefix.
 After the first use, you can use just the project name.
 
 In headings, always use the full name including "Apache".

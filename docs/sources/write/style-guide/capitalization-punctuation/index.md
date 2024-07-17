@@ -65,9 +65,16 @@ In the first use, introduce the object as _Kubernetes XX_, then use it alone in 
 ### Amazon products
 
 When referring to Amazon products such as [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html), include the "Amazon" name prefix.
-After the first use, it's OK to use just the product name.
+After the first use, you can use just the product name.
 
 In headings, always use the full name including "Amazon".
+
+### Apache projects
+
+When referring to Apache projects such as [Apache Mesos](https://mesos.apache.org/), include the "Apache" name prefix.
+After the first use, you can use just the project name.
+
+In headings, always use the full name including "Apache".
 
 ## Punctuation guidelines
 

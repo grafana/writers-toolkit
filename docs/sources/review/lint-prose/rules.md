@@ -24,6 +24,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.AmazonCloudWatch = NO -->
 <!-- vale Grafana.AmazonProductNames = NO -->
 <!-- vale Grafana.AndOr = NO -->
+<!-- vale Grafana.ApacheProjectNames = NO -->
 <!-- vale Grafana.Archives = NO -->
 <!-- vale Grafana.CHANGELOG = NO -->
 <!-- vale Grafana.CommandLinePrompts = NO -->
@@ -324,6 +325,14 @@ Often, 'and' implies 'or', so you don't need to write both words.
 If you need to specify both in your content, write something like "You can export raw events, processed events, or both."
 
 [More information ->](https://developers.google.com/style/slashes#and-or)
+
+### Grafana.ApacheProjectNames
+
+Extends: conditional
+
+Use the full Apache project name in the first instance.
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#apache-projects)
 
 ### Grafana.CHANGELOG
 

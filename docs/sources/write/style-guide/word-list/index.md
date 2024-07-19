@@ -153,6 +153,8 @@ Avoid using _OK_ or _okay_ in technical documentation because it's too informal.
 - A user interface
 - HTTP status codes or other code
 
+Refer to the [text formatting guidance](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#text-formatting) for information on how to format these types of content.
+
 <!-- vale Grafana.OK = YES -->
 
 <!--

@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-07-16"
+review_date: "2024-07-22"
 title: Vale rules
 ---
 
@@ -84,6 +84,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.We = NO -->
 <!-- vale Grafana.Wish = NO -->
 <!-- vale Grafana.WordList = NO -->
+<!-- vale Grafana._GoogleProductNames = NO -->
 
 ## Errors
 
@@ -575,6 +576,14 @@ Extends: substitution
 Use '%s' instead of '%s'.
 
 [More information ->](https://developers.google.com/style/word-list)
+
+### Grafana.\_GoogleProductNames
+
+Extends: conditional
+
+Use the full Google product name in the first instance.
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#google-products)
 
 ## Suggestions
 

@@ -1,4 +1,4 @@
-238
+243
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -55,6 +55,8 @@ downsample/DG po:verb
 duplicate/dDSN po:noun
 Dynatrace/ po:noun
 eBPF/ po:noun
+EKS/ po:noun
+Elastic Kubernetes Service/ po:noun
 enablement/ po:noun
 enqueue/DS po:verb
 ESLint/M po:noun
@@ -68,6 +70,8 @@ glob/G po:noun
 globbing/ po:verb
 GNU/ po:noun
 Goldmark/ po:noun
+Google Kubernetes Engine/ po:noun
+GKE/ po:noun
 goroutine/S po:noun
 GPU/S po:noun
 Grafana/ po:adjective
@@ -83,6 +87,7 @@ HPA/S po:noun
 HTML/ po:noun
 HTTP/ po:noun
 HTTPS/ po:noun
+IBM/ po:noun
 IDE/S po:noun
 inclusivity/ po:noun
 ingester/MS po:noun

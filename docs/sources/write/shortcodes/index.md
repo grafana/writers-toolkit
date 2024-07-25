@@ -916,7 +916,7 @@ You create a tab using the `tab-content` shortcode within the `tabs` shortcode.
 The inner of the `tab-content` can be any Markdown.
 
 {{< admonition type="note" >}}
-You can't nest the `tabs` shortcode in a `tab-content` shortcode but you can use the `code` shortcode instead.
+You can nest a `code` shortcode inside of a `tab-content` shortcode, but you can't nest a `tabs` shortcode inside of a `tab-content` shortcode.
 {{< /admonition >}}
 
 | Parameter | Description                                  | Required |

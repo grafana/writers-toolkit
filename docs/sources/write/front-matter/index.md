@@ -239,8 +239,8 @@ Use the command-line flag `--buildDrafts` to generate content marked as `draft: 
 
 ### Keywords
 
-The website uses `keywords` to generate links to related pages in the _Related content_ sections.
-They don't appear in the resulting HTML source for the page and don't affect search engine optimization (SEO).
+The website uses `keywords` to generate links to related pages in the _Related content_ section.
+They don't affect search engine optimization (SEO).
 
 Ideally, use single terms as opposed to phrases.
 

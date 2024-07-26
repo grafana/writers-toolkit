@@ -26,6 +26,7 @@ local newWord(word, affixes, po) = {
     newWord('Apdex', '', 'noun'),
     newWord('API', 'S', 'noun') { abbreviation: true, elaboration: 'Application Programming Interface', established_abbreviation: true },
     newWord('APT', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/APT_(software)', elaboration: 'Advanced package tool', established_abbreviation: true },
+    newWord('Asserts', '', 'noun') { description: 'https://grafana.com/products/cloud/asserts/', product: true },
     newWord('autoscale', 'DGS', 'verb'),
     newWord('autoscaler', 'S', 'noun'),
     newWord('AWS', '', 'noun') { abbreviation: true, elaboration: 'Amazon Web Services', established_abbreviation: true, product: true },

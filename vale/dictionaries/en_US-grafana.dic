@@ -71,7 +71,7 @@ glob/G po:noun
 globbing/ po:verb
 GNU/ po:noun
 Goldmark/ po:noun
-Google Kubernetes Engine/ po:noun
+Kubernetes Engine/ po:noun
 GKE/ po:noun
 goroutine/S po:noun
 GPU/S po:noun

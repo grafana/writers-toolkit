@@ -17,7 +17,7 @@ GIT_ROOT := $(shell git rev-parse --show-toplevel)
 DICTIONARIES := dictionaries/en_US-grafana.dic
 TESTS := fixtures/Grafana
 STYLES := Grafana/Google Grafana/Readability
-RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/ApacheProjectNames.yml Grafana/_GoogleProductNames.yml Grafana/Headings.yml Grafana/ProductPossessives.yml
+RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/ApacheProjectNames.yml Grafana/GoogleProductNames.yml Grafana/Headings.yml Grafana/ProductPossessives.yml
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
@@ -63,7 +63,7 @@ sync:
 .PHONY: Grafana/Google
 Grafana/Google: ## Generate the Grafana style from the Google style.
 Grafana/Google: google.jsonnet
-	rm -f $@*.yml
+	rm -f "$$(jsonnet -Se 'std.join(" ", std.objectFields(import "google.jsonnet"))')"
 	jsonnet -S -m . google.jsonnet
 	prettier -w $@*.yml
 

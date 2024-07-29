@@ -203,6 +203,7 @@
   - "Grafana Agent"
   - "Grafana Agent Flow"
   - "Grafana Cloud"
+  - "Grafana Cloud Asserts"
   - "Grafana Cloud Traces"
   - "Grafana Enterprise Logs"
   - "Grafana Enterprise Metrics"

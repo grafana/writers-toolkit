@@ -85,7 +85,7 @@ local newWord(word, affixes, po) = {
     newWord('globbing', '', 'verb') { description: 'In computer programming, glob patterns specify sets of filenames with wildcard characters.' },
     newWord('GNU', '', 'noun') { abbreviation: true, established_abbreviation: true, product: true },
     newWord('Goldmark', '', 'noun') { description: 'Goldmark is a markdown parser written in Go (https://github.com/yuin/goldmark)' },
-    newWord('Google Kubernetes Engine', '', 'noun') { product: true },  // Doesn't need Google: true because Google is in the name.
+    newWord('Kubernetes Engine', '', 'noun') { Google: true, product: true },
     newWord('GKE', '', 'noun') { abbreviation: true, elaboration: 'Google Kubernetes Engine', product: true },  // Doesn't need Google: true because Google is in the name.
     newWord('goroutine', 'S', 'noun'),
     newWord('GPU', 'S', 'noun') { abbreviation: true, elaboration: 'graphics processing unit', established_abbreviation: true },

@@ -1,4 +1,4 @@
-243
+244
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -11,6 +11,7 @@ Ansible/ po:noun
 Apdex/ po:noun
 API/S po:noun
 APT/ po:noun
+Asserts/ po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun
 AWS/ po:noun

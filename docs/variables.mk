@@ -14,3 +14,5 @@ export VALE_MINALERTLEVEL := warning
 
 # Skip some doc-validator checks.
 export DOC_VALIDATOR_SKIP_CHECKS := $(shell sed -En "s, *'--skip-checks=(.+)',\1,p" "$(shell git rev-parse --show-toplevel)/.github/workflows/validate-documentation.yml")
+
+export WEBSITE_MOUNTS := true

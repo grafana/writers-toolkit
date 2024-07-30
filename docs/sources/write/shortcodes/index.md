@@ -907,6 +907,46 @@ You should generally avoid using this shortcode because every documentation page
 {{</* table-of-contents */>}}
 ```
 
+## Tabs
+
+The `tabs` shortcode creates generic tabbed content.
+The website saves the selected tab to browser storage and persists it across navigation.
+
+You create a tab using the `tab-content` shortcode within the `tabs` shortcode.
+The inner of the `tab-content` can be any Markdown.
+
+{{< admonition type="note" >}}
+You can nest a `code` shortcode inside of a `tab-content` shortcode, but you can't nest a `tabs` shortcode inside of a `tab-content` shortcode.
+{{< /admonition >}}
+
+| Parameter | Description                                  | Required |
+| --------- | -------------------------------------------- | -------- |
+| name      | Name of the tab displayed in the tabs header | yes      |
+
+### Example
+
+```markdown
+{{</* tabs */>}}
+{{</* tab-content name="One" */>}}
+This is the first tab.
+{{</* /tab-content */>}}
+{{</* tab-content name="Two" */>}}
+This is the second tab.
+{{</* /tab-content */>}}
+{{</* /tabs */>}}
+```
+
+Produces:
+
+{{< tabs >}}
+{{< tab-content name="One" >}}
+This is the first tab.
+{{< /tab-content >}}
+{{< tab-content name="Two" >}}
+This is the second tab.
+{{< /tab-content >}}
+{{< /tabs >}}
+
 ## Term
 
 The `term` shortcode enables a tooltip when a user hovers over text surrounded by the shortcode.

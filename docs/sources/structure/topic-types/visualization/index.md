@@ -61,6 +61,8 @@ A visualization topic includes the following elements. Optional sections are mar
     - **`<SECTION>` options** - For each expandable section of options in the panel editor pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
     
       List these sections in the order in which they appear in the user interface.
+
+      In sections with many configuration options, put them in a table and link to longer descriptions from the table.
     
       Use the provided shared files for visualization options that are common to most visualization:
 
@@ -75,7 +77,11 @@ A visualization topic includes the following elements. Optional sections are mar
 
       If there's more than one shared file for an option, use the one that's an exact match to the UI of the particular visualization. If none are a match, manually document the options or create another shared file.
 
-{{< figure src="/media/docs/writers-toolkit/visualization-topic-example-ann-2.png" alt="Annotated example of a visualization page's structure" >}} (todo)
+The following images shows what the page-level TOC and (abridged) page might look like:
+
+{{< figure src="/media/docs/writers-toolkit/viz-topic-page-toc.png" alt="Example of a visualization page TOC" >}}
+
+{{< figure src="/media/docs/writers-toolkit/viz-topic-annotated-border-sp.png" alt="Annotated example of a visualization page's structure" >}}
 
 ## Widget topic structure
 
@@ -150,8 +156,7 @@ To write a visualization or widget topic, follow these steps.
 Refer to the following topics for visualization topic examples:
 
 - [Alert list](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/)
-- [Heatmap](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/heatmap/)
-- [Stat](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/stat/)
+- [Time series](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
 
 ## Visualization template
 

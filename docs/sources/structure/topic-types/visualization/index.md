@@ -42,27 +42,27 @@ The structures for both of these are explained in the following sections:
 The following applies to visualizations that require a data source.
 For visualizations that don't require one, refer to [Widget topic structure](#widget-topic-structure).
 
-A visualization topic includes the following elements. Optional sections are marked:
+A visualization topic includes the following elements. Optional sections are marked with an asterisk:
 
-- **Topic title** - H1. A visualization topic title is the same as the name of the visualization as it's written in the UI (for example, "Time series"). Don't add the word "panel" or "visualization" to the title.
+- **Topic title** - A visualization topic title is the same as the name of the visualization as it's written in the UI (for example, "Time series"). Don't add the word "panel" or "visualization" to the title.
 
 - **Introduction** - Include an introduction that explains what the visualization type can help the user do.
 
 - **Main visual** - Add a clear screenshot depicting the visualization displaying a typical use case.
 
-- **Body** - The body may include task/how-to information as needed. The body must include the following sections:
+- **Body** - The body may include task/how-to information as needed. The body includes the following sections (optional sections marked with an asterisk):
 
-  - **Configure a _`<VISUALIZATION>`_** (optional) - H2. Link to a YouTube video describing a basic configuration example.
-  - Grafana Play shortcode (optional) - Use the play shortcode to add links to a representative example of the visualization. (todo)
-  - **Supported data formats** - H2. Provide guidance about which data formats are supported by the visualization type. Add examples, if needed.
-  - Special instructions or configuration options (optional) - H2. Add special configurations or tasks to achieve relevant tasks with the visualization. Each of these should be an H2 unless it makes sense to group some of them under an H2 heading.
-  - **Configuration options** - H2. This is a reference section for all of the configuration options for the visualization. Add this intro sentence and then nest each option section as an H3.
+  - **Configure a `<VISUALIZATION>`**\* - Link to a YouTube video describing a basic configuration example.
+  - Grafana Play shortcode\* - Use the `docs/play` shortcode to add links to representative examples of the visualization in Grafana Play.
+  - **Supported data formats** - Provide guidance about which data formats are supported by the visualization type. Add examples, if needed.
+  - Special instructions or configuration options - Add special configurations or tasks to achieve relevant tasks with the visualization. Each of these should be their own heading unless it makes sense to group some of them under a heading.
+  - **Configuration options**\* - This is a reference section for all of the configuration options for the visualization. Use the `config-options-intro.md` shared file to add intro text to this section. Nest the options under this heading.
 
-    - **_`<SECTION>`_ options** - H3. For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
+    - **`<SECTION>` options** - For each expandable section of options in the panel editor pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
     
       List these sections in the order in which they appear in the user interface.
     
-      Use shared files for visualization options that are common to most visualization:
+      Use the provided shared files for visualization options that are common to most visualization:
 
       - Panel options
       - Standard options
@@ -73,7 +73,7 @@ A visualization topic includes the following elements. Optional sections are mar
       - Value mappings
       - Tooltips
 
-    If there's more than one shared file for an option, use the one that's an exact match to the UI of the particular visualization. If none are a match, manually document the options or create another shared file.
+      If there's more than one shared file for an option, use the one that's an exact match to the UI of the particular visualization. If none are a match, manually document the options or create another shared file.
 
 {{< figure src="/media/docs/writers-toolkit/visualization-topic-example-ann-2.png" alt="Annotated example of a visualization page's structure" >}} (todo)
 
@@ -93,9 +93,9 @@ A widget topic includes the following elements:
 
 - **Body** - The body may include task/how-to information as needed. The body must include the following section:
 
-  - **_`<SECTION>`_ options** - For each drop-down section of options in the edit panel, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
+  - **_`<SECTION>`_ options** - For each expandable section of options in the panel edit pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
 
-## Visualization naming conventions
+## Naming conventions
 
 When writing about visualizations or widgets use:
 
@@ -119,7 +119,7 @@ You should do this if:
 Do this by adding the word "visualization". For example:
 
 ```markdown
-Use time series visualizations to display time series data as a graph.
+Use time series visualizations to display time-series data as a graph.
 A traces visualization turns traces data into a diagram.
 Text visualizations allow you to directly include text or HTML in your dashboards.
 Click the **Enable node graph** switch to display a node graph visualization above the trace view.

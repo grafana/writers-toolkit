@@ -52,8 +52,8 @@ A visualization topic includes the following elements. Optional sections are mar
 
 - **Body** - The body may include task/how-to information as needed. The body includes the following sections (optional sections marked with an asterisk):
 
-  - **Configure a `<VISUALIZATION>`**\* - Link to a YouTube video describing a basic configuration example.
-  - Grafana Play shortcode\* - Use the `docs/play` shortcode to add links to representative examples of the visualization in Grafana Play.
+  - **Configure a `<VISUALIZATION>`**\* - Link to a YouTube video describing a basic configuration example using the `youtube` shortcode.
+  - Grafana Play shortcode\* - Use the `docs/play` shortcode to add links to representative examples of the visualization in Grafana Play. Place this shortcode after the main image or after a configuration video.
   - **Supported data formats** - Provide guidance about which data formats are supported by the visualization type. Add examples, if needed.
   - Special instructions or configuration options - Add special configurations or tasks to achieve relevant tasks with the visualization. Each of these should be their own heading unless it makes sense to group some of them under a heading.
   - **Configuration options**\* - This is a reference section for all of the configuration options for the visualization. Use the `config-options-intro.md` shared file to add intro text to this section. Nest the options under this heading.
@@ -66,14 +66,14 @@ A visualization topic includes the following elements. Optional sections are mar
     
       Use the provided shared files for visualization options that are common to most visualization:
 
+      - Data links
+      - Field overrides
+      - Legends
       - Panel options
       - Standard options
       - Thresholds
-      - Legend
-      - Data links
-      - Field overrides
-      - Value mappings
       - Tooltips
+      - Value mappings
 
       If there's more than one shared file for an option, use the one that's an exact match to the UI of the particular visualization. If none are a match, manually document the options or create another shared file.
 

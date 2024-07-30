@@ -11,7 +11,7 @@ keywords:
   - keyword 3
 ---
 
-<!-- Refer to [Front matter]({{< relref "../../front-matter/" >}}) for more information about how to populate front matter. -->
+<!-- Refer to [Front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/) for more information about how to populate front matter. -->
 
 # Visualization title
 
@@ -30,50 +30,84 @@ Main visual representing the visualization.
 
 <!-- A screenshot is generally preferred because it's easiest to maintain, but a five-to-ten second video is acceptable. Don't use longer videos as the main visual aid here. They can be added elsewhere in the page, if needed. -->
 
+## Configure a visualization
+
+<!-- Optional {{< youtube id="videoidhere" >}} -->
+
+Grafana Play shortcode block. Place this either after the main image or after a configuration video.
+
+<!-- Optional  {{< docs/play title="Time Series Visualizations in Grafana" url="playurlhere" >}} -->
+
 ## Supported data formats
 
 <!-- Provide guidance about which data formats are supported by the visualization type with example use cases. Does not apply to a widget topic. -->
 
-## [A] options
+## Special configuration or task
 
-<!-- For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." This doesn't include the sections linked from the **Other options** section. -->
+<!-- Optional special configurations or tasks to achieve relevant tasks with the visualization. Each of these should be their own heading unless it makes sense to group some of them under a heading. -->
 
-## [B] options
+## Special configuration or tak
 
-<!-- For each drop-down section of options in the edit panel add a section in the topic with the name of the UI section, followed by the word "options." This doesn't include the sections linked from the **Other options** section. -->
+<!-- Optional special configurations or tasks to achieve relevant tasks with the visualization. Each of these should be their own heading unless it makes sense to group some of them under a heading. -->
 
-## Other options
+### Special configuration or task
 
-<!-- Link out to common visualization options Use H3s for each section to make them easily scannable. -->
+<!-- Grouped optional special configuration or task -->
 
-### Panel options
+## Configuration options
 
-- Learn about [panel options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/config-options-intro.md" source="grafana" version="<GRAFANA_VERSION>" >}}
 
-### Standard options
+<!-- Arrange following sections in the order in which they appear in the UI -->
 
-- Learn about [standard options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-standard-options) that you can set for a visualization.
+### [Section name] options
+
+<!-- For each expandable section of options in the panel edit pane, add a section in the topic with the name of the UI section, followed by the word "options." -->
+
+### [Section name] options
+
+<!-- For each expandable section of options in the panel edit pane, add a section in the topic with the name of the UI section, followed by the word "options." -->
 
 ### Data links
 
-- Learn about [data link options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-data-links) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/datalink-options.md" source="grafana" version="<GRAFANA_VERSION>" >}}
 
 ### Field overrides
 
-- Learn about [field override options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-overrides) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/overrides-options.md" source="grafana" version="<GRAFANA_VERSION>" >}}
 
 ### Legend
 
-- Learn about [legend options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-legend) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/legend-options-1.md" source="grafana" version="<GRAFANA_VERSION>" >}}
+
+<!-- OR -->
+
+{{< docs/shared lookup="visualizations/legend-options-2.md" source="grafana" version="<GRAFANA_VERSION>" >}}
+
+### Panel options
+
+{{< docs/shared lookup="visualizations/panel-options.md" source="grafana" version="<GRAFANA_VERSION>" >}}
+
+### Standard options
+
+{{< docs/shared lookup="visualizations/standard-options.md" source="grafana" version="<GRAFANA_VERSION>" >}}
 
 ### Thresholds
 
-- Learn about [threshold options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/thresholds-options-1.md" source="grafana" version="<GRAFANA_VERSION>" >}}
+
+<!-- OR -->
+
+{{< docs/shared lookup="visualizations/thresholds-options-2.md" source="grafana" version="<GRAFANA_VERSION>" >}}
 
 ### Tooltips
 
-- Learn about [tooltip options](https://grafana.com/docs/grafana/latest/panels-visualizations) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/tooltip-options-1.md" source="grafana" version="<GRAFANA_VERSION>" >}}
+
+<!-- OR -->
+
+{{< docs/shared lookup="visualizations/tooltip-options-2.md" source="grafana" version="<GRAFANA_VERSION>" >}}
 
 ### Value mappings
 
-- Learn about [value mapping options](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-value-mappings) that you can set for a visualization.
+{{< docs/shared lookup="visualizations/value-mappings-options.md" source="grafana" version="<GRAFANA_VERSION>" >}}

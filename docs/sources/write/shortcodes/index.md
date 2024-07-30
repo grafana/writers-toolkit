@@ -1025,16 +1025,18 @@ You can configure automatic playback with:
 ```markdown
 {{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
-## Pyroscope flamegraph
 
-The `pyro-flamegraph` shortcode embeds pyroscope flamegraphs.
+## Pyroscope flame graph
 
-| Parameter  | Description                                     | Required |
-| ---------- | ----------------------------------------------- | -------- |
-| `id`       | Flamegraph id                                   | yes      |
+The `pyro-flame-graph` shortcode embeds Pyroscope flame graphs uploaded to https://flamegraph.com/.
 
-The `id` is the value present in the iframe url after the `/shared/` path parameter.
-For example, for the iframe URL `https://flamegraph.com/share/a8c6e7a9-f360-11ec-bcfa-beb8fdeeb850/iframe?onlyDisplay=flamegraph`, the shortcode is the following:
+| Parameter | Description    | Required |
+| --------- | -------------- | -------- |
+| `id`      | Flame graph id | yes      |
+
+The flame graph `id` value is the path element after `/share/` in the flame graph URL.
+
+For example, to embed the flame graph at https://flamegraph.com/share/a8c6e7a9-f360-11ec-bcfa-beb8fdeeb850, use the following shortcode:
 
 ```markdown
 {{</* pyro-flamegraph id="a8c6e7a9-f360-11ec-bcfa-beb8fdeeb850" */>}}

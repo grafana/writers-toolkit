@@ -242,6 +242,7 @@ local newWord(word, affixes, po) = {
     newWord('Velero', '', 'noun') { description: 'Velero is an open source tool to safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes.', product: true },
     newWord('Vite', '', 'noun') { description: 'Next Generation Frontend Tooling (https://vitejs.dev/)', product: true },
     newWord('viewport', 'S', 'noun') { description: 'A viewport is a polygon viewing region in computer graphics (https://en.wikipedia.org/wiki/Viewport)' },
+    newWord('VPC', 'S', 'noun') { abbreviation: true, elaboration: 'virtual private cloud', established_abbreviation: true },
     newWord('VU', 'S', 'noun') { abbreviation: true, elaboration: 'virtual user' },
     newWord('VUH', 'S', 'noun') { abbreviation: true, elaboration: 'virtual user hour' },
     newWord('WAL', 'S', 'noun') { abbreviation: true, elaboration: 'write-ahead log' },

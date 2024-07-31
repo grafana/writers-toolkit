@@ -1026,6 +1026,22 @@ You can configure automatic playback with:
 {{</* youtube id="g97CjKOZqT4" autoplay="true" */>}}
 ```
 
+## Pyroscope flame graph
+
+The `pyro-flame-graph` shortcode embeds Pyroscope flame graphs uploaded to https://flamegraph.com/.
+
+| Parameter | Description    | Required |
+| --------- | -------------- | -------- |
+| `id`      | Flame graph id | yes      |
+
+The flame graph `id` value is the path element after `/share/` in the flame graph URL.
+
+For example, to embed the flame graph at https://flamegraph.com/share/a8c6e7a9-f360-11ec-bcfa-beb8fdeeb850, use the following shortcode:
+
+```markdown
+{{</* pyro-flamegraph id="a8c6e7a9-f360-11ec-bcfa-beb8fdeeb850" */>}}
+```
+
 ## Escape Hugo shortcodes
 
 If you need to display the syntax for a shortcode, you can escape it using this syntax:

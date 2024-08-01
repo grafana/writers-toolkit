@@ -100,6 +100,7 @@ A widget topic includes the following elements:
   - **_`<SECTION>`_ options** - For each expandable section of options in the panel edit pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
 
 <!-- vale Grafana.Gerunds = NO -->
+
 ## Naming conventions
 <!-- vale Grafana.Gerunds = YES -->
 

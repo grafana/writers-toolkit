@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-07-29"
+review_date: "2024-08-01"
 title: Vale rules
 ---
 
@@ -80,6 +80,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.RepeatedWords = NO -->
 <!-- vale Grafana.SQL = NO -->
 <!-- vale Grafana.Shortcodes = NO -->
+<!-- vale Grafana.SmartQuotes = NO -->
 <!-- vale Grafana.Spelling = NO -->
 <!-- vale Grafana.Timeless = NO -->
 <!-- vale Grafana.We = NO -->
@@ -556,6 +557,16 @@ It has the most consistent semantics.
 The percent syntax is used for special behavior that isn't required with this shortcode.
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition)
+
+### Grafana.SmartQuotes
+
+Extends: script
+
+Avoid smart quotes in the source file, especially in code blocks.
+
+In some contexts, Unicode characters aren't supported and break configurations.
+
+The website renders paired quotes using smart quotes in paragraphs.
 
 ### Grafana.We
 

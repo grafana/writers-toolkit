@@ -59,11 +59,9 @@ A visualization topic includes the following elements. Optional sections are mar
   - **Configuration options** - This is a reference section for all of the configuration options for the visualization. Use the `config-options-intro.md` shared file to add intro text to this section. Nest the options under this heading.
 
     - **`<SECTION>` options** - For each expandable section of options in the panel editor pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a heading in the topic called "Axis options".
-    
       List these sections in the order in which they appear in the UI.
 
       In sections with many configuration options, put them in a table and link to longer descriptions from the table.
-    
       Use the provided shared files for the following options that are common to most visualization:
 
       - Data links

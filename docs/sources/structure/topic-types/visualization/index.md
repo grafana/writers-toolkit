@@ -102,6 +102,7 @@ A widget topic includes the following elements:
 <!-- vale Grafana.Gerunds = NO -->
 
 ## Naming conventions
+
 <!-- vale Grafana.Gerunds = YES -->
 
 When writing about visualizations or widgets use:

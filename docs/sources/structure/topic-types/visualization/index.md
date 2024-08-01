@@ -50,21 +50,21 @@ A visualization topic includes the following elements. Optional sections are mar
 
 - **Main visual** - Add a clear screenshot depicting the visualization displaying a typical use case.
 
-- **Body** - The body may include task/how-to information as needed. The body includes the following sections (optional sections marked with an asterisk):
+- **Body** - The body can include task/how-to information as needed. The body includes the following sections:
 
   - **Configure a `<VISUALIZATION>`**\* - Link to a YouTube video describing a basic configuration example using the `youtube` shortcode.
   - Grafana Play shortcode\* - Use the `docs/play` shortcode to add links to representative examples of the visualization in Grafana Play. Place this shortcode after the main image or after a configuration video.
   - **Supported data formats** - Provide guidance about which data formats are supported by the visualization type. Add examples, if needed.
-  - Special instructions or configuration options - Add special configurations or tasks to achieve relevant tasks with the visualization. Each of these should be their own heading unless it makes sense to group some of them under a heading.
-  - **Configuration options**\* - This is a reference section for all of the configuration options for the visualization. Use the `config-options-intro.md` shared file to add intro text to this section. Nest the options under this heading.
+  - Special instructions or configuration options\* - Add special configurations or instructions to achieve relevant tasks with the visualization. Each of these should have their own heading unless it makes sense to group some of them under a heading.
+  - **Configuration options** - This is a reference section for all of the configuration options for the visualization. Use the `config-options-intro.md` shared file to add intro text to this section. Nest the options under this heading.
 
-    - **`<SECTION>` options** - For each expandable section of options in the panel editor pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a section in the topic called "Axis options".
+    - **`<SECTION>` options** - For each expandable section of options in the panel editor pane, add a section in the topic with the name of the UI section, followed by the word "options". For example, if a drop-down section of options is called "Axis" in the UI, include a heading in the topic called "Axis options".
     
-      List these sections in the order in which they appear in the user interface.
+      List these sections in the order in which they appear in the UI.
 
       In sections with many configuration options, put them in a table and link to longer descriptions from the table.
     
-      Use the provided shared files for visualization options that are common to most visualization:
+      Use the provided shared files for the following options that are common to most visualization:
 
       - Data links
       - Field overrides
@@ -75,9 +75,9 @@ A visualization topic includes the following elements. Optional sections are mar
       - Tooltips
       - Value mappings
 
-      If there's more than one shared file for an option, use the one that's an exact match to the UI of the particular visualization. If none are a match, manually document the options or create another shared file.
+        If there's more than one shared file for an option, use the one that's an exact match to the UI of the particular visualization. If none are a match, manually document the options or create another shared file.
 
-The following images shows what the page-level TOC and (abridged) page might look like:
+The following images show what the page-level TOC and (abridged) page might look like:
 
 {{< figure src="/media/docs/writers-toolkit/viz-topic-page-toc.png" alt="Example of a visualization page TOC" >}}
 
@@ -155,8 +155,8 @@ To write a visualization or widget topic, follow these steps.
 
 Refer to the following topics for visualization topic examples:
 
-- [Alert list](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/)
 - [Time series](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
+- [Alert list](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/)
 
 ## Visualization template
 

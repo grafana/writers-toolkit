@@ -136,6 +136,7 @@ local newWord(word, affixes, po) = {
     newWord('matcher', 'S', 'noun'),
     newWord('memberlist', '', 'noun'),
     newWord('Mesos', '', 'noun') { Apache: true, product: true, description: 'Apache Mesos' },
+    newWord('middleware', 'S', 'noun'),
     newWord('Mimir', 'M', 'noun') { product: true },
     newWord('misconfiguration', 'S', 'noun'),
     newWord('mixin', 'S', 'noun'),

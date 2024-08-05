@@ -1,4 +1,4 @@
-245
+246
 ACL/S po:noun
 Aerospike/ po:noun
 Agent/ po:noun
@@ -121,6 +121,7 @@ manage/uD po:verb
 matcher/S po:noun
 memberlist/ po:noun
 Mesos/ po:noun
+middleware/S po:noun
 Mimir/M po:noun
 misconfiguration/S po:noun
 mixin/S po:noun

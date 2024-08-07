@@ -94,6 +94,8 @@ This guidance intentionally differs from Google style guide advice, which prefer
 
 Use this rather than _dropdown_ or _drop down_.
 
+Use _drop-down_ as a modifier rather than as a standalone noun. For example: _drop-down menu_.
+
 <!--
 ## E
 ## F

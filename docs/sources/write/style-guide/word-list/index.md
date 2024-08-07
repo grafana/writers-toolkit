@@ -80,6 +80,10 @@ While most compound adjectives require a hyphen, it's left out in this case to m
 For other compound adjectives, use a hyphen unless otherwise specified.
 {{< /admonition >}}
 
+### dataset
+
+Use this rather than _data set_.
+
 ### dialog box
 
 <!-- vale Grafana.DialogBox = NO -->

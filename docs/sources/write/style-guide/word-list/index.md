@@ -80,6 +80,10 @@ While most compound adjectives require a hyphen, it's left out in this case to m
 For other compound adjectives, use a hyphen unless otherwise specified.
 {{< /admonition >}}
 
+### dataset
+
+Use this rather than _data set_.
+
 ### dialog box
 
 <!-- vale Grafana.DialogBox = NO -->
@@ -93,6 +97,8 @@ This guidance intentionally differs from Google style guide advice, which prefer
 ### drop-down
 
 Use this rather than _dropdown_ or _drop down_.
+
+Use _drop-down_ as a modifier rather than as a standalone noun. For example: _drop-down menu_.
 
 <!--
 ## E

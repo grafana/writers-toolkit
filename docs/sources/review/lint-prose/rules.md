@@ -565,7 +565,7 @@ Extends: script
 
 Avoid smart quotes in the source file, especially in code blocks.
 
-Replace all smart double quotes like `“` or `”` with `"`.
+Replace all smart double quotes like `"` or `"` with `"`.
 Replace all smart single quotes like `‘`, `’`, or `ʼ` with `'`.
 
 In some contexts, Unicode characters aren't supported and break configurations.

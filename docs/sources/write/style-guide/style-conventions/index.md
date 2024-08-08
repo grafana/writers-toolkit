@@ -278,14 +278,14 @@ With line breaks:
 
 ```markdown
 When you write in active voice, you identify the subject of the sentence and the action that the subject performs.
-For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove).
-The passive voice variation is “The car was driven by John.”
+For example, "John drove the car" is active voice because it is clear that John (the subject) performed an action (drove).
+The passive voice variation is "The car was driven by John."
 ```
 
 Without line breaks:
 
 ```markdown
-When you write in active voice, you identify the subject of the sentence and the action that the subject performs. For example, “John drove the car” is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is “The car was driven by John.”
+When you write in active voice, you identify the subject of the sentence and the action that the subject performs. For example, "John drove the car" is active voice because it is clear that John (the subject) performed an action (drove). The passive voice variation is "The car was driven by John."
 ```
 
 The HTML output is the same in both cases.

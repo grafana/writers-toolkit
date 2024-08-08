@@ -43,7 +43,7 @@ A tutorial topic includes the following elements:
   You can link to the concept topic from the tutorial.
 
 - **Before you begin (optional):** Describe or add links to tasks that a reader should complete before the tutorial.
-  The links might sometimes be unrelated to the product, such as “Have this thing at hand."
+  The links might sometimes be unrelated to the product, such as "Have this thing at hand."
 
   Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the tutorial.
   Use a bulleted list if there is more than one prerequisite.

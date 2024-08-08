@@ -333,7 +333,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **Directly address your users.**
 
-  Address them using the imperative or as “you”.
+  Address them using the imperative or as "you".
 
   **Example:**
   Shorten your communication time when reporting issues and requesting help from Grafana Labs by grabbing a panel's query response data and panel settings.
@@ -343,7 +343,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
   **Example:**
   Enable a configuration option to skip user organization and roles synchronization with your Security Assertion Markup Language (SAML) provider.
 
-- **Don't refer to the release version, for example, “In Grafana 9, we ” or “As of now, we”.**
+- **Don't refer to the release version, for example, "In Grafana 9, we " or "As of now, we".**
 
   The What's new or release notes are understood to be providing information for a specific release, so there is no need to repeat this information.
 

@@ -216,7 +216,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Logo</td>
       <td align="left" valign="top">
-        When you name Grafana logo files, be sure to include the word “Grafana”.<br>
+        When you name Grafana logo files, be sure to include the word "Grafana".<br>
         <br>
         <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;COLOR + ORIENTATION&GT;.&LT;FILE TYPE?&gt;</code><br>
         <br>

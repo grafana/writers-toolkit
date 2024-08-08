@@ -90,6 +90,6 @@ Refer to the following punctuation guidelines when you write technical content.
 - After a period, add one space, not two.
 - When listing a series of items, insert a comma before _and_ or _or_.
   This is known as using serial commas or the Oxford comma.
-  - Example: "During lunch, they enjoyed quiche, quinoa, _and_ kale salad.”
+  - Example: "During lunch, they enjoyed quiche, quinoa, _and_ kale salad."
 - Don't abbreviate _and_ with an ampersand (_&_).
   - Exception: If the UI uses an ampersand, match the UI.

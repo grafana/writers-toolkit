@@ -99,7 +99,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | Parameter     | Description                                                                                                                                                                                                                                    | Required |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `title`       | Card title text.                                                                                                                                                                                                                               | No       |
-| `href`        | URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)                                                                                                                                     | Yes      |
+| `href`        | URL of card target. Use relative path for links with the `grafana.com` domain. For example, `/docs/grafana/latest/`.)                                                                                                                          | Yes      |
 | `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
 | `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`.   | No       |
@@ -697,7 +697,7 @@ you'd calculate `(500 / 1000) * 750 = 325`, or width="500" height="325".
 In this example, the image has a CSS class that makes the image display floated to the right.
 
 ```markdown
-{{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
+{{</* figure class="float-right" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
 This example sets the image's display size to have a maximum width of 50%.

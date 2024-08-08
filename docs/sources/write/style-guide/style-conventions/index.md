@@ -75,7 +75,7 @@ Simple, direct communication is the key to effective technical communication.
 - Don't use buzzwords or jargon.
 - Keep paragraphs to three sentences or less.
   - Condense the text, add more headings, or do both.
-- Use contractions in common and negative cases to express a conversational style: _you're_, _that's_, _isn't_ or \_don't, for example.
+- Use contractions in common and negative cases to express a conversational style: _you're_, _that's_, _isn't_ or \_don't\_, for example.
 
 Make content relevant to the user's context.
 The more familiar you are with the user's context, the better you can communicate without using a lot of words.
@@ -92,7 +92,7 @@ When you write in present tense, avoid words such as have, has, had, been, shoul
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This sentence is demonstrating an exception where this rule doesn't apply. -->
 
-However, similar to [Google's style guide](https://developers.google.com/style/tense), it's OK to use future tense (will) when writing [tutorials](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/) or to make it clear that an action that will occur in the future.
+However, similar to [Google's style guide](https://developers.google.com/style/tense), you can use future tense (will) when writing [tutorials](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/) or to make it clear that an action that will occur in the future.
 
 <!-- vale Grafana.GoogleWill = YES -->
 <!-- vale Grafana.GoogleWill = NO -->

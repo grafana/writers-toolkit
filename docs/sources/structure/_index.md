@@ -239,7 +239,7 @@ Although each of the preceding examples results in the same URL (`/page/`), Hugo
 For the `/page/subpage/` URL to generated, there must first be a `page/_index.md` branch bundle source file.
 
 **Leaf bundles** (`page/index.md`) bundle page assets.
-To refer to a style sheet `page/style.css` with the link `./style.css`, the link must be in a `page/index.md` leaf bundle source file.
+To refer to a stylesheet `page/style.css` with the link `./style.css`, the link must be in a `page/index.md` leaf bundle source file.
 
 You need to use leaf bundles if you intend to mount content from one part of the site to another using Hugo mounts.
 Hugo mounts use a virtual filesystem before site generation, and you can only mount directories.

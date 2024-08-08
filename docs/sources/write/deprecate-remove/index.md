@@ -72,7 +72,7 @@ It is no longer deployed, enhanced, or supported.
 
 ## Documentation deprecation
 
-Scenario: There are situations in which you may deprecate documentation along with and/or independent of feature deprecation.
+Scenario: There are situations in which you may deprecate documentation independent of feature deprecation.
 
 Example text:
 

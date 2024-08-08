@@ -295,7 +295,7 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
           </li>
           <li>Browse and select assets to upload.</li>
           <li>Click <strong>Upload</strong>.</li>
-          <li>The asset is available under https://grafana.com/media/ in the directory where you uploaded it.</li>
+          <li>The asset is available under <code>https://grafana.com/media/</code> in the directory where you uploaded it.</li>
           <li>Click <strong>Copy</strong> to copy the path of the file to your clipboard.</li>
           <li>Add the reference to the Markdown file.<br>
           <br>

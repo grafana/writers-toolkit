@@ -161,7 +161,7 @@ To test an alias results in the correct redirect, use your browser or a command-
 1. Browse to the URL of the page that should be redirected.
 1. Confirm that you are redirected to the desired page.
 
-   For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: http://localhost:3002/docs/grafana/latest/panels/working-with-panels/.
+   For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: <http://localhost:3002/docs/grafana/latest/panels/working-with-panels/>.
 
 ##### Use `cURL`
 
@@ -301,7 +301,7 @@ For example, if you want to abbreviate the topic title in the table of contents.
 Don't remove the verb from [task topic](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/) titles.
 The verb helps the reader know that they're navigating to a task topic before they follow the link.
 
-It is OK to remove the verb from the `menuTitle` if it's implied by the containing section.
+You can remove the verb from the `menuTitle` if it's implied by the containing section.
 For example, the page 'Install Grafana Alloy in a Docker container' can be shortened to 'Docker' if it's in a section named 'Install'.
 
 ### Refs

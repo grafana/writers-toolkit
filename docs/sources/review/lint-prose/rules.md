@@ -599,7 +599,7 @@ Extends: substitution
 
 Use '%s' instead of '%s'.
 
-[More information ->](https://developers.google.com/style/word-list)
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/)
 
 ## Suggestions
 

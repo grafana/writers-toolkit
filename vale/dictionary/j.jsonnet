@@ -7,7 +7,7 @@ local word = import './word.jsonnet';
   word.new('JMeter', 'M', 'noun'),
   word.new('JPG', '', 'noun') { abbreviation: true, established_abbreviation: true },
   word.new('JSON', '', 'noun') { abbreviation: true, established_abbreviation: true },
-  word.new('Jsonnet', 'M', 'noun'),
+  word.new('Jsonnet', '', 'noun') { product: true, swaps: { jsonnet: 'Jsonnet' } },
   word.new('JSX', '', 'noun') { abbreviation: true, established_abbreviation: true },
   word.new('JUnit', 'M', 'noun'),
 ]

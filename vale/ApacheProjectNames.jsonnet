@@ -1,4 +1,4 @@
-local defs = (import './dictionary.jsonnet').words;
+local defs = (import './dictionary.libsonnet').words;
 std.manifestYamlDoc({
   extends: 'conditional',
   message: 'Use the full Apache project name in the first instance.',

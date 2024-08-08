@@ -1,11 +1,13 @@
 local word = import './word.jsonnet';
 [
   word.new('ACL', 'S', 'noun') { abbreviation: true },
+  word.new('Adaptive Metrics', '', 'noun') { swaps: { '\\b(?:[aA]daptive metrics|adaptive Metrics)\\b': 'Adaptive Metrics' } },
   word.new('Aerospike', '', 'noun'),
+  word.new('after', '', 'preposition') { swaps: { Once: 'After' } },
   word.new('Agent', '', 'noun') { product: true },
-  word.new('Alertmanager', 'MS', 'noun'),
-  word.new('allowlist', 'DGS', 'verb'),
-  word.new('allowlist', 'S', 'noun'),
+  word.new('Alertmanager', 'MS', 'noun') { swaps: { '(?:alert[Mm]anager|[Aa]lert [Mm]anager|AlertManager)': 'Alertmanager' } },
+  word.new('allowlist', 'DGS', 'verb') { swaps: { whitelisted: 'allowlisted', whitelisting: 'allowlisting', whitelists: 'allowlists' } },
+  word.new('allowlist', 'S', 'noun') { swaps: { whitelist: 'allowlist' } },
   word.new('Alloy', '', 'noun') { product: true },
   word.new('Ansible', '', 'adjective'),
   word.new('Ansible', '', 'noun'),

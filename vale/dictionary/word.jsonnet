@@ -10,6 +10,7 @@
     established_abbreviation: false,
     po: '',
     product: false,
+    swaps: {},
     word: '',
   },
 

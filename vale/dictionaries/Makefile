@@ -20,6 +20,6 @@ en_US-places.dic: en_US-places.wordlist
 	cat <(wc -l <$< | tr -d ' ') $< > $@
 
 en_US-grafana.dic: ## Create a Hunspell dictionary for Grafana from the Jsonnet dictionary.
-en_US-grafana.dic: en_US-grafana.jsonnet ../dictionary.jsonnet
+en_US-grafana.dic: en_US-grafana.jsonnet ../dictionary.libsonnet
 	jsonnet -S en_US-grafana.jsonnet > $@
 

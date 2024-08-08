@@ -8,5 +8,6 @@ local word = import './word.jsonnet';
   word.new('KPI', 'S', 'noun') { abbreviation: true, elaboration: 'key performance indicator' },
   word.new('Kprobe', 'S', 'noun'),
   word.new('kubelet', '', 'noun'),
+  word.new('Kubernetes', '', 'noun') { product: true, swap: '(?:[kK]8s|kubernetes)' },
   word.new('Kubernetes Engine', '', 'noun') { Google: true, product: true },
 ]

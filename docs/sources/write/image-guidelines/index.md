@@ -171,9 +171,9 @@ General rules:
 - Use lowercase letters in filenames, always.
 - Use dashes between words; don't use spaces or underscores.
 - Don't type special characters or punctuation marks in a filename except for periods in product version numbers. For example: `grafana-9.2.release.png`.
-- Don’t use abbreviations that may cause issues with localization.
+- Don't use abbreviations that may cause issues with localization.
   - For example, spell out `database` instead of using `db`.
-  - When in doubt, don’t use an abbreviation.
+  - When in doubt, don't use an abbreviation.
 
 <table>
   <thead>
@@ -216,7 +216,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Logo</td>
       <td align="left" valign="top">
-        When you name Grafana logo files, be sure to include the word “Grafana”.<br>
+        When you name Grafana logo files, be sure to include the word "Grafana".<br>
         <br>
         <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;COLOR + ORIENTATION&GT;.&LT;FILE TYPE?&gt;</code><br>
         <br>
@@ -295,7 +295,7 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
           </li>
           <li>Browse and select assets to upload.</li>
           <li>Click <strong>Upload</strong>.</li>
-          <li>The asset is available under https://grafana.com/media/ in the directory where you uploaded it.</li>
+          <li>The asset is available under <code>https://grafana.com/media/</code> in the directory where you uploaded it.</li>
           <li>Click <strong>Copy</strong> to copy the path of the file to your clipboard.</li>
           <li>Add the reference to the Markdown file.<br>
           <br>
@@ -372,7 +372,7 @@ For more information about how to write good alt text, refer to:
 
 - [Google developer documentation style guide](https://developers.google.com/style/images#alt-text)
 - [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)
-- [gov.uk Design102 blog: What’s the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
+- [gov.uk Design102 blog: What's the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
 - [W3C Web Accessibility Initiative: An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
 
 ## Screen recordings

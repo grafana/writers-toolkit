@@ -43,14 +43,14 @@ Adjectives describe nouns.
 
 To add a general word:
 
-1. Open the `vale/dictionary.jsonnet` template file in your editor.
+1. Open the `vale/dictionary/<LETTER>.jsonnet` template file in your editor where _`LETTER`_ is the first letter of the word you want to add.
 1. Add a line for your word definition.
 
-   Your line goes in the `words` array, between the other entries.
+   Your line goes in the array, between the other entries.
    Entries look like the following:
 
    ```jsonnet
-   newWord(<STEM>, <AFFIXES>, <PART OF SPEECH>),
+   word.new(<STEM>, <AFFIXES>, <PART OF SPEECH>),
    ```
 
    The entries are ordered alphabetically.
@@ -67,7 +67,7 @@ To add a general word:
       Your line should look similar to the following:
 
       ```jsonnet
-      newWord('downsample', <AFFIXES>, <PART OF SPEECH>),
+      word.new('downsample', <AFFIXES>, <PART OF SPEECH>),
       ```
 
    1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
@@ -79,7 +79,7 @@ To add a general word:
       To add affixes for the past tense and gerund forms, your line should look similar to the following:
 
       ```jsonnet
-      newWord('downsample', 'DG', <PART OF SPEECH>),
+      word.new('downsample', 'DG', <PART OF SPEECH>),
       ```
 
    1. Replace _`<PART OF SPEECH>`_ with the part of speech.
@@ -91,7 +91,7 @@ To add a general word:
       Your completed line should look similar to the following:
 
       ```jsonnet
-      newWord('downsample', 'DG', 'verb'),
+      word.new('downsample', 'DG', 'verb'),
       ```
 
 1. If the word isn't well known, extend the definition to include a description: `description: <DESCRIPTION>`.
@@ -101,7 +101,7 @@ To add a general word:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('downsample', 'DG', 'verb') { description: 'To reduce the sampling rate of a signal.' },
+   word.new('downsample', 'DG', 'verb') { description: 'To reduce the sampling rate of a signal.' },
    ```
 
 ## Add a product name
@@ -112,14 +112,14 @@ A product can be a Grafana Labs' product, another company's product, or the name
 
 To add a product:
 
-1. Open the `vale/dictionary.jsonnet` template file in your editor.
+1. Open the `vale/dictionary/<LETTER>.jsonnet` template file in your editor where _`LETTER`_ is the first letter of the word you want to add.
 1. Add a line for your word definition.
 
-   Your line goes in the `words` array, between the other entries.
+   Your line goes in the array, between the other entries.
    Entries look like the following:
 
    ```jsonnet
-   newWord(<STEM>, <AFFIXES>, <PART OF SPEECH>),
+   word.new(<STEM>, <AFFIXES>, <PART OF SPEECH>),
    ```
 
    The entries are ordered alphabetically.
@@ -131,7 +131,7 @@ To add a product:
       For products, this is the product name.
 
       ```jsonnet
-      newWord('CloudWatch', <AFFIXES>, <PART OF SPEECH>),
+      word.new('CloudWatch', <AFFIXES>, <PART OF SPEECH>),
       ```
 
    1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
@@ -139,7 +139,7 @@ To add a product:
       Products generally have no affixes.
 
       ```jsonnet
-      newWord('CloudWatch', '', <PART OF SPEECH>),
+      word.new('CloudWatch', '', <PART OF SPEECH>),
       ```
 
    1. Replace _`<PART OF SPEECH>`_ with the part of speech.
@@ -149,7 +149,7 @@ To add a product:
       Your line should look similar to the following:
 
       ```jsonnet
-      newWord('CloudWatch', '', 'noun'),
+      word.new('CloudWatch', '', 'noun'),
       ```
 
 1. Extend the definition to indicate it's a product.
@@ -159,7 +159,7 @@ To add a product:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('CloudWatch', '', 'noun') { product: true },
+   word.new('CloudWatch', '', 'noun') { product: true },
    ```
 
 1. If the product is an Amazon product, extend the definition to include this.
@@ -169,7 +169,7 @@ To add a product:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('CloudWatch', '', 'noun') { Amazon: true, product: true },
+   word.new('CloudWatch', '', 'noun') { Amazon: true, product: true },
    ```
 
 1. Extend the definition to include a description: `description: <DESCRIPTION>`.
@@ -179,7 +179,7 @@ To add a product:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('CloudWatch', '', 'noun') { Amazon: true, description: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html', product: true },
+   word.new('CloudWatch', '', 'noun') { Amazon: true, description: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html', product: true },
    ```
 
 ## Add an abbreviation
@@ -192,14 +192,14 @@ You can say that the abbreviation is commonly known in your definition.
 
 To add an abbreviation:
 
-1. Open the `vale/dictionary.jsonnet` template file in your editor.
+1. Open the `vale/dictionary/<LETTER>.jsonnet` template file in your editor where _`LETTER`_ is the first letter of the word you want to add.
 1. Add a line for your word definition.
 
-   Your line goes in the `words` array, between the other entries.
+   Your line goes in the array, between the other entries.
    Entries look like the following:
 
    ```jsonnet
-   newWord(<STEM>, <AFFIXES>, <PART OF SPEECH>),
+   word.new(<STEM>, <AFFIXES>, <PART OF SPEECH>),
    ```
 
    The entries are ordered alphabetically.
@@ -211,7 +211,7 @@ To add an abbreviation:
       For abbreviation, this is the abbreviation letters.
 
       ```jsonnet
-      newWord('SUT', <AFFIXES>, <PART OF SPEECH>),
+      word.new('SUT', <AFFIXES>, <PART OF SPEECH>),
       ```
 
    1. Replace _`<AFFIXES>`_ with the concatenation of the Hunspell affixes.
@@ -225,7 +225,7 @@ To add an abbreviation:
       All affixes are case sensitive.
 
       ```jsonnet
-      newWord('SUT', 's', <PART OF SPEECH>),
+      word.new('SUT', 's', <PART OF SPEECH>),
       ```
 
    1. Replace _`<PART OF SPEECH>`_ with the part of speech.
@@ -235,7 +235,7 @@ To add an abbreviation:
       Your line should look similar to the following:
 
       ```jsonnet
-      newWord('SUT', 's', 'noun'),
+      word.new('SUT', 's', 'noun'),
       ```
 
 1. Extend the definition to indicate it's an abbreviation.
@@ -245,7 +245,7 @@ To add an abbreviation:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('SUT', 's', 'noun') { abbreviation: true },
+   word.new('SUT', 's', 'noun') { abbreviation: true },
    ```
 
 1. Extend the definition to include a description: `description: <DESCRIPTION>`.
@@ -255,7 +255,7 @@ To add an abbreviation:
    Your line should look similar to the following:
 
    ```jsonnet
-   newWord('SUT', 's', 'noun') { abbreviation: true, description: 'System Under Test' },
+   word.new('SUT', 's', 'noun') { abbreviation: true, description: 'System Under Test' },
    ```
 
 1. If you don't need to expand the abbreviation for the general reader, extend the definition to include this.
@@ -265,5 +265,5 @@ To add an abbreviation:
    For the well-known abbreviation HTTP, your line should look similar to the following:
 
    ```jsonnet
-   newWord('HTTP', '', 'noun') { abbreviation: true, description: 'Hypertext Transfer Protocol', established_abbreviation: true },
+   word.new('HTTP', '', 'noun') { abbreviation: true, description: 'Hypertext Transfer Protocol', established_abbreviation: true },
    ```

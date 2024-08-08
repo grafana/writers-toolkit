@@ -33,7 +33,7 @@ For example, instead of covering the fundamentals of UI design _in general_, exp
 
 The foundation of strong documentation is well-written comments in code that are concise, relevant, and current.
 
-For dos and don'ts of writing comments, refer to the [Guidelines for code comments in grafana-\* packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
+For dos and don'ts of writing comments, refer to the [Guidelines for code comments in `grafana-\*` packages](https://github.com/grafana/grafana/blob/main/contribute/style-guides/code-comments.md).
 
 For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your programming language.
 
@@ -225,7 +225,7 @@ The use of _dot notation_ for nested fields is common in other engineering docum
 ### Paths, filenames, and URLs
 
 Many types of information belong in fixed-width font.
-Among these are path names, file names, directories, or folders.
+Among these are paths, filenames, directories, and folders.
 However, don't format domain names or URLs as code if you intend the user to follow the link.
 
 ## Command lines

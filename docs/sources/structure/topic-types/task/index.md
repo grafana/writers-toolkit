@@ -33,7 +33,7 @@ A _task_ topic includes the following elements:
   You can link to the longer concept topic from this introduction.
 
 - **Before you begin: (optional)** Add links to tasks that need to be completed before the current one.
-  The links might sometimes be unrelated to the product, such as “Have this thing at hand”.
+  The links might sometimes be unrelated to the product, such as "Have this thing at hand".
 
   Additionally, this section can include decisions the user should make or permissions they need to confirm before starting the task.
 

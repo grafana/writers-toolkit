@@ -1,0 +1,22 @@
+local word = import './word.jsonnet';
+[
+  word.new('Parca', '', 'noun') { product: true },
+  word.new('path', 'S', 'noun') { description: 'A string that represents a file or directory location in a filesystem.', swaps: { '(?:file ?path|path ?name)': 'path', '(?:file ?path|path ?name)s': 'paths' } },
+  word.new('PDF', 'S', 'noun') { abbreviation: true, elaboration: 'Portable Document Format', established_abbreviation: true },
+  word.new('performant', '', 'adjective'),
+  word.new('Phlare', 'M', 'noun') { product: true, swaps: { phlare: 'Phlare' } },
+  word.new('PHP', '', 'noun') { abbreviation: true, elaboration: 'PHP: Hypertext Preprocessor', established_abbreviation: true },
+  word.new('PNG', '', 'noun') { abbreviation: true, elaboration: 'Portable Network Graphics', established_abbreviation: true },
+  word.new('Podman', '', 'noun') { product: true },
+  word.new('Postgres', '', 'noun') { product: true, swaps: { postgres: 'Postgres' } },
+  word.new('PostgreSQL', '', 'noun') { product: true, swaps: { postgresql: 'PostgreSQL' } },
+  word.new('profile', 'DGRS', 'verb'),
+  word.new('Prometheus', '', 'noun') { product: true, swaps: { '(?<!kube-)prometheus': 'Prometheus' } },
+  word.new('Promtail', '', 'noun') { product: true, swaps: { '(?<!lambda-)promtail': 'Promtail' } },
+  word.new('PromQL', '', 'noun') { description: 'The Prometheus query language', swaps: { 'prom(?:ql|QL)': 'PromQL' } },
+  word.new('provision', 'dD', 'verb'),
+  word.new('proxy', 'DG', 'verb'),
+  word.new('Puppetfile', 'S', 'noun'),
+  word.new('PVC', 'S', 'noun') { abbreviation: true, elaboration: 'Persistent Volume Claim' },
+  word.new('Pyroscope', '', 'noun') { product: true },
+]

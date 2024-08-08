@@ -29,7 +29,7 @@ The script that invokes `doc-validator` mounts projects using the Hugo website s
 All projects are subdirectories of `/hugo/content/docs/`.
 
 To run `doc-validator` on specific files, provide the _`<DOC_VALIDATOR_INCLUDE>`_ argument to your `make` command.
-It's value is a regular expression that the tool matches against file paths.
+It's value is a regular expression that the tool matches against paths.
 `doc-validator` only lints the paths that the regular expression matches.
 
 ### Example

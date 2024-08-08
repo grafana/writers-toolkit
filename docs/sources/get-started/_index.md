@@ -47,7 +47,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 ### 2. Create the structure
 
 1. Add documentation to your GitHub repository.
-   Add a `docs/sources` directory to your repository, if it doesn’t already exist.
+   Add a `docs/sources` directory to your repository, if it doesn't already exist.
 
 1. Create the folders and structure.
    Use the content framework for consistency across product documentation.
@@ -56,7 +56,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 ### 3. Draft the documentation
 
 1. Learn how to best write and organize your documentation.
-   Read the [topic types](https://grafana.com/docs/writers-toolkit/structure/topic-types/) topic and sub-topics in the Writers’ Toolkit.
+   Read the [topic types](https://grafana.com/docs/writers-toolkit/structure/topic-types/) topic and sub-topics in the Writers' Toolkit.
 
 1. Add front matter.
    Read the [front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/) documentation.

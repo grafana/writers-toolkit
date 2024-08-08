@@ -161,7 +161,7 @@ To test an alias results in the correct redirect, use your browser or a command-
 1. Browse to the URL of the page that should be redirected.
 1. Confirm that you are redirected to the desired page.
 
-   For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: http://localhost:3002/docs/grafana/latest/panels/working-with-panels/.
+   For example, if you want the page `https://grafana.com/docs/grafana/latest/panels/working-with-panels/` to redirect to `https://grafana.com/docs/grafana/latest/panels-visualizations/panel-editor-overview/`, browse to the following URL in the browser to confirm the redirect is working: <http://localhost:3002/docs/grafana/latest/panels/working-with-panels/>.
 
 ##### Use `cURL`
 
@@ -264,7 +264,7 @@ For `labels.stages`, the supported values and the resulting published labels are
 Labels can be inherited through cascading front matter.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.
-For other projects, the `_index.md` file resides in the project’s repository.
+For other projects, the `_index.md` file resides in the project's repository.
 
 If the default labels are incorrect for a page or directory of pages, update the labels.
 Also, if you are adding a new page, consider whether the default labels are appropriate.
@@ -301,7 +301,7 @@ For example, if you want to abbreviate the topic title in the table of contents.
 Don't remove the verb from [task topic](https://grafana.com/docs/writers-toolkit/structure/topic-types/task/) titles.
 The verb helps the reader know that they're navigating to a task topic before they follow the link.
 
-It is OK to remove the verb from the `menuTitle` if it's implied by the containing section.
+You can remove the verb from the `menuTitle` if it's implied by the containing section.
 For example, the page 'Install Grafana Alloy in a Docker container' can be shortened to 'Docker' if it's in a section named 'Install'.
 
 ### Refs
@@ -310,7 +310,7 @@ Use the `refs` front matter with `ref` URIs to link to different pages in reused
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
-For more information, refer to [Link from source content that’s used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+For more information, refer to [Link from source content that's used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
 
 ### Review date
 

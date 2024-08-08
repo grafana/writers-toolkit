@@ -1,4 +1,4 @@
-local defs = (import './dictionary.jsonnet').words;
+local defs = (import './dictionary.libsonnet').words;
 std.manifestYamlDoc({
   extends: 'existence',
   level: 'warning',

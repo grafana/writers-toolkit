@@ -1,4 +1,4 @@
-local defs = (import './dictionary.jsonnet').words;
+local defs = (import './dictionary.libsonnet').words;
 std.manifestYamlDoc({
   extends: 'conditional',
   message: 'Use the full Google product name in the first instance.',

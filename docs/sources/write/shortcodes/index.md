@@ -37,7 +37,7 @@ and the type of admonition must be within quotes.
 | --------- | ---------------------------------------------------------------------- | -------- |
 | `type`    | The type of admonition. One of `caution`, `note`, `tip`, or `warning`. | yes      |
 
-Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
+Use a tip when you want to show the reader _how_ to do something that isn't necessarily obvious.
 Tips should be helpful, additional information.
 You can think of some tips as tricks.
 Your reader can feel free to skip them if they want because they don't contribute to core understanding.
@@ -99,7 +99,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | Parameter     | Description                                                                                                                                                                                                                                    | Required |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `title`       | Card title text.                                                                                                                                                                                                                               | No       |
-| `href`        | URL of card target. Use relative path for links within "grafana.com" domain (e.g. `/docs/grafana/latest/`)                                                                                                                                     | Yes      |
+| `href`        | URL of card target. Use relative path for links with the `grafana.com` domain. For example, `/docs/grafana/latest/`.)                                                                                                                          | Yes      |
 | `description` | Description text. Accepts Markdown.                                                                                                                                                                                                            | No       |
 | `logo`        | Logo image URL.                                                                                                                                                                                                                                | No       |
 | `width`       | For raster images (`png`, `jpg`, `webp`), this is the image's natural width. For vector images (`svg`), this is the desired display width. Accepts a number (pixels) or a percentage. Pixel values must _not_ include `px`. Default: `auto`.   | No       |
@@ -476,7 +476,7 @@ Produces:
 
 {{< admonition type="warning" >}}
 This shortcode is present in the documentation, but you should prefer `ref` URIs.
-Don’t use it when creating new or updating existing documentation.
+Don't use it when creating new or updating existing documentation.
 
 For more information, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 {{< /admonition >}}
@@ -697,7 +697,7 @@ you'd calculate `(500 / 1000) * 750 = 325`, or width="500" height="325".
 In this example, the image has a CSS class that makes the image display floated to the right.
 
 ```markdown
-{{</* figure class="float-right"  src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
+{{</* figure class="float-right" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
 This example sets the image's display size to have a maximum width of 50%.
@@ -752,7 +752,7 @@ my_hero:
   width: 110
   height: 110
   description: >-
-    Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
+    Alerts & IRM is Grafana Cloud's Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
 ---
 
 {{</* hero-simple key="my_hero" */>}}
@@ -761,7 +761,7 @@ my_hero:
 Insert a simple hero using shortcode arguments:
 
 ```markdown
-{{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
+{{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud's Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
 ```
 
 <!-- vale Grafana.Spelling = NO -->

@@ -1,4 +1,4 @@
-local defs = (import './dictionary.jsonnet').words;
+local defs = (import './dictionary.libsonnet').words;
 std.manifestYamlDoc({
   extends: 'capitalization',
   message: "Use sentence-style capitalization for '%s'.\n\nIf your heading contains capitalized words that represent product names, you need to add those words as exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/Headings.yml for them to be considered correctly cased.\n\nVale considers multi-word exceptions such as _Grafana Enterprise Metrics_ as a single correctly cased word.\n",

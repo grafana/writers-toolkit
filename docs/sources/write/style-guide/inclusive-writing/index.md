@@ -41,10 +41,10 @@ With that in mind, there are important distinctions between the ways that differ
 
 Consider the following best practices to ensure inclusivity in your writing.
 
-- Group or audience: Don’t refer to a group or audience as _it_.
+- Group or audience: Don't refer to a group or audience as _it_.
   Instead, use _they_.
-- Age: Don’t refer to someone’s age unless it’s relevant.
-  Don’t use age-related words to describe people.
+- Age: Don't refer to someone's age unless it's relevant.
+  Don't use age-related words to describe people.
   Avoid: _young_, _old_, or _elderly_.
 - Hearing: Do use the adjectives _deaf_, _partially deaf_, or _hard of hearing_ when describing a person with hearing loss.
 - Vision: Do use the adjective _blind_ or _low vision_ when describing a person with limited vision.

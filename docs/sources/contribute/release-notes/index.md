@@ -34,10 +34,10 @@ The Grafana Cloud Traces updates are published using the What's new.
 
 ## What's new documentation development process
 
-What’s new content is published to the website through the website CMS.
+What's new content is published to the website through the website CMS.
 To add a new note, browse to the [What's new CMS collection](https://admin.grafana.com/content-admin/#/collections/whats-new).
 
-Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What’s new, without the need for approval.
+Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What's new, without the need for approval.
 _Quality assurance is a conversation within and between contributing teams and internal stakeholders_, but there are some best practice guidelines described in the last two sections of this topic.
 
 Enter release notes into the CMS two to four weeks before the feature is available, depending on the size of the product or feature.
@@ -53,7 +53,7 @@ It's important to understand that, in the context of the CMS, the word "publishe
 
 ### Create a What's new entry
 
-When you’re ready to add a What’s new entry, complete the following steps:
+When you're ready to add a What's new entry, complete the following steps:
 
 1. Fill out the fields:
    <table>
@@ -75,7 +75,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
          <td>Date and time in UTC that you want this note to be live.</td>
          <td>
            <p>This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users the date is when the feature was first available to users opting in.</p>
-           <p>If you’ve opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build.</p>
+           <p>If you've opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build.</p>
          </td>
        </tr>
        <tr>
@@ -90,7 +90,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
        </tr>
        <tr>
          <th scope="row">CLOUD AVAILABILITY</th>
-         <td>Select the stage of the feature’s Cloud release.</td>
+         <td>Select the stage of the feature's Cloud release.</td>
          <td>If the feature isn't available in Cloud, select <strong>None</strong>.</td>
        </tr>
        <tr>
@@ -123,7 +123,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
          <th scope="row">BODY</th>
          <td>Include an overview of the feature and the problem it solves.</td>
          <td>
-           <p>If you want to view some best practices around what to write here, refer to <a href="#writing-guidelines-for-whats-new-content">Writing guidelines for What’s new</a>.</p>
+           <p>If you want to view some best practices around what to write here, refer to <a href="#writing-guidelines-for-whats-new-content">Writing guidelines for What's new</a>.</p>
            <p>Add any images and a link to your public YouTube video here.</p>
            <p>If you need more information on adding an image, refer to <a href="https://grafana.com/docs/writers-toolkit/write/image-guidelines/">Image, diagram, and screenshot guidelines</a>.</p>
            <p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the <code>traceToProfile</code> <a href="https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/">feature toggle</a>.</p>
@@ -166,9 +166,9 @@ When you’re ready to add a What’s new entry, complete the following steps:
    1. In the **Status** drop-down, select **In review.**
 
       {{< admonition type="note" >}}
-      _The Documentation Team doesn't automatically review these pull requests; teams that create What’s new entries are responsible for determining their own review process._
+      _The Documentation Team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process._
 
-      However, there are two weekly Office Hours meetings offered by the Documentation Team that you’re welcome to attend for guidance and assistance:
+      However, there are two weekly Office Hours meetings offered by the Documentation Team that you're welcome to attend for guidance and assistance:
 
       - [Docs squad office hours (early)](https://docs.google.com/document/d/1QaH9PwIZ_6-6Udhmy7Zhwme72ZZLqSTiX8HYFFi6AE4/edit#heading=h.9o53ccbx7xrw)
       - [Docs squad office hours (late)](https://docs.google.com/document/d/12XK3XYEZWU3uIPluq3sn5HSGqWHBHJkktqlyQZHj_Uw/edit#heading=h.9o53ccbx7xrw)
@@ -187,7 +187,7 @@ When you’re ready to add a What’s new entry, complete the following steps:
    1. In the **Publish** drop-down, click **Publish now**.
       The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the date you entered.
 
-For Grafana versioned releases, the content you enter in the CMS is published in the versioned What’s new at a later date.
+For Grafana versioned releases, the content you enter in the CMS is published in the versioned What's new at a later date.
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
 
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
@@ -333,7 +333,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
 
 - **Directly address your users.**
 
-  Address them using the imperative or as “you”.
+  Address them using the imperative or as "you".
 
   **Example:**
   Shorten your communication time when reporting issues and requesting help from Grafana Labs by grabbing a panel's query response data and panel settings.
@@ -343,7 +343,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
   **Example:**
   Enable a configuration option to skip user organization and roles synchronization with your Security Assertion Markup Language (SAML) provider.
 
-- **Don't refer to the release version, for example, “In Grafana 9, we ” or “As of now, we”.**
+- **Don't refer to the release version, for example, "In Grafana 9, we " or "As of now, we".**
 
   The What's new or release notes are understood to be providing information for a specific release, so there is no need to repeat this information.
 
@@ -370,7 +370,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
 - **You can use first person plural, such as "we".**
 
   Our style normally prefers second person ("you") and avoids first person ("I"/"we").
-  Release notes, like blog posts, use a more conversational tone and often use first person plural: "We’ve made multi-tenant queries available."
+  Release notes, like blog posts, use a more conversational tone and often use first person plural: "We've made multi-tenant queries available."
 
   If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.We` rule. You can use this check at the beginning of your file after the front matter:
   `<!-- vale Grafana.We = NO -->`

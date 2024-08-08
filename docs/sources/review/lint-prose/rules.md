@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-08-01"
+review_date: "2024-08-08"
 title: Vale rules
 ---
 
@@ -31,6 +31,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.DatadogProxy = NO -->
 <!-- vale Grafana.DialogBox = NO -->
 <!-- vale Grafana.DocumentationTeam = NO -->
+<!-- vale Grafana.DropDown = NO -->
 <!-- vale Grafana.Gerunds = NO -->
 <!-- vale Grafana.GoogleAMPM = NO -->
 <!-- vale Grafana.GoogleContractions = NO -->
@@ -482,7 +483,7 @@ Use '%s' instead of '%s'.
 Extends: existence
 
 Don't use any variation of okay in prose.
-The exceptions are when you’re referencing or quoting:
+The exceptions are when you're referencing or quoting:
 
 - A user interface
 - HTTP status codes or other code
@@ -564,6 +565,9 @@ Extends: script
 
 Avoid smart quotes in the source file, especially in code blocks.
 
+Replace all smart double quotes like `"` or `"` with `"`.
+Replace all smart single quotes like `'`, `'`, or `'` with `'`.
+
 In some contexts, Unicode characters aren't supported and break configurations.
 
 The website renders paired quotes using smart quotes in paragraphs.
@@ -594,7 +598,7 @@ Extends: substitution
 
 Use '%s' instead of '%s'.
 
-[More information ->](https://developers.google.com/style/word-list)
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/)
 
 ## Suggestions
 
@@ -615,6 +619,16 @@ Extends: substitution
 Use '%s' instead of '%s'.
 
 [More information ->](https://developers.google.com/style/word-list#extract)
+
+### Grafana.DropDown
+
+Extends: substitution
+
+Use _drop-down_ rather than _dropdown_ or _drop down_.
+
+Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_.
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#drop-down)
 
 ### Grafana.GoogleContractions
 

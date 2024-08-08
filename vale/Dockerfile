@@ -28,7 +28,7 @@ COPY Google /etc/vale/styles/Google
 COPY Grafana /etc/vale/styles/Grafana
 COPY .vale.ini /etc/vale/.vale.ini
 COPY .vale-config /etc/vale/.vale-config
-COPY config /etc/vale/config
+COPY config /etc/vale/styles/config
 COPY dictionaries /etc/vale/dictionaries
 COPY rdjsonl.tmpl /etc/vale/rdjsonl.tmpl
 COPY .reviewdog.yml /etc/vale/.reviewdog.yml

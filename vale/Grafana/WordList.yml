@@ -38,6 +38,8 @@
   "content type": "media type"
   "data-?source": "data source"
   "data-?sources": "data sources"
+  "data[- ]?set": "dataset"
+  "data[- ]?sets": "datasets"
   "datacenter": "data center"
   "datacenters": "data centers"
   "de-duplicate": "deduplicate"

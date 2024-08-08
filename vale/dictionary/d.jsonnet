@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('data center', 'S', 'noun') { swaps: { datacenter: 'data center', datacenters: 'data centers' } },
   word.new('data source', 'S', 'noun') { swaps: { 'data-?source': 'data source', 'data-?sources': 'data sources' } },
+  word.new('dataset', 'S', 'noun') { swaps: { 'data[- ]?set': 'dataset', 'data[- ]?sets': 'datasets' } },
   word.new('Data Firehose', '', 'noun') { Amazon: true, product: true, swaps: { '(?:(?<!Data )Firehose|Kinesis Data Firehose|Kinesis Firehose)': 'Data Firehose' } },
   word.new('Databricks', '', 'noun') { product: true },
   word.new('Datadog', '', 'adjective'),

@@ -32,7 +32,7 @@ For example, if you plan to remove a feature in Grafana v9.5, then you should be
 
 To ensure that users are fully aware of the stages of deprecation for their products or features, you should:
 
-- Inform customers of deprecation using notes in the product's What’s New, documentation, and where necessary, in the UI.
+- Inform customers of deprecation using notes in the product's What's New, documentation, and where necessary, in the UI.
 - Inform the field by emailing [`gtm-se-field-engineering@grafana.com`](mailto:gtm-se-field-engineering@grafana.com) or by reaching out on Slack in the `#field-engineering-with-nomads` channel
 - Update these notes once removal has taken place.
 - Announce the deprecation in the Grafana [community slack](https://grafana.slack.com/archives/C05675Y4F) and [forum](https://community.grafana.com/).
@@ -89,7 +89,7 @@ Link to documentation, if it exists.
 Concrete example:
 
 {{< admonition type="caution" >}}
-As of Grafana 9.2, release notes will no longer be published, because they duplicate the content available in the What’s New document and the CHANGELOG."
+As of Grafana 9.2, release notes will no longer be published, because they duplicate the content available in the What's New document and the CHANGELOG."
 {{< /admonition >}}
 
 <!-- vale Grafana.GooglePassive = YES -->
@@ -119,7 +119,7 @@ You may need to add the preceding notes to both the documentation _and_ the UI.
 
    GitHub automatically assigns the writer associated with those documentation as a reviewer of the PR.
 
-1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation in the draft What’s New document.
+1. The writer either drafts the PR or reviews and approves the PR and adds a notice of the deprecation in the draft What's New document.
 
    Include links, if available.
 

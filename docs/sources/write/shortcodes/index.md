@@ -37,7 +37,7 @@ and the type of admonition must be within quotes.
 | --------- | ---------------------------------------------------------------------- | -------- |
 | `type`    | The type of admonition. One of `caution`, `note`, `tip`, or `warning`. | yes      |
 
-Use a tip when you want to show the reader _how_ to do something that isn’t necessarily obvious.
+Use a tip when you want to show the reader _how_ to do something that isn't necessarily obvious.
 Tips should be helpful, additional information.
 You can think of some tips as tricks.
 Your reader can feel free to skip them if they want because they don't contribute to core understanding.
@@ -476,7 +476,7 @@ Produces:
 
 {{< admonition type="warning" >}}
 This shortcode is present in the documentation, but you should prefer `ref` URIs.
-Don’t use it when creating new or updating existing documentation.
+Don't use it when creating new or updating existing documentation.
 
 For more information, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 {{< /admonition >}}
@@ -752,7 +752,7 @@ my_hero:
   width: 110
   height: 110
   description: >-
-    Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
+    Alerts & IRM is Grafana Cloud's Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform.
 ---
 
 {{</* hero-simple key="my_hero" */>}}
@@ -761,7 +761,7 @@ my_hero:
 Insert a simple hero using shortcode arguments:
 
 ```markdown
-{{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud’s Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
+{{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud's Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
 ```
 
 <!-- vale Grafana.Spelling = NO -->

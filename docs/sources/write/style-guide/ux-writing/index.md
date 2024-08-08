@@ -41,7 +41,7 @@ Be conversational but don't use the voice you use when texting a friend.
 
 **Use:**
 
-> We’ll guide you through the process of creating your SLOs.
+> We'll guide you through the process of creating your SLOs.
 
 <!-- vale Grafana.We = YES -->
 
@@ -243,8 +243,8 @@ Use buttons when you want users to take actions, such as adding or creating new 
 | Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | **Create**<br>**Create incident**<br>**Create entry**                                                                                                       |
 | Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | **Add details**<br>**Add contact**                                                                                                                          |
 | Save    | Save something to a server.                                                                                                                                                      | **Save**<br>**Save and exit**<br>**Save changes**                                                                                                           |
-| Edit    | Change or update something that already exists. This doesn’t affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                    |
-| Preview | Preview a runtime version of whatever you are working on. This action doesn’t take you away from or override the page you’re already on.                                         | **Preview**                                                                                                                                                 |
+| Edit    | Change or update something that already exists. This doesn't affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                    |
+| Preview | Preview a runtime version of whatever you are working on. This action doesn't take you away from or override the page you're already on.                                         | **Preview**                                                                                                                                                 |
 | Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | **Cancel**                                                                                                                                                  |
 | Close   | Close a window.                                                                                                                                                                  | **Close**                                                                                                                                                   |
 | Delete  | Permanently delete something from the server. This usually prompts a confirmation dialog box, asking you to confirm your decision.                                               | **Delete notification policy**<br>Deleting this notification policy permanently removes it. Are you sure you want to delete this policy?<br>**Yes, delete** |
@@ -275,7 +275,7 @@ Error messages tell the user what happened and what they can do to fix the error
 - The error headline includes a concise, meaningful summary of the error.
   Error details provide as much information as possible.
 - Include reasons and instructions for fixing the issue, if possible.
-  Don’t give just the system logs or error titles.
+  Don't give just the system logs or error titles.
   Try to state how the error was caused and what the user can do to fix it.
   Assume that some of your users might not understand crash logs and need a simpler description.
 - Write error messages for humans without blame.

@@ -483,7 +483,7 @@ Use '%s' instead of '%s'.
 Extends: existence
 
 Don't use any variation of okay in prose.
-The exceptions are when you’re referencing or quoting:
+The exceptions are when you're referencing or quoting:
 
 - A user interface
 - HTTP status codes or other code
@@ -566,7 +566,7 @@ Extends: script
 Avoid smart quotes in the source file, especially in code blocks.
 
 Replace all smart double quotes like `"` or `"` with `"`.
-Replace all smart single quotes like `‘`, `’`, or `ʼ` with `'`.
+Replace all smart single quotes like `'`, `'`, or `'` with `'`.
 
 In some contexts, Unicode characters aren't supported and break configurations.
 

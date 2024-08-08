@@ -264,7 +264,7 @@ For `labels.stages`, the supported values and the resulting published labels are
 Labels can be inherited through cascading front matter.
 
 For versioned projects, the `_index.md` file resides in the `website` repository.
-For other projects, the `_index.md` file resides in the project’s repository.
+For other projects, the `_index.md` file resides in the project's repository.
 
 If the default labels are incorrect for a page or directory of pages, update the labels.
 Also, if you are adding a new page, consider whether the default labels are appropriate.
@@ -310,7 +310,7 @@ Use the `refs` front matter with `ref` URIs to link to different pages in reused
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
-For more information, refer to [Link from source content that’s used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+For more information, refer to [Link from source content that's used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
 
 ### Review date
 

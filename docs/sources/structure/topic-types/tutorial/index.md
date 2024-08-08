@@ -20,7 +20,7 @@ The purpose of a tutorial is to show the reader how to "learn by doing" in a saf
 A tutorial should build up easy successes.
 The length of a tutorial can vary from a few steps to many subtasks.
 
-If you have an idea for a tutorial you’d like to develop, contact the Grafana Labs documentation team.
+If you have an idea for a tutorial you'd like to develop, contact the Grafana Labs documentation team.
 Internal contributors can reach out on Slack and external contributors can send email to [`docs@grafana.com`](mailto:docs@grafana.com) or reach out on the #docs channel on the [Grafana Labs Community Slack](https://slack.grafana.com/).
 
 ## Tutorial structure

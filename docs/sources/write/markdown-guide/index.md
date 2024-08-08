@@ -35,7 +35,7 @@ Similar to HTML headings (`<h1>`, `<h2>`, and `<h3>`), in Markdown, `#` symbols 
 
 - \# is a parent heading.
 - \#\# is a child heading.
-- \#\#\# is a child’s child heading.
+- \#\#\# is a child's child heading.
 
 For the title of the page, use one `#`. For each child heading, use two `##` symbols.
 

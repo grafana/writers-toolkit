@@ -171,9 +171,9 @@ General rules:
 - Use lowercase letters in filenames, always.
 - Use dashes between words; don't use spaces or underscores.
 - Don't type special characters or punctuation marks in a filename except for periods in product version numbers. For example: `grafana-9.2.release.png`.
-- Don’t use abbreviations that may cause issues with localization.
+- Don't use abbreviations that may cause issues with localization.
   - For example, spell out `database` instead of using `db`.
-  - When in doubt, don’t use an abbreviation.
+  - When in doubt, don't use an abbreviation.
 
 <table>
   <thead>
@@ -372,7 +372,7 @@ For more information about how to write good alt text, refer to:
 
 - [Google developer documentation style guide](https://developers.google.com/style/images#alt-text)
 - [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)
-- [gov.uk Design102 blog: What’s the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
+- [gov.uk Design102 blog: What's the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
 - [W3C Web Accessibility Initiative: An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
 
 ## Screen recordings

@@ -39,11 +39,11 @@ For more information on topic types, refer to [Topic types](https://grafana.com/
 
 Why is topic-based authoring important?
 
-- **Writing that isn’t topic-based is difficult to reuse.**
+- **Writing that isn't topic-based is difficult to reuse.**
 
   If everyone copies information to multiple locations and makes small modifications, the result is rework and increases in errors, which multiplies the costs associated with maintenance and translation.
 
-- **Writing that isn’t topic-based is difficult for readers to understand.**
+- **Writing that isn't topic-based is difficult for readers to understand.**
 
   Content, structure, terminology, and writing style differs and can confuse and frustrate readers.
 
@@ -67,4 +67,4 @@ You can contribute content in the following ways:
 
 ## Join the community
 
-For general discussions about documentation, you’re welcome to join the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel on the public Grafana Labs Slack workspace.
+For general discussions about documentation, you're welcome to join the [#docs](https://raintank-corp.slack.com/archives/C5PG2JK8W) channel on the public Grafana Labs Slack workspace.

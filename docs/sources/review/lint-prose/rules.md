@@ -568,8 +568,6 @@ Avoid smart quotes in the source file, especially in code blocks.
 Replace all smart double quotes like `“` or `”` with `"`.
 Replace all smart single quotes like `‘`, `’`, or `ʼ` with `'`.
 
-To disable smart quotes on Mac, refer to [Use smart quotes and dashes](https://support.apple.com/en-gb/guide/mac-help/mh35735/mac#:~:text=the%20command%20again.-,Use%20smart%20quotes%20and%20dashes,-Automatically%20convert%20straight).
-
 In some contexts, Unicode characters aren't supported and break configurations.
 
 The website renders paired quotes using smart quotes in paragraphs.

@@ -30,6 +30,7 @@ CDN/ po:noun
 CLA/ po:noun
 CLI/ po:noun
 CloudWatch/ po:noun
+CLS/ po:noun
 codespace/S po:noun
 Codespaces/ po:noun
 composable/ po:adjective
@@ -37,13 +38,12 @@ configure/mpDS po:verb
 contentful/ po:adjective
 CORS/ po:noun
 Couchbase/M po:noun
-CLS/ po:noun
-Data Firehose/ po:noun
 CPU/S po:noun
 CRD/S po:noun
 CSS/ po:noun
 CSV/ po:noun
 CVE/S po:noun
+Data Firehose/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
@@ -67,12 +67,11 @@ Fargate/M po:noun
 FCP/ po:noun
 FID/ po:noun
 Firehose/M po:noun
+GKE/ po:noun
 glob/G po:noun
 globbing/ po:verb
 GNU/ po:noun
 Goldmark/ po:noun
-Kubernetes Engine/ po:noun
-GKE/ po:noun
 goroutine/S po:noun
 GPU/S po:noun
 Grafana/ po:adjective
@@ -111,13 +110,14 @@ Kinesis/ po:noun
 KPI/S po:noun
 Kprobe/S po:noun
 kubelet/ po:noun
+Kubernetes Engine/ po:noun
 LCP/ po:noun
 LESS/ po:noun
 Linode/M po:noun
 Loki/ po:noun
 lookup/S po:noun
-marshal/u po:verb
 manage/uD po:verb
+marshal/u po:verb
 matcher/S po:noun
 memberlist/ po:noun
 Mesos/ po:noun
@@ -157,8 +157,8 @@ quantile/S po:noun
 querier/MS po:noun
 query/ po:noun
 query/DGS po:verb
-queryless/ po:adjective
 queryable/ po:adjective
+queryless/ po:adjective
 RAM/ po:noun
 RBAC/ po:noun
 RDS/ po:noun
@@ -212,22 +212,22 @@ Thanos/ po:noun
 TLS/ po:noun
 toolset/S po:noun
 tooltip/S po:noun
-traceroute/S po:noun
 tracepoint/S po:noun
+traceroute/S po:noun
 triage/D po:verb
 TSDB/S po:noun
 TTL/S po:noun
 UI/S po:noun
-UX/ po:noun
 uprobe/S po:noun
 URI/S po:noun
 URL/ po:noun
 USB/ po:noun
 UTC/ po:noun
 UTF/ po:noun
+UX/ po:noun
 Velero/ po:noun
-Vite/ po:noun
 viewport/S po:noun
+Vite/ po:noun
 VPC/S po:noun
 VU/S po:noun
 VUH/S po:noun

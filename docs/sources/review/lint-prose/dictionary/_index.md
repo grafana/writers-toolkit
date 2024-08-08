@@ -13,7 +13,7 @@ The same dictionary is used to generate some Vale rules from the metadata in the
 
 The dictionary uses the [Hunspell format](https://github.com/hunspell/hunspell) generated from a [Jsonnet](https://jsonnet.org) template.
 
-If a word doesn't yet exist in the dictionary, you can add one by modifying the [dictionary template file](https://github.com/grafana/writers-toolkit/blob/main/vale/dictionary.jsonnet).
+If a word doesn't yet exist in the dictionary, you can add one by modifying the appropriate [dictionary template file](https://github.com/grafana/writers-toolkit/blob/main/vale/dictionary).
 
 To add a new word to the dictionary, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
 
@@ -34,8 +34,8 @@ The structure of that metadata is a Jsonnet object with the following fields:
 | `Amazon`                   | `boolean`  | If `true`, the word is the name of an Amazon product, like Amazon CloudWatch. Defaults to `false`.                                     |
 | `Apache`                   | `boolean`  | If `true`, the word is the name of an Apache project, like Apache Mesos. Defaults to `false`.                                          |
 
-You don't create the object directly in the dictionary file.
-Instead, you use the `newWord` function which prescribes the required fields.
+You don't create the object directly in the dictionary template file.
+Instead, you use the `word.new` function which prescribes the required fields.
 
 To add new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
 

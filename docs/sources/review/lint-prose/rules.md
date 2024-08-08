@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-08-01"
+review_date: "2024-08-08"
 title: Vale rules
 ---
 
@@ -563,6 +563,11 @@ The percent syntax is used for special behavior that isn't required with this sh
 Extends: script
 
 Avoid smart quotes in the source file, especially in code blocks.
+
+Replace all smart double quotes like `“` or `”` with `"`.
+Replace all smart single quotes like `‘`, `’`, or `ʼ` with `'`.
+
+To disable smart quotes on Mac, refer to [Use smart quotes and dashes](https://support.apple.com/en-gb/guide/mac-help/mh35735/mac#:~:text=the%20command%20again.-,Use%20smart%20quotes%20and%20dashes,-Automatically%20convert%20straight).
 
 In some contexts, Unicode characters aren't supported and break configurations.
 

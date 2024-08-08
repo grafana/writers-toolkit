@@ -31,6 +31,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.DatadogProxy = NO -->
 <!-- vale Grafana.DialogBox = NO -->
 <!-- vale Grafana.DocumentationTeam = NO -->
+<!-- vale Grafana.DropDown = NO -->
 <!-- vale Grafana.Gerunds = NO -->
 <!-- vale Grafana.GoogleAMPM = NO -->
 <!-- vale Grafana.GoogleContractions = NO -->
@@ -620,6 +621,16 @@ Extends: substitution
 Use '%s' instead of '%s'.
 
 [More information ->](https://developers.google.com/style/word-list#extract)
+
+### Grafana.DropDown
+
+Extends: substitution
+
+Use _drop-down_ rather than _dropdown_ or _drop down_.
+
+Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_.
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#drop-down)
 
 ### Grafana.GoogleContractions
 

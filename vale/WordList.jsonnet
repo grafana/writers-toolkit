@@ -13,7 +13,6 @@ std.manifestYamlDoc({
     function(acc, def) acc + def.swaps,
     defs,
     {
-      'drop ?down': 'drop-down',
       'ad[- ]?hoc': 'free-form|user-written',
       'the Grafana Agent': 'Grafana Agent',
       'network IP address': 'internal IP address',

@@ -727,6 +727,9 @@ POSIX_HERESTRING
 
     _repo="$(repo_path website)"
     volumes="--volume=${_repo}/config:/hugo/config:z"
+    volumes="${volumes} --volume=${_repo}/content/guides:/hugo/content/guides:z"
+    volumes="${volumes} --volume=${_repo}/content/whats-new:/hugo/content/whats-new:z"
+    volumes="${volumes} --volume=${_repo}/Makefile:/hugo/Makefile:z"
     volumes="${volumes} --volume=${_repo}/layouts:/hugo/layouts:z"
     volumes="${volumes} --volume=${_repo}/scripts:/hugo/scripts:z"
   fi

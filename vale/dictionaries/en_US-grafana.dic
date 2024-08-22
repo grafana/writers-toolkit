@@ -1,4 +1,4 @@
-289
+291
 ACL/S po:noun
 Adaptive Metrics/ po:noun
 Aerospike/ po:noun
@@ -258,12 +258,14 @@ triage/D po:verb
 TSDB/S po:noun
 TTL/S po:noun
 UI/S po:noun
+UID/S po:noun
 uprobe/S po:noun
 URI/S po:noun
 URL/S po:noun
 USB/ po:noun
 UTC/ po:noun
 UTF/ po:noun
+UUID/S po:noun
 UX/ po:noun
 Velero/ po:noun
 versus/ po:preposition

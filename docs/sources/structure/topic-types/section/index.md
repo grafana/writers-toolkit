@@ -19,8 +19,9 @@ Section pages, also called landing pages, direct users to the most valuable reso
 A _section_ page includes the following elements:
 
 - **Hero:** A banner across the top of the page that includes the section title and a brief description.
-
-- **Cards:** Defined in the front matter, cards provide overviews of important pages and include links to those pages.
+- **Overview:** A heading and one or two paragraphs that describe the resources contained within the section.
+- **Explore:** A heading that contains cards.
+  - **Cards:** Defined in the front matter, cards provide overviews of important pages and include links to those pages.
 
 ## Write a section page
 

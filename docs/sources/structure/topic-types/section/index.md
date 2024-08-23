@@ -41,9 +41,8 @@ To write a section, follow these steps:
 
 1. Add the elements specific to a section page:
 
-
-   -  **Hero:** A [hero (simple)](https://grafana.com/docs/writers-toolkit/write/shortcodes/#hero-simple) requires front matter and use of a shortcode.
-  -  **Cards:** A [card grid](https://grafana.com/docs/writers-toolkit/write/shortcodes/#card-grid) requires front matter and use of a shortcode.
+   - **Hero:** A [hero (simple)](https://grafana.com/docs/writers-toolkit/write/shortcodes/#hero-simple) requires front matter and use of a shortcode.
+   - **Cards:** A [card grid](https://grafana.com/docs/writers-toolkit/write/shortcodes/#card-grid) requires front matter and use of a shortcode.
 
 ### Section page examples
 

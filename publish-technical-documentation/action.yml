@@ -26,10 +26,10 @@ runs:
       with:
         # sync-token and publish-token are fine-grained GitHub Personal Access Tokens that expire.
         # They must be updated in the grafanabot GitHub account.
-        # A Vault admin can add them the ci/common/docs/publish-technical-documentation Vault path.
+        # A Vault admin can add them the ci/common/docs-team/website Vault path.
         common_secrets: |
-          WEBSITE_SYNC_TOKEN=docs/publish-technical-documentation:sync-token
-          PUBLISH_TO_WEBSITE_TOKEN=docs/publish-technical-documentation:publish-token
+          WEBSITE_SYNC_TOKEN=docs-team/website:sync-token
+          PUBLISH_TO_WEBSITE_TOKEN=docs-team/website:publish-token
 
     - name: Checkout sync action
       uses: actions/checkout@v4

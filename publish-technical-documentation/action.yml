@@ -17,6 +17,7 @@ runs:
   using: composite
   steps:
     - name: Build website
+      shell: bash
       run: |
           docker run -v ${PWD}/docs/sources:/hugo/${{ inputs.website_directory }} -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
@@ -38,7 +39,7 @@ runs:
         token: ${{ env.WEBSITE_SYNC_TOKEN }}
 
     - name: Sync to the website repository
-      uses: .github/actions/website-sync
+      uses: ./.github/actions/website-sync
       id: publish
       with:
         repository: grafana/website

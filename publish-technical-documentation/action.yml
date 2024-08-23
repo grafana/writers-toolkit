@@ -16,11 +16,9 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
-
     - name: Build website
       run: |
-          docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+          docker run -v ${PWD}/docs/sources:/hugo/${{ inputs.website_directory }} -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main

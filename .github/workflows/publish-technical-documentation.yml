@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: grafana/writers-toolkit/publish-technical-documentation@jdb/2024-08-use-centralized-publish-workflow
+      - uses: grafana/writers-toolkit/publish-technical-documentation@main
         with:
           website_directory: content/docs/writers-toolkit

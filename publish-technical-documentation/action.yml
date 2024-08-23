@@ -19,7 +19,7 @@ runs:
     - name: Build website
       shell: bash
       run: |
-          docker run -v ${PWD}/docs/sources:/hugo/${{ inputs.website_directory }} -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+          docker run -v "${PWD}/docs/sources:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main

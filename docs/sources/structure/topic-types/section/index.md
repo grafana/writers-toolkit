@@ -28,7 +28,7 @@ A _section_ page includes the following elements:
 To write a section, follow these steps:
 
 1. Determine where you want to add section, or find an existing section page to update.
-1. If you are creating a new section, create directory that follows this naming convention:
+1. If you're creating a new section, create a directory that follows this naming convention:
 
    - The directory name matches the menu title planned for the section.
    - Use lowercase letters.

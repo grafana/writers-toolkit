@@ -25,6 +25,13 @@ inputs:
       For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
       For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L28-L33.
     required: true
+  release_branch_with_patch_regexp:
+    default: ''
+    description: |
+      A regular expression with capture groups for major, minor, and patch versions.
+      For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L34-L40.
+    required: false
   release_tag_regexp:
     description: |
       A regular expression with capture groups for major, minor, and patch versions.
@@ -80,8 +87,9 @@ runs:
       uses: ./actions/has-matching-release-tag
       with:
         ref_name: ${{ github.ref_name }}
-        release_tag_regexp: ${{ inputs.release_tag_regexp }}
         release_branch_regexp: ${{ inputs.release_branch_regexp }}
+        release_branch_with_patch_regexp: ${{ inputs.release_branch_with_patch_regexp }}
+        release_tag_regexp: ${{ inputs.release_tag_regexp }}
 
     - name: Determine technical documentation version
       if: steps.has-matching-release-tag.outputs.bool == 'true'
@@ -102,3 +110,11 @@ runs:
         source_folder: docs/sources
         target_folder: ${{ inputs.website_directory }}/${{ steps.target.outputs.target }}${{ inputs.version_suffix }}
         allow_no_changes: ${{ inputs.allow_no_changes }}
+
+    - name: Print release outputs
+      if: steps.has-matching-release-tag.outputs.bool == 'true'
+      shell: bash
+      run: |
+        test -n '${{ steps.publish-release.outputs.commit_hash }}'
+        test -n '${{ steps.publish-release.outputs.working_directory }}'
+

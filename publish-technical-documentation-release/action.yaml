@@ -1,0 +1,121 @@
+name: Publish technical documentation (release)
+description: |
+  This action syncs the documentation to the website repository where it is published on the website.
+  Use this to publish from release branches that have appropriate tags.
+
+  You need the following permissions on the workflow to fetch secrets from Vault needed by this action.
+
+  ```yaml
+  permissions:
+    contents: read
+    id-token: write
+  ```
+
+inputs:
+  allow_no_changes:
+    default: true
+    description: |
+      Allow the workflow to succeed if there are no changes to commit.
+      This is only going to occur on tags as those events ignore the path filter in the workflow `on.push` section.
+    required: true
+    type: boolean
+  release_branch_regexp:
+    description: |
+      A regular expression with capture groups for major, and minor versions.
+      For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L28-L33.
+    required: true
+  release_branch_with_patch_regexp:
+    default: ''
+    description: |
+      A regular expression with capture groups for major, minor, and patch versions.
+      For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L34-L40.
+    required: false
+  release_tag_regexp:
+    description: |
+      A regular expression with capture groups for major, minor, and patch versions.
+      For example, '^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L22-L27.
+    required: true
+  website_directory:
+    description: |
+      Website directory to sync the documentation to.
+      Documentation goes into a subdirectory whose name is derived from the release branch.
+    required: true
+  version_suffix:
+    default: .x
+    description: |
+      Optional suffix appended to the version derived from the release branch.
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Build website
+      shell: bash
+      run: |
+          docker run -v "${PWD}/docs/sources:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+
+    - id: get-secrets
+      uses: grafana/shared-workflows/actions/get-vault-secrets@main
+      with:
+        # sync-token and publish-token are fine-grained GitHub Personal Access Tokens that expire.
+        # They must be updated in the grafanabot GitHub account.
+        # A Vault admin can add them the ci/common/docs-team/website Vault path.
+        common_secrets: |
+          WEBSITE_SYNC_TOKEN=docs-team/website:sync-token
+          PUBLISH_TO_WEBSITE_TOKEN=docs-team/website:publish-token
+
+    - name: Checkout sync action
+      uses: actions/checkout@v4
+      with:
+        path: .github/actions/website-sync
+        repository: grafana/website-sync
+        token: ${{ env.WEBSITE_SYNC_TOKEN }}
+
+    - name: Checkout Actions library
+      uses: actions/checkout@v4
+      with:
+        repository: grafana/grafana-github-actions
+        path: ./actions
+
+    - name: Install Actions from library
+      run: npm install --production --prefix ./actions
+      shell: bash
+
+    - name: Determine if there is a matching release tag
+      id: has-matching-release-tag
+      uses: ./actions/has-matching-release-tag
+      with:
+        ref_name: ${{ github.ref_name }}
+        release_branch_regexp: ${{ inputs.release_branch_regexp }}
+        release_branch_with_patch_regexp: ${{ inputs.release_branch_with_patch_regexp }}
+        release_tag_regexp: ${{ inputs.release_tag_regexp }}
+
+    - name: Determine technical documentation version
+      if: steps.has-matching-release-tag.outputs.bool == 'true'
+      uses: ./actions/docs-target
+      id: target
+      with:
+        ref_name: ${{ github.ref_name }}
+
+    - name: Sync to the website repository (release)
+      if: steps.has-matching-release-tag.outputs.bool == 'true'
+      uses: ./.github/actions/website-sync
+      id: publish-release
+      with:
+        repository: grafana/website
+        branch: master
+        host: github.com
+        github_pat: grafanabot:${{ env.PUBLISH_TO_WEBSITE_TOKEN }}
+        source_folder: docs/sources
+        target_folder: ${{ inputs.website_directory }}/${{ steps.target.outputs.target }}${{ inputs.version_suffix }}
+        allow_no_changes: ${{ inputs.allow_no_changes }}
+
+    - name: Print release outputs
+      if: steps.has-matching-release-tag.outputs.bool == 'true'
+      run: |
+        test -n '${{ steps.publish-release.outputs.commit_hash }}'
+        test -n '${{ steps.publish-release.outputs.working_directory }}'
+      shell: bash
+

@@ -11,7 +11,6 @@ keywords:
 menuTitle: Tutorial
 review_date: "2024-06-07"
 title: Tutorial topic
-weight: 400
 ---
 
 # Tutorial topic

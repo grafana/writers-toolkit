@@ -81,6 +81,7 @@ runs:
 
     - name: Install Actions from library
       run: npm install --production --prefix ./actions
+      shell: bash
 
     - name: Determine if there is a matching release tag
       id: has-matching-release-tag
@@ -113,8 +114,8 @@ runs:
 
     - name: Print release outputs
       if: steps.has-matching-release-tag.outputs.bool == 'true'
-      shell: bash
       run: |
         test -n '${{ steps.publish-release.outputs.commit_hash }}'
         test -n '${{ steps.publish-release.outputs.working_directory }}'
+      shell: bash
 

@@ -8,4 +8,4 @@ message: |
 
   If you need to specify both in your content, write something like "You can export raw events, processed events, or both."
 tokens:
- - and/or
+  - and/or

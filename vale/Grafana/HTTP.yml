@@ -8,4 +8,4 @@ action:
   name: replace
 scope: raw
 swap:
-  'http://grafana.com': 'https://grafana.com'
+  "http://grafana.com": "https://grafana.com"

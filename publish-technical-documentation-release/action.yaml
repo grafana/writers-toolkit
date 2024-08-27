@@ -26,7 +26,7 @@ inputs:
       For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L28-L33.
     required: true
   release_branch_with_patch_regexp:
-    default: ''
+    default: ""
     description: |
       A regular expression with capture groups for major, minor, and patch versions.
       For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
@@ -54,7 +54,7 @@ runs:
     - name: Build website
       shell: bash
       run: |
-          docker run -v "${PWD}/docs/sources:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+        docker run -v "${PWD}/docs/sources:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main
@@ -118,4 +118,3 @@ runs:
         test -n '${{ steps.publish-release.outputs.commit_hash }}'
         test -n '${{ steps.publish-release.outputs.working_directory }}'
       shell: bash
-

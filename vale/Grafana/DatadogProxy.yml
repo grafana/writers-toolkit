@@ -4,5 +4,5 @@ level: warning
 action:
   name: replace
 swap:
-  '[tT]he [Dd]atadog proxy': Datadog proxy
+  "[tT]he [Dd]atadog proxy": Datadog proxy
   Datadog Proxy: Datadog proxy

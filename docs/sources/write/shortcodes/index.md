@@ -1021,7 +1021,6 @@ The `youtube` shortcode embed videos hosted on YouTube.
 | `id`       | Video ID                                        | yes      |
 | `start`    | Start time in seconds                           | no       |
 | `end`      | End time in seconds                             | no       |
-| `autoplay` | Set to `"true"` to automatically play the video | no       |
 
 The `id` is the `v` URL parameter in the YouTube URL.
 For example, for the YouTube URL `https://www.youtube.com/watch?v=g97CjKOZqT4`, the shortcode is the following:

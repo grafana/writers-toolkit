@@ -189,6 +189,7 @@ Search engines use this information and only index the canonical URL.
 The value of the `canonical` URL should be the full URL of the canonical page.
 For example, `https://grafana.com/docs/writers-toolkit/`.
 
+All pages that are reused using Hugo mounts, should have the canonical front matter set.
 For content reused in Grafana Cloud, prefer the open source documentation as the canonical page.
 
 ### Cascade

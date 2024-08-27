@@ -65,22 +65,22 @@ linters-settings:
         yaml: snake
   varnamelen:
     ignore-names:
-    # Common name for bytes variables.
-    - b
-    - err
-    - fi
-    # Common name for File variables.
-    - f
-    # Common names for iterator variables.
-    - i
-    - j
-    # Short for Markdown and avoids conflict with package name markdown.
-    - md
-    # Common name for number variables.
-    - n
-    # Common name for test cases.
-    - tc
-    # Short for URL and avoids conflict with the package name url.
-    - u
-    # Common name for io.Writer.
-    - w
+      # Common name for bytes variables.
+      - b
+      - err
+      - fi
+      # Common name for File variables.
+      - f
+      # Common names for iterator variables.
+      - i
+      - j
+      # Short for Markdown and avoids conflict with package name markdown.
+      - md
+      # Common name for number variables.
+      - n
+      # Common name for test cases.
+      - tc
+      # Short for URL and avoids conflict with the package name url.
+      - u
+      # Common name for io.Writer.
+      - w

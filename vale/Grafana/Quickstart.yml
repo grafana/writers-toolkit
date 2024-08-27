@@ -6,4 +6,4 @@ ignorecase: false
 action:
   name: replace
 swap:
-  'quick start': quickstart
+  "quick start": quickstart

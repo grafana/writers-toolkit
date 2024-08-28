@@ -38,6 +38,9 @@ inputs:
       For example, '^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
       For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L22-L27.
     required: true
+  source_directory:
+    default: docs/sources
+    description: Path to source directory, relative to the project root, to sync documentation from.
   website_directory:
     description: |
       Website directory to sync the documentation to.
@@ -54,7 +57,7 @@ runs:
     - name: Build website
       shell: bash
       run: |
-        docker run -v "${PWD}/docs/sources:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+        docker run -v "${PWD}/${{ inputs.suorce_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main
@@ -108,7 +111,7 @@ runs:
         branch: master
         host: github.com
         github_pat: grafanabot:${{ env.PUBLISH_TO_WEBSITE_TOKEN }}
-        source_folder: docs/sources
+        source_folder: ${{ inputs.source_directory }}
         target_folder: ${{ inputs.website_directory }}/${{ steps.target.outputs.target }}${{ inputs.version_suffix }}
         allow_no_changes: ${{ inputs.allow_no_changes }}
 

@@ -10,6 +10,9 @@ description: |
     id-token: write
   ```
 inputs:
+  source_directory:
+    default: docs/sources
+    description: Path to source directory, relative to the project root, to sync documentation from.
   website_directory:
     description: Website directory to sync the documentation to.
     required: true
@@ -19,7 +22,7 @@ runs:
     - name: Build website
       shell: bash
       run: |
-        docker run -v "${PWD}/docs/sources:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+        docker run -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main
@@ -46,5 +49,5 @@ runs:
         branch: master
         host: github.com
         github_pat: grafanabot:${{ env.PUBLISH_TO_WEBSITE_TOKEN }}
-        source_folder: docs/sources
+        source_folder: ${{ inputs.source_directory }}
         target_folder: ${{ inputs.website_directory }}

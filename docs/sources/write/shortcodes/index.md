@@ -350,7 +350,7 @@ The website looks up guide Markdown files from the website repository in the `co
 | `text`    | Custom body text to override the default guide text.                        | no       |
 | `button`  | Custom button copy to override the default guide button copy.               | no       |
 
-If you don't set custom title, text, and button values, the guide introduction screen will use the following default text:
+If you don't set custom title, text, and button values, the guide introduction screen uses the following default text:
 
 ![Grot guide introduction screen with default copy](https://grafana.com/media/docs/writers-toolkit/grot-guide.png)
 

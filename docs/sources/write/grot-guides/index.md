@@ -99,8 +99,6 @@ A question screen is a branch node in a decision tree and presents one or many o
 
 ```yaml
 screens:
-  ...
-
   - type: question
     id: instrument
     title: What programming language do you want to instrument?

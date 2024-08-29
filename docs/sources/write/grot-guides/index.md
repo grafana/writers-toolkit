@@ -40,14 +40,11 @@ Guide content consists of various YAML structures in Markdown front matter for t
 The meta sections covers general information about the guide. Customize the `name`, `api`, and `title` fields, and leave the rest as is:
 
 ```yaml
-# name that matches the filename and name used to embed
 name: <GUIDE NAME>
-# match the name field
 api: <GUIDE NAME>
 title: <GUIDE TITLE>
 type: guides
 layout: single
-# Hugo rendering options
 _build:
   render: false
   list: true

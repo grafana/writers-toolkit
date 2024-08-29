@@ -50,7 +50,7 @@ Use the following standards for images and diagrams:
 
 - **Scope**: Limit the contents of an image to the relevant portion.
 
-  Don't include distracting or unnecessary content and whitespace, such as your browswer window or tabs, or other window decoration.
+  Don't include distracting or unnecessary content and whitespace, or your browser window, browser tabs, or other window decoration.
 
 - **Format**: PNG and SVG are the preferred image formats.
 

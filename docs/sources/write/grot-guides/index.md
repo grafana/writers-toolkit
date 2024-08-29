@@ -31,18 +31,20 @@ If you don't set custom title, text, and button values, the guide introduction s
 
 ![Grot guide introduction screen with default copy](https://grafana.com/media/docs/writers-toolkit/grot-guide.png)
 
+## Structure of a Grot guide
+
 Guide content consists of various YAML structures in Markdown front matter for the guide meta, header, welcome, and screens.
 
-## Meta
+### Meta
 
-Customize the `name`, `api`, and `title` fields, and leave the rest as is:
+The meta sections covers general information about the guide. Customize the `name`, `api`, and `title` fields, and leave the rest as is:
 
 ```yaml
 # name that matches the filename and name used to embed
-name: instrument
+name: <GUIDE NAME>
 # match the name field
-api: instrument
-title: Applicating Instrumentation
+api: <GUIDE NAME>
+title: <GUIDE TITLE>
 type: guides
 layout: single
 # Hugo rendering options
@@ -53,7 +55,7 @@ _build:
 
 ## Header
 
-The header structure defines the guide's image and image spacing:
+The header structure defines the guide's image and image spacing. The following example sets a `src`, `alt`, and image dimensions:
 
 ```yaml
 header:
@@ -96,7 +98,10 @@ screens:
 A question screen is a branch node in a decision tree and presents one or many options to further screens. A question screen has the following structure:
 
 ```yaml
-- type: question
+screens:
+  ...
+
+  - type: question
     id: instrument
     title: What programming language do you want to instrument?
     options:
@@ -113,6 +118,9 @@ A question screen is a branch node in a decision tree and presents one or many o
 A result screen is a leaf node in a decision tree and terminates with one or many links. A question screen has the following structure:
 
 ```yaml
+screens:
+  ...
+
   - type: result
     id: beyla
     title: Grafana Beyla

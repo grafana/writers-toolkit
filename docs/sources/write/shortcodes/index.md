@@ -338,7 +338,7 @@ compactor:
 The `guide` shortcode embeds a Grot guide into the docs that people can follow to get help and guidance on topics and direction to documentation resources.
 
 ```markdown
-{{</* guide name="instrument" title="title" text="text" button="button" */>}}
+{{</* guide name="<NAME>" title="<TITLE>" text="<TEXT>" button="<BUTTON>" */>}}
 ```
 
 The website looks up guide Markdown files from the website repository in the `content/guides` folder. The shortcode accepts the following parameters:

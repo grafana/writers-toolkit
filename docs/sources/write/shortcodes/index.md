@@ -341,7 +341,8 @@ The `guide` shortcode embeds a Grot guide into the docs that people can follow t
 {{</* guide name="<NAME>" title="<TITLE>" text="<TEXT>" button="<BUTTON>" */>}}
 ```
 
-The website looks up guide Markdown files from the website repository in the `content/guides` folder. The shortcode accepts the following parameters:
+The website looks up guide Markdown files from the website repository in the `content/guides` directory.
+The shortcode accepts the following parameters:
 
 | Parameter | Description                                                                 | Required |
 | --------- | --------------------------------------------------------------------------- | -------- |

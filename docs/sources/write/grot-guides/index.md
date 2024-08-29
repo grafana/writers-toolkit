@@ -92,7 +92,7 @@ screens:
 
 ### Question
 
-A question screen is a branch node in a decision tree and presents one or many options to further screens.  question screen has the following structure:
+A question screen is a branch node in a decision tree and presents one or many options to further screens. question screen has the following structure:
 
 ```yaml
 screens:

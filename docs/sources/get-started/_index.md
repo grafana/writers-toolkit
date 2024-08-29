@@ -8,7 +8,7 @@ description:
 menuTitle: Get started
 review_date: "2024-05-22"
 title: Get started with writing documentation
-weight: 50
+weight: 150
 ---
 
 # Get started with writing documentation

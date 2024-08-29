@@ -9,7 +9,8 @@ std.prune({
   'Grafana/GoogleEllipses.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Ellipses.yml')),
   'Grafana/GoogleEmDash.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/EmDash.yml')),
   'Grafana/GoogleEnDash.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/EnDash.yml')),
-  'Grafana/GoogleExclamation.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Exclamation.yml')),
+  // Replaced by Grafana/Exclamation.yml.
+  'Grafana/GoogleExclamation.yml': null,
   'Grafana/GoogleFirstPerson.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/FirstPerson.yml')),
   'Grafana/GoogleGender.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Gender.yml')),
   'Grafana/GoogleGenderBias.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/GenderBias.yml')),

@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-08-08"
+review_date: "2024-08-27"
 title: Vale rules
 ---
 
@@ -32,6 +32,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.DialogBox = NO -->
 <!-- vale Grafana.DocumentationTeam = NO -->
 <!-- vale Grafana.DropDown = NO -->
+<!-- vale Grafana.Exclamation = NO -->
 <!-- vale Grafana.Gerunds = NO -->
 <!-- vale Grafana.GoogleAMPM = NO -->
 <!-- vale Grafana.GoogleContractions = NO -->
@@ -39,7 +40,6 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.GoogleEllipses = NO -->
 <!-- vale Grafana.GoogleEmDash = NO -->
 <!-- vale Grafana.GoogleEnDash = NO -->
-<!-- vale Grafana.GoogleExclamation = NO -->
 <!-- vale Grafana.GoogleFirstPerson = NO -->
 <!-- vale Grafana.GoogleGender = NO -->
 <!-- vale Grafana.GoogleGenderBias = NO -->
@@ -123,14 +123,6 @@ Extends: existence
 Use an em dash ('—') instead of '–'.
 
 [More information ->](https://developers.google.com/style/dashes)
-
-### Grafana.GoogleExclamation
-
-Extends: existence
-
-Don't use exclamation points in text.
-
-[More information ->](https://developers.google.com/style/exclamation-points)
 
 ### Grafana.GoogleGender
 
@@ -377,6 +369,14 @@ Extends: substitution
 
 Use '%s' rather than '%s'.
 
+### Grafana.Exclamation
+
+Extends: existence
+
+Avoid exclamation points in text, except in rare really exciting moments.
+
+[More information ->](https://developers.google.com/style/tone#some-things-to-avoid-where-possible)
+
 ### Grafana.Gerunds
 
 Extends: script
@@ -483,7 +483,7 @@ Use '%s' instead of '%s'.
 Extends: existence
 
 Don't use any variation of okay in prose.
-The exceptions are when you're referencing or quoting:
+The exceptions are when you’re referencing or quoting:
 
 - A user interface
 - HTTP status codes or other code
@@ -565,8 +565,8 @@ Extends: script
 
 Avoid smart quotes in the source file, especially in code blocks.
 
-Replace all smart double quotes like `"` or `"` with `"`.
-Replace all smart single quotes like `'`, `'`, or `'` with `'`.
+Replace all smart double quotes like `“` or `”` with `"`.
+Replace all smart single quotes like `‘`, `’`, or `ʼ` with `'`.
 
 In some contexts, Unicode characters aren't supported and break configurations.
 

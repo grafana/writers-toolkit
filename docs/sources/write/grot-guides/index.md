@@ -119,7 +119,6 @@ A result screen is a leaf node in a decision tree and terminates with one or man
 
 ```yaml
 screens:
-  ...
 
   - type: result
     id: beyla

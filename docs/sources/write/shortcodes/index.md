@@ -335,7 +335,7 @@ compactor:
 
 ## Guide
 
-The `guide` shortcode embeds a Grot guide into the docs that people can follow to get help and guidance on topics and direction to documentation resources.
+The `guide` shortcode embeds a Grot guide into the documentation that people can follow to get help and guidance on topics and direction to documentation resources.
 
 ```markdown
 {{</* guide name="<NAME>" title="<TITLE>" text="<TEXT>" button="<BUTTON>" */>}}

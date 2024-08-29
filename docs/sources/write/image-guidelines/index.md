@@ -50,7 +50,7 @@ Use the following standards for images and diagrams:
 
 - **Scope**: Limit the contents of an image to the relevant portion.
 
-  Don't include distracting or unnecessary content and whitespace.
+  Don't include distracting or unnecessary content and whitespace, or your browser window, browser tabs, or other window decoration.
 
 - **Format**: PNG and SVG are the preferred image formats.
 
@@ -61,6 +61,8 @@ Use the following standards for images and diagrams:
   If it is, you must obtain permission and acknowledge credit.
 
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
+
+- **Light mode/Dark mode**: If the page you're adding the image to is white or light colored, use images in dark mode. If the page is black or dark colored, use images in light mode. This ensures sufficient contrast.
 
 #### Personally Identifiable Information (PII)
 

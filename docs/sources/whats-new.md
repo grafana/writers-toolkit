@@ -22,5 +22,6 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 | New guidance or change                                                                                  | Page                                                                                       |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Added documentation for Grot guides.                                                                    | [Grot guides](/docs/writers-toolkit/write/grot-guides/)                                    |
 | Revised Vale rule for use of exclamation marks and reduced its Vale severity from "error" to "warning". | [`Grafana.Exclamation`](/docs/writers-toolkit/review/lint-prose/rules/#grafanaexclamation) |
 | Added a What's new page used to summarize notable changes.                                              | [What's new](./)                                                                           |

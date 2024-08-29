@@ -65,16 +65,16 @@ header:
 
 ## Welcome
 
-A guide needs a single welcome object, defined with a `welcome` field and the following attributes. Define a list of `ctas` with at least one item which points to the next `screen_id`.
+A guide needs a single welcome object, defined with a `welcome` field and the following attributes:
 
 ```yaml
 welcome:
   type: welcome
-  title: Let's get started with application instrumentation
-  body: Answer a few questions and Grot can help you find the documentation you need to instrument your application.
+  title: <WELCOME TITLE>
+  body: <WELCOME BODY>
   ctas:
-    - text: Let's go!
-      screen_id: instrument
+    - text: <CTA TEXT>
+      screen_id: <SCREEN ID TO LINK TO>
 ```
 
 ## Screens
@@ -84,44 +84,43 @@ Define subsequent screens as a list of objects under a `screens` field:
 ```yaml
 screens:
   - type: question
-    id: ...
+    id: <UNIQUE SCREEN ID>
 
   - type: result
-    id: ...
+    id: <UNIQUE SCREEN ID>
 ```
 
 ### Question
 
-A question screen is a branch node in a decision tree and presents one or many options to further screens. A question screen has the following structure:
+A question screen is a branch node in a decision tree and presents one or many options to further screens.  question screen has the following structure:
 
 ```yaml
 screens:
   - type: question
-    id: instrument
-    title: What programming language do you want to instrument?
+    id: <UNIQUE SCREEN ID>
+    title: <SCREEN TITLE>
     options:
-      - text: JVM (Java, Scala, Kotlin)
-        screen_id: jvm
-      - text: .Net
-        screen_id: dotnet
-      - text: Node.js
-        screen_id: nodejs
+      - text: <OPTION TEXT>
+        screen_id: <SCREEN ID TO LINK TO>
 ```
 
 ### Result
 
-A result screen is a leaf node in a decision tree and terminates with one or many links. A question screen has the following structure:
+A result screen is a leaf node in a decision tree and terminates with one or many links. A question screen has the following structure, with examples for docs and play links:
 
 ```yaml
 screens:
   - type: result
-    id: beyla
-    title: Grafana Beyla
-    body: |
-      Grafana Beyla is a Linux eBPF kernel module application to auto-instrument applications without modifying them by monitoring an executable or port.
+    id: <UNIQUE SCREEN ID>
+    title: <SCREEN TITLE>
+    body: <SCREEN BODY>
     links:
       - type: docs
-        title: Grafana Beyla
-        link_text: Visit docs page
-        href: /docs/beyla/latest/
+        title: <LINK TITLE>
+        link_text: <LINK TEXT>
+        href: <ABSOLUTE DOCS LINK>
+      - type: play
+        title: <LINK TITLE>
+        link_text: <LINK TEXT>
+        href: <FULL GRAFANA PLAY LINK>
 ```

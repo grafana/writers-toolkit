@@ -10,7 +10,9 @@ weight: 501
 
 # Grot guides
 
-The `guide` shortcode embeds a Grot guide into the docs that people can follow to get help and guidance on topics and direction to documentation resources.
+Grot guides are interactive guides embedded in a documentation page that people can follow to get help and guidance on topics and direction to documentation resources.
+
+The [`guide` shortcode](/docs/writers-toolkit/write-shortcodes/#guide) embeds a Grot guide into a page.
 
 ```markdown
 {{</* guide name="instrument" title="title" text="text" button="button" */>}}

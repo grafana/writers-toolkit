@@ -15,7 +15,7 @@ Grot guides are interactive guides embedded in a documentation page that people 
 The [`guide` shortcode](/docs/writers-toolkit/write-shortcodes/#guide) embeds a Grot guide into a page.
 
 ```markdown
-{{</* guide name="instrument" title="title" text="text" button="button" */>}}
+{{</* guide name="<NAME>" title="<TITLE>" text="<TEXT>" button="<BUTTON>" */>}}
 ```
 
 The website looks up guide Markdown files from the website repository in the `content/guides` folder. The shortcode accepts the following parameters:

@@ -188,9 +188,8 @@ General rules:
     <tr>
       <td align="left" valign="top">Screenshot</td>
       <td align="left" valign="top">
-        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;VERSION, IF APPLICABLE?&gt;.png</code><br>
-        <br>
-        <b>Examples:</b><br>
+        <p><code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;VERSION, IF APPLICABLE?&gt;.png</code></p>
+        <b>Examples:</b>
         <ul>
           <li><code>screenshot-grafana-loki-uptime-dashboard.png</code></li>
           <li><code>screenshot-grafana-mimir-data-flow-diagram.png</code></li>
@@ -203,11 +202,11 @@ General rules:
     <tr>
       <td align="left" valign="top">Icon</td>
       <td align="left" valign="top">
-        Be as descriptive as possible.<br>
-        <br>
-        For example, use `icon-bar-graph.svg` or `icon-graph-bar.svg` instead of `icon-graph.svg`.<br>
-        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION?&gt;.svg</code><br>
-        <br>
+        <p><code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION?&gt;.svg</code></p>
+        <p>
+        Be as descriptive as possible.
+        For example, use <code>icon-bar-graph.svg</code> or <code>icon-graph-bar.svg</code> instead of <code>icon-graph.svg</code>.
+        </p>
         <b>Examples:</b>
         <ul>
           <li><code>icon-bar-graph.svg</code></li>
@@ -218,10 +217,8 @@ General rules:
     <tr>
       <td align="left" valign="top">Logo</td>
       <td align="left" valign="top">
-        When you name Grafana logo files, be sure to include the word "Grafana".<br>
-        <br>
-        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;COLOR + ORIENTATION&GT;.&LT;FILE TYPE?&gt;</code><br>
-        <br>
+        <p><code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;-&LT;COLOR + ORIENTATION&GT;.&LT;FILE TYPE?&gt;</code></p>
+        <p>When you name Grafana logo files, be sure to include the word "Grafana".</p>
         <b>Examples:</b>
         <ul>
           <li><code>logo-prometheus-full-horizontal.svg</code></li>
@@ -232,8 +229,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Photo</td>
       <td align="left" valign="top">
-        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION?&gt;.jpg</code><br>
-        <br>
+        <p><code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION?&gt;.jpg</code></p>
         <b>Examples:</b>
         <ul>
           <li><code>photo-raji-on-stage-grafanacon-keynote-2022.jpg</code></li>
@@ -245,8 +241,7 @@ General rules:
     <tr>
       <td align="left" valign="top">Recording</td>
       <td align="left" valign="top">
-        <b>Naming convention:</b> <code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;.&LT;FILE TYPE?&gt;</code><br>
-        <br>
+        <p><code>&lt;ASSET TYPE&GT;-&LT;VISUAL DESCRIPTION&GT;.&LT;FILE TYPE?&gt;</code></p>
         <b>Example:</b>
         <ul>
           <li><code>gif-grafana-share-playlist.mp4</code></li>
@@ -299,9 +294,10 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
           <li>Click <strong>Upload</strong>.</li>
           <li>The asset is available under <code>https://grafana.com/media/</code> in the directory where you uploaded it.</li>
           <li>Click <strong>Copy</strong> to copy the path of the file to your clipboard.</li>
-          <li>Add the reference to the Markdown file.<br>
-          <br>
-          The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</li>
+          <li>
+            <p>Add the reference to the Markdown file.</p>
+            <p>The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</p>
+          </li>
         </ol>
       </td>
     </tr>
@@ -310,9 +306,9 @@ Don't store images in the local repository, as it prohibits re-use of the asset 
       <td align="left" valign="top">
         <ol>
           <li>Create a PR against the local repository that includes the Markdown file.</li>
-          <li>Add the image reference to the Markdown file.<br>
-          <br>
-          You don't need to test that the image renders in a local build of the documentation. The Grafana technical documentation team reviewing the PR ensures that the image reference works correctly.<br></li>
+          <li><p>Add the image reference to the Markdown file.</p>
+          <p>
+          You don't need to test that the image renders in a local build of the documentation. The Grafana technical documentation team reviewing the PR ensures that the image reference works correctly.</p></li>
           <li>Attach the image to the GitHub PR description.</li>
         </ol>
       </td>

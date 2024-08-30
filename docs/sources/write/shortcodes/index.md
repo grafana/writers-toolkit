@@ -707,6 +707,12 @@ The `max-width` value must have a unit of measurement, such as pixels or percent
 {{</* figure max-width="50%" src="/static/img/docs/grafana-cloud/k8sPods.png" caption="Pod view in Grafana Kubernetes Monitoring" */>}}
 ```
 
+## Grot guides
+
+Grot guides are interactive guides embedded in a documentation page that people can follow to get help and guidance on topics and direction to documentation resources.
+
+To learn more about Grot guides, refer to the [Grot guides](/docs/writers-toolkit/write/grot-guides/) documentation in the Writers' Toolkit.
+
 ## Hero (simple)
 
 A hero section is a large section that contains a title, description, and image, usually placed at the top of a page.

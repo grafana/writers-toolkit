@@ -3,12 +3,12 @@ aliases:
   - /docs/writers-toolkit/write/style-guide/useful-link-text/
   - /docs/writers-toolkit/write/useful-link-text/
 date: "2024-02-07T18:29:24+00:00"
-description: Learn how to write useful link text.
-review_date: "2024-04-15"
-title: Write useful link text
+description: Understand what makes useful link text.
+review_date: "2024-09-03"
+title: Useful link text
 ---
 
-# Write useful link text
+# Useful link text
 
 Link text is important for search engines and users, and is critical for accessibility.
 It's the visible, clickable text in an HTML hyperlink.

@@ -4,12 +4,12 @@ aliases:
   - /docs/writers-toolkit/write/front-matter/
 date: "2022-06-27T11:51:13-05:00"
 description:
-  Learn about how Grafana builds front matter to properly enable the publication
+  Learn about how Grafana uses front matter to properly enable the publication
   and search of our technical documentation.
 keywords:
   - front matter
   - alias
-review_date: "2024-04-09"
+review_date: "2024-09-03"
 title: Front matter
 weight: 400
 ---
@@ -19,11 +19,11 @@ weight: 400
 The source files of Grafana documentation use front matter to organize the content, order the project table of contents, and help users identify useful pages when searching or viewing the content in search engines or in social media, such as Twitter.
 
 Use YAML for all front matter.
-Unless a front matter field is documented as supporting Markdown, _do not_ include any special Markdown formatting, like italics, in that field.
+Unless a front matter field is documented as supporting Markdown, _don't_ include any special Markdown formatting, like italics, in that field.
 
-Here's a correctly built example:
+The following snippet shows example front matter at the beginning of a Markdown file:
 
-```
+```markdown
 ---
 description: Learn more about Grafana Mimir's microservices-based architecture.
 labels:
@@ -34,7 +34,7 @@ keywords:
   - microservices
   - architecture
 menuTitle: Architecture
-title: About Grafana Mimir architecture
+title: Grafana Mimir architecture
 weight: 100
 ---
 ```
@@ -303,7 +303,7 @@ Don't remove the verb from [task topic](https://grafana.com/docs/writers-toolkit
 The verb helps the reader know that they're navigating to a task topic before they follow the link.
 
 You can remove the verb from the `menuTitle` if it's implied by the containing section.
-For example, the page 'Install Grafana Alloy in a Docker container' can be shortened to 'Docker' if it's in a section named 'Install'.
+For example, the page "Install Grafana Alloy in a Docker container" can be shortened to "Docker" if it's in a section named "Install".
 
 ### Refs
 

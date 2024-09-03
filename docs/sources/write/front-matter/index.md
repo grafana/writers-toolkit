@@ -194,16 +194,65 @@ For content reused in Grafana Cloud, prefer the open source documentation as the
 
 ### Cascade
 
-`cascade` is a map of front matter fields.
+Hugo `cascade` front matter can have two forms, _array_ and _mapping_.
 The fields are passed down from the parent to the page descendants.
 
+The array form uses the same set of mappings with an additional `_target` mapping.
+The `_target` mapping usually has a `path` mapping that matches the paths to apply the front matter to.
+
+You can compare the same cascading front matter in each form in the following tabs:
+
+{{< tabs >}}
+{{< tab-content name="Mapping" >}}
+
+```yaml
+cascade:
+  labels:
+    products:
+      - oss
+```
+
+{{< /tab-content >}}
+{{< tab-content name="Array" >}}
+
+```yaml
+cascade:
+  - _target:
+      path: /docs/<PROJECT>/**
+    labels:
+      products:
+        - oss
+```
+
+{{< /tab-content >}}
+{{< /tabs >}}
+
+For more information, refer to the [Hugo `cascade` front matter documentation](https://gohugo.io/content-management/front-matter/#cascade).
+
 You can use `cascade` to define variables. For example:
+
+{{< tabs >}}
+{{< tab-content name="Mapping" >}}
 
 ```yaml
 cascade:
   PRODUCT_VERSION: 10.1
   PRODUCT_NAME: Grafana
 ```
+
+{{< /tab-content >}}
+{{< tab-content name="Array" >}}
+
+```yaml
+cascade:
+  - _target:
+      path: /docs/<PROJECT>/**
+    PRODUCT_VERSION: 10.1
+    PRODUCT_NAME: Grafana
+```
+
+{{< /tab-content >}}
+{{< /tabs >}}
 
 Use the [`param`](https://grafana.com/docs/writers-toolkit/write/shortcodes#param) shortcode in the topic body text wherever you need to insert the variable.
 

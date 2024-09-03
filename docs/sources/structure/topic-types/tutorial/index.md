@@ -144,6 +144,15 @@ To hide your tutorial from your documentation's table of contents:
 
    If the `cascade` front matter already exists, you must merge this snippet with the existing front matter.
 
+   {{< admonition type="note" >}}
+   Hugo `cascade` front matter can have two forms, _array_ and _mapping_.
+
+   The following snippet uses the array form of the `cascade` front matter.
+   If your front matter isn't already in the array form, you will need to change it to that form.
+
+   For more information, refer to the [`cascade` front matter documentation](/docs/writers-toolkit/write/front-matter/#cascade)
+   {{< /admonition >}}
+
    ```yaml
    cascade:
      - _target:

@@ -58,7 +58,7 @@ To decide whether to backport a pull request, use the following decision tree:
 <div class="mermaid">
   flowchart TD
   D1{Is the change documenting a new feature?}
-  D2{Is the feature going to be released in<br>a future version of the project that<br>doesn't yet have a release branch?}
+  D2{Is the feature going to be released in a future version of the project that doesn't yet have a release branch?}
   D3{Is the change a fix for a typo?}
   D4{Is the change a documentation refactoring?}
   T1[Do nothing.]

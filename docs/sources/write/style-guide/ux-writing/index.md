@@ -180,8 +180,7 @@ Use periods for multiple sentences.
 
 **Don't use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion<br>
-> For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
+> Metrics, Logs, and Traces are billed based on ingestion<br>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
 
 <!-- vale Grafana.We = YES -->
 
@@ -238,17 +237,22 @@ Use buttons when you want users to take actions, such as adding or creating new 
 
 #### Common use cases for buttons
 
-| Button  | When to use it                                                                                                                                                                   | Examples                                                                                                                                                    |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | **Create**<br>**Create incident**<br>**Create entry**                                                                                                       |
-| Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | **Add details**<br>**Add contact**                                                                                                                          |
-| Save    | Save something to a server.                                                                                                                                                      | **Save**<br>**Save and exit**<br>**Save changes**                                                                                                           |
-| Edit    | Change or update something that already exists. This doesn't affect the server until the user saves.                                                                             | **Edit**                                                                                                                                                    |
-| Preview | Preview a runtime version of whatever you are working on. This action doesn't take you away from or override the page you're already on.                                         | **Preview**                                                                                                                                                 |
-| Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | **Cancel**                                                                                                                                                  |
-| Close   | Close a window.                                                                                                                                                                  | **Close**                                                                                                                                                   |
-| Delete  | Permanently delete something from the server. This usually prompts a confirmation dialog box, asking you to confirm your decision.                                               | **Delete notification policy**<br>Deleting this notification policy permanently removes it. Are you sure you want to delete this policy?<br>**Yes, delete** |
-| Remove  | Remove an item from a list.                                                                                                                                                      | **Remove**                                                                                                                                                  |
+<!-- prettier-ignore-start -->
+
+| Button  | When to use it                                                                                                                                                                   | Examples                                                                                                                                                                                       |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create  | Use when you're creating something new, from scratch or from within an existing app. Creating can involve building something (often large) from scratch.                         | <ul><li><b>Create</b></li><li><b>Create incident</b></li><li><b>Create entry</b></li></ul>                                                                                                     |
+| Add     | Use when you're adding something into a larger thing. Add extra details to an existing thing. Adding is usually a small or single step, with less work than creating.            | <ul><li><b>Add details</b></li><li><b>Add contact</b></li></ul>                                                                                                                                |
+| Save    | Save something to a server.                                                                                                                                                      | <ul><li><b>Save</b></li><li><b>Save and exit</b></li><li><b>Save changes</b></li></ul>                                                                                                         |
+| Edit    | Change or update something that already exists. This doesn't affect the server until the user saves.                                                                             | <ul><li><b>Edit</b></li></ul>                                                                                                                                                                  |
+| Preview | Preview a runtime version of whatever you are working on. This action doesn't take you away from or override the page you're already on.                                         | <ul><li><b>Preview</b></li></ul>                                                                                                                                                               |
+| Cancel  | Cancel or leave a process. Leave without saving any changes. Although **Cancel** is a common button name, it's better to be specific and name the action that's being cancelled. | <ul><li><b>Cancel</b></li></ul>                                                                                                                                                                |
+| Close   | Close a window.                                                                                                                                                                  | <ul><li><b>Close</b></li></ul>                                                                                                                                                                 |
+| Delete  | Permanently delete something from the server. This usually prompts a confirmation dialog box, asking you to confirm your decision.                                            | <ul><li><b>Delete notification policy</b></li><li><p><b>Deleting this notification policy permanently removes it.</p><p>Are you sure you want to delete this policy?</p><p><b>Yes, delete</b></p> |
+| Remove  | Remove an item from a list.                                                                                                                                                      | <ul><li><b>Remove</b></li></ul>                                                                                                                                                                |
+{ .no-spacing-list }
+
+<!-- prettier-ignore-end -->
 
 Refer to the Grafana Storybook React component library for button [usage](https://developers.grafana.com/ui/latest/index.html?path=/docs/buttons-button--basic) and an [example](https://developers.grafana.com/ui/latest/index.html?path=/story/buttons-button--basic).
 
@@ -289,7 +293,7 @@ Refer also to [Alert modals](#alert-modals).
 
 **Use:**
 
-> Failed to evaluate queries and expressions:<br> Add a query target to alert rule.
+> Failed to evaluate queries and expressions: Add a query target to alert rule.
 
 **Don't use:**
 
@@ -382,7 +386,10 @@ Only use a modal if this interruption is a good thing, for example, when the cos
 
 **Use:**
 
-> Use Google's location service?<br> Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+> Use Google's location service?
+>
+> Let Google help apps determine location.
+> This means sending anonymous location data to Google, even when no apps are running.
 
 **Don't use:**
 

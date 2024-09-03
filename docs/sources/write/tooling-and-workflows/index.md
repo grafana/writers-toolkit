@@ -3,9 +3,8 @@ aliases:
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/
   - /docs/writers-toolkit/write/tooling-and-workflows/
 date: "2022-06-27T12:25:38-05:00"
-description:
-  Build and review your content locally; learn how to use documentation
-  tools and understand our workflows.
+description: Build and review your content locally.
+  Learn how to use documentation tools and understand our workflows.
 keywords:
   - git
   - repository
@@ -13,7 +12,7 @@ keywords:
   - review
   - approve
 menuTitle: Tooling and workflows
-review_date: "2024-04-08"
+review_date: "2024-09-03"
 title: Documentation tooling and workflows
 weight: 200
 ---
@@ -129,7 +128,7 @@ If there are no updates, the command produces no output.
 If there are updates, the output is similar to the following:
 
 ```console
-comremote: Enumerating objects: 547, done.
+remote: Enumerating objects: 547, done.
 remote: Counting objects: 100% (488/488), done.
 remote: Compressing objects: 100% (128/128), done.
 remote: Total 373 (delta 280), reused 328 (delta 242), pack-reused 0
@@ -301,9 +300,9 @@ To provide additional information, leave a blank line after the subject and writ
 For example:
 
 ```
-Use American English spellings
+Use US English spellings
 
-American English is preferred by our technical documentation style-guide.
+US English is preferred by our technical documentation style-guide.
 For more information, refer to https://github.com/grafana/technical-documentation/tree/main/docs/sources/style-guide.
 ```
 
@@ -313,7 +312,7 @@ For small changes where you only need write a subject, use the `-m` option to pr
 For example:
 
 ```bash
-git commit -s -m "Use American English spellings"
+git commit -s -m "Use US English spellings"
 ```
 
 You can provide the`-m` option multiple times.
@@ -385,7 +384,7 @@ git merge --ff-only
 ```
 
 After switching branches, Git also lets you know if your local copy needs updating with the message _Your branch is behind 'origin/main'_.
-The `--ff-only` flag means _fast-forwarding_, which simply applies the changes to the end of your local copy because your local copy has no conflicting changes.
+The `--ff-only` flag means _fast-forwarding_, which applies the changes to the end of your local copy when your local copy has no conflicting changes.
 
 ```console
 Switched to branch 'main'
@@ -468,7 +467,3 @@ To authenticate with GitHub, run `gh auth login` and follow the interactive setu
 You can also use `gh` as a credential helper for Git.
 To use `gh` as a credential helper for Git, run `gh auth setup-git`.
 For more information about Git credential helpers, refer to [Git - `gitcredentials` Documentation](https://git-scm.com/docs/gitcredentials).
-
-```
-
-```

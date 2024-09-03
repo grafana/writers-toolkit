@@ -2,12 +2,12 @@
 aliases:
   - /docs/writers-toolkit/write/reuse-content/
 date: "2023-07-11T10:24:20-04:00"
-description: Learn about reusing content in your documentation.
+description: Learn how to reuse content in your documentation.
 keywords:
   - sharing
   - reuse content
 menuTitle: Reuse
-review_date: "2024-04-09"
+review_date: "2024-09-03"
 title: Reuse content
 weight: 800
 ---
@@ -91,7 +91,7 @@ If you want flexibility in your page structure, you need to use another option i
 
   Notably, you want to stay within each documentation set for content reused between OSS and Grafana Cloud documentation rather than have the reused content link back to the OSS documentation.
 
-  To do so, use [`ref` URIs](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+  To do so, use [`ref` URIs](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-reused-as-multiple-pages).
 
   If both pages link to the same place, then that link probably shouldn't exist in the reused documentation, and this indicates that the documentation isn't appropriate for reuse.
 

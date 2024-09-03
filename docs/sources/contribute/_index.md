@@ -11,14 +11,12 @@ keywords:
   - edit documentation
   - review documentation
 menuTitle: Contribute
-review_date: "2024-05-16"
+review_date: "2024-09-03"
 title: Contribute to documentation
 weight: 200
 ---
 
 # Contribute to documentation
-
-How can you contribute to Grafana Labs documentation?
 
 There are a number of different ways to contribute to documentation at Grafana Labs.
 Choose the one that applies best and learn how you can engage with the documentation team and help by contributing your ideas.
@@ -84,16 +82,8 @@ For example, [Grafana Cloud](https://grafana.com/docs/grafana-cloud/) is in the 
 The website repository is private and only accessible to Grafana Labs employees.
 {{< /admonition >}}
 
-Some Grafana Cloud content comes from other projects, listed below:
-
-- `/docs/grafana-cloud/alerting`: https://github.com/grafana/grafana/tree/main/docs/sources/alerting
-- `/docs/grafana-cloud/api-reference/http-api`: https://github.com/grafana/grafana/tree/main/docs/sources/developers/http_api
-- `/docs/grafana-cloud/incident`: https://github.com/grafana/incident/tree/main/docs/sources
-- `/docs/grafana-cloud/oncall`: https://github.com/grafana/oncall/tree/main/docs/sources
-- `/docs/grafana-cloud/monitor-infrastructure/integrations/integration-reference/`:
-  Automatically generated and published from https://github.com/grafana/cloud-onboarding (Grafana Labs only).
-
-  Integration documentation is generated from the metadata in https://github.com/grafana/cloud-onboarding/tree/main/integrations and the template file https://github.com/grafana/cloud-onboarding/blob/main/pkg/integrations-api/integrations/docs/templates/layout.tmpl.
+Some Grafana Cloud content is mounted from other projects.
+The list of mounts is in the [website repository Hugo configuration file](https://github.com/grafana/website/blob/master/config/_default/config.yaml#L173-L345).
 
 ### To edit a topic
 
@@ -123,7 +113,7 @@ Your documentation plan helps you to:
 - Get feedback from users and stakeholders before the writing process begins.
 - Consider different approaches you might take, and decide on one of them.
 
-## Testing
+## Test your changes
 
 It's a best practice to have someone else test any task you have written.
 If another user can successfully complete the task using _only_ the steps you have written, not guessing or using their inherent knowledge, then your task has passed the test.

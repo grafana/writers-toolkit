@@ -12,7 +12,7 @@ keywords:
   - what's new
   - release notes
 menuTitle: Contribute to What's new or release notes
-review_date: "2024-05-16"
+review_date: "2024-09-03"
 title: Contribute to What's new or release notes
 weight: 250
 ---
@@ -84,9 +84,21 @@ When you're ready to add a What's new entry, complete the following steps:
          <td>The contents of this field aren't publicly viewable.</td>
        </tr>
        <tr>
+         <th scope="row">INTERNAL ONLY? (OPTIONAL)</th>
+         <td>Set to true to only post the note on <a href="https://admin.grafana.com/whats-new/">https://admin.grafana.com/whats-new/</a></td>
+       </tr>
+       <tr>
          <th scope="row">TAGS (OPTIONAL)</th>
          <td>Select category tags that users can use to filter their view.</td>
          <td>Select as many as apply.</td>
+       </tr>
+       <tr>
+         <th scope="row">LAUNCH TIER (OPTIONAL)</th>
+         <td>Marketing launch tier, to say how much marketing support this feature needs.</td>
+         <td>
+           <p>For examples, refer to the <a href="https://docs.google.com/spreadsheets/d/1E81c1OGisYtGWpLlHm7rBMOYKk-0N1akHyNbPqaANFY/edit?gid=801299949#gid=801299949">Upcoming Products/Features Tracker + Calendar Google Sheet</a>.</p>
+           <p>If you're not sure what level to use, ask in the #product-marketing Slack channel.</p>
+        </td>
        </tr>
        <tr>
          <th scope="row">CLOUD AVAILABILITY</th>
@@ -158,9 +170,11 @@ When you're ready to add a What's new entry, complete the following steps:
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
-   If your entry is future-dated, it won't show up in the website-generated preview or in your local build, but you can see it in the preview of the internal feed. To do so, remove `/docs/grafana-cloud` from the preview URL and add the heading for your entry at the end of the URL. It should look something like this: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+   If your entry is future-dated, it won't show up in the website-generated preview or in your local build, but you can see it in the preview of the internal feed.
+   To do so, remove `/docs/grafana-cloud` from the preview URL and add the heading for your entry at the end of the URL.
+   It should look something like this: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
-1. If your entry is ready to publish, proceed to step 4.
+1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
 
    1. In the **Status** drop-down, select **In review.**
@@ -194,9 +208,11 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 
 #### Updated release stage
 
-If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry. For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
+If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry.
+For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
 
-You don't have to make the new entry as robust as the previous one. Instead, you can keep the new entry brief by referring to or linking to the previous entry.
+You don't have to make the new entry as robust as the previous one.
+Instead, you can keep the new entry brief by referring to or linking to the previous entry.
 
 ### Edit What's new entries
 
@@ -209,11 +225,13 @@ To make edits, follow these steps:
    - If your entry is still in **Draft** or **Review** status, you can find it [in the Workflow section of the CMS](https://admin.grafana.com/content-admin/#/workflow) under the appropriate heading.
 
 1. Update the fields that you need to change.
-1. Click **Save**. The entry is now in **Draft** status.
+1. Click **Save**.
+   The entry is now in **Draft** status.
 1. Do one of the following:
 
    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
-   - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR. For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
+   - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR.
+     For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
 
 If your entry is already live in both _What's new in Cloud_ and it's between the cut-off date for a versioned release and the release date, update the CMS and then reach out to the person responsible for creating the versioned release notes.
 
@@ -309,7 +327,8 @@ Err on the side of _yes, put it in What's new_.
 - [New keyboard shortcut](https://github.com/grafana/grafana/pull/61837)
   - This is a small change, but it brings attention to a feature that has been improved recently and that most people don't know about.
 - [Search improvement for Flame graphs](https://github.com/grafana/grafana/pull/61748)
-  - Fuzzy search. Has to be in the blog post.
+  - Fuzzy search.
+    Has to be in the blog post.
 - [Changes to the Prometheus query editor](https://github.com/grafana/grafana/pull/60718)
   - These are query patterns for the data source that most users use.
 
@@ -372,7 +391,7 @@ Follow these guidelines to ensure that your What's new or release notes content 
   Our style normally prefers second person ("you") and avoids first person ("I"/"we").
   Release notes, like blog posts, use a more conversational tone and often use first person plural: "We've made multi-tenant queries available."
 
-  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.We` rule. You can use this check at the beginning of your file after the front matter:
-  `<!-- vale Grafana.We = NO -->`
+  If you receive an error messages from Vale linter, you can use [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules) to ignore checks for the `Grafana.We` rule.
+  You can use this check at the beginning of your file after the front matter: `<!-- vale Grafana.We = NO -->`
 
 <!-- vale Grafana.We = YES -->

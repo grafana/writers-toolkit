@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-08-27"
+review_date: "2024-09-03"
 title: Vale rules
 ---
 
@@ -416,14 +416,6 @@ Don't put a period at the end of a heading.
 
 [More information ->](https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings)
 
-### Grafana.GoogleOxfordComma
-
-Extends: existence
-
-Use the Oxford comma in '%s'.
-
-[More information ->](https://developers.google.com/style/commas)
-
 ### Grafana.GoogleProductNames
 
 Extends: conditional
@@ -637,6 +629,14 @@ Extends: substitution
 Use '%s' instead of '%s'.
 
 [More information ->](https://developers.google.com/style/contractions)
+
+### Grafana.GoogleOxfordComma
+
+Extends: existence
+
+Use the Oxford comma in '%s'.
+
+[More information ->](https://developers.google.com/style/commas)
 
 ### Grafana.GooglePassive
 

@@ -23,7 +23,7 @@ std.prune({
   'Grafana/GoogleOptionalPlurals.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OptionalPlurals.yml')),
   // Replaced by Grafana/Ordinal.yml.
   'Grafana/GoogleOrdinal.yml': null,
-  'Grafana/GoogleOxfordComma.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OxfordComma.yml')),
+  'Grafana/GoogleOxfordComma.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/OxfordComma.yml') { level: 'suggestion' }),
   // Replaced by Grafana/Parentheses.yml.
   'Grafana/GoogleParens.yml': null,
   'Grafana/GooglePassive.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Passive.yml')),

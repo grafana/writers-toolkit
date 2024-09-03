@@ -1,5 +1,5 @@
 "extends": "existence"
-"level": "warning"
+"level": "suggestion"
 "link": "https://developers.google.com/style/commas"
 "message": "Use the Oxford comma in '%s'."
 "scope": "sentence"

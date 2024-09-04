@@ -6,7 +6,7 @@ description:
   Everything you need to complete your documentation project from start
   to finish.
 menuTitle: Get started
-review_date: "2024-05-22"
+review_date: "2024-09-04"
 title: Get started with writing documentation
 weight: 150
 ---
@@ -34,9 +34,20 @@ This guide:
 
 ## Project checklist
 
-If you have questions, you can ask them in the [Grafana Community Slack #docs channel](https://grafana.slack.com/archives/CNCRV74GP).
+If you have questions:
 
-### 1. Plan the work
+- and you are a Grafana Labs employee, reach out in the `#docs` channel on the internal Slack workspace.
+- and you aren't a Grafana Labs employee, reach out in the `#docs` channel on the [community Slack workspace](https://grafana.slack.com/archives/CNCRV74GP).
+
+To get started:
+
+1. [Plan the work](#plan-the-work)
+1. [Create the structure](#create-the-structure)
+1. [Draft the documentation](#draft-the-documentation)
+1. [Review the documentation](#review-the-documentation)
+1. [Publish the documentation](#publish-the-documentation)
+
+### Plan the work
 
 1. Decide what kind of documentation deliverables you need.
    What do you want a user to accomplish?
@@ -44,7 +55,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 1. Know the release life cycle stage of the product or feature.
    Review the [Release cycle for Grafana Labs](https://grafana.com/docs/release-life-cycle/).
 
-### 2. Create the structure
+### Create the structure
 
 1. Add documentation to your GitHub repository.
    Add a `docs/sources` directory to your repository, if it doesn't already exist.
@@ -53,7 +64,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
    Use the content framework for consistency across product documentation.
    For more information about the content framework, refer to [Documentation structure](https://grafana.com/docs/writers-toolkit/structure/).
 
-### 3. Draft the documentation
+### Draft the documentation
 
 1. Learn how to best write and organize your documentation.
    Read the [topic types](https://grafana.com/docs/writers-toolkit/structure/topic-types/) topic and sub-topics in the Writers' Toolkit.
@@ -61,7 +72,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
 1. Add front matter.
    Read the [front matter](https://grafana.com/docs/writers-toolkit/write/front-matter/) documentation.
 1. Add images and media.
-   Read the [image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/) documentation.
+   Read the [image, diagram, screenshot, and video guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/) documentation.
 1. Use links.
    Refer to the [links](https://grafana.com/docs/writers-toolkit/write/links/) documentation.
 1. Add code samples.
@@ -70,7 +81,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
    For samples in multiple languages, refer to [Code](https://grafana.com/docs/writers-toolkit/write/shortcodes/#code).
 1. Refer to the [Style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/).
 
-### 4. Review the documentation
+### Review the documentation
 
 1. Build the documentation locally.
    For instructions, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/).
@@ -80,7 +91,7 @@ If you have questions, you can ask them in the [Grafana Community Slack #docs ch
    To learn more about [`doc-validator`], refer to [Automated validation with doc-validator](https://grafana.com/docs/writers-toolkit/review/doc-validator/).
    To learn more about the Vale prose linter, refer to [Lint prose with the Vale linter](https://grafana.com/docs/writers-toolkit/review/lint-prose/).
 
-### 5. Publish the documentation
+### Publish the documentation
 
 <!-- vale Grafana.Timeless = NO -->
 

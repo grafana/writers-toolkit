@@ -416,10 +416,10 @@ This is rendered after the ignore.
 
 Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
 
-| Parameter | Description                              | Required |
-| --------- | ---------------------------------------- | -------- |
-| `url`     | The URL of the OpenAPI specification to fetch.   | no     |
-| `data`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no      |
+| Parameter | Description                                                                                       | Required |
+| --------- | ------------------------------------------------------------------------------------------------- | -------- |
+| `url`     | The URL of the OpenAPI specification to fetch.                                                    | no       |
+| `data`    | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no       |
 
 To fetch a remote specification from a URL:
 
@@ -451,11 +451,11 @@ Display the API information for a local specification named `grafana`:
 
 Display API path information, use either the `url` or `data` parameter to specify an OpenAPI specification.
 
-| Parameter | Description                              | Required |
-| --------- | ---------------------------------------- | -------- |
-| `url`     | The URL of the OpenAPI specification to fetch.   | no     |
-| `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no      |
-| `scope`     | The API path to scope output to.   | no     |
+| Parameter | Description                                                                                       | Required |
+| --------- | ------------------------------------------------------------------------------------------------- | -------- |
+| `url`     | The URL of the OpenAPI specification to fetch.                                                    | no       |
+| `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no       |
+| `scope`   | The API path to scope output to.                                                                  | no       |
 
 {{< admonition type="note" >}}
 Reference lookups function except for nested Response properties which require linking to an Object definition, probably embedded later in the page.

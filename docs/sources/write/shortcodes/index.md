@@ -414,7 +414,7 @@ This is rendered after the ignore.
 
 ## Docs/openapi/info
 
-Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
+Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification. Use the percentage shortcode tag `{{%/* */%}}` to include the content in the table of contents generation.
 
 | Parameter | Description                                                                                       | Required |
 | --------- | ------------------------------------------------------------------------------------------------- | -------- |
@@ -424,13 +424,13 @@ Display information about an OpenAPI 3.0+ specification, use either the `url` or
 To fetch a remote specification from a URL:
 
 ```markdown
-{{/*% docs/openapi/info url="<SPECIFICATION_URL>" %*/}}
+{{%/* docs/openapi/info url="<SPECIFICATION_URL>" */%}}
 ```
 
 To use a local specification from the website `data/docs/openapi/` directory:
 
 ```markdown
-{{/*% docs/openapi/info data="<SPECIFICATION_FILENAME>" %*/}}
+{{%/* docs/openapi/info data="<SPECIFICATION_FILENAME>" */%}}
 ```
 
 ### Examples
@@ -438,13 +438,13 @@ To use a local specification from the website `data/docs/openapi/` directory:
 Display the API information for a remote specification at `https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json`:
 
 ```markdown
-{{/*% docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" %*/}}
+{{%/* docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" */%}}
 ```
 
 Display the API information for a local specification named `grafana`:
 
 ```markdown
-{{/*% docs/openapi/info data="grafana" %*/}}
+{{%/* docs/openapi/info data="grafana" */%}}
 ```
 
 ## Docs/openapi/path
@@ -465,16 +465,16 @@ Reference lookups function except for nested Response properties which require l
 
 Display all paths for the `grafana` data specification:
 
-```
-{{/*% docs/openapi/path data="grafana" %*/}}
+```markdown
+{{%/* docs/openapi/path data="grafana" */%}}
 or
-{{/*% docs/openapi/path data="grafana" scope="" %*/}}
+{{%/* docs/openapi/path data="grafana" scope="" */%}}
 ```
 
 Display only the `/teams` paths for the `grafana` data specification:
 
-```
-{{/*% docs/openapi/path data="grafana" scope="/teams" %*/}}
+```markdown
+{{%/* docs/openapi/path data="grafana" scope="/teams" */%}}
 ```
 
 ## Docs/play

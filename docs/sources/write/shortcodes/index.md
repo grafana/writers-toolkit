@@ -438,7 +438,7 @@ To use a local specification from the website `data/docs/openapi/` directory:
 Display the API information for a remote specification at `https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json`:
 
 ```markdown
-{{/*% docs/openapi/info url="https://grafana.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" %*/}}
+{{/*% docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" %*/}}
 ```
 
 Display the API information for a local specification named `grafana`:

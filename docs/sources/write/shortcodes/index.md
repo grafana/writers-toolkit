@@ -412,6 +412,67 @@ This isn't rendered.
 
 This is rendered after the ignore.
 
+## Docs/openapi/info
+
+Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `url`     | The URL of the OpenAPI specification to fetch.   | no     |
+| `data`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no      |
+
+To fetch a remote specification from a URL:
+
+```markdown
+{{/*% docs/openapi/info url="<SPECIFICATION_URL>" %*/}}
+```
+
+To use a local specification from the website `data/docs/openapi/` directory:
+
+```markdown
+{{/*% docs/openapi/info data="<SPECIFICATION_FILENAME>" %*/}}
+```
+
+### Examples
+
+Display the API information for a remote specification at `https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json`:
+
+```markdown
+{{/*% docs/openapi/info url="https://grafana.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" %*/}}
+```
+
+Display the API information for a local specification named `grafana`:
+
+```markdown
+{{/*% docs/openapi/info data="grafana" %*/}}
+```
+
+## Docs/openapi/path
+
+Display API path information, use either the `url` or `data` parameter to specify an OpenAPI specification.
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `url`     | The URL of the OpenAPI specification to fetch.   | no     |
+| `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no      |
+| `scope`     | The API path to scope output to.   | no     |
+
+### Example
+
+Display all paths for the `grafana` data specification:
+
+```
+{{/*% docs/openapi/path data="grafana" %*/}}
+or
+{{/*% docs/openapi/path data="grafana" scope="" %*/}}
+```
+
+Display only the `/teams` paths for the `grafana` data specification:
+
+```
+{{/*% docs/openapi/path data="grafana" scope="/teams" %*/}}
+```
+
 ## Docs/play
 
 The `docs/play` shortcode produces a note admonition with the preferred copy for linking to a Grafana Play dashboard.

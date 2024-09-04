@@ -457,6 +457,10 @@ Display API path information, use either the `url` or `data` parameter to specif
 | `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no      |
 | `scope`     | The API path to scope output to.   | no     |
 
+{{< admonition type="note" >}}
+Reference lookups function except for nested Response properties which require linking to an Object definition, probably embedded later in the page.
+{{< /admonition >}}
+
 ### Example
 
 Display all paths for the `grafana` data specification:

@@ -4,6 +4,7 @@
 # FROM                                                                                              TO
 /docs/writers-toolkit/about-grafana-docs/                                                           /docs/writers-toolkit/introduction/
 /docs/writers-toolkit/contribute-documentation/                                                     /docs/writers-toolkit/contribute/
+/docs/writers-toolkit/contribute-documentation/contribute-release-notes/                            /docs/writers-toolkit/contribute/release-notes/
 /docs/writers-toolkit/contribute-release-notes/                                                     /docs/writers-toolkit/contribute/release-notes/
 /docs/writers-toolkit/review/backporting/                                                           /docs/writers-toolkit/review/backport-changes/
 /docs/writers-toolkit/review/run-a-local-webserver/                                                 /docs/writers-toolkit/review/test-documentation-changes/
@@ -15,6 +16,7 @@
 /docs/writers-toolkit/style-guide/voice-tone-guidelines/                                            /docs/writers-toolkit/write/style-guide/voice-tone-guidelines/
 /docs/writers-toolkit/style-guide/write-for-developers/                                             /docs/writers-toolkit/write/style-guide/write-for-developers/
 /docs/writers-toolkit/write/references/                                                             /docs/writers-toolkit/write/links/
+/docs/writers-toolkit/write/style-guide/useful-link-text/                                           /docs/writers-toolkit/write/links/useful-link-text/
 /docs/writers-toolkit/write/useful-link-text/                                                       /docs/writers-toolkit/write/links/useful-link-text/
 /docs/writers-toolkit/writing-guide/                                                                /docs/writers-toolkit/write/
 /docs/writers-toolkit/writing-guide/about-documentation-design/                                     /docs/writers-toolkit/structure/about-documentation-design/

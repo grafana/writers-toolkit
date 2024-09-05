@@ -5,6 +5,7 @@
   Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it.
   Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship.
 "tokens":
+  - "AI Observability's"
   - "Agent's"
   - "Alloy's"
   - "Asserts'"
@@ -37,6 +38,7 @@
   - "Kinesis'"
   - "Kubernetes'"
   - "Kubernetes Engine's"
+  - "LangChain's"
   - "Loki's"
   - "Markdown's"
   - "Memcached's"
@@ -46,11 +48,13 @@
   - "MySQL's"
   - "Okta's"
   - "OnCall's"
+  - "OpenAI's"
   - "OpenShift's"
   - "OpenTelemetry's"
   - "OTel's"
   - "Parca's"
   - "Phlare's"
+  - "Pinecone's"
   - "Podman's"
   - "Postgres'"
   - "PostgreSQL's"

@@ -30,6 +30,11 @@ You should backport to all supported versions of the project affected by the pul
 
 If you are unsure, ask for advice from a maintainer on the pull request.
 
+## Before you begin
+
+- To backport changes, the repository must have the backport workflow installed.
+  To install the backport workflow, refer to [Install the backport workflow](/docs/writers-toolkit/review/backport-changes/install-the-workflow/).
+
 ## Backport a change
 
 To backport a change, add the appropriate `backport <BRANCH>` label.

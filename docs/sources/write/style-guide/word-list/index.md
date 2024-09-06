@@ -100,8 +100,13 @@ Use this rather than _dropdown_ or _drop down_.
 
 Use _drop-down_ as a modifier rather than as a standalone noun. For example: _drop-down menu_.
 
-<!--
 ## E
+
+### end-to-end
+
+Use this rather than _e2e_ or _E2E_.
+
+<!--
 ## F
 ## G -->
 
@@ -123,6 +128,10 @@ Use this rather than _hold the pointer over_ or _point to_.
 ### menu icon
 
 Use this rather than _hamburger menu_ or _kebab menu_.
+
+### meta-monitoring
+
+Use this instead of _metamonitoring_ or _meta monitoring_.
 
 ## N
 
@@ -210,6 +219,12 @@ In this case, use the article _a_, as in _a SQL Server analysis_.
 
 When referring to the term in any other context, such as SQL databases, errors, or servers, _SQL_ should be pronounced "ess-cue-el".
 In this case, use the article _an_, as in _an SQL error_.
+
+### self-hosted
+
+Use this instead of _on-prem_, _on-premises_, or _self-hosted_.
+
+Aligns with Marketing and various other parts of our website.
 
 ## T
 

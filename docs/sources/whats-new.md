@@ -20,9 +20,11 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 ## September 2024
 
-| New guidance or change                                                                    | Page                                                                           |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| Added preference for use of _self-managed_ when talking about Grafana deployment methods. | [Grot guides](/docs/writers-toolkit/write/style-guide/word-list/#self-managed) |
+| New guidance or change                                                                       | Page                                                                            |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Added preference for _end-to-end_ when talking about testing.                                | [Word list](/docs/writers-toolkit/write/style-guide/word-list/#end-to-end)      |
+| Added preference for _meta-monitoring_ when talking about monitoring other monitoring tools. | [Word list](/docs/writers-toolkit/write/style-guide/word-list/#meta-monitoring) |
+| Added preference for use of _self-managed_ when talking about Grafana deployment methods.    | [Word list](/docs/writers-toolkit/write/style-guide/word-list/#self-managed)    |
 
 ## August 2024
 

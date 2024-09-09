@@ -1,0 +1,9 @@
+extends: substitution
+message: |
+  Use meta-monitoring instead of metamonitoring or meta monitoring.
+link: https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#meta-monitoring
+level: warning
+action:
+  name: replace
+swap:
+  "meta ?monitoring": meta-monitoring

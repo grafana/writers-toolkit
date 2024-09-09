@@ -29,6 +29,7 @@ This page is a work in progress.
 ## A
 
 <!-- vale Grafana.Agentless = NO -->
+<!-- This is demonstrating improper usage. -->
 
 ### agentless
 
@@ -96,12 +97,26 @@ This guidance intentionally differs from Google style guide advice, which prefer
 
 ### drop-down
 
+<!-- vale Grafana.DropDown = NO -->
+<!-- This is demonstrating improper usage. -->
+
 Use this rather than _dropdown_ or _drop down_.
 
 Use _drop-down_ as a modifier rather than as a standalone noun. For example: _drop-down menu_.
 
-<!--
+<!-- vale Grafana.DropDown = YES -->
+
 ## E
+
+### end-to-end
+
+<!-- vale Grafana.EndToEnd = NO -->
+<!-- This is demonstrating improper usage. -->
+
+Use this rather than _e2e_ or _E2E_.
+
+<!-- vale Grafana.EndToEnd = YES -->
+<!--
 ## F
 ## G -->
 
@@ -124,11 +139,21 @@ Use this rather than _hold the pointer over_ or _point to_.
 
 Use this rather than _hamburger menu_ or _kebab menu_.
 
+### meta-monitoring
+
+<!-- vale Grafana.MetaMonitoring = NO -->
+<!-- This is demonstrating improper usage. -->
+
+Use this instead of _metamonitoring_ or _meta monitoring_.
+
+<!-- vale Grafana.MetaMonitoring = YES -->
+
 ## N
 
 ### no-collector
 
 <!-- vale Grafana.Agentless = NO -->
+<!-- This is demonstrating improper usage. -->
 
 Use this to refer to deployments that don't have a collector.
 Use this instead of _agentless_.
@@ -151,6 +176,7 @@ The text should always be pre-formatted as inline code (between backticks (\`)).
 ## O
 
 <!-- vale Grafana.OK = NO -->
+<!-- This is demonstrating improper usage. -->
 
 ### OK, okay
 
@@ -192,12 +218,14 @@ When referencing a specific README file, match the same capitalization of that f
 
 ## S
 
-### Self-managed
+### self-managed
 
 <!-- vale Grafana.SelfManaged = NO -->
 <!-- This is demonstrating improper usage. -->
 
 Use _self-managed_ instead of _self-hosted_, _on-prem_, or _on-premise_ when talking about Grafana deployment methods.
+
+This aligns with Marketing and various other parts of <https://grafana.com>.
 
 <!-- vale Grafana.SelfManaged = YES -->
 

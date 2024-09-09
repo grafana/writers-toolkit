@@ -192,6 +192,15 @@ When referencing a specific README file, match the same capitalization of that f
 
 ## S
 
+### Self-managed
+
+<!-- vale Grafana.SelfManaged = NO -->
+<!-- This is demonstrating improper usage. -->
+
+Use _self-managed_ instead of _self-hosted_, _on-prem_, or _on-premise_ when talking about Grafana deployment methods.
+
+<!-- vale Grafana.SelfManaged = YES -->
+
 ### SQL (Structured Query Language)
 
 The article, _a_ or _an_, that you use before the acronym _SQL_ depends on how the word is pronounced.

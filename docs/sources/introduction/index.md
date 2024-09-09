@@ -55,7 +55,7 @@ Why is topic-based authoring important?
 ## Markdown
 
 Grafana Labs writes technical documentation using Markdown.
-For more information, refer to [Markdown guide](https://grafana.com/docs/writers-toolkit/write/markdown-guide/).
+For more information, refer to the Markdown style guide in [Markdown guide](https://grafana.com/docs/writers-toolkit/write/markdown-guide/).
 
 ## Ways to contribute
 

@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## September 2024
+
+| New guidance or change                                                                    | Page                                                                           |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Added preference for use of _self-managed_ when talking about Grafana deployment methods. | [Grot guides](/docs/writers-toolkit/write/style-guide/word-list/#self-managed) |
+
 ## August 2024
 
 | New guidance or change                                                                                  | Page                                                                                          |

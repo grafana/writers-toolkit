@@ -1,5 +1,6 @@
 local word = import './word.jsonnet';
 [
+
   word.new('backend', 'S', 'noun') { swaps: { 'back[ -]end': 'backend' } },
   word.new('backport', 'DGS', 'verb'),
   word.new('Beyla', '', 'noun') { product: true },

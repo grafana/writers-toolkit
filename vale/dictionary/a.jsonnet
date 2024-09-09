@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('ACL', 'S', 'noun') { abbreviation: true },
+  word.new('AI Observability', '', 'noun') { product: true, swaps: { 'Grafana AI observability': 'Grafana AI Observability' } },
   word.new('Adaptive Metrics', '', 'noun') { swaps: { '\\b(?:[aA]daptive metrics|adaptive Metrics)\\b': 'Adaptive Metrics' } },
   word.new('Aerospike', '', 'noun'),
   word.new('after', '', 'preposition') { swaps: { Once: 'After' } },

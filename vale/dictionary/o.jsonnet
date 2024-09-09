@@ -2,7 +2,9 @@ local word = import './word.jsonnet';
 [
   word.new('OAuth', '', 'noun'),
   word.new('Okta', '', 'noun') { product: true },
+  word.new('onboard', 'DG', 'verb'),
   word.new('OnCall', '', 'noun') { product: true },
+  word.new('OpenAI', '', 'noun') { description: 'https://openapi.com', product: true },
   word.new('open source', '', 'noun') { swaps: { 'open-source': 'open source' } },
   word.new('OpenShift', '', 'noun') { product: true, swaps: { '(?:[Oo]penshift|openShift)': 'OpenShift' } },
   word.new('OpenTelemetry', '', 'adjective'),

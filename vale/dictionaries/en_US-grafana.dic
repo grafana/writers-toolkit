@@ -1,5 +1,6 @@
-291
+297
 ACL/S po:noun
+AI Observability/ po:noun
 Adaptive Metrics/ po:noun
 Aerospike/ po:noun
 after/ po:preposition
@@ -130,8 +131,10 @@ Kprobe/S po:noun
 kubelet/ po:noun
 Kubernetes/ po:noun
 Kubernetes Engine/ po:noun
+LangChain/ po:noun
 LCP/ po:noun
 LESS/ po:noun
+LLM/S po:noun
 Linode/M po:noun
 LogQL/ po:noun
 Loki/ po:noun
@@ -155,7 +158,9 @@ namespace/S po:noun
 nginx/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
+onboard/DG po:verb
 OnCall/ po:noun
+OpenAI/ po:noun
 open source/ po:noun
 OpenShift/ po:noun
 OpenTelemetry/ po:adjective
@@ -172,6 +177,7 @@ PDF/S po:noun
 performant/ po:adjective
 Phlare/M po:noun
 PHP/ po:noun
+Pinecone/ po:noun
 PNG/ po:noun
 Podman/ po:noun
 Postgres/ po:noun

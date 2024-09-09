@@ -208,6 +208,8 @@ When referencing a specific README file, match the same capitalization of that f
 
 Use _self-managed_ instead of _self-hosted_, _on-prem_, or _on-premise_ when talking about Grafana deployment methods.
 
+This aligns with Marketing and various other parts of <https://grafana.com>.
+
 <!-- vale Grafana.SelfManaged = YES -->
 
 ### SQL (Structured Query Language)
@@ -219,12 +221,6 @@ In this case, use the article _a_, as in _a SQL Server analysis_.
 
 When referring to the term in any other context, such as SQL databases, errors, or servers, _SQL_ should be pronounced "ess-cue-el".
 In this case, use the article _an_, as in _an SQL error_.
-
-### self-hosted
-
-Use this instead of _on-prem_, _on-premises_, or _self-hosted_.
-
-Aligns with Marketing and various other parts of our website.
 
 ## T
 

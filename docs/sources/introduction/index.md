@@ -9,7 +9,7 @@ keywords:
   - Grafana
   - documentation
 menuTitle: Introduction
-review_date: "2024-05-16"
+review_date: "2024-09-04"
 title: Introduction to documentation
 weight: 100
 ---
@@ -55,7 +55,7 @@ Why is topic-based authoring important?
 ## Markdown
 
 Grafana Labs writes technical documentation using Markdown.
-For more information, refer to the [Markdown style guide](https://grafana.com/docs/writers-toolkit/write/markdown-guide/).
+For more information, refer to the Markdown style guide in [Markdown guide](https://grafana.com/docs/writers-toolkit/write/markdown-guide/).
 
 ## Ways to contribute
 

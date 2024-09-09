@@ -1,0 +1,9 @@
+extends: substitution
+message: |
+  Use end-to-end instead of e2e or E2E.
+link: https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#end-to-end
+level: warning
+action:
+  name: replace
+swap:
+  "[eE]2[eE]": end-to-end

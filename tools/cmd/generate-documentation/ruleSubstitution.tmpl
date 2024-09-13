@@ -1,0 +1,8 @@
+{{ codify (printf (escapeShortcodes .Message) "<REPLACEMENT TEXT>" "<CURRENT TEXT>") }}
+{{ with .Swap }}
+| Current text | Replacement text |
+| ------------ | ---------------- |
+{{ range $current, $replacement := . -}}
+| `{{ escapeForTable $current }}` | `{{ $replacement }}` |
+{{ end -}}
+{{ end }}

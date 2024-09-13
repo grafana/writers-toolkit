@@ -10,6 +10,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"text/template"
 	"time"
@@ -19,82 +20,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-const (
-	command = "generate-documentation"
-	tmpl    = `---
-date: "2024-06-25"
-description: A description of every Grafana Labs prose linting rule.
-menuTitle: Rules
-review_date: "{{ .ReviewDate }}"
-title: {{ .Title }}
----
-
-# {{ .Title }}
-
-<!-- These are our style rules. -->
-<!-- vale Grafana.We = NO -->
-
-Vale codifies our style guide into a series of rules that can be checked against your prose.
-The following is a list of all the rules that we've defined.
-
-<!-- This page breaks a number of rules in demonstrating them. -->
-{{ range .Rules -}}
-<!-- vale {{ .Name }} = NO -->
-{{ end -}}
-
-## Errors
-
-The following rules are considered errors and must be fixed.
-
-{{ range .Rules -}}
-{{ if or (eq .Level "error") -}}
-
-### {{ .Name }}
-
-Extends: {{ .Extends }}
-
-{{ escapeShortcodes .Message }}
-
-{{ with .Link }}[More information ->]({{ . }}){{ end }}
-
-{{ end -}}
-{{ end -}}
-
-## Warnings
-
-The following rules are warnings and may need to be fixed or otherwise require consideration.
-
-{{ range .Rules -}}
-{{ if or (eq .Level "warning") (eq .Level "") -}}
-### {{ .Name }}
-
-Extends: {{ .Extends }}
-
-{{ escapeShortcodes .Message }}
-
-{{ with .Link }}[More information ->]({{ . }}){{ end }}
-
-{{ end -}}
-{{ end -}}
-
-## Suggestions
-
-The following rules are suggestions to consider a certain point of style.
-
-{{ range .Rules -}}
-{{ if or (eq .Level "suggestion") -}}
-### {{ .Name }}
-
-Extends: {{ .Extends }}
-
-{{ escapeShortcodes .Message }}
-
-{{ with .Link }}[More information ->]({{ . }}){{ end }}
-
-{{ end -}}
-{{ end -}}
-`
-)
+const command = "generate-documentation"
 
 var errProcessingRule = errors.New("error processing rule")
 
@@ -105,11 +31,13 @@ type PageData struct {
 }
 
 type Rule struct {
-	Extends string `yaml:"extends"`
-	Level   string `yaml:"level"`
-	Link    string `yaml:"link"`
-	Message string `yaml:"message"`
-	Name    string `yaml:"name"`
+	Extends string            `yaml:"extends"`
+	Level   string            `yaml:"level"`
+	Link    string            `yaml:"link"`
+	Message string            `yaml:"message"`
+	Name    string            `yaml:"name"`
+	Swap    map[string]string `yaml:"swap,omitempty"`
+	Tokens  []string          `yaml:"tokens,omitempty"`
 }
 
 func usage(w io.Writer, fs *flag.FlagSet) {
@@ -119,6 +47,9 @@ func usage(w io.Writer, fs *flag.FlagSet) {
 	fmt.Fprintln(w, "  <REPOSITORY PATH>")
 	fmt.Fprintln(w, "    	Path to the repository root.")
 
+	fmt.Fprintln(w, "  <TEMPLATE PATH>")
+	fmt.Fprintln(w, "    	Path to the Vale rules directory, relative to <REPOSITORY PATH>.")
+
 	fmt.Fprintln(w, "  <SOURCE PATH>")
 	fmt.Fprintln(w, "    	Path to the Vale rules directory, relative to <REPOSITORY PATH>.")
 
@@ -126,7 +57,7 @@ func usage(w io.Writer, fs *flag.FlagSet) {
 	fmt.Fprintln(w, "    	Path to the output file, relative to <REPOSITORY PATH>.")
 }
 
-func generate(fsys rwfilefs.RWFileFS, srcDirPath, dstPath string) error {
+func generate(fsys rwfilefs.RWFileFS, templateDirPath, srcDirPath, dstPath string) error {
 	var (
 		rules     []Rule
 		rulesErrs error
@@ -175,17 +106,26 @@ func generate(fsys rwfilefs.RWFileFS, srcDirPath, dstPath string) error {
 	}
 
 	funcMap := template.FuncMap{
+		"codify": func(s string) string {
+			return regexp.MustCompile("'?(<[^>]*>)'?").ReplaceAllString(s, "_`$1`_")
+		},
 		"escapeShortcodes": func(s string) string {
 			return strings.ReplaceAll(strings.ReplaceAll(s, "{{< ", "{{</* "), " >}}", " */>}}")
 		},
+		"escapeForTable": func(s string) string {
+			return strings.ReplaceAll(s, "|", "\\|")
+		},
+		"format": func(s string) string {
+			return strings.ReplaceAll(s, "%s", "<CURRENT TEXT>")
+		},
 	}
 
-	tmpl, err := template.New(filepath.Base(dstPath)).Funcs(funcMap).Parse(tmpl)
+	pageTmpl, err := template.New("page.tmpl").Funcs(funcMap).ParseFS(fsys, filepath.Join(templateDirPath, "*.tmpl"))
 	if err != nil {
-		return fmt.Errorf("couldn't parse template: %w", err)
+		return fmt.Errorf("couldn't parse page template: %w", err)
 	}
 
-	if err := tmpl.Execute(w, pageData); err != nil {
+	if err := pageTmpl.Execute(w, pageData); err != nil {
 		return fmt.Errorf("couldn't execute template: %w", err)
 	}
 
@@ -203,7 +143,8 @@ func generate(fsys rwfilefs.RWFileFS, srcDirPath, dstPath string) error {
 func main() {
 	const (
 		requiredRepoDirPath = iota
-		requiredsrcDirPath
+		requiredTemplateDirPath
+		requiredSrcDirPath
 		requiredDstPath
 		requiredTotal
 	)
@@ -218,12 +159,13 @@ func main() {
 	}
 
 	repoDir := flag.Arg(requiredRepoDirPath)
-	srcDirPath := flag.Arg(requiredsrcDirPath)
+	templateDirPath := flag.Arg(requiredTemplateDirPath)
+	srcDirPath := flag.Arg(requiredSrcDirPath)
 	dstPath := flag.Arg(requiredDstPath)
 
 	fsys := rwfilefs.NewOSDirFS(repoDir)
 
-	if err := generate(fsys, srcDirPath, dstPath); err != nil {
+	if err := generate(fsys, templateDirPath, srcDirPath, dstPath); err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 		os.Exit(exit.RuntimeError)
 	}

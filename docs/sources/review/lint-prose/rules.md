@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-09-03"
+review_date: "2024-09-13"
 title: Vale rules
 ---
 
@@ -32,6 +32,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.DialogBox = NO -->
 <!-- vale Grafana.DocumentationTeam = NO -->
 <!-- vale Grafana.DropDown = NO -->
+<!-- vale Grafana.EndToEnd = NO -->
 <!-- vale Grafana.Exclamation = NO -->
 <!-- vale Grafana.Gerunds = NO -->
 <!-- vale Grafana.GoogleAMPM = NO -->
@@ -60,6 +61,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.Headings = NO -->
 <!-- vale Grafana.Kubernetes = NO -->
 <!-- vale Grafana.Latin = NO -->
+<!-- vale Grafana.MetaMonitoring = NO -->
 <!-- vale Grafana.OAuth = NO -->
 <!-- vale Grafana.OK = NO -->
 <!-- vale Grafana.Ordinal = NO -->
@@ -80,6 +82,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.ReferTo = NO -->
 <!-- vale Grafana.RepeatedWords = NO -->
 <!-- vale Grafana.SQL = NO -->
+<!-- vale Grafana.SelfManaged = NO -->
 <!-- vale Grafana.Shortcodes = NO -->
 <!-- vale Grafana.SmartQuotes = NO -->
 <!-- vale Grafana.Spelling = NO -->
@@ -98,13 +101,24 @@ Extends: existence
 
 Use 'AM' or 'PM' (preceded by a space).
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\d{1,2}[AP]M`
+- `\d{1,2} ?[ap]m`
+- `\d{1,2} ?[aApP]\.[mM]\.`
+
 [More information ->](https://developers.google.com/style/word-list)
 
 ### Grafana.GoogleDateFormat
 
 Extends: existence
 
-Use 'July 31, 2016' format, not '%s'.
+Use 'July 31, 2016' format, not _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\d{1,2}(?:\.|/)\d{1,2}(?:\.|/)\d{4}`
+- `\d{1,2} (?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)|May|Jun(?:e)|Jul(?:y)|Aug(?:ust)|Sep(?:tember)?|Oct(?:ober)|Nov(?:ember)?|Dec(?:ember)?) \d{4}`
 
 [More information ->](https://developers.google.com/style/dates-times)
 
@@ -114,6 +128,10 @@ Extends: existence
 
 Don't put a space before or after a dash.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\s[—–]\s`
+
 [More information ->](https://developers.google.com/style/dashes)
 
 ### Grafana.GoogleEnDash
@@ -122,13 +140,23 @@ Extends: existence
 
 Use an em dash ('—') instead of '–'.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `–`
+
 [More information ->](https://developers.google.com/style/dashes)
 
 ### Grafana.GoogleGender
 
 Extends: existence
 
-Don't use '%s' as a gender-neutral pronoun.
+Don't use _`<CURRENT TEXT>`_ as a gender-neutral pronoun.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `he/she`
+- `s/he`
+- `\(s\)he`
 
 [More information ->](https://developers.google.com/style/pronouns#gender-neutral-pronouns)
 
@@ -136,7 +164,49 @@ Don't use '%s' as a gender-neutral pronoun.
 
 Extends: substitution
 
-Consider using '%s' instead of '%s'.
+Consider using _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text                   | Replacement text              |
+| ------------------------------ | ----------------------------- |
+| `(?:alumnae\|alumni)`          | `graduates`                   |
+| `(?:alumna\|alumnus)`          | `graduate`                    |
+| `air(?:m[ae]n\|wom[ae]n)`      | `pilot(s)`                    |
+| `anchor(?:m[ae]n\|wom[ae]n)`   | `anchor(s)`                   |
+| `authoress`                    | `author`                      |
+| `camera(?:m[ae]n\|wom[ae]n)`   | `camera operator(s)`          |
+| `chair(?:m[ae]n\|wom[ae]n)`    | `chair(s)`                    |
+| `congress(?:m[ae]n\|wom[ae]n)` | `member(s) of congress`       |
+| `door(?:m[ae]\|wom[ae]n)`      | `concierge(s)`                |
+| `draft(?:m[ae]n\|wom[ae]n)`    | `drafter(s)`                  |
+| `fire(?:m[ae]n\|wom[ae]n)`     | `firefighter(s)`              |
+| `fisher(?:m[ae]n\|wom[ae]n)`   | `fisher(s)`                   |
+| `fresh(?:m[ae]n\|wom[ae]n)`    | `first-year student(s)`       |
+| `garbage(?:m[ae]n\|wom[ae]n)`  | `waste collector(s)`          |
+| `lady lawyer`                  | `lawyer`                      |
+| `ladylike`                     | `courteous`                   |
+| `landlord`                     | `building manager`            |
+| `mail(?:m[ae]n\|wom[ae]n)`     | `mail carriers`               |
+| `man and wife`                 | `husband and wife`            |
+| `man enough`                   | `strong enough`               |
+| `mankind`                      | `human kind`                  |
+| `manmade`                      | `manufactured`                |
+| `manpower`                     | `personnel`                   |
+| `men and girls`                | `men and women`               |
+| `middle(?:m[ae]n\|wom[ae]n)`   | `intermediary`                |
+| `news(?:m[ae]n\|wom[ae]n)`     | `journalist(s)`               |
+| `ombuds(?:man\|woman)`         | `ombuds`                      |
+| `oneupmanship`                 | `upstaging`                   |
+| `poetess`                      | `poet`                        |
+| `police(?:m[ae]n\|wom[ae]n)`   | `police officer(s)`           |
+| `repair(?:m[ae]n\|wom[ae]n)`   | `technician(s)`               |
+| `sales(?:m[ae]n\|wom[ae]n)`    | `salesperson or sales people` |
+| `service(?:m[ae]n\|wom[ae]n)`  | `soldier(s)`                  |
+| `steward(?:ess)?`              | `flight attendant`            |
+| `tribes(?:m[ae]n\|wom[ae]n)`   | `tribe member(s)`             |
+| `waitress`                     | `waiter`                      |
+| `woman doctor`                 | `doctor`                      |
+| `woman scientist[s]?`          | `scientist(s)`                |
+| `work(?:m[ae]n\|wom[ae]n)`     | `worker(s)`                   |
 
 [More information ->](https://developers.google.com/style/inclusive-documentation)
 
@@ -144,7 +214,11 @@ Consider using '%s' instead of '%s'.
 
 Extends: existence
 
-'%s' doesn't need a hyphen.
+_`<CURRENT TEXT>`_ doesn't need a hyphen.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\s[^\s-]+ly-`
 
 [More information ->](https://developers.google.com/style/hyphens)
 
@@ -152,7 +226,11 @@ Extends: existence
 
 Extends: existence
 
-Don't use plurals in parentheses such as in '%s'.
+Don't use plurals in parentheses such as in _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\b\w+\(s\)`
 
 [More information ->](https://developers.google.com/style/plurals-parentheses)
 
@@ -160,7 +238,11 @@ Don't use plurals in parentheses such as in '%s'.
 
 Extends: existence
 
-Don't use periods with acronyms or initialisms such as '%s'.
+Don't use periods with acronyms or initialisms such as _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\b(?:[A-Z]\.){3,}`
 
 [More information ->](https://developers.google.com/style/abbreviations)
 
@@ -168,7 +250,15 @@ Don't use periods with acronyms or initialisms such as '%s'.
 
 Extends: existence
 
-Don't use internet slang abbreviations such as '%s'.
+Don't use internet slang abbreviations such as _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `tl;dr`
+- `ymmv`
+- `rtfm`
+- `imo`
+- `fwiw`
 
 [More information ->](https://developers.google.com/style/abbreviations)
 
@@ -176,7 +266,12 @@ Don't use internet slang abbreviations such as '%s'.
 
 Extends: existence
 
-'%s' should have one space.
+_`<CURRENT TEXT>`_ should have one space.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `[a-z][.?!] {2,}[A-Z]`
+- `[a-z][.?!][A-Z]`
 
 [More information ->](https://developers.google.com/style/sentence-spacing)
 
@@ -184,15 +279,24 @@ Extends: existence
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 The HTTP scheme is insecure and all grafana.com links must use HTTPS.
+
+| Current text         | Replacement text      |
+| -------------------- | --------------------- |
+| `http://grafana.com` | `https://grafana.com` |
 
 ### Grafana.Latin
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text | Replacement text |
+| ------------ | ---------------- |
+| `e\.?g[,.]?` | `for example`    |
+| `i\.?e[,.]?` | `that is`        |
 
 [More information ->](https://developers.google.com/style/abbreviations#dont-use)
 
@@ -202,6 +306,18 @@ Extends: existence
 
 For ordinals, write out first through ninth. For 10th on, use numerals.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `1st`
+- `2nd`
+- `3rd`
+- `4th`
+- `5th`
+- `6th`
+- `7th`
+- `8th`
+- `9th`
+
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#numbers)
 
 ### Grafana.Please
@@ -210,13 +326,24 @@ Extends: existence
 
 It's great to be polite, but using 'please' in a set of instructions is overdoing the politeness.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `please`
+
 [More information ->](https://developers.google.com/style/tone#politeness)
 
 ### Grafana.ReferTo
 
 Extends: substitution
 
-When linking in Markdown, use '%s' instead of '%s'.
+When linking in Markdown, use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text   | Replacement text |
+| -------------- | ---------------- |
+| `Check out \[` | `Refer to [`     |
+| `See \[`       | `Refer to [`     |
+| `check out \[` | `refer to [`     |
+| `see \[`       | `refer to [`     |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#links-and-references)
 
@@ -224,13 +351,13 @@ When linking in Markdown, use '%s' instead of '%s'.
 
 Extends: repetition
 
-'%s' is repeated
+_`<CURRENT TEXT>`_ is repeated
 
 ### Grafana.Spelling
 
 Extends: spelling
 
-Did you really mean '%s'?
+Did you really mean _`<CURRENT TEXT>`_?
 
 The Grafana dictionary might not know of this word yet.
 
@@ -252,6 +379,11 @@ The following rules are warnings and may need to be fixed or otherwise require c
 Extends: substitution
 
 Use administrator instead of admin unless it's the name of the UI label like in the Grafana 'Admin' role.
+%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text | Replacement text |
+| ------------ | ---------------- |
+| `admin`      | `administrator`  |
 
 [More information ->](https://developers.google.com/style/word-list#admin)
 
@@ -274,6 +406,11 @@ Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-bas
 If you're talking about why and how to send signals directly from an application to Grafana Cloud, prefer no-collector to agentless.
 
 This is consistent with [OTel documentation](https://opentelemetry.io/docs/collector/deployment/no-collector/).
+%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text | Replacement text |
+| ------------ | ---------------- |
+| `agentless`  | `no-collector`   |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#no-collector)
 
@@ -281,9 +418,13 @@ This is consistent with [OTel documentation](https://opentelemetry.io/docs/colle
 
 Extends: substitution
 
-Did you mean '%s' instead of '%s'?
+Did you mean _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_?
 
 Allows to is a common wording error.
+
+| Current text | Replacement text |
+| ------------ | ---------------- | --------------------- |
+| `allows to`  | `allows you to   | makes it possible to` |
 
 ### Grafana.AltText
 
@@ -297,7 +438,15 @@ All images must have alt text.
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text     | Replacement text    |
+| ---------------- | ------------------- |
+| `AWS CloudWatch` | `Amazon CloudWatch` |
+| `Cloudwatch`     | `CloudWatch`        |
+| `aws CloudWatch` | `Amazon CloudWatch` |
+| `cloudWatch`     | `CloudWatch`        |
+| `cloudwatch`     | `CloudWatch`        |
 
 [More information ->](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
 
@@ -319,6 +468,10 @@ Often, 'and' implies 'or', so you don't need to write both words.
 
 If you need to specify both in your content, write something like "You can export raw events, processed events, or both."
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `and/or`
+
 [More information ->](https://developers.google.com/style/slashes#and-or)
 
 ### Grafana.ApacheProjectNames
@@ -333,7 +486,13 @@ Use the full Apache project name in the first instance.
 
 Extends: substitution
 
-Use '%s' instead of '%s' unless you're referring to a specific file which has that spelling.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ unless you're referring to a specific file which has that spelling.
+
+| Current text       | Replacement text |
+| ------------------ | ---------------- |
+| `[Cc]hangelog`     | `CHANGELOG`      |
+| `[Cc]hangelog\.md` | `CHANGELOG.md`   |
+| `[Cc]hangelogs`    | `CHANGELOGs`     |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#changelog)
 
@@ -353,13 +512,24 @@ That explanation should be outside of the code block.
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text              | Replacement text |
+| ------------------------- | ---------------- |
+| `Datadog Proxy`           | `Datadog proxy`  |
+| `[tT]he [Dd]atadog proxy` | `Datadog proxy`  |
 
 ### Grafana.DialogBox
 
 Extends: substitution
 
-Use '%s' rather than '%s'.
+Use _`<REPLACEMENT TEXT>`_ rather than _`<CURRENT TEXT>`_.
+
+| Current text         | Replacement text   |
+| -------------------- | ------------------ |
+| `dialog box appears` | `dialog box opens` |
+| `dialog(?! box)`     | `dialog box`       |
+| `modal`              | `dialog box`       |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#dialog-box)
 
@@ -367,13 +537,35 @@ Use '%s' rather than '%s'.
 
 Extends: substitution
 
-Use '%s' rather than '%s'.
+Use _`<REPLACEMENT TEXT>`_ rather than _`<CURRENT TEXT>`_.
+
+| Current text                          | Replacement text                      |
+| ------------------------------------- | ------------------------------------- |
+| `[Dd]ocs? (?:[Ss]quad\|[Tt]eam)`      | `the Grafana Labs documentation team` |
+| `[Dd]ocumentation (?:[Ss]quad\|Team)` | `the Grafana Labs documentation team` |
+
+### Grafana.EndToEnd
+
+Extends: substitution
+
+Use end-to-end instead of e2e or E2E.
+%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text | Replacement text |
+| ------------ | ---------------- |
+| `[eE]2[eE]`  | `end-to-end`     |
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#end-to-end)
 
 ### Grafana.Exclamation
 
 Extends: existence
 
 Avoid exclamation points in text, except in rare really exciting moments.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\w+!(?:\s|$)`
 
 [More information ->](https://developers.google.com/style/tone#some-things-to-avoid-where-possible)
 
@@ -398,13 +590,26 @@ Extends: existence
 
 In general, don't use an ellipsis.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\.\.\.`
+
 [More information ->](https://developers.google.com/style/ellipses)
 
 ### Grafana.GoogleFirstPerson
 
 Extends: existence
 
-Avoid first-person pronouns such as '%s'.
+Avoid first-person pronouns such as _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `(?:^|\s)I\s`
+- `(?:^|\s)I,\s`
+- `\bI'm\b`
+- `\bme\b`
+- `\bmy\b`
+- `\bmine\b`
 
 [More information ->](https://developers.google.com/style/pronouns#personal-pronouns)
 
@@ -413,6 +618,10 @@ Avoid first-person pronouns such as '%s'.
 Extends: existence
 
 Don't put a period at the end of a heading.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `[a-z0-9][.]\s*$`
 
 [More information ->](https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings)
 
@@ -430,13 +639,24 @@ Extends: existence
 
 Don't add words such as 'from' or 'between' to describe a range of numbers.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `(?:from|between)\s\d+\s?-\s?\d+`
+
 [More information ->](https://developers.google.com/style/hyphens)
 
 ### Grafana.GoogleSpelling
 
 Extends: existence
 
-In general, use American spelling instead of '%s'.
+In general, use American spelling instead of _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `(?:\w+)nised?`
+- `colour`
+- `labour`
+- `centre`
 
 [More information ->](https://developers.google.com/style/spelling)
 
@@ -444,9 +664,13 @@ In general, use American spelling instead of '%s'.
 
 Extends: existence
 
-Avoid using '%s'.
+Avoid using _`<CURRENT TEXT>`_.
 
 Use present tense for statements that describe general behavior that's not associated with a particular time.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `will`
 
 [More information ->](https://developers.google.com/style/tense)
 
@@ -454,7 +678,7 @@ Use present tense for statements that describe general behavior that's not assoc
 
 Extends: capitalization
 
-Use sentence-style capitalization for '%s'.
+Use sentence-style capitalization for _`<CURRENT TEXT>`_.
 
 If your heading contains capitalized words that represent product names, you need to add those words as exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/Headings.yml for them to be considered correctly cased.
 
@@ -466,9 +690,33 @@ Vale considers multi-word exceptions such as _Grafana Enterprise Metrics_ as a s
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text               | Replacement text        |
+| -------------------------- | ----------------------- |
+| `[Kk]ubectl`               | `kubectl`               |
+| `[Kk]ubelet`               | `kubelet`               |
+| `[Kk]ubernetes deployment` | `Kubernetes Deployment` |
+| `cron job`                 | `CronJob`               |
+| `d[ae][ae]mon[Ss]et`       | `DaemonSet`             |
+| `pod`                      | `Pod`                   |
+| `replica[Ss]et`            | `ReplicaSet`            |
+| `stateful[Ss]et`           | `StatefulSet`           |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#kubernetes-objects)
+
+### Grafana.MetaMonitoring
+
+Extends: substitution
+
+Use meta-monitoring instead of metamonitoring or meta monitoring.
+%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text       | Replacement text  |
+| ------------------ | ----------------- |
+| `meta ?monitoring` | `meta-monitoring` |
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#meta-monitoring)
 
 ### Grafana.OK
 
@@ -480,6 +728,25 @@ The exceptions are when you’re referencing or quoting:
 - A user interface
 - HTTP status codes or other code
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `O.K.`
+- `OK`
+- `ok`
+- `Ok`
+- `Okay`
+- `okay`
+- `A-OK`
+- `hokay`
+- `k`
+- `keh`
+- `kk`
+- `M'kay`
+- `oka`
+- `okeh`
+- `Okie dokie`
+- `Okily Dokily`
+
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#ok-okay)
 
 ### Grafana.ProductPossessives
@@ -489,13 +756,89 @@ Extends: existence
 Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it.
 Instead, use the name as a modifier or rewrite to use a word like of to indicate the relationship.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `AI Observability's`
+- `Agent's`
+- `Alloy's`
+- `Asserts'`
+- `AWS's`
+- `Beyla's`
+- `CentOS's`
+- `CloudWatch's`
+- `Codespaces'`
+- `Data Firehose's`
+- `Databricks'`
+- `Datadog's`
+- `Dynatrace's`
+- `EKS's`
+- `Elastic Kubernetes Service's`
+- `Firehose's`
+- `GEM's`
+- `GKE's`
+- `Git's`
+- `GitHub's`
+- `GNU's`
+- `Grafana's`
+- `Gravatar's`
+- `Graylog's`
+- `IBM's`
+- `Jaeger's`
+- `Jira's`
+- `Jsonnet's`
+- `Kibana's`
+- `Killercoda's`
+- `Kinesis'`
+- `Kubernetes'`
+- `Kubernetes Engine's`
+- `LangChain's`
+- `Loki's`
+- `Markdown's`
+- `Memcached's`
+- `Mesos'`
+- `Mimir's`
+- `Moodle's`
+- `MySQL's`
+- `Okta's`
+- `OnCall's`
+- `OpenAI's`
+- `OpenShift's`
+- `OpenTelemetry's`
+- `OTel's`
+- `Parca's`
+- `Phlare's`
+- `Pinecone's`
+- `Podman's`
+- `Postgres'`
+- `PostgreSQL's`
+- `Prometheus'`
+- `Promtail's`
+- `Pyroscope's`
+- `RDS's`
+- `Relational Database Service's`
+- `React's`
+- `Redis'`
+- `Rollup's`
+- `Splunk's`
+- `Tempo's`
+- `Thanos'`
+- `Velero's`
+- `Vite's`
+- `WildFly's`
+- `windows_exporter's`
+- `Zipkin's`
+
 [More information ->](https://developers.google.com/style/possessives#product,-feature,-and-company-names)
 
 ### Grafana.PrometheusExporters
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text       | Replacement text |
+| ------------------ | ---------------- |
+| `[Nn]ode exporter` | `Node Exporter`  |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#node-exporter)
 
@@ -503,7 +846,11 @@ Use '%s' instead of '%s'.
 
 Extends: substitution
 
-Use the compound adjective without a hyphen whether the noun is implied or explicit. For example, you can use _quickstart guide_ or just _quickstart_.
+Use the compound adjective without a hyphen whether the noun is implied or explicit. For example, you can use _quickstart guide_ or just _quickstart_.%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text  | Replacement text |
+| ------------- | ---------------- |
+| `quick start` | `quickstart`     |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#quickstart)
 
@@ -511,7 +858,13 @@ Use the compound adjective without a hyphen whether the noun is implied or expli
 
 Extends: substitution
 
-Use '%s' instead of '%s' unless you're referring to a specific file which has that spelling.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ unless you're referring to a specific file which has that spelling.
+
+| Current text    | Replacement text |
+| --------------- | ---------------- |
+| `[Rr]eadme`     | `README`         |
+| `[Rr]eadme\.md` | `README.md`      |
+| `[Rr]eadmes`    | `READMEs`        |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#readme)
 
@@ -519,7 +872,11 @@ Use '%s' instead of '%s' unless you're referring to a specific file which has th
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text            | Replacement text |
+| ----------------------- | ---------------- |
+| `[Rr]eact[. ]?[Jj][Ss]` | `React`          |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#react)
 
@@ -527,7 +884,7 @@ Use '%s' instead of '%s'.
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 The article—a or an—that you use before the acronym SQL depends on how the word is pronounced.
 
@@ -537,13 +894,33 @@ In this case, use the article 'a', as in "a SQL Server analysis".
 When referring to the term in any other context, such as SQL databases, errors, or servers, SQL should be pronounced "ess-cue-el".
 In this case, use the article 'an', as in "an SQL error".
 
+| Current text             | Replacement text |
+| ------------------------ | ---------------- | ------------- |
+| `[Aa] SQL server`        | `an SQL server   | a SQL Server` |
+| `[Aa] SQL(?! [Ss]erver)` | `an SQL`         |
+| `[Aa]n SQL Server`       | `a SQL Server`   |
+
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#sql-structured-query-language)
+
+### Grafana.SelfManaged
+
+Extends: substitution
+
+Use self-managed instead of self-hosted, on-prem, or on-premise when talking about Grafana deployment methods.
+%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text      | Replacement text |
+| ----------------- | ---------------- |
+| `on-prem(?:ise)?` | `self-managed`   |
+| `self-hosted`     | `self-managed`   |
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#self-managed)
 
 ### Grafana.Shortcodes
 
 Extends: script
 
-Prefer `{{</* admonition type="<TYPE>" */>}}`.
+Prefer `{{_`</_ admonition type="<TYPE>`\_" _/>}}`.
 
 It has the most consistent semantics.
 
@@ -568,11 +945,19 @@ The website renders paired quotes using smart quotes in paragraphs.
 
 Extends: existence
 
-Use first person plural pronouns like '%s' carefully.
+Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
 
 Don't use 'we' when you're talking about the reader, instead use 'you'.
 
 It's OK to use 'we' when you're talking about Grafana Labs.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `we`
+- `we'(?:ve|re)`
+- `ours?`
+- `us`
+- `let's`
 
 [More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)
 
@@ -580,7 +965,11 @@ It's OK to use 'we' when you're talking about Grafana Labs.
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text | Replacement text |
+| ------------ | ---------------- | ----- |
+| `wish`       | `need            | want` |
 
 [More information ->](https://developers.google.com/style/word-list#wish)
 
@@ -588,7 +977,103 @@ Use '%s' instead of '%s'.
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text                                                      | Replacement text           |
+| ----------------------------------------------------------------- | -------------------------- | ------------- | ------ | ---- |
+| `(?:(?<!Data )Firehose\|Kinesis Data Firehose\|Kinesis Firehose)` | `Data Firehose`            |
+| `(?:SHA-1\|HAS-SHA1)`                                             | `SHA-1`                    |
+| `(?:WiFi\|wifi)`                                                  | `Wi-Fi`                    |
+| `(?:[Oo]penshift\|openShift)`                                     | `OpenShift`                |
+| `(?:[gG]itHub]\|Github)`                                          | `GitHub`                   |
+| `(?:[oO]pentelemetry\|openTelemetry)`                             | `OpenTelemetry`            |
+| `(?:alert[Mm]anager\|[Aa]lert [Mm]anager\|AlertManager)`          | `Alertmanager`             |
+| `(?:cell ?phone\|smart ?phone)`                                   | `phone                     | mobile phone` |
+| `(?:content\|media)-?type`                                        | `media type`               |
+| `(?:e-mail\|Email\|E-mail)`                                       | `email`                    |
+| `(?:file ?path\|path ?name)`                                      | `path`                     |
+| `(?:file ?path\|path ?name)s`                                     | `paths`                    |
+| `(?:hamburger menu\|kebab menu)`                                  | `menu icon`                |
+| `(?:kill\|terminate\|abort)`                                      | `stop                      | exit          | cancel | end` |
+| `(?<!kube-)prometheus`                                            | `Prometheus`               |
+| `(?<!lambda-)promtail`                                            | `Promtail`                 |
+| `GME`                                                             | `GEM`                      |
+| `Grafana AI observability`                                        | `Grafana AI Observability` |
+| `HTTPs`                                                           | `HTTPS`                    |
+| `Once`                                                            | `After`                    |
+| `[Ww]orld [Ww]ide [Ww]eb`                                         | `web`                      |
+| `[cC]entos`                                                       | `CentOS`                   |
+| `\b(?:[aA]daptive metrics\|adaptive Metrics)\b`                   | `Adaptive Metrics`         |
+| `ad[- ]?hoc`                                                      | `free-form                 | user-written` |
+| `back[ -]end`                                                     | `backend`                  |
+| `blacklist`                                                       | `blocklist`                |
+| `blacklisted`                                                     | `blocklisted`              |
+| `blacklisting`                                                    | `blocklisting`             |
+| `blacklists`                                                      | `blocklists`               |
+| `check[- ]box`                                                    | `checkbox`                 |
+| `content type`                                                    | `media type`               |
+| `data-?source`                                                    | `data source`              |
+| `data-?sources`                                                   | `data sources`             |
+| `data[- ]?set`                                                    | `dataset`                  |
+| `data[- ]?sets`                                                   | `datasets`                 |
+| `datacenter`                                                      | `data center`              |
+| `datacenters`                                                     | `data centers`             |
+| `de-duplicate`                                                    | `deduplicate`              |
+| `de-duplicated`                                                   | `deduplicated`             |
+| `de-duplicates`                                                   | `deduplicates`             |
+| `de-duplication`                                                  | `deduplication`            |
+| `fewer data`                                                      | `less data`                |
+| `file name`                                                       | `filename`                 |
+| `file names`                                                      | `filenames`                |
+| `firewalls`                                                       | `firewall rules`           |
+| `front[ -]end`                                                    | `frontend`                 |
+| `front[ -]ends`                                                   | `frontends`                |
+| `git`                                                             | `Git`                      |
+| `grafana`                                                         | `Grafana`                  |
+| `grayed-out`                                                      | `unavailable`              |
+| `in order to`                                                     | `to`                       |
+| `jsonnet`                                                         | `Jsonnet`                  |
+| `langchain`                                                       | `LangChain`                |
+| `left[- ]hand[- ]side`                                            | `left-side`                |
+| `log(?:ql\|QL)`                                                   | `LogQL`                    |
+| `loki`                                                            | `Loki`                     |
+| `markdown`                                                        | `Markdown`                 |
+| `memcached`                                                       | `Memcached`                |
+| `meta[- ]data`                                                    | `metadata`                 |
+| `mix[- ]in`                                                       | `mixin`                    |
+| `mysql`                                                           | `MySQL`                    |
+| `network IP address`                                              | `internal IP address`      |
+| `open-source`                                                     | `open source`              |
+| `otel`                                                            | `OTel`                     |
+| `phlare`                                                          | `Phlare`                   |
+| `postgres`                                                        | `Postgres`                 |
+| `postgresql`                                                      | `PostgreSQL`               |
+| `prom(?:ql\|QL)`                                                  | `PromQL`                   |
+| `redis`                                                           | `Redis`                    |
+| `regex[ep]?s`                                                     | `regular expression`       |
+| `regexp?`                                                         | `regular expression`       |
+| `repo`                                                            | `repository`               |
+| `repos`                                                           | `repositories`             |
+| `right[- ]hand[- ]side`                                           | `right-side`               |
+| `sign into`                                                       | `sign in to`               |
+| `sqlite`                                                          | `SQLite`                   |
+| `style sheet`                                                     | `stylesheet`               |
+| `style sheets`                                                    | `stylesheet`               |
+| `synch`                                                           | `sync`                     |
+| `synched`                                                         | `synced`                   |
+| `synching`                                                        | `syncing`                  |
+| `tempo`                                                           | `Tempo`                    |
+| `the Grafana Agent`                                               | `Grafana Agent`            |
+| `timeseries`                                                      | `time series               | time-series`  |
+| `trace(?:ql\|QL)`                                                 | `TraceQL`                  |
+| `un(?:check\|select)`                                             | `clear`                    |
+| `url`                                                             | `URL`                      |
+| `urls`                                                            | `URLs`                     |
+| `vs\.`                                                            | `versus`                   |
+| `whitelist`                                                       | `allowlist`                |
+| `whitelisted`                                                     | `allowlisted`              |
+| `whitelisting`                                                    | `allowlisting`             |
+| `whitelists`                                                      | `allowlists`               |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/)
 
@@ -600,7 +1085,7 @@ The following rules are suggestions to consider a certain point of style.
 
 Extends: conditional
 
-Spell out '%s', if it's unfamiliar to the audience.
+Spell out _`<CURRENT TEXT>`_, if it's unfamiliar to the audience.
 
 [More information ->](https://developers.google.com/style/abbreviations)
 
@@ -608,7 +1093,13 @@ Spell out '%s', if it's unfamiliar to the audience.
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text                           | Replacement text |
+| -------------------------------------- | ---------------- | ---------------- |
+| `[Uu]n(?:archive\|compress\|tar\|zip)` | `extract`        |
+| `[Zz][Ii][Pp](?: file)?`               | `archive         | compressed file` |
+| `unzip`                                | `extract`        |
 
 [More information ->](https://developers.google.com/style/word-list#extract)
 
@@ -619,6 +1110,11 @@ Extends: substitution
 Use _drop-down_ rather than _dropdown_ or _drop down_.
 
 Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_.
+%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+
+| Current text | Replacement text |
+| ------------ | ---------------- |
+| `drop ?down` | `drop-down`      |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#drop-down)
 
@@ -626,7 +1122,32 @@ Use drop-down as a modifier rather than as a standalone noun. For example: _drop
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text | Replacement text |
+| ------------ | ---------------- |
+| `are not`    | `aren't`         |
+| `cannot`     | `can't`          |
+| `could not`  | `couldn't`       |
+| `did not`    | `didn't`         |
+| `do not`     | `don't`          |
+| `does not`   | `doesn't`        |
+| `has not`    | `hasn't`         |
+| `have not`   | `haven't`        |
+| `how is`     | `how's`          |
+| `is not`     | `isn't`          |
+| `it is`      | `it's`           |
+| `should not` | `shouldn't`      |
+| `that is`    | `that's`         |
+| `they are`   | `they're`        |
+| `was not`    | `wasn't`         |
+| `we are`     | `we're`          |
+| `we have`    | `we've`          |
+| `were not`   | `weren't`        |
+| `what is`    | `what's`         |
+| `when is`    | `when's`         |
+| `where is`   | `where's`        |
+| `will not`   | `won't`          |
 
 [More information ->](https://developers.google.com/style/contractions)
 
@@ -634,7 +1155,11 @@ Use '%s' instead of '%s'.
 
 Extends: existence
 
-Use the Oxford comma in '%s'.
+Use the Oxford comma in _`<CURRENT TEXT>`_.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `(?:[^,]+,){1,}\s\w+\s(?:and|or)`
 
 [More information ->](https://developers.google.com/style/commas)
 
@@ -642,7 +1167,186 @@ Use the Oxford comma in '%s'.
 
 Extends: existence
 
-In general, use active voice instead of passive voice ('%s').
+In general, use active voice instead of passive voice (_`<CURRENT TEXT>`_).
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `[\w]+ed`
+- `awoken`
+- `beat`
+- `become`
+- `been`
+- `begun`
+- `bent`
+- `beset`
+- `bet`
+- `bid`
+- `bidden`
+- `bitten`
+- `bled`
+- `blown`
+- `born`
+- `bought`
+- `bound`
+- `bred`
+- `broadcast`
+- `broken`
+- `brought`
+- `built`
+- `burnt`
+- `burst`
+- `cast`
+- `caught`
+- `chosen`
+- `clung`
+- `come`
+- `cost`
+- `crept`
+- `cut`
+- `dealt`
+- `dived`
+- `done`
+- `drawn`
+- `dreamt`
+- `driven`
+- `drunk`
+- `dug`
+- `eaten`
+- `fallen`
+- `fed`
+- `felt`
+- `fit`
+- `fled`
+- `flown`
+- `flung`
+- `forbidden`
+- `foregone`
+- `forgiven`
+- `forgotten`
+- `forsaken`
+- `fought`
+- `found`
+- `frozen`
+- `given`
+- `gone`
+- `gotten`
+- `ground`
+- `grown`
+- `heard`
+- `held`
+- `hidden`
+- `hit`
+- `hung`
+- `hurt`
+- `kept`
+- `knelt`
+- `knit`
+- `known`
+- `laid`
+- `lain`
+- `leapt`
+- `learnt`
+- `led`
+- `left`
+- `lent`
+- `let`
+- `lighted`
+- `lost`
+- `made`
+- `meant`
+- `met`
+- `misspelt`
+- `mistaken`
+- `mown`
+- `overcome`
+- `overdone`
+- `overtaken`
+- `overthrown`
+- `paid`
+- `pled`
+- `proven`
+- `put`
+- `quit`
+- `read`
+- `rid`
+- `ridden`
+- `risen`
+- `run`
+- `rung`
+- `said`
+- `sat`
+- `sawn`
+- `seen`
+- `sent`
+- `set`
+- `sewn`
+- `shaken`
+- `shaven`
+- `shed`
+- `shod`
+- `shone`
+- `shorn`
+- `shot`
+- `shown`
+- `shrunk`
+- `shut`
+- `slain`
+- `slept`
+- `slid`
+- `slit`
+- `slung`
+- `smitten`
+- `sold`
+- `sought`
+- `sown`
+- `sped`
+- `spent`
+- `spilt`
+- `spit`
+- `split`
+- `spoken`
+- `spread`
+- `sprung`
+- `spun`
+- `stolen`
+- `stood`
+- `stridden`
+- `striven`
+- `struck`
+- `strung`
+- `stuck`
+- `stung`
+- `stunk`
+- `sung`
+- `sunk`
+- `swept`
+- `swollen`
+- `sworn`
+- `swum`
+- `swung`
+- `taken`
+- `taught`
+- `thought`
+- `thrived`
+- `thrown`
+- `thrust`
+- `told`
+- `torn`
+- `trodden`
+- `understood`
+- `upheld`
+- `upset`
+- `wed`
+- `wept`
+- `withheld`
+- `withstood`
+- `woken`
+- `won`
+- `worn`
+- `wound`
+- `woven`
+- `written`
+- `wrung`
 
 [More information ->](https://developers.google.com/style/voice)
 
@@ -652,13 +1356,22 @@ Extends: existence
 
 Use semicolons judiciously.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `;`
+
 [More information ->](https://developers.google.com/style/semicolons)
 
 ### Grafana.OAuth
 
 Extends: substitution
 
-Use '%s' instead of '%s'.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+| Current text        | Replacement text |
+| ------------------- | ---------------- |
+| `O[Aa]uth 2(?!\.0)` | `OAuth 2.0`      |
+| `O[Aa]uth(?! 2\.0)` | `OAuth 2.0`      |
 
 [More information ->](https://developers.google.com/style/word-list#oauth-20)
 
@@ -668,13 +1381,17 @@ Extends: existence
 
 Use parentheses judiciously.
 
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `\(.{4,}\)`
+
 [More information ->](https://developers.google.com/style/parentheses)
 
 ### Grafana.ReadabilityAutomatedReadability
 
 Extends: metric
 
-%s aim for below 8.
+_`<CURRENT TEXT>`_ aim for below 8.
 
 [More information ->](https://en.wikipedia.org/wiki/Automated_readability_index)
 
@@ -682,7 +1399,7 @@ Extends: metric
 
 Extends: metric
 
-%s aim for below 9.
+_`<CURRENT TEXT>`_ aim for below 9.
 
 [More information ->](https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index)
 
@@ -690,7 +1407,7 @@ Extends: metric
 
 Extends: metric
 
-%s aim for below 8.
+_`<CURRENT TEXT>`_ aim for below 8.
 
 [More information ->](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests)
 
@@ -698,7 +1415,7 @@ Extends: metric
 
 Extends: metric
 
-%s aim for above 70.
+_`<CURRENT TEXT>`_ aim for above 70.
 
 [More information ->](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests)
 
@@ -706,7 +1423,7 @@ Extends: metric
 
 Extends: metric
 
-%s aim for below 10.
+_`<CURRENT TEXT>`_ aim for below 10.
 
 [More information ->](https://en.wikipedia.org/wiki/Gunning_fog_index)
 
@@ -714,7 +1431,7 @@ Extends: metric
 
 Extends: metric
 
-%s aim for below 35.
+_`<CURRENT TEXT>`_ aim for below 35.
 
 [More information ->](<https://en.wikipedia.org/wiki/Lix_(readability_test)>)
 
@@ -722,7 +1439,7 @@ Extends: metric
 
 Extends: metric
 
-%s aim for below 10.
+_`<CURRENT TEXT>`_ aim for below 10.
 
 [More information ->](https://en.wikipedia.org/wiki/SMOG)
 
@@ -730,7 +1447,7 @@ Extends: metric
 
 Extends: existence
 
-Avoid using '%s' to keep the documentation timeless.
+Avoid using _`<CURRENT TEXT>`_ to keep the documentation timeless.
 
 In general, document the current version of a product or feature.
 
@@ -738,5 +1455,24 @@ It reduces the maintenance required to keep documentation up to date.
 It avoids assuming the reader is familiar with earlier versions of the product.
 
 If you're writing procedural or time-stamped content such as press releases, blog posts, or release notes, such time-based words and phrases are OK.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `as of this writing`
+- `currently`
+- `does not yet`
+- `eventually`
+- `existing`
+- `future`
+- `in the future`
+- `latest`
+- `new`
+- `newer`
+- `now`
+- `old`
+- `older`
+- `presently`
+- `at present`
+- `soon`
 
 [More information ->](https://developers.google.com/style/timeless-documentation)

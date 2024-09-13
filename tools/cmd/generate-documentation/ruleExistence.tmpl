@@ -1,0 +1,8 @@
+{{ codify (format (escapeShortcodes .Message)) }}
+{{ with .Tokens }}
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+{{ range $current := . -}}
+- `{{ $current }}`
+{{ end -}}
+{{ end }}

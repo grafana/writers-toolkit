@@ -281,7 +281,7 @@ Extends: substitution
 
 Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
-The HTTP scheme is insecure and all grafana.com links must use HTTPS.
+The HTTP scheme is insecure and all website links must use HTTPS.
 
 | Current text         | Replacement text      |
 | -------------------- | --------------------- |

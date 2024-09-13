@@ -57,7 +57,6 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.GoogleSpacing = NO -->
 <!-- vale Grafana.GoogleSpelling = NO -->
 <!-- vale Grafana.GoogleWill = NO -->
-<!-- vale Grafana.HTTP = NO -->
 <!-- vale Grafana.Headings = NO -->
 <!-- vale Grafana.Kubernetes = NO -->
 <!-- vale Grafana.Latin = NO -->
@@ -274,18 +273,6 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `[a-z][.?!][A-Z]`
 
 [More information ->](https://developers.google.com/style/sentence-spacing)
-
-### Grafana.HTTP
-
-Extends: substitution
-
-Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
-
-The HTTP scheme is insecure and all website links must use HTTPS.
-
-| Current text         | Replacement text      |
-| -------------------- | --------------------- |
-| `http://grafana.com` | `https://grafana.com` |
 
 ### Grafana.Latin
 

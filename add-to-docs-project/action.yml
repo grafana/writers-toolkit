@@ -29,28 +29,8 @@ runs:
       with:
         app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
         private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
-    - name: Create configuration JSON
-      run: |
-        cat <<EOF > .github/add-to-docs-project.json
-        [
-          {
-            "type": "label",
-            "name": "type/docs",
-            "action": "addToProject",
-            "addToProject": {
-              "url": "https://github.com/orgs/grafana/projects/69"
-            }
-          }
-        ]
-        EOF
-      shell: bash
-    - uses: actions/checkout@v4
+    - uses: actions/add-to-project@v1.0.2
       with:
-        repository: grafana/grafana-github-actions
-        path: ./actions
-    - run: npm install --production --prefix ./actions
-      shell: bash
-    - uses: ./actions/commands
-      with:
-        token: ${{ steps.app-token.outputs.token }}
-        configPath: add-to-docs-project
+        project-url: https://github.com/orgs/grafana/projects/69
+        github-token: ${{ steps.app-token.outputs.token }}
+        labeled: type/docs

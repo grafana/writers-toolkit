@@ -44,7 +44,12 @@ runs:
         ]
         EOF
       shell: bash
-    - uses: grafana/grafana-github-actions/commands@main
+    - uses: actions/checkout@v4
+      with:
+        repository: grafana/grafana-github-actions
+        path: ./actions
+    - run: npm install --production --prefix ./actions
+    - uses: ./actions/commands
       with:
         token: ${{ steps.app-token.outputs.token }}
         configPath: add-to-docs-project

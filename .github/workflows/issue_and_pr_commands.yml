@@ -1,24 +1,37 @@
-name: "Run commands when issues or PRs are labeled"
+name: Run commands when issues or PRs are labeled
 on:
   issues:
-    types: ["labeled"]
+    types: [labeled]
   pull_request:
-    types: ["labeled"]
+    types: [labeled]
 jobs:
   main:
-    if: "${{ github.event.pull_request == false || github.event.pull_request.head.repo.full_name == github.repository }}"
-    runs-on: "ubuntu-latest"
+    if: ${{ github.event.pull_request == false || github.event.pull_request.head.repo.full_name == github.repository }}
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Actions"
-        uses: "actions/checkout@v3"
+      - id: get-secrets
+        uses: grafana/shared-workflows/actions/get-vault-secrets@main
         with:
-          repository: "grafana/grafana-github-actions"
-          path: "./actions"
-          ref: "main"
-      - name: "Install Actions"
-        run: "npm install --production --prefix ./actions"
-      - name: "Run Commands"
-        uses: "./actions/commands"
+          common_secrets: |
+            ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
+            ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
+      - uses: actions/create-github-app-token@v1
+        id: app-token
         with:
-          token: "${{ secrets.ISSUE_COMMANDS_TOKEN }}"
-          configPath: "issue_and_pr_commands"
+          app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
+          private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
+      - name: Checkout Actions
+        uses: actions/checkout@v4
+        with:
+          repository: grafana/grafana-github-actions
+          path: ./actions
+      - name: Install Actions
+        run: npm install --production --prefix ./actions
+      - name: Run Commands
+        uses: ./actions/commands
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          configPath: issue_and_pr_commands

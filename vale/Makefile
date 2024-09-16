@@ -21,8 +21,8 @@ RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/ApacheProje
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
-$(DOCUMENTATION): $(wildcard Grafana/*)
-	cd ../tools/ && go run ./cmd/generate-documentation ../ vale/Grafana docs/sources/review/lint-prose/rules.md
+$(DOCUMENTATION): $(wildcard Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
+	cd ../tools/ && go run ./cmd/generate-documentation ../ tools/cmd/generate-documentation vale/Grafana docs/sources/review/lint-prose/rules.md
 	prettier -w $(DOCUMENTATION)
 
 dictionaries/en_US-grafana.%: dictionary.libsonnet

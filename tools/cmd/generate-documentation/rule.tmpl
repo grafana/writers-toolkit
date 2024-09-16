@@ -1,0 +1,13 @@
+### {{ .Name }}
+
+Extends: {{ .Extends }}
+
+{{ if eq "substitution" .Extends -}}
+{{ template "ruleSubstitution.tmpl" . -}}
+{{ else if eq "existence" .Extends -}}
+{{ template "ruleExistence.tmpl" . -}}
+{{ else -}}
+{{ template "ruleDefault.tmpl" . -}}
+{{ end }}
+
+{{ with .Link }}[More information ->]({{ . }}){{ end }}

@@ -1,0 +1,50 @@
+---
+date: "2024-06-25"
+description: A description of every Grafana Labs prose linting rule.
+menuTitle: Rules
+review_date: "{{ .ReviewDate }}"
+title: {{ .Title }}
+---
+
+# {{ .Title }}
+
+<!-- These are our style rules. -->
+<!-- vale Grafana.We = NO -->
+
+Vale codifies our style guide into a series of rules that can be checked against your prose.
+The following is a list of all the rules that we've defined.
+
+<!-- This page breaks a number of rules in demonstrating them. -->
+{{ range .Rules -}}
+<!-- vale {{ .Name }} = NO -->
+{{ end -}}
+
+## Errors
+
+The following rules are considered errors and must be fixed.
+
+{{ range .Rules -}}
+{{ if or (eq .Level "error") -}}
+{{ template "rule.tmpl" . }}
+{{ end -}}
+{{ end -}}
+
+## Warnings
+
+The following rules are warnings and may need to be fixed or otherwise require consideration.
+
+{{ range .Rules -}}
+{{ if or (eq .Level "warning") (eq .Level "") -}}
+{{ template "rule.tmpl" . }}
+{{ end -}}
+{{ end -}}
+
+## Suggestions
+
+The following rules are suggestions to consider a certain point of style.
+
+{{ range .Rules -}}
+{{ if or (eq .Level "suggestion") -}}
+{{ template "rule.tmpl" . }}
+{{ end -}}
+{{ end -}}

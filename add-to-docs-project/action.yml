@@ -1,0 +1,36 @@
+name: Add to docs project
+description: |
+  This action adds issues to the [Docs team (Grafana Labs wide)](https://github.com/orgs/grafana/projects/69) project.
+
+  You need the following permissions on the workflow to fetch secrets from Vault needed by this action.
+
+  ```yaml
+  permissions:
+    contents: read
+    id-token: write
+  ```
+
+  You should restrict the workflow runs with:
+
+  ```yaml
+  github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs'
+  ```
+runs:
+  using: composite
+  steps:
+    - id: get-secrets
+      uses: grafana/shared-workflows/actions/get-vault-secrets@main
+      with:
+        common_secrets: |
+          ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
+          ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
+    - uses: actions/create-github-app-token@v1
+      id: app-token
+      with:
+        app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
+        private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
+    - uses: actions/add-to-project@v1.0.2
+      with:
+        project-url: https://github.com/orgs/grafana/projects/69
+        github-token: ${{ steps.app-token.outputs.token }}
+        labeled: type/docs

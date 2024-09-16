@@ -11,7 +11,7 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/writers-toolkit/prettier@prettier/v1
+      - uses: ./prettier
         with:
           branch: ${{ env.GITHUB_REF }}
           trace: ${{ inputs.trace }}

@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: grafana/writers-toolkit/publish-technical-documentation@main
+      - uses: ./publish-technical-documentation
         with:
           website_directory: content/docs/writers-toolkit

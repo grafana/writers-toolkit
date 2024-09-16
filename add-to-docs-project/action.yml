@@ -42,6 +42,7 @@ runs:
             }
           }
         ]
+        EOF
       shell: bash
     - uses: grafana/grafana-github-actions/commands@main
       with:

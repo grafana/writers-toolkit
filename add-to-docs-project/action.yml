@@ -13,9 +13,8 @@ description: |
   You should restrict the workflow runs with:
 
   ```yaml
-  if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs' }}
+  if: $${{ github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs' }}
   ```
-inputs:
 runs:
   using: composite
   steps:
@@ -32,7 +31,7 @@ runs:
         private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
     - name: Create configuration JSON
       run: |
-        cat <<EOF > .github/add-to-docs-project
+        cat <<EOF > .github/add-to-docs-project.json
         [
           {
             "type": "label",
@@ -43,6 +42,7 @@ runs:
             }
           }
         ]
+      shell: bash
     - uses: grafana/grafana-github-actions/commands@main
       with:
         token: ${{ steps.app-token.outputs.token }}

@@ -1,13 +1,13 @@
 name: Backport PR creator
 on:
-  issues:
+  pull_request:
     types:
       - closed
       - labeled
 
 jobs:
   main:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' && github.event.issue.pull_request }}
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     permissions:
       contents: read
       id-token: write

@@ -13,7 +13,7 @@ description: |
   You should restrict the workflow runs with:
 
   ```yaml
-  if: $${{ github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs' }}
+  github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs'
   ```
 runs:
   using: composite

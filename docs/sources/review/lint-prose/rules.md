@@ -904,7 +904,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ when talking about Graf
 
 Extends: script
 
-Prefer `{{<` and `>}}` instead of `{{%` and `%}}`
+Prefer `{{</*` and `*/>}}` instead of `{{%/*` and `*/%}}`
 
 It has the most consistent semantics.
 

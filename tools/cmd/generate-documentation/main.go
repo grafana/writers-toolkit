@@ -110,7 +110,13 @@ func generate(fsys rwfilefs.RWFileFS, templateDirPath, srcDirPath, dstPath strin
 			return regexp.MustCompile("'?(<[A-Z -_]*>)'?").ReplaceAllString(s, "_`$1`_")
 		},
 		"escapeShortcodes": func(s string) string {
-			return strings.ReplaceAll(strings.ReplaceAll(s, "{{< ", "{{</* "), " >}}", " */>}}")
+			return strings.ReplaceAll(
+				strings.ReplaceAll(
+					strings.ReplaceAll(
+						strings.ReplaceAll(s, "{{<", "{{</*"),
+						">}}", "*/>}}"),
+					"{{%", "{{%/*"),
+				"%}}", "*/%}}")
 		},
 		"escapeForTable": func(s string) string {
 			return strings.ReplaceAll(s, "|", "\\|")

@@ -1,5 +1,7 @@
 extends: substitution
 message: |
+  Use '%s' instead of '%s'.
+
   Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology.
 
   If you're talking about why and how to send signals directly from an application to Grafana Cloud, prefer no-collector to agentless.

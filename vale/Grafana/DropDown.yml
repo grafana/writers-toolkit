@@ -2,7 +2,7 @@ extends: substitution
 level: suggestion
 link: https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#drop-down
 message: |
-  Use _drop-down_ rather than _dropdown_ or _drop down_.
+  Use '%s' instead of '%s'.
 
   Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_.
 

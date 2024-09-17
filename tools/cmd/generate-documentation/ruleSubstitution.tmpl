@@ -3,6 +3,6 @@
 | Current text | Replacement text |
 | ------------ | ---------------- |
 {{ range $current, $replacement := . -}}
-| `{{ escapeForTable $current }}` | `{{ $replacement }}` |
+| `{{ escapeForTable $current }}` | `{{ escapeForTable $replacement }}` |
 {{ end -}}
 {{ end }}

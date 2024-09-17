@@ -107,7 +107,7 @@ func generate(fsys rwfilefs.RWFileFS, templateDirPath, srcDirPath, dstPath strin
 
 	funcMap := template.FuncMap{
 		"codify": func(s string) string {
-			return regexp.MustCompile("'?(<[^>]*>)'?").ReplaceAllString(s, "_`$1`_")
+			return regexp.MustCompile("'?(<[A-Z -_]*>)'?").ReplaceAllString(s, "_`$1`_")
 		},
 		"escapeShortcodes": func(s string) string {
 			return strings.ReplaceAll(strings.ReplaceAll(s, "{{< ", "{{</* "), " >}}", " */>}}")

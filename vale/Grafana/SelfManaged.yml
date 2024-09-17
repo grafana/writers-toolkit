@@ -1,6 +1,6 @@
 extends: substitution
 message: |
-  Use self-managed instead of self-hosted, on-prem, or on-premise when talking about Grafana deployment methods.
+  Use '%s' instead of '%s' when talking about Grafana deployment methods.
 link: https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#self-managed
 level: warning
 action:

@@ -1,6 +1,6 @@
 extends: substitution
 message: |
-  Use end-to-end instead of e2e or E2E.
+  Use '%s' instead of '%s'.
 link: https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#end-to-end
 level: warning
 action:

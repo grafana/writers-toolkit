@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-09-13"
+review_date: "2024-09-17"
 title: Vale rules
 ---
 
@@ -365,8 +365,7 @@ The following rules are warnings and may need to be fixed or otherwise require c
 
 Extends: substitution
 
-Use administrator instead of admin unless it's the name of the UI label like in the Grafana 'Admin' role.
-%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ unless it's the name of the UI label like in the Grafana 'Admin' role.
 
 | Current text | Replacement text |
 | ------------ | ---------------- |
@@ -388,12 +387,13 @@ The admonition shortcode renders its content in a blockquote with consistent sty
 
 Extends: substitution
 
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
 Grafana Agent has been replaced by Grafana Alloy, so you shouldn't use agent-based terminology.
 
 If you're talking about why and how to send signals directly from an application to Grafana Cloud, prefer no-collector to agentless.
 
 This is consistent with [OTel documentation](https://opentelemetry.io/docs/collector/deployment/no-collector/).
-%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
 
 | Current text | Replacement text |
 | ------------ | ---------------- |
@@ -409,9 +409,9 @@ Did you mean _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_?
 
 Allows to is a common wording error.
 
-| Current text | Replacement text |
-| ------------ | ---------------- | --------------------- |
-| `allows to`  | `allows you to   | makes it possible to` |
+| Current text | Replacement text                      |
+| ------------ | ------------------------------------- |
+| `allows to`  | `allows you to\|makes it possible to` |
 
 ### Grafana.AltText
 
@@ -535,8 +535,7 @@ Use _`<REPLACEMENT TEXT>`_ rather than _`<CURRENT TEXT>`_.
 
 Extends: substitution
 
-Use end-to-end instead of e2e or E2E.
-%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 | Current text | Replacement text |
 | ------------ | ---------------- |
@@ -696,8 +695,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Extends: substitution
 
-Use meta-monitoring instead of metamonitoring or meta monitoring.
-%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 | Current text       | Replacement text  |
 | ------------------ | ----------------- |
@@ -833,7 +831,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Extends: substitution
 
-Use the compound adjective without a hyphen whether the noun is implied or explicit. For example, you can use _quickstart guide_ or just _quickstart_.%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+Use the compound adjective _`<REPLACEMENT TEXT>`_ without a hyphen instead of _`<CURRENT TEXT>`_ whether the noun is implied or explicit. For example, you can use _quickstart guide_ or just _quickstart_.
 
 | Current text  | Replacement text |
 | ------------- | ---------------- |
@@ -881,11 +879,11 @@ In this case, use the article 'a', as in "a SQL Server analysis".
 When referring to the term in any other context, such as SQL databases, errors, or servers, SQL should be pronounced "ess-cue-el".
 In this case, use the article 'an', as in "an SQL error".
 
-| Current text             | Replacement text |
-| ------------------------ | ---------------- | ------------- |
-| `[Aa] SQL server`        | `an SQL server   | a SQL Server` |
-| `[Aa] SQL(?! [Ss]erver)` | `an SQL`         |
-| `[Aa]n SQL Server`       | `a SQL Server`   |
+| Current text             | Replacement text              |
+| ------------------------ | ----------------------------- |
+| `[Aa] SQL server`        | `an SQL server\|a SQL Server` |
+| `[Aa] SQL(?! [Ss]erver)` | `an SQL`                      |
+| `[Aa]n SQL Server`       | `a SQL Server`                |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#sql-structured-query-language)
 
@@ -893,8 +891,7 @@ In this case, use the article 'an', as in "an SQL error".
 
 Extends: substitution
 
-Use self-managed instead of self-hosted, on-prem, or on-premise when talking about Grafana deployment methods.
-%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ when talking about Grafana deployment methods.
 
 | Current text      | Replacement text |
 | ----------------- | ---------------- |
@@ -907,7 +904,7 @@ Use self-managed instead of self-hosted, on-prem, or on-premise when talking abo
 
 Extends: script
 
-Prefer `{{_`</_ admonition type="<TYPE>`\_" _/>}}`.
+Prefer `{{</*` and `*/>}}` instead of `{{%/*` and `*/%}}`
 
 It has the most consistent semantics.
 
@@ -955,8 +952,8 @@ Extends: substitution
 Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 | Current text | Replacement text |
-| ------------ | ---------------- | ----- |
-| `wish`       | `need            | want` |
+| ------------ | ---------------- |
+| `wish`       | `need\|want`     |
 
 [More information ->](https://developers.google.com/style/word-list#wish)
 
@@ -967,7 +964,7 @@ Extends: substitution
 Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 | Current text                                                      | Replacement text           |
-| ----------------------------------------------------------------- | -------------------------- | ------------- | ------ | ---- |
+| ----------------------------------------------------------------- | -------------------------- |
 | `(?:(?<!Data )Firehose\|Kinesis Data Firehose\|Kinesis Firehose)` | `Data Firehose`            |
 | `(?:SHA-1\|HAS-SHA1)`                                             | `SHA-1`                    |
 | `(?:WiFi\|wifi)`                                                  | `Wi-Fi`                    |
@@ -975,13 +972,13 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `(?:[gG]itHub]\|Github)`                                          | `GitHub`                   |
 | `(?:[oO]pentelemetry\|openTelemetry)`                             | `OpenTelemetry`            |
 | `(?:alert[Mm]anager\|[Aa]lert [Mm]anager\|AlertManager)`          | `Alertmanager`             |
-| `(?:cell ?phone\|smart ?phone)`                                   | `phone                     | mobile phone` |
+| `(?:cell ?phone\|smart ?phone)`                                   | `phone\|mobile phone`      |
 | `(?:content\|media)-?type`                                        | `media type`               |
 | `(?:e-mail\|Email\|E-mail)`                                       | `email`                    |
 | `(?:file ?path\|path ?name)`                                      | `path`                     |
 | `(?:file ?path\|path ?name)s`                                     | `paths`                    |
 | `(?:hamburger menu\|kebab menu)`                                  | `menu icon`                |
-| `(?:kill\|terminate\|abort)`                                      | `stop                      | exit          | cancel | end` |
+| `(?:kill\|terminate\|abort)`                                      | `stop\|exit\|cancel\|end`  |
 | `(?<!kube-)prometheus`                                            | `Prometheus`               |
 | `(?<!lambda-)promtail`                                            | `Promtail`                 |
 | `GME`                                                             | `GEM`                      |
@@ -991,7 +988,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `[Ww]orld [Ww]ide [Ww]eb`                                         | `web`                      |
 | `[cC]entos`                                                       | `CentOS`                   |
 | `\b(?:[aA]daptive metrics\|adaptive Metrics)\b`                   | `Adaptive Metrics`         |
-| `ad[- ]?hoc`                                                      | `free-form                 | user-written` |
+| `ad[- ]?hoc`                                                      | `free-form\|user-written`  |
 | `back[ -]end`                                                     | `backend`                  |
 | `blacklist`                                                       | `blocklist`                |
 | `blacklisted`                                                     | `blocklisted`              |
@@ -1051,7 +1048,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `synching`                                                        | `syncing`                  |
 | `tempo`                                                           | `Tempo`                    |
 | `the Grafana Agent`                                               | `Grafana Agent`            |
-| `timeseries`                                                      | `time series               | time-series`  |
+| `timeseries`                                                      | `time series\|time-series` |
 | `trace(?:ql\|QL)`                                                 | `TraceQL`                  |
 | `un(?:check\|select)`                                             | `clear`                    |
 | `url`                                                             | `URL`                      |
@@ -1082,11 +1079,11 @@ Extends: substitution
 
 Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
-| Current text                           | Replacement text |
-| -------------------------------------- | ---------------- | ---------------- |
-| `[Uu]n(?:archive\|compress\|tar\|zip)` | `extract`        |
-| `[Zz][Ii][Pp](?: file)?`               | `archive         | compressed file` |
-| `unzip`                                | `extract`        |
+| Current text                           | Replacement text           |
+| -------------------------------------- | -------------------------- |
+| `[Uu]n(?:archive\|compress\|tar\|zip)` | `extract`                  |
+| `[Zz][Ii][Pp](?: file)?`               | `archive\|compressed file` |
+| `unzip`                                | `extract`                  |
 
 [More information ->](https://developers.google.com/style/word-list#extract)
 
@@ -1094,10 +1091,9 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Extends: substitution
 
-Use _drop-down_ rather than _dropdown_ or _drop down_.
+Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_.
-%!(EXTRA string=_`<REPLACEMENT TEXT>`_, string=_`<CURRENT TEXT>`_)
 
 | Current text | Replacement text |
 | ------------ | ---------------- |

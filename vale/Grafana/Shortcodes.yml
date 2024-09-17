@@ -1,6 +1,6 @@
 extends: script
 message: |
-  Prefer `{{< admonition type="<TYPE>" >}}`.
+  Prefer `{{<` and `>}}` instead of `{{%` and `%}}`
 
   It has the most consistent semantics.
 

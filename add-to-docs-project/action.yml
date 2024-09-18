@@ -10,11 +10,7 @@ description: |
     id-token: write
   ```
 
-  You should restrict the workflow runs with:
-
-  ```yaml
-  github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs'
-  ```
+  Restrict the workflow with `github.event.label.name == 'type/docs'` to minimize wasted compute time.
 runs:
   using: composite
   steps:

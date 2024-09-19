@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('RAM', '', 'noun') { abbreviation: true, elaboration: 'random access memory', established_abbreviation: true },
   word.new('RBAC', '', 'noun') { abbreviation: true, elaboration: 'Role-based Access Control', established_abbreviation: true },
+  word.new('RCA workbench', '', 'noun') { description: 'RCA workbench provides a comprehensive exploration of potential causes for specific issues over time and dependencies, offering access to relevant metrics, logs, and traces for efficient troubleshooting and analysis.', product: true, swaps: { 'RCA Workbench': 'RCA workbench', 'the RCA [Ww]orkbench': 'RCA workbench' } },
   word.new('RDS', '', 'noun') { abbreviation: true, elaboration: 'Relational Database Service', product: true },
   word.new('Relational Database Service', '', 'noun') { Amazon: true, description: 'Amazon Relational Database Service', product: true },
   word.new('reachability', '', 'noun') { description: 'A product metric in Synthetic Monitoring' },

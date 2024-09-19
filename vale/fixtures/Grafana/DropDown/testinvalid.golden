@@ -1,2 +1,2 @@
-testinvalid.md:3:3:Grafana.DropDown:Use _drop-down_ rather than _dropdown_ or _drop down_. Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_. 
-testinvalid.md:4:3:Grafana.DropDown:Use _drop-down_ rather than _dropdown_ or _drop down_. Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_. 
+testinvalid.md:3:3:Grafana.DropDown:Use 'drop-down' instead of 'dropdown'. Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_. 
+testinvalid.md:4:3:Grafana.DropDown:Use 'drop-down' instead of 'drop down'. Use drop-down as a modifier rather than as a standalone noun. For example: _drop-down menu_. 

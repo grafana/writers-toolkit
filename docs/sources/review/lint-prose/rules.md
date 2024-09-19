@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-09-17"
+review_date: "2024-09-19"
 title: Vale rules
 ---
 
@@ -809,6 +809,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Thanos'`
 - `Velero's`
 - `Vite's`
+- `VMware's`
 - `WildFly's`
 - `windows_exporter's`
 - `Zipkin's`
@@ -985,6 +986,8 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `Grafana AI observability`                                        | `Grafana AI Observability` |
 | `HTTPs`                                                           | `HTTPS`                    |
 | `Once`                                                            | `After`                    |
+| `VMWare`                                                          | `VMware`                   |
+| `Vmware`                                                          | `VMware`                   |
 | `[Ww]orld [Ww]ide [Ww]eb`                                         | `web`                      |
 | `[cC]entos`                                                       | `CentOS`                   |
 | `\b(?:[aA]daptive metrics\|adaptive Metrics)\b`                   | `Adaptive Metrics`         |
@@ -1053,6 +1056,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `un(?:check\|select)`                                             | `clear`                    |
 | `url`                                                             | `URL`                      |
 | `urls`                                                            | `URLs`                     |
+| `vmware`                                                          | `VMware`                   |
 | `vs\.`                                                            | `versus`                   |
 | `whitelist`                                                       | `allowlist`                |
 | `whitelisted`                                                     | `allowlisted`              |

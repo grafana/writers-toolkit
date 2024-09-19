@@ -799,6 +799,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Prometheus'`
 - `Promtail's`
 - `Pyroscope's`
+- `RCA workbench's`
 - `RDS's`
 - `Relational Database Service's`
 - `React's`
@@ -986,6 +987,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `Grafana AI observability`                                        | `Grafana AI Observability` |
 | `HTTPs`                                                           | `HTTPS`                    |
 | `Once`                                                            | `After`                    |
+| `RCA Workbench`                                                   | `RCA workbench`            |
 | `VMWare`                                                          | `VMware`                   |
 | `Vmware`                                                          | `VMware`                   |
 | `[Ww]orld [Ww]ide [Ww]eb`                                         | `web`                      |
@@ -1051,6 +1053,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `synching`                                                        | `syncing`                  |
 | `tempo`                                                           | `Tempo`                    |
 | `the Grafana Agent`                                               | `Grafana Agent`            |
+| `the RCA [Ww]orkbench`                                            | `RCA workbench`            |
 | `timeseries`                                                      | `time series\|time-series` |
 | `trace(?:ql\|QL)`                                                 | `TraceQL`                  |
 | `un(?:check\|select)`                                             | `clear`                    |

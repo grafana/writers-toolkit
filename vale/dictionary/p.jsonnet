@@ -7,6 +7,7 @@ local word = import './word.jsonnet';
   word.new('Phlare', 'M', 'noun') { product: true, swaps: { phlare: 'Phlare' } },
   word.new('PHP', '', 'noun') { abbreviation: true, elaboration: 'PHP: Hypertext Preprocessor', established_abbreviation: true },
   word.new('Pinecone', '', 'noun') { description: 'https://www.pinecone.io/', product: true },
+  word.new('PLZ', 's', 'noun') { abbreviation: true, description: 'Private Load Zone' },
   word.new('PNG', '', 'noun') { abbreviation: true, elaboration: 'Portable Network Graphics', established_abbreviation: true },
   word.new('Podman', '', 'noun') { product: true },
   word.new('Postgres', '', 'noun') { product: true, swaps: { postgres: 'Postgres' } },

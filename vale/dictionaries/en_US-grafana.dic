@@ -1,4 +1,4 @@
-300
+301
 ACL/S po:noun
 AI Observability/ po:noun
 Adaptive Metrics/ po:noun
@@ -178,6 +178,7 @@ performant/ po:adjective
 Phlare/M po:noun
 PHP/ po:noun
 Pinecone/ po:noun
+PLZ/s po:noun
 PNG/ po:noun
 Podman/ po:noun
 Postgres/ po:noun

@@ -38,6 +38,7 @@ A _concept_ topic includes the following elements:
 
 - **Topic title:** Topic titles should be nouns, for example, _Grafana panels_.
   By using this naming convention, readers are able to distinguish between conceptual topics and tasks that begin with verbs.
+  For best practice guidelines, use the title _Best practices_. 
 - **Introduction:** Include an introduction that explains what this topic is about.
 - **Body:** Provide as much content as needed to explain the concept thoroughly.
   There can be sections, visuals, and text in the body of a concept.

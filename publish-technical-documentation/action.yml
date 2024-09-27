@@ -27,23 +27,19 @@ runs:
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main
       with:
+        # sync-token and publish-token are fine-grained GitHub Personal Access Tokens that expire.
+        # They must be updated in the grafanabot GitHub account.
+        # A Vault admin can add them the ci/common/docs-team/website Vault path.
         common_secrets: |
-          PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID=docs-team/publish-technical-documentation:app-id
-          PUBLISH_TECHNICAL_DOCUMENTATION_PRIVATE_KEY=docs-team/publish-technical-documentation:key
-
-    - uses: actions/create-github-app-token@v1
-      id: app-token
-      with:
-        app-id: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID }}
-        owner: grafana
-        private-key: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_PRIVATE_KEY }}
+          WEBSITE_SYNC_TOKEN=docs-team/website:sync-token
+          PUBLISH_TO_WEBSITE_TOKEN=docs-team/website:publish-token
 
     - name: Checkout sync action
       uses: actions/checkout@v4
       with:
         path: .github/actions/website-sync
         repository: grafana/website-sync
-        token: ${{ steps.app-token.outputs.token }}
+        token: ${{ env.WEBSITE_SYNC_TOKEN }}
 
     - name: Sync to the website repository
       uses: ./.github/actions/website-sync
@@ -52,6 +48,6 @@ runs:
         repository: grafana/website
         branch: master
         host: github.com
-        github_pat: grafanabot:${{ steps.app-token.outputs.token }}
+        github_pat: grafanabot:${{ env.PUBLISH_TO_WEBSITE_TOKEN }}
         source_folder: ${{ inputs.source_directory }}
         target_folder: ${{ inputs.website_directory }}

@@ -25,7 +25,7 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 | Added preference for _end-to-end_ when talking about testing.                                | [Word list](/docs/writers-toolkit/write/style-guide/word-list/#end-to-end)      |
 | Added preference for _meta-monitoring_ when talking about monitoring other monitoring tools. | [Word list](/docs/writers-toolkit/write/style-guide/word-list/#meta-monitoring) |
 | Added preference for use of _self-managed_ when talking about Grafana deployment methods.    | [Word list](/docs/writers-toolkit/write/style-guide/word-list/#self-managed)    |
-| Added preference to use the title _Best practices_ for best practice guidelines | [Concept](/docs/writers-toolkit/structure/topic-types/concept/#concept-topic-structure) & [Word list](/docs/writers-toolkit/write/style-guide/word-list/#best-practices) |
+| Added preference to use the title _Best practices_ for best practice guidelines | [Concept](/docs/writers-toolkit/structure/topic-types/concept/#concept-topic-structure) and [Word list](/docs/writers-toolkit/write/style-guide/word-list/#best-practices) |
 
 ## August 2024
 

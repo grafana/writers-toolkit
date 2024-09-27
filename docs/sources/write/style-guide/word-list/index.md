@@ -57,8 +57,11 @@ For more information refer to [Alerting Rules](https://prometheus.io/docs/promet
 Don't confuse this with an [_alert rule_ ](#alert-rule).
 {{< /admonition >}}
 
-<!--
-## B -->
+## B
+
+### Best practices
+
+Use the title _Best practices_ for conceptual topics covering best practice guidelines.
 
 ## C
 

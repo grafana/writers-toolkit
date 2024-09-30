@@ -354,6 +354,12 @@ The verb helps the reader know that they're navigating to a task topic before th
 You can remove the verb from the `menuTitle` if it's implied by the containing section.
 For example, the page "Install Grafana Alloy in a Docker container" can be shortened to "Docker" if it's in a section named "Install".
 
+### Meta image
+
+Use the `meta_image` front matter to set the [Open Graph](https://ogp.me/) and social media image metadata.
+The value must be the URL of an image hosted on the website.
+To add a new image, refer to [Where to store media assets](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#where-to-store-media-assets).
+
 ### Refs
 
 Use the `refs` front matter with `ref` URIs to link to different pages in reused content.

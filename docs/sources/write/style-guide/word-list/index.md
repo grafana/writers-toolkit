@@ -137,7 +137,7 @@ Use this rather than _hold the pointer over_ or _point to_.
 
 ### kebab case
 
-Use this to refer to the casing where lower case words are connected by dashes or hyphens.
+Use this to refer to the casing in which lower case words are connected by dashes or hyphens.
 
 Use this instead of _dash case_.
 <!--

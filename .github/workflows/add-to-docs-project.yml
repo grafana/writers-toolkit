@@ -1,16 +1,37 @@
-name: Add to docs project
+name: Add issues to the Docs project
 on:
-  issues:
-    types: [labeled]
-  pull_request:
-    types: [labeled]
+  workflow_dispatch:
+  cron:
+    - "*/30 * * * *"
+
 jobs:
   main:
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event.label.name == 'type/docs' }}
     permissions:
       contents: read
       id-token: write
     runs-on: ubuntu-latest
     steps:
+      - id: get-secrets
+        uses: grafana/shared-workflows/actions/get-vault-secrets@main
+        with:
+          repo_secrets: |
+            ADD_TO_DOCS_PROJECT_APP_ID=add-to-docs-project:app-id
+            ADD_TO_DOCS_PROJECT_PRIVATE_KEY=add-to-docs-project:key
+
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ env.ADD_TO_DOCS_PROJECT_APP_ID }}
+          owner: grafana
+          private-key: ${{ env.ADD_TO_DOCS_PROJECT_PRIVATE_KEY }}
+
       - uses: actions/checkout@v4
-      - uses: ./add-to-docs-project
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: "add-to-docs-project/package.json"
+
+      - run: node index.mjs
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        working-directory: ./add-to-docs-project

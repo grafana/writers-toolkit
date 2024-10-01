@@ -2,3 +2,4 @@
 .idea
 /docs/variables.mk.local
 /node_modules/
+/add-to-docs-project/node_modules/

@@ -132,7 +132,17 @@ Use this rather than _hold the pointer over_ or _point to_.
 <!--
 ## I
 ## J
+-->
+
 ## K
+
+### kebab case
+
+Use this to refer to the naming convention where spaces between lower case words are replaced with dashes.```
+
+Use this instead of _dash case_.
+
+<!--
 ## L
 -->
 
@@ -231,6 +241,13 @@ Use _self-managed_ instead of _self-hosted_, _on-prem_, or _on-premise_ when tal
 This aligns with Marketing and various other parts of <https://grafana.com>.
 
 <!-- vale Grafana.SelfManaged = YES -->
+
+### single pane of glass
+
+This term should only be used in marketing materials. In technical documentation, use the following alternatives:
+
+- _single interface_
+- _unified interface_
 
 ### SQL (Structured Query Language)
 

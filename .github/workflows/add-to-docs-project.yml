@@ -1,8 +1,8 @@
 name: Add issues to the Docs project
 on:
+  schedule:
+    - cron: "*/30 * * * *"
   workflow_dispatch:
-  cron:
-    - "*/30 * * * *"
 
 jobs:
   main:

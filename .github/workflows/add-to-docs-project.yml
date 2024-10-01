@@ -29,6 +29,9 @@ jobs:
         with:
           node-version-file: "add-to-docs-project/package.json"
 
+      - run: yarn install
+        working-directory: ./add-to-docs-project
+
       - run: node index.mjs
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}

@@ -139,18 +139,31 @@ async function baseTreeSha(
   ).data.sha;
 }
 
+type sourceContext = {
+  name: string;
+  branch: string;
+  repositoryPath: string;
+  subdirectoryPath: string;
+};
+
+type websiteContext = {
+  repositoryPath: string;
+  subdirectoryPath: string;
+};
+
 export async function publish(
   octokit: Octokit,
-  sourceRepository: string,
-  sourceDirectory: string,
-  websiteRepository: string,
-  websiteDirectory: string
+  source: sourceContext,
+  website: websiteContext
 ): Promise<string> {
   rsync(
-    path.join(sourceRepository, sourceDirectory) + "/",
-    path.join(websiteRepository, websiteDirectory)
+    path.join(source.repositoryPath, source.subdirectoryPath) + "/",
+    path.join(website.repositoryPath, website.subdirectoryPath)
   );
-  const files = await getUnstagedFiles(websiteRepository, websiteDirectory);
+  const files = await getUnstagedFiles(
+    website.repositoryPath,
+    website.subdirectoryPath
+  );
   const baseTree = await baseTreeSha(octokit, "website", "master");
 
   const newTree = (
@@ -167,7 +180,9 @@ export async function publish(
             type: "blob",
           };
         } else {
-          const fileInfo = fs.statSync(path.join(websiteRepository, file.path));
+          const fileInfo = fs.statSync(
+            path.join(website.repositoryPath, file.path)
+          );
           if (fileInfo.isDirectory()) {
             return {
               mode: "040000",
@@ -178,7 +193,7 @@ export async function publish(
           }
           return {
             content: fs
-              .readFileSync(path.join(websiteRepository, file.path))
+              .readFileSync(path.join(website.repositoryPath, file.path))
               .toString(),
             mode: "100644",
             path: file.path,
@@ -194,7 +209,7 @@ export async function publish(
       owner: "grafana",
       repo: "website",
       message:
-        `Publish from grafana/writers-toolkit:main/${sourceDirectory}\n` +
+        `Publish from grafana/${source.name}:${source.branch}/${source.subdirectoryPath}\n` +
         "\n" +
         "Co-authored-by: Jack Baldry <jack.baldry@grafana.com>",
       tree: newTree,

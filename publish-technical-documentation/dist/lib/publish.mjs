@@ -106,9 +106,9 @@ async function baseTreeSha(octokit, repo, branch) {
         tree_sha: `heads/${branch}`,
     })).data.sha;
 }
-export async function publish(octokit, sourceRepository, sourceDirectory, websiteRepository, websiteDirectory) {
-    rsync(path.join(sourceRepository, sourceDirectory) + "/", path.join(websiteRepository, websiteDirectory));
-    const files = await getUnstagedFiles(websiteRepository, websiteDirectory);
+export async function publish(octokit, source, website) {
+    rsync(path.join(source.repositoryPath, source.subdirectoryPath) + "/", path.join(website.repositoryPath, website.subdirectoryPath));
+    const files = await getUnstagedFiles(website.repositoryPath, website.subdirectoryPath);
     const baseTree = await baseTreeSha(octokit, "website", "master");
     const newTree = (await octokit.rest.git.createTree({
         owner: "grafana",
@@ -124,7 +124,7 @@ export async function publish(octokit, sourceRepository, sourceDirectory, websit
                 };
             }
             else {
-                const fileInfo = fs.statSync(path.join(websiteRepository, file.path));
+                const fileInfo = fs.statSync(path.join(website.repositoryPath, file.path));
                 if (fileInfo.isDirectory()) {
                     return {
                         mode: "040000",
@@ -135,7 +135,7 @@ export async function publish(octokit, sourceRepository, sourceDirectory, websit
                 }
                 return {
                     content: fs
-                        .readFileSync(path.join(websiteRepository, file.path))
+                        .readFileSync(path.join(website.repositoryPath, file.path))
                         .toString(),
                     mode: "100644",
                     path: file.path,
@@ -147,7 +147,7 @@ export async function publish(octokit, sourceRepository, sourceDirectory, websit
     const commit = (await octokit.rest.git.createCommit({
         owner: "grafana",
         repo: "website",
-        message: `Publish from grafana/writers-toolkit:main/${sourceDirectory}\n` +
+        message: `Publish from grafana/${source.name}:${source.branch}/${source.subdirectoryPath}\n` +
             "\n" +
             "Co-authored-by: Jack Baldry <jack.baldry@grafana.com>",
         tree: newTree,

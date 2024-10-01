@@ -11,19 +11,17 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-      - id: get-secrets
-        uses: grafana/shared-workflows/actions/get-vault-secrets@main
+      - uses: grafana/shared-workflows/actions/get-vault-secrets@main
         with:
-          repo_secrets: |
-            ADD_TO_DOCS_PROJECT_APP_ID=add-to-docs-project:app-id
-            ADD_TO_DOCS_PROJECT_PRIVATE_KEY=add-to-docs-project:key
+          common_secrets: |
+            ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
+            ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
 
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
-          app-id: ${{ env.ADD_TO_DOCS_PROJECT_APP_ID }}
-          owner: grafana
-          private-key: ${{ env.ADD_TO_DOCS_PROJECT_PRIVATE_KEY }}
+          app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
+          private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
 
       - uses: actions/checkout@v4
 

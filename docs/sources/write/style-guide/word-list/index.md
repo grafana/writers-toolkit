@@ -133,6 +133,7 @@ Use this rather than _hold the pointer over_ or _point to_.
 ## I
 ## J
 -->
+
 ## K
 
 ### kebab case
@@ -140,6 +141,7 @@ Use this rather than _hold the pointer over_ or _point to_.
 Use this to refer to the casing in which lower case words are connected by dashes or hyphens.
 
 Use this instead of _dash case_.
+
 <!--
 ## L
 -->

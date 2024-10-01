@@ -1,5 +1,6 @@
 import { Octokit } from "@octokit/rest";
 import process from "node:process";
+import core from "@actions/core"; // Import the 'core' module
 // gh api graphql -f query='
 // query{
 //     organization(login: "grafana"){
@@ -10,6 +11,7 @@ import process from "node:process";
 //   }'
 const PROJECT_ID = "PVT_kwDOAG3Mbc027w";
 async function addIssuesToProject(repositories) {
+    const added = [];
     try {
         const octokit = new Octokit({
             auth: process.env.GITHUB_TOKEN,
@@ -26,7 +28,8 @@ async function addIssuesToProject(repositories) {
                 since: twoHoursAgo.toISOString(),
             });
             for (const issue of issues) {
-                console.log(`Adding issue https://github.com/grafana/${repo}/issues/${issue.number} to the project if it's not there already.`);
+                console.log(`Adding issue ${issue.html_url} to the project if it's not there already.`);
+                added.push(issue.html_url);
                 const mutation = `mutation AddProjectItem($projectId: ID!, $contentId: ID!) {
                         addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
                                 item {
@@ -43,7 +46,10 @@ async function addIssuesToProject(repositories) {
     }
     catch (error) {
         console.error("Error adding issues to the project:", error.message);
+        core.setFailed(error.message);
     }
+    return added;
 }
 const repositories = ["website", "writers-toolkit"];
-addIssuesToProject(repositories);
+const added = await addIssuesToProject(repositories);
+core.setOutput("added", added.map((url) => `- ${url}`).join("\n"));

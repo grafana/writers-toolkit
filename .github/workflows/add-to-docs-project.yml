@@ -32,7 +32,15 @@ jobs:
       - run: yarn install
         working-directory: ./add-to-docs-project
 
-      - run: node index.mjs
+      - id: add-to-docs-project
+        run: node index.mjs
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         working-directory: ./add-to-docs-project
+
+      - name: Send Slack Message
+        id: slack
+        uses: grafana/shared-workflows/actions/send-slack-message@main
+        with:
+          channel-id: C05V6A36MB7
+          slack-message: ${{ steps.add-to-docs-project.outputs.added }}

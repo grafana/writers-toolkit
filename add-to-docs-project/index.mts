@@ -55,5 +55,5 @@ async function addIssuesToProject(repositories: Array<string>) {
   }
 }
 
-const repositories = ["website"];
+const repositories = ["website", "writers-toolkit"];
 addIssuesToProject(repositories);

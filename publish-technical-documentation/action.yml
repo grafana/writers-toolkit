@@ -10,10 +10,10 @@ description: |
     id-token: write
   ```
 inputs:
-  source_directory:
+  source-directory:
     default: docs/sources
     description: Path to source directory, relative to the project root, to sync documentation from.
-  website_directory:
+  website-directory:
     description: Website directory to sync the documentation to.
     required: true
 runs:
@@ -22,7 +22,7 @@ runs:
     - name: Build website
       shell: bash
       run: |
-        docker run -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
+        docker run -v "${PWD}/${{ inputs.source-directory }}:/hugo/${{ inputs.website-directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@main
@@ -35,23 +35,23 @@ runs:
       id: app-token
       with:
         app-id: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID }}
-        owner: grafana
         private-key: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_PRIVATE_KEY }}
 
-    - name: Checkout sync action
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       with:
-        path: .github/actions/website-sync
-        repository: grafana/website-sync
+        path: website
+        repository: grafana/website
+        sparse-checkout: |
+          content/docs
         token: ${{ steps.app-token.outputs.token }}
 
     - name: Sync to the website repository
-      uses: ./.github/actions/website-sync
-      id: publish
+      uses: actions/github-script@v7
       with:
-        repository: grafana/website
-        branch: master
-        host: github.com
-        github_pat: grafanabot:${{ steps.app-token.outputs.token }}
-        source_folder: ${{ inputs.source_directory }}
-        target_folder: ${{ inputs.website_directory }}
+        script: |
+          const { main } = await import('${{ github.action_path }}/dist/action.mjs');
+
+          await main();
+        source-directory: ${{ inputs.source-directory }}
+        token: ${{ steps.app-token.outputs.token }}
+        website-directory: ${{ inputs.website-directory }}

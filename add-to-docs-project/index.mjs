@@ -28,6 +28,9 @@ async function addIssuesToProject(repositories) {
                 since: twoHoursAgo.toISOString(),
             });
             for (const issue of issues) {
+                if (issue.pull_request) {
+                    continue; // Skip pull requests
+                }
                 console.log(`Adding issue ${issue.html_url} to the project if it's not there already.`);
                 added.push(issue.html_url);
                 const mutation = `mutation AddProjectItem($projectId: ID!, $contentId: ID!) {

@@ -101,8 +101,11 @@ async function addIssuesToProject(
 }
 
 const repositories = [
+  "backend-enterprise",
+  "mimir",
   "support-escalations",
   "technical-documentation",
+  "transmog",
   "website",
   "writers-toolkit",
 ];

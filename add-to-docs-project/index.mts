@@ -13,10 +13,6 @@ const ADD_TO_PROJECT_MUTATION = fs.readFileSync(
   "utf8"
 );
 
-// The delays are necessary to avoid hitting the GitHub API rate limits.
-// https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#calculating-points-for-the-secondary-rate-limit
-// > Make too many concurrent requests. No more than 100 concurrent requests are allowed. This limit is shared across the REST API and GraphQL API.
-// > Make too many requests to a single endpoint per minute. No more than 900 points per minute are allowed for REST API endpoints, and no more than 2,000 points per minute are allowed for the GraphQL API endpoint.
 async function addIssuesToProject(): Promise<Array<string>> {
   const added: Array<string> = [];
   try {
@@ -31,9 +27,6 @@ async function addIssuesToProject(): Promise<Array<string>> {
       org: "grafana",
       per_page: 100,
     });
-
-    const delay = (ms: number) =>
-      new Promise((resolve) => setTimeout(resolve, ms));
 
     for (const repository of repositories) {
       const issues = await octokit.paginate(octokit.issues.listForRepo, {
@@ -79,11 +72,7 @@ async function addIssuesToProject(): Promise<Array<string>> {
           projectId: PROJECT_ID,
           contentId: issue.node_id,
         });
-
-        await delay(25);
       }
-
-      await delay(10);
     }
   } catch (error: any) {
     console.error("Error adding issues to the project:", error.message);

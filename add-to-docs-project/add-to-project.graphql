@@ -1,0 +1,10 @@
+# Add a content item to a project.
+mutation AddProjectItem($projectId: ID!, $contentId: ID!) {
+  addProjectV2ItemById(
+    input: { projectId: $projectId, contentId: $contentId }
+  ) {
+    item {
+      id
+    }
+  }
+}

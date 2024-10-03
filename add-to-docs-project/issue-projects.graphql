@@ -1,0 +1,16 @@
+# List the first ten projects that the issue with the given ID is associated with.
+query issue($id: ID!) {
+  node(id: $id) {
+    ... on Issue {
+      projectItems(first: 10) {
+        nodes {
+          ... on ProjectV2Item {
+            project {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

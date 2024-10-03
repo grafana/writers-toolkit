@@ -1,0 +1,8 @@
+# Return the project ID for a specific project in the Grafana organization.
+query {
+  organization(login: "grafana") {
+    projectV2(number: 69) {
+      id
+    }
+  }
+}

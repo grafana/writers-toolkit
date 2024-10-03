@@ -1,17 +1,17 @@
 import { GraphQlQueryResponseData } from "@octokit/graphql";
 import { Octokit } from "@octokit/rest";
 import process from "node:process";
-import core from "@actions/core"; // Import the 'core' module
+import core from "@actions/core";
+import fs from "fs";
 
-// gh api graphql -f query='
-// query{
-//     organization(login: "grafana"){
-//       projectV2(number: 69) {
-//         id
-//       }
-//     }
-//   }'
+// The project ID for the Docs project.
+// You can find this by running the `project-id.graphql` query.
 const PROJECT_ID = "PVT_kwDOAG3Mbc027w";
+const ISSUE_PROJECTS_QUERY = fs.readFileSync("issue-projects.graphql", "utf8");
+const ADD_TO_PROJECT_MUTATION = fs.readFileSync(
+  "add-to-project.graphql",
+  "utf8"
+);
 
 async function addIssuesToProject(): Promise<Array<string>> {
   const added: Array<string> = [];
@@ -28,7 +28,7 @@ async function addIssuesToProject(): Promise<Array<string>> {
       per_page: 100,
     });
 
-    for (const repository of repositories) {
+    const issuePromises = repositories.map(async (repository) => {
       const issues = await octokit.paginate(octokit.issues.listForRepo, {
         owner: "grafana",
         repo: repository.name,
@@ -39,27 +39,13 @@ async function addIssuesToProject(): Promise<Array<string>> {
         state: "open",
       });
 
-      for (const issue of issues) {
+      const issuePromises = issues.map(async (issue) => {
         if (issue.pull_request) {
-          continue; // Skip pull requests
+          return; // Skip pull requests
         }
 
         const { node }: GraphQlQueryResponseData = await octokit.graphql(
-          `query issue($id: ID!) {
-                        node(id: $id) {
-                            ... on Issue{
-                                projectItems(first: 10) {
-                                    nodes {
-                                        ... on ProjectV2Item {
-                                            project {
-                                                id
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }`,
+          ISSUE_PROJECTS_QUERY,
           {
             id: issue.node_id,
           }
@@ -74,7 +60,7 @@ async function addIssuesToProject(): Promise<Array<string>> {
             `Skipping issue ${issue.html_url} because it's already in the project.`
           );
 
-          continue;
+          return;
         }
 
         console.log(
@@ -82,20 +68,16 @@ async function addIssuesToProject(): Promise<Array<string>> {
         );
         added.push(issue.html_url);
 
-        const mutation = `mutation AddProjectItem($projectId: ID!, $contentId: ID!) {
-                    addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
-                        item {
-                            id
-                        }
-                    }
-                }`;
-
-        await octokit.graphql(mutation, {
+        await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
           projectId: PROJECT_ID,
           contentId: issue.node_id,
         });
-      }
-    }
+      });
+
+      await Promise.all(issuePromises);
+    });
+
+    await Promise.all(issuePromises);
   } catch (error: any) {
     console.error("Error adding issues to the project:", error);
     core.setFailed(error);

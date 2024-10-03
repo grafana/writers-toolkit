@@ -100,7 +100,12 @@ async function addIssuesToProject(
   return added;
 }
 
-const repositories = ["website", "writers-toolkit"];
-const added = await addIssuesToProject(repositories);
+const repositories = [
+  "support-escalations",
+  "technical-documentation",
+  "website",
+  "writers-toolkit",
+];
 
+const added = await addIssuesToProject(repositories);
 core.setOutput("added", added.map((url) => `- ${url}`).join("\n"));

@@ -34,7 +34,7 @@ jobs:
         working-directory: ./add-to-docs-project
 
       - id: add-to-docs-project
-        run: node index.mjs
+        run: yarn run execute
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         working-directory: ./add-to-docs-project

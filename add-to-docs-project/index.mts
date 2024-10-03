@@ -39,9 +39,9 @@ async function addIssuesToProject(): Promise<Array<string>> {
         state: "open",
       });
 
-      const issuePromises = issues.map(async (issue) => {
+      for (const issue of issues) {
         if (issue.pull_request) {
-          return; // Skip pull requests
+          continue; // Skip pull requests
         }
 
         const { node }: GraphQlQueryResponseData = await octokit.graphql(
@@ -60,7 +60,7 @@ async function addIssuesToProject(): Promise<Array<string>> {
             `Skipping issue ${issue.html_url} because it's already in the project.`
           );
 
-          return;
+          continue;
         }
 
         console.log(
@@ -72,15 +72,16 @@ async function addIssuesToProject(): Promise<Array<string>> {
           projectId: PROJECT_ID,
           contentId: issue.node_id,
         });
-      });
 
-      await Promise.all(issuePromises);
+        // Respect rate limits by waiting for a short period between queries
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
     });
 
     await Promise.all(issuePromises);
   } catch (error: any) {
-    console.error("Error adding issues to the project:", error);
-    core.setFailed(error);
+    console.error("Error adding issues to the project:", error.message);
+    core.setFailed(error.message);
   }
 
   return added;

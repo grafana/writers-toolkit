@@ -1,3 +1,4 @@
+import { GraphQlQueryResponseData } from "@octokit/graphql";
 import { Octokit } from "@octokit/rest";
 import process from "node:process";
 import core from "@actions/core"; // Import the 'core' module
@@ -39,6 +40,39 @@ async function addIssuesToProject(
           continue; // Skip pull requests
         }
 
+        const { node }: GraphQlQueryResponseData = await octokit.graphql(
+          `query issue($id: ID!) {
+  node(id: $id) {
+    ... on Issue{
+      projectItems(first: 100) {
+        nodes {
+          ... on ProjectV2Item {
+            project {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}`,
+          {
+            id: issue.node_id,
+          }
+        );
+
+        if (
+          node.projectItems.nodes.some(
+            (item: any) => item.project.id === PROJECT_ID
+          )
+        ) {
+          console.log(
+            `Skipping issue ${issue.html_url} because it's already in the project.`
+          );
+
+          continue; // Skip issues that are already in the project
+        }
+
         console.log(
           `Adding issue ${issue.html_url} to the project if it's not there already.`
         );
@@ -59,14 +93,14 @@ async function addIssuesToProject(
       }
     }
   } catch (error: any) {
-    console.error("Error adding issues to the project:", error.message);
-    core.setFailed(error.message);
+    console.error("Error adding issues to the project:", error);
+    core.setFailed(error);
   }
 
   return added;
 }
 
-const repositories = ["support-escalations", "website", "writers-toolkit"];
+const repositories = ["website", "writers-toolkit"];
 const added = await addIssuesToProject(repositories);
 
 core.setOutput("added", added.map((url) => `- ${url}`).join("\n"));

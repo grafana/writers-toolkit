@@ -23,70 +23,78 @@ async function addIssuesToProject(): Promise<Array<string>> {
     const twoHoursAgo = new Date();
     twoHoursAgo.setHours(twoHoursAgo.getHours() - 2);
 
-    const issues = await octokit.paginate(octokit.issues.listForOrg, {
-      filter: "all",
-      labels: "type/docs",
+    const repositories = await octokit.paginate(octokit.repos.listForOrg, {
       org: "grafana",
       per_page: 100,
-      since: twoHoursAgo.toISOString(),
-      state: "open",
     });
 
-    for (const issue of issues) {
-      if (issue.pull_request) {
-        continue; // Skip pull requests
-      }
+    for (const repository of repositories) {
+      const issues = await octokit.paginate(octokit.issues.listForRepo, {
+        owner: "grafana",
+        repo: repository.name,
+        filter: "all",
+        labels: "type/docs",
+        per_page: 100,
+        since: twoHoursAgo.toISOString(),
+        state: "open",
+      });
 
-      const { node }: GraphQlQueryResponseData = await octokit.graphql(
-        `query issue($id: ID!) {
-  node(id: $id) {
-    ... on Issue{
-      projectItems(first: 10) {
-        nodes {
-          ... on ProjectV2Item {
-            project {
-              id
-            }
+      for (const issue of issues) {
+        if (issue.pull_request) {
+          continue; // Skip pull requests
+        }
+
+        const { node }: GraphQlQueryResponseData = await octokit.graphql(
+          `query issue($id: ID!) {
+                        node(id: $id) {
+                            ... on Issue{
+                                projectItems(first: 10) {
+                                    nodes {
+                                        ... on ProjectV2Item {
+                                            project {
+                                                id
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }`,
+          {
+            id: issue.node_id,
           }
-        }
-      }
-    }
-  }
-}`,
-        {
-          id: issue.node_id,
-        }
-      );
-
-      if (
-        node.projectItems.nodes.some(
-          (item: any) => item.project.id === PROJECT_ID
-        )
-      ) {
-        console.log(
-          `Skipping issue ${issue.html_url} because it's already in the project.`
         );
 
-        continue;
-      }
+        if (
+          node.projectItems.nodes.some(
+            (item: any) => item.project.id === PROJECT_ID
+          )
+        ) {
+          console.log(
+            `Skipping issue ${issue.html_url} because it's already in the project.`
+          );
 
-      console.log(
-        `Adding issue ${issue.html_url} to the project if it's not there already.`
-      );
-      added.push(issue.html_url);
+          continue;
+        }
 
-      const mutation = `mutation AddProjectItem($projectId: ID!, $contentId: ID!) {
-                        addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
-                                item {
-                                        id
-                                }
+        console.log(
+          `Adding issue ${issue.html_url} to the project if it's not there already.`
+        );
+        added.push(issue.html_url);
+
+        const mutation = `mutation AddProjectItem($projectId: ID!, $contentId: ID!) {
+                    addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                        item {
+                            id
                         }
+                    }
                 }`;
 
-      await octokit.graphql(mutation, {
-        projectId: PROJECT_ID,
-        contentId: issue.node_id,
-      });
+        await octokit.graphql(mutation, {
+          projectId: PROJECT_ID,
+          contentId: issue.node_id,
+        });
+      }
     }
   } catch (error: any) {
     console.error("Error adding issues to the project:", error);

@@ -24,11 +24,12 @@ async function addIssuesToProject(): Promise<Array<string>> {
     twoHoursAgo.setHours(twoHoursAgo.getHours() - 2);
 
     const issues = await octokit.paginate(octokit.issues.listForOrg, {
-      org: "grafana",
+      filter: "all",
       labels: "type/docs",
-      state: "open",
+      org: "grafana",
       per_page: 100,
       since: twoHoursAgo.toISOString(),
+      state: "open",
     });
 
     for (const issue of issues) {

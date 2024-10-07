@@ -35,7 +35,10 @@ There are some situations where you must mention another company, such as in dat
 
 ## Address users clearly
 
+Our style prefers second person ("you") and avoids first person ("I"/"we").
+
 To address users clearly and directly, write directives in the imperative second person where the unspoken 'you' is implied.
+
 Avoid making the user or their role, such as _system administrator_, the subject of a sentence, as in: "Users configure the Cloud using a secure shell.".
 
 Exception:

@@ -16,11 +16,11 @@ local word = import './word.jsonnet';
   word.new('SLI', 'S', 'noun') { abbreviation: true, elaboration: 'service level indicator' },
   word.new('SLO', 'S', 'noun') { abbreviation: true, elaboration: 'service level objective' },
   word.new('spanset', 'S', 'noun'),
+  word.new('sparkline', 'S', 'noun'),
   word.new('Splunk', '', 'adjective'),
   word.new('Splunk', '', 'noun') { product: true },
   word.new('SQL', '', 'noun') { abbreviation: true, elaboration: 'Structured Query Language', established_abbreviation: true },
   word.new('SQLite', '', 'noun') { swaps: { sqlite: 'SQLite' } },
-
   word.new('SRE', 'S', 'noun') { abbreviation: true, elaboration: 'site reliability engineering' },
   word.new('SSD', 'S', 'noun') { abbreviation: true, elaboration: 'solid-state drive', established_abbreviation: true },
   word.new('SSH', '', 'noun') { abbreviation: true, elaboration: 'Secure Shell', established_abbreviation: true },

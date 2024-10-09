@@ -20,10 +20,10 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 ## October 2024
 
-| New guidance or change                                                                                      | Page                                                                                      |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Added _kebab case_ and _single pane of glass_ to word list.                                                 | [Word list - kebab case](/docs/writers-toolkit/write/style-guide/word-list/#kebab-case) &  [Word list - single pane of glass](/docs/writers-toolkit/write/style-guide/word-list/#single-pane-of-glass) |
-| Added second menu icon image to UI elements list.                                                 | [UI elements list](/docs/writers-toolkit/write/style-guide/ui-elements/) |
+| New guidance or change                                      | Page                                                                                                                                                                                                  |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Added _kebab case_ and _single pane of glass_ to word list. | [Word list - kebab case](/docs/writers-toolkit/write/style-guide/word-list/#kebab-case) & [Word list - single pane of glass](/docs/writers-toolkit/write/style-guide/word-list/#single-pane-of-glass) |
+| Added second menu icon image to UI elements list.           | [UI elements list](/docs/writers-toolkit/write/style-guide/ui-elements/)                                                                                                                              |
 
 ## September 2024
 

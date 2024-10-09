@@ -1,4 +1,4 @@
-301
+302
 ACL/S po:noun
 AI Observability/ po:noun
 Adaptive Metrics/ po:noun
@@ -235,6 +235,7 @@ SLA/S po:noun
 SLI/S po:noun
 SLO/S po:noun
 spanset/S po:noun
+sparkline/S po:noun
 Splunk/ po:adjective
 Splunk/ po:noun
 SQL/ po:noun

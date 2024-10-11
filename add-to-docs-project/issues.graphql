@@ -1,0 +1,22 @@
+# Search for the first ten open issues that aren't already in the Docs project.
+{
+  search(
+    first: 10
+    type: ISSUE
+    query: "org:grafana is:issue state:open label:type/docs -project:grafana/69"
+  ) {
+    issueCount
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      ... on Issue {
+        createdAt
+        title
+        url
+        id
+      }
+    }
+  }
+}

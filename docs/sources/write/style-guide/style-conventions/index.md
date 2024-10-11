@@ -42,7 +42,7 @@ Use first person plural pronouns like 'our' carefully.
 Don't use 'we' when you're talking about the reader, instead use 'you'.
 You can use 'we' when you're talking about Grafana Labs.
 
-<!-- vale Grafana.We = Yes -->
+<!-- vale Grafana.We = YES -->
 
 Write directives in the imperative second person where the unspoken 'you' is implied.
 

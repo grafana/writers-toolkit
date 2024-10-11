@@ -7,7 +7,7 @@ import fs from "fs";
 // The project ID for the Docs project.
 // You can find this by running the `project-id.graphql` query.
 const PROJECT_ID = "PVT_kwDOAG3Mbc027w";
-const ISSUE_PROJECTS_QUERY = fs.readFileSync("issue-projects.graphql", "utf8");
+const ISSUES_QUERY = fs.readFileSync("issues.graphql", "utf8");
 const ADD_TO_PROJECT_MUTATION = fs.readFileSync(
   "add-to-project.graphql",
   "utf8"
@@ -20,59 +20,19 @@ async function addIssuesToProject(): Promise<Array<string>> {
       auth: process.env.GITHUB_TOKEN,
     });
 
-    const twoHoursAgo = new Date();
-    twoHoursAgo.setHours(twoHoursAgo.getHours() - 2);
+    const issues = (
+      (await octokit.graphql(ISSUES_QUERY)) as GraphQlQueryResponseData
+    ).search.nodes;
 
-    const repositories = await octokit.paginate(octokit.repos.listForOrg, {
-      org: "grafana",
-      per_page: 100,
-    });
+    for (const issue of issues) {
+      const markdownLink = `[${issue.title}](${issue.url})`;
+      console.log(`Adding issue ${markdownLink} to the Docs project.`);
+      added.push(markdownLink);
 
-    for (const repository of repositories) {
-      const issues = await octokit.paginate(octokit.issues.listForRepo, {
-        owner: "grafana",
-        repo: repository.name,
-        filter: "all",
-        labels: "type/docs",
-        per_page: 100,
-        since: twoHoursAgo.toISOString(),
-        state: "open",
+      await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
+        projectId: PROJECT_ID,
+        contentId: issue.id,
       });
-
-      for (const issue of issues) {
-        if (issue.pull_request) {
-          continue; // Skip pull requests
-        }
-
-        const { node }: GraphQlQueryResponseData = await octokit.graphql(
-          ISSUE_PROJECTS_QUERY,
-          {
-            id: issue.node_id,
-          }
-        );
-
-        if (
-          node.projectItems.nodes.some(
-            (item: any) => item.project.id === PROJECT_ID
-          )
-        ) {
-          console.log(
-            `Skipping issue ${issue.html_url} because it's already in the project.`
-          );
-
-          continue;
-        }
-
-        console.log(
-          `Adding issue ${issue.html_url} to the project if it's not there already.`
-        );
-        added.push(issue.html_url);
-
-        await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
-          projectId: PROJECT_ID,
-          contentId: issue.node_id,
-        });
-      }
     }
   } catch (error: any) {
     console.error("Error adding issues to the project:", error.message);

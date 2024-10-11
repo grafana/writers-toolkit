@@ -25,9 +25,16 @@ async function addIssuesToProject(): Promise<Array<string>> {
     ).search.nodes;
 
     for (const issue of issues) {
-      const markdownLink = `[${issue.title}](${issue.url})`;
-      console.log(`Adding issue ${markdownLink} to the Docs project.`);
-      added.push(markdownLink);
+      console.log(
+        `Adding issue ${issue.title} (${issue.url}) to the Docs project.`
+      );
+      added.push(
+        // https://api.slack.com/reference/surfaces/formatting#escaping
+        `${issue.url}|${issue.title}`
+          .replace("&", "&amp;")
+          .replace("<", "&lt;")
+          .replace(">", "&gt;")
+      );
 
       await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
         projectId: PROJECT_ID,
@@ -45,5 +52,5 @@ async function addIssuesToProject(): Promise<Array<string>> {
 const added = await addIssuesToProject();
 core.setOutput(
   "added",
-  added.map((url) => `- ${url.replace('"', '"')}`).join("\\n")
+  added.map((issue) => `- ${issue}`.replace('"', '\\"')).join("\\n")
 );

@@ -138,7 +138,7 @@ Use this rather than _hold the pointer over_ or _point to_.
 
 ### kebab case
 
-Use this to refer to the naming convention where spaces between lower case words are replaced with dashes.```
+Use this to refer to the naming convention where spaces between lower case words are replaced with dashes.
 
 Use this instead of _dash case_.
 

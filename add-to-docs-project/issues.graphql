@@ -1,4 +1,4 @@
-# Search for all open issues that aren't already in the Docs project.
+# Search for the first ten open issues that aren't already in the Docs project.
 {
   search(
     first: 10

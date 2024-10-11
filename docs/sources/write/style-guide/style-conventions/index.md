@@ -35,7 +35,17 @@ There are some situations where you must mention another company, such as in dat
 
 ## Address users clearly
 
-To address users clearly and directly, write directives in the imperative second person where the unspoken 'you' is implied.
+<!-- vale Grafana.We = NO -->
+
+To address users clearly and directly, use second person ("you") and avoid first person ("I", "our", or "we").
+Use first person plural pronouns like 'our' carefully.
+Don't use 'we' when you're talking about the reader, instead use 'you'.
+You can use 'we' when you're talking about Grafana Labs.
+
+<!-- vale Grafana.We = YES -->
+
+Write directives in the imperative second person where the unspoken 'you' is implied.
+
 Avoid making the user or their role, such as _system administrator_, the subject of a sentence, as in: "Users configure the Cloud using a secure shell.".
 
 Exception:

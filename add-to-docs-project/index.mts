@@ -43,4 +43,4 @@ async function addIssuesToProject(): Promise<Array<string>> {
 }
 
 const added = await addIssuesToProject();
-core.setOutput("added", added.map((url) => `- ${url}`).join("\n"));
+core.setOutput("added", added.map((url) => `- ${url}`).join("\\n"));

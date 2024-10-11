@@ -67,13 +67,13 @@ jobs:
           channel-id: C05V6A36MB7
           payload: |
             {
-              "text": "Failed to add issues to the Docs project",
+              "text": "Failed to add issues to the Docs project in run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Check the output for run ID: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+                    "text": "Failed to add issues to the Docs project in run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                   }
                 }
               ]

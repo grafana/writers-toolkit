@@ -40,24 +40,6 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         working-directory: ./add-to-docs-project
 
-      - name: Notify failure
-        if: ${{ steps.add-to-docs-project.outputs.failed != ''}}
-        uses: grafana/shared-workflows/actions/send-slack-message@main
-        with:
-          channel-id: C05V6A36MB7
-          payload: |
-            {
-              "text": "Failed to add issues to the Docs project",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Check the output for run ID: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-                  }
-                }
-              ]
-            }
       - name: Send Slack Message
         id: slack
         if: ${{ steps.add-to-docs-project.outputs.added != ''}}
@@ -73,6 +55,25 @@ jobs:
                   "text": {
                     "type": "mrkdwn",
                     "text": "${{ steps.add-to-docs-project.outputs.added }}"
+                  }
+                }
+              ]
+            }
+
+      - name: Notify failure
+        if: failure()
+        uses: grafana/shared-workflows/actions/send-slack-message@main
+        with:
+          channel-id: C05V6A36MB7
+          payload: |
+            {
+              "text": "Failed to add issues to the Docs project",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Check the output for run ID: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
                   }
                 }
               ]

@@ -52,5 +52,5 @@ async function addIssuesToProject(): Promise<Array<string>> {
 const added = await addIssuesToProject();
 core.setOutput(
   "added",
-  added.map((issue) => `- ${issue}`.replace('"', '\\"')).join("\\n")
+  added.map((issue) => `- <${issue}>`.replace('"', '\\"')).join("\\n")
 );

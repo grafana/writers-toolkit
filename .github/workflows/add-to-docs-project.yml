@@ -54,7 +54,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.add-to-docs-project.outputs.added }}"
+                    "text": "Added the following issues to the Docs project:\n${{ steps.add-to-docs-project.outputs.added }}"
                   }
                 }
               ]

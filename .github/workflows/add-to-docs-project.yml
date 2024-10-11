@@ -30,11 +30,11 @@ jobs:
         with:
           node-version-file: "add-to-docs-project/package.json"
 
-      - run: yarn install
+      - run: npm install
         working-directory: ./add-to-docs-project
 
       - id: add-to-docs-project
-        run: yarn run execute
+        run: npm run execute
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         working-directory: ./add-to-docs-project

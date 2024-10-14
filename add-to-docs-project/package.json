@@ -9,6 +9,10 @@
   "devDependencies": {
     "@types/node": "^22.7.4"
   },
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
+  },
   "license": "Apache-2.0",
   "main": "index.mjs",
   "name": "add-to-docs-project",

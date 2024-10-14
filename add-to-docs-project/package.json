@@ -7,20 +7,22 @@
   },
   "description": "Adds all issues labeled `type/docs` to the Docs organization project.",
   "devDependencies": {
-    "@types/node": "^22.7.4"
+    "@types/node": "^22.7.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": ">=22",
     "npm": ">=10"
   },
   "license": "Apache-2.0",
-  "main": "index.mjs",
+  "main": "index.mts",
   "name": "add-to-docs-project",
   "private": false,
   "repository": "https://github.com/grafana/writers-toolkit/tree/main/add-to-docs-project",
   "scripts": {
     "build": "tsc",
-    "execute": "npm run build && node index.mjs"
+    "execute": "node --loader ts-node/esm index.mts"
   },
   "version": "1.0.0"
 }

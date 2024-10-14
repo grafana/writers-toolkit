@@ -29,9 +29,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
+          cache: npm
           node-version-file: "add-to-docs-project/package.json"
 
-      - run: npm install
+      - run: npm ci
         working-directory: ./add-to-docs-project
 
       - id: add-to-docs-project

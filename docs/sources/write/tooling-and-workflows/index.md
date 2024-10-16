@@ -370,32 +370,21 @@ From the point where you created your branch and when you're ready to merge the 
 
 If the changes don't conflict, you can use Git to incorporate the changes made to the default branch with yours without making any additional changes.
 
+{{< admonition type="tip" >}}
+You can also update a contributors' branch as long as the pull request shows **Maintainers are allowed to edit this pull request.**
+
+To do so, checkout the pull request branch with `gh pr checkout <PR NUMBER>`
+{{< /admonition >}}
+
 First, fetch changes to all branches and remotes:
 
 ```bash
 git fetch --all
 ```
 
-Update your local copy of the main branch by merging the remote changes into it:
+On your branch, merge the default branch, applying its changes into yours:
 
 ```bash
-git switch main
-git merge --ff-only
-```
-
-After switching branches, Git also lets you know if your local copy needs updating with the message _Your branch is behind 'origin/main'_.
-The `--ff-only` flag means _fast-forwarding_, which applies the changes to the end of your local copy when your local copy has no conflicting changes.
-
-```console
-Switched to branch 'main'
-Your branch is behind 'origin/main' by 30 commits, and can be fast-forwarded.
-  (use "git pull" to update your local branch)
-```
-
-Now switch back to your branch and merge the default branch into it, applying its changes into yours:
-
-```bash
-git switch my-branch
 git merge main
 ```
 

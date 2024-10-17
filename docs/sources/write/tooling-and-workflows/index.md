@@ -373,7 +373,7 @@ If the changes don't conflict, you can use Git to incorporate the changes made t
 {{< admonition type="tip" >}}
 You can also update a contributors' branch as long as the pull request shows **Maintainers are allowed to edit this pull request.**
 
-To do so, checkout the pull request branch with `gh pr checkout <PR NUMBER>`
+To do so, first check out their pull request with either [Check out a PR branch](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#check-out-a-pr-branch) or [Check out a PR branch from a fork](https://grafana.com/docs/writers-toolkit/write/tooling-and-workflows/#check-out-a-pr-branch-from-a-fork).
 {{< /admonition >}}
 
 First, fetch changes to all branches and remotes:

@@ -135,7 +135,7 @@ When you're ready to add a What's new entry, complete the following steps:
          <th scope="row">BODY</th>
          <td>Include an overview of the feature and the problem it solves.</td>
          <td>
-           <p>If you want to view some best practices around what to write here, refer to <a href="#writing-guidelines-for-whats-new-content">Writing guidelines for What's new</a>.</p>
+           <p>If you want to view some best practices around what to write here, refer to <a href="#guidelines-for-whats-new-content">Guidelines for What's new content</a>.</p>
            <p>Add any images and a link to your public YouTube video here.</p>
            <p>If you need more information on adding an image, refer to <a href="https://grafana.com/docs/writers-toolkit/write/image-guidelines/">Image, diagram, and screenshot guidelines</a>.</p>
            <p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the <code>traceToProfile</code> <a href="https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/">feature toggle</a>.</p>
@@ -371,6 +371,9 @@ Follow these guidelines to ensure that your What's new or release notes content 
   Tell customers what goal they can accomplish or what problems they can solve with the feature.
   Describe the business value.
   Don't go into details about how the feature works, or configuration steps.
+
+  Use paragraphs and not bullet points.
+  The website summarizes content using the first two paragraphs and won't summarize bullet points.
 
   Link out to topics in the documentation that provide more detailed information or steps.
 

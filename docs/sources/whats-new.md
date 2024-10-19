@@ -19,6 +19,7 @@ weight: 175
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 ## October 2024
+
 | New guidance or change                                      | Page                                                                                                                                                                                                    |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Added guidance to use paragraphs in What's new notes.       | [Guidelines for What's new content](https://grafana.com/docs/writers-toolkit/contribute/release-notes/#guidelines-for-whats-new-content)                                                                |

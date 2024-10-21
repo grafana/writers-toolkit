@@ -333,6 +333,58 @@ compactor:
 
 {{< /collapse >}}
 
+## Column-list
+
+Formats a list with columns. Content is equally divided between columns.
+
+```markdown
+{{</* column-list */>}}
+
+- [Alertmanager]({{< relref "./alertmanager" >}})
+- [AWS CloudWatch]({{< relref "./aws-cloudwatch" >}})
+- [Azure Monitor]({{< relref "./azure-monitor" >}})
+- [Elasticsearch]({{< relref "./elasticsearch" >}})
+- [Google Cloud Monitoring]({{< relref "./google-cloud-monitoring" >}})
+- [Graphite]({{< relref "./graphite" >}})
+- [InfluxDB]({{< relref "./influxdb" >}})
+- [Jaeger]({{< relref "./jaeger" >}})
+- [Loki]({{< relref "./loki" >}})
+- [Microsoft SQL Server (MSSQL)]({{< relref "./mssql" >}})
+- [MySQL]({{< relref "./mysql" >}})
+- [OpenTSDB]({{< relref "./opentsdb" >}})
+- [PostgreSQL]({{< relref "./postgres" >}})
+- [Prometheus]({{< relref "./prometheus" >}})
+- [Pyroscope]({{< relref "./pyroscope" >}})
+- [Tempo]({{< relref "./tempo" >}})
+- [Testdata]({{< relref "./testdata" >}})
+- [Zipkin]({{< relref "./zipkin" >}})
+  {{</* /column-list */>}}
+```
+
+Produces:
+
+{{< column-list >}}
+
+- [Alertmanager]({{< relref "./alertmanager" >}})
+- [AWS CloudWatch]({{< relref "./aws-cloudwatch" >}})
+- [Azure Monitor]({{< relref "./azure-monitor" >}})
+- [Elasticsearch]({{< relref "./elasticsearch" >}})
+- [Google Cloud Monitoring]({{< relref "./google-cloud-monitoring" >}})
+- [Graphite]({{< relref "./graphite" >}})
+- [InfluxDB]({{< relref "./influxdb" >}})
+- [Jaeger]({{< relref "./jaeger" >}})
+- [Loki]({{< relref "./loki" >}})
+- [Microsoft SQL Server (MSSQL)]({{< relref "./mssql" >}})
+- [MySQL]({{< relref "./mysql" >}})
+- [OpenTSDB]({{< relref "./opentsdb" >}})
+- [PostgreSQL]({{< relref "./postgres" >}})
+- [Prometheus]({{< relref "./prometheus" >}})
+- [Pyroscope]({{< relref "./pyroscope" >}})
+- [Tempo]({{< relref "./tempo" >}})
+- [Testdata]({{< relref "./testdata" >}})
+- [Zipkin]({{< relref "./zipkin" >}})
+  {{< /column-list >}}
+
 ## Docs/alias
 
 The `docs/alias` shortcode determines the relative alias between two pages.

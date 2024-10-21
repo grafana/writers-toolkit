@@ -340,24 +340,24 @@ Formats a list with columns. Content is equally divided between columns.
 ```markdown
 {{</* column-list */>}}
 
-- [Alertmanager]({{< relref "./alertmanager" >}})
-- [Amazon CloudWatch]({{< relref "./aws-cloudwatch" >}})
-- [Azure Monitor]({{< relref "./azure-monitor" >}})
-- [Elasticsearch]({{< relref "./elasticsearch" >}})
-- [Google Cloud Monitoring]({{< relref "./google-cloud-monitoring" >}})
-- [Graphite]({{< relref "./graphite" >}})
-- [InfluxDB]({{< relref "./influxdb" >}})
-- [Jaeger]({{< relref "./jaeger" >}})
-- [Loki]({{< relref "./loki" >}})
-- [Microsoft SQL Server (MSSQL)]({{< relref "./mssql" >}})
-- [MySQL]({{< relref "./mysql" >}})
-- [OpenTSDB]({{< relref "./opentsdb" >}})
-- [PostgreSQL]({{< relref "./postgres" >}})
-- [Prometheus]({{< relref "./prometheus" >}})
-- [Pyroscope]({{< relref "./pyroscope" >}})
-- [Tempo]({{< relref "./tempo" >}})
-- [Testdata]({{< relref "./testdata" >}})
-- [Zipkin]({{< relref "./zipkin" >}})
+- Alertmanager
+- Amazon CloudWatch
+- Azure Monitor
+- Elasticsearch
+- Google Cloud Monitoring
+- Graphite
+- InfluxDB
+- Jaeger
+- Loki
+- Microsoft SQL Server (MSSQL)
+- MySQL
+- OpenTSDB
+- PostgreSQL
+- Prometheus
+- Pyroscope
+- Tempo
+- Testdata
+- Zipkin
 
 {{</* /column-list */>}}
 ```
@@ -366,24 +366,24 @@ Produces:
 
 {{< column-list >}}
 
-- [Alertmanager]({{< relref "./alertmanager" >}})
-- [Amazon CloudWatch]({{< relref "./aws-cloudwatch" >}})
-- [Azure Monitor]({{< relref "./azure-monitor" >}})
-- [Elasticsearch]({{< relref "./elasticsearch" >}})
-- [Google Cloud Monitoring]({{< relref "./google-cloud-monitoring" >}})
-- [Graphite]({{< relref "./graphite" >}})
-- [InfluxDB]({{< relref "./influxdb" >}})
-- [Jaeger]({{< relref "./jaeger" >}})
-- [Loki]({{< relref "./loki" >}})
-- [Microsoft SQL Server (MSSQL)]({{< relref "./mssql" >}})
-- [MySQL]({{< relref "./mysql" >}})
-- [OpenTSDB]({{< relref "./opentsdb" >}})
-- [PostgreSQL]({{< relref "./postgres" >}})
-- [Prometheus]({{< relref "./prometheus" >}})
-- [Pyroscope]({{< relref "./pyroscope" >}})
-- [Tempo]({{< relref "./tempo" >}})
-- [Testdata]({{< relref "./testdata" >}})
-- [Zipkin]({{< relref "./zipkin" >}})
+- Alertmanager
+- Amazon CloudWatch
+- Azure Monitor
+- Elasticsearch
+- Google Cloud Monitoring
+- Graphite
+- InfluxDB
+- Jaeger
+- Loki
+- Microsoft SQL Server (MSSQL)
+- MySQL
+- OpenTSDB
+- PostgreSQL
+- Prometheus
+- Pyroscope
+- Tempo
+- Testdata
+- Zipkin
 
 {{< /column-list >}}
 

@@ -356,7 +356,6 @@ Formats a list with columns. Content is equally divided between columns.
 - Prometheus
 - Pyroscope
 - Tempo
-- Testdata
 - Zipkin
 
 {{</* /column-list */>}}
@@ -382,7 +381,6 @@ Produces:
 - Prometheus
 - Pyroscope
 - Tempo
-- Testdata
 - Zipkin
 
 {{< /column-list >}}

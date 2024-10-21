@@ -341,7 +341,7 @@ Formats a list with columns. Content is equally divided between columns.
 {{</* column-list */>}}
 
 - [Alertmanager]({{< relref "./alertmanager" >}})
-- [AWS CloudWatch]({{< relref "./aws-cloudwatch" >}})
+- [Amazon CloudWatch]({{< relref "./aws-cloudwatch" >}})
 - [Azure Monitor]({{< relref "./azure-monitor" >}})
 - [Elasticsearch]({{< relref "./elasticsearch" >}})
 - [Google Cloud Monitoring]({{< relref "./google-cloud-monitoring" >}})
@@ -358,7 +358,8 @@ Formats a list with columns. Content is equally divided between columns.
 - [Tempo]({{< relref "./tempo" >}})
 - [Testdata]({{< relref "./testdata" >}})
 - [Zipkin]({{< relref "./zipkin" >}})
-  {{</* /column-list */>}}
+
+{{</* /column-list */>}}
 ```
 
 Produces:
@@ -366,7 +367,7 @@ Produces:
 {{< column-list >}}
 
 - [Alertmanager]({{< relref "./alertmanager" >}})
-- [AWS CloudWatch]({{< relref "./aws-cloudwatch" >}})
+- [Amazon CloudWatch]({{< relref "./aws-cloudwatch" >}})
 - [Azure Monitor]({{< relref "./azure-monitor" >}})
 - [Elasticsearch]({{< relref "./elasticsearch" >}})
 - [Google Cloud Monitoring]({{< relref "./google-cloud-monitoring" >}})
@@ -383,7 +384,8 @@ Produces:
 - [Tempo]({{< relref "./tempo" >}})
 - [Testdata]({{< relref "./testdata" >}})
 - [Zipkin]({{< relref "./zipkin" >}})
-  {{< /column-list >}}
+
+{{< /column-list >}}
 
 ## Docs/alias
 

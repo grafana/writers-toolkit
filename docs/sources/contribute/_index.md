@@ -21,14 +21,14 @@ weight: 200
 There are a number of different ways to contribute to documentation at Grafana Labs.
 Choose the one that applies best and learn how you can engage with the documentation team and help by contributing your ideas.
 
-## {{% translate.inline "docs_feedback_report" %}}{{ markdownify (T (.Get 0)) }}{{% /translate.inline %}}
+## {{% translate "docs_feedback_report" %}}
 
 Report a problem when you want to make a suggestion or provide feedback about a topic, but don't want to make the change yourself.
 
 Reporting a problem gives you the freedom to express your ideas without committing language.
 Your suggestion can reflect a small change to wording or can reflect larger, more substantive changes.
 
-You can report a problem through email by clicking the **{{< translate.inline "docs_feedback_report" />}}** link that's at the bottom of every documentation page.
+You can report a problem through email by clicking the **{{< translate "docs_feedback_report" >}}** link that's at the bottom of every documentation page.
 Or you can email [`docs@grafana.com`](mailto:docs@grafana.com) directly:
 
 1. Provide your feedback in the email body.
@@ -37,7 +37,7 @@ Or you can email [`docs@grafana.com`](mailto:docs@grafana.com) directly:
 
 The Grafana Labs documentation team checks the email inbox regularly and responds to emails in a timely fashion.
 
-## {{% translate.inline "docs_feedback_contribute" / %}}
+## {{% translate "docs_feedback_contribute" %}}
 
 If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub.
 
@@ -55,7 +55,7 @@ Small changes might include:
 
 ### Find the source repository
 
-Technical documentation published from public projects have a **{{< translate.inline "docs_feedback_contribute" />}}** link with a pencil icon.
+Technical documentation published from public projects have a **{{< translate "docs_feedback_contribute" >}}** link with a pencil icon.
 Click this link to directly edit the page in GitHub.
 
 <!-- vale Grafana.Timeless = NO -->
@@ -72,7 +72,7 @@ In that case, you can use the GitHub code navigation to try and find the new loc
 
 If pages don't have a **Suggest an edit** link, the documentation isn't open source.
 Only Grafana Labs employees can update closed source documentation.
-If you're not a Grafana Labs employee, you can still [{{< translate.inline "docs_feedback_report" >}}{{ markdownify (T (.Get 0)) }}{{< /translate.inline >}}](#{{< heading.inline "docs_feedback_report" >}}{{ anchorize (markdownify (T (.Get 0))) }}{{< /heading.inline >}}).
+If you're not a Grafana Labs employee, you can still [{{< translate "docs_feedback_report" >}}](#{{< anchorize.inline "docs_feedback_report" >}}{{ anchorize (T (.Get 0)) }}{{< /anchorize.inline >}}).
 
 For example, [Grafana Cloud documentation](https://grafana.com/docs/grafana-cloud/) is in the [website repository](https://github.com/grafana/website).
 
@@ -85,7 +85,7 @@ The list of mounts is in the [website repository Hugo configuration file](https:
 
 ### To edit a page
 
-1. From a page on the documentation website, click **{{< translate.inline "docs_feedback_contribute" />}}**.
+1. From a page on the documentation website, click **{{< translate "docs_feedback_contribute" >}}**.
 1. Make your changes.
 1. Click **Propose changes**.
 

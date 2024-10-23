@@ -55,7 +55,7 @@ Small changes might include:
 
 ### Find the source repository
 
-Technical documentation published from public projects have a **{{< translate "docs_feedback_contribute" >}}** link with a pencil icon.
+The "latest" and "next" versions of documentation published from public projects have a **{{< translate "docs_feedback_contribute" >}}** link with a pencil icon.
 Click this link to directly edit the page in GitHub.
 
 <!-- vale Grafana.Timeless = NO -->

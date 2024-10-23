@@ -37,7 +37,7 @@ Or you can email [`docs@grafana.com`](mailto:docs@grafana.com) directly:
 
 The Grafana Labs documentation team checks the email inbox regularly and responds to emails in a timely fashion.
 
-## {{% translate.inline "docs_feedback_contribute" /%}}
+## {{% translate.inline "docs_feedback_contribute" / %}}
 
 If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub.
 

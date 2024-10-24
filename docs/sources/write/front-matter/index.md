@@ -306,7 +306,7 @@ For `labels.products`, the supported values and the resulting published labels a
 - `oss`: <span class="badge docs-labels__product-oss docs-labels__item">Open source</span>
 
 You should use all labels that apply to the page's content.
-If a page has some open source content, and some Grafana Cloud content, set both labels.
+If a page has some open source content and some Grafana Cloud content, set both labels.
 
 For `labels.stages`, the supported values and the resulting published labels are as follows:
 

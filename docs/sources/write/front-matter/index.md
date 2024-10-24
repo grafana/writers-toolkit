@@ -297,7 +297,7 @@ Ideally, use single terms as opposed to phrases.
 ### Labels
 
 Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
-Only certain labels are supported.
+The website only supports certain labels values.
 
 For `labels.products`, the supported values and the resulting published labels are as follows:
 
@@ -305,11 +305,17 @@ For `labels.products`, the supported values and the resulting published labels a
 - `enterprise`: <span class="badge docs-labels__product-enterprise docs-labels__item">Enterprise</span>
 - `oss`: <span class="badge docs-labels__product-oss docs-labels__item">Open source</span>
 
+You should use all labels that apply to the page's content.
+If a page has some open source content, and some Grafana Cloud content, set both labels.
+
 For `labels.stages`, the supported values and the resulting published labels are as follows:
 
 - `beta`: <span class="badge docs-labels__stage docs-labels__item">Beta</span>
 - `alpha`: <span class="badge docs-labels__stage docs-labels__item">Alpha</span>
 - `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
+
+In general, each page should only have one stage label and it should apply to the whole page.
+If a page has content with multiple different stages, you should use the appropriate [release lifecycle copy](https://grafana.com/docs/release-life-cycle/) in each section.
 
 Labels can be inherited through cascading front matter.
 

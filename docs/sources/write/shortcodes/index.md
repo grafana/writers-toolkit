@@ -333,6 +333,58 @@ compactor:
 
 {{< /collapse >}}
 
+## Column-list
+
+Formats a list with columns. Content is equally divided between columns.
+
+```markdown
+{{</* column-list */>}}
+
+- Alertmanager
+- Amazon CloudWatch
+- Azure Monitor
+- Elasticsearch
+- Google Cloud Monitoring
+- Graphite
+- InfluxDB
+- Jaeger
+- Loki
+- Microsoft SQL Server (MSSQL)
+- MySQL
+- OpenTSDB
+- PostgreSQL
+- Prometheus
+- Pyroscope
+- Tempo
+- Zipkin
+
+{{</* /column-list */>}}
+```
+
+Produces:
+
+{{< column-list >}}
+
+- Alertmanager
+- Amazon CloudWatch
+- Azure Monitor
+- Elasticsearch
+- Google Cloud Monitoring
+- Graphite
+- InfluxDB
+- Jaeger
+- Loki
+- Microsoft SQL Server (MSSQL)
+- MySQL
+- OpenTSDB
+- PostgreSQL
+- Prometheus
+- Pyroscope
+- Tempo
+- Zipkin
+
+{{< /column-list >}}
+
 ## Docs/alias
 
 The `docs/alias` shortcode determines the relative alias between two pages.

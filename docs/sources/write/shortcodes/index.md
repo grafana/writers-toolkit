@@ -1117,6 +1117,30 @@ If you aren't a Grafana Labs employee, request changes by [creating an issue](ht
 For terms with multiple definitions, follow the common dictionary practice of numbering each alternative.
 For an example, refer to the definition of [graph](https://www.dictionary.com/browse/graph).
 
+## Translate
+
+The `translate` shortcode looks up a key in the Hugo internationalization tables and returns the word or phrase referenced by that key in the page's language.
+
+The website uses internationalization tables to translate some words and phrases in page template HTML like the **{{< translate "docs_feedback_heading" >}}** heading.
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| position 0 | Lookup key  | yes      |
+
+The shortcode requires a single argument which is the lookup key.
+For example, `{{</* translate "docs_feedback_heading" */>}}`.
+Employees of Grafana Labs can look up the keys in the [internationalization directory](https://github.com/grafana/website/blob/master/i18n/).
+
+### Examples
+
+```markdown
+{{</* translate "docs_feedback_heading" */>}}
+```
+
+Produces:
+
+{{< translate "docs_feedback_heading" >}}
+
 ## Vimeo
 
 The `vimeo` shortcode embeds videos hosted on vimeo.com.
@@ -1126,7 +1150,7 @@ The `vimeo` shortcode embeds videos hosted on vimeo.com.
 | position 0 | Video ID    | yes      |
 
 The shortcode requires a single argument which is the video ID.
-For example, `{{</* vimeo 1111111*/>}}`.
+For example, `{{</* vimeo 1111111 */>}}`.
 
 You can find the video ID at the end of the URL.
 In this example, the video is a Preview of Tempo 2.0 and TraceQL: `https://vimeo.com/773194063`.

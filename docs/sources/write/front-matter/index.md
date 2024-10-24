@@ -297,7 +297,7 @@ Ideally, use single terms as opposed to phrases.
 ### Labels
 
 Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
-The website only supports certain labels values.
+The website only supports certain label values.
 
 For `labels.products`, the supported values and the resulting published labels are as follows:
 

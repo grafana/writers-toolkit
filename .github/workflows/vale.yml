@@ -32,4 +32,5 @@ jobs:
       - name: Run linter
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./scripts/docs/vale/run-linter
+          TO_LINT: ${{ steps.from-comment.outputs.to-lint
+        run: echo "${TO_LINT}"

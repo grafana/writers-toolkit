@@ -17,6 +17,8 @@ module.exports = async ({ context, core, github }) => {
     .filter((file) => file.additions > 0)
     .map((file) => file.filename);
 
+  core.debug(`Modified files: ${modifiedFiles.join(" ")}`);
+
   // Expect file paths as unordered Markdown list preceded by any number of whitespace characters.
   const commentFiles = body
     .split("\n")
@@ -26,6 +28,8 @@ module.exports = async ({ context, core, github }) => {
     .map((line) => {
       return line.trim().replace(/^\s*[-*]\s*/, "");
     });
+
+  core.debug(`Comment files: ${commentFiles.join(" ")}`);
 
   if (!commentFiles.length) {
     core.setOutput("to-lint", modifiedFiles.join(" "));

@@ -17,7 +17,7 @@ module.exports = async ({ context, core, github }) => {
   core.debug(`Files for PR #${context.issue.number}: ${files.length}`);
 
   const modifiedFiles = files
-    .filter((file) => file.additions > 0)
+    .filter((file) => file.status === "modified" || file.status === "added")
     .map((file) => file.filename);
 
   core.debug(`Modified files: ${modifiedFiles.join(" ")}`);

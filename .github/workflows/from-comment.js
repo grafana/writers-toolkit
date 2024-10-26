@@ -4,7 +4,7 @@
 // https://github.com/actions/github-script#run-a-separate-file-with-an-async-function
 // const script = require('./scripts/docs/vale/from-comment.js');
 //
-// async script({ core, context });
+// async script({ core, context, github });
 module.exports = async ({ context, core, github }) => {
   const body = context.payload.comment.body || "";
 

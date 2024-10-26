@@ -8,11 +8,14 @@
 module.exports = async ({ context, core, github }) => {
   const body = context.payload.comment.body || "";
 
+  core.debug(`Querying files for PR #${context.issue.number}`);
   const { data: files } = await github.rest.pulls.listFiles({
     owner: context.repo.owner,
     repo: context.repo.repo,
     pull_number: context.issue.number,
   });
+  core.debug(`Files for PR #${context.issue.number}: ${files.length}`);
+
   const modifiedFiles = files
     .filter((file) => file.additions > 0)
     .map((file) => file.filename);

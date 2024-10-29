@@ -70,7 +70,7 @@ August 24 - October 8 is the period before the new version branch is cut.
 
 This is the most common scenario.
 
-### After the new version branch is cut but *before* it’s released
+### After the new version branch is cut but _before_ it’s released
 
 This is the time period covering approximately the last two weeks before a release. During this time, content that’s intended for the upcoming release version needs to be backported. For example:
 

@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   doc-validator:
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     container:
       image: grafana/doc-validator:v4.0.0
@@ -26,6 +27,7 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   prettier:
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -57,6 +59,7 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,6 +83,7 @@ jobs:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   report-readability:
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     name: Report readability
     runs-on: ubuntu-latest
     steps:

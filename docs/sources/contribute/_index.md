@@ -37,7 +37,7 @@ Or you can email [`docs@grafana.com`](mailto:docs@grafana.com) directly:
 
 The Grafana Labs documentation team checks the email inbox regularly and responds to emails in a timely fashion.
 
-## {{% translate "docs_feedback_contribute" %}}
+## {{% translate "docs_feedback_suggest" %}}
 
 If you want to recommend a small change, such as suggesting a correction to a topic, you can edit the topic directly in GitHub.
 
@@ -55,7 +55,7 @@ Small changes might include:
 
 ### Find the source repository
 
-The "latest" and "next" versions of documentation published from public projects have a **{{< translate "docs_feedback_contribute" >}}** link with a pencil icon.
+The "latest" and "next" versions of documentation published from public projects have a **{{< translate "docs_feedback_suggest" >}}** link with a pencil icon.
 Click this link to directly edit the page in GitHub.
 
 <!-- vale Grafana.Timeless = NO -->
@@ -85,7 +85,7 @@ The list of mounts is in the [website repository Hugo configuration file](https:
 
 ### To edit a page
 
-1. From a page on the documentation website, click **{{< translate "docs_feedback_contribute" >}}**.
+1. From a page on the documentation website, click **{{< translate "docs_feedback_suggest" >}}**.
 1. Make your changes.
 1. Click **Propose changes**.
 

@@ -61,7 +61,7 @@ One thing that can change that determination, however, is where we are in the re
 
 ### Before the new version branch is cut
 
-This is the time period between the date the “latest” version was released and the upcoming version branch is cut. For example:
+This is the time period between the date the "latest version was released and the upcoming version branch is cut. For example:
 
 - Grafana v11.2 released August 27, 2024
 - Grafana v11.3 version branch cut October 8, 2024
@@ -85,9 +85,9 @@ From October 8 - 22, the new version branch is cut but hasn’t yet been release
 
 | Change type                                       | Before version branch is cut       | After version branch is cut                           |
 |---------------------------------------------------|------------------------------------|-------------------------------------------------------|
-| Typo                                              | “Latest” version                   | “Latest” version + upcoming version                   |
-| Copy edits                                        | “Latest” version                   | “Latest” version + upcoming version                   |
-| Architecture change                               | “Latest” version                   | “Latest” version + upcoming version                   |
+| Typo                                              | "Latest" version                   | "Latest" version + upcoming version                   |
+| Copy edits                                        | "Latest" version                   | "Latest" version + upcoming version                   |
+| Architecture change                               | "Latest" version                   | "Latest" version + upcoming version                   |
 | Incorrect information                             | [Supported versions](https://grafana.com/docs/grafana/latest/upgrade-guide/when-to-upgrade/#what-to-know-about-version-support) | [Supported versions](https://grafana.com/docs/grafana/latest/upgrade-guide/when-to-upgrade/#what-to-know-about-version-support) + upcoming version |
 | New content for version in upcoming release       | None                               | Upcoming version                                      |
 | New content for version after upcoming release    | None                               | None                                                  |

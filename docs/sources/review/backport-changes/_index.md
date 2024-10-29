@@ -50,37 +50,47 @@ Apply the label if it exists to ensure the content is automatically backported t
 
 If you decide to _not_ backport a change, you don't need to add any label.
 
-## When to backport
+## When and what to backport
 
-To decide whether to backport a pull request, use the following decision tree:
+The table below outlines:
 
-<!-- vale Grafana.Timeless = NO -->
+- Whether or not you must backport a change
+- To which versions
 
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
-<div class="mermaid">
-  flowchart TD
-  D1{Is the change documenting a new feature?}
-  D2{Is the feature going to be released in a future version of the project that doesn't yet have a release branch?}
-  D3{Is the change a fix for a typo?}
-  D4{Is the change a documentation refactoring?}
-  T1[Do nothing.]
-  T2[Add a backport label for each affected release version.]
-  T3[Update this flowchart as the decision making process is incomplete.]
-  T4[Backport the change to release branch for the next version of the project.]
-  D1 -- Yes --> D2
-  D1 -- No -->  D3
-  D2 -- Yes --> T1
-  D2 -- No -->  T4
-  D3 -- Yes --> T2
-  D3 -- No -->  D4
-  D4 -- Yes --> T4
-  D4 -- No -->  T3
-</div>
+One thing that can change that determination, however, is where we are in the release cycle.
 
-<!-- vale Grafana.Timeless = YES -->
+### Before the new version branch is cut
+
+This is the time period between the date the “latest” version was released and the upcoming version branch is cut. For example:
+
+- Grafana v11.2 released August 27, 2024
+- Grafana v11.3 version branch cut October 8, 2024
+
+August 24 - October 8 is the period before the new version branch is cut.
+
+This is the most common scenario.
+
+### After the new version branch is cut but *before* it’s released
+
+This is the time period covering approximately the last two weeks before a release. During this time, content that’s intended for the upcoming release version needs to be backported. For example:
+
+- Grafana v11.3 version branch cut October 8, 2024
+- Grafana v11.3 released October 22, 2024
+
+From October 8 - 22, the new version branch is cut but hasn’t yet been released.
+
+### Guidance
+
+| Change type                                       | Before version branch is cut | After version branch is cut              |
+|---------------------------------------------------|------------------------------|------------------------------------------|
+| Typo                                              | “Latest” version             | “Latest” version + upcoming version      |
+| Copy edits                                        | “Latest” version             | “Latest” version + upcoming version      |
+| Architecture change                               | “Latest” version             | “Latest” version + upcoming version      |
+| Incorrect information                             | Supported versions           | Supported versions + upcoming version    |
+| New content for version in upcoming release       | None                         | Upcoming version                         |
+| New content for version after upcoming release    | None                         | None                                     |
+
+If you want to backport more than the guidance, that’s at your discretion. This table outlines minimum standards.
 
 ## Backport tutorials
 

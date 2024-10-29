@@ -7,6 +7,7 @@ on:
 
 jobs:
   main:
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     permissions:
       contents: read
       id-token: write

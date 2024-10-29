@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 permissions:
   contents: read
   id-token: write
 
 jobs:
   build:
+    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
 
     steps:

@@ -52,7 +52,7 @@ If you decide to _not_ backport a change, you don't need to add any label.
 
 ## When and what to backport
 
-The table below outlines:
+The [table below](#guidance) outlines:
 
 - Whether or not you must backport a change
 - To which versions
@@ -81,14 +81,18 @@ From October 8 - 22, the new version branch is cut but hasn’t yet been release
 
 ### Guidance
 
-| Change type                                       | Before version branch is cut | After version branch is cut              |
-|---------------------------------------------------|------------------------------|------------------------------------------|
-| Typo                                              | “Latest” version             | “Latest” version + upcoming version      |
-| Copy edits                                        | “Latest” version             | “Latest” version + upcoming version      |
-| Architecture change                               | “Latest” version             | “Latest” version + upcoming version      |
-| Incorrect information                             | Supported versions           | Supported versions + upcoming version    |
-| New content for version in upcoming release       | None                         | Upcoming version                         |
-| New content for version after upcoming release    | None                         | None                                     |
+<!-- prettier-ignore-start -->
+
+| Change type                                       | Before version branch is cut       | After version branch is cut                           |
+|---------------------------------------------------|------------------------------------|-------------------------------------------------------|
+| Typo                                              | “Latest” version                   | “Latest” version + upcoming version                   |
+| Copy edits                                        | “Latest” version                   | “Latest” version + upcoming version                   |
+| Architecture change                               | “Latest” version                   | “Latest” version + upcoming version                   |
+| Incorrect information                             | [Supported versions](https://grafana.com/docs/grafana/latest/upgrade-guide/when-to-upgrade/#what-to-know-about-version-support) | [Supported versions](https://grafana.com/docs/grafana/latest/upgrade-guide/when-to-upgrade/#what-to-know-about-version-support) + upcoming version |
+| New content for version in upcoming release       | None                               | Upcoming version                                      |
+| New content for version after upcoming release    | None                               | None                                                  |
+
+<!-- prettier-ignore-end -->
 
 If you want to backport more than the guidance, that’s at your discretion. This table outlines minimum standards.
 

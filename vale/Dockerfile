@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:alpine as reviewdog
+FROM --platform=${BUILDPLATFORM} golang:alpine AS reviewdog
 ARG TARGETOS TARGETARCH
 
 ENV REVIEWDOG_VERSION=0.16.0
@@ -15,10 +15,11 @@ RUN echo "${REVIEWDOG_CHECKSUM}  reviewdog.tar.gz" \
 RUN tar zxf reviewdog.tar.gz -C /src
 
 WORKDIR "/src/reviewdog-${REVIEWDOG_VERSION}"
-RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o reviewdog ./cmd/reviewdog
+RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o reviewdog ./cmd/reviewdog
 RUN mv reviewdog /out
 
-FROM --platform=${TARGETPLATFORM} jdkato/vale:v3.4.2
+################################################################################
+FROM jdkato/vale:v3.8.0
 
 ENV DICPATH=/etc/vale/dictionaries
 

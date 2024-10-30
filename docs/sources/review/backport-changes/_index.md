@@ -52,7 +52,7 @@ If you decide to _not_ backport a change, you don't need to add any label.
 
 ## When to backport
 
-This guidance is general. Refer to [When and what to backport in grafana/grafana](#when-and-what-to-backport-in-grafanagrafana) for specific guidance about `grafana/grafana`.
+This guidance is general. Refer to [When and what to backport in `grafana/grafana`](#when-and-what-to-backport-in-grafanagrafana) for specific guidance about `grafana/grafana`.
 
 <!-- prettier-ignore-start -->
 
@@ -67,7 +67,7 @@ This guidance is general. Refer to [When and what to backport in grafana/grafana
 
 <!-- prettier-ignore-end -->
 
-## When and what to backport in grafana/grafana
+## When and what to backport in `grafana/grafana`
 
 This section outlines backport guidance specifically for the `grafana/grafana` repository.
 
@@ -76,7 +76,7 @@ The [table below](#guidance) outlines:
 - Whether or not you must backport a change
 - To which versions
 
-One thing that can change that determination, however, is where we are in the release cycle.
+One thing that can change that determination, however, is whether or not a version branch has been cut.
 
 ### Before the new version branch is cut
 

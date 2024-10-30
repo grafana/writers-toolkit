@@ -71,7 +71,7 @@ This guidance is general. Refer to [When and what to backport in `grafana/grafan
 
 This section outlines backport guidance specifically for the `grafana/grafana` repository.
 
-The [table below](#guidance) outlines:
+The [later table](#guidance) outlines:
 
 - Whether or not you must backport a change
 - To which versions

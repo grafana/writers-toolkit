@@ -50,7 +50,26 @@ Apply the label if it exists to ensure the content is automatically backported t
 
 If you decide to _not_ backport a change, you don't need to add any label.
 
-## When and what to backport
+## When to backport
+
+This guidance is general. Refer to [When and what to backport in grafana/grafana](#when-and-what-to-backport-in-grafanagrafana) for specific guidance about `grafana/grafana`.
+
+<!-- prettier-ignore-start -->
+
+| Change type                                       | Versions           |
+|---------------------------------------------------|--------------------|
+| Typo                                              | "Latest" version   |
+| Copy edits                                        | "Latest" version   |
+| Architecture change                               | "Latest" version   |
+| Incorrect information                             | Supported versions |
+| New content for version in upcoming release       | None               |
+| New content for version after upcoming release    | None               |
+
+<!-- prettier-ignore-end -->
+
+## When and what to backport in grafana/grafana
+
+This section outlines backport guidance specifically for the `grafana/grafana` repository.
 
 The [table below](#guidance) outlines:
 
@@ -70,14 +89,14 @@ August 24 - October 8 is the period before the new version branch is cut.
 
 This is the most common scenario.
 
-### After the new version branch is cut but _before_ it’s released
+### After the new version branch is cut but _before_ it's released
 
-This is the time period covering approximately the last two weeks before a release. During this time, content that’s intended for the upcoming release version needs to be backported. For example:
+This is the time period covering approximately the last two weeks before a release. During this time, content that's intended for the upcoming release version needs to be backported. For example:
 
 - Grafana v11.3 version branch cut October 8, 2024
 - Grafana v11.3 released October 22, 2024
 
-From October 8 - 22, the new version branch is cut but hasn’t yet been released.
+From October 8 - 22, the new version branch is cut but hasn't yet been released.
 
 ### Guidance
 
@@ -94,7 +113,7 @@ From October 8 - 22, the new version branch is cut but hasn’t yet been release
 
 <!-- prettier-ignore-end -->
 
-If you want to backport more than the guidance, that’s at your discretion. This table outlines minimum standards.
+If you want to backport more than the guidance, that's at your discretion. This table outlines minimum standards.
 
 ## Backport tutorials
 

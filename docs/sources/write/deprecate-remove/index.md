@@ -129,4 +129,4 @@ Search engines can take time to update their indexes after you remove a page.
 Until search engines update their indexes, users see 404s for the page linked from search results.
 
 To speed up the re-indexing process, reach out to the `#seo` channel in Slack.
-You need to provide the full URL of the removed page and then, the team can then submit it for removal from the search engine index.
+You need to provide the full URL of the removed page, and then the team can then submit it for removal from the search engine index.

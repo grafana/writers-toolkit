@@ -26,6 +26,7 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 | Added guidance to use paragraphs in What's new notes.                 | [Guidelines for What's new content](https://grafana.com/docs/writers-toolkit/contribute/release-notes/#guidelines-for-whats-new-content)                                                                |
 | Added _kebab case_ and _single pane of glass_ to word list.           | [Word list - kebab case](/docs/writers-toolkit/write/style-guide/word-list/#kebab-case) and [Word list - single pane of glass](/docs/writers-toolkit/write/style-guide/word-list/#single-pane-of-glass) |
 | Added second menu icon image to UI elements list.                     | [UI elements list](/docs/writers-toolkit/write/style-guide/ui-elements/)                                                                                                                                |
+| Removed "main menu" from menu icon description in UI elements list.   | [UI elements list](/docs/writers-toolkit/write/style-guide/ui-elements/)                                                                                                                                |
 
 ## September 2024
 

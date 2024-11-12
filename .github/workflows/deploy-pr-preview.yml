@@ -1,0 +1,19 @@
+name: Deploy pr preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - closed
+
+jobs:
+  deploy-pr-preview:
+    uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@robbymilo/deploy-preview
+    with:
+      sha: ${{ github.event.pull_request.head.sha }}
+      branch: ${{ github.ref_name }}
+      event_number: ${{ github.event.number }}
+      title: ${{ github.event.pull_request.title }}
+      repo: writers-toolkit
+      website_directory: content/docs/writers-toolkit

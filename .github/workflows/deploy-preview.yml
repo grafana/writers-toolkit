@@ -1,0 +1,99 @@
+name: deploy-preview
+
+on:
+  workflow_call:
+    inputs:
+      sha:
+        required: true
+        type: string
+      branch:
+        required: true
+        type: string
+      event_number:
+        required: true
+        type: string
+      title:
+        required: true
+        type: string
+      repo:
+        required: true
+        type: string
+      source_directory:
+        default: docs/sources
+        type: string
+      website_directory:
+        required: true
+        type: string
+
+env:
+  CLOUD_RUN_REGION: us-south1
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build website
+        shell: bash
+        run: |
+          mkdir -p ${PWD}/dist
+          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'hugo --environment=docs --destination=dist/ --baseURL= --minify'
+
+      - name: Build image
+        shell: bash
+        run: |
+          docker build . -f ./deploy-preview/Dockerfile -t ${{ inputs.repo }}:${{ inputs.sha }}
+          docker run ${{ inputs.repo }}:${{ inputs.sha }} sh -c 'ls -al /usr/share/nginx/dist/docs/writers-toolkit/'
+
+      - name: Build and push image to GAR
+        id: push-to-gar
+        if: github.event.action != 'closed'
+        uses: grafana/shared-workflows/actions/push-to-gar-docker@main
+        with:
+          registry: us-docker.pkg.dev
+          tags: |-
+            "${{ inputs.sha }}"
+            "${{ inputs.event_number }}"
+          context: .
+          image_name: ${{ inputs.repo }}
+          environment: dev
+          push: true
+          file: ./deploy-preview/Dockerfile
+
+      - uses: "google-github-actions/auth@v2.1.6"
+        id: gcloud-auth-cloud-run
+        with:
+          workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
+          service_account: "github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com"
+
+      - name: Deploy to Cloud Run
+        uses: "google-github-actions/deploy-cloudrun@v2.7.2"
+        if: github.event.action != 'closed'
+        id: deploy
+        with:
+          image: us-docker.pkg.dev/grafanalabs-dev/docker-writers-toolkit-dev/${{ inputs.repo }}:${{ inputs.sha }}
+          service: deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
+          project_id: grafanalabs-dev
+          region: us-south1
+          flags: --port=80 --ingress=all --allow-unauthenticated
+
+      - name: Send commit status
+        uses: ouzi-dev/commit-status-updater@v2
+        if: github.event.action != 'closed'
+        with:
+          name: deploy_preview
+          status: "${{ job.status }}"
+          url: "${{ steps.outputs.outputs.url }}"
+          description: "Public deploy preview"

@@ -50,7 +50,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p ${PWD}/dist
-          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'hugo --environment=production --destination=dist/ --baseURL= --minify'
+          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'hugo --environment=docs --destination=dist/ --baseURL= --minify'
 
       - name: Build and push image to GAR
         id: push-to-gar

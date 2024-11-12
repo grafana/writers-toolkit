@@ -90,5 +90,5 @@ jobs:
         with:
           name: deploy_preview
           status: "${{ job.status }}"
-          url: "${{ steps.outputs.outputs.url }}{{ $inputs.relative_prefix }}"
+          url: "${{ steps.outputs.outputs.url }}"
           description: "Public deploy preview"

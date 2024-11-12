@@ -24,6 +24,9 @@ on:
       website_directory:
         required: true
         type: string
+      relative_prefix:
+        required: true
+        type: string
 
 env:
   CLOUD_RUN_REGION: us-south1
@@ -49,13 +52,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p ${PWD}/dist
-          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'hugo --environment=docs --destination=dist/ --baseURL= --minify'
-
-      - name: Build image
-        shell: bash
-        run: |
-          docker build . -f ./deploy-preview/Dockerfile -t ${{ inputs.repo }}:${{ inputs.sha }}
-          docker run ${{ inputs.repo }}:${{ inputs.sha }} sh -c 'ls -al /usr/share/nginx/dist/docs/writers-toolkit/'
+          docker run -v ${PWD}/deploy-preview/config.yaml:/hugo/config/docs/config.yaml -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'HUGO_SSI=true hugo --environment=production --destination=dist/ --baseURL= --minify'
 
       - name: Build and push image to GAR
         id: push-to-gar
@@ -95,5 +92,5 @@ jobs:
         with:
           name: deploy_preview
           status: "${{ job.status }}"
-          url: "${{ steps.outputs.outputs.url }}"
+          url: "${{ steps.outputs.outputs.url }}{{ $inputs.relative_prefix }}"
           description: "Public deploy preview"

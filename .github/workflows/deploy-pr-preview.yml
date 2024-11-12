@@ -17,3 +17,4 @@ jobs:
       title: ${{ github.event.pull_request.title }}
       repo: writers-toolkit
       website_directory: content/docs/writers-toolkit
+      relative_prefix: /docs/writers-toolkit/

@@ -35,13 +35,13 @@ There are some situations where you must mention another company, such as in dat
 
 ### Don't document third-party products
 
+<!-- vale Grafana.We = NO -->
+
 When documenting how our products integrate with partner products, document our usage of them, but don't document the product itself.
 
 Whenever possible, structure documentation so that you can link to the appropriate location in the third-party documentation.
 
 ## Address users clearly
-
-<!-- vale Grafana.We = NO -->
 
 To address users clearly and directly, use second person ("you") and avoid first person ("I", "our", or "we").
 Use first person plural pronouns like 'our' carefully.

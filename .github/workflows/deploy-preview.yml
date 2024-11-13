@@ -66,19 +66,20 @@ jobs:
           environment: dev
           push: true
           file: ./deploy-preview/Dockerfile
+          repository_name: docker-docs-previews-dev
 
       - uses: "google-github-actions/auth@v2.1.6"
         id: gcloud-auth-cloud-run
         with:
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
-          service_account: "github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com"
+          service_account: "github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com"
 
       - name: Deploy to Cloud Run
         uses: "google-github-actions/deploy-cloudrun@v2.7.2"
         if: github.event.action != 'closed'
         id: deploy
         with:
-          image: us-docker.pkg.dev/grafanalabs-dev/docker-writers-toolkit-dev/${{ inputs.repo }}:${{ inputs.sha }}
+          image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}:${{ inputs.sha }}
           service: deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
           project_id: grafanalabs-dev
           region: us-south1

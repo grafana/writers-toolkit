@@ -57,7 +57,7 @@ jobs:
         with:
           token_format: access_token
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
-          service_account: github-docs-deploy-previews-dev@grafanalabs-workload-identity.iam.gserviceaccount.com
+          service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
           create_credentials_file: false
 
       - name: Login to GAR

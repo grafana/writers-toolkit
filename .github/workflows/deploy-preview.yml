@@ -94,7 +94,7 @@ jobs:
         id: gcloud-auth-cloud-run
         with:
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
-          service_account: "github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com"
+          service_account: "github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com"
 
       - name: Deploy to Cloud Run
         uses: "google-github-actions/deploy-cloudrun@v2.7.2"

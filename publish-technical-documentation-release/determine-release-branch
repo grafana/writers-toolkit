@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -euf -o pipefail
+
+function usage {
+  cat <<EOF
+Return the first release branch matching the provided branch regular expression that contains the provided tag.
+
+Usage:
+  $0 <BRANCH REGEXP> <TAG>
+
+Examples:
+  $0 '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.x$' v11.3.1
+EOF
+}
+
+if [[ $# -ne 2 ]]; then
+  usage
+
+  exit 2
+fi
+
+BRANCH_REGEXP="$1"
+TAG="$2"
+
+for branch in $(git branch -a --contains "tags/${TAG}"); do
+  branch="${branch#remotes/origin/}";
+
+  if [[ "${branch}" =~ ${BRANCH_REGEXP} ]]; then
+    echo "${branch}";
+
+    exit 0;
+  fi;
+done
+
+exit 1

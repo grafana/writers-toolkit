@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## November 2024
+
+| New guidance or change                                                           | Page                                                                     |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Added _drawer_ to UI elements and updated description and image for _main menu_. | [UI elements list](/docs/writers-toolkit/write/style-guide/ui-elements/) |
+
 ## October 2024
 
 | New guidance or change                                                | Page                                                                                                                                                                                                    |

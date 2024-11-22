@@ -14,7 +14,7 @@ message: |
   The spell checker doesn't check words with code formatting.
 level: error
 append: true
-dicpath: dictionaries
+dicpath: config/dictionaries
 dictionaries:
   - en_US-grafana
   - en_US-places

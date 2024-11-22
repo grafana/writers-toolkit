@@ -14,23 +14,23 @@ help:
 PODMAN := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
 GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
-DICTIONARIES := dictionaries/en_US-grafana.dic
+DICTIONARIES := Grafana/styles/config/dictionaries/en_US-grafana.dic
 TESTS := fixtures/Grafana
-STYLES := Grafana/Google Grafana/Readability
-RULES := Grafana/Acronyms.yml Grafana/AmazonProductNames.yml Grafana/ApacheProjectNames.yml Grafana/GoogleProductNames.yml Grafana/Headings.yml Grafana/ProductPossessives.yml Grafana/WordList.yml
+STYLES := Grafana/styles/Grafana/GrafanaGoogle Grafana/styles/Grafana/Readability
+RULES := Grafana/styles/Grafana/Acronyms.yml Grafana/styles/Grafana/AmazonProductNames.yml Grafana/styles/Grafana/ApacheProjectNames.yml Grafana/styles/Grafana/GoogleProductNames.yml Grafana/styles/Grafana/Headings.yml Grafana/styles/Grafana/ProductPossessives.yml Grafana/styles/Grafana/WordList.yml
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
-$(DOCUMENTATION): $(wildcard Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
+$(DOCUMENTATION): $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
 	cd ../tools/ && go run ./cmd/generate-documentation ../ tools/cmd/generate-documentation vale/Grafana docs/sources/review/lint-prose/rules.md
 	prettier -w $(DOCUMENTATION)
 
-dictionaries/en_US-grafana.%: dictionary.libsonnet
+Grafana/styles/config/dictionaries/en_US-grafana.%: dictionary.libsonnet
 	$(MAKE) -C $(@D) $(@F)
 
 .PHONY: grafana/vale
 grafana/vale: ## Builds a container image for Vale with the Grafana style loaded.
-grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic Grafana/Google .vale.ini
+grafana/vale: Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/GrafanaGoogle .vale.ini
 	$(PODMAN) build \
 		--platform linux/x86_64,linux/arm64 \
 		--progress plain \
@@ -40,7 +40,7 @@ grafana/vale: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic Graf
 
 .PHONY: grafana/vale/push
 grafana/vale/push: ## Builds and pushes container image for Vale with the Grafana style loaded.
-grafana/vale/push: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic Grafana/Google .vale.ini
+grafana/vale/push: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini
 	$(PODMAN) build \
 		--platform linux/x86_64,linux/arm64 \
 		--progress plain \
@@ -60,21 +60,21 @@ sync:
 	jsonnet -Se "(import '.vale.jsonnet').container" | sed '$${/^$$/d;}' > .vale.ini
 	jsonnet -Se "(import '.vale.jsonnet').repository" | sed '$${/^$$/d;}' > ../.vale.ini
 
-.PHONY: Grafana/Google
-Grafana/Google: ## Generate the Grafana style from the Google style.
-Grafana/Google: google.jsonnet
+.PHONY: Grafana/styles/Grafana/GrafanaGoogle
+Grafana/styles/Grafana/GrafanaGoogle: ## Generate the Grafana style from the Google style.
+Grafana/styles/Grafana/GrafanaGoogle: google.jsonnet
 	rm -f "$$(jsonnet -Se 'std.join(" ", std.objectFields(import "google.jsonnet"))')"
 	jsonnet -S -m . google.jsonnet
 	prettier -w $@*.yml
 
-Grafana/%.yml: ## Generate Grafana style rules from the corresponding Jsonnet file.
-Grafana/%.yml: %.jsonnet
+Grafana/styles/Grafana/%.yml: ## Generate Grafana style rules from the corresponding Jsonnet file.
+Grafana/styles/Grafana/%.yml: %.jsonnet
 	jsonnet -S $< > $@
 	prettier -w $@
 
-.PHONY: Grafana/Readability
-Grafana/Readability: ## Generate the Grafana style from the Readability style.
-Grafana/Readability: readability.jsonnet
+.PHONY: Grafana/styles/Grafana/Readability
+Grafana/styles/Grafana/Readability: ## Generate the Grafana style from the Readability style.
+Grafana/styles/Grafana/Readability: readability.jsonnet
 	rm -f $@*.yml
 	jsonnet -S -m . readability.jsonnet
 	prettier -w $@*.yml
@@ -82,10 +82,16 @@ Grafana/Readability: readability.jsonnet
 fixtures/Grafana/%: ## Generate the scaffolding to test a new Grafana Vale rule.
 fixtures/Grafana/%:
 	mkdir -p $@
-	printf 'StylesPath = ../../../\nMinAlertLevel = suggestion\n[*.md]\nGrafana.%s = YES\n' $(@F) > $@/.vale.ini
+	printf 'MinAlertLevel = suggestion\n[*.md]\nGrafana.%s = YES\n' $(@F) > $@/.vale.ini
 	touch $@/test{,in}valid.{golden,md}
 
 .PHONY: fixtures/Grafana
 fixtures/Grafana: ## Recreate the golden files for all the Grafana Vale rule fixtures.
 fixtures/Grafana:
 	find $@ -maxdepth 1 -mindepth 1 -print -exec /bin/bash -c 'cd {}; vale --output=line testvalid.md > testvalid.golden; vale --output=line testinvalid.md > testinvalid.golden; cd -' \;
+
+.PHONY: Grafana.zip
+Grafana.zip: ## Create an archive of the Grafana Vale style.
+Grafana.zip:
+	rm -f $@
+	zip -r Grafana.zip Grafana

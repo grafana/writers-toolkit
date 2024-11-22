@@ -666,7 +666,7 @@ Extends: capitalization
 
 Use sentence-style capitalization for _`<CURRENT TEXT>`_.
 
-If your heading contains capitalized words that represent product names, you need to add those words as exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/Headings.yml for them to be considered correctly cased.
+If your heading contains capitalized words that represent product names, you need to add those words as exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/styles/GrafanaHeadings.yml for them to be considered correctly cased.
 
 Vale considers multi-word exceptions such as _Grafana Enterprise Metrics_ as a single correctly cased word.
 

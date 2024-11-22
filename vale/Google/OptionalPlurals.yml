@@ -6,7 +6,7 @@ nonword: true
 action:
   name: edit
   params:
-    - remove
+    - trim_right
     - "(s)"
 tokens:
   - '\b\w+\(s\)'

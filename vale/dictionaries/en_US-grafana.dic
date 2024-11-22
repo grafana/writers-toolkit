@@ -1,4 +1,4 @@
-302
+303
 ACL/S po:noun
 AI Observability/ po:noun
 Adaptive Metrics/ po:noun
@@ -26,6 +26,7 @@ blocklist/DGS po:verb
 blocklist/S po:noun
 blockquote/S po:noun
 boolean/ po:noun
+BoringCrypto/ po:noun
 BPF/ po:noun
 Brotli/ po:noun
 burndown/ po:adjective

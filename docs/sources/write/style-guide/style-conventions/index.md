@@ -33,6 +33,16 @@ Avoid mentioning other companies in technical documentation. Competitive content
 
 There are some situations where you must mention another company, such as in data source plugin documentation or a migration guide. Otherwise, avoid doing so.
 
+### Don't document third-party products
+
+<!-- vale Grafana.We = NO -->
+
+When documenting how our products integrate with partner products, document our usage of them, but don't document the product itself.
+
+Whenever possible, structure documentation so that you can link to the appropriate location in the third-party documentation.
+
+<!-- vale Grafana.We = YES -->
+
 ## Address users clearly
 
 <!-- vale Grafana.We = NO -->

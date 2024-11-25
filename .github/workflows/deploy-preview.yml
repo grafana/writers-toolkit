@@ -53,13 +53,12 @@ jobs:
         with:
           repository: "grafana/writers-toolkit"
           ref: "robbymilo/deploy-preview"
-          sparse-checkout: |
-            deploy-preview
+          path: deploy-preview-files
 
       - name: test
         run: |
           ls -al
-          ls -al deploy-preview
+          ls -al deploy-preview-files
 
       - name: Build website
         shell: bash
@@ -104,7 +103,7 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          file: ./deploy-preview/Dockerfile
+          file: ./deploy-preview-files/Dockerfile
 
       - uses: "google-github-actions/auth@v2.1.6"
         id: gcloud-auth-cloud-run

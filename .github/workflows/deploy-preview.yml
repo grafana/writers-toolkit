@@ -65,7 +65,8 @@ jobs:
         shell: bash
         run: |
           mkdir -p ${PWD}/dist
-          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'hugo --environment=docs --destination=dist/ --baseURL= --minify'
+          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify'
+          printf "%s" "add_header 'Build' '"${{ inputs.sha }}"';" > build.conf
 
       - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
         id: gcloud-auth

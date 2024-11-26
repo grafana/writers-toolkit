@@ -63,6 +63,12 @@ jobs:
           body: |
             :building_construction: Updating deploy preview...
 
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@6189d56e4096ee891640bb02ac264be376592d6a # v2.1.2
+        if: github.event.action == 'closed'
+        with:
+          project_id: grafanalabs-dev
+
       - name: Delete deploy preview
         if: github.event.action == 'closed'
         run: |

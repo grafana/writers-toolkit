@@ -129,7 +129,6 @@ jobs:
           file: ./deploy-preview-files/deploy-preview/Dockerfile
 
       - uses: "google-github-actions/auth@v2.1.6"
-        if: github.event.action == 'closed'
         id: gcloud-auth-cloud-run
         with:
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"

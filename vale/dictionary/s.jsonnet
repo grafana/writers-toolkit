@@ -24,7 +24,7 @@ local word = import './word.jsonnet';
   word.new('SQLite', '', 'noun') { swaps: { sqlite: 'SQLite' } },
   word.new('SRE', 'S', 'noun') { abbreviation: true, elaboration: 'site reliability engineering' },
   word.new('SSD', 'S', 'noun') { abbreviation: true, elaboration: 'solid-state drive', established_abbreviation: true },
-  word.new('SSM', '', 'noun') { abbreviation: true, description: 'Amazon Services Systems Manager', established_abbreviation: true product: true },
+  word.new('SSM', '', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Services Systems Manager', established_abbreviation: true product: true },
   word.new('SSH', '', 'noun') { abbreviation: true, elaboration: 'Secure Shell', established_abbreviation: true },
   word.new('SSL', '', 'noun') { abbreviation: true, elaboration: 'Secure Sockets Layer', established_abbreviation: true },
   word.new('SSO', '', 'noun') { abbreviation: true, elaboration: 'single sign-on', established_abbreviation: true },

@@ -64,6 +64,7 @@ jobs:
             :building_construction: Updating deploy preview...
 
       - uses: actions/checkout@v4
+        if: github.event.action != 'closed'
 
       # get the Dockerfile and nginx conf
       - name: Sparse checkout
@@ -77,6 +78,7 @@ jobs:
             deploy-preview
 
       - name: Build website
+        if: github.event.action != 'closed'
         shell: bash
         run: |
           mkdir -p ${PWD}/dist
@@ -92,6 +94,7 @@ jobs:
           create_credentials_file: false
 
       - name: Login to GAR
+        if: github.event.action != 'closed'
         uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
         with:
           registry: us-docker.pkg.dev
@@ -99,6 +102,7 @@ jobs:
           password: ${{ steps.gcloud-auth.outputs.access_token }}
 
       - name: Extract metadata (tags, labels) for Docker
+        if: github.event.action != 'closed'
         id: meta
         uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
         with:
@@ -108,11 +112,13 @@ jobs:
             "${{ inputs.event_number }}"
 
       - name: Set up Docker Buildx
+        if: github.event.action != 'closed'
         uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
         with:
           driver: docker-container
 
       - name: Build the container
+        if: github.event.action != 'closed'
         uses: docker/build-push-action@4f58ea79222b3b9dc2c8bbdd6debcef730109a75 # v6.9.0
         id: build
         with:
@@ -122,6 +128,7 @@ jobs:
           file: ./deploy-preview-files/deploy-preview/Dockerfile
 
       - uses: "google-github-actions/auth@v2.1.6"
+        if: github.event.action != 'closed'
         id: gcloud-auth-cloud-run
         with:
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"

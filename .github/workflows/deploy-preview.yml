@@ -36,7 +36,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -44,6 +44,30 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - name: Find comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: fc
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: "github-actions[bot]"
+          body-includes: Deploy preview available
+
+      - name: Update comment with in-progress deploy preview
+        if: steps.fc.outputs.comment-id != '' && github.event.action != 'closed'
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: append
+          append-separator: newline
+          body: |
+            :building_construction: Updating deploy preview...
+
+      - name: Delete deploy preview
+        if: github.event.action == 'closed'
+        run: |
+          gcloud run services delete deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }} --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
+
       - uses: actions/checkout@v4
 
       # get the Dockerfile and nginx conf
@@ -56,11 +80,6 @@ jobs:
           path: deploy-preview-files
           sparse-checkout: |
             deploy-preview
-
-      - name: test
-        run: |
-          ls -al
-          ls -al deploy-preview-files
 
       - name: Build website
         shell: bash
@@ -121,7 +140,7 @@ jobs:
           image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}:${{ inputs.sha }}
           service: deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
           project_id: grafanalabs-dev
-          region: us-south1
+          region: ${{ env.CLOUD_RUN_REGION }}
           flags: --port=80 --ingress=all --allow-unauthenticated
 
       - name: Send commit status
@@ -132,3 +151,31 @@ jobs:
           status: "${{ job.status }}"
           url: "${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}"
           description: "Public deploy preview"
+
+      - name: Create comment with available deploy preview
+        if: github.event.action != 'closed' && steps.fc.outputs.comment-id == ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          body: |
+            :computer: Deploy preview available: ${{ steps.deploy_preview_url.outputs.url }}
+
+      - name: Update comment with deleted deploy preview
+        if: github.event.action == 'closed'
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            :computer: Deploy preview deleted.
+
+      - name: Update comment with available deploy preview
+        if: github.event.action != 'closed' && steps.fc.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: replace
+          body: |
+            :computer: Deploy preview available: ${{ steps.deploy_preview_url.outputs.url }}

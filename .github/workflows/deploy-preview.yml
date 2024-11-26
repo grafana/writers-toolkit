@@ -63,17 +63,6 @@ jobs:
           body: |
             :building_construction: Updating deploy preview...
 
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@6189d56e4096ee891640bb02ac264be376592d6a # v2.1.2
-        if: github.event.action == 'closed'
-        with:
-          project_id: grafanalabs-dev
-
-      - name: Delete deploy preview
-        if: github.event.action == 'closed'
-        run: |
-          gcloud run services delete deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }} --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
-
       - uses: actions/checkout@v4
 
       # get the Dockerfile and nginx conf
@@ -148,6 +137,17 @@ jobs:
           project_id: grafanalabs-dev
           region: ${{ env.CLOUD_RUN_REGION }}
           flags: --port=80 --ingress=all --allow-unauthenticated
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@6189d56e4096ee891640bb02ac264be376592d6a # v2.1.2
+        if: github.event.action == 'closed'
+        with:
+          project_id: grafanalabs-dev
+
+      - name: Delete deploy preview
+        if: github.event.action == 'closed'
+        run: |
+          gcloud run services delete deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }} --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@v2

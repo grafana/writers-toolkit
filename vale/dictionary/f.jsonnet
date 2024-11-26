@@ -7,5 +7,6 @@ local word = import './word.jsonnet';
   word.new('filename', 'S', 'noun') { swaps: { 'file name': 'filename', 'file names': 'filenames' } },
   word.new('Firehose', 'M', 'noun') { Amazon: true, product: true },
   word.new('firewall rules', '', 'noun') { swaps: { firewalls: 'firewall rules' } },
+  word.new('FreeBSD', '', 'noun'), { description: 'FreeBSD operating system', product: true }
   word.new('frontend', 'S', 'noun') { swaps: { 'front[ -]end': 'frontend', 'front[ -]ends': 'frontends' } },
 ]

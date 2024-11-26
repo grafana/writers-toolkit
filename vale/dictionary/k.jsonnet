@@ -10,4 +10,5 @@ local word = import './word.jsonnet';
   word.new('kubelet', '', 'noun'),
   word.new('Kubernetes', '', 'noun') { product: true, swap: '(?:[kK]8s|kubernetes)' },
   word.new('Kubernetes Engine', '', 'noun') { Google: true, product: true },
+  word.new('Kustomize', '', 'noun') { description: 'A Kubernetes native configuration management tool.', product: true },
 ]

@@ -10,6 +10,7 @@ local word = import './word.jsonnet';
   word.new('deliverable', 'S', 'noun'),
   word.new('disaggregate', 'DS', 'verb'),
   word.new('distroless', '', 'adjective'),
+  word.new('DNS', '', 'noun') { abbreviation: true, description: 'Domain Name System', established_abbreviation: true },
   word.new('DOM', '', 'noun') { abbreviation: true, elaboration: 'Document Object Model', established_abbreviation: true },
   word.new("don'ts", '', 'noun'),
   word.new('downsample', 'DG', 'verb'),

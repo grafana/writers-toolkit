@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('ACL', 'S', 'noun') { abbreviation: true },
+  word.new('ADOT', '', 'noun') { abbreviation: true, description: 'AWS Distro for OpenTelemetry', established_abbreviation: true product: true },
   word.new('AI Observability', '', 'noun') { product: true, swaps: { 'Grafana AI observability': 'Grafana AI Observability' } },
   word.new('Adaptive Metrics', '', 'noun') { swaps: { '\\b(?:[aA]daptive metrics|adaptive Metrics)\\b': 'Adaptive Metrics' } },
   word.new('Aerospike', '', 'noun'),
@@ -15,8 +16,11 @@ local word = import './word.jsonnet';
   word.new('Apdex', '', 'noun'),
   word.new('API', 'S', 'noun') { abbreviation: true, elaboration: 'Application Programming Interface', established_abbreviation: true },
   word.new('APT', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/APT_(software)', elaboration: 'Advanced package tool', established_abbreviation: true },
+  word.new('ARN', '', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Resource Name', established_abbreviation: true, product: true },
   word.new('Asserts', '', 'noun') { description: 'https://grafana.com/products/cloud/asserts/', product: true },
   word.new('autoscale', 'DGS', 'verb'),
   word.new('autoscaler', 'S', 'noun'),
   word.new('AWS', '', 'noun') { abbreviation: true, elaboration: 'Amazon Web Services', established_abbreviation: true, product: true },
+  word.new('AWS Distro for OpenTelemetry Collector', '', 'noun') { Amazon: true, description: 'An AWS-supported distribution of the OpenTelemetry project.', product: true },
+  word.new('AWS X-Ray', '', 'noun') { Amazon: true, description: 'A service that collects data about requests that your application serves.', product: true },
 ]

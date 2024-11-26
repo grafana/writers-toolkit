@@ -171,7 +171,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
 
       - name: Update comment with deleted deploy preview
         if: github.event.action == 'closed'
@@ -191,4 +191,4 @@ jobs:
           issue-number: ${{ inputs.event_number }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}

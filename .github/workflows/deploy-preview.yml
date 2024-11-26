@@ -1,0 +1,194 @@
+name: deploy-preview
+
+on:
+  workflow_call:
+    inputs:
+      sha:
+        required: true
+        type: string
+      branch:
+        required: true
+        type: string
+      event_number:
+        required: true
+        type: string
+      title:
+        required: true
+        type: string
+      repo:
+        required: true
+        type: string
+      source_directory:
+        default: docs/sources
+        type: string
+      website_directory:
+        required: true
+        type: string
+      relative_prefix:
+        required: true
+        type: string
+
+env:
+  CLOUD_RUN_REGION: us-south1
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: fc
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: "github-actions[bot]"
+          body-includes: Deploy preview available
+
+      - name: Update comment with in-progress deploy preview
+        if: steps.fc.outputs.comment-id != '' && github.event.action != 'closed'
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: append
+          append-separator: newline
+          body: |
+            :building_construction: Updating deploy preview...
+
+      - uses: actions/checkout@v4
+        if: github.event.action != 'closed'
+
+      # get the Dockerfile and nginx conf
+      - name: Sparse checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event.action != 'closed'
+        with:
+          repository: "grafana/writers-toolkit"
+          ref: "robbymilo/deploy-preview"
+          path: deploy-preview-files
+          sparse-checkout: |
+            deploy-preview
+
+      - name: Build website
+        if: github.event.action != 'closed'
+        shell: bash
+        run: |
+          mkdir -p ${PWD}/dist
+          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify'
+          printf "%s" "add_header 'Build' '"${{ inputs.sha }}"';" > build.conf
+
+      - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
+        if: github.event.action != 'closed'
+        id: gcloud-auth
+        with:
+          token_format: access_token
+          workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
+          service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
+          create_credentials_file: false
+
+      - name: Login to GAR
+        if: github.event.action != 'closed'
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        with:
+          registry: us-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.gcloud-auth.outputs.access_token }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        if: github.event.action != 'closed'
+        id: meta
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
+        with:
+          images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}"
+          tags: |-
+            "${{ inputs.sha }}"
+            "${{ inputs.event_number }}"
+
+      - name: Set up Docker Buildx
+        if: github.event.action != 'closed'
+        uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
+        with:
+          driver: docker-container
+
+      - name: Build the container
+        if: github.event.action != 'closed'
+        uses: docker/build-push-action@4f58ea79222b3b9dc2c8bbdd6debcef730109a75 # v6.9.0
+        id: build
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          file: ./deploy-preview-files/deploy-preview/Dockerfile
+
+      - uses: "google-github-actions/auth@v2.1.6"
+        id: gcloud-auth-cloud-run
+        with:
+          workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
+          service_account: "github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com"
+
+      - name: Deploy to Cloud Run
+        uses: "google-github-actions/deploy-cloudrun@v2.7.2"
+        if: github.event.action != 'closed'
+        id: deploy
+        with:
+          image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}:${{ inputs.sha }}
+          service: deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
+          project_id: grafanalabs-dev
+          region: ${{ env.CLOUD_RUN_REGION }}
+          flags: --port=80 --ingress=all --allow-unauthenticated
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@6189d56e4096ee891640bb02ac264be376592d6a # v2.1.2
+        if: github.event.action == 'closed'
+        with:
+          project_id: grafanalabs-dev
+
+      - name: Delete deploy preview
+        if: github.event.action == 'closed'
+        run: |
+          gcloud run services delete deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }} --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
+
+      - name: Send commit status
+        uses: ouzi-dev/commit-status-updater@v2
+        if: github.event.action != 'closed'
+        with:
+          name: deploy_preview
+          status: "${{ job.status }}"
+          url: "${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}"
+          description: "Public deploy preview"
+
+      - name: Create comment with available deploy preview
+        if: github.event.action != 'closed' && steps.fc.outputs.comment-id == ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          body: |
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}
+
+      - name: Update comment with deleted deploy preview
+        if: github.event.action == 'closed'
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            :computer: Deploy preview deleted.
+
+      - name: Update comment with available deploy preview
+        if: github.event.action != 'closed' && steps.fc.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: replace
+          body: |
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}

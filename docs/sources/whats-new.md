@@ -5,6 +5,7 @@ description: |
 keywords:
   - what's new
   - Grafana
+  - toolkit
 outputs:
   - HTML
   - JSON

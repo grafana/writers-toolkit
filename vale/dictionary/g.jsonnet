@@ -9,6 +9,7 @@ local word = import './word.jsonnet';
   word.new('GNU', '', 'noun') { abbreviation: true, established_abbreviation: true, product: true },
   word.new('Goldmark', '', 'noun') { description: 'Goldmark is a markdown parser written in Go (https://github.com/yuin/goldmark)' },
   word.new('goroutine', 'S', 'noun'),
+  word.new('GPG', '', 'noun') { abbreviation: true, description: 'GNU Privacy Guard', established_abbreviation: true },
   word.new('GPU', 'S', 'noun') { abbreviation: true, elaboration: 'graphics processing unit', established_abbreviation: true },
   word.new('Grafana', '', 'adjective'),
   word.new('Grafana', '', 'noun') { product: true, swaps: { grafana: 'Grafana' } },

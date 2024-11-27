@@ -6,13 +6,15 @@ on:
       - opened
       - synchronize
       - closed
+    # paths:
+    #   - "docs/sources/**"
 
 jobs:
   deploy-pr-preview:
     uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@robbymilo/deploy-preview
     with:
       sha: ${{ github.event.pull_request.head.sha }}
-      branch: ${{ github.ref_name }}
+      branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
       title: ${{ github.event.pull_request.title }}
       repo: writers-toolkit

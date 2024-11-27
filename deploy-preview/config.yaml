@@ -1,0 +1,34 @@
+"Params":
+  "sitemapExclude": "/"
+"build":
+  "buildStatus":
+    "enable": false
+"disableKinds":
+  - "robotstxt"
+  - "rss"
+  - "sitemap"
+  - "taxonomy"
+  - "term"
+"disableLanguages":
+  - "de"
+  - "fr"
+  - "es"
+  - "pt-br"
+  - "zh-cn"
+  - "ja"
+"enableGitInfo": false
+"outputs":
+  "home":
+    [
+      "HTML",
+      "Header",
+      "Footer",
+      "head",
+      "styles",
+      "ssi_footer",
+      "scripts",
+      "Assets",
+    ]
+  "section":
+    - "HTML"
+    - "JSON"

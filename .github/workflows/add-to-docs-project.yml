@@ -45,7 +45,7 @@ jobs:
       - name: Send Slack Message
         id: slack
         if: ${{ steps.add-to-docs-project.outputs.added != ''}}
-        uses: grafana/shared-workflows/actions/send-slack-message@main
+        uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 #v1.0.0
         with:
           channel-id: C05V6A36MB7
           payload: |
@@ -64,7 +64,7 @@ jobs:
 
       - name: Notify failure
         if: failure()
-        uses: grafana/shared-workflows/actions/send-slack-message@main
+        uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 #v1.0.0
         with:
           channel-id: C05V6A36MB7
           payload: |

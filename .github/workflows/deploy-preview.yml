@@ -54,7 +54,7 @@ jobs:
           body-includes: Deploy preview available
 
       - name: Update comment with in-progress deploy preview
-        if: steps.fc.outputs.comment-id != '' && github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: steps.fc.outputs.comment-id != '' && (github.event.action == 'opened' || github.event.action == 'synchronize')
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -167,7 +167,7 @@ jobs:
           description: "Public deploy preview"
 
       - name: Create comment with available deploy preview
-        if: github.event.action == 'opened' || github.event.action == 'synchronize' && steps.fc.outputs.comment-id == ''
+        if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
@@ -185,7 +185,7 @@ jobs:
             :computer: Deploy preview deleted.
 
       - name: Update comment with available deploy preview
-        if: github.event.action == 'opened' || github.event.action == 'synchronize' && steps.fc.outputs.comment-id != ''
+        if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}

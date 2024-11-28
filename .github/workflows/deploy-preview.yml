@@ -54,7 +54,7 @@ jobs:
           body-includes: Deploy preview available
 
       - name: Update comment with in-progress deploy preview
-        if: steps.fc.outputs.comment-id != '' && github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: steps.fc.outputs.comment-id != '' && (github.event.action == 'opened' || github.event.action == 'synchronize')
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}

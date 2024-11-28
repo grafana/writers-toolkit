@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         with:
-          parse-checkout-cone-mode: false
+          sparse-checkout-cone-mode: false # exclude root files
           sparse-checkout: docs
 
       # get the Dockerfile and nginx conf
@@ -87,7 +87,11 @@ jobs:
         run: |
           pwd
           ls -al
-          ls -al ${{ inputs.source_directory }}
+          trimmed_value=$(echo "${{ inputs.source_directory }}" | cut -d'/' -f1)
+          ls -al $trimmed_value
+          find . -mindepth 1 ! -name '$trimmed_value' ! -name '.git' -exec rm -rf {} +
+          ls -al
+          ls -al $trimmed_value
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

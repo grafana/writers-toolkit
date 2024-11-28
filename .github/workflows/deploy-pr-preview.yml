@@ -6,8 +6,8 @@ on:
       - opened
       - synchronize
       - closed
-    # paths:
-    #   - "docs/sources/**"
+    paths:
+      - "docs/sources/**"
 
 jobs:
   deploy-pr-preview:

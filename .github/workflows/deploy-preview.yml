@@ -89,7 +89,7 @@ jobs:
           ls -al
           trimmed_value=$(echo "${{ inputs.source_directory }}" | cut -d'/' -f1)
           ls -al $trimmed_value
-          find . -mindepth 1 ! -name $trimmed_value ! -name deploy-preview ! -name '.git' -exec rm -rf {} +
+          find . -mindepth 1 ! -name $trimmed_value ! -name deploy-preview-files ! -name '.git' -exec rm -rf {} +
           ls -al
           ls -al $trimmed_value
 

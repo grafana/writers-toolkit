@@ -51,7 +51,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           comment-author: "github-actions[bot]"
-          body-includes: Deploy preview available
+          body-includes: test
 
       - name: Update comment with in-progress deploy preview
         if: steps.fc.outputs.comment-id != '' && github.event.action != 'closed'

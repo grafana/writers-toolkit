@@ -68,11 +68,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         with:
           sparse-checkout-cone-mode: false # exclude root files
-          sparse-checkout: |
-            /*
-            !/*.*      # exclude all files in the root directory
-            /docs
-            /deploy-preview-files
+          sparse-checkout: docs
 
       # get the Dockerfile and nginx conf
       - name: Sparse checkout
@@ -93,6 +89,11 @@ jobs:
         run: |
           pwd
           ls -al
+          trimmed_value=$(echo "${{ inputs.source_directory }}" | cut -d'/' -f1)
+          ls -al $trimmed_value
+          find . -mindepth 1 -not \( -path ./$trimmed_value -o -path ./$trimmed_value/* -o -path './deploy-preview-files' -o -path './deploy-preview-files/*' \) -exec rm -rf {} +
+          ls -al
+          ls -al $trimmed_value
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

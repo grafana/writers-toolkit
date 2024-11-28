@@ -81,16 +81,13 @@ jobs:
           sparse-checkout: |
             deploy-preview
 
-      # sparse checkout with cone mode disabled includes root files
+      # sparse checkout with cone mode disabled includes root files, even when using exclusions
       # see https://github.com/actions/checkout/issues/1430#issuecomment-1756326892
       - name: Keep only necessary files
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         run: |
-          pwd
-          ls -al
           trimmed_value=$(echo "${{ inputs.source_directory }}" | cut -d'/' -f1)
-          ls -al $trimmed_value
           find . -mindepth 1 -not \( -path "./$trimmed_value" -o -path "./$trimmed_value/*" -o -path "./deploy-preview-files" -o -path "./deploy-preview-files/*" \) -exec rm -rf {} +
           ls -al
           ls -al $trimmed_value

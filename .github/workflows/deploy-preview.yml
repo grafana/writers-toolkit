@@ -85,6 +85,7 @@ jobs:
         shell: bash
         run: |
           ls -al
+          ls -al ${{ inputs.source_directory }}
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

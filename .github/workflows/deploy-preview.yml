@@ -32,7 +32,7 @@ env:
   CLOUD_RUN_REGION: us-south1
 
 permissions:
-  contents: read
+  issues: read
   id-token: write # Needed for authentication.
   statuses: write # Needed to send deploy preview link as a commit status.
   pull-requests: write # Needed to add/update a comment with the deploy preview link.

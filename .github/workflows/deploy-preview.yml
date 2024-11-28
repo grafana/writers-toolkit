@@ -91,7 +91,7 @@ jobs:
           ls -al
           trimmed_value=$(echo "${{ inputs.source_directory }}" | cut -d'/' -f1)
           ls -al $trimmed_value
-          find . -mindepth 1 -not \( -path ./$trimmed_value -o -path ./$trimmed_value/* -o -path './deploy-preview-files' -o -path './deploy-preview-files/*' \) -exec rm -rf {} +
+          find . -mindepth 1 -not \( -path './$trimmed_value' -o -path './$trimmed_value/*' -o -path './deploy-preview-files' -o -path './deploy-preview-files/*' \) -exec rm -rf {} +
           ls -al
           ls -al $trimmed_value
 

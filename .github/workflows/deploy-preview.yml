@@ -89,7 +89,7 @@ jobs:
         run: |
           ls -al
           shopt -s extglob
-          rm -rf !(docs|deploy-preview|.git)
+          rm -rf !(docs|deploy-preview-files|.git)
           ls -al
 
       - name: Build website

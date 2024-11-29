@@ -66,6 +66,9 @@ jobs:
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        with:
+          sparse-checkout-cone-mode: false # exclude root files
+          sparse-checkout: docs
 
       # get the Dockerfile and nginx conf
       - name: Sparse checkout
@@ -77,6 +80,17 @@ jobs:
           path: deploy-preview-files
           sparse-checkout: |
             deploy-preview
+
+      # sparse checkout with cone mode disabled includes root files, even when using exclusions
+      # see https://github.com/actions/checkout/issues/1430#issuecomment-1756326892
+      - name: Keep only necessary files
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        shell: bash
+        run: |
+          shopt -s extglob
+          rm -rf !(docs|deploy-preview-files|.git)
+          ls -al
+          ls -al ${{ inputs.source_directory }}
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

@@ -88,9 +88,6 @@ jobs:
         shell: bash
         run: |
           ls -al
-          shopt -s extglob
-          rm -rf !(docs|deploy-preview-files|.git)
-          ls -al
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

@@ -2,23 +2,23 @@
 
 docker run \
   -v "${PWD}/dist:/hugo/dist" \
-  -v "${PWD}/${source_directory}:/hugo/${website_directory}" \
-  -e index_file \
-  -e repo \
-  -e website_directory \
+  -v "${PWD}/${SOURCE_DIRECTORY}:/hugo/${WEBSITE_DIRECTORY}" \
+  -e INDEX_FILE \
+  -e REPO \
+  -e WEBSITE_DIRECTORY \
   --rm grafana/docs-base:latest \
   /bin/bash \
     -c '
-if [[ "${index_file}" == "true" ]]; then
+if [[ "${INDEX_FILE}" == "true" ]]; then
   echo "Creating custom _index.md" && \
-  cat > "/hugo/content/docs/${repo}/_index.md" <<EOF
+  cat > "/hugo/content/docs/${REPO}/_index.md" <<EOF
 ---
 type: redirect
-redirectURL: /docs/${repo}/latest/
+redirectURL: /docs/${REPO}/latest/
 versioned: true
 ---
 EOF
 fi
-cat "/hugo/content/docs/${repo}/_index.md"
+cat "/hugo/content/docs/${REPO}/_index.md"
 HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify
 '

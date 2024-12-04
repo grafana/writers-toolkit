@@ -29,7 +29,7 @@ on:
         type: string
       index_file: # creates the necessary project _index.md file for versioned repos
         required: true
-        type: string
+        type: boolean
 
 env:
   CLOUD_RUN_REGION: us-south1

@@ -100,7 +100,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         run: |
-          ./deploy-preview-files/build.sh
+          ./deploy-preview-files/deploy-preview/build.sh
 
       - name: Print build header value
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

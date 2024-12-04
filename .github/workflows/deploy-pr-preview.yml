@@ -20,4 +20,4 @@ jobs:
       repo: writers-toolkit
       website_directory: content/docs/writers-toolkit
       relative_prefix: /docs/writers-toolkit/
-      index_file: false
+      index_file: true

@@ -100,7 +100,7 @@ jobs:
         if: inputs.index_file == true
         shell: bash
         run: |
-          create_index_command=$(echo -e "---\\nredirectURL: \"/docs/${{ inputs.repo }}/latest\"\\ntype: redirect\\nversioned: true\\n---\\n" > "content/docs/${{ inputs.repo }}/_index.md" &&)
+          create_index_command=$("echo -e '---\\nredirectURL:\\s\/docs/${{ inputs.repo }}/latest/\\ntype:\\sredirect\\nversioned:\\strue\\n---\\n' > content/docs/${{ inputs.repo }}/_index.md &&")
           echo "create_index_command=$create_index_command" >> $GITHUB_OUTPUT
 
       - name: Build website

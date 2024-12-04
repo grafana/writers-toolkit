@@ -94,6 +94,7 @@ jobs:
           rm -rf !(docs|deploy-preview-files|.git)
           ls -al
           ls -al ${{ inputs.source_directory }}
+          ls -al deploy-preview-files
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

@@ -2,7 +2,7 @@
 
 docker run \
   -v "${PWD}/dist:/hugo/dist" \
-  -v "${source_directory}:/hugo/${website_directory}" \
+  -v "${PWD}/${source_directory}:/hugo/${website_directory}" \
   -e index_file \
   -e repo \
   -e website_directory \

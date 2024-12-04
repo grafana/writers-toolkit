@@ -7,7 +7,7 @@ cascade:
     products:
       - oss
   public_docs: true
-  replace_dir: docs/writers-toolkit/
+  replace_dir: "docs/writers-toolkit/"
   search_section: Writers' Toolkit
   search_type: doc
 date: "2022-06-23T11:09:48+01:00"

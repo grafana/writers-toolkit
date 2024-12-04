@@ -100,10 +100,10 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         env:
-          source_directory: ${{ inputs.source_directory }}
-          website_directory: ${{ inputs.website_directory }}
-          index_file: ${{ inputs.index_file }}
-          repo: ${{ inputs.repo }}
+          SOURCE_DIRECTORY: ${{ inputs.source_directory }}
+          WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
+          INDEX_FILE: ${{ inputs.index_file }}
+          REPO: ${{ inputs.repo }}
         run: |
           ./deploy-preview-files/deploy-preview/build.sh
 

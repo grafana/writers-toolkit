@@ -112,7 +112,7 @@ jobs:
             -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" \
             --rm grafana/docs-base:latest \
             /bin/bash \
-              -c '${{ steps.create-index.outputs.create_index_command }}"HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify'
+              -c '${{ steps.create-index.outputs.create_index_command }}HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify'
 
       - name: Print build header value
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

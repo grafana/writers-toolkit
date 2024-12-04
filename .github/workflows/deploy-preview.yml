@@ -99,6 +99,10 @@ jobs:
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
+        env:
+          source_directory: ${{ inputs.source_directory }}
+          website_directory: ${{ inputs.website_directory }}
+          index_file: ${{ inputs. index_file }}
         run: |
           ./deploy-preview-files/deploy-preview/build.sh
 

@@ -27,6 +27,9 @@ on:
       relative_prefix:
         required: true
         type: string
+      index_file: # creates the necessary project _index.md file for versioned repos
+        required: true
+        type: string
 
 env:
   CLOUD_RUN_REGION: us-south1
@@ -92,12 +95,29 @@ jobs:
           ls -al
           ls -al ${{ inputs.source_directory }}
 
+      - name: Create _index file
+        id: create-index
+        if: inputs.index_file == true
+        shell: bash
+        run: |
+          create_index_command=$(echo -e "---\\nredirectURL: \"/docs/${{ inputs.repo }}/latest\"\\ntype: redirect\\nversioned: true\\n---\\n" > "content/docs/${{ inputs.repo }}/_index.md" &&)
+          echo "create_index_command=$create_index_command" >> $GITHUB_OUTPUT
+
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         run: |
-          mkdir -p ${PWD}/dist
-          docker run -v ${PWD}/dist:/hugo/dist -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'echo -e "---\\nredirectURL: \"/docs/grafana/latest\"\\ntype: redirect\\nversioned: true\\n---\\n" > "content/docs/grafana/_index.md" && HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify'
+          docker run \
+            -v "${PWD}/dist:/hugo/dist" \
+            -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" \
+            --rm grafana/docs-base:latest \
+            /bin/bash \
+              -c '${{ steps.create-index.outputs.create_index_command }}"HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify'
+
+      - name: Print build header value
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        shell: bash
+        run: |
           printf "%s" "add_header 'Build' '"${{ inputs.sha }}"';" > build.conf
 
       - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7

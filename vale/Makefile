@@ -16,7 +16,7 @@ GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
 DICTIONARIES := Grafana/styles/config/dictionaries/en_US-grafana.dic
 TESTS := fixtures/Grafana
-STYLES := Grafana/styles/Grafana/GrafanaGoogle Grafana/styles/Grafana/Readability
+STYLES := Grafana/styles/Grafana/Google Grafana/styles/Grafana/Readability
 RULES := Grafana/styles/Grafana/Acronyms.yml Grafana/styles/Grafana/AmazonProductNames.yml Grafana/styles/Grafana/ApacheProjectNames.yml Grafana/styles/Grafana/GoogleProductNames.yml Grafana/styles/Grafana/Headings.yml Grafana/styles/Grafana/ProductPossessives.yml Grafana/styles/Grafana/WordList.yml
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
@@ -30,7 +30,7 @@ Grafana/styles/config/dictionaries/en_US-grafana.%: dictionary.libsonnet
 
 .PHONY: grafana/vale
 grafana/vale: ## Builds a container image for Vale with the Grafana style loaded.
-grafana/vale: Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/GrafanaGoogle .vale.ini
+grafana/vale: Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini
 	$(PODMAN) build \
 		--platform linux/x86_64,linux/arm64 \
 		--progress plain \
@@ -60,9 +60,9 @@ sync:
 	jsonnet -Se "(import '.vale.jsonnet').container" | sed '$${/^$$/d;}' > .vale.ini
 	jsonnet -Se "(import '.vale.jsonnet').repository" | sed '$${/^$$/d;}' > ../.vale.ini
 
-.PHONY: Grafana/styles/Grafana/GrafanaGoogle
-Grafana/styles/Grafana/GrafanaGoogle: ## Generate the Grafana style from the Google style.
-Grafana/styles/Grafana/GrafanaGoogle: google.jsonnet
+.PHONY: Grafana/styles/Grafana/Google
+Grafana/styles/Grafana/Google: ## Generate the Grafana style from the Google style.
+Grafana/styles/Grafana/Google: google.jsonnet
 	rm -f "$$(jsonnet -Se 'std.join(" ", std.objectFields(import "google.jsonnet"))')"
 	jsonnet -S -m . google.jsonnet
 	prettier -w $@*.yml

@@ -102,8 +102,8 @@ Use 'AM' or 'PM' (preceded by a space).
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
-- `\d{1,2}[AP]M`
-- `\d{1,2} ?[ap]m`
+- `\d{1,2}[AP]M\b`
+- `\d{1,2} ?[ap]m\b`
 - `\d{1,2} ?[aApP]\.[mM]\.`
 
 [More information ->](https://developers.google.com/style/word-list)
@@ -165,47 +165,43 @@ Extends: substitution
 
 Consider using _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
-| Current text                   | Replacement text              |
-| ------------------------------ | ----------------------------- |
-| `(?:alumnae\|alumni)`          | `graduates`                   |
-| `(?:alumna\|alumnus)`          | `graduate`                    |
-| `air(?:m[ae]n\|wom[ae]n)`      | `pilot(s)`                    |
-| `anchor(?:m[ae]n\|wom[ae]n)`   | `anchor(s)`                   |
-| `authoress`                    | `author`                      |
-| `camera(?:m[ae]n\|wom[ae]n)`   | `camera operator(s)`          |
-| `chair(?:m[ae]n\|wom[ae]n)`    | `chair(s)`                    |
-| `congress(?:m[ae]n\|wom[ae]n)` | `member(s) of congress`       |
-| `door(?:m[ae]\|wom[ae]n)`      | `concierge(s)`                |
-| `draft(?:m[ae]n\|wom[ae]n)`    | `drafter(s)`                  |
-| `fire(?:m[ae]n\|wom[ae]n)`     | `firefighter(s)`              |
-| `fisher(?:m[ae]n\|wom[ae]n)`   | `fisher(s)`                   |
-| `fresh(?:m[ae]n\|wom[ae]n)`    | `first-year student(s)`       |
-| `garbage(?:m[ae]n\|wom[ae]n)`  | `waste collector(s)`          |
-| `lady lawyer`                  | `lawyer`                      |
-| `ladylike`                     | `courteous`                   |
-| `landlord`                     | `building manager`            |
-| `mail(?:m[ae]n\|wom[ae]n)`     | `mail carriers`               |
-| `man and wife`                 | `husband and wife`            |
-| `man enough`                   | `strong enough`               |
-| `mankind`                      | `human kind`                  |
-| `manmade`                      | `manufactured`                |
-| `manpower`                     | `personnel`                   |
-| `men and girls`                | `men and women`               |
-| `middle(?:m[ae]n\|wom[ae]n)`   | `intermediary`                |
-| `news(?:m[ae]n\|wom[ae]n)`     | `journalist(s)`               |
-| `ombuds(?:man\|woman)`         | `ombuds`                      |
-| `oneupmanship`                 | `upstaging`                   |
-| `poetess`                      | `poet`                        |
-| `police(?:m[ae]n\|wom[ae]n)`   | `police officer(s)`           |
-| `repair(?:m[ae]n\|wom[ae]n)`   | `technician(s)`               |
-| `sales(?:m[ae]n\|wom[ae]n)`    | `salesperson or sales people` |
-| `service(?:m[ae]n\|wom[ae]n)`  | `soldier(s)`                  |
-| `steward(?:ess)?`              | `flight attendant`            |
-| `tribes(?:m[ae]n\|wom[ae]n)`   | `tribe member(s)`             |
-| `waitress`                     | `waiter`                      |
-| `woman doctor`                 | `doctor`                      |
-| `woman scientist[s]?`          | `scientist(s)`                |
-| `work(?:m[ae]n\|wom[ae]n)`     | `worker(s)`                   |
+| Current text                  | Replacement text              |
+| ----------------------------- | ----------------------------- |
+| `(?:alumnae\|alumni)`         | `graduates`                   |
+| `(?:alumna\|alumnus)`         | `graduate`                    |
+| `air(?:m[ae]n\|wom[ae]n)`     | `pilot(s)`                    |
+| `anchor(?:m[ae]n\|wom[ae]n)`  | `anchor(s)`                   |
+| `authoress`                   | `author`                      |
+| `camera(?:m[ae]n\|wom[ae]n)`  | `camera operator(s)`          |
+| `door(?:m[ae]\|wom[ae]n)`     | `concierge(s)`                |
+| `draft(?:m[ae]n\|wom[ae]n)`   | `drafter(s)`                  |
+| `fire(?:m[ae]n\|wom[ae]n)`    | `firefighter(s)`              |
+| `fisher(?:m[ae]n\|wom[ae]n)`  | `fisher(s)`                   |
+| `fresh(?:m[ae]n\|wom[ae]n)`   | `first-year student(s)`       |
+| `garbage(?:m[ae]n\|wom[ae]n)` | `waste collector(s)`          |
+| `lady lawyer`                 | `lawyer`                      |
+| `ladylike`                    | `courteous`                   |
+| `mail(?:m[ae]n\|wom[ae]n)`    | `mail carriers`               |
+| `man and wife`                | `husband and wife`            |
+| `man enough`                  | `strong enough`               |
+| `mankind`                     | `human kind\|humanity`        |
+| `manmade`                     | `manufactured`                |
+| `manpower`                    | `personnel`                   |
+| `middle(?:m[ae]n\|wom[ae]n)`  | `intermediary`                |
+| `news(?:m[ae]n\|wom[ae]n)`    | `journalist(s)`               |
+| `ombuds(?:man\|woman)`        | `ombuds`                      |
+| `oneupmanship`                | `upstaging`                   |
+| `poetess`                     | `poet`                        |
+| `police(?:m[ae]n\|wom[ae]n)`  | `police officer(s)`           |
+| `repair(?:m[ae]n\|wom[ae]n)`  | `technician(s)`               |
+| `sales(?:m[ae]n\|wom[ae]n)`   | `salesperson or sales people` |
+| `service(?:m[ae]n\|wom[ae]n)` | `soldier(s)`                  |
+| `steward(?:ess)?`             | `flight attendant`            |
+| `tribes(?:m[ae]n\|wom[ae]n)`  | `tribe member(s)`             |
+| `waitress`                    | `waiter`                      |
+| `woman doctor`                | `doctor`                      |
+| `woman scientist[s]?`         | `scientist(s)`                |
+| `work(?:m[ae]n\|wom[ae]n)`    | `worker(s)`                   |
 
 [More information ->](https://developers.google.com/style/inclusive-documentation)
 
@@ -217,7 +213,7 @@ _`<CURRENT TEXT>`_ doesn't need a hyphen.
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
-- `\s[^\s-]+ly-`
+- `\b[^\s-]+ly-\w+\b`
 
 [More information ->](https://developers.google.com/style/hyphens)
 

@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-09-19"
+review_date: "2024-12-05"
 title: Vale rules
 ---
 

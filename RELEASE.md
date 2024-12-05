@@ -54,7 +54,7 @@ To release a new version of the Writers' Toolkit Vale package:
 
    The Vale package follow [semantic versioning](https://semver.org).
 
-1. Using the checked out tag, create an archive of the [`vale`](./vale/) directory.
+1. Using the checked out tag, create an archive of the [Vale package directory](./vale/Grafana).
 
    ```console
    cd vale && make Grafana.zip

@@ -12,6 +12,7 @@ help:
 	@awk 'BEGIN {FS = ": ##"; printf "Usage:\n  make <target>\n\nTargets:\n"} /^[a-zA-Z0-9_\.\-\/% ]+: ##/ { printf "  %-45s %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
 
 PODMAN := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
+SHORT_SHA := $(shell git rev-parse --short HEAD)
 GIT_ROOT := $(shell git rev-parse --show-toplevel)
 
 DICTIONARIES := Grafana/styles/config/dictionaries/en_US-grafana.dic
@@ -31,23 +32,24 @@ Grafana/styles/config/dictionaries/en_US-grafana.%: dictionary.libsonnet
 .PHONY: grafana/vale
 grafana/vale: ## Builds a container image for Vale with the Grafana style loaded.
 grafana/vale: Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini
-	$(PODMAN) build \
+	podman manifest create --amend grafana/vale:latest
+	podman manifest create --amend grafana/vale:$(SHORT_SHA)
+	podman buildx build \
+		--manifest grafana/vale:latest \
 		--platform linux/x86_64,linux/arm64 \
 		--progress plain \
-		--tag grafana/vale:$(shell git rev-parse --short HEAD) \
-		--tag grafana/vale:latest \
+			.
+	podman buildx build \
+		--manifest grafana/vale:$(SHORT_SHA) \
+		--platform linux/x86_64,linux/arm64 \
+		--progress plain \
 			.
 
 .PHONY: grafana/vale/push
 grafana/vale/push: ## Builds and pushes container image for Vale with the Grafana style loaded.
-grafana/vale/push: dictionaries/en_US-grafana.aff dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini
-	$(PODMAN) build \
-		--platform linux/x86_64,linux/arm64 \
-		--progress plain \
-		--push \
-		--tag grafana/vale:$(shell git rev-parse --short HEAD) \
-		--tag grafana/vale:latest \
-			.
+grafana/vale/push: grafana/vale
+	podman manifest push localhost/grafana/vale:latest docker://docker.io/grafana/vale:latest
+	podman manifest push localhost/grafana/vale:$(SHORT_SHA) docker://docker.io/grafana/vale:$(SHORT_SHA)
 
 .PHONY: sync
 sync: ## Update the vendored Google style.

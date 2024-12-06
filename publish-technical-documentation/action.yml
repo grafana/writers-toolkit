@@ -49,6 +49,7 @@ runs:
       uses: ./.github/actions/website-sync
       id: publish
       with:
+        allow_no_changes: true
         repository: grafana/website
         branch: master
         host: github.com

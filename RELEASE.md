@@ -12,7 +12,7 @@ The following directories contain GitHub Actions actions:
 - [`publish-technical-documentation-release`](./publish-technical-documentation-release/)
 
 You release each action by creating or updating Git tags.
-The Git tag is begins with the action directory followed by a slash (`/`) and then the tag version.
+The Git tag begins with the action directory, then a slash (`/`), and then the tag version.
 For example, `publish-technical-documentation-release/v1.0.0` is the v1.0.0 release of the `publish-technical-documentation-release` action.
 
 The actions follow [semantic versioning](https://semver.org/).

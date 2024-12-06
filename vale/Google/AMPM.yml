@@ -4,6 +4,6 @@ link: "https://developers.google.com/style/word-list"
 level: error
 nonword: true
 tokens:
-  - '\d{1,2}[AP]M'
-  - '\d{1,2} ?[ap]m'
+  - '\d{1,2}[AP]M\b'
+  - '\d{1,2} ?[ap]m\b'
   - '\d{1,2} ?[aApP]\.[mM]\.'

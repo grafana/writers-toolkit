@@ -1,7 +1,7 @@
 "action":
   "name": "edit"
   "params":
-    - "replace"
+    - "regex"
     - "-"
     - " "
 "extends": "existence"
@@ -11,4 +11,4 @@
 "message": "'%s' doesn't need a hyphen."
 "nonword": true
 "tokens":
-  - "\\s[^\\s-]+ly-"
+  - "\\b[^\\s-]+ly-\\w+\\b"

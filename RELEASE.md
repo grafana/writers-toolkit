@@ -52,7 +52,7 @@ To release a new version of the Writers' Toolkit Vale package:
 
 1. Create a new tag for the release with the form `vale/<VERSION>`.
 
-   The Vale package follow [semantic versioning](https://semver.org).
+   The Vale package follows [semantic versioning](https://semver.org).
 
 1. Using the checked out tag, create an archive of the [Vale package directory](./vale/Grafana).
 

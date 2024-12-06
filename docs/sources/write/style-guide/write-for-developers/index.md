@@ -37,7 +37,7 @@ For dos and don'ts of writing comments, refer to the [Guidelines for code commen
 
 For more general advice, consult one of the reputable [Google Style Guides](https://google.github.io/styleguide/) for your programming language.
 
-## Reference docs
+## Reference documentation
 
 Whenever possible, automatically generate API and other reference documentation from source-code comments.
 However documentation is created, make sure it conforms to the [style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/).
@@ -84,6 +84,14 @@ Additional tips:
   Instead, add a plural noun to describe them.
   For example, don't change `MyEvent` to `MyEvents`; refer to the `MyEvent` objects.
 - If the element does some sort of action, start the first sentence of the description with an action verb.
+
+### Reference structure
+
+Organize references alphabetically, organizing by frequency of use is too subjective.
+
+If the reference has required and optional components, document them separately.
+Document the required components first, then the optional components.
+Organize each set of components alphabetically.
 
 ## Code examples
 

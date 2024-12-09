@@ -21,7 +21,7 @@ if [[ $# -ne 2 ]]; then
 fi
 
 BRANCH_REGEXP="$1"
-TAG="$2"
+TAG="${2#refs/tags/}"
 
 for branch in $(git branch -a --contains "tags/${TAG}"); do
   branch="${branch#remotes/origin/}";

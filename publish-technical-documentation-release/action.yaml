@@ -41,6 +41,10 @@ inputs:
   source_directory:
     default: docs/sources
     description: Path to source directory, relative to the project root, to sync documentation from.
+  website_branch:
+    default: master
+    description: |
+      Website repository branch to sync the documentation to.
   website_directory:
     description: |
       Website directory to sync the documentation to.
@@ -127,7 +131,7 @@ runs:
       id: publish-release
       with:
         repository: grafana/website
-        branch: master
+        branch: ${{ inputs.website_branch }}
         host: github.com
         github_pat: grafanabot:${{ env.PUBLISH_TO_WEBSITE_TOKEN }}
         source_folder: ${{ inputs.source_directory }}

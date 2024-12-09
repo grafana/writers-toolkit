@@ -182,7 +182,12 @@ jobs:
       - name: Delete deploy preview
         if: github.event.action == 'closed'
         run: |
-          gcloud run services delete deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }} --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
+          SERVICE_NAME=deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
+          if gcloud run services describe $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev > /dev/null 2>&1; then
+            gcloud run services delete $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
+          else
+            echo "Service $SERVICE_NAME does not exist. Skipping step."
+          fi
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2

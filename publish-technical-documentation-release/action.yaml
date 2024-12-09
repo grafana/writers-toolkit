@@ -67,6 +67,7 @@ runs:
         RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
       run: |
         branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
+        echo ${branch}
 
         if [[ -z "${branch}" ]]; then
           echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."

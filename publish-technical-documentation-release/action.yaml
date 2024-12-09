@@ -58,6 +58,25 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Switch to HEAD of branch for tags
+      # Tags aren't necessarily made to the HEAD of the branch.
+      # The documentation to be published is always on the HEAD of the branch.
+      if: steps.has-matching-release-tag.outputs.bool == 'true' && github.ref_type == 'tag'
+      env:
+        GITHUB_REF: ${{ github.ref }}
+        RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
+      run: |
+        branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
+
+        if [[ -z "${branch}" ]]; then
+          echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."
+
+          exit 1
+        fi
+
+        git switch --detach "origin/${branch}"
+      shell: bash
+
     - name: Build website
       shell: bash
       run: |
@@ -105,25 +124,6 @@ runs:
       id: target
       with:
         ref_name: ${{ github.ref_name }}
-
-    - name: Switch to HEAD of version branch for tags
-      # Tags aren't necessarily made to the HEAD of the version branch.
-      # The documentation to be published is always on the HEAD of the release branch.
-      if: steps.has-matching-release-tag.outputs.bool == 'true' && github.ref_type == 'tag'
-      env:
-        GITHUB_REF: ${{ github.ref }}
-        RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
-      run: |
-        branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
-
-        if [[ -z "${branch}" ]]; then
-          echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."
-
-          exit 1
-        fi
-
-        git switch --detach "origin/${branch}"
-      shell: bash
 
     - name: Sync to the website repository (release)
       if: steps.has-matching-release-tag.outputs.bool == 'true'

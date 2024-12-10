@@ -724,7 +724,7 @@ Headings are offset by one level, so if the source content contains an `h1`, the
 
 ## Fixed-table
 
-The `fixed-table` shortcode allows the column contents to be wrapped to a new line at any character.
+The `fixed-table` shortcode prevents column overflow by breaking content to a new line at any character, not just spaces between words.
 
 ### Example
 

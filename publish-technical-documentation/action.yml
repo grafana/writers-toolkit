@@ -22,6 +22,7 @@ runs:
     - name: Build website
       shell: bash
       run: |
+        echo ${{ inputs.source_directory }}
         docker run -v "${PWD}/${{ inputs.source_directory }}:/hugo/${{ inputs.website_directory }}" --rm grafana/docs-base:latest /bin/bash -c 'make hugo'
 
     - id: get-secrets

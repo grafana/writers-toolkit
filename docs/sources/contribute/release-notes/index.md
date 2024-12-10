@@ -43,7 +43,7 @@ _Quality assurance is a conversation within and between contributing teams and i
 Enter release notes into the CMS two to four weeks before the feature is available, depending on the size of the product or feature.
 This gives the Go To Market (GTM) team time for promotion and enablement.
 For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team.
-For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://grafana-intranet--simpplr.vf.force.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000004oOF7AAM).
+For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://wiki.grafana-ops.net/w/index.php/Engineering/RADS).
 
 It's important to understand that, in the context of the CMS, the word "published" has a slightly different meaning than in general use:
 

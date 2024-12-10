@@ -335,7 +335,7 @@ compactor:
 
 ## Column-list
 
-Formats a list with columns. Content is equally divided between columns unless specified.
+Formats a list with columns. Content is equally divided between columns unless specified with the `count` argument.
 
 | Parameter | Description                                                                                | Required |
 | --------- | ------------------------------------------------------------------------------------------ | -------- |

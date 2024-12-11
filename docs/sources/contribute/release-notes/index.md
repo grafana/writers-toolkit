@@ -98,13 +98,7 @@ To understand the process of creating release notes for Grafana versioned releas
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
 {{< /admonition >}}
 
-<!-- vale Grafana.Headings = NO -->
-
-
-### CMS fields
-
-
-<!-- vale Grafana.Headings = YES -->
+### Content management system (CMS) fields
 
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- prettier-ignore-start -->

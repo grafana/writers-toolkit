@@ -1,7 +1,7 @@
 "action":
   "name": "edit"
   "params":
-    - "remove"
+    - "trim_right"
     - "."
 "extends": "existence"
 "level": "warning"

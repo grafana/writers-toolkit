@@ -10,7 +10,6 @@ local word = import './word.jsonnet';
   word.new('CLI', '', 'noun') { abbreviation: true, established_abbreviation: true },
   word.new('CloudWatch', '', 'noun') { Amazon: true, product: true },
   word.new('CLS', '', 'noun') { abbreviation: true, elaboration: 'Cumulative Layout Shift' },
-  word.new('CMS', '', 'noun') { abbreviation: true, elaboration: 'content management system' },
   word.new('codespace', 'S', 'noun') { description: "A codespace is a development environment that's hosted in the cloud. https://docs.github.com/en/codespaces/overview" },
   word.new('Codespaces', '', 'noun') { description: 'GitHub Codespaces https://docs.github.com/en/codespaces/overview', product: true },
   word.new('composable', '', 'adjective'),

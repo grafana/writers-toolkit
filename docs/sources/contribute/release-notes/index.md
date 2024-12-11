@@ -53,6 +53,8 @@ It's important to understand that, in the context of the CMS, the word "publishe
 
 ### Create a What's new entry
 
+<!-- vale Grafana.GoogleWill = NO -->
+
 When you're ready to add a What's new entry, complete the following steps:
 
 1. Fill out [the CMS fields](#cms-fields).
@@ -61,15 +63,11 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. Preview your entry in context.
 
-<!-- vale Grafana.GoogleWill = NO -->
-
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
 
    - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
      To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
      For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
-
-<!-- vale Grafana.GoogleWill = YES -->
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
@@ -78,7 +76,7 @@ When you're ready to add a What's new entry, complete the following steps:
    1. Work with your team to review and finalize the generated pull request.
 
    {{< admonition type="caution" >}}
-   The Grafana Labs documentation Team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process.
+   The Grafana Labs documentation team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process.
    {{< /admonition >}}
 
 1. Publish your entry by the release date you've entered.
@@ -88,6 +86,8 @@ When you're ready to add a What's new entry, complete the following steps:
 
    1. In the **Status** drop-down, click **Ready**.
    1. In the **Publish** drop-down, click **Publish now**.
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
 

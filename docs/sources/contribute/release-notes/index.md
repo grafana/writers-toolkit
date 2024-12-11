@@ -34,16 +34,12 @@ The Grafana Cloud Traces updates are published using the What's new.
 
 ## What's new documentation development process
 
-What's new content is published to the website through the website CMS.
-To add a new note, browse to the [What's new CMS collection](https://admin.grafana.com/content-admin/#/collections/whats-new).
+What's new content is published to the website through the website content management system (CMS).
 
 Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What's new, without the need for approval.
 _Quality assurance is a conversation within and between contributing teams and internal stakeholders_, but there are some best practice guidelines described in the last two sections of this topic.
 
-Enter release notes into the CMS two to four weeks before the feature is available, depending on the size of the product or feature.
-This gives the Go To Market (GTM) team time for promotion and enablement.
-For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team.
-For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://wiki.grafana-ops.net/w/index.php/Engineering/RADS).
+**What does "Published" mean?**
 
 It's important to understand that, in the context of the CMS, the word "published" has a slightly different meaning than in general use:
 
@@ -51,12 +47,22 @@ It's important to understand that, in the context of the CMS, the word "publishe
   It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
 - **Live**: Your entry is visible on the _What's new in Cloud_ page.
 
+### What's new timing
+
+Enter release notes into the CMS _two to four weeks before the feature is available_, depending on the size of the product or feature.
+
+For Grafana versioned releases, have your release notes entered in the CMS _by the cut-off date_ communicated by the delivery team.
+
+This gives the Go To Market (GTM) team time for promotion and enablement.
+For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://wiki.grafana-ops.net/w/index.php/Engineering/RADS).
+
 ### Create a What's new entry
 
 <!-- vale Grafana.GoogleWill = NO -->
 
 When you're ready to add a What's new entry, complete the following steps:
 
+1. Go to the What's new collection of the [website CMS](https://admin.grafana.com/content-admin/#/collections/whats-new) and click **New Feature** at the top of the page.
 1. Fill out [the CMS fields](#cms-fields).
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.

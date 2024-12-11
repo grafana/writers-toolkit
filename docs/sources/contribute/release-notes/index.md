@@ -60,12 +60,12 @@ When you're ready to add a What's new entry, complete the following steps:
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
 1. Preview your entry in context.
-   
+
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
 
    - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
-   To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
-   For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+     To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
+     For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
@@ -82,8 +82,8 @@ When you're ready to add a What's new entry, complete the following steps:
    - To publish from GitHub, merge your PR.
    - To publish from the CMS:
 
-    1. In the **Status** drop-down, click **Ready**.
-    1. In the **Publish** drop-down, click **Publish now**.
+   1. In the **Status** drop-down, click **Ready**.
+   1. In the **Publish** drop-down, click **Publish now**.
 
 The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
 
@@ -95,6 +95,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 {{< /admonition >}}
 
 ### CMS fields
+
 <!-- prettier-ignore-start -->
 
 | Field | Description | Guidance |

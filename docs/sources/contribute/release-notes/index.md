@@ -63,11 +63,11 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. Preview your entry in context.
 
-   - **Release date in the past** - Your entry will be visible in the website-generated preview.
+- **Release date in the past** - Your entry will be visible in the website-generated preview.
 
-   - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
-     To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
-     For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+- **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
+  To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
+  For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
@@ -100,7 +100,9 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 
 <!-- vale Grafana.Headings = NO -->
 
+
 ### CMS fields
+
 
 <!-- vale Grafana.Headings = YES -->
 
@@ -126,6 +128,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 | INTERNAL INFORMATION (OPTIONAL) | Information for Grafana Labs employees only. | For example, ProductDNA, Slack channel, FAQ, training documentation, or videos.<br></br>Used for training and internal announcements.<br></br>This is only visible on the [internal What's new page](https://admin.grafana.com/whats-new/), not the [public What's New page](https://grafana.com/docs/grafana-cloud/whats-new/). |
 
 <!-- prettier-ignore-end -->
+
 <!-- vale Grafana.GoogleWill = YES -->
 
 ### Edit What's new entries

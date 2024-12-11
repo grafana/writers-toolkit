@@ -94,7 +94,7 @@ To understand the process of creating release notes for Grafana versioned releas
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
 {{< /admonition >}}
 
-#### CMS fields
+### CMS fields
 <!-- prettier-ignore-start -->
 
 | Field | Description | Guidance |

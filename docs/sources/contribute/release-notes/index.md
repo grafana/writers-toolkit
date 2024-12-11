@@ -60,6 +60,7 @@ When you're ready to add a What's new entry, complete the following steps:
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
 1. Preview your entry in context.
+
 <!-- vale Grafana.GoogleWill = NO -->
 
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
@@ -67,6 +68,7 @@ When you're ready to add a What's new entry, complete the following steps:
    - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
      To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
      For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+
 <!-- vale Grafana.GoogleWill = YES -->
 
 1. If your entry is ready to publish, proceed to the next step.
@@ -97,7 +99,9 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 {{< /admonition >}}
 
 <!-- vale Grafana.Headings = NO -->
+
 ### CMS fields
+
 <!-- vale Grafana.Headings = YES -->
 
 <!-- vale Grafana.GoogleWill = NO -->

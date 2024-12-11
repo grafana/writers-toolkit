@@ -60,12 +60,14 @@ When you're ready to add a What's new entry, complete the following steps:
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
 1. Preview your entry in context.
+<!-- vale Grafana.GoogleWill = NO -->
 
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
 
    - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
      To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
      For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+<!-- vale Grafana.GoogleWill = YES -->
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
@@ -74,7 +76,7 @@ When you're ready to add a What's new entry, complete the following steps:
    1. Work with your team to review and finalize the generated pull request.
 
    {{< admonition type="caution" >}}
-   The Documentation Team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process.
+   The Grafana Labs documentation Team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process.
    {{< /admonition >}}
 
 1. Publish your entry by the release date you've entered.
@@ -94,8 +96,11 @@ To understand the process of creating release notes for Grafana versioned releas
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
 {{< /admonition >}}
 
+<!-- vale Grafana.Headings = NO -->
 ### CMS fields
+<!-- vale Grafana.Headings = YES -->
 
+<!-- vale Grafana.GoogleWill = NO -->
 <!-- prettier-ignore-start -->
 
 | Field | Description | Guidance |
@@ -110,13 +115,14 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 | CLOUD EDITIONS | Select which account types have access to the feature. | If the feature isn't available in Cloud, select **None**. |
 | SELF-MANAGED AVAILABILITY | Select the stage of the feature's self-managed release. | If the feature isn't available in the self-managed product, select **None**. |
 | SELF-MANAGED EDITIONS | Select the on-premises offerings where this feature is available. | If the feature isn't available in the self-managed product, select **None**. |
-| SELF-MANAGED VERSION | <!-- vale Grafana.GoogleWill = NO --> Select the version of self-managed product that will include the feature.<!-- vale Grafana.GoogleWill = YES --> | If the feature isn't available in the self-managed product, select **None**.<br></br> If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option. |
+| SELF-MANAGED VERSION | Select the version of self-managed product that will include the feature. | If the feature isn't available in the self-managed product, select **None**.<br></br> If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option. |
 | BODY | Include an overview of the feature and the problem it solves. | If you want to view some best practices around what to write here, refer to [Guidelines for What's new content](#guidelines-for-whats-new-content).<br></br>Add any images and a link to your public YouTube video here.<br></br>If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).<br></br>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the `traceToProfile` [feature toggle](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/). |
 | DOCUMENTATION URL (OPTIONAL) | URL to the public documentation for this feature. | Use the Cloud docs URL here. Add the self-managed docs URL in the INTERNAL INFORMATION field, if applicable. |
 | ENABLEMENT VIDEO (OPTIONAL) | Link to the video used for enablement. | Enablement videos are perhaps the fastest, most engaging tool for employees and users to learn about your feature. Use them for maximum engagement.<br></br>Follow these instructions to create and upload a video: [Enablement video instructions](https://docs.google.com/document/d/1nCiG62FxJ9J_qLTnlzNopSsT-VEAlxCUCsrAEpWL68U/edit#heading=h.fierz9i4q8ft).<br></br>When you upload an enablement video, the Content team receives a notification, edits it for the public, and uploads it to YouTube to coincide with your feature's release. They need a few weeks' lead time for this. |
 | INTERNAL INFORMATION (OPTIONAL) | Information for Grafana Labs employees only. | For example, ProductDNA, Slack channel, FAQ, training documentation, or videos.<br></br>Used for training and internal announcements.<br></br>This is only visible on the [internal What's new page](https://admin.grafana.com/whats-new/), not the [public What's New page](https://grafana.com/docs/grafana-cloud/whats-new/). |
 
 <!-- prettier-ignore-end -->
+<!-- vale Grafana.GoogleWill = YES -->
 
 ### Edit What's new entries
 

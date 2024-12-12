@@ -10,6 +10,7 @@ The following directories contain GitHub Actions actions:
 - [`prettier`](./prettier/)
 - [`publish-technical-documentation`](./publish-technical-documentation/)
 - [`publish-technical-documentation-release`](./publish-technical-documentation-release/)
+- [`update-make-docs`](./update-make-docs/)
 
 You release each action by creating or updating Git tags.
 The Git tag begins with the action directory, then a slash (`/`), and then the tag version.

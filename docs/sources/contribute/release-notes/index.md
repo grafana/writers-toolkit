@@ -67,7 +67,7 @@ When you're ready to add a What's new entry, complete the following steps:
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
-1. Preview your entry in context.
+1. (Optional) Preview your entry on GitHub. While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub allows you to see your entry in the context of the website and view videos.
 
 - **Release date in the past** - Your entry will be visible in the website-generated preview.
 
@@ -112,7 +112,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 | Field | Description | Guidance |
 |---|---|---|
 | FEATURE NAME | Short headline for the feature. | For example, _Grafana OnCall integration for Alerting_. |
-| FEATURE RELEASE DATE | Date and time in UTC that you want this note to be live. | This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users the date is when the feature was first available to users opting in.<br></br>If you've opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build. |
+| FEATURE RELEASE DATE | Date and time in UTC that you want this note to be live. | This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users, the date is when the feature was first available to users opting in.<br></br>If you've opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build. |
 | CONTACT | First and last name. | The contents of this field aren't publicly viewable. |
 | INTERNAL ONLY? (OPTIONAL) | Set to true to only post the note on [https://admin.grafana.com/whats-new/](https://admin.grafana.com/whats-new/) |  |
 | TAGS (OPTIONAL) | Select category tags that users can use to filter their view. | Select as many as apply. |

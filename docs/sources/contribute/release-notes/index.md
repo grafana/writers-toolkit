@@ -67,7 +67,9 @@ When you're ready to add a What's new entry, complete the following steps:
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
-1. (Optional) Preview your entry on GitHub. While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub allows you to see your entry in the context of the website and view videos.
+1. (Optional) Preview your entry on GitHub.
+
+   While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub allows view videos and see your entry in the context of the website.
 
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
 

@@ -69,11 +69,11 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. (Optional) Preview your entry on GitHub. While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub allows you to see your entry in the context of the website and view videos.
 
-- **Release date in the past** - Your entry will be visible in the website-generated preview.
+   - **Release date in the past** - Your entry will be visible in the website-generated preview.
 
-- **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
-  To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
-  For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+   - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
+    To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
+    For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:

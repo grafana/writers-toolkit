@@ -43,9 +43,9 @@ _Quality assurance is a conversation within and between contributing teams and i
 
 It's important to understand that, in the context of the CMS, the word "published" has a slightly different meaning than in general use:
 
-- **Published**: Your entry is complete and in **Published** status.
-  It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
-- **Live**: Your entry is visible on the _What's new in Cloud_ page.
+- **Published, but not Live**: Your entry is complete and in **Published** status, but not visible on the _What's new in Cloud_ page.
+- **Published and Live**: Your entry is complete and in **Published** status, and visible on the _What's new in Cloud_ page.
+
 
 ### What's new timing
 

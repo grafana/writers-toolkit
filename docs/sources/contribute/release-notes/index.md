@@ -69,7 +69,7 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. (Optional) Preview your entry on GitHub.
 
-   While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub allows view videos and see your entry in the context of the website.
+   While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub lets you view videos and see your entry in the context of the website.
 
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
 

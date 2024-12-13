@@ -46,7 +46,6 @@ It's important to understand that, in the context of the CMS, the word "publishe
 - **Published, but not Live**: Your entry is complete and in **Published** status, but not visible on the _What's new in Cloud_ page.
 - **Published and Live**: Your entry is complete and in **Published** status, and visible on the _What's new in Cloud_ page.
 
-
 ### What's new timing
 
 Enter release notes into the CMS _two to four weeks before the feature is available_, depending on the size of the product or feature.

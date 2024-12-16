@@ -29,11 +29,12 @@ runs:
         DIRECTORY: ${{ inputs.directory }}
         GH_TOKEN: ${{ inputs.token }}
         PR_OPTIONS: ${{ inputs.pr_options }}
+        RUNNER_DEBUG: ${{ runner.debug || inputs.trace }}
       name: Update `make docs` procedure
       run: |
         set -euf -o pipefail
 
-        if ${{ inputs.trace }}; then
+        if [[ -n "${RUNNER_DEBUG+x}" ]]; then
           set -x
         fi
 

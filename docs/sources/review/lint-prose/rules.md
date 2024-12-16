@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-12-05"
+review_date: "2024-12-16"
 title: Vale rules
 ---
 
@@ -662,9 +662,9 @@ Extends: capitalization
 
 Use sentence-style capitalization for _`<CURRENT TEXT>`_.
 
-If your heading contains capitalized words that represent product names, you need to add those words as exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/styles/GrafanaHeadings.yml for them to be considered correctly cased.
-
 Vale considers multi-word exceptions such as _Grafana Enterprise Metrics_ as a single correctly cased word.
+
+If your heading contains capitalized words that represent product names, you need to add those words to the Grafana dictionary or the list of static exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Headings.jsonnet for them to be considered correctly cased.
 
 [More information ->](https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings)
 

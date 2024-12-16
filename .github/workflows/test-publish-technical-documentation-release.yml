@@ -1,3 +1,10 @@
+# To use this workflow to test the publish-technical-documentation-release action:
+#   1. Create a branch `test/publish-technical-documentation/v<MAJOR>.<MINOR>.x`.
+#   2. Iterate on the workflow or action.
+#   3a. To test push events, push the branch.
+#   3b. To test tag events, tag the branch with `test/publish-technical-documentation/v<MAJOR>.<MINOR>.<PATCH>`.
+#   4. Check the workflow output in https://github.com/grafana/writers-toolkit/actions.
+
 name: test-publish-technical-documentation-release
 
 on:

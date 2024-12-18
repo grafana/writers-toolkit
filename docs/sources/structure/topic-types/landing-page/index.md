@@ -27,6 +27,7 @@ To create a landing page, complete the following steps.
 1. Double-check existing front matter. You can leave existing front matter as is.
 
    If there is useful text in the existing landing page - add it/create an Introduction topic nested underneath the landing page.
+
 1. Add the `hero` shortcode to the front matter.
 
    This shortcode becomes the banner at the top of the landing page.

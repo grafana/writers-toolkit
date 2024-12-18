@@ -12,6 +12,7 @@ title: Landing page
 
 <!-- vale Grafana.Gerunds = NO -->
 # Landing page
+
 <!-- vale GGrafana.Gerunds = YES -->
 A landing page is a page, which introduces a series of topics related to a particular product, product area, or set of features.
 

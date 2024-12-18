@@ -1,7 +1,4 @@
 ---
-aliases:
-  - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/landing-page
-  - /docs/writers-toolkit/structure/topic-types/landing-page/
 date: 2024-12-18
 description: Learn how to create a landing page.
 keywords:
@@ -74,9 +71,9 @@ To create a landing page, complete the following steps.
 
    {{< admonition type="note" >}}
 
-   If you are creating a landing page that appears in both Cloud and OSS, use a relative path (eg. ./set-up).
+   If you are creating a landing page that appears in both Cloud and OSS, use a relative path, for example, ./set-up.
 
-   Icons are only required for products. If you don’t have an icon, delete `logo` from the front matter.
+   Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
    {{< /admonition >}}
 
 1. To display the banner at the top of the page, add {{</* docs/hero-simple key="hero" */>}} after the front matter.

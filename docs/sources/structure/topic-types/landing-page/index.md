@@ -9,7 +9,7 @@ keywords:
   - template
   - landing page
 menuTitle: Landing page
-review_date: "2024-06-07"
+review_date: 2024-12-18
 title: Landing page
 ---
 

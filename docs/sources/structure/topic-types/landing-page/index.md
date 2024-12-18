@@ -2,7 +2,7 @@
 aliases:
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/landing-page
   - /docs/writers-toolkit/structure/topic-types/landing-page/
-date: "2022-10-27T16:43:50-04:00"
+date: 2024-12-18
 description: Learn how to create a landing page.
 keywords:
   - topic types

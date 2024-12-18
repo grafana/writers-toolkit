@@ -49,7 +49,7 @@ To create a landing page, complete the following steps.
    You may have to adjust the width or height to 100/110 depending on the spacing.
    {{< /admonition >}}
 
-1. Add the `card-grid` shortcode  to the front matter. This shortcode is for the tiles that appear below  ## Explore.
+1. Add the `card-grid` shortcode to the front matter. This shortcode is for the tiles that appear below ## Explore.
 
 	Start each description with a verb.
 

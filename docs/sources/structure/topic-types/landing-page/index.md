@@ -44,6 +44,7 @@ To create a landing page, complete the following steps.
     description: Grafana Alerting allows you to learn about problems in your systems moments after they occur.
    ```
 
+
    {{< admonition type="note" >}}
    You may have to adjust the width or height to 100/110 depending on the spacing.
    {{< /admonition >}}

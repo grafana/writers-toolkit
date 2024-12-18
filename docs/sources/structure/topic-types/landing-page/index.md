@@ -73,7 +73,6 @@ To create a landing page, complete the following steps.
    height: 24
    ```
 
-
    {{< admonition type="note" >}}
 
    If you are creating a landing page that appears in both Cloud and OSS, use a relative path (eg. ./set-up).

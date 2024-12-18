@@ -12,9 +12,6 @@ title: Landing page
 
 <!-- vale Grafana.Gerunds = NO -->
 
-
-
-
 <!-- vale GGrafana.Gerunds = YES -->
 
 

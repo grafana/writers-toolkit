@@ -42,18 +42,19 @@ To create a landing page, complete the following steps.
     height: 100
     description: Grafana Alerting allows you to learn about problems in your systems moments after they occur.
    ```
+   ```markdown
    {{< admonition type="note" >}}
    You may have to adjust the width or height to 100/110 depending on the spacing.
    {{< /admonition >}}
-
+   ```
 1. Add the `card-grid` shortcode  to the front matter. This shortcode is for the tiles that appear below  ## Explore.
 
 	Start each description with a verb.
-
+   ```markdown
    {{< admonition type="note" >}}
    If left empty, the description for the tile is automatically inherited from the short description front matter in the linked page. The descriptions in the front matter, however, are often short and it might be a good idea to add more context, making sure they all start with a verb for consistency.
    {{< /admonition >}}
-
+   ```
    Example:
 
    ```markdown
@@ -66,13 +67,14 @@ To create a landing page, complete the following steps.
     logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
     height: 24
    ```
+   ```markdown
    {{< admonition type="note" >}}
 
    If you are creating a landing page that appears in both Cloud and OSS, use a relative path (eg. ./set-up).
 
    Icons are only required for products. If you don’t have an icon, delete `logo` from the front matter.
    {{< /admonition >}}
-
+   ```
 1. To display the banner at the top of the page, add `{{< docs/hero-simple key="hero" >}}` after the front matter.
 
 	Example:

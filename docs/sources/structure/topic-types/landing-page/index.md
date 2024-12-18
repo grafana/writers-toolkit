@@ -55,7 +55,6 @@ To create a landing page, complete the following steps.
 
    Start each description with a verb.
 
-
    {{< admonition type="note" >}}
    If left empty, the description for the tile is automatically inherited from the short description front matter in the linked page. The descriptions in the front matter, however, are often short and it might be a good idea to add more context, making sure they all start with a verb for consistency.
    {{< /admonition >}}

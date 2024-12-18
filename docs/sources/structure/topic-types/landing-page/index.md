@@ -62,12 +62,12 @@ To create a landing page, complete the following steps.
    ```markdown
    cards:
    title_class: pt-0 lh-1
-     items:
-     title: Grafana Alerting
-    href: /docs/grafana-cloud/alerting-and-irm/alerting/
-    description: Allows you to learn about problems in your systems moments after they occur. Monitor your incoming metrics data or log entries and set up your Alerting system to watch for specific events or circumstances and then send notifications when those things are found.
-    logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
-    height: 24
+   items:
+   title: Grafana Alerting
+   href: /docs/grafana-cloud/alerting-and-irm/alerting/
+   description: Allows you to learn about problems in your systems moments after they occur. Monitor your incoming metrics data or log entries and set up your Alerting system to watch for specific events or circumstances and then send notifications when those things are found.
+   logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
+   height: 24
    ```
 
    {{< admonition type="note" >}}

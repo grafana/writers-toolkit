@@ -26,7 +26,7 @@ To create a landing page, complete the following steps.
 
    Example:
 
-   ```markdown
+   ```yaml
    hero:
      title: Grafana Alerting
      level: 1
@@ -44,11 +44,15 @@ To create a landing page, complete the following steps.
 
    Example:
 
-   ```markdown
+   ```yaml
    cards:
      title_class: pt-0 lh-1
      items:
+<<<<<<< HEAD
          ctitle: Grafana Alerting
+=======
+       - title: Grafana Alerting
+>>>>>>> f84a74ac712e89390b3622637b840d6d95c349cd
          href: /docs/grafana-cloud/alerting-and-irm/alerting/
          description: Allows you to learn about problems in your systems moments after they occur. Monitor your incoming metrics data or log entries and set up your Alerting system to watch for specific events or circumstances and then send notifications when those things are found.
          logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg

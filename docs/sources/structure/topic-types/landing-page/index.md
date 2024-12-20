@@ -68,7 +68,7 @@ To create a landing page, complete the following steps.
 
       If left empty, the description for the tile is automatically inherited from the short description front matter in the linked page. The descriptions in the front matter, however, are often short and it might be a good idea to add more context, making sure they all start with a verb for consistency.
 
-    - If you are creating a landing page that appears in both Cloud and OSS, use a relative path, for example, ./set-up.
+   - If you are creating a landing page that appears in both Cloud and OSS, use a relative path, for example, ./set-up.
 
    - Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
      {{< /admonition >}}

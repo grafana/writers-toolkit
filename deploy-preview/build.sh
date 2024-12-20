@@ -6,7 +6,7 @@ docker run \
   -e INDEX_FILE \
   -e REPO \
   -e WEBSITE_DIRECTORY \
-  --rm grafana/docs-base:latest \
+  --rm grafana/docs-base:nightly \
   /bin/bash \
     -c '
 if [[ "${INDEX_FILE}" == "true" ]]; then

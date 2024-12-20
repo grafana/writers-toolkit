@@ -9,7 +9,7 @@ review_date: 2024-12-18
 title: Create landing pages
 ---
 
-## Create landing pages
+# Create landing pages
 
 Create a landing page as a starting point for customers to get access to the documentation they're looking for.
 

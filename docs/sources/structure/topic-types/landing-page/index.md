@@ -28,12 +28,12 @@ To create a landing page, complete the following steps.
 
    ```markdown
    hero:
-   title: Grafana Alerting
-   level: 1
-   image: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
-   width: 100
-   height: 100
-   description: Grafana Alerting allows you to learn about problems in your systems moments after they occur.
+     title: Grafana Alerting
+     level: 1
+     image: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
+     width: 100
+     height: 100
+     description: Grafana Alerting allows you to learn about problems in your systems moments after they occur.
    ```
 
    {{< admonition type="note" >}}

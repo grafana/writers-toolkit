@@ -73,7 +73,7 @@ To create a landing page, complete the following steps.
    - Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
      {{< /admonition >}}
 
-1. To display the banner at the top of the page, add {{</* docs/hero-simple key="hero" */>}} after the front matter.
+1. To display the banner at the top of the page, add {{</* docs/hero-simple key="hero" */>}} after the front matter. This needs to come before the first heading.
 1. Add the ## Overview header and your content.
 1. Add the ## Explore header and this syntax {{</* card-grid key="cards" type="simple" */>}} to display the tiles below.
 1. Save your topic and build your documentation to review your changes.

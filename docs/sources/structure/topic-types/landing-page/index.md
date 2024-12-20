@@ -70,8 +70,8 @@ To create a landing page, complete the following steps.
 
     - If you are creating a landing page that appears in both Cloud and OSS, use a relative path, for example, ./set-up.
 
-    - Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
-   {{< /admonition >}}
+   - Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
+     {{< /admonition >}}
 
 1. To display the banner at the top of the page, add {{</* docs/hero-simple key="hero" */>}} after the front matter.
 1. Add the ## Overview header and your content.

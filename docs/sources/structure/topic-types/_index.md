@@ -36,6 +36,8 @@ Depending on the needs of a particular product area, select a topic type from th
 **[Tutorial](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/)**
 : Provides procedures that users can safely reproduce and learn from. Answers the question: "Can you teach me to …?"
 
+**[Landing page](https://grafana.com/docs/writers-toolkit/structure/topic-types/landing-page/))
+
 <!-- vale Grafana.GoogleFirstPerson = YES -->
 
 For your convenience, there are topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).

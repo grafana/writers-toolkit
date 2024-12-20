@@ -50,14 +50,6 @@ To create a landing page, complete the following steps.
 
 1. Add the `card-grid` shortcode to the front matter. This shortcode is for the tiles that appear below ## Explore.
 
-1. Add the `card-grid` shortcode to the front matter. This shortcode is for the tiles that appear below ## Explore.
-
-   Start each description with a verb.
-
-   {{< admonition type="note" >}}
-   If left empty, the description for the tile is automatically inherited from the short description front matter in the linked page. The descriptions in the front matter, however, are often short and it might be a good idea to add more context, making sure they all start with a verb for consistency.
-   {{< /admonition >}}
-
    Example:
 
    ```markdown
@@ -70,12 +62,15 @@ To create a landing page, complete the following steps.
    logo: /media/docs/grafana-cloud/alerting-and-irm/grafana-icon-alerting.svg
    height: 24
    ```
-
    {{< admonition type="note" >}}
 
-   If you are creating a landing page that appears in both Cloud and OSS, use a relative path, for example, ./set-up.
+    - Start each description with a verb.
 
-   Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
+      If left empty, the description for the tile is automatically inherited from the short description front matter in the linked page. The descriptions in the front matter, however, are often short and it might be a good idea to add more context, making sure they all start with a verb for consistency.
+
+    - If you are creating a landing page that appears in both Cloud and OSS, use a relative path, for example, ./set-up.
+
+    - Icons are only required for products. If you do not have an icon, delete `logo` from the front matter.
    {{< /admonition >}}
 
 1. To display the banner at the top of the page, add {{</* docs/hero-simple key="hero" */>}} after the front matter.

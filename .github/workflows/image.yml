@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
 
     steps:

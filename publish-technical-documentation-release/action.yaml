@@ -21,26 +21,30 @@ inputs:
     type: boolean
   release_branch_regexp:
     description: |
-      A regular expression with capture groups for major, and minor versions.
-      For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      A regular expression using Extended Regular Expression syntax with capture groups for major, and minor versions.
+      For example, '^release-(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'.
       For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L28-L33.
     required: true
   release_branch_with_patch_regexp:
     default: ""
     description: |
-      A regular expression with capture groups for major, minor, and patch versions.
-      For example, '^release-(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      A regular expression using Extended Regular Expression syntax with capture groups for major, minor, and patch versions.
+      For example, '^release-(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'.
       For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L34-L40.
     required: false
   release_tag_regexp:
     description: |
-      A regular expression with capture groups for major, minor, and patch versions.
-      For example, '^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$'.
+      A regular expression using Extended Regular Expression syntax with capture groups for major, minor, and patch versions.
+      For example, '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'.
       For more information, refer to https://github.com/grafana/grafana-github-actions/blob/main/has-matching-release-tag/action.yaml#L22-L27.
     required: true
   source_directory:
     default: docs/sources
     description: Path to source directory, relative to the project root, to sync documentation from.
+  website_branch:
+    default: master
+    description: |
+      Website repository branch to sync the documentation to.
   website_directory:
     description: |
       Website directory to sync the documentation to.
@@ -54,6 +58,25 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Switch to HEAD of branch for tags
+      # Tags aren't necessarily made to the HEAD of the branch.
+      # The documentation to be published is always on the HEAD of the branch.
+      if: github.ref_type == 'tag'
+      env:
+        GITHUB_REF: ${{ github.ref }}
+        RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
+      run: |
+        branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
+
+        if [[ -z "${branch}" ]]; then
+          echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."
+
+          exit 1
+        fi
+
+        git switch --detach "origin/${branch}"
+      shell: bash
+
     - name: Build website
       shell: bash
       run: |
@@ -102,32 +125,13 @@ runs:
       with:
         ref_name: ${{ github.ref_name }}
 
-    - name: Switch to HEAD of version branch for tags
-      # Tags aren't necessarily made to the HEAD of the version branch.
-      # The documentation to be published is always on the HEAD of the release branch.
-      if: steps.has-matching-release-tag.outputs.bool == 'true' && github.ref_type == 'tag'
-      env:
-        GITHUB_REF: ${{ github.ref }}
-        RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
-      run: |
-        branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
-
-        if [[ -z "${branch}" ]]; then
-          echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."
-
-          exit 1
-        fi
-
-        git switch --detach "origin/${branch}"
-      shell: bash
-
     - name: Sync to the website repository (release)
       if: steps.has-matching-release-tag.outputs.bool == 'true'
       uses: ./.github/actions/website-sync
       id: publish-release
       with:
         repository: grafana/website
-        branch: master
+        branch: ${{ inputs.website_branch }}
         host: github.com
         github_pat: grafanabot:${{ env.PUBLISH_TO_WEBSITE_TOKEN }}
         source_folder: ${{ inputs.source_directory }}

@@ -9,10 +9,10 @@ on:
         type: boolean
 jobs:
   prettier:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: ./prettier
+      - uses: grafana/writers-toolkit/prettier@main
         with:
           branch: ${{ env.GITHUB_REF }}
           trace: ${{ inputs.trace }}

@@ -10,7 +10,7 @@ const PROJECT_ID = "PVT_kwDOAG3Mbc027w";
 const ISSUES_QUERY = fs.readFileSync("issues.graphql", "utf8");
 const ADD_TO_PROJECT_MUTATION = fs.readFileSync(
   "add-to-project.graphql",
-  "utf8"
+  "utf8",
 );
 
 async function addIssuesToProject(): Promise<Array<string>> {
@@ -26,14 +26,14 @@ async function addIssuesToProject(): Promise<Array<string>> {
 
     for (const issue of issues) {
       console.log(
-        `Adding issue ${issue.title} (${issue.url}) to the Docs project.`
+        `Adding issue ${issue.title} (${issue.url}) to the Docs project.`,
       );
       added.push(
         // https://api.slack.com/reference/surfaces/formatting#escaping
         `${issue.url}|${issue.title}`
           .replaceAll("&", "&amp;")
           .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
+          .replaceAll(">", "&gt;"),
       );
 
       await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
@@ -52,5 +52,5 @@ async function addIssuesToProject(): Promise<Array<string>> {
 const added = await addIssuesToProject();
 core.setOutput(
   "added",
-  added.map((issue) => `- <${issue}>`.replaceAll('"', '\\"')).join("\\n")
+  added.map((issue) => `- <${issue}>`.replaceAll('"', '\\"')).join("\\n"),
 );

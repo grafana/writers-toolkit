@@ -21,10 +21,12 @@ if [[ $# -ne 2 ]]; then
 fi
 
 BRANCH_REGEXP="$1"
-TAG="$2"
+TAG="${2#refs/tags/}"
 
-for branch in $(git branch -a --contains "tags/${TAG}"); do
+contains="$(git branch -a --contains "tags/${TAG}")"
+for branch in ${contains}; do
   branch="${branch#remotes/origin/}";
+  echo "Checking branch ${branch} against ${BRANCH_REGEXP}." >&2
 
   if [[ "${branch}" =~ ${BRANCH_REGEXP} ]]; then
     echo "${branch}";
@@ -33,4 +35,7 @@ for branch in $(git branch -a --contains "tags/${TAG}"); do
   fi;
 done
 
+echo "No release branch found for tag ${TAG} matching ${BRANCH_REGEXP}. Exiting." >&2
+echo "Branches containing tag ${TAG}:" >&2
+echo "${contains}" >&2
 exit 1

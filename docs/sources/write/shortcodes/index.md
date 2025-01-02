@@ -337,9 +337,9 @@ compactor:
 
 Formats a list with columns. Content is equally divided between columns unless specified with the `count` argument.
 
-| Parameter | Description                                                                                | Required |
-| --------- | ------------------------------------------------------------------------------------------ | -------- |
-| `count`   | The number columns in desktop view. A minimum of two and maximum of four can be specified. | no       |
+| Parameter | Description                                                                               | Required |
+| --------- | ----------------------------------------------------------------------------------------- | -------- |
+| `count`   | The number columns in desktop view. You can specify a minimum of two and maximum of four. | no       |
 
 ### Example
 
@@ -731,7 +731,7 @@ The `fixed-table` shortcode prevents column overflow by breaking content to a ne
 ```markdown
 {{</* fixed-table */>}}
 
-| Metric                         | Cloudwatch Metric | Statistics                                                               |
+| Metric                         | CloudWatch Metric | Statistics                                                               |
 | ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
 | **aws_amazonmq_info**          |                   |
 | **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
@@ -744,7 +744,7 @@ Produces:
 
 {{< fixed-table >}}
 
-| Metric                         | Cloudwatch Metric | Statistics                                                               |
+| Metric                         | CloudWatch Metric | Statistics                                                               |
 | ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
 | **aws_amazonmq_info**          |                   |
 | **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
@@ -754,7 +754,7 @@ Produces:
 
 Without the shortcode:
 
-| Metric                         | Cloudwatch Metric | Statistics                                                               |
+| Metric                         | CloudWatch Metric | Statistics                                                               |
 | ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
 | **aws_amazonmq_info**          |                   |
 | **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
@@ -947,7 +947,7 @@ To add a new variable definition:
 {{< admonition type="note" >}}
 If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
 
-For example: `{ {% param VARIABLE %}}`.
+For example: `{{% param VARIABLE %}}`.
 {{< /admonition >}}
 
 ### Example

@@ -944,11 +944,12 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-{{< admonition type="note" >}}
 If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
+For example:
 
-For example: `{{% param VARIABLE %}}`.
-{{< /admonition >}}
+```markdown
+# Heading {{%/* param VARIABLE */%}}
+```
 
 ### Example
 

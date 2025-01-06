@@ -63,22 +63,6 @@ on:
       title:
         required: true
         type: string
-      repo:
-        deprecationMessage: Use the sources JSON string input instead.
-        type: string
-      source_directory:
-        deprecationMessage: Use the sources JSON string input instead.
-        default: docs/sources
-        type: string
-      website_directory:
-        deprecationMessage: Use the sources JSON string input instead.
-        type: string
-      relative_prefix:
-        deprecationMessage: Use the sources JSON string input instead.
-        type: string
-      index_file:
-        deprecationMessage: Use the sources JSON string input instead.
-        type: boolean
 
 env:
   CLOUD_RUN_REGION: us-south1

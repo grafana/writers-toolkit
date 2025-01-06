@@ -2,6 +2,10 @@
 
 set -euf -o pipefail
 
+if [[ -n "${RUNNER_DEBUG+x}" ]]; then
+  set -x
+fi
+
 # All input comes from environment variables that are capitalized by convention in this script.
 SOURCES="${SOURCES:-[]}"
 

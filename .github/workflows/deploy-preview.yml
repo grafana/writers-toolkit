@@ -3,6 +3,54 @@ name: deploy-preview
 on:
   workflow_call:
     inputs:
+      sources:
+        description: |
+          sources is a JSON string describing multiple source mounts.
+
+          It replaces the individual inputs used in the previous version of this action.
+
+          The structure is an array of objects, each with the following keys:
+
+          index_file:
+            description: Path to index file used to redirect versioned projects. For example, "content/docs/mimir/_index.md".
+            required: true
+            type: string
+          relative_prefix:
+            description: The URL path prefix for the mount destination. For example, "/docs/mimir/latest/".
+            required: true
+            type: string
+          repo:
+            description: The Grafana repository name for the source files. For example, "mimir".
+            required: true
+            type: string
+          source_directory:
+            description: The path to the source files in the repository. For example, "docs/sources".
+            required: true
+            type: string
+          website_directory:
+            description: The path to mount the documentation in the website content structure. For example, "content/docs/mimir/latest".
+            required: true
+            type: string
+
+          The following example mounts both the Mimir documentation and the mimir-distributed Helm chart documentation:
+
+          [
+            {
+              "index_file": true,
+              "relative_prefix": "/docs/mimir/latest/",
+              "repo": "mimir",
+              "source_directory": "docs/sources/mimir",
+              "website_directory": "content/docs/mimir/latest"
+            },
+            {
+              "index_file": true,
+              "relative_prefix": "/docs/helm-charts/mimir-distributed/latest/",
+              "repo": "mimir",
+              "source_directory": "docs/sources/mimir-distributed",
+              "website_directory": "content/docs/helm-charts/mimir-distributed/latest"
+            }
+          ]
+        type: string
       sha:
         required: true
         type: string
@@ -16,19 +64,20 @@ on:
         required: true
         type: string
       repo:
-        required: true
+        deprecationMessage: Use the sources JSON string input instead.
         type: string
       source_directory:
+        deprecationMessage: Use the sources JSON string input instead.
         default: docs/sources
         type: string
       website_directory:
-        required: true
+        deprecationMessage: Use the sources JSON string input instead.
         type: string
       relative_prefix:
-        required: true
+        deprecationMessage: Use the sources JSON string input instead.
         type: string
-      index_file: # creates the necessary project _index.md file for versioned repos
-        required: true
+      index_file:
+        deprecationMessage: Use the sources JSON string input instead.
         type: boolean
 
 env:
@@ -67,13 +116,6 @@ jobs:
           body: |
             :building_construction: Updating deploy preview...
 
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
-        with:
-          sparse-checkout-cone-mode: false # exclude root files
-          sparse-checkout: docs
-
-      # get the Dockerfile and nginx conf
       - name: Sparse checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event.action == 'opened' || github.event.action == 'synchronize'

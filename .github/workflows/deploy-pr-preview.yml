@@ -9,16 +9,24 @@ on:
     paths:
       - "docs/sources/**"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy-pr-preview:
+    if: "!github.event.pull_request.head.repo.fork"
     uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@main
-    if: ${{ ! github.event.pull_request.head.repo.fork }}
     with:
-      sha: ${{ github.event.pull_request.head.sha }}
       branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
+      sha: ${{ github.event.pull_request.head.sha }}
+      sources: |
+        [{
+            "index_file": null,
+            "relative_prefix": "/docs/writers-toolkit/",
+            "repo": writers-toolkit",
+            "source_directory": "docs/sources",
+            "website_directory": "content/docs/writers-toolkit"
+        }]
       title: ${{ github.event.pull_request.title }}
-      repo: writers-toolkit
-      website_directory: content/docs/writers-toolkit
-      relative_prefix: /docs/writers-toolkit/
-      index_file: false

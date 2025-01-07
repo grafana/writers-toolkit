@@ -63,10 +63,11 @@ runs:
       # The documentation to be published is always on the HEAD of the branch.
       if: github.ref_type == 'tag'
       env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
         GITHUB_REF: ${{ github.ref }}
         RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
       run: |
-        branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
+        branch="$(${GITHUB_ACTION_PATH}/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
 
         if [[ -z "${branch}" ]]; then
           echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."

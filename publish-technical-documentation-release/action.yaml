@@ -61,7 +61,7 @@ runs:
     - name: Switch to HEAD of branch for tags
       # Tags aren't necessarily made to the HEAD of the branch.
       # The documentation to be published is always on the HEAD of the branch.
-      if: github.ref_type == 'tag'
+      if: github.ref_type == 'tag' && inputs.website_directory != 'content/docs/oncall'
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
         GITHUB_REF: ${{ github.ref }}

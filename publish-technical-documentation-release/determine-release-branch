@@ -24,8 +24,9 @@ BRANCH_REGEXP="$1"
 TAG="${2#refs/tags/}"
 
 contains="$(git branch -a --contains "tags/${TAG}")"
+IFS=$'\n'
 for branch in ${contains}; do
-  branch="${branch#remotes/origin/}";
+  branch="${branch#  remotes/origin/}";
   echo "Checking branch ${branch} against ${BRANCH_REGEXP}." >&2
 
   if [[ "${branch}" =~ ${BRANCH_REGEXP} ]]; then

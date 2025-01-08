@@ -41,6 +41,10 @@ inputs:
   source_directory:
     default: docs/sources
     description: Path to source directory, relative to the project root, to sync documentation from.
+  tags_only:
+    default: false
+    description: |
+      Set to true for repositories that only release from tags and don't maintain long lived release branches.
   website_branch:
     default: master
     description: |
@@ -61,12 +65,14 @@ runs:
     - name: Switch to HEAD of branch for tags
       # Tags aren't necessarily made to the HEAD of the branch.
       # The documentation to be published is always on the HEAD of the branch.
-      if: github.ref_type == 'tag'
+      # However, if the repository only releases from tags, there's no release branch to check out.
+      if: github.ref_type == 'tag' && !inputs.tag_only
       env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
         GITHUB_REF: ${{ github.ref }}
         RELEASE_BRANCH_REGEXP: ${{ inputs.release_branch_regexp }}
       run: |
-        branch="$(./publish-technical-documentation-release/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
+        branch="$(${GITHUB_ACTION_PATH}/determine-release-branch "${RELEASE_BRANCH_REGEXP}" "${GITHUB_REF}")"
 
         if [[ -z "${branch}" ]]; then
           echo "No release branch found for tag ${GITHUB_REF} matching ${RELEASE_BRANCH_REGEXP}. Exiting."

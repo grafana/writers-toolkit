@@ -1,4 +1,4 @@
-name: Validate documentation
+name: Documentation CI
 on:
   pull_request:
     paths: ["docs/sources/**", "vale/**"]
@@ -82,22 +82,9 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: Sync packages
-        run: vale sync
-      - name: Run linter
-        run: >
-          vale
-          '--glob=*.md'
-          --minAlertLevel=warning
-          --output=/etc/vale/rdjsonl.tmpl
-          docs/sources
-          | reviewdog
-          -f=rdjsonl
-          --fail-on-error
-          --name=vale
-          --reporter=github-pr-review
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ./vale-action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   report-readability:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}

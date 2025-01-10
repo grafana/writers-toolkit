@@ -1,0 +1,9 @@
+name: Check github.repository
+on:
+  workflow_dispatch:
+jobs:
+  repository:
+    # if: ${{ github.repository == 'grafana/writers-toolkit' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.repository }}

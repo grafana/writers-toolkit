@@ -70,10 +70,8 @@ jobs:
         with:
           persist-credentials: false
       - name: Build website
-        uses: grafana/writers-toolkit/build-website@361c559bc9a5a95e12a4d335dd595c899c1347de # build-website/v1.0.0
+        uses: grafana/writers-toolkit/build-website@dbbf3fc8cda31d42362948daca2360772085ae03 # build-website/v1.0.0
         with:
-          command: |
-            'make hugo'
           source_directory: ${{ inputs.source_directory }}
           website_directory: ${{ inputs.website_directory }}
 

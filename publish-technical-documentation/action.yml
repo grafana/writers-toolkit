@@ -20,10 +20,10 @@ runs:
   using: composite
   steps:
     - name: Build website
-      uses: grafana/writers-toolkit@361c559bc9a5a95e12a4d335dd595c899c1347de # build-website/v1.0.0
+      uses: grafana/writers-toolkit/build-website@dbbf3fc8cda31d42362948daca2360772085ae03 # build-website/v1.0.0
       with:
-        SOURCE_DIRECTORY: ${{ inputs.source_directory }}
-        WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
+        source_directory: ${{ inputs.source_directory }}
+        website_directory: ${{ inputs.website_directory }}
 
     - id: get-secrets
       uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1

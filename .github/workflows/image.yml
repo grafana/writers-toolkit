@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
 
     steps:
@@ -18,9 +21,6 @@ jobs:
 
       - id: push-to-dockerhub
         uses: grafana/shared-workflows/actions/build-push-to-dockerhub@45747d11c20341064eab8c186e00a46d20ba4e73 # build-push-to-dockerhub-v0.1.0
-        permissions:
-          contents: read
-          id-token: write
         with:
           context: vale
           platforms: linux/amd64,linux/arm64

@@ -98,14 +98,14 @@ runs:
         printf "%s" "add_header 'Build' '"${SHA}"';" > build.conf
       shell: bash
 
-    - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
-      if: github.event.action == 'opened' || github.event.action == 'synchronize'
-      id: gcloud-auth
-      with:
-        token_format: access_token
-        workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
-        service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
-        create_credentials_file: false
+    # - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
+    #   if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    #   id: gcloud-auth
+    #   with:
+    #     token_format: access_token
+    #     workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
+    #     service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
+    #     create_credentials_file: false
 
     # - name: Login to GAR
     #   if: github.event.action == 'opened' || github.event.action == 'synchronize'

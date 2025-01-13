@@ -34,19 +34,12 @@ on:
 env:
   CLOUD_RUN_REGION: us-south1
 
-permissions:
-  id-token: write # Needed for authentication.
-  statuses: write # Needed to send deploy preview link as a commit status.
-  pull-requests: write # Needed to add/update a comment with the deploy preview link.
-
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   deploy-preview:
-    # TODO: can this be turned down?
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Find comment
@@ -60,6 +53,8 @@ jobs:
       - name: Update comment with in-progress deploy preview
         if: steps.fc.outputs.comment-id != '' && (github.event.action == 'opened' || github.event.action == 'synchronize')
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        permissions:
+          pull-requests: write
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ inputs.event_number }}
@@ -123,6 +118,9 @@ jobs:
       - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: gcloud-auth
+        permissions:
+          contents: read
+          id-token: write
         with:
           token_format: access_token
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
@@ -151,6 +149,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
         with:
+          cache-binary: false
           driver: docker-container
 
       - name: Build the container
@@ -202,6 +201,8 @@ jobs:
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        permissions:
+          statuses: write
         with:
           name: deploy_preview
           status: "${{ job.status }}"
@@ -211,6 +212,8 @@ jobs:
       - name: Create comment with available deploy preview
         if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        permissions:
+          pull-requests: write
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
@@ -219,6 +222,8 @@ jobs:
       - name: Update comment with deleted deploy preview
         if: github.event.action == 'closed'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        permissions:
+          pull-requests: write
         with:
           issue-number: ${{ inputs.event_number }}
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -229,6 +234,8 @@ jobs:
       - name: Update comment with available deploy preview
         if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        permissions:
+          pull-requests: write
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ inputs.event_number }}

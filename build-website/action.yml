@@ -3,9 +3,6 @@ description: |
   Build the website using the container image and local documentation sources.
 
 inputs:
-  command:
-    default: make hugo
-    description: Command and arguments to run to verify the website builds.
   image:
     default: grafana/docs-base:latest
     description: Container image to run.
@@ -21,10 +18,9 @@ runs:
   steps:
     - name: Build website
       env:
-        COMMAND: ${{ inputs.command }}
         IMAGE: ${{ inputs.image }}
         SOURCE_DIRECTORY: ${{ inputs.source_directory }}
         WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
       run: |
-        docker run -v "${PWD}/${SOURCE_DIRECTORY}:/hugo/${WEBSITE_DIRECTORY}" --rm "${IMAGE}" /bin/bash -c "${COMMAND}"
+        docker run -v "${PWD}/${SOURCE_DIRECTORY}:/hugo/${WEBSITE_DIRECTORY}" --rm "${IMAGE}" /bin/bash -c 'make hugo'
       shell: bash

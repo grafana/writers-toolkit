@@ -12,22 +12,32 @@ on:
 jobs:
   deploy-pr-preview:
     if: ${{ ! github.event.pull_request.head.repo.fork }}
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        sparse-checkout-cone-mode: false # exclude root files
-        sparse-checkout: docs
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false # exclude root files
+          sparse-checkout: docs
 
-    - uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@jdb/2025-01-multiple-source-deploy-preview
-      with:
-        branch: ${{ github.head_ref }}
-        event_number: ${{ github.event.number }}
-        sha: ${{ github.event.pull_request.head.sha }}
-        sources: |
-          [{
-              "index_file": null,
-              "relative_prefix": "/docs/writers-toolkit/",
-              "source_directory": "docs/sources",
-              "website_directory": "content/docs/writers-toolkit"
-          }]
-        title: ${{ github.event.pull_request.title }}
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          repo: grafana/writers-toolkit
+          sparse-checkout-cone-mode: false # exclude root files
+          sparse-checkout: |
+            .github/workflows/deploy-preview.yml
+
+      - uses: ./.github/workflows/deploy-preview.yml
+        with:
+          branch: ${{ github.head_ref }}
+          event_number: ${{ github.event.number }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          sources: |
+            [{
+                "index_file": null,
+                "relative_prefix": "/docs/writers-toolkit/",
+                "source_directory": "docs/sources",
+                "website_directory": "content/docs/writers-toolkit"
+            }]
+          title: ${{ github.event.pull_request.title }}

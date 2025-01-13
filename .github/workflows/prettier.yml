@@ -6,6 +6,6 @@ jobs:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/writers-toolkit/prettier@7ed05174152114a50ceaec41e205f54f3700d155
+      - uses: grafana/writers-toolkit/prettier@62fe122eb653707d1c49bc0e41cf4b9704c9064b # prettier/v2.0.0 
         with:
           branch: ${{ env.GITHUB_REF }}

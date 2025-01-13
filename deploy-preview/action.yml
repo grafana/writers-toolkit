@@ -61,12 +61,6 @@ inputs:
 
 runs:
   using: composite
-  permissions:
-    contents: read
-    id-token: write # Fetch Vault secrets.
-    pull-requests: write # Create or update PR comments.
-    statuses: write # Update GitHub status check with deploy preview link.
-  runs-on: ubuntu-latest
   steps:
     - name: Find comment
       uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
@@ -89,20 +83,20 @@ runs:
 
     - name: Build website
       if: github.event.action == 'opened' || github.event.action == 'synchronize'
-      shell: bash
       env:
         ACTION_PATH: ${{ github.action_path }}
         SOURCES: ${{ inputs.sources }}
       run: |
         "${ACTION_PATH}/deploy-preview-files/deploy-preview/build.sh"
+      shell: bash
 
     - name: Print build header value
       if: github.event.action == 'opened' || github.event.action == 'synchronize'
-      shell: bash
       env:
         SHA: ${{ inputs.sha }}
       run: |
         printf "%s" "add_header 'Build' '"${SHA}"';" > build.conf
+      shell: bash
 
     - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
       if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -183,6 +177,7 @@ runs:
         else
           echo "Service $SERVICE_NAME does not exist. Skipping step."
         fi
+      shell: bash
 
     - name: Send commit status
       uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2

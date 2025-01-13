@@ -16,6 +16,11 @@ concurrency:
 jobs:
   deploy-pr-preview:
     if: ${{ ! github.event.pull_request.head.repo.fork }}
+    permissions:
+      contents: read
+      id-token: write # Fetch Vault secrets.
+      pull-requests: write # Create or update PR comments.
+      statuses: write # Update GitHub status check with deploy preview link.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

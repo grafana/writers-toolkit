@@ -12,7 +12,7 @@ on:
 jobs:
   deploy-pr-preview:
     uses: ./.github/workflows/deploy-preview.yml
-    if: ! github.event.pull_request.head.repo.fork
+    if: ${{ ! github.event.pull_request.head.repo.fork }}
     with:
       sha: ${{ github.event.pull_request.head.sha }}
       branch: ${{ github.head_ref }}

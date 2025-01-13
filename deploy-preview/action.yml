@@ -107,13 +107,13 @@ runs:
         service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
         create_credentials_file: false
 
-    - name: Login to GAR
-      if: github.event.action == 'opened' || github.event.action == 'synchronize'
-      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
-      with:
-        registry: us-docker.pkg.dev
-        username: oauth2accesstoken
-        password: ${{ steps.gcloud-auth.outputs.access_token }}
+    # - name: Login to GAR
+    #   if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    #   uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+    #   with:
+    #     registry: us-docker.pkg.dev
+    #     username: oauth2accesstoken
+    #     password: ${{ steps.gcloud-auth.outputs.access_token }}
 
     - name: Extract metadata (tags, labels) for Docker
       if: github.event.action == 'opened' || github.event.action == 'synchronize'

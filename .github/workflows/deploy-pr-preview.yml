@@ -9,6 +9,10 @@ on:
     paths:
       - "docs/sources/**"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy-pr-preview:
     if: ${{ ! github.event.pull_request.head.repo.fork }}
@@ -20,15 +24,7 @@ jobs:
           sparse-checkout-cone-mode: false # exclude root files
           sparse-checkout: docs
 
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-          repo: grafana/writers-toolkit
-          sparse-checkout-cone-mode: false # exclude root files
-          sparse-checkout: |
-            .github/workflows/deploy-preview.yml
-
-      - uses: ./.github/workflows/deploy-preview.yml
+      - uses: ./deploy-preview
         with:
           branch: ${{ github.head_ref }}
           event_number: ${{ github.event.number }}

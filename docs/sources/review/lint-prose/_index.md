@@ -105,13 +105,12 @@ If you manually install Vale, you must configure your system to add Vale to your
 
 1. Create a `.vale.ini` file in your home directory or in a working directory with the following contents:
 
-   ```bash
+   ```ini
    MinAlertLevel = suggestion
-   StylesPath = /<PATH TO WRITERS TOOLKIT REPOSITORY>/vale
+   Packages = <PATH TO WRITERS TOOLKIT REPOSITORY>/vale/Grafana, https://github.com/errata-ai/Hugo/releases/download/v0.2.0/Hugo.zip
 
-   [*.md]
+   [*]
    BasedOnStyles = Grafana
-   TokenIgnores = (<http[^\n]+>+?), \*\*[^\n]+\*\*
    ```
 
    Replace _`<PATH TO WRITERS TOOLKIT REPOSITORY>`_ with the full path to your checkout of the Writer's Toolkit repository.

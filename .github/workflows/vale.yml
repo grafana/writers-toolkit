@@ -7,7 +7,7 @@ jobs:
     if: ${{ github.event.issue.pull_request && github.event.issue.state == 'open' && contains(github.event.comment.body, '/vale') }}
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest
+      image: grafana/vale:latest@sha256:e14889d8d0e31bc32bbc09f3aa2c5d98c2c988c53ec5a3f5753dc46a8889bf3a
     steps:
       - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:

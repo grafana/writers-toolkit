@@ -19,3 +19,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - run: echo 'No build required'
+  test:
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo 'No build required'

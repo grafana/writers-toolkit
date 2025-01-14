@@ -1,18 +1,11 @@
 name: Run `prettier` on a branch
 on:
   workflow_dispatch:
-    inputs:
-      trace:
-        default: false
-        description: Print command traces?
-        required: false
-        type: boolean
 jobs:
   prettier:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/writers-toolkit/prettier@main
+      - uses: grafana/writers-toolkit/prettier@62fe122eb653707d1c49bc0e41cf4b9704c9064b # prettier/v2.0.0 
         with:
           branch: ${{ env.GITHUB_REF }}
-          trace: ${{ inputs.trace }}

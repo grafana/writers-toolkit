@@ -13,22 +13,24 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/shared-workflows/actions/get-vault-secrets@main
+      - uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1
         with:
           common_secrets: |
             ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
             ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
 
-      - uses: actions/create-github-app-token@v1
+      - uses: actions/create-github-app-token@c1a285145b9d317df6ced56c09f525b5c2b6f755 # v1.11.1
         id: app-token
         with:
           app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
           owner: grafana
           private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           cache: npm
           node-version-file: "add-to-docs-project/package.json"
@@ -45,7 +47,7 @@ jobs:
       - name: Send Slack Message
         id: slack
         if: ${{ steps.add-to-docs-project.outputs.added != ''}}
-        uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 #v1.0.0
+        uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 # v1.0.0
         with:
           channel-id: C05V6A36MB7
           payload: |
@@ -64,7 +66,7 @@ jobs:
 
       - name: Notify failure
         if: failure()
-        uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 #v1.0.0
+        uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 # v1.0.0
         with:
           channel-id: C05V6A36MB7
           payload: |

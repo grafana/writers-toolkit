@@ -34,18 +34,17 @@ on:
 env:
   CLOUD_RUN_REGION: us-south1
 
-permissions:
-  id-token: write # Needed for authentication.
-  statuses: write # Needed to send deploy preview link as a commit status.
-  pull-requests: write # Needed to add/update a comment with the deploy preview link.
-
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   deploy-preview:
-    permissions: write-all
+    permissions:
+      contents: read
+      id-token: write # Fetch Vault secrets.
+      pull-requests: write # Create or update PR comments.
+      statuses: write # Update GitHub status check with deploy preview link.
     runs-on: ubuntu-latest
     steps:
       - name: Find comment
@@ -70,6 +69,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         with:
+          persist-credentials: false
           sparse-checkout-cone-mode: false # exclude root files
           sparse-checkout: docs
 
@@ -81,6 +81,7 @@ jobs:
           repository: "grafana/writers-toolkit"
           ref: "main"
           path: deploy-preview-files
+          persist-credentials: false
           sparse-checkout: |
             deploy-preview
 
@@ -89,11 +90,13 @@ jobs:
       - name: Keep only necessary files
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
+        env:
+          SOURCE_DIRECTORY: ${{ inputs.source_directory }}
         run: |
           shopt -s extglob
           rm -rf !(docs|deploy-preview-files|.git)
           ls -al
-          ls -al ${{ inputs.source_directory }}
+          ls -al "${SOURCE_DIRECTORY}"
           ls -al deploy-preview-files
 
       - name: Build website
@@ -110,8 +113,10 @@ jobs:
       - name: Print build header value
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
+        env:
+          SHA: ${{ inputs.sha }}
         run: |
-          printf "%s" "add_header 'Build' '"${{ inputs.sha }}"';" > build.conf
+          printf "%s" "add_header 'Build' '"${SHA}"';" > build.conf
 
       - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -144,6 +149,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
         with:
+          cache-binary: false
           driver: docker-container
 
       - name: Build the container
@@ -181,8 +187,11 @@ jobs:
 
       - name: Delete deploy preview
         if: github.event.action == 'closed'
+        env:
+          REPO: ${{ inputs.repo }}
+          EVENT_NUMBER: ${{ inputs.event_number }}
         run: |
-          SERVICE_NAME=deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
+          SERVICE_NAME="deploy-preview-${REPO}-${EVENT_NUMBER}"
           if gcloud run services describe $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev > /dev/null 2>&1; then
             gcloud run services delete $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
           else

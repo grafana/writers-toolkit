@@ -28,7 +28,7 @@ runs:
         REVIEWDOG_GITHUB_API_TOKEN: ${{ inputs.token }}
       run: |
           (cd /etc/vale && vale sync)
-          vale ${FILTER} --output=/etc/vale/rdjsonl.tmpl ${DIRECTORY} | \
+          vale "${FILTER}" --output=/etc/vale/rdjsonl.tmpl "${DIRECTORY}" | \
             inhibit-rules | \
             /bin/reviewdog \
             --conf=/etc/vale/.reviewdog.yml \

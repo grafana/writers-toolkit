@@ -12,6 +12,7 @@ on:
 jobs:
   deploy-pr-preview:
     uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@main
+    if: ${{ ! github.event.pull_request.head.repo.fork }}
     with:
       sha: ${{ github.event.pull_request.head.sha }}
       branch: ${{ github.head_ref }}

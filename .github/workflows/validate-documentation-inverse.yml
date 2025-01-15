@@ -1,4 +1,4 @@
-name: Validate documentation
+name: Documentation CI
 on:
   pull_request:
     paths-ignore: ["docs/sources/**", "vale/**"]
@@ -16,6 +16,10 @@ jobs:
     steps:
       - run: echo 'No build required'
   report-readability:
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo 'No build required'
+  test:
     runs-on: "ubuntu-latest"
     steps:
       - run: echo 'No build required'

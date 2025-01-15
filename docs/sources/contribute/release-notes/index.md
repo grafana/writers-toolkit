@@ -34,185 +34,103 @@ The Grafana Cloud Traces updates are published using the What's new.
 
 ## What's new documentation development process
 
-What's new content is published to the website through the website CMS.
-To add a new note, browse to the [What's new CMS collection](https://admin.grafana.com/content-admin/#/collections/whats-new).
+What's new content is published to the website through the website content management system (CMS).
 
 Because this platform is meant to be used by the entire organization, by default anyone can contribute and publish to What's new, without the need for approval.
 _Quality assurance is a conversation within and between contributing teams and internal stakeholders_, but there are some best practice guidelines described in the last two sections of this topic.
 
-Enter release notes into the CMS two to four weeks before the feature is available, depending on the size of the product or feature.
-This gives the Go To Market (GTM) team time for promotion and enablement.
-For Grafana versioned releases, have your content entered in the CMS by the cut-off date communicated by the delivery team.
-For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://grafana-intranet--simpplr.vf.force.com/apex/simpplr__app?u=/site/a145f000001dCXBAA2/page/a125f000004oOF7AAM).
+**What does "Published" mean?**
 
 It's important to understand that, in the context of the CMS, the word "published" has a slightly different meaning than in general use:
 
-- **Published**: Your entry is complete and in **Published** status.
-  It's either visible on the external _What's new in Cloud_ page or is going to automatically become visible on the release date.
-- **Live**: Your entry is visible on the _What's new in Cloud_ page.
+- **Published, but not Live**: Your entry is complete and in **Published** status, but not visible on the _What's new in Cloud_ page.
+- **Published and Live**: Your entry is complete and in **Published** status, and visible on the _What's new in Cloud_ page.
+
+### What's new timing
+
+Enter release notes into the CMS _two to four weeks before the feature is available_, depending on the size of the product or feature.
+
+For Grafana versioned releases, have your release notes entered in the CMS _by the cut-off date_ communicated by the delivery team.
+
+This gives the Go To Market (GTM) team time for promotion and enablement.
+For more information, refer to the [Record Announce Document Ship (RADS) guidelines](https://wiki.grafana-ops.net/w/index.php/Engineering/RADS).
 
 ### Create a What's new entry
 
+<!-- vale Grafana.GoogleWill = NO -->
+
 When you're ready to add a What's new entry, complete the following steps:
 
-1. Fill out the fields:
-   <table>
-     <thead>
-       <tr>
-         <th scope="col">Field</th>
-         <th scope="col">Description</th>
-         <th scope="col">Guidance</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr>
-         <th scope="row">FEATURE NAME</th>
-         <td>Short headline for the feature.</td>
-         <td>For example, <em>Grafana OnCall integration for Alerting</em>.</td>
-       </tr>
-       <tr>
-         <th scope="row">FEATURE RELEASE DATE</th>
-         <td>Date and time in UTC that you want this note to be live.</td>
-         <td>
-           <p>This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users the date is when the feature was first available to users opting in.</p>
-           <p>If you've opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build.</p>
-         </td>
-       </tr>
-       <tr>
-         <th scope="row">CONTACT</th>
-         <td>First and last name.</td>
-         <td>The contents of this field aren't publicly viewable.</td>
-       </tr>
-       <tr>
-         <th scope="row">INTERNAL ONLY? (OPTIONAL)</th>
-         <td>Set to true to only post the note on <a href="https://admin.grafana.com/whats-new/">https://admin.grafana.com/whats-new/</a></td>
-       </tr>
-       <tr>
-         <th scope="row">TAGS (OPTIONAL)</th>
-         <td>Select category tags that users can use to filter their view.</td>
-         <td>Select as many as apply.</td>
-       </tr>
-       <tr>
-         <th scope="row">LAUNCH TIER (OPTIONAL)</th>
-         <td>Marketing launch tier, to say how much marketing support this feature needs.</td>
-         <td>
-           <p>For examples, refer to the <a href="https://docs.google.com/spreadsheets/d/1E81c1OGisYtGWpLlHm7rBMOYKk-0N1akHyNbPqaANFY/edit?gid=801299949#gid=801299949">Upcoming Products/Features Tracker + Calendar Google Sheet</a>.</p>
-           <p>If you're not sure what level to use, ask in the #product-marketing Slack channel.</p>
-        </td>
-       </tr>
-       <tr>
-         <th scope="row">CLOUD AVAILABILITY</th>
-         <td>Select the stage of the feature's Cloud release.</td>
-         <td>If the feature isn't available in Cloud, select <strong>None</strong>.</td>
-       </tr>
-       <tr>
-         <th scope="row">CLOUD EDITIONS</th>
-         <td>Select which account types have access to the feature.</td>
-         <td>If the feature isn't available in Cloud, select <strong>None</strong>.</td>
-       </tr>
-       <tr>
-         <th scope="row">SELF-MANAGED AVAILABILITY</th>
-         <td>Select the stage of the feature's self-managed release.</td>
-         <td>If the feature isn't available in the self-managed product, select <strong>None</strong>.</td>
-       </tr>
-       <tr>
-         <th scope="row">SELF-MANAGED EDITIONS</th>
-         <td>Select the on-premises offerings where this feature is available.</td>
-         <td>If the feature isn't available in the self-managed product, select <strong>None</strong>.</td>
-       </tr>
-       <tr>
-         <th scope="row">SELF-MANAGED VERSION</th>
-         <!-- vale Grafana.GoogleWill = NO -->
-         <td>Select the version of self-managed product that will include the feature.</td>
-         <!-- vale Grafana.GoogleWill = YES -->
-         <td>
-           <p>If the feature isn't available in the self-managed product, select <strong>None</strong>.</p>
-           <p>If the version isn't available, select <strong>No suitable option</strong> and reach out in the #docs Slack channel so that a maintainer can add a new option.
-           </p>
-         </td>
-       </tr>
-       <tr>
-         <th scope="row">BODY</th>
-         <td>Include an overview of the feature and the problem it solves.</td>
-         <td>
-           <p>If you want to view some best practices around what to write here, refer to <a href="#guidelines-for-whats-new-content">Guidelines for What's new content</a>.</p>
-           <p>Add any images and a link to your public YouTube video here.</p>
-           <p>If you need more information on adding an image, refer to <a href="https://grafana.com/docs/writers-toolkit/write/image-guidelines/">Image, diagram, and screenshot guidelines</a>.</p>
-           <p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the <code>traceToProfile</code> <a href="https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/">feature toggle</a>.</p>
-         </td>
-       </tr>
-       <tr>
-         <th scope="row">DOCUMENTATION URL (OPTIONAL)</th>
-         <td>URL to the public documentation for this feature.</td>
-         <td></td>
-       </tr>
-       <tr>
-         <th scope="row">ENABLEMENT VIDEO (OPTIONAL)</th>
-         <td>Link to the video used for enablement.</td>
-         <td>
-           <p>Enablement videos are perhaps the fastest, most engaging tool for employees and users to learn about your feature. Use them for maximum engagement.</p>
-           <p>Follow these instructions to create and upload a video: <a href="https://docs.google.com/document/d/1nCiG62FxJ9J_qLTnlzNopSsT-VEAlxCUCsrAEpWL68U/edit#heading=h.fierz9i4q8ft">Enablement video instructions</a>.</p>
-           <p>When you upload an enablement video, the Content team receives a notification, edits it for the public, and uploads it to YouTube to coincide with your feature's release. They need a few weeks' lead time for this.</p>
-         </td>
-       </tr>
-       <tr>
-         <th scope="row">INTERNAL INFORMATION (OPTIONAL)</th>
-         <td>Information for Grafana Labs employees only.</td>
-         <td>
-           <p>For example, ProductDNA, Slack channel, FAQ, training documentation, or videos.</p>
-           <p>Used for training and internal announcements.</p>
-           <p>This is only visible on the <a href="https://admin.grafana.com/whats-new/">internal What's new page</a>, <em>not</em> the <a href="https://grafana.com/docs/grafana-cloud/whats-new/">public What's New page</a>.</p>
-         </td>
-       </tr>
-     </tbody>
-   </table>
-
+1. Go to the What's new collection of the [website CMS](https://admin.grafana.com/content-admin/#/collections/whats-new) and click **New Feature** at the top of the page.
+1. Fill out [the CMS fields](#cms-fields).
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
-   If your entry is future-dated, it won't show up in the website-generated preview or in your local build, but you can see it in the preview of the internal feed.
-   To do so, remove `/docs/grafana-cloud` from the preview URL and add the heading for your entry at the end of the URL.
-   It should look something like this: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
+1. (Optional) Preview your entry on GitHub.
+
+   While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub lets you view videos and see your entry in the context of the website.
+
+   - **Release date in the past** - Your entry will be visible in the website-generated preview.
+
+   - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
+     To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
+     For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
 
    1. In the **Status** drop-down, select **In review.**
-
-      {{< admonition type="note" >}}
-      _The Documentation Team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process._
-
-      However, there are two weekly Office Hours meetings offered by the Documentation Team that you're welcome to attend for guidance and assistance:
-
-      - [Docs squad office hours (early)](https://docs.google.com/document/d/1QaH9PwIZ_6-6Udhmy7Zhwme72ZZLqSTiX8HYFFi6AE4/edit#heading=h.9o53ccbx7xrw)
-      - [Docs squad office hours (late)](https://docs.google.com/document/d/12XK3XYEZWU3uIPluq3sn5HSGqWHBHJkktqlyQZHj_Uw/edit#heading=h.9o53ccbx7xrw)
-
-      {{< /admonition >}}
-
    1. Work with your team to review and finalize the generated pull request.
 
-   1. Merge your PR in time for your feature release date.
+   {{< admonition type="caution" >}}
+   The Grafana Labs documentation team doesn't automatically review these pull requests; teams that create What's new entries are responsible for determining their own review process.
+   {{< /admonition >}}
 
-      Merging your PR ensures your entry is live on the date you entered and it automatically updates the status of your entry in the CMS.
+1. Publish your entry by the release date you've entered.
 
-1. To publish your entry from the CMS, follow these steps:
+   - To publish from GitHub, merge your PR.
+   - To publish from the CMS:
 
    1. In the **Status** drop-down, click **Ready**.
    1. In the **Publish** drop-down, click **Publish now**.
-      The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the date you entered.
+
+<!-- vale Grafana.GoogleWill = YES -->
+
+The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
 
 For Grafana versioned releases, the content you enter in the CMS is published in the versioned What's new at a later date.
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
 
+{{< admonition type="caution">}}
 If you add an entry to the CMS after the relevant versioned What's new has already been published, you'll need to open a PR to also add it to the versioned What's new yourself.
+{{< /admonition >}}
 
-#### Updated release stage
+### CMS fields
 
-If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry.
-For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
+<!-- vale Grafana.GoogleWill = NO -->
+<!-- prettier-ignore-start -->
 
-You don't have to make the new entry as robust as the previous one.
-Instead, you can keep the new entry brief by referring to or linking to the previous entry.
+| Field | Description | Guidance |
+|---|---|---|
+| FEATURE NAME | Short headline for the feature. | For example, _Grafana OnCall integration for Alerting_. |
+| FEATURE RELEASE DATE | Date and time in UTC that you want this note to be live. | <p>This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users, the date is when the feature was first available to users opting in.</p><p>If you've opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build.</p> |
+| CONTACT | First and last name. | The contents of this field aren't publicly viewable. |
+| INTERNAL ONLY? (OPTIONAL) | Set to true to only post the note on [https://admin.grafana.com/whats-new/](https://admin.grafana.com/whats-new/) |  |
+| TAGS (OPTIONAL) | Select category tags that users can use to filter their view. | Select as many as apply. |
+| LAUNCH TIER (OPTIONAL) | Marketing launch tier, to say how much marketing support this feature needs. | <p>For a rubric, refer to the [Release Tier Matrix](https://wiki.grafana-ops.net/w/index.php/Marketing/Product_Marketing/Product_Release_Tier_Matrix).</p><p>For examples, refer to the [Upcoming Products/Features Tracker + Calendar Google Sheet](https://docs.google.com/spreadsheets/d/1E81c1OGisYtGWpLlHm7rBMOYKk-0N1akHyNbPqaANFY/edit?gid=801299949#gid=801299949).</p><p>If you're not sure what level to use, ask in the **#product-marketing** Slack channel.</p> |
+| CLOUD AVAILABILITY | Select the stage of the feature's Cloud release. | If the feature isn't available in Cloud, select **None**. |
+| CLOUD EDITIONS | Select which account types have access to the feature. | If the feature isn't available in Cloud, select **None**. |
+| SELF-MANAGED AVAILABILITY | Select the stage of the feature's self-managed release. | If the feature isn't available in the self-managed product, select **None**. |
+| SELF-MANAGED EDITIONS | Select the on-premises offerings where this feature is available. | If the feature isn't available in the self-managed product, select **None**. |
+| SELF-MANAGED VERSION | Select the version of self-managed product that will include the feature. | <p>If the feature isn't available in the self-managed product, select **None**.</p><p>If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option. |
+| BODY | Include an overview of the feature and the problem it solves. | If you want to view some best practices around what to write here, refer to [Guidelines for What's new content](#guidelines-for-whats-new-content).</p><p>Add any images and a link to your public YouTube video here.</p><p>If you need more information on adding an image, refer to [Image, diagram, and screenshot guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/).</p><p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the `traceToProfile` [feature toggle](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/).</p> |
+| DOCUMENTATION URL (OPTIONAL) | URL to the public documentation for this feature. | Use the Cloud docs URL here. Add the self-managed docs URL in the INTERNAL INFORMATION field, if applicable. |
+| ENABLEMENT VIDEO (OPTIONAL) | Link to the video used for enablement. | <p>Enablement videos are perhaps the fastest, most engaging tool for employees and users to learn about your feature. Use them for maximum engagement.</p><p>Follow these instructions to create and upload a video: [Enablement video instructions](https://docs.google.com/document/d/1nCiG62FxJ9J_qLTnlzNopSsT-VEAlxCUCsrAEpWL68U/edit#heading=h.fierz9i4q8ft).</p><p>When you upload an enablement video, the Content team receives a notification, edits it for the public, and uploads it to YouTube to coincide with your feature's release. They need a few weeks' lead time for this. |
+| INTERNAL INFORMATION (OPTIONAL) | Information for Grafana Labs employees only. | For example, ProductDNA, Slack channel, FAQ, training documentation, or videos.</p><p>Used for training and internal announcements.</p><p>This is only visible on the [internal What's new page](https://admin.grafana.com/whats-new/), not the [public What's New page](https://grafana.com/docs/grafana-cloud/whats-new/).</p> |
+
+<!-- prettier-ignore-end -->
+
+<!-- vale Grafana.GoogleWill = YES -->
 
 ### Edit What's new entries
 
@@ -236,6 +154,14 @@ To make edits, follow these steps:
 If your entry is already live in both _What's new in Cloud_ and it's between the cut-off date for a versioned release and the release date, update the CMS and then reach out to the person responsible for creating the versioned release notes.
 
 If your entry requires an update after it's live in both the Cloud and self-managed What's new, you'll need to update both entries.
+
+### Features in a new release stage
+
+If you've previously created a What's new entry for a feature when it was in an early release stage and you want to announce that the feature has moved into a new release stage, create a new entry.
+For example, you published a What's new entry when the feature was in public preview and now the feature is in general availability.
+
+You don't have to make the new entry as robust as the previous one.
+Instead, you can keep the new entry brief by referring to or linking to the previous entry.
 
 ### Create the versioned release notes
 

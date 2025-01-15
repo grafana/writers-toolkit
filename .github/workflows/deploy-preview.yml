@@ -138,7 +138,7 @@ jobs:
       - name: Extract metadata (tags, labels) for Docker
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: meta
-        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
+        uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5.6.1
         with:
           images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}"
           tags: |-

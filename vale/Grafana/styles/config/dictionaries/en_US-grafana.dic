@@ -1,5 +1,6 @@
-303
+321
 ACL/S po:noun
+ADOT/ po:noun
 AI Observability/ po:noun
 Adaptive Metrics/ po:noun
 Aerospike/ po:noun
@@ -14,10 +15,13 @@ Ansible/ po:noun
 Apdex/ po:noun
 API/S po:noun
 APT/ po:noun
+ARN/ po:noun
 Asserts/ po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun
 AWS/ po:noun
+AWS Distro for OpenTelemetry Collector/ po:noun
+AWS X-Ray/ po:noun
 backend/S po:noun
 backport/DGS po:verb
 Beyla/ po:noun
@@ -41,6 +45,7 @@ clear/S po:verb
 CLI/ po:noun
 CloudWatch/ po:noun
 CLS/ po:noun
+CMS/ po:noun
 codespace/S po:noun
 Codespaces/ po:noun
 composable/ po:adjective
@@ -51,7 +56,7 @@ Couchbase/M po:noun
 CPU/S po:noun
 CRD/S po:noun
 CSS/ po:noun
-CSV/ po:noun
+CSV/S po:noun
 CVE/S po:noun
 data center/S po:noun
 data source/S po:noun
@@ -63,6 +68,7 @@ Datadog/ po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
 distroless/ po:adjective
+DNS/ po:noun
 DOM/ po:noun
 don'ts/ po:noun
 downsample/DG po:verb
@@ -83,6 +89,7 @@ FID/ po:noun
 filename/S po:noun
 Firehose/M po:noun
 firewall rules/ po:noun
+FreeBSD/ po:noun
 frontend/S po:noun
 GEM/ po:noun
 GKE/ po:noun
@@ -93,6 +100,7 @@ globbing/ po:verb
 GNU/ po:noun
 Goldmark/ po:noun
 goroutine/S po:noun
+GPG/ po:noun
 GPU/S po:noun
 Grafana/ po:adjective
 Grafana/ po:noun
@@ -102,6 +110,7 @@ Graylog/ po:noun
 GUI/S po:noun
 Gzip/ po:noun
 heatmap/S po:noun
+hashmod/ po:noun
 hostname/S po:noun
 HPA/S po:noun
 HTML/ po:noun
@@ -117,6 +126,7 @@ Jaeger/ po:noun
 JAR/ po:noun
 Jira/ po:noun
 JMeter/M po:noun
+journald/ po:noun
 JPG/ po:noun
 JSON/ po:noun
 Jsonnet/ po:noun
@@ -132,7 +142,9 @@ Kprobe/S po:noun
 kubelet/ po:noun
 Kubernetes/ po:noun
 Kubernetes Engine/ po:noun
+Kustomize/ po:noun
 LangChain/ po:noun
+launchd/ po:noun
 LCP/ po:noun
 LESS/ po:noun
 LLM/S po:noun
@@ -156,6 +168,7 @@ mixin/S po:noun
 Moodle/ po:noun
 MySQL/ po:noun
 namespace/S po:noun
+NAT/ po:noun
 nginx/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
@@ -184,6 +197,7 @@ PNG/ po:noun
 Podman/ po:noun
 Postgres/ po:noun
 PostgreSQL/ po:noun
+pprof/ po:noun
 profile/DGRS po:verb
 Prometheus/ po:noun
 Promtail/ po:noun
@@ -215,6 +229,7 @@ repository/S po:noun
 retry/DGS po:verb
 retryable/ po:adjective
 REPL/ po:noun
+RHEL/ po:noun
 rollout/S po:noun
 Rollup/ po:noun
 RPM/ po:noun
@@ -225,6 +240,7 @@ scheduler/MS po:noun
 SCM/ po:noun
 SCSS/ po:noun
 SDK/S po:noun
+semver/ po:noun
 SEO/ po:noun
 serverless/ po:adjective
 SHA-1/ po:noun
@@ -243,6 +259,7 @@ SQL/ po:noun
 SQLite/ po:noun
 SRE/S po:noun
 SSD/S po:noun
+SSM/ po:noun
 SSH/ po:noun
 SSL/ po:noun
 SSO/ po:noun
@@ -251,6 +268,7 @@ submenu/S po:noun
 subnet/S po:noun
 subquery/S po:noun
 subtask/S po:noun
+SUSE/ po:noun
 SUT/ po:noun
 SVG/ po:noun
 sync/DG po:verb

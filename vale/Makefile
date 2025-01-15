@@ -28,9 +28,11 @@ $(DOCUMENTATION): $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/g
 Grafana/styles/config/dictionaries/en_US-grafana.%: dictionary.libsonnet
 	$(MAKE) -C $(@D) $(@F)
 
+IMAGE_PREREQUISITES := Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini
+
 .PHONY: grafana/vale
 grafana/vale: ## Builds a container image for Vale with the Grafana style loaded.
-grafana/vale: Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini
+grafana/vale: $(IMAGE_PREREQUISITES)
 	docker buildx build \
 		--platform linux/x86_64,linux/arm64 \
 		--progress=plain \
@@ -40,7 +42,7 @@ grafana/vale: Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/style
 
 .PHONY: grafana/vale/push
 grafana/vale/push: ## Builds and pushes container image for Vale with the Grafana style loaded.
-grafana/vale/push:
+grafana/vale/push: $(IMAGE_PREREQUISITES)
 	docker buildx build \
 		--platform linux/x86_64,linux/arm64 \
 		--progress=plain \

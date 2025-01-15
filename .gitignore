@@ -7,3 +7,4 @@
 build.conf
 /dist
 /vale/Grafana.zip
+vale/tools/inhibit-rules

@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-12-16"
+review_date: "2025-01-15"
 title: Vale rules
 ---
 
@@ -64,6 +64,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.OAuth = NO -->
 <!-- vale Grafana.OK = NO -->
 <!-- vale Grafana.Ordinal = NO -->
+<!-- vale Grafana.Paragraphs = NO -->
 <!-- vale Grafana.Parentheses = NO -->
 <!-- vale Grafana.Please = NO -->
 <!-- vale Grafana.ProductPossessives = NO -->
@@ -302,6 +303,14 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `9th`
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#numbers)
+
+### Grafana.Paragraphs
+
+Extends: script
+
+br elements must be used only for line breaks that are actually part of the content, as in poems or addresses.
+
+[More information ->](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element)
 
 ### Grafana.Please
 
@@ -923,26 +932,6 @@ In some contexts, Unicode characters aren't supported and break configurations.
 
 The website renders paired quotes using smart quotes in paragraphs.
 
-### Grafana.We
-
-Extends: existence
-
-Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
-
-Don't use 'we' when you're talking about the reader, instead use 'you'.
-
-It's OK to use 'we' when you're talking about Grafana Labs.
-
-_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
-
-- `we`
-- `we'(?:ve|re)`
-- `ours?`
-- `us`
-- `let's`
-
-[More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)
-
 ### Grafana.Wish
 
 Extends: substitution
@@ -1462,3 +1451,23 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `soon`
 
 [More information ->](https://developers.google.com/style/timeless-documentation)
+
+### Grafana.We
+
+Extends: existence
+
+Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
+
+Don't use 'we' when you're talking about the reader, instead use 'you'.
+
+It's OK to use 'we' when you're talking about Grafana Labs.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `we`
+- `we'(?:ve|re)`
+- `ours?`
+- `us`
+- `let's`
+
+[More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)

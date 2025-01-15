@@ -77,7 +77,7 @@ jobs:
   vale:
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest@sha256:22bdb04abfb9f1c568846f47aca4a37996d743917e5ba89f0557ccf6fb2f7521
+      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:

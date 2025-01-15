@@ -71,6 +71,8 @@ github.com/gohugoio/httpcache v0.7.0 h1:ukPnn04Rgvx48JIinZvZetBfHaWE7I01JR2Q2RrQ
 github.com/gohugoio/httpcache v0.7.0/go.mod h1:fMlPrdY/vVJhAriLZnrF5QpN3BNAcoBClgAyQd+lGFI=
 github.com/gohugoio/hugo v0.139.4 h1:KvHVT234Kyd3WrjZ83TWuFT3VEf95k2ahqeTV+Z635c=
 github.com/gohugoio/hugo v0.139.4/go.mod h1:GPiZJZy5jCGiJ6Jtg0KdhE1JdpBTqhgtsbhpc1n8d5s=
+github.com/gohugoio/hugo v0.140.2 h1:2dA/1Yxx3/1DmVq00NAp3CBLoriIxaPk2Vh0HPtl6Lo=
+github.com/gohugoio/hugo v0.140.2/go.mod h1:wKQKmZ0pRx4I4iv+SEqzcuCH3FTf2rwzYfDd9ZZiN5o=
 github.com/gohugoio/hugo-goldmark-extensions/extras v0.2.0 h1:MNdY6hYCTQEekY0oAfsxWZU1CDt6iH+tMLgyMJQh/sg=
 github.com/gohugoio/hugo-goldmark-extensions/extras v0.2.0/go.mod h1:oBdBVuiZ0fv9xd8xflUgt53QxW5jOCb1S+xntcN4SKo=
 github.com/gohugoio/hugo-goldmark-extensions/passthrough v0.3.0 h1:7PY5PIJ2mck7v6R52yCFvvYHvsPMEbulgRviw3I9lP4=
@@ -139,6 +141,8 @@ github.com/spf13/afero v1.11.0 h1:WJQKhtpdm3v2IzqG8VMqrr6Rf3UYpEF239Jy9wNepM8=
 github.com/spf13/afero v1.11.0/go.mod h1:GH9Y3pIexgf1MTIWtNGyogA5MwRIDXGUr+hbWNoBjkY=
 github.com/spf13/cast v1.7.0 h1:ntdiHjuueXFgm5nzDRdOS4yfT43P5Fnud6DH50rz/7w=
 github.com/spf13/cast v1.7.0/go.mod h1:ancEpBxwJDODSW/UG4rDrAqiKolqNNh2DX3mk86cAdo=
+github.com/spf13/cast v1.7.1 h1:cuNEagBQEHWN1FnbGEjCXL2szYEXqfJPbP2HNUaca9Y=
+github.com/spf13/cast v1.7.1/go.mod h1:ancEpBxwJDODSW/UG4rDrAqiKolqNNh2DX3mk86cAdo=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/tdewolff/minify/v2 v2.20.37 h1:Q97cx4STXCh1dlWDlNHZniE8BJ2EBL0+2b0n92BJQhw=

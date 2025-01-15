@@ -1,4 +1,4 @@
-name: Validate documentation
+name: Documentation CI
 on:
   pull_request:
     paths-ignore: ["docs/sources/**", "vale/**"]

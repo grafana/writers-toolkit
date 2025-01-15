@@ -8,7 +8,7 @@ jobs:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     container:
-      image: grafana/doc-validator:v4.0.0@sha256:c6e813cf1d15c560e0171242b85e646e8af993730d069668d84d2c9eb611c262
+      image: grafana/doc-validator:v4.1.1@sha256:f834309bd6a1620d914f384d4b869d50f1ee4c725aaf3798da0b086b99c503ac
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:

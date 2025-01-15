@@ -6,7 +6,7 @@ message: |
 
   It's OK to use 'we' when you're talking about Grafana Labs.
 link: https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully
-level: warning
+level: suggestion
 ignorecase: true
 tokens:
   - we

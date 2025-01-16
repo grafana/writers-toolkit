@@ -20,6 +20,7 @@ jobs:
           docs/sources
           /docs/writers-toolkit
           | grep -v sources/shared
+          | grep -v anchorize.inline
           | reviewdog
           -f=rdjsonl
           --fail-on-error

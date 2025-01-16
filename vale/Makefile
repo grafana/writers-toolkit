@@ -25,7 +25,12 @@ $(DOCUMENTATION): $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/g
 	cd ../tools/ && go run ./cmd/generate-documentation ../ tools/cmd/generate-documentation vale/Grafana/styles/Grafana docs/sources/review/lint-prose/rules.md
 	prettier -w $(DOCUMENTATION)
 
-Grafana/styles/config/dictionaries/en_US-grafana.%: dictionary.libsonnet
+
+.PHONY: dictionaries
+dictionaries: ## Build the Grafana Vale dictionary files.
+dictionaries: $(DICTIONARIES)
+
+Grafana/styles/config/dictionaries/en_US-grafana.%: dictionary.libsonnet $(wildcard dictionary/*.jsonnet)
 	$(MAKE) -C $(@D) $(@F)
 
 IMAGE_PREREQUISITES := Grafana/styles/config/dictionaries/en_US-grafana.aff Grafana/styles/config/dictionaries/en_US-grafana.dic Grafana/styles/Grafana/Google .vale.ini

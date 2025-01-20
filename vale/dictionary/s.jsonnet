@@ -37,5 +37,6 @@ local word = import './word.jsonnet';
   word.new('SUT', '', 'noun') { abbreviation: true, elaboration: 'System Under Test' },
   word.new('SVG', '', 'noun') { abbreviation: true, elaboration: 'Scalable Vector Graphics', established_abbreviation: true },
   word.new('sync', 'DG', 'verb') { swaps: { synch: 'sync', synched: 'synced', synching: 'syncing' } },
-  word.new('systemd', '', 'noun'),
+  word.new('syslog', '', 'noun') { description: 'A standard for message logging' },
+  word.new('systemd', '', 'noun') { description: 'A system and service manager for Linux' },
 ]

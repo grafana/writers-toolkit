@@ -21,5 +21,6 @@ local word = import './word.jsonnet';
   word.new('Rollup', '', 'noun') { description: 'The JavaScript module bundler (https://rollupjs.org/)', product: true },
   word.new('RPM', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/RPM_Package_Manager', elaboration: 'RPM Package Manager', established_abbreviation: true },
   word.new('RSA', '', 'noun') { abbreviation: true, elaboration: 'Rivest–Shamir–Adleman', established_abbreviation: true },
+  word.new('RudderStack', '', 'noun') { description: 'https://www.rudderstack.com/', product: true, swaps: { rudderstack: 'RudderStack', Rudderstack: 'RudderStack' } },
   word.new('runbook', 'S', 'noun'),
 ]

@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-01-15"
+review_date: "2025-01-16"
 title: Vale rules
 ---
 
@@ -748,12 +748,17 @@ Instead, use the name as a modifier or rewrite to use a word like of to indicate
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
+- `ADOT's`
 - `AI Observability's`
 - `Agent's`
 - `Alloy's`
+- `ARN's`
 - `Asserts'`
 - `AWS's`
+- `AWS Distro for OpenTelemetry Collector's`
+- `AWS X-Ray's`
 - `Beyla's`
+- `BoringCrypto's`
 - `CentOS's`
 - `CloudWatch's`
 - `Codespaces'`
@@ -763,25 +768,32 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Dynatrace's`
 - `EKS's`
 - `Elastic Kubernetes Service's`
+- `Entra's`
 - `Firehose's`
+- `FreeBSD's`
 - `GEM's`
 - `GKE's`
 - `Git's`
 - `GitHub's`
+- `GitLab's`
 - `GNU's`
 - `Grafana's`
 - `Gravatar's`
 - `Graylog's`
+- `hashmod's`
 - `IBM's`
 - `Jaeger's`
 - `Jira's`
+- `journald's`
 - `Jsonnet's`
 - `Kibana's`
 - `Killercoda's`
 - `Kinesis'`
 - `Kubernetes'`
 - `Kubernetes Engine's`
+- `Kustomize's`
 - `LangChain's`
+- `launchd's`
 - `Loki's`
 - `Markdown's`
 - `Memcached's`
@@ -801,6 +813,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Podman's`
 - `Postgres'`
 - `PostgreSQL's`
+- `pprof's`
 - `Prometheus'`
 - `Promtail's`
 - `Pyroscope's`
@@ -809,8 +822,12 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Relational Database Service's`
 - `React's`
 - `Redis'`
+- `RHEL's`
 - `Rollup's`
+- `RudderStack's`
 - `Splunk's`
+- `SSM's`
+- `SUSE's`
 - `Tempo's`
 - `Thanos'`
 - `Velero's`
@@ -956,15 +973,17 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `(?:SHA-1\|HAS-SHA1)`                                             | `SHA-1`                    |
 | `(?:WiFi\|wifi)`                                                  | `Wi-Fi`                    |
 | `(?:[Oo]penshift\|openShift)`                                     | `OpenShift`                |
-| `(?:[gG]itHub]\|Github)`                                          | `GitHub`                   |
+| `(?:[eE]-mail)`                                                   | `email`                    |
 | `(?:[oO]pentelemetry\|openTelemetry)`                             | `OpenTelemetry`            |
 | `(?:alert[Mm]anager\|[Aa]lert [Mm]anager\|AlertManager)`          | `Alertmanager`             |
 | `(?:cell ?phone\|smart ?phone)`                                   | `phone\|mobile phone`      |
 | `(?:content\|media)-?type`                                        | `media type`               |
-| `(?:e-mail\|Email\|E-mail)`                                       | `email`                    |
 | `(?:file ?path\|path ?name)`                                      | `path`                     |
 | `(?:file ?path\|path ?name)s`                                     | `paths`                    |
+| `(?:github\|gitHub\|Github)`                                      | `GitHub`                   |
+| `(?:gitlab\|gitLab\|Gitlab)`                                      | `GitLab`                   |
 | `(?:hamburger menu\|kebab menu)`                                  | `menu icon`                |
+| `(?:java[Ss]cript\|Javascript)`                                   | `JavaScript`               |
 | `(?:kill\|terminate\|abort)`                                      | `stop\|exit\|cancel\|end`  |
 | `(?<!kube-)prometheus`                                            | `Prometheus`               |
 | `(?<!lambda-)promtail`                                            | `Promtail`                 |
@@ -973,6 +992,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `HTTPs`                                                           | `HTTPS`                    |
 | `Once`                                                            | `After`                    |
 | `RCA Workbench`                                                   | `RCA workbench`            |
+| `Rudderstack`                                                     | `RudderStack`              |
 | `VMWare`                                                          | `VMware`                   |
 | `Vmware`                                                          | `VMware`                   |
 | `[Ww]orld [Ww]ide [Ww]eb`                                         | `web`                      |
@@ -1019,6 +1039,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `network IP address`                                              | `internal IP address`      |
 | `open-source`                                                     | `open source`              |
 | `otel`                                                            | `OTel`                     |
+| `otlp`                                                            | `OTLP`                     |
 | `phlare`                                                          | `Phlare`                   |
 | `postgres`                                                        | `Postgres`                 |
 | `postgresql`                                                      | `PostgreSQL`               |
@@ -1029,6 +1050,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `repo`                                                            | `repository`               |
 | `repos`                                                           | `repositories`             |
 | `right[- ]hand[- ]side`                                           | `right-side`               |
+| `rudderstack`                                                     | `RudderStack`              |
 | `sign into`                                                       | `sign in to`               |
 | `sqlite`                                                          | `SQLite`                   |
 | `style sheet`                                                     | `stylesheet`               |

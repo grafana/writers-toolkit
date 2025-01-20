@@ -1,4 +1,4 @@
-321
+332
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -43,11 +43,14 @@ checkbox/S po:noun
 CLA/ po:noun
 clear/S po:verb
 CLI/ po:noun
+clickjack/DSG po:noun
 CloudWatch/ po:noun
 CLS/ po:noun
 CMS/ po:noun
 codespace/S po:noun
 Codespaces/ po:noun
+comment/S po:noun
+comment/uDG po:verb
 composable/ po:adjective
 configure/mpDS po:verb
 contentful/ po:adjective
@@ -80,6 +83,7 @@ Elastic Kubernetes Service/ po:noun
 email/ po:noun
 enablement/ po:noun
 enqueue/DS po:verb
+Entra/ po:noun
 ESLint/M po:noun
 etcd/ po:noun
 FAQ/S po:noun
@@ -95,6 +99,7 @@ GEM/ po:noun
 GKE/ po:noun
 Git/ po:noun
 GitHub/ po:noun
+GitLab/ po:noun
 glob/G po:noun
 globbing/ po:verb
 GNU/ po:noun
@@ -109,14 +114,16 @@ Gravatar/ po:noun
 Graylog/ po:noun
 GUI/S po:noun
 Gzip/ po:noun
-heatmap/S po:noun
+Hashicorp/ po:noun
 hashmod/ po:noun
+heatmap/S po:noun
 hostname/S po:noun
 HPA/S po:noun
 HTML/ po:noun
 HTTP/ po:noun
 HTTPS/ po:noun
 IBM/ po:noun
+ICU/ po:noun
 IDE/S po:noun
 inclusivity/ po:noun
 ingester/MS po:noun
@@ -124,6 +131,7 @@ Istio/ po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
 JAR/ po:noun
+JavaScript/ po:noun
 Jira/ po:noun
 JMeter/M po:noun
 journald/ po:noun
@@ -152,6 +160,7 @@ Linode/M po:noun
 LogQL/ po:noun
 Loki/ po:noun
 lookup/S po:noun
+loopback/ po:noun
 manage/uD po:verb
 Markdown/ po:noun
 marshal/u po:verb
@@ -234,6 +243,7 @@ rollout/S po:noun
 Rollup/ po:noun
 RPM/ po:noun
 RSA/ po:noun
+RudderStack/ po:noun
 runbook/S po:noun
 sandbox/DG po:verb
 scheduler/MS po:noun
@@ -272,6 +282,7 @@ SUSE/ po:noun
 SUT/ po:noun
 SVG/ po:noun
 sync/DG po:verb
+syslog/ po:noun
 systemd/ po:noun
 TCP/ po:noun
 Tempo/ po:noun

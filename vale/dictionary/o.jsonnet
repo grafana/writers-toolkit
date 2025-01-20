@@ -12,7 +12,7 @@ local word = import './word.jsonnet';
   word.new('OSS', '', 'noun') { abbreviation: true, elaboration: 'open source software', established_abbreviation: true },
   word.new('OTel', '', 'adjective'),
   word.new('OTel', '', 'noun') { product: true, swaps: { otel: 'OTel' } },
-  word.new('OTLP', '', 'noun') { abbreviation: true, elaboration: 'OpenTelemetry Protocol', established_abbreviation: true },
+  word.new('OTLP', '', 'noun') { abbreviation: true, elaboration: 'OpenTelemetry Protocol', established_abbreviation: true, swaps: { otlp: 'OTLP' } },
   word.new('overbill', 'DG', 'verb'),
   word.new('overutilization', 'S', 'noun'),
 ]

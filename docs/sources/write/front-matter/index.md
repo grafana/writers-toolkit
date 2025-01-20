@@ -310,9 +310,10 @@ If a page has some open source content and some Grafana Cloud content, set both 
 
 For `labels.stages`, the supported values and the resulting published labels are as follows:
 
-- `beta`: <span class="badge docs-labels__stage docs-labels__item">Beta</span>
-- `alpha`: <span class="badge docs-labels__stage docs-labels__item">Alpha</span>
 - `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
+- `private-preview`: <span class="badge docs-labels__stage docs-labels__item">Private preview</span>
+- `public-preview`: <span class="badge docs-labels__stage docs-labels__item">Public preview</span>
+- `general-availability`: <span class="badge docs-labels__stage docs-labels__item">General availability (GA)</span>
 
 In general, each page should only have one stage label and it should apply to the whole page.
 If a page has content with multiple different stages, you should use the appropriate [release lifecycle copy](https://grafana.com/docs/release-life-cycle/) in each section.

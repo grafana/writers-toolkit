@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## January 2025
+
+| New guidance or change                                                                                                                                         | Page                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Updated the release life cycle stages labels to match those documented in [Release life cycle for Grafana Labs](https://grafana.com/docs/release-life-cycle/). | [Labels](/docs/writers-toolkit/write/front-matter/#labels) |
+
 ## November 2024
 
 | New guidance or change                                                           | Page                                                                     |

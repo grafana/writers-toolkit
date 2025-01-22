@@ -21,7 +21,7 @@ Additionally, some repositories run Vale as part of Continuous Integration (CI).
 Repositories that run Vale in CI include:
 
 - [`grafana/beyla`](https://github.com/grafana/beyla/blob/main/.github/workflows/vale.yml)
-- [`grafana/grafana`](https://github.com/grafana/grafana/blob/main/.github/workflows/vale.yml)
+- [`grafana/grafana`](https://github.com/grafana/grafana/blob/main/.github/workflows/documentation-ci.yml)
 - [`grafana/website`](https://github.com/grafana/website/blob/master/.github/workflows/vale.yml)
 - [`grafana/writers-toolkit`](https://github.com/grafana/writers-toolkit/blob/main/.github/workflows/validate-documentation.yml#L78-L88)
 

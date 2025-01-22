@@ -1,4 +1,4 @@
-334
+335
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -10,6 +10,7 @@ Alertmanager/MS po:noun
 allowlist/DGS po:verb
 allowlist/S po:noun
 Alloy/ po:noun
+anonymize/DGS po:verb
 Ansible/ po:adjective
 Ansible/ po:noun
 Apdex/ po:noun

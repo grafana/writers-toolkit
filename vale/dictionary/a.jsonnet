@@ -11,6 +11,7 @@ local word = import './word.jsonnet';
   word.new('allowlist', 'DGS', 'verb') { swaps: { whitelisted: 'allowlisted', whitelisting: 'allowlisting', whitelists: 'allowlists' } },
   word.new('allowlist', 'S', 'noun') { swaps: { whitelist: 'allowlist' } },
   word.new('Alloy', '', 'noun') { product: true },
+  word.new('anonymize', 'DGS', 'verb') { description: 'https://dictionary.cambridge.org/dictionary/english/anonymize' },
   word.new('Ansible', '', 'adjective'),
   word.new('Ansible', '', 'noun'),
   word.new('Apdex', '', 'noun'),

@@ -345,6 +345,21 @@ For `labels.stage`, the supported values and the resulting published labels are 
 - `public-preview`: <span class="badge docs-labels__stage docs-labels__item">Public preview</span>
 - `general-availability`: <span class="badge docs-labels__stage docs-labels__item">General availability (GA)</span>
 
+For example, if a _single page_ describes an experimental feature, the source file front matter should include the following:
+
+```yaml
+labels:
+  stage: experimental
+```
+
+For a _directory of pages_ that describe an experimental feature, the branch bundle `_index.md` file front matter should include the following:
+
+```yaml
+cascade:
+  labels:
+    stage: experimental
+```
+
 <!-- vale Grafana.Headings = NO -->
 <!-- False positive due to the PascalCase that results from capitalizing camelCased shortcodes -->
 

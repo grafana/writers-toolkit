@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-01-16"
+review_date: "2025-01-22"
 title: Vale rules
 ---
 
@@ -1083,7 +1083,7 @@ The following rules are suggestions to consider a certain point of style.
 
 Extends: conditional
 
-Spell out _`<CURRENT TEXT>`_, if it's unfamiliar to the audience.
+Spell out _`<CURRENT TEXT>`_, if it's unfamiliar to the audience. To spell out the abbreviation, you must enclose the full spelling and the abbreviation in parentheses, with italic emphasis. For example, _application programming interface (API)_.
 
 [More information ->](https://developers.google.com/style/abbreviations)
 

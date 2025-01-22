@@ -14,16 +14,22 @@ weight: 300
 
 [Vale](https://github.com/errata-ai/vale) is a syntax-aware linter for prose built with speed and extensibility in mind.
 
-{{< docs/shared source="writers-toolkit" lookup="make-help.md" >}}
-
 To lint prose with Vale, run `make vale` from the `docs/` directory.
 The tool prints linting errors to your terminal.
 
 Additionally, some repositories run Vale as part of Continuous Integration (CI).
 Repositories that run Vale in CI include:
 
-- [Grafana website](https://github.com/grafana/website)
-- [Writers' Toolkit](https://github.com/grafana/writers-toolkit)
+- [`grafana/beyla`](https://github.com/grafana/beyla/blob/main/.github/workflows/vale.yml)
+- [`grafana/grafana`](https://github.com/grafana/grafana/blob/main/.github/workflows/vale.yml)
+- [`grafana/website`](https://github.com/grafana/website/blob/master/.github/workflows/vale.yml)
+- [`grafana/writers-toolkit`](https://github.com/grafana/writers-toolkit/blob/main/.github/workflows/validate-documentation.yml#L78-L88)
+
+## Skip CI
+
+You may want to skip linting for pull requests that move files that have linting issues or otherwise defer linting the content.
+
+To skip Vale linting in CI, include `<-- vale = NO -->` in your pull request description.
 
 ## Skip rules
 

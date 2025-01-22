@@ -21,6 +21,11 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: DEBUG
+      env:
+        EVENT: ${{ toJSON(github.event.pull_request) }}
+      run: |
+        echo "${EVENT}"
     - name: Vale
       if: ${{ ! contains(github.event.pull_request.body, '<-- vale = NO -->') }}
       env:

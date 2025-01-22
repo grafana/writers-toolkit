@@ -20,7 +20,7 @@ STYLES := Grafana/styles/Grafana/Google Grafana/styles/Grafana/Readability
 RULES := Grafana/styles/Grafana/Acronyms.yml Grafana/styles/Grafana/AmazonProductNames.yml Grafana/styles/Grafana/ApacheProjectNames.yml Grafana/styles/Grafana/GoogleProductNames.yml Grafana/styles/Grafana/Headings.yml Grafana/styles/Grafana/ProductPossessives.yml Grafana/styles/Grafana/WordList.yml
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
-all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) $(TESTS) ## Build all the Grafana Vale rules and styles.
+all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) ## Build all the Grafana Vale rules and styles.
 $(DOCUMENTATION): $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
 	cd ../tools/ && go run ./cmd/generate-documentation ../ tools/cmd/generate-documentation vale/Grafana/styles/Grafana docs/sources/review/lint-prose/rules.md
 	prettier -w $(DOCUMENTATION)

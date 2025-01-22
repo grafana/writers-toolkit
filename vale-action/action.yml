@@ -21,14 +21,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: DEBUG
-      env:
-        EVENT: ${{ toJSON(github.event.pull_request) }}
-      run: |
-        echo "${EVENT}"
-      shell: sh
     - name: Vale
-      if: ${{ ! contains(github.event.pull_request.body, '<-- vale = NO -->') }}
+      if: ${{ ! contains(github.event.pull_request.body, '<!-- vale = NO -->') }}
       env:
         DIRECTORY: ${{ inputs.directory }}
         FILTER: --filter=${{ inputs.filter }}

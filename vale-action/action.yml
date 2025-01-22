@@ -22,7 +22,7 @@ runs:
   using: composite
   steps:
     - name: Vale
-      if: ${{ ! contains(github.event.pull_request.title, '<-- vale = NO -->') }}
+      if: ${{ ! contains(github.event.pull_request.body, '<-- vale = NO -->') }}
       env:
         DIRECTORY: ${{ inputs.directory }}
         FILTER: --filter=${{ inputs.filter }}

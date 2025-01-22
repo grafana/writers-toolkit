@@ -75,5 +75,6 @@
 "ignorecase": false
 "level": "suggestion"
 "link": "https://developers.google.com/style/abbreviations"
-"message": "Spell out '%s', if it's unfamiliar to the audience."
-"second": "(?:\\b[A-Z][a-z]+ )+\\(([A-Z]{3,5})\\)"
+"message": "Spell out '%s', if it's unfamiliar to the audience. To spell out the abbreviation, you must enclose the full spelling and the abbreviation in parentheses, with italic emphasis. For example, _application programming interface (API)_."
+"scope": "raw"
+"second": "_(?:[A-Za-z][a-z]+ )+\\(([A-Z]{3,5})\\)_"

@@ -1006,6 +1006,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `blacklisted`                                                     | `blocklisted`              |
 | `blacklisting`                                                    | `blocklisting`             |
 | `blacklists`                                                      | `blocklists`               |
+| `cadvisor`                                                        | `cAdvisor`                 |
 | `check[- ]box`                                                    | `checkbox`                 |
 | `content type`                                                    | `media type`               |
 | `data-?source`                                                    | `data source`              |

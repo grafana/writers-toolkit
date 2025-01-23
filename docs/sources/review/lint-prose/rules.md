@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-01-16"
+review_date: "2025-01-22"
 title: Vale rules
 ---
 
@@ -769,6 +769,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `EKS's`
 - `Elastic Kubernetes Service's`
 - `Entra's`
+- `Figma's`
 - `Firehose's`
 - `FreeBSD's`
 - `GEM's`
@@ -801,6 +802,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Mimir's`
 - `Moodle's`
 - `MySQL's`
+- `Netlink's`
 - `Okta's`
 - `OnCall's`
 - `OpenAI's`
@@ -1017,6 +1019,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `de-duplicates`                                                   | `deduplicates`             |
 | `de-duplication`                                                  | `deduplication`            |
 | `fewer data`                                                      | `less data`                |
+| `figma`                                                           | `Figma`                    |
 | `file name`                                                       | `filename`                 |
 | `file names`                                                      | `filenames`                |
 | `firewalls`                                                       | `firewall rules`           |

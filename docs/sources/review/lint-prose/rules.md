@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2024-09-19"
+review_date: "2025-01-23"
 title: Vale rules
 ---
 
@@ -64,6 +64,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.OAuth = NO -->
 <!-- vale Grafana.OK = NO -->
 <!-- vale Grafana.Ordinal = NO -->
+<!-- vale Grafana.Paragraphs = NO -->
 <!-- vale Grafana.Parentheses = NO -->
 <!-- vale Grafana.Please = NO -->
 <!-- vale Grafana.ProductPossessives = NO -->
@@ -102,8 +103,8 @@ Use 'AM' or 'PM' (preceded by a space).
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
-- `\d{1,2}[AP]M`
-- `\d{1,2} ?[ap]m`
+- `\d{1,2}[AP]M\b`
+- `\d{1,2} ?[ap]m\b`
 - `\d{1,2} ?[aApP]\.[mM]\.`
 
 [More information ->](https://developers.google.com/style/word-list)
@@ -165,47 +166,43 @@ Extends: substitution
 
 Consider using _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
-| Current text                   | Replacement text              |
-| ------------------------------ | ----------------------------- |
-| `(?:alumnae\|alumni)`          | `graduates`                   |
-| `(?:alumna\|alumnus)`          | `graduate`                    |
-| `air(?:m[ae]n\|wom[ae]n)`      | `pilot(s)`                    |
-| `anchor(?:m[ae]n\|wom[ae]n)`   | `anchor(s)`                   |
-| `authoress`                    | `author`                      |
-| `camera(?:m[ae]n\|wom[ae]n)`   | `camera operator(s)`          |
-| `chair(?:m[ae]n\|wom[ae]n)`    | `chair(s)`                    |
-| `congress(?:m[ae]n\|wom[ae]n)` | `member(s) of congress`       |
-| `door(?:m[ae]\|wom[ae]n)`      | `concierge(s)`                |
-| `draft(?:m[ae]n\|wom[ae]n)`    | `drafter(s)`                  |
-| `fire(?:m[ae]n\|wom[ae]n)`     | `firefighter(s)`              |
-| `fisher(?:m[ae]n\|wom[ae]n)`   | `fisher(s)`                   |
-| `fresh(?:m[ae]n\|wom[ae]n)`    | `first-year student(s)`       |
-| `garbage(?:m[ae]n\|wom[ae]n)`  | `waste collector(s)`          |
-| `lady lawyer`                  | `lawyer`                      |
-| `ladylike`                     | `courteous`                   |
-| `landlord`                     | `building manager`            |
-| `mail(?:m[ae]n\|wom[ae]n)`     | `mail carriers`               |
-| `man and wife`                 | `husband and wife`            |
-| `man enough`                   | `strong enough`               |
-| `mankind`                      | `human kind`                  |
-| `manmade`                      | `manufactured`                |
-| `manpower`                     | `personnel`                   |
-| `men and girls`                | `men and women`               |
-| `middle(?:m[ae]n\|wom[ae]n)`   | `intermediary`                |
-| `news(?:m[ae]n\|wom[ae]n)`     | `journalist(s)`               |
-| `ombuds(?:man\|woman)`         | `ombuds`                      |
-| `oneupmanship`                 | `upstaging`                   |
-| `poetess`                      | `poet`                        |
-| `police(?:m[ae]n\|wom[ae]n)`   | `police officer(s)`           |
-| `repair(?:m[ae]n\|wom[ae]n)`   | `technician(s)`               |
-| `sales(?:m[ae]n\|wom[ae]n)`    | `salesperson or sales people` |
-| `service(?:m[ae]n\|wom[ae]n)`  | `soldier(s)`                  |
-| `steward(?:ess)?`              | `flight attendant`            |
-| `tribes(?:m[ae]n\|wom[ae]n)`   | `tribe member(s)`             |
-| `waitress`                     | `waiter`                      |
-| `woman doctor`                 | `doctor`                      |
-| `woman scientist[s]?`          | `scientist(s)`                |
-| `work(?:m[ae]n\|wom[ae]n)`     | `worker(s)`                   |
+| Current text                  | Replacement text              |
+| ----------------------------- | ----------------------------- |
+| `(?:alumnae\|alumni)`         | `graduates`                   |
+| `(?:alumna\|alumnus)`         | `graduate`                    |
+| `air(?:m[ae]n\|wom[ae]n)`     | `pilot(s)`                    |
+| `anchor(?:m[ae]n\|wom[ae]n)`  | `anchor(s)`                   |
+| `authoress`                   | `author`                      |
+| `camera(?:m[ae]n\|wom[ae]n)`  | `camera operator(s)`          |
+| `door(?:m[ae]\|wom[ae]n)`     | `concierge(s)`                |
+| `draft(?:m[ae]n\|wom[ae]n)`   | `drafter(s)`                  |
+| `fire(?:m[ae]n\|wom[ae]n)`    | `firefighter(s)`              |
+| `fisher(?:m[ae]n\|wom[ae]n)`  | `fisher(s)`                   |
+| `fresh(?:m[ae]n\|wom[ae]n)`   | `first-year student(s)`       |
+| `garbage(?:m[ae]n\|wom[ae]n)` | `waste collector(s)`          |
+| `lady lawyer`                 | `lawyer`                      |
+| `ladylike`                    | `courteous`                   |
+| `mail(?:m[ae]n\|wom[ae]n)`    | `mail carriers`               |
+| `man and wife`                | `husband and wife`            |
+| `man enough`                  | `strong enough`               |
+| `mankind`                     | `human kind\|humanity`        |
+| `manmade`                     | `manufactured`                |
+| `manpower`                    | `personnel`                   |
+| `middle(?:m[ae]n\|wom[ae]n)`  | `intermediary`                |
+| `news(?:m[ae]n\|wom[ae]n)`    | `journalist(s)`               |
+| `ombuds(?:man\|woman)`        | `ombuds`                      |
+| `oneupmanship`                | `upstaging`                   |
+| `poetess`                     | `poet`                        |
+| `police(?:m[ae]n\|wom[ae]n)`  | `police officer(s)`           |
+| `repair(?:m[ae]n\|wom[ae]n)`  | `technician(s)`               |
+| `sales(?:m[ae]n\|wom[ae]n)`   | `salesperson or sales people` |
+| `service(?:m[ae]n\|wom[ae]n)` | `soldier(s)`                  |
+| `steward(?:ess)?`             | `flight attendant`            |
+| `tribes(?:m[ae]n\|wom[ae]n)`  | `tribe member(s)`             |
+| `waitress`                    | `waiter`                      |
+| `woman doctor`                | `doctor`                      |
+| `woman scientist[s]?`         | `scientist(s)`                |
+| `work(?:m[ae]n\|wom[ae]n)`    | `worker(s)`                   |
 
 [More information ->](https://developers.google.com/style/inclusive-documentation)
 
@@ -217,7 +214,7 @@ _`<CURRENT TEXT>`_ doesn't need a hyphen.
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
-- `\s[^\s-]+ly-`
+- `\b[^\s-]+ly-\w+\b`
 
 [More information ->](https://developers.google.com/style/hyphens)
 
@@ -306,6 +303,14 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `9th`
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#numbers)
+
+### Grafana.Paragraphs
+
+Extends: script
+
+br elements must be used only for line breaks that are actually part of the content, as in poems or addresses.
+
+[More information ->](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element)
 
 ### Grafana.Please
 
@@ -666,9 +671,9 @@ Extends: capitalization
 
 Use sentence-style capitalization for _`<CURRENT TEXT>`_.
 
-If your heading contains capitalized words that represent product names, you need to add those words as exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Grafana/Headings.yml for them to be considered correctly cased.
-
 Vale considers multi-word exceptions such as _Grafana Enterprise Metrics_ as a single correctly cased word.
+
+If your heading contains capitalized words that represent product names, you need to add those words to the Grafana dictionary or the list of static exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Headings.jsonnet for them to be considered correctly cased.
 
 [More information ->](https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings)
 
@@ -743,12 +748,17 @@ Instead, use the name as a modifier or rewrite to use a word like of to indicate
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
+- `ADOT's`
 - `AI Observability's`
 - `Agent's`
 - `Alloy's`
+- `ARN's`
 - `Asserts'`
 - `AWS's`
+- `AWS Distro for OpenTelemetry Collector's`
+- `AWS X-Ray's`
 - `Beyla's`
+- `BoringCrypto's`
 - `CentOS's`
 - `CloudWatch's`
 - `Codespaces'`
@@ -758,25 +768,33 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Dynatrace's`
 - `EKS's`
 - `Elastic Kubernetes Service's`
+- `Entra's`
+- `Figma's`
 - `Firehose's`
+- `FreeBSD's`
 - `GEM's`
 - `GKE's`
 - `Git's`
 - `GitHub's`
+- `GitLab's`
 - `GNU's`
 - `Grafana's`
 - `Gravatar's`
 - `Graylog's`
+- `hashmod's`
 - `IBM's`
 - `Jaeger's`
 - `Jira's`
+- `journald's`
 - `Jsonnet's`
 - `Kibana's`
 - `Killercoda's`
 - `Kinesis'`
 - `Kubernetes'`
 - `Kubernetes Engine's`
+- `Kustomize's`
 - `LangChain's`
+- `launchd's`
 - `Loki's`
 - `Markdown's`
 - `Memcached's`
@@ -784,6 +802,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Mimir's`
 - `Moodle's`
 - `MySQL's`
+- `Netlink's`
 - `Okta's`
 - `OnCall's`
 - `OpenAI's`
@@ -796,6 +815,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Podman's`
 - `Postgres'`
 - `PostgreSQL's`
+- `pprof's`
 - `Prometheus'`
 - `Promtail's`
 - `Pyroscope's`
@@ -804,8 +824,12 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Relational Database Service's`
 - `React's`
 - `Redis'`
+- `RHEL's`
 - `Rollup's`
+- `RudderStack's`
 - `Splunk's`
+- `SSM's`
+- `SUSE's`
 - `Tempo's`
 - `Thanos'`
 - `Velero's`
@@ -927,26 +951,6 @@ In some contexts, Unicode characters aren't supported and break configurations.
 
 The website renders paired quotes using smart quotes in paragraphs.
 
-### Grafana.We
-
-Extends: existence
-
-Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
-
-Don't use 'we' when you're talking about the reader, instead use 'you'.
-
-It's OK to use 'we' when you're talking about Grafana Labs.
-
-_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
-
-- `we`
-- `we'(?:ve|re)`
-- `ours?`
-- `us`
-- `let's`
-
-[More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)
-
 ### Grafana.Wish
 
 Extends: substitution
@@ -971,15 +975,17 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `(?:SHA-1\|HAS-SHA1)`                                             | `SHA-1`                    |
 | `(?:WiFi\|wifi)`                                                  | `Wi-Fi`                    |
 | `(?:[Oo]penshift\|openShift)`                                     | `OpenShift`                |
-| `(?:[gG]itHub]\|Github)`                                          | `GitHub`                   |
+| `(?:[eE]-mail)`                                                   | `email`                    |
 | `(?:[oO]pentelemetry\|openTelemetry)`                             | `OpenTelemetry`            |
 | `(?:alert[Mm]anager\|[Aa]lert [Mm]anager\|AlertManager)`          | `Alertmanager`             |
 | `(?:cell ?phone\|smart ?phone)`                                   | `phone\|mobile phone`      |
 | `(?:content\|media)-?type`                                        | `media type`               |
-| `(?:e-mail\|Email\|E-mail)`                                       | `email`                    |
 | `(?:file ?path\|path ?name)`                                      | `path`                     |
 | `(?:file ?path\|path ?name)s`                                     | `paths`                    |
+| `(?:github\|gitHub\|Github)`                                      | `GitHub`                   |
+| `(?:gitlab\|gitLab\|Gitlab)`                                      | `GitLab`                   |
 | `(?:hamburger menu\|kebab menu)`                                  | `menu icon`                |
+| `(?:java[Ss]cript\|Javascript)`                                   | `JavaScript`               |
 | `(?:kill\|terminate\|abort)`                                      | `stop\|exit\|cancel\|end`  |
 | `(?<!kube-)prometheus`                                            | `Prometheus`               |
 | `(?<!lambda-)promtail`                                            | `Promtail`                 |
@@ -988,6 +994,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `HTTPs`                                                           | `HTTPS`                    |
 | `Once`                                                            | `After`                    |
 | `RCA Workbench`                                                   | `RCA workbench`            |
+| `Rudderstack`                                                     | `RudderStack`              |
 | `VMWare`                                                          | `VMware`                   |
 | `Vmware`                                                          | `VMware`                   |
 | `[Ww]orld [Ww]ide [Ww]eb`                                         | `web`                      |
@@ -1012,6 +1019,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `de-duplicates`                                                   | `deduplicates`             |
 | `de-duplication`                                                  | `deduplication`            |
 | `fewer data`                                                      | `less data`                |
+| `figma`                                                           | `Figma`                    |
 | `file name`                                                       | `filename`                 |
 | `file names`                                                      | `filenames`                |
 | `firewalls`                                                       | `firewall rules`           |
@@ -1034,6 +1042,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `network IP address`                                              | `internal IP address`      |
 | `open-source`                                                     | `open source`              |
 | `otel`                                                            | `OTel`                     |
+| `otlp`                                                            | `OTLP`                     |
 | `phlare`                                                          | `Phlare`                   |
 | `postgres`                                                        | `Postgres`                 |
 | `postgresql`                                                      | `PostgreSQL`               |
@@ -1044,6 +1053,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `repo`                                                            | `repository`               |
 | `repos`                                                           | `repositories`             |
 | `right[- ]hand[- ]side`                                           | `right-side`               |
+| `rudderstack`                                                     | `RudderStack`              |
 | `sign into`                                                       | `sign in to`               |
 | `sqlite`                                                          | `SQLite`                   |
 | `style sheet`                                                     | `stylesheet`               |
@@ -1466,3 +1476,23 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `soon`
 
 [More information ->](https://developers.google.com/style/timeless-documentation)
+
+### Grafana.We
+
+Extends: existence
+
+Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
+
+Don't use 'we' when you're talking about the reader, instead use 'you'.
+
+It's OK to use 'we' when you're talking about Grafana Labs.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `we`
+- `we'(?:ve|re)`
+- `ours?`
+- `us`
+- `let's`
+
+[More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)

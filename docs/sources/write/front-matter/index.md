@@ -299,7 +299,15 @@ Ideally, use single terms as opposed to phrases.
 Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
 The website only supports certain label values.
 
-For `labels.products`, the supported values and the resulting published labels are as follows:
+You can set labels for a page and its children with [cascading front matter](#cascade).
+
+If the default labels are incorrect for a page or directory of pages, update the labels.
+Also, if you are adding a new page, consider whether the default labels are appropriate.
+For each page, include a label in the `labels.products` sequence for every product that the page relates to.
+
+#### `labels.products`
+
+The value of `labels.products` is an array of one or more of the following options:
 
 - `cloud`: <span class="badge docs-labels__product-cloud docs-labels__item">Grafana Cloud</span>
 - `enterprise`: <span class="badge docs-labels__product-enterprise docs-labels__item">Enterprise</span>
@@ -307,24 +315,6 @@ For `labels.products`, the supported values and the resulting published labels a
 
 You should use all labels that apply to the page's content.
 If a page has some open source content and some Grafana Cloud content, set both labels.
-
-For `labels.stages`, the supported values and the resulting published labels are as follows:
-
-- `beta`: <span class="badge docs-labels__stage docs-labels__item">Beta</span>
-- `alpha`: <span class="badge docs-labels__stage docs-labels__item">Alpha</span>
-- `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
-
-In general, each page should only have one stage label and it should apply to the whole page.
-If a page has content with multiple different stages, you should use the appropriate [release lifecycle copy](https://grafana.com/docs/release-life-cycle/) in each section.
-
-Labels can be inherited through cascading front matter.
-
-For versioned projects, the `_index.md` file resides in the `website` repository.
-For other projects, the `_index.md` file resides in the project's repository.
-
-If the default labels are incorrect for a page or directory of pages, update the labels.
-Also, if you are adding a new page, consider whether the default labels are appropriate.
-For each page, include a label in the `labels.products` sequence for every product that the page relates to.
 
 For example, if a _single page_ describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
 
@@ -342,6 +332,32 @@ cascade:
   labels:
     products:
       - cloud
+```
+
+#### `labels.stage`
+
+Each page can only have one stage label and it should apply to the whole page.
+If a page has content with multiple different stages, you should use the appropriate [release lifecycle copy](https://grafana.com/docs/release-life-cycle/) in each section.
+For `labels.stage`, the supported values and the resulting published labels are as follows:
+
+- `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
+- `private-preview`: <span class="badge docs-labels__stage docs-labels__item">Private preview</span>
+- `public-preview`: <span class="badge docs-labels__stage docs-labels__item">Public preview</span>
+- `general-availability`: <span class="badge docs-labels__stage docs-labels__item">General availability (GA)</span>
+
+For example, if a _single page_ describes an experimental feature, the source file front matter should include the following:
+
+```yaml
+labels:
+  stage: experimental
+```
+
+For a _directory of pages_ that describe an experimental feature, the branch bundle `_index.md` file front matter should include the following:
+
+```yaml
+cascade:
+  labels:
+    stage: experimental
 ```
 
 <!-- vale Grafana.Headings = NO -->

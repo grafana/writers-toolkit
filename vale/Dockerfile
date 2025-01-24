@@ -19,25 +19,31 @@ RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o reviewdog ./cmd/review
 RUN mv reviewdog /out
 
 ################################################################################
+FROM --platform=${BUILDPLATFORM} golang:alpine AS inhibit-rules
+ARG TARGETOS TARGETARCH
+
+RUN mkdir /src /out
+COPY /tools /src
+
+WORKDIR /src
+RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o inhibit-rules ./cmd/inhibit-rules
+RUN mv inhibit-rules /out
+
+################################################################################
 FROM jdkato/vale:v3.8.0
 
-ENV DICPATH=/etc/vale/dictionaries
-
-RUN mkdir -p /etc/vale
-
-COPY Google /etc/vale/styles/Google
-COPY Grafana /etc/vale/styles/Grafana
-COPY .vale.ini /etc/vale/.vale.ini
-COPY .vale-config /etc/vale/.vale-config
-COPY config /etc/vale/styles/config
-COPY dictionaries /etc/vale/dictionaries
-COPY rdjsonl.tmpl /etc/vale/rdjsonl.tmpl
-COPY .reviewdog.yml /etc/vale/.reviewdog.yml
+COPY --from=reviewdog /out/reviewdog /bin
+COPY --from=inhibit-rules /out/inhibit-rules /bin
 
 # Git is useful for reporting with reviewdog.
 RUN apk add --no-cache git
 
-COPY --from=reviewdog /out/reviewdog /bin
-
+RUN mkdir -p /etc/vale
 WORKDIR /etc/vale
+
+COPY .reviewdog.yml /etc/vale/.reviewdog.yml
+COPY .vale.ini /etc/vale/.vale.ini
+COPY Grafana /etc/vale/Grafana
+COPY rdjsonl.tmpl /etc/vale/rdjsonl.tmpl
+
 RUN vale sync

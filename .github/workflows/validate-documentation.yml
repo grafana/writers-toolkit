@@ -1,16 +1,18 @@
-name: Validate documentation
+name: Documentation CI
 on:
   pull_request:
     paths: ["docs/sources/**", "vale/**"]
   workflow_dispatch:
 jobs:
   doc-validator:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     container:
-      image: grafana/doc-validator:v4.0.0
+      image: grafana/doc-validator:v5.2.0@sha256:71de7a0b0ff89ef849afc445aafc8f85abf022f8dce5bc9a92ff32fbddd332ab
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - name: Run doc-validator tool
         run: >
           doc-validator
@@ -18,6 +20,7 @@ jobs:
           docs/sources
           /docs/writers-toolkit
           | grep -v sources/shared
+          | grep -v anchorize.inline
           | reviewdog
           -f=rdjsonl
           --fail-on-error
@@ -27,10 +30,12 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   prettier:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - run: >
           curl
           --location
@@ -40,10 +45,10 @@ jobs:
           tar zxf reviewdog.tar.gz reviewdog
           sudo cp reviewdog /usr/local/bin/
           rm -f reviewdog.tar.gz
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: 20
-      - run: npm install prettier
+      - run: npm install --no-save prettier
       - run: >
           reviewdog
           --filter-mode=nofilter
@@ -59,31 +64,31 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - name: Build website
-        run: |
-          docker run -v ${PWD}/docs/sources:/hugo/content/docs/writers-toolkit -e HUGO_REFLINKSERRORLEVEL=ERROR --rm grafana/docs-base:nightly /bin/bash -c 'make hugo'
+        uses: grafana/writers-toolkit/build-website@4b1248585248751e3b12fd020cf7ac91540ca09c # build-website/v1.0.1
+        with:
+          website_directory: docs/writers-toolkit
+
   vale:
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest
+      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Run linter
-        run: >
-          /bin/reviewdog
-          --conf=/etc/vale/.reviewdog.yml
-          --fail-on-error
-          --reporter=github-pr-review
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: ./vale-action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   report-readability:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     name: Report readability
     runs-on: ubuntu-latest
     steps:
@@ -98,18 +103,21 @@ jobs:
           rm -rf src
 
       - name: Check out repository with history
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Run tool
+        env:
+          SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           touch .output.txt
           for file in $(git --no-pager diff --name-only --diff-filter=ACMRT origin/main -- docs/sources); do
-            ./scripts/readability "${file}" origin/main ${{ github.event.pull_request.head.sha }} >> .output.txt
+            ./scripts/readability "${file}" origin/main ${SHA} >> .output.txt
           done
 
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
             const fs = require("fs");

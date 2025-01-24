@@ -335,7 +335,13 @@ compactor:
 
 ## Column-list
 
-Formats a list with columns. Content is equally divided between columns.
+Formats a list with columns. Content is equally divided between columns unless specified with the `count` argument.
+
+| Parameter | Description                                                                               | Required |
+| --------- | ----------------------------------------------------------------------------------------- | -------- |
+| `count`   | The number columns in desktop view. You can specify a minimum of two and maximum of four. | no       |
+
+### Example
 
 ```markdown
 {{</* column-list */>}}
@@ -649,13 +655,13 @@ For example:
 **Reference:**
 
 ```markdown
-[Grafana website]: www.grafana.com
+[grafana website]: www.grafana.com
 ```
 
 **Body text:**
 
 ```markdown
-Find more information on [Grafana][Grafana website].
+Find more information on [Grafana][grafana website].
 ```
 
 ## Docs/shared
@@ -715,6 +721,44 @@ Headings are offset by one level, so if the source content contains an `h1`, the
 ```markdown
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM_VERSION>" leveloffset="+1" */>}}
 ```
+
+## Fixed-table
+
+The `fixed-table` shortcode prevents column overflow by breaking content to a new line at any character, not just spaces between words.
+
+### Example
+
+```markdown
+{{</* fixed-table */>}}
+
+| Metric                         | CloudWatch Metric | Statistics                                                               |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
+| **aws_amazonmq_info**          |                   |
+| **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+| **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+
+{{</* /fixed-table */>}}
+```
+
+Produces:
+
+{{< fixed-table >}}
+
+| Metric                         | CloudWatch Metric | Statistics                                                               |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
+| **aws_amazonmq_info**          |                   |
+| **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+| **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+
+{{< /fixed-table >}}
+
+Without the shortcode:
+
+| Metric                         | CloudWatch Metric | Statistics                                                               |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
+| **aws_amazonmq_info**          |                   |
+| **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+| **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
 
 ## Figure
 
@@ -900,11 +944,12 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-{{< admonition type="note" >}}
 If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
+For example:
 
-For example: `{﻿{% param VARIABLE %}}`.
-{{< /admonition >}}
+```markdown
+# Heading {{%/* param VARIABLE */%}}
+```
 
 ### Example
 

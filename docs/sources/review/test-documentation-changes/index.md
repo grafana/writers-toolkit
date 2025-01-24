@@ -23,7 +23,7 @@ To run the local documentation web server, ensure that you are in the right dire
 {{< /admonition >}}
 
 The output message of a successful build includes a URL that you can follow to view the changes to the documentation in the browser.
-Refer to an [example of a successful build](#example-succesful-build).
+Refer to an [example of a successful build](#example-successful-build).
 
 ## Run with specific projects
 

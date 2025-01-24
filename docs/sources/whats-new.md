@@ -18,6 +18,14 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## January 2025
+
+| New guidance or change                                                                                                                                         | Page                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Updated the release life cycle stages labels to match those documented in [Release life cycle for Grafana Labs](https://grafana.com/docs/release-life-cycle/). | [Labels](/docs/writers-toolkit/write/front-matter/#labels)                      |
+| Added `fixed-table` shortcode that prevents column overflow by breaking content to a new line at any character, not just spaces between words                  | [Shortcodes - Fixed-table](/docs/writers-toolkit/write/shortcodes/#fixed-table) |
+| Added column count parameter to the `column-list` shortcode that controls the number of columns in the multi-column list.                                      | [Shortcodes - Column-list](/docs/writers-toolkit/write/shortcodes/#column-list) |
+
 ## November 2024
 
 | New guidance or change                                                           | Page                                                                     |

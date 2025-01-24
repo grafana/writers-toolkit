@@ -1,0 +1,40 @@
+name: Run Vale
+description: |
+  Lints documentation with Vale.
+
+  Note that the action assumes you are running the steps using the grafana/vale container image.
+inputs:
+  directory:
+    default: docs/sources
+    description: Directory containing documentation for linting.
+    required: false
+  filter:
+    default: ""
+    description: |
+      Vale filter that allows you to report an arbitrary subset of the Grafana style.
+
+      For more information, refer to https://vale.sh/docs/filters.
+  token:
+    default: ${{ github.token }}
+    description: Used by reviewdog to comment on pull requests.
+    required: false
+runs:
+  using: composite
+  steps:
+    - name: Vale
+      if: ${{ ! contains(github.event.pull_request.body, '<!-- vale = NO -->') }}
+      env:
+        DIRECTORY: ${{ inputs.directory }}
+        FILTER: --filter=${{ inputs.filter }}
+        REVIEWDOG_GITHUB_API_TOKEN: ${{ inputs.token }}
+      run: |
+          (cd /etc/vale && vale sync)
+          vale "${FILTER}" --output=/etc/vale/rdjsonl.tmpl "${DIRECTORY}" | \
+            inhibit-rules | \
+            /bin/reviewdog \
+            --conf=/etc/vale/.reviewdog.yml \
+            --fail-on-error \
+            --f=rdjsonl \
+            --name=vale \
+            --reporter=github-pr-review
+      shell: sh

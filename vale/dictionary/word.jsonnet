@@ -5,6 +5,7 @@
     affixes: [],
     Amazon: false,
     Apache: false,
+    Azure: false,
     Google: false,
     description: null,
     established_abbreviation: false,

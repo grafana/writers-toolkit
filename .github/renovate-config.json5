@@ -1,0 +1,51 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  branchPrefix: "grafanarenovatebot/",
+  customManagers: [
+    {
+      customType: "regex",
+      fileMatch: [
+        "(?:^|/)\\.github/(?:workflows|actions)/.+\\.ya?ml$",
+        "(?:^|/)action\\.ya?ml$",
+      ],
+      matchStrings: [
+        "# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+[A-Za-z0-9_-]+?[_-](?:VERSION|version)\\s*:\\s*[\"']?(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?[\"']?",
+      ],
+    },
+  ],
+  dependencyDashboard: false,
+  enabledManagers: ["custom.regex", "github-actions", "gomod", "npm"],
+  forkProcessing: "enabled",
+  globalExtends: [":pinDependencies", "config:best-practices"],
+  onboarding: false,
+  osvVulnerabilityAlerts: true,
+  packageRules: [
+    {
+      labels: ["update-major"],
+      matchUpdateTypes: ["major"],
+    },
+    {
+      labels: ["update-minor"],
+      matchUpdateTypes: ["minor"],
+    },
+    {
+      labels: ["update-patch"],
+      matchUpdateTypes: ["patch"],
+    },
+    {
+      labels: ["update-digest"],
+      matchUpdateTypes: ["digest"],
+    },
+    {
+      // Run the custom matcher on early Monday mornings (UTC)
+      schedule: "* 0-4 * * 1",
+      matchPackageNames: ["ghcr.io/renovatebot/renovate"],
+    },
+  ],
+  platformCommit: "enabled",
+  rebaseWhen: "behind-base-branch",
+  requireConfig: "optional",
+  vulnerabilityAlerts: {
+    enabled: true,
+  },
+}

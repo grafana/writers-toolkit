@@ -6,3 +6,5 @@
 /add-to-docs-project/index.mjs
 build.conf
 /dist
+/vale/Grafana.zip
+vale/tools/inhibit-rules

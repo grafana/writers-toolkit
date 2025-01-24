@@ -131,7 +131,7 @@ If you're not sure of whether something is a product or not, consult the product
 
 ### Names of products from other companies
 
-When using names of products from other companies, or referring to third-party product names, always follow that specific brand's naming and usage.
+When using names of products from other companies, or referring to third-party product names, always follow that brand's naming and usage.
 
 **Use:**
 

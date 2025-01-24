@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-01-23"
+review_date: "2025-01-24"
 title: Vale rules
 ---
 
@@ -57,6 +57,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.GoogleSpacing = NO -->
 <!-- vale Grafana.GoogleSpelling = NO -->
 <!-- vale Grafana.GoogleWill = NO -->
+<!-- vale Grafana.GrafanaCom = NO -->
 <!-- vale Grafana.Headings = NO -->
 <!-- vale Grafana.Kubernetes = NO -->
 <!-- vale Grafana.Latin = NO -->
@@ -665,6 +666,20 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 
 [More information ->](https://developers.google.com/style/tense)
 
+### Grafana.GrafanaCom
+
+Extends: existence
+
+Don't use `grafana.com`, instead use one of the following:
+
+- If you're talking about Grafana Cloud, use `Grafana Cloud`.
+- If you're talking about the company, use `Grafana Labs`.
+- If you're linking to a page on the website, use the page title or the full URL including scheme. For example, `https://grafana.com/`.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `grafana\.com`
+
 ### Grafana.Headings
 
 Extends: capitalization
@@ -1006,6 +1021,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `blacklisted`                                                     | `blocklisted`              |
 | `blacklisting`                                                    | `blocklisting`             |
 | `blacklists`                                                      | `blocklists`               |
+| `cadvisor`                                                        | `cAdvisor`                 |
 | `check[- ]box`                                                    | `checkbox`                 |
 | `content type`                                                    | `media type`               |
 | `data-?source`                                                    | `data source`              |

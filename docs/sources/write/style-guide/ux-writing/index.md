@@ -121,6 +121,26 @@ If you're not sure of whether something is a product or not, consult the product
 
 > Create and Manage Dashboards to Visualize Your Data.
 
+**Use:**
+
+> TLS/SSL root certificate
+
+**Don't use:**
+
+> TLS/SSL Root Certificate
+
+### Names of products from other companies
+
+When using names of products from other companies, or referring to third-party product names, always follow that specific brand's naming and usage.
+
+**Use:**
+
+> Azure OpenAI Service
+
+**Don't use:**
+
+> Azure OpenAI service
+
 ### Avoid words created for UI features
 
 Avoid using UI terms when possible.

@@ -34,13 +34,15 @@ func main() {
 
 	r := bufio.NewReader(os.Stdin)
 	scanner := bufio.NewScanner(r)
-	diags := make([]diagnostic, 0)
+	diags := make([]Diagnostic, 0)
 
 	var errs bool
+
 	for scanner.Scan() {
-		diag := diagnostic{}
+		var diag Diagnostic
 		if err := json.Unmarshal(scanner.Bytes(), &diag); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+
 			errs = true
 		}
 
@@ -49,6 +51,7 @@ func main() {
 
 	if err := scanner.Err(); err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+
 		errs = true
 	}
 
@@ -56,6 +59,7 @@ func main() {
 	for _, d := range diags {
 		if err := json.NewEncoder(os.Stdout).Encode(d); err != nil {
 			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+
 			errs = true
 		}
 	}
@@ -65,24 +69,31 @@ func main() {
 	}
 }
 
-// {"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}
-type diagnostic struct {
-	Message  string `json:"message"`
-	Location struct {
-		Path  string `json:"path"`
-		Range struct {
-			Start struct {
-				Line   int `json:"line"`
-				Column int `json:"column"`
-			} `json:"start"`
-		} `json:"range"`
-	} `json:"location"`
-	Severity string `json:"severity"`
+// Diagnostic represents a single error message.
+// Template: {"message": "[{{ $check }}] {{ $message | jsonEscape }}", "location": {"path": "{{ $path }}", "range": {"start": {"line": {{ $line }}, "column": {{ $col }}}}}, "severity": "{{ $error }}"}.
+type Diagnostic struct {
+	Message  string   `json:"message"`
+	Location Location `json:"location"`
+	Severity string   `json:"severity"`
+}
+
+type Location struct {
+	Path  string `json:"path"`
+	Range Range  `json:"range"`
+}
+
+type Range struct {
+	Start Position `json:"start"`
+}
+
+type Position struct {
+	Line   int `json:"line"`
+	Column int `json:"column"`
 }
 
 // Each error has the rule name in square brackets at the beginning of the message.
-// For example: {"message": "[Grafana.Spelling] ..." ...}
-func (d diagnostic) Rule() string {
+// For example: {"message": "[Grafana.Spelling] ..." ...}.
+func (d Diagnostic) Rule() string {
 	if len(d.Message) == 0 || d.Message[0] != '[' {
 		return ""
 	}
@@ -95,25 +106,27 @@ func (d diagnostic) Rule() string {
 	return d.Message[1:end]
 }
 
-func (d diagnostic) LocationKey() string {
+func (d Diagnostic) LocationKey() string {
 	return fmt.Sprintf("%s:%d:%d", d.Location.Path, d.Location.Range.Start.Line, d.Location.Range.Start.Column)
 }
 
-func inhibit(in []diagnostic) []diagnostic {
-	filtered := make(map[string]diagnostic)
+func inhibit(diags []Diagnostic) []Diagnostic {
+	filtered := make(map[string]Diagnostic)
+	//nolint:mnd
 	precedence := map[string]int{
-		"Grafana.ProductPossessives": 0,
-		"Grafana.WordList":           1,
-		"Grafana.Spelling":           2,
+		"Grafana.GrafanaCom":         0,
+		"Grafana.ProductPossessives": 1,
+		"Grafana.WordList":           2,
+		"Grafana.Spelling":           3,
 	}
 
-	for _, d := range in {
+	for _, d := range diags {
 		if _, ok := filtered[d.LocationKey()]; !ok || precedence[d.Rule()] < precedence[filtered[d.LocationKey()].Rule()] {
 			filtered[d.LocationKey()] = d
 		}
 	}
 
-	out := make([]diagnostic, 0, len(filtered))
+	out := make([]Diagnostic, 0, len(filtered))
 	for _, d := range filtered {
 		out = append(out, d)
 	}

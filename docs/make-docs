@@ -6,6 +6,12 @@
 # [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 # Changes are relevant to this script and the support docs.mk GNU Make interface.
 #
+# ## 8.4.0 (2025-01-27)
+#
+# ### Fixed
+#
+# - Correct mount for the /docs/grafana-cloud/send-data/fleet-management/ project.
+#
 # ## 8.3.0 (2024-12-27)
 #
 # ### Added
@@ -366,6 +372,7 @@ SOURCES_grafana_cloud_alerting_and_irm_slo='slo'
 SOURCES_grafana_cloud_k6='k6-docs'
 SOURCES_grafana_cloud_data_configuration_integrations='cloud-onboarding'
 SOURCES_grafana_cloud_frontend_observability_faro_web_sdk='faro-web-sdk'
+SOURCES_grafana_cloud_send_data_fleet_management='fleet-management'
 SOURCES_helm_charts_mimir_distributed='mimir'
 SOURCES_helm_charts_tempo_distributed='tempo'
 SOURCES_opentelemetry='opentelemetry-docs'
@@ -378,6 +385,7 @@ VERSIONS_grafana_cloud_alerting_and_irm_slo='UNVERSIONED'
 VERSIONS_grafana_cloud_k6='UNVERSIONED'
 VERSIONS_grafana_cloud_data_configuration_integrations='UNVERSIONED'
 VERSIONS_grafana_cloud_frontend_observability_faro_web_sdk='UNVERSIONED'
+VERSIONS_grafana_cloud_send_data_fleet_management='UNVERSIONED'
 VERSIONS_opentelemetry='UNVERSIONED'
 VERSIONS_resources='UNVERSIONED'
 VERSIONS_technical_documentation='UNVERSIONED'

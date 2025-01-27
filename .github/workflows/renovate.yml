@@ -56,7 +56,7 @@ jobs:
           app-id: ${{ env.GRAFANA_RENOVATE_APP_ID }}
           private-key: ${{ env.GRAFANA_RENOVATE_PRIVATE_KEY }}
 
-      - uses: renovatebot/github-action@3f10d7a25cf0aa7b37519aa771ed9143fcbb5da5 # v41.0.10
+      - uses: renovatebot/github-action@d385c88822a237acaead89c462fa0aef7502748f # v41.0.11
         with:
           configurationFile: .github/renovate-config.json5
           # renovate: datasource=docker depName=ghcr.io/renovatebot/renovate

@@ -6,9 +6,11 @@ local word = import './word.jsonnet';
   word.new('Killercoda', '', 'noun') { product: true },
   word.new('Kinesis', '', 'noun') { Amazon: true, product: true },
   word.new('KPI', 'S', 'noun') { abbreviation: true, elaboration: 'key performance indicator' },
+  word.new('KQL', '', 'noun') { Azure: true, product: true, elaboration: 'Kusto Query Language' },
   word.new('Kprobe', 'S', 'noun'),
   word.new('kubelet', '', 'noun'),
   word.new('Kubernetes', '', 'noun') { product: true, swap: '(?:[kK]8s|kubernetes)' },
   word.new('Kubernetes Engine', '', 'noun') { Google: true, product: true },
+  word.new('Kusto', '', 'noun') { Azure: true, description: 'An Azure query language.', product: true },
   word.new('Kustomize', '', 'noun') { description: 'A Kubernetes native configuration management tool.', product: true },
 ]

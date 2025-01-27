@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-01-24"
+review_date: "2025-01-27"
 title: Vale rules
 ---
 
@@ -805,8 +805,10 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Kibana's`
 - `Killercoda's`
 - `Kinesis'`
+- `KQL's`
 - `Kubernetes'`
 - `Kubernetes Engine's`
+- `Kusto's`
 - `Kustomize's`
 - `LangChain's`
 - `launchd's`

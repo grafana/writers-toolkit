@@ -1,4 +1,4 @@
-335
+337
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -148,10 +148,12 @@ Kibana/ po:noun
 Killercoda/ po:noun
 Kinesis/ po:noun
 KPI/S po:noun
+KQL/ po:noun
 Kprobe/S po:noun
 kubelet/ po:noun
 Kubernetes/ po:noun
 Kubernetes Engine/ po:noun
+Kusto/ po:noun
 Kustomize/ po:noun
 LangChain/ po:noun
 launchd/ po:noun

@@ -122,7 +122,7 @@ runs:
 
     - name: Determine if there is a matching release tag
       id: has-matching-release-tag
-      if: github.ref_type == 'tag' && !inputs.tags_only
+      if: github.ref_type != 'tag'
       uses: ./actions/has-matching-release-tag
       with:
         ref_name: ${{ github.ref_name }}
@@ -131,14 +131,14 @@ runs:
         release_tag_regexp: ${{ inputs.release_tag_regexp }}
 
     - name: Determine technical documentation version
-      if: (github.ref_type == 'tag' && !inputs.tags_only) || steps.has-matching-release-tag.outputs.bool == 'true'
+      if: github.ref_type == 'tag' || steps.has-matching-release-tag.outputs.bool == 'true'
       uses: ./actions/docs-target
       id: target
       with:
         ref_name: ${{ github.ref_name }}
 
     - name: Sync to the website repository (release)
-      if: (github.ref_type == 'tag' && !inputs.tags_only) || steps.has-matching-release-tag.outputs.bool == 'true'
+      if: github.ref_type == 'tag' || steps.has-matching-release-tag.outputs.bool == 'true'
       uses: ./.github/actions/website-sync
       id: publish-release
       with:
@@ -151,7 +151,7 @@ runs:
         allow_no_changes: ${{ inputs.allow_no_changes }}
 
     - name: Print release outputs
-      if: (github.ref_type == 'tag' && !inputs.tags_only) || steps.has-matching-release-tag.outputs.bool == 'true'
+      if: github.ref_type == 'tag' || steps.has-matching-release-tag.outputs.bool == 'true'
       env:
         COMMIT_HASH: ${{ steps.publish-release.outputs.commit_hash }}
         WORKING_DIRECTORY: ${{ steps.publish-release.outputs.working_directory }}

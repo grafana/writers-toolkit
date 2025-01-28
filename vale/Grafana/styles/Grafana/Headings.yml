@@ -1,7 +1,5 @@
 "exceptions":
   - "Amazon ARN"
-  - "Amazon AWS Distro for OpenTelemetry Collector"
-  - "Amazon AWS X-Ray"
   - "Amazon CloudWatch"
   - "Amazon Data Firehose"
   - "Amazon Elastic Kubernetes Service"

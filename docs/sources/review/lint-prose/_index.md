@@ -14,10 +14,10 @@ weight: 300
 
 [Vale](https://github.com/errata-ai/vale) is a syntax-aware linter for prose built with speed and extensibility in mind.
 
-To lint prose with Vale, run `make vale` from the `docs/` directory.
-The tool prints linting errors to your terminal.
+To lint prose with Vale locally, configure Vale in your text editor or run `make vale` from the `docs/` directory.
+To use Vale in Visual Studio Code, refer to [Use Vale in Visual Studio Code](#use-vale-in-visual-studio-code).
 
-Additionally, some repositories run Vale as part of Continuous Integration (CI).
+Some repositories run Vale as part of Continuous Integration (CI).
 Repositories that run Vale in CI include:
 
 - [`grafana/beyla`](https://github.com/grafana/beyla/blob/main/.github/workflows/vale.yml)
@@ -33,7 +33,9 @@ To skip Vale linting in CI, include `<-- vale = NO -->` in your pull request des
 
 ## Skip rules
 
-To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule. Include the specific rule name in the comment, for example `Grafana.We` or `Grafana.GoogleEllipses`. The following example shows how to disable the `Grafana.GooglePassive` rule:
+To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule.
+Include the specific rule name in the comment, for example `Grafana.We` or `Grafana.GoogleEllipses`.
+The following example shows how to disable the `Grafana.GooglePassive` rule:
 
 ```markdown
 <!-- vale Grafana.GooglePassive = NO -->
@@ -70,7 +72,7 @@ If you manually install Vale, you must configure your system to add Vale to your
 
 ### Install and configure Vale in Visual Studio Code
 
-1. Clone the [Writer's Toolkit](https://github.com/grafana/writers-toolkit/) repository.
+1. Clone the [Writers' Toolkit](https://github.com/grafana/writers-toolkit/) repository.
 
    ```bash
    git clone git@github.com:grafana/writers-toolkit.git
@@ -119,6 +121,14 @@ If you manually install Vale, you must configure your system to add Vale to your
    - On Linux, you could set StylesPath to `/home/<USERNAME>/git-repos/writers-toolkit/vale`
    - On macOS, you could set StylesPath to `/Users/<USERNAME>/git-repos/writers-toolkit/vale`
    - On Windows, you could set StylesPath to `C:\Users\<USERNAME>\git-repos\writers-toolkit\vale`
+
+1. Install the configured Vale packages.
+
+   From your home directory, run `vale sync` to install the packages you defined in your `.vale.ini` configuration file.
+
+   {{< admonition type="note" >}}
+   Every time you pull changes in your Writers' Toolkit repository, you need to sync those changes with `vale sync`.
+   {{< /admonition >}}
 
 1. Install the [Vale Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=chrischinchilla.vale-vscode) in Visual Studio Code.
 

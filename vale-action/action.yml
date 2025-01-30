@@ -21,15 +21,21 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Vale
+    - id: changed-files
       if: ${{ ! contains(github.event.pull_request.body, '<!-- vale = NO -->') }}
+      uses: tj-actions/changed-files@d6e91a2266cdb9d62096cebf1e8546899c6aa18f # v45.0.6
+      with:
+        files: ${{ inputs.directory }}/*
+    - name: Vale
+      if: ${{ steps.changed-files.outputs.any_changed == 'true' }}
       env:
+        ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         DIRECTORY: ${{ inputs.directory }}
         FILTER: --filter=${{ inputs.filter }}
         REVIEWDOG_GITHUB_API_TOKEN: ${{ inputs.token }}
       run: |
           (cd /etc/vale && vale sync)
-          vale "${FILTER}" --output=/etc/vale/rdjsonl.tmpl "${DIRECTORY}" | \
+          vale "${FILTER}" --output=/etc/vale/rdjsonl.tmpl ${ALL_CHANGED_FILES} | \
             inhibit-rules | \
             /bin/reviewdog \
             --conf=/etc/vale/.reviewdog.yml \

@@ -115,13 +115,10 @@ jobs:
       - name: Keep only necessary files
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
-        env:
-          SOURCE_DIRECTORY: ${{ inputs.source_directory }}
         run: |
           shopt -s extglob
           rm -rf !(deploy-preview-files|.git)
-          ls -al
-          ls -al "${SOURCE_DIRECTORY}"
+          ls -al .
           ls -al deploy-preview-files
 
       - name: Build website

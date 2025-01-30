@@ -16,6 +16,7 @@ jobs:
     with:
       branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
+      repo: writers-toolkit
       sha: ${{ github.event.pull_request.head.sha }}
       sources: |
         [{

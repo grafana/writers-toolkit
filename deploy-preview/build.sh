@@ -11,6 +11,8 @@ SOURCES="${SOURCES:-[]}"
 
 if ! jq -e . <<<"${SOURCES}" >/dev/null; then
   echo "SOURCES environment variable is not valid JSON"
+
+  exit 1
 fi
 
 # Clone a repository to a specific directory.

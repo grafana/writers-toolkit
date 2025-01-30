@@ -9,10 +9,6 @@ on:
     paths:
       - "docs/sources/**"
 
-concurrency:
-  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
 jobs:
   deploy-pr-preview:
     if: "!github.event.pull_request.head.repo.fork"

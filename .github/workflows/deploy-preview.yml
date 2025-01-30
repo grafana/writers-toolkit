@@ -125,6 +125,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         env:
+          GH_TOKEN: ${{ github.token }}
           SOURCES: ${{ inputs.SOURCES }}
         run: |
           ./deploy-preview-files/deploy-preview/build.sh

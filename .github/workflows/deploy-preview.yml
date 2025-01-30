@@ -68,7 +68,7 @@ env:
   CLOUD_RUN_REGION: us-south1
 
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.repository }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:

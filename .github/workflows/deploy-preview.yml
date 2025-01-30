@@ -227,7 +227,7 @@ jobs:
         with:
           name: deploy_preview
           status: "${{ job.status }}"
-          url: "${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}"
+          url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}"
           description: "Public deploy preview"
 
       - name: Create comment with available deploy preview
@@ -236,7 +236,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}
 
       - name: Update comment with deleted deploy preview
         if: github.event.action == 'closed'
@@ -256,4 +256,4 @@ jobs:
           issue-number: ${{ inputs.event_number }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}

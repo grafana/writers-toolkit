@@ -142,6 +142,15 @@ Consult the following guidelines when you create screenshots:
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 - **Alt text**: Make sure to include [alt text](#alt-text) for every image.
 
+<!-- prettier-ignore-start -->
+
+| Do this | Don't do this |
+| ------- | ------------- |
+|  |  |
+|  |  |
+
+<!-- prettier-ignore-end -->
+
 ## Video guidelines
 
 Use the following guidelines when you add video content:

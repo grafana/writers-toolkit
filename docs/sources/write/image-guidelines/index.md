@@ -142,14 +142,33 @@ Consult the following guidelines when you create screenshots:
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 - **Alt text**: Make sure to include [alt text](#alt-text) for every image.
 
-<!-- prettier-ignore-start -->
+<!-- 
 
-| Do this | Don't do this |
+
+| Good screenshot | Poor screenshot |
 | ------- | ------------- |
-|  |  |
+| ![Good example](/media/docs/grafana/dashboards/screenshot-current-time-range-11.2.png)</p><p>Constrained to a specific UI element | ![Poor example](screenshot-bad-example.png)</p><p>Showing several UI elements, making for unclear focus</p><p>A lot of dead space around the UI element |
 |  |  |
 
-<!-- prettier-ignore-end -->
+
+-->
+
+
+{{< column-list count="2">}}
+
+- Good screenshots
+  ![Good example](/media/docs/grafana/dashboards/screenshot-current-time-range-11.2.png)
+  Constrained to a specific UI element
+
+  ![Good example](/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png)
+  Includes enough surrounding detail to help the user locate the UI element and understand how the feature works
+- Poor screenshots
+  ![Poor example](screenshot-bad-example.png)
+  Too much empty space around the UI element
+  ![Poor example](screenshot-bad-example-2.png)
+  Not enough context to show how the feature works
+
+{{< /column-list >}}
 
 ## Video guidelines
 

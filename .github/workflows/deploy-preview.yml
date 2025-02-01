@@ -169,7 +169,7 @@ jobs:
           service_account: "github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com"
 
       - name: Deploy to Cloud Run
-        uses: google-github-actions/deploy-cloudrun@1ec29da1351112c7904fb60454a55e3e1021a51c # v2.7.2
+        uses: google-github-actions/deploy-cloudrun@9c5864eab7354d2e132307e685a2272655932799 # v2.7.3
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: deploy
         with:

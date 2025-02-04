@@ -21,8 +21,4 @@ urls=()
 while read -r relative_prefix; do
   urls+=("- ${URL}${relative_prefix}")
 done < <(jq -r '.[].relative_prefix' <<<"${SOURCES}")
-readonly urls
-
-echo "URLS<<EOF" >> "${GITHUB_OUTPUT}"
-(IFS=$'\n'; echo "urls=${urls[*]}" >> "${GITHUB_OUTPUT}")
 echo "EOF" >> "${GITHUB_OUTPUT}"

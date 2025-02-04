@@ -19,6 +19,6 @@ fi
 
 echo "urls<<EOF" >> "${GITHUB_OUTPUT}"
 while read -r relative_prefix; do
-  urls+=("- ${URL}${relative_prefix}")
+  echo "- ${URL}${relative_prefix}" >> "${GITHUB_OUTPUT}"
 done < <(jq -r '.[].relative_prefix' <<<"${SOURCES}")
 echo "EOF" >> "${GITHUB_OUTPUT}"

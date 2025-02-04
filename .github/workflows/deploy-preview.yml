@@ -130,8 +130,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           SOURCES: ${{ inputs.SOURCES }}
-        run: |
-          ./deploy-preview-files/deploy-preview/build.sh
+        run: ./deploy-preview-files/deploy-preview/build
 
       - name: Print build header value
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -230,13 +229,23 @@ jobs:
           url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}"
           description: "Public deploy preview"
 
+      - name: Get preview URLs
+        id: urls
+        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        shell: bash
+        env:
+          SOURCES: ${{ inputs.SOURCES }}
+          URL: ${{ steps.deploy.outputs.url }}
+        run: ./deploy-preview-files/deploy-preview/urls
+
       - name: Create comment with available deploy preview
         if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}
+            :computer: Deploy preview available:
+            ${{ steps.urls.outputs.urls }}
 
       - name: Update comment with deleted deploy preview
         if: github.event.action == 'closed'
@@ -256,4 +265,5 @@ jobs:
           issue-number: ${{ inputs.event_number }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}
+            :computer: Deploy preview available:
+            ${{ steps.urls.outputs.urls }}

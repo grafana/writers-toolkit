@@ -2,7 +2,7 @@
   "author": "@jdbaldry",
   "dependencies": {
     "@actions/core": "1.11.1",
-    "@octokit/graphql": "8.1.2",
+    "@octokit/graphql": "8.2.0",
     "@octokit/rest": "21.1.0"
   },
   "description": "Adds all issues labeled `type/docs` to the Docs organization project.",

@@ -36,9 +36,32 @@ Depending on the needs of a particular product area, select a topic type from th
 **[Tutorial](https://grafana.com/docs/writers-toolkit/structure/topic-types/tutorial/)**
 : Provides procedures that users can safely reproduce and learn from. Answers the question: "Can you teach me to …?"
 
+**[Section](https://grafana.com/docs/writers-toolkit/structure/topic-types/section/)**
+: Provides a landing page for users to find content.
+
 <!-- vale Grafana.GoogleFirstPerson = YES -->
 
 For your convenience, there are topic [templates](https://github.com/grafana/writers-toolkit/tree/main/docs/static/templates).
+
+{{< admonition type="tip" >}}
+You can create a topic from its template with the `topic/<TYPE>` GNU Make target.
+
+For example, to create a task topic at the path `sources/task.md`:
+
+```console
+make topic/task TOPIC_PATH=sources/task.md
+```
+
+Types include:
+
+- **Concept**: `make topic/concept`
+- **Reference**: `make topic/reference`
+- **Task**: `make topic/task`
+- **Multiple tasks**: `make topic/multiple-tasks`
+- **Section**: `make topic/section`
+- **Visualization**: `make topic/visualization`
+
+{{< /admonition >}}
 
 ## Templates for standardized topics
 

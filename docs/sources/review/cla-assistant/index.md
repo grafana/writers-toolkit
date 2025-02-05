@@ -25,14 +25,7 @@ During prolonged periods of high load on the CLA assistant infrastructure, even 
 In this case, wait a few hours and try again later.
 {{< /admonition >}}
 
-<!-- vale Grafana.Gerunds = NO -->
-<!-- vale Grafana.GooglePassive = NO -->
-<!-- This heading matches the text that is displayed when the check hasn't run -->
-
 ## Waiting for status to be reported
-
-<!-- vale Grafana.Gerunds = YES -->
-<!-- vale Grafana.GooglePassive = YES -->
 
 Occasionally, the CLA assistant workflow isn't reported on an open pull request, preventing you from merging the pull request.
 You can request that the CLA assistant run again by browsing to the check URL for the pull request.

@@ -276,7 +276,7 @@ The description is also displayed on social media, such as Twitter, to provide a
 
 Since the reader isn't on the Grafana website, your description should include contextual information, such as the product name.
 
-The number of characters vary by media, so make the description concise.
+The number of characters vary by media, so make the description concise but aim for at least 150 characters.
 Provide enough information to guide users to the content by describing what content the link leads to.
 Often, this doesn't need to be original text.
 You can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
@@ -411,13 +411,17 @@ You should prefer to update the filename instead of using the `slug` front matte
 ### Title (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
-Your `title` should match your first heading for search engine optimization (SEO).
+Your `title` should match your first heading and URL slug for search engine optimization (SEO).
 The `doc-validator` linter enforces this.
 
 The `title` becomes the document title element in the HTML.
 Often, browsers display this in the tab for the page.
 
-Optimize the title for search engines.
+Optimize the title for search engines, a good title:
+
+- has a length including spaces less than 70 characters
+- has context and includes more than just one or two words
+- is unique
 
 ### Weight
 

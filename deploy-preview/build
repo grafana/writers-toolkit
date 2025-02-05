@@ -34,7 +34,7 @@ function clone {
   fi
 
   gh repo clone "grafana/${repo}" "${directory}"
-  gh pr checkout "${BRANCH}"
+  (cd "${directory}" && gh pr checkout "${BRANCH}")
 }
 
 # Check out all the source repositories defined in SOURCES.

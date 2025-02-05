@@ -53,4 +53,4 @@ Refer to the following pages for section page examples:
 
 ## Section template
 
-When you're ready to write, make a copy of the [Section template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/section.md) and add your content.
+When you're ready to write, make a copy of the [Section template](https://github.com/grafana/writers-toolkit/blob/main/docs/static/templates/section-template.md) and add your content.

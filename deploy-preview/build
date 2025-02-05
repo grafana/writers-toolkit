@@ -8,9 +8,16 @@ fi
 
 # All input comes from environment variables that are capitalized by convention in this script.
 readonly SOURCES="${SOURCES:-[]}"
+readonly BRANCH="${BRANCH:-}"
 
 if ! jq -e . <<<"${SOURCES}" >/dev/null; then
   echo "SOURCES environment variable is not valid JSON"
+
+  exit 1
+fi
+
+if [[ -z "${BRANCH+x}" ]]; then
+  echo "BRANCH environment variable is not set. It should be the PR branch name."
 
   exit 1
 fi
@@ -27,6 +34,7 @@ function clone {
   fi
 
   gh repo clone "grafana/${repo}" "${directory}"
+  gh pr checkout "${BRANCH}"
 }
 
 # Check out all the source repositories defined in SOURCES.

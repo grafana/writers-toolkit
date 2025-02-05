@@ -130,6 +130,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           SOURCES: ${{ inputs.SOURCES }}
+          BRANCH: ${{ inputs.branch }}
         run: ./deploy-preview-files/deploy-preview/build
 
       - name: Print build header value

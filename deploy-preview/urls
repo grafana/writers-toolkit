@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euf -o pipefail
+
+if [[ -n "${RUNNER_DEBUG+x}" ]]; then
+  set -x
+fi
+
+# All input comes from environment variables that are capitalized by convention in this script.
+readonly GITHUB_OUTPUT="${GITHUB_OUTPUT:-/dev/stdout}"
+readonly SOURCES="${SOURCES:-[]}"
+readonly URL="${URL:-}"
+
+if ! jq -e . <<<"${SOURCES}" >/dev/null; then
+  echo "SOURCES environment variable is not valid JSON"
+
+  exit 1
+fi
+
+echo "urls<<EOF" >> "${GITHUB_OUTPUT}"
+while read -r relative_prefix; do
+  echo "- ${URL}${relative_prefix}" >> "${GITHUB_OUTPUT}"
+done < <(jq -r '.[].relative_prefix' <<<"${SOURCES}")
+echo "EOF" >> "${GITHUB_OUTPUT}"

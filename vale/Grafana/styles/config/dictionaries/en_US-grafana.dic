@@ -1,4 +1,4 @@
-341
+343
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -131,6 +131,7 @@ IDE/S po:noun
 inclusivity/ po:noun
 InfluxDB/ po:noun
 ingester/MS po:noun
+inode/s po:noun
 Istio/ po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
@@ -290,6 +291,7 @@ SUSE/ po:noun
 SUT/ po:noun
 SVG/ po:noun
 sync/DG po:verb
+syntax/S po:noun
 syslog/ po:noun
 systemd/ po:noun
 TCP/ po:noun

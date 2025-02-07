@@ -16,4 +16,5 @@ local word = import './word.jsonnet';
   word.new('downsample', 'DG', 'verb'),
   word.new('duplicate', 'dDSN', 'noun') { swaps: { 'de-duplicate': 'deduplicate', 'de-duplicated': 'deduplicated', 'de-duplicates': 'deduplicates', 'de-duplication': 'deduplication' } },
   word.new('Dynatrace', '', 'noun') { product: true },
+  word.new('passwordless', '', 'adjective') { description: 'https://en.wikipedia.org/wiki/Passwordless_authentication' },
 ]

@@ -51,16 +51,16 @@ jobs:
             GRAFANA_RENOVATE_PRIVATE_KEY=grafana-renovate-app:private-key
 
       - id: generate-token
-        uses: actions/create-github-app-token@c1a285145b9d317df6ced56c09f525b5c2b6f755 # v1.11.1
+        uses: actions/create-github-app-token@67e27a7eb7db372a1c61a7f9bdab8699e9ee57f7 # v1.11.3
         with:
           app-id: ${{ env.GRAFANA_RENOVATE_APP_ID }}
           private-key: ${{ env.GRAFANA_RENOVATE_PRIVATE_KEY }}
 
-      - uses: renovatebot/github-action@d385c88822a237acaead89c462fa0aef7502748f # v41.0.11
+      - uses: renovatebot/github-action@9ad1a8e771c002ece340d1ff028fae4503fe041b # v41.0.12
         with:
           configurationFile: .github/renovate-config.json5
           # renovate: datasource=docker depName=ghcr.io/renovatebot/renovate
-          renovate-version: 39.134.0@sha256:d72d0035beb9b7e0ef3dc7453637540169e37a3fa1e6f404fa5834e4284eb390
+          renovate-version: 39.156.1@sha256:33153a313777d4640e37dccdac5ec67263c00edd5d470748599eba25790dea93
           token: ${{ steps.generate-token.outputs.token }}
         env:
           LOG_LEVEL: ${{ github.event_name == 'pull_request' && 'debug' || 'info' }}

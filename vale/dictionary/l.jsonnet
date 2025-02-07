@@ -10,4 +10,5 @@ local word = import './word.jsonnet';
   word.new('Loki', '', 'noun') { product: true, swaps: { loki: 'Loki' } },
   word.new('lookup', 'S', 'noun'),
   word.new('loopback', '', 'noun') { description: 'A network interface that is used to send data back to the same device.' },
+  word.new('Lucene', '', 'noun') { product: true, swaps: { lucene: 'Lucene' } },
 ]

@@ -146,18 +146,19 @@ Refer to the next section for examples of good screenshots.
 
 #### Screenshot examples
 
-This screenshot is a good size at 550 pixels wide:
+Good example of size at 545 pixels wide:
 ![Good size example](/media/docs/grafana/panels-visualizations/screenshot-stat-single-value-v11.3.png)
 
-These screenshots have appropriate scope:
+Good examples of scope on smaller scale:
 ![Good scope example 1](/media/docs/grafana/dashboards/screenshot-panel-links-v11.3.png)
-![Good scope example 2]
+![Good scope example 2](/media/docs/grafana-cloud/k8s/side-menu.png)
 
-This screenshot has good use of annotations:
-![Good PII and annotation example](/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png)
-
-This is a good example of a full page in the application:
+Good examples of scope on a larger scale that allows the user to see all they need to without enlarging or opening the image in a separate tab:
 ![Good example of a full page](/media/docs/alerting/alert-rule-evaluation.png)
+![Good scale example](/media/docs/grafana/panels-visualizations/screenshot-traces-visualization-11.5.png)
+
+Good example of annotation use:
+![Good PII and annotation example](/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png)
 
 ## Video guidelines
 

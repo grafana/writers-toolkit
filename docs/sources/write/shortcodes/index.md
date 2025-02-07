@@ -576,7 +576,7 @@ The `docs/public-preview` shortcode produces a note admonition with the preferre
 
 | Parameter     | Description                                                              | Required |
 | ------------- | ------------------------------------------------------------------------ | -------- |
-| `product`     | The name of the product or feature.                                      | yes      |
+| `product`     | The name of the product or feature.                                      | no       |
 | `featureFlag` | The name of the feature flag users use to enable the product or feature. | no       |
 
 ```markdown
@@ -594,6 +594,14 @@ Produces:
 Produces:
 
 {{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
+
+```markdown
+{{</* docs/public-preview featureFlag="a-feature-flag" */>}}
+```
+
+Produces:
+
+{{< docs/public-preview featureFlag="a-feature-flag" >}}
 
 ## Docs/reference
 

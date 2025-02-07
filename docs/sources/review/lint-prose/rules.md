@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-01-27"
+review_date: "2025-02-07"
 title: Vale rules
 ---
 
@@ -798,6 +798,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Graylog's`
 - `hashmod's`
 - `IBM's`
+- `InfluxDB's`
 - `Jaeger's`
 - `Jira's`
 - `journald's`
@@ -813,6 +814,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `LangChain's`
 - `launchd's`
 - `Loki's`
+- `Lucene's`
 - `Markdown's`
 - `Memcached's`
 - `Mesos'`
@@ -1009,6 +1011,8 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `GME`                                                             | `GEM`                      |
 | `Grafana AI observability`                                        | `Grafana AI Observability` |
 | `HTTPs`                                                           | `HTTPS`                    |
+| `Influx[Dd]b`                                                     | `InfluxDB`                 |
+| `Influxd[Bb]`                                                     | `InfluxDB`                 |
 | `Once`                                                            | `After`                    |
 | `RCA Workbench`                                                   | `RCA workbench`            |
 | `Rudderstack`                                                     | `RudderStack`              |
@@ -1047,11 +1051,13 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `grafana`                                                         | `Grafana`                  |
 | `grayed-out`                                                      | `unavailable`              |
 | `in order to`                                                     | `to`                       |
+| `influx[Dd][Bb]`                                                  | `InfluxDB`                 |
 | `jsonnet`                                                         | `Jsonnet`                  |
 | `langchain`                                                       | `LangChain`                |
 | `left[- ]hand[- ]side`                                            | `left-side`                |
 | `log(?:ql\|QL)`                                                   | `LogQL`                    |
 | `loki`                                                            | `Loki`                     |
+| `lucene`                                                          | `Lucene`                   |
 | `markdown`                                                        | `Markdown`                 |
 | `memcached`                                                       | `Memcached`                |
 | `meta[- ]data`                                                    | `metadata`                 |

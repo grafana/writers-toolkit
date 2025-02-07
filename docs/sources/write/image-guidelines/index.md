@@ -142,33 +142,22 @@ Consult the following guidelines when you create screenshots:
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 - **Alt text**: Make sure to include [alt text](#alt-text) for every image.
 
-<!-- 
+Refer to the next section for examples of good screenshots.
 
+#### Screenshot examples
 
-| Good screenshot | Poor screenshot |
-| ------- | ------------- |
-| ![Good example](/media/docs/grafana/dashboards/screenshot-current-time-range-11.2.png)</p><p>Constrained to a specific UI element | ![Poor example](screenshot-bad-example.png)</p><p>Showing several UI elements, making for unclear focus</p><p>A lot of dead space around the UI element |
-|  |  |
+This screenshot is a good size at 550 pixels wide:
+![Good size example](/media/docs/grafana/panels-visualizations/screenshot-stat-single-value-v11.3.png)
 
+These screenshots have appropriate scope:
+![Good scope example 1](/media/docs/grafana/dashboards/screenshot-panel-links-v11.3.png)
+![Good scope example 2]
 
--->
+This screenshot has good use of annotations:
+![Good PII and annotation example](/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png)
 
-
-{{< column-list count="2">}}
-
-- Good screenshots
-  ![Good example](/media/docs/grafana/dashboards/screenshot-current-time-range-11.2.png)
-  Constrained to a specific UI element
-
-  ![Good example](/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png)
-  Includes enough surrounding detail to help the user locate the UI element and understand how the feature works
-- Poor screenshots
-  ![Poor example](screenshot-bad-example.png)
-  Too much empty space around the UI element
-  ![Poor example](screenshot-bad-example-2.png)
-  Not enough context to show how the feature works
-
-{{< /column-list >}}
+This is a good example of a full page in the application:
+![Good example of a full page](/media/docs/alerting/alert-rule-evaluation.png)
 
 ## Video guidelines
 

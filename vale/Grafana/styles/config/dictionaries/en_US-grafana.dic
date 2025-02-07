@@ -1,4 +1,4 @@
-338
+341
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -129,6 +129,7 @@ IBM/ po:noun
 ICU/ po:noun
 IDE/S po:noun
 inclusivity/ po:noun
+InfluxDB/ po:noun
 ingester/MS po:noun
 Istio/ po:noun
 Jaeger/ po:adjective
@@ -166,6 +167,7 @@ LogQL/ po:noun
 Loki/ po:noun
 lookup/S po:noun
 loopback/ po:noun
+Lucene/ po:noun
 manage/uD po:verb
 Markdown/ po:noun
 marshal/u po:verb
@@ -291,6 +293,7 @@ sync/DG po:verb
 syslog/ po:noun
 systemd/ po:noun
 TCP/ po:noun
+templated/ po:adjective
 Tempo/ po:noun
 Thanos/ po:noun
 TLS/ po:noun

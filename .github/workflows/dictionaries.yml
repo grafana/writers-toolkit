@@ -5,7 +5,7 @@ jobs:
   main:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     container:
-      image: bitnami/jsonnet@sha256:c23d5f0c17d945f52baa272661eab17d90e542c16c6c4df8823a3dbf66c83cc2
+      image: bitnami/jsonnet@sha256:4bc0db71efba4206d67bfc5a31c98b38ffce3574f5715e657fba291b904dcf67
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

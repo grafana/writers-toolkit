@@ -1197,9 +1197,9 @@ Produces:
 ## Video-embed
 
 The `video-embed` shortcode embeds videos on the page.
-This is the recommended format for short `.mp4` files of 10 MB or smaller.
+Use `.mp4` files of 10 MB or smaller.
 
-The shortcode requires a single argument which is the path to the video file in the media folder:
+The shortcode requires a single parameter, the `src`, to set the source of the image. For this, use the path to the recording file:
 
 ```
 {{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}

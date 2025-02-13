@@ -1194,6 +1194,17 @@ Produces:
 
 {{< translate "docs_feedback_heading" >}}
 
+## Video-embed
+
+The `video-embed` shortcode embeds videos on the page.
+This is the recommended format for short `.mp4` files of 10 MB or smaller.
+
+The shortcode requires a single argument which is the path to the video file in the media folder:
+
+```
+{{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}
+```
+
 ## Vimeo
 
 The `vimeo` shortcode embeds videos hosted on vimeo.com.

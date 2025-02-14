@@ -9,6 +9,7 @@ local word = import './word.jsonnet';
   word.new('OpenShift', '', 'noun') { product: true, swaps: { '(?:[Oo]penshift|openShift)': 'OpenShift' } },
   word.new('OpenTelemetry', '', 'adjective'),
   word.new('OpenTelemetry', '', 'noun') { product: true, swaps: { '(?:[oO]pentelemetry|openTelemetry)': 'OpenTelemetry' } },
+  word.new('Opsgenie', '', 'noun') { description: 'https://www.atlassian.com/software/opsgenie', product: true },
   word.new('OSS', '', 'noun') { abbreviation: true, elaboration: 'open source software', established_abbreviation: true },
   word.new('OTel', '', 'adjective'),
   word.new('OTel', '', 'noun') { product: true, swaps: { otel: 'OTel' } },

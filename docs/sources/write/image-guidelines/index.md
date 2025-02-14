@@ -150,15 +150,15 @@ Good example of size at 545 pixels wide:
 ![Good size example](/media/docs/grafana/panels-visualizations/screenshot-stat-single-value-v11.3.png)
 
 Good examples of scope on smaller scale:
-![Good scope example 1](/media/docs/grafana/dashboards/screenshot-panel-links-v11.3.png)
-![Good scope example 2](/media/docs/grafana-cloud/k8s/side-menu.png)
+{{< figure src="/media/docs/grafana/dashboards/screenshot-panel-links-v11.3.png" max-width="600px" alt="Good scope example 1" >}}
+{{< figure src="/media/docs/grafana-cloud/k8s/side-menu.png" max-width="350px" alt="Good scope example 2" >}}
 
 Good examples of scope on a larger scale that allows the user to see all they need to without enlarging or opening the image in a separate tab:
 ![Good example of a full page](/media/docs/alerting/alert-rule-evaluation.png)
 ![Good scale example](/media/docs/grafana/panels-visualizations/screenshot-traces-visualization-11.5.png)
 
 Good example of annotation use:
-![Good PII and annotation example](/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png" max-width="600px" alt="Good PII and annotation example" >}}
 
 ## Video guidelines
 

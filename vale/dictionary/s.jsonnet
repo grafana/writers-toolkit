@@ -6,6 +6,8 @@ local word = import './word.jsonnet';
   word.new('SCSS', '', 'noun') { abbreviation: true, elaboration: 'Sassy CSS', established_abbreviation: true },
   word.new('SDK', 'S', 'noun') { abbreviation: true, elaboration: 'software development kit', established_abbreviation: true },
   word.new('semver', '', 'noun') { description: 'Semantic Versioning Specification' },
+  word.new('Sensu', '', 'noun') { description: 'https://docs.sensu.io/', product: true, swaps: { sensu: 'Sensu' } },
+  word.new('Sensu Go', '', 'noun') { description: 'https://docs.sensu.io/sensu-go/latest/', product: true },
   word.new('SEO', '', 'noun') { abbreviation: true, elaboration: 'search engine optimization', established_abbreviation: true },
   word.new('serverless', '', 'adjective'),
   word.new('SHA-1', '', 'noun') { abbreviation: true, elaboration: 'Secure Hash Algorithm 1', established_abbreviation: true, swaps: { '(?:SHA-1|HAS-SHA1)': 'SHA-1' } },
@@ -37,6 +39,7 @@ local word = import './word.jsonnet';
   word.new('SUT', '', 'noun') { abbreviation: true, elaboration: 'System Under Test' },
   word.new('SVG', '', 'noun') { abbreviation: true, elaboration: 'Scalable Vector Graphics', established_abbreviation: true },
   word.new('sync', 'DG', 'verb') { swaps: { synch: 'sync', synched: 'synced', synching: 'syncing' } },
+  word.new('syntax', 'S', 'noun'),
   word.new('syslog', '', 'noun') { description: 'A standard for message logging' },
   word.new('systemd', '', 'noun') { description: 'A system and service manager for Linux' },
 ]

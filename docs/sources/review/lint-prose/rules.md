@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-02-07"
+review_date: "2025-02-14"
 title: Vale rules
 ---
 
@@ -827,7 +827,9 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `OpenAI's`
 - `OpenShift's`
 - `OpenTelemetry's`
+- `Opsgenie's`
 - `OTel's`
+- `PagerDuty's`
 - `Parca's`
 - `Phlare's`
 - `Pinecone's`
@@ -846,14 +848,18 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `RHEL's`
 - `Rollup's`
 - `RudderStack's`
+- `Sensu's`
+- `Sensu Go's`
 - `Splunk's`
 - `SSM's`
 - `SUSE's`
 - `Tempo's`
 - `Thanos'`
+- `Threema's`
 - `Velero's`
 - `Vite's`
 - `VMware's`
+- `Webex's`
 - `WildFly's`
 - `windows_exporter's`
 - `Zipkin's`
@@ -1014,6 +1020,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `Influx[Dd]b`                                                     | `InfluxDB`                 |
 | `Influxd[Bb]`                                                     | `InfluxDB`                 |
 | `Once`                                                            | `After`                    |
+| `Pagerduty`                                                       | `PagerDuty`                |
 | `RCA Workbench`                                                   | `RCA workbench`            |
 | `Rudderstack`                                                     | `RudderStack`              |
 | `VMWare`                                                          | `VMware`                   |
@@ -1067,6 +1074,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `open-source`                                                     | `open source`              |
 | `otel`                                                            | `OTel`                     |
 | `otlp`                                                            | `OTLP`                     |
+| `pager[dD]uty`                                                    | `PagerDuty`                |
 | `phlare`                                                          | `Phlare`                   |
 | `postgres`                                                        | `Postgres`                 |
 | `postgresql`                                                      | `PostgreSQL`               |
@@ -1078,6 +1086,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `repos`                                                           | `repositories`             |
 | `right[- ]hand[- ]side`                                           | `right-side`               |
 | `rudderstack`                                                     | `RudderStack`              |
+| `sensu`                                                           | `Sensu`                    |
 | `sign into`                                                       | `sign in to`               |
 | `sqlite`                                                          | `SQLite`                   |
 | `style sheet`                                                     | `stylesheet`               |
@@ -1088,6 +1097,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `tempo`                                                           | `Tempo`                    |
 | `the Grafana Agent`                                               | `Grafana Agent`            |
 | `the RCA [Ww]orkbench`                                            | `RCA workbench`            |
+| `threema`                                                         | `Threema`                  |
 | `timeseries`                                                      | `time series\|time-series` |
 | `trace(?:ql\|QL)`                                                 | `TraceQL`                  |
 | `un(?:check\|select)`                                             | `clear`                    |
@@ -1095,6 +1105,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `urls`                                                            | `URLs`                     |
 | `vmware`                                                          | `VMware`                   |
 | `vs\.`                                                            | `versus`                   |
+| `webex`                                                           | `Webex`                    |
 | `whitelist`                                                       | `allowlist`                |
 | `whitelisted`                                                     | `allowlisted`              |
 | `whitelisting`                                                    | `allowlisting`             |

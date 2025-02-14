@@ -1194,6 +1194,17 @@ Produces:
 
 {{< translate "docs_feedback_heading" >}}
 
+## Video-embed
+
+The `video-embed` shortcode embeds videos on the page.
+Use `.mp4` files of 10 MB or smaller.
+
+The shortcode requires a single parameter, the `src`, to set the source of the image. For this, use the path to the recording file:
+
+```
+{{</* video-embed src="<PATH>" */>}}
+```
+
 ## Vimeo
 
 The `vimeo` shortcode embeds videos hosted on vimeo.com.

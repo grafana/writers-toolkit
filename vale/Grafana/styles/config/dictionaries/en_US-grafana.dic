@@ -1,4 +1,4 @@
-341
+349
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -131,6 +131,7 @@ IDE/S po:noun
 inclusivity/ po:noun
 InfluxDB/ po:noun
 ingester/MS po:noun
+inode/s po:noun
 Istio/ po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun
@@ -196,12 +197,14 @@ open source/ po:noun
 OpenShift/ po:noun
 OpenTelemetry/ po:adjective
 OpenTelemetry/ po:noun
+Opsgenie/ po:noun
 OSS/ po:noun
 OTel/ po:adjective
 OTel/ po:noun
 OTLP/ po:noun
 overbill/DG po:verb
 overutilization/S po:noun
+PagerDuty/ po:noun
 Parca/ po:noun
 path/S po:noun
 PDF/S po:noun
@@ -259,6 +262,8 @@ SCM/ po:noun
 SCSS/ po:noun
 SDK/S po:noun
 semver/ po:noun
+Sensu/ po:noun
+Sensu Go/ po:noun
 SEO/ po:noun
 serverless/ po:adjective
 SHA-1/ po:noun
@@ -290,12 +295,14 @@ SUSE/ po:noun
 SUT/ po:noun
 SVG/ po:noun
 sync/DG po:verb
+syntax/S po:noun
 syslog/ po:noun
 systemd/ po:noun
 TCP/ po:noun
 templated/ po:adjective
 Tempo/ po:noun
 Thanos/ po:noun
+Threema/ po:noun
 TLS/ po:noun
 toolset/S po:noun
 tooltip/S po:noun
@@ -329,6 +336,7 @@ walkthrough/S po:noun
 web/ po:noun
 Webpack/ po:noun
 webserver/S po:noun
+Webex/ po:noun
 Wi-Fi/ po:noun
 WildFly/ po:noun
 windows_exporter/S po:noun

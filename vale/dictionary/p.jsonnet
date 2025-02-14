@@ -1,5 +1,6 @@
 local word = import './word.jsonnet';
 [
+  word.new('PagerDuty', '', 'noun') { description: 'https://www.pagerduty.com/', product: true, swaps: { 'pager[dD]uty': 'PagerDuty', Pagerduty: 'PagerDuty' } },
   word.new('Parca', '', 'noun') { product: true },
   word.new('path', 'S', 'noun') { description: 'A string that represents a file or directory location in a filesystem.', swaps: { '(?:file ?path|path ?name)': 'path', '(?:file ?path|path ?name)s': 'paths' } },
   word.new('PDF', 'S', 'noun') { abbreviation: true, elaboration: 'Portable Document Format', established_abbreviation: true },

@@ -269,7 +269,9 @@ You use the [asset upload application](https://admin.grafana.com/upload/) to upl
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
 {{< admonition type="note" >}}
-Don't store images in the local repository, as it prohibits re-use of the asset in other content.
+There is a 10MB limit on the size of assets uploaded through the asset upload application.
+
+For larger uploads, reach out in the [#website Slack channel](https://raintank-corp.slack.com/archives/CH34H23HD) to discuss the best path forward.
 {{< /admonition >}}
 
 <table>

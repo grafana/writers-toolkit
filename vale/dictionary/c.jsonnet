@@ -23,6 +23,7 @@ local word = import './word.jsonnet';
   word.new('Couchbase', 'M', 'noun'),
   word.new('CPU', 'S', 'noun') { abbreviation: true, elaboration: 'central processing unit', established_abbreviation: true },
   word.new('CRD', 'S', 'noun') { abbreviation: true, elaboration: 'Custom Resource Definition', established_abbreviation: true },
+  word.new('cron', '', 'noun'),
   word.new('CSS', '', 'noun') { abbreviation: true, elaboration: 'Cascading Style Sheets', established_abbreviation: true },
   word.new('CSV', 'S', 'noun') { abbreviation: true, elaboration: 'Comma-separated values', established_abbreviation: true },
   word.new('CVE', 'S', 'noun'),

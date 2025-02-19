@@ -18,5 +18,6 @@ local word = import './word.jsonnet';
   word.new('Gravatar', '', 'noun') { product: true },
   word.new('Graylog', '', 'noun') { product: true },
   word.new('GUI', 'S', 'noun') { abbreviation: true, elaboration: 'graphical user interface', established_abbreviation: true },
+  word.new('Gunicorn', '', 'noun') { product: true },
   word.new('Gzip', '', 'noun'),
 ]

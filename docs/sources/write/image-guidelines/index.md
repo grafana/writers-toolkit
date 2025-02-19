@@ -146,8 +146,8 @@ Refer to the next section for examples of good screenshots.
 
 #### Screenshot examples
 
-Good example of size at 545 pixels wide:
-![Good size example](/media/docs/grafana/panels-visualizations/screenshot-stat-single-value-v11.3.png)
+Good example of size, with the image constrained to 600 pixels wide:
+{{< figure src="/media/docs/writers-toolkit/screenshot-stat-single-value-v11.6.png" max-width="600px" alt="Good size example" >}}
 
 Good examples of scope on smaller scale:
 {{< figure src="/media/docs/grafana/dashboards/screenshot-panel-links-v11.3.png" max-width="600px" alt="Good scope example 1" >}}

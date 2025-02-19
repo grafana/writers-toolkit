@@ -4,17 +4,15 @@ on:
   workflow_call:
     inputs:
       # Legacy inputs
+      # Don't forget to make `sources` required when you remove these.
       source_directory:
         default: docs/sources
         type: string
       website_directory:
-        required: true
         type: string
       relative_prefix:
-        required: true
         type: string
       index_file: # creates the necessary project _index.md file for versioned repos
-        required: true
         type: boolean
       # End legacy inputs
       sources:

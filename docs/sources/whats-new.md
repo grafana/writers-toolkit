@@ -25,6 +25,7 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 | Fixed the path to the section template file.                          | https://raw.githubusercontent.com/grafana/writers-toolkit/refs/heads/main/docs/static/templates/section-template.md |
 | Added `topic/<TYPE>` Make targets to create a topic from its template | [Topic types](/docs/writers-toolkit/structure/topic-types/)                                                         |
 | Added `video-embed` to Shortcodes page.                               | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#video-embed)                                                   |
+| Added examples to screenshot guidelines                               | [Screenshot guidelines](/docs/writers-toolkit/write/image-guidelines/#screenshot-examples)                          |
 
 ## January 2025
 

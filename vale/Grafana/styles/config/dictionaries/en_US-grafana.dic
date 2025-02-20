@@ -1,4 +1,4 @@
-350
+352
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -117,6 +117,7 @@ Gravatar/ po:adjective
 Gravatar/ po:noun
 Graylog/ po:noun
 GUI/S po:noun
+Gunicorn/ po:noun
 Gzip/ po:noun
 Hashicorp/ po:noun
 hashmod/ po:noun
@@ -151,6 +152,7 @@ keepalive/ po:noun
 Kibana/ po:noun
 Killercoda/ po:noun
 Kinesis/ po:noun
+Kotlin/ po:noun
 KPI/S po:noun
 KQL/ po:noun
 Kprobe/S po:noun

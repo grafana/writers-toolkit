@@ -19,6 +19,8 @@ jobs:
           go-version-file: tools/go.mod
       - run: go install github.com/google/go-jsonnet/cmd/jsonnet@latest
       - working-directory: vale
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euf -o pipefail
 
@@ -38,6 +40,7 @@ jobs:
 
           if ! git diff --exit-code; then
             commit
+            git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/grafana/writers-toolkit"
             git push origin
           fi
         shell: bash

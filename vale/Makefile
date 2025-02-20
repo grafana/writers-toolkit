@@ -22,7 +22,7 @@ DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 .PHONY: all
 all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) ## Build all the Grafana Vale rules and styles.
-$(DOCUMENTATION): $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
+$(DOCUMENTATION): Grafana/styles/Grafana/Google $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
 	cd ../tools/ && go run ./cmd/generate-documentation ../ tools/cmd/generate-documentation vale/Grafana/styles/Grafana docs/sources/review/lint-prose/rules.md
 	npx prettier -w $(DOCUMENTATION)
 

@@ -5,7 +5,7 @@ jobs:
   main:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     container:
-      image: alpine:3.2
+      image: debian:bookworm-slim
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -15,8 +15,10 @@ jobs:
         with:
           node-version: 20
       - run: npm install --no-save prettier
-      - run: |
-          apk add bash jsonnet git go make
+      - env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt update && apt install -yq bash jsonnet git golang make
       - working-directory: vale
         run: |
           set -euf -o pipefail

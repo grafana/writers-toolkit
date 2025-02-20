@@ -1,18 +1,26 @@
-name: Rebuild the dictionaries on a branch
+name: Update generated Vale files on a branch
 on:
   workflow_dispatch:
 jobs:
   main:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
-    container:
-      image: bitnami/jsonnet@sha256:4bc0db71efba4206d67bfc5a31c98b38ffce3574f5715e657fba291b904dcf67
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-
-      - working-directory: vale/dictionaries
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        with:
+          node-version-file: package.json
+      - run: npm install --no-save prettier
+      - name: Setup Go
+        uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
+        with:
+          go-version-file: tools/go.mod
+      - run: go install github.com/google/go-jsonnet/cmd/jsonnet@latest
+      - working-directory: vale
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euf -o pipefail
 
@@ -25,12 +33,14 @@ jobs:
             git add .
             git config --local user.email bot@grafana.com
             git config --local user.name grafanabot
-            git commit --message 'Regenerate dictionaries'
+            git commit --message 'Update generated Vale files'
           }
 
           make -B all
 
           if ! git diff --exit-code; then
             commit
+            git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/grafana/writers-toolkit"
             git push origin
           fi
+        shell: bash

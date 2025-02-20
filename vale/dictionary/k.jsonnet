@@ -5,7 +5,7 @@ local word = import './word.jsonnet';
   word.new('Kibana', '', 'noun') { product: true },
   word.new('Killercoda', '', 'noun') { product: true },
   word.new('Kinesis', '', 'noun') { Amazon: true, product: true },
-  word.new('Kotlin', '', 'noun') { product: true },
+  word.new('Kotlin', '', 'noun') { product: true, swaps: { 'kotlin': 'Kotlin' } },
   word.new('KPI', 'S', 'noun') { abbreviation: true, elaboration: 'key performance indicator' },
   word.new('KQL', '', 'noun') { Azure: true, product: true, elaboration: 'Kusto Query Language' },
   word.new('Kprobe', 'S', 'noun'),

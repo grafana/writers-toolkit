@@ -1,4 +1,4 @@
-name: Rebuild the dictionaries on a branch
+name: Update generated Vale files on a branch
 on:
   workflow_dispatch:
 jobs:
@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - working-directory: vale/dictionaries
+      - working-directory: vale
         run: |
           set -euf -o pipefail
 
@@ -25,7 +25,7 @@ jobs:
             git add .
             git config --local user.email bot@grafana.com
             git config --local user.name grafanabot
-            git commit --message 'Regenerate dictionaries'
+            git commit --message 'Update generated Vale files'
           }
 
           make -B all
@@ -34,3 +34,4 @@ jobs:
             commit
             git push origin
           fi
+        shell: bash

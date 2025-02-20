@@ -5,20 +5,19 @@ jobs:
   main:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
-    container:
-      image: bitnami/jsonnet@sha256:6ccb21c8c9641db2b5385c13ce1f99665a2eb529a62022350349fbf0b9a63b35
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
       - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
-          node-version: 20
+          node-version-file: package.json
       - run: npm install --no-save prettier
       - name: Setup Go
         uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
         with:
           go-version-file: tools/go.mod
+      - run: apt install jsonnet
       - working-directory: vale
         run: |
           set -euf -o pipefail

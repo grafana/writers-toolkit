@@ -5,7 +5,7 @@ jobs:
   main:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     container:
-      image: debian:bookworm-slim
+      image: ubuntu:latest
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -18,7 +18,7 @@ jobs:
       - env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          apt update && apt install -yqq bash jsonnet git golang make
+          apt update -qq && apt install -yqq bash jsonnet git golang make
       - working-directory: vale
         run: |
           set -euf -o pipefail

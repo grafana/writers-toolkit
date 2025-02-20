@@ -1,4 +1,4 @@
-349
+350
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -59,6 +59,7 @@ CORS/ po:noun
 Couchbase/M po:noun
 CPU/S po:noun
 CRD/S po:noun
+cron/ po:noun
 CSS/ po:noun
 CSV/S po:noun
 CVE/S po:noun

@@ -55,10 +55,10 @@ Small changes might include:
 
 ### Find the source repository
 
+<!-- vale Grafana.Timeless = NO -->
+
 The "latest" and "next" versions of documentation published from public projects have a **{{< translate "docs_feedback_suggest" >}}** link with a pencil icon.
 Click this link to directly edit the page in GitHub.
-
-<!-- vale Grafana.Timeless = NO -->
 
 {{< admonition type="warning" >}}
 Because development happens in the `main` branch on GitHub which generally corresponds to the next version of documentation.
@@ -92,15 +92,16 @@ The list of mounts is in the [website repository Hugo configuration file](https:
    GitHub creates a pull request which then goes through the review and approval workflow.
 
 <!-- vale Grafana.Timeless = NO -->
-<!-- vale Grafana.GoogleWill = NO -->
 
 ## Develop a new topic
+
+<!-- vale Grafana.GoogleWill = NO -->
 
 If you want to develop a new topic from scratch, you can create a documentation plan and collaborate with a member of the technical writing team.
 According to the book [_Docs for Developers_](https://docsfordevelopers.com/), a documentation plan is a _flexible outline_ for anticipating where the writing process will lead you.
 
-<!-- vale Grafana.Timeless = YES -->
 <!-- vale Grafana.GoogleWill = YES -->
+<!-- vale Grafana.Timeless = YES -->
 
 Your documentation plan helps you to:
 

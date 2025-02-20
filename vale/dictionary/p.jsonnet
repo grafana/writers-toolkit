@@ -15,6 +15,7 @@ local word = import './word.jsonnet';
   word.new('PostgreSQL', '', 'noun') { product: true, swaps: { postgresql: 'PostgreSQL' } },
   word.new('pprof', '', 'noun') { description: 'A tool for visualization and analysis of profiling data.', product: true },
   word.new('profile', 'DGRS', 'verb'),
+  word.new('Profiles Drilldown', '', 'noun'),
   word.new('Prometheus', '', 'noun') { product: true, swaps: { '(?<!kube-)prometheus': 'Prometheus' } },
   word.new('Promtail', '', 'noun') { product: true, swaps: { '(?<!lambda-)promtail': 'Promtail' } },
   word.new('PromQL', '', 'noun') { description: 'The Prometheus query language', swaps: { 'prom(?:ql|QL)': 'PromQL' } },

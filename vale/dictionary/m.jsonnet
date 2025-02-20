@@ -8,6 +8,7 @@ local word = import './word.jsonnet';
   word.new('memberlist', '', 'noun'),
   word.new('Memcached', '', 'noun') { product: true, swaps: { memcached: 'Memcached' } },
   word.new('metadata', '', 'noun') { swaps: { 'meta[- ]data': 'metadata' } },
+  word.new('Metrics Drilldown', '', 'noun'),
   word.new('Mesos', '', 'noun') { Apache: true, product: true, description: 'Apache Mesos' },
   word.new('middleware', 'S', 'noun'),
   word.new('Mimir', 'M', 'noun') { product: true },

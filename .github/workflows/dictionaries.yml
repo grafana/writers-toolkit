@@ -18,7 +18,7 @@ jobs:
       - env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          apt update && apt install -yq bash jsonnet git golang make
+          apt update && apt install -yqq bash jsonnet git golang make
       - working-directory: vale
         run: |
           set -euf -o pipefail

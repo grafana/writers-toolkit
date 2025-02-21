@@ -20,7 +20,7 @@ runs:
   using: composite
   steps:
     - name: Build website
-      uses: grafana/writers-toolkit/build-website@4b1248585248751e3b12fd020cf7ac91540ca09c # build-website/v1.0.1
+      uses: grafana/writers-toolkit/build-website@f101b7ca23c695f06ff1414fffbc690f2e46e2ff # build-website/v1.0.1
       with:
         source_directory: ${{ inputs.source_directory }}
         website_directory: ${{ inputs.website_directory }}

@@ -7,7 +7,7 @@ local word = import './word.jsonnet';
   word.new('LLM', 'S', 'noun') { abbreviation: true, elaboration: 'large language model' },
   word.new('Linode', 'M', 'noun'),
   word.new('LogQL', '', 'noun') { description: 'The Grafana Loki log query language.', swaps: { 'log(?:ql|QL)': 'LogQL' } },
-  word.new('Logs Drilldown', '', 'noun'),
+  word.new('Logs Drilldown', '', 'noun') { product: true },
   word.new('Loki', '', 'noun') { product: true, swaps: { loki: 'Loki' } },
   word.new('lookup', 'S', 'noun'),
   word.new('loopback', '', 'noun') { description: 'A network interface that is used to send data back to the same device.' },

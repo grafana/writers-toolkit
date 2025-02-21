@@ -1,4 +1,4 @@
-352
+358
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -77,6 +77,8 @@ DNS/ po:noun
 DOM/ po:noun
 don'ts/ po:noun
 downsample/DG po:verb
+drilldown/ po:noun
+drill down/ po:verb
 duplicate/dDSN po:noun
 Dynatrace/ po:noun
 passwordless/ po:adjective
@@ -168,6 +170,7 @@ LESS/ po:noun
 LLM/S po:noun
 Linode/M po:noun
 LogQL/ po:noun
+Logs Drilldown/ po:noun
 Loki/ po:noun
 lookup/S po:noun
 loopback/ po:noun
@@ -180,6 +183,7 @@ media type/S po:noun
 memberlist/ po:noun
 Memcached/ po:noun
 metadata/ po:noun
+Metrics Drilldown/ po:noun
 Mesos/ po:noun
 middleware/S po:noun
 Mimir/M po:noun
@@ -222,6 +226,7 @@ Postgres/ po:noun
 PostgreSQL/ po:noun
 pprof/ po:noun
 profile/DGRS po:verb
+Profiles Drilldown/ po:noun
 Prometheus/ po:noun
 Promtail/ po:noun
 PromQL/ po:noun
@@ -312,6 +317,7 @@ tooltip/S po:noun
 tracepoint/S po:noun
 TraceQL/ po:noun
 traceroute/S po:noun
+Traces Drilldown/ po:noun
 triage/D po:verb
 TSDB/S po:noun
 TTL/S po:noun

@@ -22,9 +22,9 @@ DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 .PHONY: all
 all: $(DICTIONARIES) $(DOCUMENTATION) $(RULES) $(STYLES) ## Build all the Grafana Vale rules and styles.
-$(DOCUMENTATION): $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
+$(DOCUMENTATION): Grafana/styles/Grafana/Google $(wildcard Grafana/styles/Grafana/*) $(wildcard ../tools/cmd/generate-documentation/*)
 	cd ../tools/ && go run ./cmd/generate-documentation ../ tools/cmd/generate-documentation vale/Grafana/styles/Grafana docs/sources/review/lint-prose/rules.md
-	prettier -w $(DOCUMENTATION)
+	npx prettier -w $(DOCUMENTATION)
 
 
 .PHONY: dictionaries
@@ -60,7 +60,7 @@ grafana/vale/push: $(IMAGE_PREREQUISITES)
 sync: ## Update the vendored Google style.
 sync:
 	cd $(GIT_ROOT) && vale sync; cd -
-	prettier -w .
+	npx prettier -w .
 
 .vale.ini ../.vale.ini: ## Generate Vale INI configuration from the Jsonnet data template.
 .vale.ini ../.vale.ini: .vale.jsonnet
@@ -72,19 +72,19 @@ Grafana/styles/Grafana/Google: ## Generate the Grafana style from the Google sty
 Grafana/styles/Grafana/Google: google.jsonnet
 	rm -f "$$(jsonnet -Se 'std.join(" ", std.objectFields(import "google.jsonnet"))')"
 	jsonnet -S -m . google.jsonnet
-	prettier -w $@*.yml
+	npx prettier -w $@*.yml
 
 Grafana/styles/Grafana/%.yml: ## Generate Grafana style rules from the corresponding Jsonnet file.
 Grafana/styles/Grafana/%.yml: %.jsonnet
 	jsonnet -S $< > $@
-	prettier -w $@
+	npx prettier -w $@
 
 .PHONY: Grafana/styles/Grafana/Readability
 Grafana/styles/Grafana/Readability: ## Generate the Grafana style from the Readability style.
 Grafana/styles/Grafana/Readability: readability.jsonnet
 	rm -f $@*.yml
 	jsonnet -S -m . readability.jsonnet
-	prettier -w $@*.yml
+	npx prettier -w $@*.yml
 
 fixtures/Grafana/%: ## Generate the scaffolding to test a new Grafana Vale rule.
 fixtures/Grafana/%:

@@ -6,7 +6,7 @@ toolchain go1.24.0
 
 require (
 	github.com/BurntSushi/toml v1.4.0
-	github.com/gohugoio/hugo v0.144.1
+	github.com/gohugoio/hugo v0.144.2
 	gopkg.in/yaml.v3 v3.0.1
 )
 

@@ -127,7 +127,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         with:
           repository: "grafana/writers-toolkit"
-          ref: jdb/deploy-preview
+          ref: main
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |

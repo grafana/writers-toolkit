@@ -3,6 +3,66 @@ name: deploy-preview
 on:
   workflow_call:
     inputs:
+      # Legacy inputs
+      # Don't forget to make `sources` required when you remove these.
+      source_directory:
+        default: docs/sources
+        type: string
+      website_directory:
+        type: string
+      relative_prefix:
+        type: string
+      index_file: # creates the necessary project _index.md file for versioned repos
+        type: boolean
+      # End legacy inputs
+      sources:
+        description: |
+          sources is a JSON string describing multiple source mounts.
+
+          It replaces the individual inputs used in the previous version of this action.
+
+          The structure is an array of objects, each with the following keys:
+
+          index_file:
+            description: Path to index file used to redirect versioned projects. For example, "content/docs/mimir/_index.md".
+            required: true
+            type: string
+          relative_prefix:
+            description: The URL path prefix for the mount destination. For example, "/docs/mimir/latest/".
+            required: true
+            type: string
+          repo:
+            description: The Grafana repository name for the source files. For example, "mimir".
+            required: true
+            type: string
+          source_directory:
+            description: The path to the source files in the repository. For example, "docs/sources".
+            required: true
+            type: string
+          website_directory:
+            description: The path to mount the documentation in the website content structure. For example, "content/docs/mimir/latest".
+            required: true
+            type: string
+
+          The following example mounts both the Mimir documentation and the mimir-distributed Helm chart documentation:
+
+          [
+            {
+              "index_file": true,
+              "relative_prefix": "/docs/mimir/latest/",
+              "repo": "mimir",
+              "source_directory": "docs/sources/mimir",
+              "website_directory": "content/docs/mimir/latest"
+            },
+            {
+              "index_file": true,
+              "relative_prefix": "/docs/helm-charts/mimir-distributed/latest/",
+              "repo": "mimir",
+              "source_directory": "docs/sources/mimir-distributed",
+              "website_directory": "content/docs/helm-charts/mimir-distributed/latest"
+            }
+          ]
+        type: string
       sha:
         required: true
         type: string
@@ -12,24 +72,12 @@ on:
       event_number:
         required: true
         type: string
-      title:
-        required: true
-        type: string
       repo:
         required: true
         type: string
-      source_directory:
-        default: docs/sources
-        type: string
-      website_directory:
+      title:
         required: true
         type: string
-      relative_prefix:
-        required: true
-        type: string
-      index_file: # creates the necessary project _index.md file for versioned repos
-        required: true
-        type: boolean
 
 env:
   CLOUD_RUN_REGION: us-south1
@@ -41,7 +89,7 @@ concurrency:
 jobs:
   deploy-preview:
     permissions:
-      contents: read
+      contents: read # Clone repositories.
       id-token: write # Fetch Vault secrets.
       pull-requests: write # Create or update PR comments.
       statuses: write # Update GitHub status check with deploy preview link.
@@ -66,29 +114,27 @@ jobs:
           body: |
             :building_construction: Updating deploy preview...
 
+
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
         with:
           persist-credentials: false
           sparse-checkout-cone-mode: false # exclude root files
           sparse-checkout: docs
 
-      # get the Dockerfile and nginx conf
       - name: Sparse checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         with:
           repository: "grafana/writers-toolkit"
-          ref: "main"
+          ref: main
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
             deploy-preview
 
-      # sparse checkout with cone mode disabled includes root files, even when using exclusions
-      # see https://github.com/actions/checkout/issues/1430#issuecomment-1756326892
       - name: Keep only necessary files
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
         shell: bash
         env:
           SOURCE_DIRECTORY: ${{ inputs.source_directory }}
@@ -99,16 +145,31 @@ jobs:
           ls -al "${SOURCE_DIRECTORY}"
           ls -al deploy-preview-files
 
+      # sparse checkout with cone mode disabled includes root files, even when using exclusions
+      # see https://github.com/actions/checkout/issues/1430#issuecomment-1756326892
+      - name: Keep only necessary files
+        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        shell: bash
+        run: |
+          shopt -s extglob
+          rm -rf !(deploy-preview-files|.git)
+          ls -al .
+          ls -al deploy-preview-files
+
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         env:
+          # Legacy input.
           SOURCE_DIRECTORY: ${{ inputs.source_directory }}
           WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
           INDEX_FILE: ${{ inputs.index_file }}
           REPO: ${{ inputs.repo }}
-        run: |
-          ./deploy-preview-files/deploy-preview/build.sh
+          # End legacy input.
+          GH_TOKEN: ${{ github.token }}
+          SOURCES: ${{ inputs.SOURCES }}
+          BRANCH: ${{ inputs.branch }}
+        run: ./deploy-preview-files/deploy-preview/build
 
       - name: Print build header value
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -200,20 +261,46 @@ jobs:
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
         with:
           name: deploy_preview
           status: "${{ job.status }}"
           url: "${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}"
+
+      - name: Send commit status
+        uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
+        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        with:
+          name: deploy_preview
+          status: "${{ job.status }}"
+          url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}"
           description: "Public deploy preview"
 
+      - name: Get preview URLs
+        id: urls
+        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        shell: bash
+        env:
+          SOURCES: ${{ inputs.SOURCES }}
+          URL: ${{ steps.deploy.outputs.url }}
+        run: ./deploy-preview-files/deploy-preview/urls
+
       - name: Create comment with available deploy preview
-        if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
+        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
             :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+
+      - name: Create comment with available deploy preview
+        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''"
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          body: |
+            :computer: Deploy preview available:
+            ${{ steps.urls.outputs.urls }}
 
       - name: Update comment with deleted deploy preview
         if: github.event.action == 'closed'
@@ -225,8 +312,9 @@ jobs:
           body: |
             :computer: Deploy preview deleted.
 
+
       - name: Update comment with available deploy preview
-        if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''
+        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -234,3 +322,14 @@ jobs:
           edit-mode: replace
           body: |
             :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+
+      - name: Update comment with available deploy preview
+        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''"
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: replace
+          body: |
+            :computer: Deploy preview available:
+            ${{ steps.urls.outputs.urls }}

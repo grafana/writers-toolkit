@@ -15,7 +15,7 @@
   },
   "homepage": "https://grafana.com/docs/writers-toolkit",
   "devDependencies": {
-    "prettier": "3.5.1"
+    "prettier": "3.5.2"
   },
   "engines": {}
 }

@@ -85,6 +85,8 @@ github.com/gohugoio/hugo v0.144.1 h1:DHh20hw6QLAsVoZatK1E9D8RM3aVcf1QVB6z+7yMfvU
 github.com/gohugoio/hugo v0.144.1/go.mod h1:8DFVat2RuO2rFwLueOtPtshvYsO/uQhy7u+Muuhv3dM=
 github.com/gohugoio/hugo v0.144.2 h1:kPMRKQmcG5iClJPG3kHacJKsUe8LtkyJNgRW8jZXFEI=
 github.com/gohugoio/hugo v0.144.2/go.mod h1:8DFVat2RuO2rFwLueOtPtshvYsO/uQhy7u+Muuhv3dM=
+github.com/gohugoio/hugo v0.145.0 h1:1M/AnPdCY0W/XTVaw6Ahw44vYVc111eE5fWTgt4TpIM=
+github.com/gohugoio/hugo v0.145.0/go.mod h1:TjeMFx+RGO3SI7z4HCGrkjSfDzTPZ4i+89EoVkxs8Ws=
 github.com/gohugoio/hugo-goldmark-extensions/extras v0.2.0 h1:MNdY6hYCTQEekY0oAfsxWZU1CDt6iH+tMLgyMJQh/sg=
 github.com/gohugoio/hugo-goldmark-extensions/extras v0.2.0/go.mod h1:oBdBVuiZ0fv9xd8xflUgt53QxW5jOCb1S+xntcN4SKo=
 github.com/gohugoio/hugo-goldmark-extensions/passthrough v0.3.0 h1:7PY5PIJ2mck7v6R52yCFvvYHvsPMEbulgRviw3I9lP4=

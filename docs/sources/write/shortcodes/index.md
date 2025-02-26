@@ -515,6 +515,11 @@ Display API path information, use either the `url` or `data` parameter to specif
 | `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no       |
 | `scope`   | Path tags to scope output to.                                                                     | no       |
 
+The [Grafana Cloud k6 REST API v6 documentation](/docs/grafana-cloud/testing/k6/reference/cloud-rest-api/v6/) uses the OpenAPI shortcodes to generate API documentation.
+
+If you would like to collaborate with the Documentation and Technical Writing team to launch your API documentation,
+come speak to us in the #docs Slack channel.
+
 ### Example
 
 Display all paths for the `grafana` data specification:

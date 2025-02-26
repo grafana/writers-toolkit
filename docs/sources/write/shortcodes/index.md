@@ -472,7 +472,7 @@ This is rendered after the ignore.
 
 ## Docs/openapi/info
 
-Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification. Use the percentage shortcode tag `{{%/* */%}}` to include the content in the table of contents generation.
+Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
 
 | Parameter | Description                                                                                       | Required |
 | --------- | ------------------------------------------------------------------------------------------------- | -------- |
@@ -482,27 +482,27 @@ Display information about an OpenAPI 3.0+ specification, use either the `url` or
 To fetch a remote specification from a URL:
 
 ```markdown
-{{%/* docs/openapi/info url="<SPECIFICATION_URL>" */%}}
+{{</* docs/openapi/info url="<SPECIFICATION_URL>" */>}}
 ```
 
 To use a local specification from the website `data/docs/openapi/` directory:
 
 ```markdown
-{{%/* docs/openapi/info data="<SPECIFICATION_FILENAME>" */%}}
+{{</* docs/openapi/info data="<SPECIFICATION_FILENAME>" */>}}
 ```
 
-### Examples
+### Example
 
 Display the API information for a remote specification at `https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json`:
 
 ```markdown
-{{%/* docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" */%}}
+{{</* docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" */>}}
 ```
 
 Display the API information for a local specification named `grafana`:
 
 ```markdown
-{{%/* docs/openapi/info data="grafana" */%}}
+{{</* docs/openapi/info data="grafana" */>}}
 ```
 
 ## Docs/openapi/path
@@ -513,26 +513,26 @@ Display API path information, use either the `url` or `data` parameter to specif
 | --------- | ------------------------------------------------------------------------------------------------- | -------- |
 | `url`     | The URL of the OpenAPI specification to fetch.                                                    | no       |
 | `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no       |
-| `scope`   | The API path to scope output to.                                                                  | no       |
+| `scope`   | Path tags to scope output to.                                                                     | no       |
 
-{{< admonition type="note" >}}
-Reference lookups function except for nested Response properties which require linking to an Object definition, probably embedded later in the page.
-{{< /admonition >}}
+The [Grafana Cloud k6 REST API v6 documentation](/docs/grafana-cloud/testing/k6/reference/cloud-rest-api/v6/) uses the OpenAPI shortcodes to generate API documentation.
+
+If you would like to collaborate with the Documentation and Technical Writing team to launch your API documentation, reach out in the #docs Slack channel.
 
 ### Example
 
 Display all paths for the `grafana` data specification:
 
 ```markdown
-{{%/* docs/openapi/path data="grafana" */%}}
+{{</* docs/openapi/path data="grafana" */>}}
 or
-{{%/* docs/openapi/path data="grafana" scope="" */%}}
+{{</* docs/openapi/path data="grafana" scope="" */>}}
 ```
 
-Display only the `/teams` paths for the `grafana` data specification:
+Display only paths with the `enterprise` tag for the `grafana` data specification:
 
 ```markdown
-{{%/* docs/openapi/path data="grafana" scope="/teams" */%}}
+{{</* docs/openapi/path data="grafana" scope="enterprise" */>}}
 ```
 
 ## Docs/play

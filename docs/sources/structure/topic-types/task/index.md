@@ -39,24 +39,36 @@ A _task_ topic includes the following elements:
   If there are no prerequisites, don't include this section.
 
 - **Steps heading**: Optional. The steps heading indicates that the steps are about to begin. Often follows "Before you begin" to delineate when the requirements end and the task starts. The steps heading may say "Steps" or a succinct description of a task.
-  ```
+
+  ```markdown
   # Perform a task
+
   ...
+
   ## Before you begin
+
   You need this stuff.
   ...
+
   ## Steps
   ```
 
   In content that has multiple tasks in the same procedure, replace the Steps heading with a specific heading title that reflect what the user accomplishes in that section.
-  ```
+
+  ```markdown
   # Set up alerts
+
   ...
+
   ## Before you begin
+
   You need this stuff.
   ...
+
   ## Create a policy
+
   ...
+
   ## Set requirements for a policy
   ```
 

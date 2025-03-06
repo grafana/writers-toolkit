@@ -38,7 +38,27 @@ A _task_ topic includes the following elements:
 
   If there are no prerequisites, don't include this section.
 
-- **Steps heading**: The steps heading indicates that the steps are about to begin.
+- **Steps heading**: Optional. The steps heading indicates that the steps are about to begin. Often follows "Before you begin" to delineate when the requirements end and the task starts. The steps heading may say "Steps" or a succinct description of a task.
+  ```
+  # Perform a task
+  ...
+  ## Before you begin
+  You need this stuff.
+  ...
+  ## Steps
+  ```
+
+  In content that has multiple tasks in the same procedure, replace the Steps heading with a specific heading title that reflect what the user accomplishes in that section.
+  ```
+  # Set up alerts
+  ...
+  ## Before you begin
+  You need this stuff.
+  ...
+  ## Create a policy
+  ...
+  ## Set requirements for a policy
+  ```
 
 - **Stem sentence:** The stem sentence introduces the steps.
 
@@ -77,9 +97,10 @@ To write a task, follow these steps:
 
 Refer to the following topics for task topic examples:
 
-- [Create a service account](https://grafana.com/docs/grafana/latest/administration/service-accounts/#create-a-service-account-in-grafana)
-- [Create an organization](https://grafana.com/docs/grafana/latest/administration/organization-management/#create-an-organization)
-- [Create a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)
+- [Configure roles and permissions](https://grafana.com/docs/grafana/latest/alerting/set-up/configure-roles/)
+- [Create a service account](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/administration/service-accounts/#create-a-service-account-in-grafana)
+- [Create an organization](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/administration/organization-management/#create-an-organization)
+- [Create a dashboard](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/dashboards/build-dashboards/create-dashboard/)
 
 ## Task template
 

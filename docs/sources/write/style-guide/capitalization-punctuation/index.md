@@ -32,6 +32,9 @@ This style is primarily lowercase and is considered the quickest form to read.
 
 Use all-caps capitalization for abbreviations, such as `API`, `HTTP`, `ID`, `JSON`, `SQL`, or `URL`.
 
+For specialized abbreviations, spell out the first occurrence in a file and introduce the acronym in parentheses.
+You can then use the acronym through the remaining text.
+
 ### Capitalize proper nouns
 
 The names of people, places, and products take initial capitals because they're proper nouns.

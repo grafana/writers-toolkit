@@ -35,6 +35,10 @@ Use all-caps capitalization for abbreviations, such as `API`, `HTTP`, `ID`, `JSO
 For specialized abbreviations, spell out the first occurrence in a file and introduce the acronym in parentheses.
 You can then use the acronym through the remaining text.
 
+```markdown
+Use rate, errors, and duration (RED) metrics derived from traces to investigate issues.
+```
+
 ### Capitalize proper nouns
 
 The names of people, places, and products take initial capitals because they're proper nouns.

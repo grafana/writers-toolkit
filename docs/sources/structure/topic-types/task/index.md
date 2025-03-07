@@ -53,7 +53,7 @@ A _task_ topic includes the following elements:
   ## Steps
   ```
 
-  In content that has multiple tasks in the same procedure, replace the Steps heading with a specific heading title that reflect what the user accomplishes in that section.
+  In content that has multiple tasks in the same procedure, replace the Steps heading with a specific heading title that reflects what the user accomplishes in that section.
 
   ```markdown
   # Set up alerts

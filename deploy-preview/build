@@ -7,7 +7,7 @@ if [[ -n "${RUNNER_DEBUG+x}" ]]; then
 fi
 
 # Legacy build.
-if [[ -z "${WEBSITE_DIRECTORY+x}" ]]; then
+if [[ -z "${WEBSITE_DIRECTORY}" ]]; then
   echo "::warning ::Using legacy inputs. Reach out to #docs-platform (https://raintank-corp.slack.com/archives/C07R2REUULS) to update."
 
   readonly WEBSITE_DIRECTORY="${WEBSITE_DIRECTORY:-}"

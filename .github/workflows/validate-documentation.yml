@@ -78,7 +78,7 @@ jobs:
   vale:
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
+      image: grafana/vale:latest@sha256:69eacef2e5693776c45781d61642ed47535ed63917e9225763619da280913dab
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -91,7 +91,7 @@ jobs:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
 
     container:
-      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
+      image: grafana/vale:latest@sha256:69eacef2e5693776c45781d61642ed47535ed63917e9225763619da280913dab
     name: Report readability
     runs-on: ubuntu-latest
     steps:

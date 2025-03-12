@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## March 2025
+
+| New guidance or change                                                | Page                                                                                                                |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Updated screenshot guidelines with resolution information.                           | [Screenshot guidelines](/docs/writers-toolkit/write/image-guidelines/#screenshot-guidelines-1) |
+
 ## February 2025
 
 | New guidance or change                                                | Page                                                                                                                |

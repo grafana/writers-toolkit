@@ -84,7 +84,7 @@ runs:
       shell: bash
 
     - name: Build website
-      uses: grafana/writers-toolkit/build-website@4b1248585248751e3b12fd020cf7ac91540ca09c # build-website/v1.0.1
+      uses: grafana/writers-toolkit/build-website@24d5136b346277220c02d9ee1d1b837b03c14022 # build-website/v1.0.1
       with:
         source_directory: ${{ inputs.source_directory }}
         website_directory: ${{ inputs.website_directory }}

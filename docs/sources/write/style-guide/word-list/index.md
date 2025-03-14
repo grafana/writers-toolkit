@@ -111,6 +111,15 @@ Use _drop-down_ as a modifier rather than as a standalone noun. For example: _dr
 
 ## E
 
+### easy
+
+<!-- vale Grafana.easy = NO -->
+<!-- This is demonstrating improper usage. -->
+
+Avoid as this term is too subjective to be of value.
+
+<!-- vale Grafana.easy = YES -->
+
 ### end-to-end
 
 <!-- vale Grafana.EndToEnd = NO -->
@@ -241,6 +250,15 @@ Use _self-managed_ instead of _self-hosted_, _on-prem_, or _on-premise_ when tal
 This aligns with Marketing and various other parts of <https://grafana.com>.
 
 <!-- vale Grafana.SelfManaged = YES -->
+
+### simple
+
+<!-- vale Grafana.simple = NO -->
+<!-- This is demonstrating improper usage. -->
+
+Avoid as this term is too subjective to be of value.
+
+<!-- vale Grafana.simple = YES -->
 
 ### single pane of glass
 

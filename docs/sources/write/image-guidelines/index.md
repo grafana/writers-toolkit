@@ -135,7 +135,7 @@ However, ensure that the screenshot accurately reflects the directions and value
 
 Consult the following guidelines when you create screenshots:
 
-- **Size**: The maximum width of a screenshot is 750 pixels.
+- **Size**: The maximum width of a screenshot is 750 pixels. Ideally, screenshots are 2:1 density, or 1500 pixels.
 - **Resolution**: For best quality, follow these guidelines:
   - Take screenshots on your highest resolution screen. For Mac users, this is typically your laptop screen.
   - Non-Mac users: Take screenshots at twice your max eventual max-width setting to accommodate high resolution screens. If you need to make a screenshot area bigger to accommodate this requirement, use pinch and zoom to double the pixel size. (Macs already take screenshots at 2x DPI).

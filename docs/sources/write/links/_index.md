@@ -35,7 +35,27 @@ Although these other types of links still function, replace them with one of the
 
 ## Link from source content that's reused as multiple pages
 
-Use `ref` URIs.
+Use a full URL and ensure the mount target has `mount_links: true` in its front matter.
+The `mount_links` front matter tells Hugo to link to mounted content in the current project if it exists.
+
+During link rendering, Hugo checks if the link destination to a mounted source.
+If it's mounted, then Hugo checks if the current page is in the same project as the mount target.
+If it's in the same project, then Hugo replaces the link destination with the mount target.
+If it isn't mounted, the mount target isn't in the same project, then Hugo uses the link as normal.
+
+### Mount links example
+
+The Grafana Labs website configuration mounts the open source Grafana Alerting documentation into the Grafana Cloud documentation.
+
+From the Grafana Alerting introduction page, the link `[alert rule](/docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/alert-rules/)` has different destinations in the open source and cloud versions of the page.
+In the open source version, the link stays the same.
+For Grafana Cloud, Hugo changes the link destination from [`/docs/grafana/next/alerting/fundamentals/alert-rules/`](/docs/grafana/next/alerting/fundamentals/alert-rules/) to [`/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/alert-rules/`](/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/alert-rules).
+
+### `ref` URIs
+
+For most links, the `mount_links` behavior is correct but there may be times where you want to explicitly control the multiple destinations for a link.
+If do this, use `ref` URIs.
+
 `Ref` URIs have two components:
 
 - [Link](#link)
@@ -50,7 +70,7 @@ You must manually check link destinations in the local preview or fix broken lin
 
 `ref` URIs look up destinations based upon the page's URL path and the definitions in the page's front matter.
 
-### Link
+#### Link
 
 A link with a `ref` URI looks like:
 
@@ -64,9 +84,9 @@ It can include hyphens (`-`).
 Hugo looks up _`<KEY>`_ in the value for the `refs` field in the page's front matter.
 If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
 
-### Front matter
+#### Front matter
 
-{{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+2" >}}
+{{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
 ## Link to `grafana.com` pages
 

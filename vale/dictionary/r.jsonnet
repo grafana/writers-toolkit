@@ -7,6 +7,7 @@ local word = import './word.jsonnet';
   word.new('Relational Database Service', '', 'noun') { Amazon: true, description: 'Amazon Relational Database Service', product: true },
   word.new('reachability', '', 'noun') { description: 'A product metric in Synthetic Monitoring' },
   word.new('React', '', 'noun') { product: true },
+  word.new('RED', '', 'noun') { abbreviation: true, elaboration: 'rate, error, and duration', established_abbreviation: true },
   word.new('redirection', 'S', 'noun'),
   word.new('Redis', '', 'noun') { product: true, swaps: { redis: 'Redis' } },
   word.new('register', 'dG', 'verb'),

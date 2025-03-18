@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-02-14"
+review_date: "2025-03-18"
 title: Vale rules
 ---
 
@@ -796,6 +796,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Grafana's`
 - `Gravatar's`
 - `Graylog's`
+- `Gunicorn's`
 - `hashmod's`
 - `IBM's`
 - `InfluxDB's`
@@ -806,6 +807,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Kibana's`
 - `Killercoda's`
 - `Kinesis'`
+- `Kotlin's`
 - `KQL's`
 - `Kubernetes'`
 - `Kubernetes Engine's`
@@ -813,10 +815,12 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Kustomize's`
 - `LangChain's`
 - `launchd's`
+- `Logs Drilldown's`
 - `Loki's`
 - `Lucene's`
 - `Markdown's`
 - `Memcached's`
+- `Metrics Drilldown's`
 - `Mesos'`
 - `Mimir's`
 - `Moodle's`
@@ -837,6 +841,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Postgres'`
 - `PostgreSQL's`
 - `pprof's`
+- `Profiles Drilldown's`
 - `Prometheus'`
 - `Promtail's`
 - `Pyroscope's`
@@ -856,6 +861,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Tempo's`
 - `Thanos'`
 - `Threema's`
+- `Traces Drilldown's`
 - `Velero's`
 - `Vite's`
 - `VMware's`
@@ -1057,9 +1063,11 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `git`                                                             | `Git`                      |
 | `grafana`                                                         | `Grafana`                  |
 | `grayed-out`                                                      | `unavailable`              |
+| `gunicorn`                                                        | `Gunicorn`                 |
 | `in order to`                                                     | `to`                       |
 | `influx[Dd][Bb]`                                                  | `InfluxDB`                 |
 | `jsonnet`                                                         | `Jsonnet`                  |
+| `kotlin`                                                          | `Kotlin`                   |
 | `langchain`                                                       | `LangChain`                |
 | `left[- ]hand[- ]side`                                            | `left-side`                |
 | `log(?:ql\|QL)`                                                   | `LogQL`                    |

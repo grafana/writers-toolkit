@@ -40,7 +40,7 @@ Use a URL.
 During link rendering, Hugo checks if the link destination is a mounted source.
 If it's mounted, then Hugo checks if the current page is in the same project as the mount target.
 If it is in the same project, then Hugo replaces the link destination with the mount target.
-If it isn't mounted, and the mount target isn't in the same project, then Hugo uses the link as normal.
+If it isn't mounted, or the mount target isn't in the same project, then Hugo uses the link as normal.
 
 {{< admonition type="note" >}}
 Automatic mount links requires the Docs Platform team to set `mount_links: true` in the mount target front matter.

@@ -69,9 +69,9 @@ From the Grafana Alerting introduction page, the link `[alert rule](/docs/grafan
 ### `ref` URIs
 
 For most links, the automatic mount links behavior is correct but there may be times where you want to explicitly control the multiple destinations for a link.
-If do this, use `ref` URIs.
+To do this, use `ref` URIs.
 
-`Ref` URIs have two components:
+`ref` URIs have two components:
 
 - [Link](#link)
 - [Front matter](#front-matter)

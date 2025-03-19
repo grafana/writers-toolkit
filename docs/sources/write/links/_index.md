@@ -35,7 +35,10 @@ Although these other types of links still function, replace them with one of the
 
 ## Link from source content that's reused as multiple pages
 
-Use a URL.
+Use a URL, including [version substitution syntax](/docs/writers-toolkit/write/shortcodes/#about-version-substitution) if needed.
+For example:
+
+`/docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/alert-rules/`
 
 During link rendering, Hugo checks if the link destination is a mounted source.
 If it's mounted, then Hugo checks if the current page is in the same project as the mount target.

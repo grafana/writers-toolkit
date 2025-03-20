@@ -3,13 +3,13 @@ aliases:
   - /docs/writers-toolkit/about-grafana-docs/
   - /docs/writers-toolkit/introduction/
   - /docs/writers-toolkit/writing-guide/about-grafana-docs/
-date: "2022-07-08T16:42:14+01:00"
+date: '2022-07-08T16:42:14+01:00'
 description: Learn about how Grafana Labs manages technical documentation.
 keywords:
   - Grafana
   - documentation
 menuTitle: Introduction
-review_date: "2024-09-04"
+review_date: '2024-09-04'
 title: Introduction to documentation
 weight: 100
 ---
@@ -61,9 +61,9 @@ For more information, refer to the Markdown style guide in [Markdown guide](http
 
 You can contribute content in the following ways:
 
-- [{{< translate "docs_feedback_report" >}}](https://grafana.com/docs/writers-toolkit/contribute/#{{< anchorize.inline "docs_feedback_report" >}}{{ anchorize (T (.Get 0)) }}{{< /anchorize.inline >}})
-- [{{< translate "docs_feedback_suggest" >}}](https://grafana.com/docs/writers-toolkit/contribute/#{{< anchorize.inline "docs_feedback_suggest" / >}})
-- [Develop a new topic](https://grafana.com/docs/writers-toolkit/contribute/#develop-a-new-topic)
+- [Email the Grafana Documentation team](/docs/writers-toolkit/contribute/#email-docsgrafanacom)
+- [Suggest an edit in GitHub](/docs/writers-toolkit/contribute/#suggest-an-edit-in-github)
+- [Develop a new topic](/docs/writers-toolkit/contribute/#develop-a-new-topic)
 
 ## Join the community
 

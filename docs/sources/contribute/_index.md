@@ -3,7 +3,7 @@ aliases:
   - /docs/writers-toolkit/contribute/
   - /docs/writers-toolkit/contribute-documentation/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/
-date: "2022-07-08T16:42:14+01:00"
+date: '2022-07-08T16:42:14+01:00'
 description: Learn how you can contribute to Grafana Labs documentation.
 keywords:
   - contribute
@@ -11,7 +11,7 @@ keywords:
   - edit documentation
   - review documentation
 menuTitle: Contribute
-review_date: "2024-09-03"
+review_date: '2024-09-03'
 title: Contribute to documentation
 weight: 200
 ---
@@ -72,7 +72,7 @@ In that case, you can use the GitHub code navigation to try and find the new loc
 
 If pages don't have a **Suggest an edit** link, the documentation isn't open source.
 Only Grafana Labs employees can update closed source documentation.
-If you're not a Grafana Labs employee, you can still [{{< translate "docs_feedback_report" >}}](#{{< anchorize.inline "docs_feedback_report" >}}{{ anchorize (T (.Get 0)) }}{{< /anchorize.inline >}}).
+If you're not a Grafana Labs employee, you can still [email](mailto:docs@grafana.com).
 
 For example, [Grafana Cloud documentation](https://grafana.com/docs/grafana-cloud/) is in the [website repository](https://github.com/grafana/website).
 

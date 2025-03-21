@@ -38,7 +38,7 @@ jobs:
       security-events: write
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest@sha256:61db326dc6e5df46ff88ca7fe206db5d6c0e69fc43516f5aba8a809dffb9dd0d
+      image: grafana/vale:latest@sha256:a9a647b6957ac8e3317238bc8f7c24f5c13549c1a8e8e788bf4f01d9ee278d78
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -49,7 +49,7 @@ jobs:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
 
     container:
-      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
+      image: grafana/vale:latest@sha256:a9a647b6957ac8e3317238bc8f7c24f5c13549c1a8e8e788bf4f01d9ee278d78
     name: Report readability
     runs-on: ubuntu-latest
     steps:

@@ -14,27 +14,32 @@ inputs:
       Vale filter that allows you to report an arbitrary subset of the Grafana style.
 
       For more information, refer to https://vale.sh/docs/filters.
-  token:
-    default: ${{ github.token }}
-    description: Used by reviewdog to comment on pull requests.
-    required: false
 runs:
   using: composite
   steps:
+    - name: Get changed files
+      id: changed-files
+      uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1 # v45.0.1
+      with:
+        files: |
+          ${{ inputs.directory }}/**.md
+
     - name: Vale
       if: ${{ ! contains(github.event.pull_request.body, '<!-- vale = NO -->') }}
       env:
-        DIRECTORY: ${{ inputs.directory }}
+        FILES: ${{ steps.changed-files.all_changed_files }}
         FILTER: --filter=${{ inputs.filter }}
-        REVIEWDOG_GITHUB_API_TOKEN: ${{ inputs.token }}
       run: |
           (cd /etc/vale && vale sync)
-          vale "${FILTER}" --output=/etc/vale/rdjsonl.tmpl "${DIRECTORY}" | \
-            inhibit-rules | \
-            /bin/reviewdog \
-            --conf=/etc/vale/.reviewdog.yml \
-            --fail-on-error \
-            --f=rdjsonl \
-            --name=vale \
-            --reporter=github-pr-review
+          vale "${FILTER}" --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
       shell: sh
+
+    - run: git config --global --add safe.directory /__w/writers-toolkit/writers-toolkit
+      shell: sh
+
+    - name: Upload SARIF file
+      if: failure()
+      uses: github/codeql-action/upload-sarif@5f8171a638ada777af81d42b55959a643bb29017 # v3.28.12
+      with:
+        sarif_file: vale.sarif
+        category: Vale

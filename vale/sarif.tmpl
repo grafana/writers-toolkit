@@ -1,0 +1,106 @@
+{{/* Validate the output from this against https://sarifweb.azurewebsites.net/Validation */ -}}
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Vale",
+          "informationUri": "https://vale.sh",
+          "version": "0.1.0"
+        }
+      },
+      "results": [
+{{- $i := 1 -}}
+{{ range .Files -}}
+  {{ $j := 1 -}}
+  {{ $file := . -}}
+  {{ $path := .Path -}}
+  {{ range .Alerts -}}
+    {{/* Map Vale error levels to SARIF */ -}}
+    {{ $level := .Severity -}}
+    {{ if eq .Severity "suggestion" -}}
+      {{ $level = "note" -}}
+    {{ end -}}
+
+    {{ $markdown := .Message -}}
+    {{ $text := .Message -}}
+
+    {{ with .Link -}}
+      {{ $markdown = printf "%s\n\nFor more information, refer to <%s>." $markdown . -}}
+      {{ $text = printf "%s\n\nFor more information, refer to %s." $text . -}}
+    {{ end -}}
+
+    {{ $markdown := printf `%s
+
+If the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=%s%%20%%3A%%20%%3CISSUE%%3E).
+
+If you have reason to diverge from the style guidance,
+to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).`
+    $markdown .Check -}}
+
+    {{ $help := "" -}}
+    {{ with .Action -}}
+      {{/* https://vale.sh/docs/actions */ -}}
+      {{ if eq .Name "remove" }}{{/* https://vale.sh/docs/fixers/remove */ -}}
+        {{ $help = "Remove the matched content" -}}
+      {{ end -}}
+      {{ if eq .Name "suggest" }}{{/* https://vale.sh/docs/fixers/suggest */ -}}
+        {{ $help = "Use one of the following instead:\n" -}}
+        {{ range .Params -}}
+          {{ $help = printf "%s\n- `%s`" $help . -}}
+        {{ end -}}
+      {{ end -}}
+      {{ if eq .Name "replace" }}{{/* https://vale.sh/docs/fixers/replace */ -}}
+        {{ $help = "Replace the matched content with one of the following:\n" -}}
+        {{ range .Params -}}
+          {{ $help = printf "%s\n- `%s`" $help . -}}
+        {{ end -}}
+      {{ end -}}
+      {{ if eq .Name "edit" }}{{/* https://vale.sh/docs/fixers/edit */ -}}
+        {{ if and (gt (len .Params) 0) (eq (index .Params 0) "regex") -}}
+          {{ $help = "Perform the following regular expression substitution: `s/%s/%s/`" (index .Params 1) (index .Params 2) -}}
+        {{ end -}}
+        {{ if and (gt (len .Params) 0) (eq (index .Params 0) "trim_right") -}}
+          {{ $help = "Trim `%s` from the end of the matched content" (index .Params 1) -}}
+        {{ end -}}
+        {{ if and (gt (len .Params) 0) (eq (index .Params 0) "trim_left") -}}
+          {{ $help = "Trim `%s` from the start of the matched content" (index .Params 1) -}}
+        {{ end -}}
+      {{ end -}}
+    {{ end -}}
+    {{ with $help -}}
+      {{ $markdown = printf "%s\n\nTo fix this, %s." $markdown . -}}
+      {{ $text = printf "%s\n\nTo fix this, %s." $text . -}}
+    {{ end }}
+       {
+          "ruleId": "{{ .Check }}",
+          "level": "{{ $level }}",
+          "message": {
+            "markdown": "{{ jsonEscape $markdown }}",
+            "text": "{{ jsonEscape $text }}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "{{ $path }}"
+                },
+                "region": {
+                  "startLine": {{ .Line }},
+                  "startColumn": {{ (index .Span 0) }},
+                  "endColumn": {{ (index .Span 1) }}
+                }
+              }
+            }
+          ]
+        }{{ if not (and (eq $j (len $file.Alerts)) (eq $i (len $.Files))) }},{{ end -}}
+    {{ $j = add $j 1 -}}
+  {{ end -}}
+  {{ $i = add $i 1 -}}
+{{ end }}
+      ]
+    }
+  ]
+}

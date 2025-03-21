@@ -35,6 +35,7 @@ runs:
       shell: sh
 
     - run: git config --global --add safe.directory /__w/writers-toolkit/writers-toolkit
+      shell: sh
 
     - name: Upload SARIF file
       if: failure()

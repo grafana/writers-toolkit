@@ -29,7 +29,7 @@ runs:
 
     - name: Vale
       env:
-        FILES: ${{ steps.changed-files.all_changed_files }}
+        FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         FILTER: --filter=${{ inputs.filter }}
       run: |
         if [ -n "${RUNNER_DEBUG+x}" ]; then

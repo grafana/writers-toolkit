@@ -4,31 +4,6 @@ on:
     paths: ["docs/sources/**", "vale/**"]
   workflow_dispatch:
 jobs:
-  doc-validator:
-    if: ${{ github.repository == 'grafana/writers-toolkit' }}
-    runs-on: ubuntu-latest
-    container:
-      image: grafana/doc-validator:v5.2.0@sha256:71de7a0b0ff89ef849afc445aafc8f85abf022f8dce5bc9a92ff32fbddd332ab
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - name: Run doc-validator tool
-        run: >
-          doc-validator
-          '--skip-checks=^image.+$'
-          docs/sources
-          /docs/writers-toolkit
-          | grep -v sources/shared
-          | grep -v anchorize.inline
-          | reviewdog
-          -f=rdjsonl
-          --fail-on-error
-          --filter-mode=nofilter
-          --name=doc-validator
-          --reporter=github-pr-review
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   prettier:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest

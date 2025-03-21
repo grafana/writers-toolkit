@@ -142,8 +142,13 @@ Construct a table by separating the table headings with pipe (`|`) characters.
 Separate the table heading row from the data with a line of columns where each cell is a series of dashes (`-`) separated by another pipe characters.
 Finally construct a series of table data rows by separating the cell data with pipe characters.
 
+<!-- vale Grafana.Paragraphs = NO -->
+<!-- The following explains what shouldn't be done (using <br> elements). -->
+
 Don't use `<br>` elements to create paragraphs or lists.
 Instead, use `<p>` elements for paragraphs, or the `<ol>` or `<ul>` elements for lists.
+
+<!-- vale Grafana.Paragraphs = YES -->
 
 For style guidance regarding tables, refer to the [Google Developer documentation style guide](https://developers.google.com/style/tables).
 

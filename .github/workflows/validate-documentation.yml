@@ -16,7 +16,7 @@ jobs:
           node-version: 20
       - run: |
           npm install --no-save prettier
-          prettier -w docs/sources
+          npx prettier -w docs/sources
           if ! git diff --exit-code; then
             echo 'Not all documentation has been formatted with `prettier`, run `npx prettier -w docs/sources` to resolve'
           fi

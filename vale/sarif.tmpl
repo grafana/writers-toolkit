@@ -73,8 +73,8 @@ to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/r
     {{ with $help -}}
       {{ $markdown = printf "%s\n\nTo fix this, %s." $markdown . -}}
       {{ $text = printf "%s\n\nTo fix this, %s." $text . -}}
-    {{ end -}}
-        {
+    {{ end }}
+       {
           "ruleId": "{{ .Check }}",
           "level": "{{ $level }}",
           "message": {

@@ -32,9 +32,18 @@ runs:
       env:
         FILES: ${{ steps.changed-files.all_changed_files }}
         FILTER: --filter=${{ inputs.filter }}
+        RUNNER_DEBUG: ${{ runner.debug }}
       run: |
-          (cd /etc/vale && vale sync)
-          vale "${FILTER}" --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
+        if [ -n "${RUNNER_DEBUG+x}" ]; then
+          set -x
+        fi
+
+        (cd /etc/vale && vale sync)
+        vale "${FILTER}" --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
+
+        if [ -n "${RUNNER_DEBUG+}" ]; then
+          cat vale.sarif
+        fi
       shell: sh
 
     - name: Upload SARIF file

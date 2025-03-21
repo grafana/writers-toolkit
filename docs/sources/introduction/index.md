@@ -61,9 +61,9 @@ For more information, refer to the Markdown style guide in [Markdown guide](http
 
 You can contribute content in the following ways:
 
-- [{{< translate "docs_feedback_report" >}}](https://grafana.com/docs/writers-toolkit/contribute/#{{< anchorize.inline "docs_feedback_report" >}}{{ anchorize (T (.Get 0)) }}{{< /anchorize.inline >}})
-- [{{< translate "docs_feedback_suggest" >}}](https://grafana.com/docs/writers-toolkit/contribute/#{{< anchorize.inline "docs_feedback_suggest" / >}})
-- [Develop a new topic](https://grafana.com/docs/writers-toolkit/contribute/#develop-a-new-topic)
+- [Send an email to the Grafana Documentation team](/docs/writers-toolkit/contribute/#email-docsgrafanacom)
+- [Suggest an edit in GitHub](/docs/writers-toolkit/contribute/#suggest-an-edit-in-github)
+- [Develop a new topic](/docs/writers-toolkit/contribute/#develop-a-new-topic)
 
 ## Join the community
 

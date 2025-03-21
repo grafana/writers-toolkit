@@ -44,8 +44,6 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./vale-action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
   report-readability:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}

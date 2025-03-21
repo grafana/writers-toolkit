@@ -22,8 +22,7 @@ runs:
       id: changed-files
       uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1 # v45.0.1
       with:
-        files: |
-          ${{ inputs.directory }}/**.md
+        files: ${{ inputs.directory }}/**.md
 
     - run: git config --global --add safe.directory /__w/writers-toolkit/writers-toolkit
       shell: sh

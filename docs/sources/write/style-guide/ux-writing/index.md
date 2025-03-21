@@ -200,7 +200,7 @@ Use periods for multiple sentences.
 
 **Don't use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion<br>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
+> Metrics, Logs, and Traces are billed based on ingestion<br>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
 
 <!-- vale Grafana.We = YES -->
 

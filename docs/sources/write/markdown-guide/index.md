@@ -142,8 +142,8 @@ Construct a table by separating the table headings with pipe (`|`) characters.
 Separate the table heading row from the data with a line of columns where each cell is a series of dashes (`-`) separated by another pipe characters.
 Finally construct a series of table data rows by separating the cell data with pipe characters.
 
-Don't use `<br>` elements to create paragraphs.
-Instead, use `<p>` elements.
+Don't use `<br>` elements to create paragraphs or lists.
+Instead, use `<p>` elements for paragraphs, or the `<ol>` or `<ul>` elements for lists.
 
 For style guidance regarding tables, refer to the [Google Developer documentation style guide](https://developers.google.com/style/tables).
 

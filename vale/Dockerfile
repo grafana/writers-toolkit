@@ -14,7 +14,7 @@ FROM jdkato/vale:v3.8.0
 
 COPY --from=inhibit-rules /out/inhibit-rules /bin
 
-# Git is useful for reporting with reviewdog.
+# Git is useful for diffing changed files.
 RUN apk add --no-cache git
 
 RUN mkdir -p /etc/vale

@@ -14,10 +14,6 @@ inputs:
       Vale filter that allows you to report an arbitrary subset of the Grafana style.
 
       For more information, refer to https://vale.sh/docs/filters.
-  token:
-    default: ${{ github.token }}
-    description: Used by reviewdog to comment on pull requests.
-    required: false
 runs:
   using: composite
   steps:

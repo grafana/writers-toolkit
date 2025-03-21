@@ -21,6 +21,7 @@ RUN mkdir -p /etc/vale
 WORKDIR /etc/vale
 
 COPY .vale.ini /etc/vale/.vale.ini
+COPY sarif.tmpl /etc/vale/sarif.tmpl
 COPY Grafana /etc/vale/Grafana
 
 RUN vale sync

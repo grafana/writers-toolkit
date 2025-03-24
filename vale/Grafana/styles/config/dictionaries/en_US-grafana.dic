@@ -1,4 +1,4 @@
-360
+361
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -143,6 +143,7 @@ Jaeger/ po:noun
 JAR/ po:noun
 JavaScript/ po:noun
 Jira/ po:noun
+JMESPath/ po:noun
 JMeter/M po:noun
 journald/ po:noun
 JPG/ po:noun

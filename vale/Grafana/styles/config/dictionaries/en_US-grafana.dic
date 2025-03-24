@@ -1,4 +1,4 @@
-361
+362
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -250,6 +250,7 @@ RDS/ po:noun
 Relational Database Service/ po:noun
 reachability/ po:noun
 React/ po:noun
+RED/ po:noun
 redirection/S po:noun
 Redis/ po:noun
 register/dG po:verb

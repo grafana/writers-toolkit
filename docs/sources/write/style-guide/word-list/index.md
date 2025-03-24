@@ -16,7 +16,7 @@ The following guidelines cover cases in which:
 
 - Grafana guidelines differ from Google guidelines.
 - The word isn't included in Google guidelines.
-- It's still easy to use an incorrect word because it's widely used, generally or in other Grafana media.
+- The word is commonly used, generally or in other Grafana media.
 
 {{< admonition type="note" >}}
 This page is a work in progress.
@@ -94,7 +94,7 @@ Use this rather than _data set_.
 
 Use this rather than _modal_ or _dialog_.
 
-This guidance intentionally differs from Google style guide advice, which prefers just [_dialog_](https://developers.google.com/style/word-list#dialog) because _dialog box_ is a user-friendly term that's easy to understand.
+This guidance intentionally differs from Google style guide advice, which prefers just [_dialog_](https://developers.google.com/style/word-list#dialog) because _dialog box_ is a user-friendly term.
 
 <!-- vale Grafana.YES = NO -->
 
@@ -110,6 +110,16 @@ Use _drop-down_ as a modifier rather than as a standalone noun. For example: _dr
 <!-- vale Grafana.DropDown = YES -->
 
 ## E
+
+<!-- vale Grafana.Simple = NO -->
+<!-- This is demonstrating improper usage. -->
+
+### easy
+
+What might be simple for you might not be simple for others.
+Try eliminating this word from the sentence because usually you can convey the same meaning without it.
+
+<!-- vale Grafana.Simple = YES -->
 
 ### end-to-end
 
@@ -241,6 +251,16 @@ Use _self-managed_ instead of _self-hosted_, _on-prem_, or _on-premise_ when tal
 This aligns with Marketing and various other parts of <https://grafana.com>.
 
 <!-- vale Grafana.SelfManaged = YES -->
+
+<!-- vale Grafana.Simple = NO -->
+<!-- This is demonstrating improper usage. -->
+
+### simple
+
+What might be simple for you might not be simple for others.
+Try eliminating this word from the sentence because usually you can convey the same meaning without it.
+
+<!-- vale Grafana.Simple = YES -->
 
 ### single pane of glass
 

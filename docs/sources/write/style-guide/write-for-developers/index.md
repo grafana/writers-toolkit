@@ -242,8 +242,7 @@ Use the following conventions when you include commands on the command line in t
 
 - Don't assume everyone is using Linux. Make sure instructions include enough information for Windows and Mac users to successfully complete procedures.
 
-- Don't add `$` before commands.
-  Make it easy for users to copy and paste commands.
+- Don't add `$` before commands so users can copy and paste them.
 
   - **Right:** `sudo yum install grafana`
   - **Wrong:** `$ sudo yum install grafana`

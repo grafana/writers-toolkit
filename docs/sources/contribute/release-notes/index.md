@@ -263,7 +263,8 @@ Err on the side of _yes, put it in What's new_.
 These are important improvements, but are better placed in the CHANGELOG than What's new:
 
 - [A documentation update](https://github.com/grafana/grafana/pull/60352)
-  - This update doesn't require customers to change their behavior—they'll simply see better instructions the next time they use the docs.
+  - This update doesn't require customers to change their behavior.
+    They'll see better instructions the next time they use the docs.
 - [A bug fix related to migrations](https://github.com/grafana/grafana/pull/59438)
   - This is a bug fix that doesn't require customer action.
 - [A usability improvement to an existing transformation](https://github.com/grafana/grafana/pull/59074)

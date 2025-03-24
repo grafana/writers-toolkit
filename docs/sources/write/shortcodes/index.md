@@ -94,7 +94,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `grid_class`    | Optional CSS class for the grid element.                                                                                                                                                                                                                      | No       |
 | `card_class`    | Optional CSS class for the cards.                                                                                                                                                                                                                             | No       |
 
-### Card parameters (type="simple")
+### Card parameters (`type="simple"`)
 
 | Parameter     | Description                                                                                                                                                                                                                                    | Required |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
@@ -882,6 +882,9 @@ Grot guides are interactive guides embedded in a documentation page that people 
 
 To learn more about Grot guides, refer to the [Grot guides](/docs/writers-toolkit/write/grot-guides/) documentation in the Writers' Toolkit.
 
+<!-- vale Grafana.Simple = NO -->
+<!-- This shortcode has an unfortunate name -->
+
 ## Hero (simple)
 
 A hero section is a large section that contains a title, description, and image, usually placed at the top of a page.
@@ -938,6 +941,8 @@ Insert a simple hero using shortcode arguments:
 ```markdown
 {{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud's Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
 ```
+
+<!-- vale Grafana.Simple = YES -->
 
 <!-- vale Grafana.Spelling = NO -->
 

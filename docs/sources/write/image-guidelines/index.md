@@ -109,7 +109,7 @@ Do _not_ use screenshots for the following items:
 - Simple create operations, such as create a user, a team, an organization, and so on
 - Primary or secondary navigation items
 - Code samples (instead, show code samples in code blocks)
-- Dialog boxes that are easy to understand
+- Dialog boxes that aren't complicated
 - Message text (instead, show message text within the Markdown)
 - Progress bars
 - Simple pages, such as Wizard pages and Welcome pages

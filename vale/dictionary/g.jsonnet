@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('GEM', '', 'noun') { abbreviation: true, elaboration: 'Grafana Enterprise Metrics', product: true, swaps: { GME: 'GEM' } },
+  word.new('geomap', 'S', 'noun') { description: 'A Grafana visualization type.' },
   word.new('GKE', '', 'noun') { abbreviation: true, elaboration: 'Google Kubernetes Engine', product: true },  // Doesn't need Google: true because Google is in the name.
   word.new('Git', '', 'noun') { product: true, swaps: { git: 'Git' } },
   word.new('GitHub', '', 'noun') { product: true, swaps: { '(?:github|gitHub|Github)': 'GitHub' } },

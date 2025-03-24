@@ -1,4 +1,4 @@
-359
+360
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -102,6 +102,7 @@ firewall rules/ po:noun
 FreeBSD/ po:noun
 frontend/S po:noun
 GEM/ po:noun
+geomap/S po:noun
 GKE/ po:noun
 Git/ po:noun
 GitHub/ po:noun

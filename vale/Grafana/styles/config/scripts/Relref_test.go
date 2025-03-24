@@ -55,6 +55,7 @@ func TestRelref(t *testing.T) {
 		assert.Equal(t, want, mustParseMatches(compiled.Get("matches").Array()))
 	})
 
+	// Note that this rule is so important, there are no exclusions allowed.
 	t.Run("with exclusions", func(t *testing.T) {
 		t.Parallel()
 
@@ -86,6 +87,11 @@ Don't use:
 		require.NoError(t, err)
 
 		want := []map[string]int{
+			{"begin": 62, "end": 73},
+			{"begin": 101, "end": 112},
+			{"begin": 140, "end": 150},
+			{"begin": 177, "end": 187},
+
 			{"begin": 263, "end": 274},
 			{"begin": 302, "end": 313},
 			{"begin": 341, "end": 351},

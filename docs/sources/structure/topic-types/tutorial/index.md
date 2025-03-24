@@ -16,7 +16,7 @@ title: Tutorial topic
 # Tutorial topic
 
 The purpose of a tutorial is to show the reader how to "learn by doing" in a safe environment.
-A tutorial should build up easy successes.
+A tutorial should build up quick successes.
 The length of a tutorial can vary from a few steps to many subtasks.
 
 If you have an idea for a tutorial you'd like to develop, contact the Grafana Labs documentation team.
@@ -123,7 +123,7 @@ If getting access to the data is straightforward, include it in the "Before you 
 ## Publish your tutorial
 
 You store your tutorial source in your project repository in a `docs/sources/tutorials` directory and mounted to the tutorials repository so that it's displayed on the [Tutorials](https://grafana.com/tutorials/) page.
-You store the source in your project repository to make it easy for team members to review and edit the content.
+You store the source in your project repository for team members to review and edit the content.
 
 The following sections describe how to hide the tutorial from your project's table of contents and to display it on the Tutorials page.
 

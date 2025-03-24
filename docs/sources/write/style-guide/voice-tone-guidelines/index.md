@@ -33,9 +33,13 @@ Write in an authoritative tone to evoke confidence in your reader.
 
 ### Be conversational
 
+<!-- vale Grafana.Simple = NO -->
+
 Write in a natural and conversational style with language that reflects a positive and friendly tone.
-Be informative and helpful by using simple, easy-to-understand words and sentences.
+Be informative and helpful by using easy-to-understand words and sentences.
 Keep your language simple and straightforward.
+
+<!-- vale Grafana.Simple = YES -->
 
 ### Tone
 

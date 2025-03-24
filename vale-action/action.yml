@@ -24,7 +24,7 @@ runs:
       with:
         files: ${{ inputs.directory }}/**
 
-    - run: git config --global --add safe.directory /__w/writers-toolkit/writers-toolkit
+    - run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
       shell: sh
 
     - name: Vale

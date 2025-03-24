@@ -46,6 +46,7 @@
   - "InfluxDB"
   - "Jaeger"
   - "Jira"
+  - "JMESPath"
   - "journald"
   - "Jsonnet"
   - "Kibana"

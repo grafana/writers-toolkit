@@ -18,7 +18,7 @@ runs:
   using: composite
   steps:
     - name: Get changed files
-      if: ${{ ! contains(github.event.pull_request.body, '<!-- vale = NO -->') }}
+      if: github.event == pull_request && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
       id: changed-files
       uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1 # v45.0.1
       with:
@@ -29,7 +29,7 @@ runs:
 
     - name: Vale
       env:
-        FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        FILES: ${{ steps.changed-files.outputs.all_changed_files || inputs.directory }}
         FILTER: --filter=${{ inputs.filter }}
       run: |
         if [ -n "${RUNNER_DEBUG+x}" ]; then

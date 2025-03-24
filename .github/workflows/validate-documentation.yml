@@ -44,7 +44,13 @@ jobs:
       image: grafana/vale:latest@sha256:61db326dc6e5df46ff88ca7fe206db5d6c0e69fc43516f5aba8a809dffb9dd0d
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event_name == 'pull_request'
         with:
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event_name == 'push'
+        with:
+          fetch-depth: 2
           persist-credentials: false
       - uses: ./vale-action
 

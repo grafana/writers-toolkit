@@ -89,13 +89,14 @@ Grafana/styles/Grafana/Readability: readability.jsonnet
 fixtures/Grafana/%: ## Generate the scaffolding to test a new Grafana Vale rule.
 fixtures/Grafana/%:
 	mkdir -p $@
-	printf 'MinAlertLevel = suggestion\n[*.md]\nGrafana.%s = YES\n' $(@F) > $@/.vale.ini
+	printf '.Name == "Grafana.%s"\n' $(@F) > $@/filter.expr
+	rm -f $@/.vale.ini # Remove old .vale.ini filters.
 	touch $@/test{,in}valid.{golden,md}
 
 .PHONY: fixtures/Grafana
 fixtures/Grafana: ## Recreate the golden files for all the Grafana Vale rule fixtures.
 fixtures/Grafana:
-	find $@ -maxdepth 1 -mindepth 1 -print -exec /bin/bash -c 'cd {}; vale --output=line testvalid.md > testvalid.golden; vale --output=line testinvalid.md > testinvalid.golden; cd -' \;
+	find $@ -maxdepth 1 -mindepth 1 -print -exec /bin/bash -c '(cd {}; vale --output=line --filter ./filter.expr testvalid.md > testvalid.golden; vale --output=line --filter ./filter.expr testinvalid.md > testinvalid.golden)' \;
 
 .PHONY: Grafana.zip
 Grafana.zip: ## Create an archive of the Grafana Vale style.

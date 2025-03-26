@@ -67,7 +67,7 @@ runs:
       # Tags aren't necessarily made to the HEAD of the branch.
       # The documentation to be published is always on the HEAD of the branch.
       # However, if the repository only releases from tags, there's no release branch to check out.
-      if: github.ref_type == 'tag' && !inputs.tags_only
+      if: github.ref_type == 'tag' && inputs.tags_only == 'false'
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
         GITHUB_REF: ${{ github.ref }}

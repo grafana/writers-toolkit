@@ -39,14 +39,51 @@ runs:
 
         (cd /etc/vale && vale sync)
         vale "${FILTER}" --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
-
-        if [ -n "${RUNNER_DEBUG+x}" ]; then
-          cat vale.sarif
-        fi
       shell: sh
 
+    - name: Create annotations from SARIF
+      if: failure() && github.event.repository.private
+      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      with:
+        script: |
+          const fs = require('fs');
+          const sarif = JSON.parse(fs.readFileSync('vale.sarif', 'utf8'));
+
+          for (const run of sarif.runs) {
+            for (const result of run.results) {
+              const location = result.locations[0];
+              const path = location.physicalLocation.artifactLocation.uri;
+              const region = location.physicalLocation.region;
+              const line = region.startLine;
+              const startColumn = region.startColumn;
+              const endColumn = region.endColumn;
+
+              const options = {
+                title: 'Vale',
+                file: path,
+                startLine: line,
+                startColumn: startColumn
+              };
+
+              if (endColumn) {
+                options.endColumn = endColumn;
+              }
+
+              switch(result.level) {
+                case 'error':
+                  core.error(result.message.text, options);
+                  break;
+                case 'warning':
+                  core.warning(result.message.text, options);
+                  break;
+                default:
+                  core.notice(result.message.text, options);
+              }
+            }
+          }
+
     - name: Upload SARIF file
-      if: failure()
+      if: failure() && !github.event.repository.private
       uses: github/codeql-action/upload-sarif@1b549b9259bda1cb5ddde3b41741a82a2d15a841 # v3.28.13
       with:
         sarif_file: vale.sarif

@@ -45,6 +45,7 @@ inputs:
     default: false
     description: |
       Set to true for repositories that only release from tags and don't maintain long lived release branches.
+    type: boolean
   website_branch:
     default: master
     description: |

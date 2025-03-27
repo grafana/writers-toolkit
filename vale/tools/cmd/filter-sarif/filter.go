@@ -66,10 +66,30 @@ func getModifiedLines(set *patch.Set) map[string]map[int]struct{} {
 		if textDiff, ok := f.Diff.(patch.TextDiff); ok {
 			for _, chunk := range textDiff {
 				if len(chunk.New) > 0 {
-					lines := bytes.Split(chunk.New, []byte("\n"))
+					newLines := bytes.Split(chunk.New, []byte("\n"))
 
-					for i := range lines {
-						modifiedLines[f.Dst][chunk.Line+i] = struct{}{}
+					for i := range newLines {
+						if len(chunk.Old) == 0 {
+							modifiedLines[f.Dst][chunk.Line+i] = struct{}{}
+						}
+
+						if len(chunk.Old) > 0 {
+							var preexisting bool
+
+							oldLines := bytes.Split(chunk.Old, []byte("\n"))
+
+							for j := range oldLines {
+								if bytes.Equal(oldLines[j], newLines[i]) {
+									preexisting = true
+
+									break
+								}
+							}
+
+							if !preexisting {
+								modifiedLines[f.Dst][chunk.Line+i] = struct{}{}
+							}
+						}
 					}
 				}
 			}

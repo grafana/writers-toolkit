@@ -62,14 +62,10 @@ func main() {
 		os.Exit(exit.RuntimeError)
 	}
 
-	filteredData, err := json.MarshalIndent(filtered, "", "  ")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error marshaling filtered SARIF: %v\n", err)
-		os.Exit(exit.RuntimeError)
-	}
-
-	if err := os.WriteFile(args.sarifPath, filteredData, 0o600); err != nil {
-		fmt.Fprintf(os.Stderr, "Error writing filtered SARIF: %v\n", err)
+	enc := json.NewEncoder(os.Stdout)
+	enc.SetIndent("", "  ")
+	if err := enc.Encode(filtered); err != nil {
+		fmt.Fprintf(os.Stderr, "Error encoding filtered SARIF: %v\n", err)
 		os.Exit(exit.RuntimeError)
 	}
 

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"os"
 	"testing"
 
 	"github.com/google/go-github/v70/github"
@@ -10,7 +11,21 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestFilterSarifByPR(t *testing.T) {
+func TestFilterSARIFByPatch(t *testing.T) {
+	t.Parallel()
+
+	unfiltered, err := sarif.NewFromFile("testdata/102183.sarif")
+	require.NoError(t, err)
+
+	patch, err := os.ReadFile("testdata/102183.patch")
+	require.NoError(t, err)
+
+	_, hasRelevantErrors, err := filterSARIFByPatch(unfiltered, patch)
+	require.NoError(t, err) //nolint:testifylint
+	assert.True(t, hasRelevantErrors)
+}
+
+func TestFilterSARIFByPR(t *testing.T) {
 	t.Parallel()
 
 	unfiltered, err := sarif.NewFromFile("testdata/102941.sarif")
@@ -23,7 +38,7 @@ func TestFilterSarifByPR(t *testing.T) {
 	ctx := context.Background()
 
 	filtered, hasRelevantErrors, err := filterSARIFByPR(ctx, client, unfiltered, "grafana", "grafana", 102941)
-	assert.NoError(t, err) //nolint:testifylint
+	require.NoError(t, err)
 	assert.True(t, hasRelevantErrors)
 	assert.Equal(t, want, filtered)
 }

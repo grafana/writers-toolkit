@@ -1,11 +1,9 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"errors"
 	"fmt"
-	"io"
 	"strings"
 
 	"github.com/google/go-github/v70/github"
@@ -21,27 +19,25 @@ var (
 // filterSARIFByPatch filters the results of a SARIF file so that it only includes those that are present in the patch data.
 // The boolean return value indicates whether any results were present in the patch.
 func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, bool, error) {
-	diffReader := bytes.NewReader(patchData)
-	multiFileDiff, err := diff.NewMultiFileDiffReader(diffReader).ReadAll()
+	diffs, err := diff.ParseMultiFileDiff(patchData)
 	if err != nil {
 		return sarifFile, false, fmt.Errorf("%w: %w", errPatchParse, err)
 	}
 
 	modifiedLines := make(map[string]map[int]struct{})
-	for _, fileDiff := range multiFileDiff {
-		// Strip 'a/' and 'b/' prefixes that git adds
-		path := strings.TrimPrefix(fileDiff.NewName, "b/")
+	for _, diff := range diffs {
+		path := strings.TrimPrefix(diff.NewName, "b/")
 		modifiedLines[path] = make(map[int]struct{})
 
-		for _, hunk := range fileDiff.Hunks {
+		for _, hunk := range diff.Hunks {
 			lineNum := int(hunk.NewStartLine)
 			lines := strings.Split(string(hunk.Body), "\n")
-			
+
 			for _, line := range lines {
 				if len(line) == 0 {
 					continue
 				}
-				
+
 				switch line[0] {
 				case '+':
 					modifiedLines[path][lineNum] = struct{}{}

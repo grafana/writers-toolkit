@@ -27,3 +27,67 @@ func TestFilterSarifByPR(t *testing.T) {
 	assert.True(t, hasRelevantErrors)
 	assert.Equal(t, want, filtered)
 }
+
+func TestInhibitResults(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name string
+
+		results []sarif.Result
+		want    []sarif.Result
+	}{
+		{
+			"Grafana.WordList inhibits Grafana.Spelling",
+			[]sarif.Result{
+				{
+					RuleID: "Grafana.Spelling",
+					Level:  "error",
+					Locations: []sarif.Location{{
+						PhysicalLocation: sarif.PhysicalLocation{
+							ArtifactLocation: sarif.ArtifactLocation{
+								URI: "file:///path/to/file",
+							},
+							Region: sarif.Region{StartLine: 1, StartColumn: 1},
+						},
+					},
+					},
+				},
+				{
+					RuleID: "Grafana.WordList",
+					Level:  "warning",
+					Locations: []sarif.Location{{
+						PhysicalLocation: sarif.PhysicalLocation{
+							ArtifactLocation: sarif.ArtifactLocation{
+								URI: "file:///path/to/file",
+							},
+							Region: sarif.Region{StartLine: 1, StartColumn: 1},
+						},
+					},
+					},
+				},
+			},
+			[]sarif.Result{{
+				RuleID: "Grafana.WordList",
+				Level:  "warning",
+				Locations: []sarif.Location{{
+					PhysicalLocation: sarif.PhysicalLocation{
+						ArtifactLocation: sarif.ArtifactLocation{
+							URI: "file:///path/to/file",
+						},
+						Region: sarif.Region{StartLine: 1, StartColumn: 1},
+					},
+				}},
+			}},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := inhibitResults(tt.results)
+			assert.Equal(t, tt.want, got)
+		})
+	}
+}

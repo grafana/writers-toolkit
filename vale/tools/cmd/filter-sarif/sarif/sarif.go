@@ -22,6 +22,7 @@ type Result struct {
 	Level     string     `json:"level"`
 	Message   Message    `json:"message"`
 	Locations []Location `json:"locations"`
+	RuleID    string     `json:"ruleId"`
 }
 
 type Message struct {
@@ -42,7 +43,8 @@ type ArtifactLocation struct {
 }
 
 type Region struct {
-	StartLine int `json:"startLine"`
+	StartLine   int `json:"startLine"`
+	StartColumn int `json:"startColumn"`
 }
 
 type Tool struct {

@@ -50,7 +50,7 @@ func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, boo
 
 		filtered.Runs = append(filtered.Runs, sarif.Run{
 			Tool:    run.Tool,
-			Results: results,
+			Results: inhibitResults(results),
 		})
 	}
 
@@ -110,4 +110,41 @@ func filterSARIFByPR(ctx context.Context, client *github.Client, sarifFile sarif
 	filtered, hasResults := filterSARIFByPatch(sarifFile, []byte(pr))
 
 	return filtered, hasResults, nil
+}
+
+// locationKey returns a unique key for a SARIF location.
+func locationKey(location sarif.Location) string {
+	return fmt.Sprintf("%s:%d:%d",
+		location.PhysicalLocation.ArtifactLocation.URI,
+		location.PhysicalLocation.Region.StartLine,
+		location.PhysicalLocation.Region.StartColumn,
+	)
+}
+
+// inhibitResults filters the results of a SARIF file using rule precedence.
+// It keeps only the highest precedence rule for a line and column.
+func inhibitResults(results []sarif.Result) []sarif.Result {
+	filtered := make(map[string]sarif.Result)
+
+	precedence := map[string]int{
+		"Grafana.GrafanaCom":         0,
+		"Grafana.ProductPossessives": 1,
+		"Grafana.WordList":           2,
+		"Grafana.Spelling":           3,
+	}
+
+	for _, result := range results {
+		for _, location := range result.Locations {
+			if _, ok := filtered[locationKey(location)]; !ok || precedence[result.RuleID] < precedence[filtered[locationKey(location)].RuleID] {
+				filtered[locationKey(location)] = result
+			}
+		}
+	}
+
+	out := make([]sarif.Result, 0, len(filtered))
+	for _, result := range filtered {
+		out = append(out, result)
+	}
+
+	return out
 }

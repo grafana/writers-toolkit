@@ -11,14 +11,17 @@ import (
 	"rsc.io/tmp/patch"
 )
 
-var errDiffFetch = errors.New("couldn't get pull request diff")
+var (
+	errDiffFetch  = errors.New("couldn't get pull request diff")
+	errPatchParse = errors.New("couldn't parse patch data")
+)
 
 // filterSARIFByPatch filters the results of a SARIF file so that it only includes those that are present in the patch data.
 // The boolean return value indicates whether any results were present in the patch.
-func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, bool) {
+func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, bool, error) {
 	set, err := patch.Parse(patchData)
 	if err != nil {
-		return sarifFile, false
+		return sarifFile, false, fmt.Errorf("%w: %w", errPatchParse, err)
 	}
 
 	modifiedLines := getModifiedLines(set)
@@ -54,7 +57,7 @@ func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, boo
 		})
 	}
 
-	return filtered, hasResults
+	return filtered, hasResults, nil
 }
 
 // getModifiedLines returns the map of paths to its set of modified line numbers for all paths in the patch set.
@@ -107,9 +110,7 @@ func filterSARIFByPR(ctx context.Context, client *github.Client, sarifFile sarif
 		return sarifFile, false, fmt.Errorf("%w: %w", errDiffFetch, err)
 	}
 
-	filtered, hasResults := filterSARIFByPatch(sarifFile, []byte(pr))
-
-	return filtered, hasResults, nil
+	return filterSARIFByPatch(sarifFile, []byte(pr))
 }
 
 // locationKey returns a unique key for a SARIF location.

@@ -31,21 +31,21 @@ The following Markdown snippet demonstrates the `refs` front matter and link tha
 ```markdown
 ---
 refs:
-  grafana-alerting:
+  find-plugins:
     - pattern: /docs/grafana/
-      destination: https://grafana.com/docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/data-source-alerting/
+      destination: /docs/grafana/<GRAFANA_VERSION>/administration/plugin-management/#browse-plugins
     - pattern: /docs/grafana-cloud/
-      destination: https://grafana.com/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/data-source-alerting/
+      destination: /docs/grafana-cloud/introduction/find-and-use-plugins/
 ---
 
-# Set up Alerting
+# Manage plugins
 
 ## Before you begin
 
-- Check which data sources are compatible with and supported by [Grafana Alerting](ref:grafana-alerting).
+- Find the plugin you want to install. To find a plugin, refer to [Find and use plugins](ref:find-plugins).
 ```
 
-In the [Grafana page](https://grafana.com/docs/grafana/latest/alerting/set-up/), the link destination is https://grafana.com/docs/grafana/latest/alerting/fundamentals/data-source-alerting/.
+In the latest version of a Grafana documentation page, the link destination is <https://grafana.com/docs/grafana/latest/administration/plugin-management/#browse-plugins>.
 Hugo replaces the [version substitution syntax](https://grafana.com/docs/writers-toolkit/write/shortcodes/#about-version-substitution) `<GRAFANA_VERSION>` with the version inferred from the current page.
 
-In the page [Grafana Cloud page](https://grafana.com/docs/grafana/latest/alerting/set-up/), the link destination is https://grafana.com/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/alert-rules/.
+In a Grafana Cloud page, the link destination is <https://grafana.com/docs/grafana-cloud/introduction/find-and-use-plugins/>.

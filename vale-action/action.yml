@@ -42,11 +42,8 @@ runs:
         fi
 
         (cd /etc/vale && vale sync)
-        vale "${FILTER}" --no-exit --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
-        /bin/filter-sarif "${OWNER}" "${REPO#${OWNER}/}" "${PR_NUMBER}" vale.sarif > filtered.sarif
-        exit=$?
-        mv filtered.sarif vale.sarif
-        exit "${exit}"
+        vale "${FILTER}" --no-exit --output=/etc/vale/sarif.tmpl ${FILES} > unfiltered.sarif
+        /bin/filter-sarif "${OWNER}" "${REPO#${OWNER}/}" "${PR_NUMBER}" unfiltered.sarif > vale.sarif
       shell: sh
 
     - name: Create annotations from SARIF

@@ -64,6 +64,7 @@ func main() {
 
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetIndent("", "  ")
+
 	if err := enc.Encode(filtered); err != nil {
 		fmt.Fprintf(os.Stderr, "Error encoding filtered SARIF: %v\n", err)
 		os.Exit(exit.RuntimeError)

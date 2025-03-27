@@ -5,10 +5,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"io"
+	"strings"
 
 	"github.com/google/go-github/v70/github"
 	"github.com/grafana/writers-toolkit/vale/tools/cmd/filter-sarif/sarif"
-	"rsc.io/tmp/patch"
+	"github.com/sourcegraph/go-diff/diff"
 )
 
 var (
@@ -19,12 +21,37 @@ var (
 // filterSARIFByPatch filters the results of a SARIF file so that it only includes those that are present in the patch data.
 // The boolean return value indicates whether any results were present in the patch.
 func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, bool, error) {
-	set, err := patch.Parse(patchData)
+	diffReader := bytes.NewReader(patchData)
+	multiFileDiff, err := diff.NewMultiFileDiffReader(diffReader).ReadAll()
 	if err != nil {
 		return sarifFile, false, fmt.Errorf("%w: %w", errPatchParse, err)
 	}
 
-	modifiedLines := getModifiedLines(set)
+	modifiedLines := make(map[string]map[int]struct{})
+	for _, fileDiff := range multiFileDiff {
+		// Strip 'a/' and 'b/' prefixes that git adds
+		path := strings.TrimPrefix(fileDiff.NewName, "b/")
+		modifiedLines[path] = make(map[int]struct{})
+
+		for _, hunk := range fileDiff.Hunks {
+			lineNum := int(hunk.NewStartLine)
+			lines := strings.Split(string(hunk.Body), "\n")
+			
+			for _, line := range lines {
+				if len(line) == 0 {
+					continue
+				}
+				
+				switch line[0] {
+				case '+':
+					modifiedLines[path][lineNum] = struct{}{}
+					lineNum++
+				case ' ':
+					lineNum++
+				}
+			}
+		}
+	}
 
 	var (
 		filtered = sarif.File{
@@ -58,48 +85,6 @@ func filterSARIFByPatch(sarifFile sarif.File, patchData []byte) (sarif.File, boo
 	}
 
 	return filtered, hasResults, nil
-}
-
-// getModifiedLines returns the map of paths to its set of modified line numbers for all paths in the patch set.
-func getModifiedLines(set *patch.Set) map[string]map[int]struct{} {
-	modifiedLines := make(map[string]map[int]struct{})
-	for _, f := range set.File {
-		modifiedLines[f.Dst] = make(map[int]struct{})
-
-		if textDiff, ok := f.Diff.(patch.TextDiff); ok {
-			for _, chunk := range textDiff {
-				if len(chunk.New) > 0 {
-					newLines := bytes.Split(chunk.New, []byte("\n"))
-
-					for i := range newLines {
-						if len(chunk.Old) == 0 {
-							modifiedLines[f.Dst][chunk.Line+i] = struct{}{}
-						}
-
-						if len(chunk.Old) > 0 {
-							var preexisting bool
-
-							oldLines := bytes.Split(chunk.Old, []byte("\n"))
-
-							for j := range oldLines {
-								if bytes.Equal(oldLines[j], newLines[i]) {
-									preexisting = true
-
-									break
-								}
-							}
-
-							if !preexisting {
-								modifiedLines[f.Dst][chunk.Line+i] = struct{}{}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	return modifiedLines
 }
 
 // filterSARIFByPR filters the results of a SARIF file so that it only includes those that are present in the pull request patch.

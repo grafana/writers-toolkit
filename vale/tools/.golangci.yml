@@ -1,0 +1,22 @@
+linters:
+  enable-all: true
+  disable:
+    # WARN The linter 'exportloopref' is deprecated (since v1.60.2) due to: Since Go1.22 (loopvar) this linter is no longer relevant. Replaced by copyloopvar.
+    - exportloopref
+    # Long line lengths are a presentation issue.
+    - lll
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - github.com/google/go-github/v60/github
+          - github.com/grafana/writers-toolkit/vale/tools/cmd/filter-sarif/sarif
+          - github.com/stretchr/testify/assert
+          - github.com/stretchr/testify/require
+          - github.com/grafana/writers-toolkit/tools/exit
+          - rsc.io/tmp/patch
+  varnamelen:
+    ignore-names:
+      - f # Files

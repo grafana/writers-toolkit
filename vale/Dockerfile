@@ -1,18 +1,18 @@
 ################################################################################
-FROM --platform=${BUILDPLATFORM} golang:alpine AS inhibit-rules
+FROM --platform=${BUILDPLATFORM} golang:alpine AS filter-sarif
 ARG TARGETOS TARGETARCH
 
 RUN mkdir /src /out
 COPY /tools /src
 
 WORKDIR /src
-RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o inhibit-rules ./cmd/inhibit-rules
-RUN mv inhibit-rules /out
+RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o filter-sarif ./cmd/filter-sarif
+RUN mv filter-sarif /out
 
 ################################################################################
 FROM jdkato/vale:v3.8.0
 
-COPY --from=inhibit-rules /out/inhibit-rules /bin
+COPY --from=filter-sarif /out/filter-sarif /bin
 
 # Git is useful for diffing changed files.
 RUN apk add --no-cache git

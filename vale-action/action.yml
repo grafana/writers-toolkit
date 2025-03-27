@@ -18,7 +18,7 @@ runs:
   using: composite
   steps:
     - name: Get changed files
-      if: github.event == 'pull_request' && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
+      if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
       id: changed-files
       uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1 # v45.0.1
       with:
@@ -27,26 +27,73 @@ runs:
     - run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
       shell: sh
 
-    - name: Vale
-      if: "! contains(github.event.pull_request.body, '<!-- vale = NO -->')"
+    - name: Run Vale on pull request
+      if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
       env:
         FILES: ${{ steps.changed-files.outputs.all_changed_files || inputs.directory }}
         FILTER: --filter=${{ inputs.filter }}
+        GITHUB_TOKEN: ${{ github.token }}
+        OWNER: ${{ github.repository_owner }}
+        REPO: ${{ github.repository }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
       run: |
         if [ -n "${RUNNER_DEBUG+x}" ]; then
           set -x
         fi
 
         (cd /etc/vale && vale sync)
-        vale "${FILTER}" --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
+        vale "${FILTER}" --no-exit --output=/etc/vale/sarif.tmpl ${FILES} > vale.sarif
+        /bin/filter-sarif "${OWNER}" "${REPO#${OWNER}/}" "${PR_NUMBER}" vale.sarif
+      shell: sh
 
-        if [ -n "${RUNNER_DEBUG+x}" ]; then
-          cat vale.sarif
-        fi
+    - name: Create annotations from SARIF
+      if: failure() && github.event.repository.private && github.event_name == 'pull_request'
+      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      with:
+        script: |
+          const fs = require('fs');
+          const sarif = JSON.parse(fs.readFileSync('vale.sarif', 'utf8'));
+
+          for (const run of sarif.runs) {
+            for (const result of run.results) {
+              const location = result.locations[0];
+              const path = location.physicalLocation.artifactLocation.uri;
+              const region = location.physicalLocation.region;
+              const line = region.startLine;
+              const startColumn = region.startColumn;
+              const endColumn = region.endColumn;
+
+              const options = {
+                title: 'Vale',
+                file: path,
+                startLine: line,
+                startColumn: startColumn
+              };
+
+              if (endColumn) {
+                options.endColumn = endColumn;
+              }
+
+              switch(result.level) {
+                case 'error':
+                  core.error(result.message.text, options);
+                  break;
+                case 'warning':
+                  core.warning(result.message.text, options);
+                  break;
+                default:
+                  core.notice(result.message.text, options);
+              }
+            }
+          }
+
+    - name: Output SARIF file
+      if: failure() && github.event.repository.private && github.event_name != 'pull_request'
+      run: cat vale.darif
       shell: sh
 
     - name: Upload SARIF file
-      if: failure()
+      if: failure() && !github.event.repository.private
       uses: github/codeql-action/upload-sarif@1b549b9259bda1cb5ddde3b41741a82a2d15a841 # v3.28.13
       with:
         sarif_file: vale.sarif

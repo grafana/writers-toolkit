@@ -29,6 +29,7 @@
     {{ $text := first $message -}}
 
     {{ with .Link -}}
+      {{ $text = printf ". For more information, refer to %s." $text . -}}
       {{ $markdown = printf "%s\n\nFor more information, refer to <%s>." $markdown . -}}
     {{ end -}}
 

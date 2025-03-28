@@ -30,7 +30,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Build website
-        uses: grafana/writers-toolkit/build-website@4b1248585248751e3b12fd020cf7ac91540ca09c # build-website/v1.0.1
+        uses: grafana/writers-toolkit/build-website@1a351e0837c4bfaf7f714fef78334175d42aba0c # build-website/v1.0.1
         with:
           website_directory: docs/writers-toolkit
 

@@ -8,7 +8,7 @@ local word = import './word.jsonnet';
   word.new('blocklist', 'DGS', 'verb') { swaps: { blacklisted: 'blocklisted', blacklisting: 'blocklisting', blacklists: 'blocklists' } },
   word.new('blocklist', 'S', 'noun') { swaps: { blacklist: 'blocklist' } },
   word.new('blockquote', 'S', 'noun'),
-  word.new('Bollinger', '', 'noun') { description: 'Bollinger Bands are a tool that help traders assess market volatility. ' },
+  word.new('Bollinger', '', 'noun') { description: 'Bollinger Bands are a tool that help traders assess market volatility' },
   word.new('boolean', '', 'noun'),
   word.new('BoringCrypto', '', 'noun') { product: true, description: 'An open-source cryptographic library used by BoringSSL and other user-space applications' },
   word.new('BPF', '', 'noun') { abbreviation: true, elaboration: 'Berkeley Packet Filter', established_abbreviation: true },

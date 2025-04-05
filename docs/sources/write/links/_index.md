@@ -41,13 +41,6 @@ Use `ref` URIs.
 - [Link](#link)
 - [Front matter](#front-matter)
 
-{{< admonition type="note" >}}
-If you're using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
-
-`doc-validator` no longer checks link destinations.
-You must manually check link destinations in the local preview or fix broken links identified by the weekly website crawl.
-{{< /admonition >}}
-
 `ref` URIs look up destinations based upon the page's URL path and the definitions in the page's front matter.
 
 ### Link
@@ -71,10 +64,6 @@ If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the
 ## Link to `grafana.com` pages
 
 Use a full URL.
-
-{{< admonition type="note" >}}
-The `doc-validator` linter doesn't check links that use full URLs.
-{{< /admonition >}}
 
 If you are linking to versioned documentation, use a full URL with version substitution syntax instead of the version path element.
 For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.

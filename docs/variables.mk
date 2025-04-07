@@ -8,7 +8,7 @@ export DOCS_IMAGE := grafana/docs-base:nightly
 export DOC_VALIDATOR_IMAGE := $(shell sed -En 's, *image: (grafana/doc-validator.*),\1,p' "$(shell git rev-parse --show-toplevel)/.github/workflows/validate-documentation.yml")
 
 # Set the VALE_IMAGE to match the one defined in CI.
-export VALE_IMAGE := $(shell sed -En 's, *image: (grafana/vale.*),\1,p' "$(shell git rev-parse --show-toplevel)/.github/workflows/validate-documentation.yml")
+export VALE_IMAGE := $(shell sed -En 's, *image: (grafana/vale.*),\1,p' "$(shell git rev-parse --show-toplevel)/.github/workflows/validate-documentation.yml" | head -n 1)
 
 export VALE_MINALERTLEVEL := warning
 

@@ -25,6 +25,31 @@ The website team maintains shortcode templates in the `layouts/shortcodes` folde
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 {{< /admonition >}}
 
+<!-- vale Grafana.Spelling = NO -->
+
+## Anchorize
+
+<!-- vale Grafana.Spelling = YES -->
+
+The `anchorize` shortcode inserts the anchor fragment for the provided first argument.
+You can use the anchor fragment in URLs to link to HTML tags with specific identifiers.
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| position 0 | String      | yes      |
+
+### Example
+
+The following example inserts the anchor fragment for `Writers' Toolkit`.
+
+```markdown
+{{</* anchorize "Writers' Toolkit" */>}}
+```
+
+Produces:
+
+{{< anchorize "Writers' Toolkit" >}}
+
 ## Admonition
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.

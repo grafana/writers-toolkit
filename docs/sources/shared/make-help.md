@@ -27,7 +27,6 @@ Targets:
   make-docs        Fetch the latest make-docs script.
   docs             Serve documentation locally, which includes pulling the latest `DOCS_IMAGE` (default: `grafana/docs-base:latest`) container image. To not pull the image, set `PULL=false`.
   docs-debug       Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
-  doc-validator    Run doc-validator on the entire docs folder which includes pulling the latest `DOC_VALIDATOR_IMAGE` (default: `grafana/doc-validator:latest`) container image. To not pull the image, set `PULL=false`.
   vale             Run vale on the entire docs folder which includes pulling the latest `VALE_IMAGE` (default: `grafana/vale:latest`) container image. To not pull the image, set `PULL=false`.
   update           Fetch the latest version of this Makefile and the `make-docs` script from Writers' Toolkit.
 ```

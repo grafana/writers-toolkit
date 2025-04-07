@@ -412,7 +412,6 @@ You should prefer to update the filename instead of using the `slug` front matte
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
 Your `title` should match your first heading and URL slug for search engine optimization (SEO).
-The `doc-validator` linter enforces this.
 
 The `title` becomes the document title element in the HTML.
 Often, browsers display this in the tab for the page.

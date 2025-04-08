@@ -1137,7 +1137,7 @@ A Grafana dashboard is a set of one or more [panels](/docs/grafana/<GRAFANA_VERS
 You can then use that section in another page using the `shared-snippet` shortcode:
 
 ```markdown
-{{%/* shared-snippet path="content/docs/grafana/next/dashboards/_index.md" id="dashboard-overview" */%}}
+{{%/* shared-snippet path="/docs/grafana/next/dashboards/_index.md" id="dashboard-overview" */%}}
 ```
 
 {{< admonition type="note" >}}

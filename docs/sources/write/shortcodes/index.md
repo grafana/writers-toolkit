@@ -1120,6 +1120,34 @@ The following shortcode inserts a lists of links to child pages and includes the
 {{</* section withDescriptions="true"*/>}}
 ```
 
+## Shared snippet
+
+The `shared-snippet` shortcode includes a section of another page marked between `section` HTML tags.
+
+To set up a snippet for sharing, wrap it in `section` tags with a meaningful ID.
+For example:
+
+```markdown
+<section id="dashboard-overview">
+A Grafana dashboard is a set of one or more [panels](/docs/grafana/<GRAFANA_VERSION>/panels-visualizations/panel-overview/), organized and arranged into one or more rows, that provide an at-a-glance view of related information. These panels are created using components that query and transform raw data from a data source into charts, graphs, and other visualizations.
+</section>
+```
+
+You can then use that section in another page using the `shared-snippet` shortcode:
+
+```markdown
+{{%/* shared-snippet path="content/docs/grafana/next/dashboards/_index.md" id="dashboard-overview" */%}}
+```
+
+{{< admonition type="note" >}}
+You must use the percent (`%`) shortcode syntax because the shortcode returns Markdown rather than HTML.
+{{< /admonition >}}
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| path      | Path to the page source                  | yes      |
+| id        | ID attribute of the section HTML element | yes      |
+
 ## Table of contents
 
 The `table-of-contents` shortcode renders the page's table of contents in the page body.

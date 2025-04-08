@@ -23,4 +23,5 @@ local word = import './word.jsonnet';
   word.new('RSA', '', 'noun') { abbreviation: true, elaboration: 'Rivest–Shamir–Adleman', established_abbreviation: true },
   word.new('RudderStack', '', 'noun') { description: 'https://www.rudderstack.com/', product: true, swaps: { rudderstack: 'RudderStack', Rudderstack: 'RudderStack' } },
   word.new('runbook', 'S', 'noun'),
+  word.new('root_url', 'M', 'noun') { description: 'The full URL used to access Grafana from a web browser (option in the Grafana configuration file)' },
 ]

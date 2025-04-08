@@ -1123,6 +1123,7 @@ The following shortcode inserts a lists of links to child pages and includes the
 ## Shared snippet
 
 The `shared-snippet` shortcode includes a section of another page marked between `section` HTML tags.
+You should only use the shortcode in [learning journeys](/docs/learning-journeys/).
 
 To set up a snippet for sharing, wrap it in `section` tags with a meaningful ID.
 For example:

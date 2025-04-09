@@ -1,7 +1,11 @@
 ---
 aliases:
-  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/lint-prose/
+  - /docs/writers-toolkit/review/doc-validator/
+  - /docs/writers-toolkit/review/doc-validator/errata/
   - /docs/writers-toolkit/review/lint-prose/
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/lint-prose/
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/
+  - /docs/writers-toolkit/writing-guide/tooling-and-workflows/validate-technical-documentation/errata/
 date: "2023-06-16T09:36:21+01:00"
 description: How to lint prose for Grafana Labs style with the Vale linter.
 menuTitle: Lint prose

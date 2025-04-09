@@ -44,6 +44,7 @@
   - "InfluxDB's"
   - "Jaeger's"
   - "Jira's"
+  - "JMESPath's"
   - "journald's"
   - "Jsonnet's"
   - "Kibana's"

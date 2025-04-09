@@ -414,7 +414,7 @@ Merge made by the 'recursive' strategy.
 GitHub and Git both warn you when the source branch and your branch directly conflict.
 
 GitHub notifies you in the pull request if your branch conflicts with the target branch.
-If the conflict is easy to resolve, GitHub offers to help you resolve it using the web editor.
+For less complicated conflicts, GitHub lets you resolve it using the web editor.
 For more information refer to [About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts).
 
 If the conflict is too complex to resolve in the web editor, GitHub directs you to resolve it on the command line.

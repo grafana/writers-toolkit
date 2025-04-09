@@ -31,6 +31,7 @@ local word = import './word.jsonnet';
   word.new('SSL', '', 'noun') { abbreviation: true, elaboration: 'Secure Sockets Layer', established_abbreviation: true },
   word.new('SSO', '', 'noun') { abbreviation: true, elaboration: 'single sign-on', established_abbreviation: true },
   word.new('stylesheet', 'S', 'noun') { swaps: { 'style sheet': 'stylesheet', 'style sheets': 'stylesheet' } },
+  word.new('subchart', 'S', 'noun') { description: 'A Helm chart that is included in another chart' },
   word.new('submenu', 'S', 'noun'),
   word.new('subnet', 'S', 'noun'),
   word.new('subquery', 'S', 'noun'),

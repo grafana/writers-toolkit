@@ -1,7 +1,7 @@
 name: Renovate
 on:
   schedule:
-    - cron: 13 */4 * * *
+    - cron: 13 10 * * 1-5
 
   pull_request:
     paths:
@@ -51,16 +51,16 @@ jobs:
             GRAFANA_RENOVATE_PRIVATE_KEY=grafana-renovate-app:private-key
 
       - id: generate-token
-        uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1.11.6
+        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
         with:
           app-id: ${{ env.GRAFANA_RENOVATE_APP_ID }}
           private-key: ${{ env.GRAFANA_RENOVATE_PRIVATE_KEY }}
 
-      - uses: renovatebot/github-action@02f4fdeb479bbb229caa7ad82cb5e691c07e80b3 # v41.0.14
+      - uses: renovatebot/github-action@c21017a4a2fc9f42953bcc907e375a5a544557ec # v41.0.18
         with:
           configurationFile: .github/renovate-config.json5
           # renovate: datasource=docker depName=ghcr.io/renovatebot/renovate
-          renovate-version: 39.185.0@sha256:76148c60805be3eff0f7746488435e5aed5f5c78aa36d491eeb77f8dde0faee0
+          renovate-version: 39.212.0@sha256:3994a3a43293a2d9440b3a3ccf79f831a0ba51a371a2826fac82f0ea3268dca9
           token: ${{ steps.generate-token.outputs.token }}
         env:
           LOG_LEVEL: ${{ github.event_name == 'pull_request' && 'debug' || 'info' }}

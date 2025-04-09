@@ -109,7 +109,7 @@ Do _not_ use screenshots for the following items:
 - Simple create operations, such as create a user, a team, an organization, and so on
 - Primary or secondary navigation items
 - Code samples (instead, show code samples in code blocks)
-- Dialog boxes that are easy to understand
+- Dialog boxes that aren't complicated
 - Message text (instead, show message text within the Markdown)
 - Progress bars
 - Simple pages, such as Wizard pages and Welcome pages
@@ -135,7 +135,11 @@ However, ensure that the screenshot accurately reflects the directions and value
 
 Consult the following guidelines when you create screenshots:
 
-- **Size**: The maximum width of a screenshot is 600 pixels.
+- **Size**: The maximum width of a screenshot is 750 pixels. Ideally, screenshots are 2:1 density, or 1500 pixels.
+- **Resolution**: For best quality, follow these guidelines:
+  - Take screenshots on your highest resolution screen. For Mac users, this is typically your laptop screen.
+  - Non-Mac users: Take screenshots at twice your max eventual max-width setting to accommodate high resolution screens. If you need to make a screenshot area bigger to accommodate this requirement, use pinch and zoom to double the pixel size. (Macs already take screenshots at 2x DPI).
+  - Review screenshots on your highest resolution screen for an accurate indication of how they look. _Good screenshots can often look bad on lower resolution screens._ For Mac users, this is typically your laptop screen.
 - **Scope**: Limit the screenshot to just the portion of the user interface that shows the action, and enough surrounding detail to help the user locate the item.
 - **Annotations**: To annotate a screenshot, use red, hexadecimal color `FF0000`, arrows and boxes.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).

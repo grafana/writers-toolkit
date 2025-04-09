@@ -11,6 +11,7 @@
   "(?:WiFi|wifi)": "Wi-Fi"
   "(?:[Oo]penshift|openShift)": "OpenShift"
   "(?:[eE]-mail)": "email"
+  "(?:[jJ][mM][eE][sS]p|jmesP)ath": "JMESPath"
   "(?:[oO]pentelemetry|openTelemetry)": "OpenTelemetry"
   "(?:alert[Mm]anager|[Aa]lert [Mm]anager|AlertManager)": "Alertmanager"
   "(?:cell ?phone|smart ?phone)": "phone|mobile phone"

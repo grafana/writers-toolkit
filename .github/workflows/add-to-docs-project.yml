@@ -1,8 +1,8 @@
 name: Add issues to the Docs project
 on:
   schedule:
-    # At every 30th minute past every hour from 6 through 18 on every day-of-week from Monday through Friday.
-    - cron: "*/30 6-18 * * 1-5"
+    # Runs at 07:03, Monday through Friday.
+    - cron: "3 7 * * 1-5"
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
             ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
             ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
 
-      - uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1.11.6
+      - uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
         id: app-token
         with:
           app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
@@ -30,7 +30,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
           cache: npm
           node-version-file: "add-to-docs-project/package.json"

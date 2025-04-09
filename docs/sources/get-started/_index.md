@@ -86,9 +86,8 @@ To get started:
 1. Build the documentation locally.
    For instructions, refer to [Test documentation changes](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/).
 1. Open a pull request and use the label `type/docs`.
-1. Use `doc-validator` and the Vale prose linter.
+1. Use the Vale prose linter.
    These are often automatic checks from within the PR itself.
-   To learn more about [`doc-validator`], refer to [Automated validation with doc-validator](https://grafana.com/docs/writers-toolkit/review/doc-validator/).
    To learn more about the Vale prose linter, refer to [Lint prose with the Vale linter](https://grafana.com/docs/writers-toolkit/review/lint-prose/).
 
 ### Publish the documentation

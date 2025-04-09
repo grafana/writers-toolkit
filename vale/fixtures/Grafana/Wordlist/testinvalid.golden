@@ -1,8 +1,0 @@
-testinvalid.md:5:3:Grafana.Wordlist:Use 'Data Firehose' instead of 'Kinesis Data Firehose'.
-testinvalid.md:6:3:Grafana.Wordlist:Use 'Data Firehose' instead of 'Firehose'.
-testinvalid.md:7:3:Grafana.Wordlist:Use 'Data Firehose' instead of 'Kinesis Firehose'.
-testinvalid.md:13:3:Grafana.Wordlist:Use 'dataset' instead of 'data set'.
-testinvalid.md:14:3:Grafana.Wordlist:Use 'dataset' instead of 'data-set'.
-testinvalid.md:15:3:Grafana.Wordlist:Use 'datasets' instead of 'data sets'.
-testinvalid.md:16:3:Grafana.Wordlist:Use 'datasets' instead of 'data-sets'.
-testinvalid.md:22:3:Grafana.Wordlist:Use 'Promtail' instead of 'promtail'.

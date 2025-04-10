@@ -5,7 +5,7 @@ inputs:
     description: Name of branch to checkout and write changes to.
     required: true
   token:
-    default: ${{ github.token }}
+    default: ""
     description: Used to open the PR.
     required: false
 runs:
@@ -15,9 +15,26 @@ runs:
       with:
         persist-credentials: false
         ref: ${{ inputs.branch }}
+        # Use github.token since that can usually always read the repository contents.
+        token: ${{ github.token }}
+    - id: get-secrets
+      if: inputs.token == ''
+      uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1
+      with:
+        repo_secrets: |
+          DOCS_PLATFORM_TEAM_APP_ID=docs-team/docs-platform-team:app-id
+          DOCS_PLATFORM_TEAM_PRIVATE_KEY=docs-team/docs-platform-team:key
+    - uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5 # v2.0.2
+      if: inputs.token == ''
+      id: app-token
+      with:
+        app-id: ${{ env.DOCS_PLATFORM_TEAM_APP_ID }}
+        owner: grafana
+        private-key: ${{ env.DOCS_PLATFORM_TEAM_PRIVATE_KEY }}
     - name: Update `make docs` procedure
       env:
-        GH_TOKEN: ${{ github.token }}
+        # Use App token if present because the github.token doesn't trigger other workflows like CI for pull requests.
+        GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
       run: |
         set -euf -o pipefail
 

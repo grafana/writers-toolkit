@@ -4,6 +4,10 @@ inputs:
   branch:
     description: Name of branch to checkout and write changes to.
     required: true
+  path:
+    default: docs/sources
+    description: Path to run `prettier` on.
+    required: false
   token:
     default: ""
     description: Used to open the PR.
@@ -35,6 +39,7 @@ runs:
       env:
         # Use App token if present because the github.token doesn't trigger other workflows like CI for pull requests.
         GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+        PRETTIER_PATH: ${{ inputs.path }}
       run: |
         set -euf -o pipefail
 
@@ -50,7 +55,7 @@ runs:
           git commit --message 'Run `prettier`'
         }
 
-        npx prettier -w .
+        npx prettier -w "${PRETTIER_PATH}"
 
         if ! git diff --exit-code; then
           commit

@@ -1,6 +1,11 @@
 name: Run `prettier` on a branch
 on:
   workflow_dispatch:
+    inputs:
+      path:
+        default: docs/sources
+        description: Path to run `prettier` on.
+        type: string
 jobs:
   prettier:
     permissions:
@@ -12,3 +17,4 @@ jobs:
       - uses: grafana/writers-toolkit/prettier@jdb/2025-04-use-docs-platform-github-app
         with:
           branch: ${{ env.GITHUB_REF }}
+          path: ${{ inputs.path }}

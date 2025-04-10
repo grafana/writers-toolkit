@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
 jobs:
   prettier:
+    permissions:
+      contents: read
+      id-token: write
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:

@@ -429,6 +429,18 @@ It can render as inline code, a table row, or a full table of the output.
 
 For specific usage instructions, refer to [Use the `docs/alias` shortcode](https://grafana.com/docs/writers-toolkit/write/front-matter/#use-the-docsalias-shortcode).
 
+## Docs/copy
+
+The `docs/copy` shortcode injects general copy maintained in the website repository data.
+
+The Grafana Labs technical documentation team maintains the copy internally.
+If you are a Grafana Labs employee and want to make changes, edit [`copy.yaml`](https://github.com/grafana/website/blob/master/data/docs/copy.yaml).
+If you aren't a Grafana Labs employee, request changes by [creating an issue](https://github.com/grafana/writers-toolkit/issues/new).
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `name`    | The name of a key in the data YAML file. | yes      |
+
 ## Docs/experimental-deployment
 
 The `docs/experimental-deployment` shortcode produces a note admonition with the preferred copy for explaining that the described deployment is experimental.

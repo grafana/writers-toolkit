@@ -14,7 +14,7 @@ jobs:
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/writers-toolkit/prettier@jdb/2025-04-use-docs-platform-github-app
+      - uses: grafana/writers-toolkit/prettier@main
         with:
           branch: ${{ env.GITHUB_REF }}
           path: ${{ inputs.path }}

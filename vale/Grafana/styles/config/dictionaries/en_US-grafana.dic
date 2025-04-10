@@ -1,4 +1,4 @@
-363
+364
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -357,6 +357,7 @@ windows_exporter/S po:noun
 worktree/ po:noun
 XML/ po:noun
 XSS/ po:noun
+xy chart/S po:noun
 YAML/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective

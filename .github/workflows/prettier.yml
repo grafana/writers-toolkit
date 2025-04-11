@@ -1,11 +1,20 @@
 name: Run `prettier` on a branch
 on:
   workflow_dispatch:
+    inputs:
+      path:
+        default: docs/sources
+        description: Path to run `prettier` on.
+        type: string
 jobs:
   prettier:
+    permissions:
+      contents: read
+      id-token: write
     if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/writers-toolkit/prettier@4b1248585248751e3b12fd020cf7ac91540ca09c # prettier/v2.0.1
+      - uses: grafana/writers-toolkit/prettier@main
         with:
           branch: ${{ env.GITHUB_REF }}
+          path: ${{ inputs.path }}

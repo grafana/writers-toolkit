@@ -384,11 +384,12 @@ To add a new image, refer to [Where to store media assets](https://grafana.com/d
 
 ### Refs
 
-Use the `refs` front matter with `ref` URIs to link to different pages in reused content.
+For most links, the automatic mount links behavior is correct but there may be times where you want to explicitly control the multiple destinations for a link.
+To do this, use `ref` URIs and `refs` front matter.
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
-For more information, refer to [Link from source content that's used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+For more information, refer to [`ref` URIs](https://grafana.com/docs/writers-toolkit/write/links/#ref-uris).
 
 ### Review date
 

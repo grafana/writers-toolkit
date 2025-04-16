@@ -42,7 +42,7 @@ jobs:
       security-events: write
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest
+      image: grafana/vale:latest@sha256:2580b5a663baeeb3efd285e25648cbc9db2141a1f6eaf433e51f01a29a3044d9
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'

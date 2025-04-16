@@ -59,7 +59,7 @@ jobs:
     if: github.repository == 'grafana/writers-toolkit' || github.event_name == 'pull_request'
 
     container:
-      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
+      image: grafana/vale:latest@sha256:2580b5a663baeeb3efd285e25648cbc9db2141a1f6eaf433e51f01a29a3044d9
     name: Report readability
     runs-on: ubuntu-latest
     steps:

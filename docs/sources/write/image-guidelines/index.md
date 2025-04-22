@@ -77,10 +77,11 @@ Figure captions are optional.
 
 To create diagrams, you need to access the recommended software and download the required icons and stencils.
 
-### Request a diagram from Creative Services
+### Request a diagram from the Creative/Web team
 
-The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors.
-Contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
+The Creative/Web team at Grafana Labs provides support for diagrams developed by internal Grafana Labs contributors.
+If you are a Grafana Labs employee, you can contact them in the [#design Slack channel](https://raintank-corp.slack.com/archives/CKA461W3X).
+If you're not a Grafana Labs employee, [create an issue](https://github.com/grafana/writers-toolkit/issues/new?template=BLANK_ISSUE) for your request.
 
 ## Screenshot guidelines
 
@@ -178,8 +179,11 @@ Use the following guidelines when you add video content:
 
   Video content is much more difficult to update than textual documentation.
 
-The Creative Services team creates videos for blog posts and other content.
+The Creative/Web team creates videos for blog posts and other content.
 They upload these videos to Vimeo or YouTube.
+
+If you need a video for an external-facing project, you can request a video using [their Design or video request form](https://forms.monday.com/forms/191784602449ec0baeb0fca41cdf3133).
+
 The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
 
 You can embed these videos in your pages.

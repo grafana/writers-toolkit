@@ -33,6 +33,15 @@ on:
 
 env:
   CLOUD_RUN_REGION: us-south1
+  SHA: ${{ inputs.sha }}
+  BRANCH: ${{ inputs.branch }}
+  EVENT_NUMBER: ${{ inputs.event_number }}
+  TITLE: ${{ inputs.title }}
+  REPO: ${{ inputs.repo }}
+  SOURCE_DIRECTORY: ${{ inputs.source_directory }}
+  WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
+  INDEX_FILE: ${{ inputs.index_file }}
+  RELATIVE_PREFIX: ${{ inputs.relative_prefix }}
 
 permissions:
   id-token: write # Needed for authentication.
@@ -72,6 +81,7 @@ jobs:
         with:
           sparse-checkout-cone-mode: false # exclude root files
           sparse-checkout: docs
+          persist-credentials: false
 
       # get the Dockerfile and nginx conf
       - name: Sparse checkout
@@ -83,6 +93,7 @@ jobs:
           path: deploy-preview-files
           sparse-checkout: |
             deploy-preview
+          persist-credentials: false
 
       # sparse checkout with cone mode disabled includes root files, even when using exclusions
       # see https://github.com/actions/checkout/issues/1430#issuecomment-1756326892
@@ -93,17 +104,17 @@ jobs:
           shopt -s extglob
           rm -rf !(docs|deploy-preview-files|.git)
           ls -al
-          ls -al ${{ inputs.source_directory }}
+          ls -al $SOURCE_DIRECTORY
           ls -al deploy-preview-files
 
       - name: Build website
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         env:
-          SOURCE_DIRECTORY: ${{ inputs.source_directory }}
-          WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
-          INDEX_FILE: ${{ inputs.index_file }}
-          REPO: ${{ inputs.repo }}
+          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
+          INDEX_FILE: ${{ env.INDEX_FILE }}
+          REPO: ${{ env.REPO }}
         run: |
           ./deploy-preview-files/deploy-preview/build.sh
 
@@ -111,7 +122,7 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         run: |
-          printf "%s" "add_header 'Build' '"${{ inputs.sha }}"';" > build.conf
+          printf "%s" "add_header 'Build' '"$SHA"';" > build.conf
 
       - uses: google-github-actions/auth@6fc4af4b145ae7821d527454aa9bd537d1f2dc5f # v2.1.7
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -135,10 +146,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
         with:
-          images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}"
+          images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}"
           tags: |-
-            "${{ inputs.sha }}"
-            "${{ inputs.event_number }}"
+            "${{ env.SHA }}"
+            "${{ env.EVENT_NUMBER }}"
 
       - name: Set up Docker Buildx
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -167,8 +178,8 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: deploy
         with:
-          image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}:${{ inputs.sha }}
-          service: deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
+          image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}:${{ env.SHA }}
+          service: deploy-preview-${{ env.REPO }}-${{ env.EVENT_NUMBER }}
           project_id: grafanalabs-dev
           region: ${{ env.CLOUD_RUN_REGION }}
           flags: --port=80 --ingress=all --allow-unauthenticated
@@ -182,9 +193,9 @@ jobs:
       - name: Delete deploy preview
         if: github.event.action == 'closed'
         run: |
-          SERVICE_NAME=deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
-          if gcloud run services describe $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev > /dev/null 2>&1; then
-            gcloud run services delete $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
+          SERVICE_NAME=deploy-preview-$REPO-$EVENT_NUMBER
+          if gcloud run services describe $SERVICE_NAME --region=$CLOUD_RUN_REGION --project=grafanalabs-dev > /dev/null 2>&1; then
+            gcloud run services delete $SERVICE_NAME --region=$CLOUD_RUN_REGION --project=grafanalabs-dev --quiet
           else
             echo "Service $SERVICE_NAME does not exist. Skipping step."
           fi
@@ -195,22 +206,22 @@ jobs:
         with:
           name: deploy_preview
           status: "${{ job.status }}"
-          url: "${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}"
+          url: "${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}"
           description: "Public deploy preview"
 
       - name: Create comment with available deploy preview
         if: (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}$RELATIVE_PREFIX
 
       - name: Update comment with deleted deploy preview
         if: github.event.action == 'closed'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           comment-id: ${{ steps.fc.outputs.comment-id }}
           edit-mode: replace
           body: |
@@ -221,7 +232,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}$RELATIVE_PREFIX

@@ -14,10 +14,14 @@ weight: 500
 
 # UX writing
 
+<!-- vale Grafana.Simple = NO -->
+
 These guidelines provide guidance on creating text, style, and tone in the different components that make up the UI.
 They help you build UIs that enhance the user experience, are easy to use, consistent, and inclusive.
 These guidelines focus on UX writing.
 For more details on UI elements, refer to the [Grafana Storybook React component library](https://developers.grafana.com/ui/latest/index.html?path=/docs/docs-overview-intro--docs).
+
+<!-- vale Grafana.Simple = YES -->
 
 ## Tips for writing UI text
 
@@ -121,6 +125,26 @@ If you're not sure of whether something is a product or not, consult the product
 
 > Create and Manage Dashboards to Visualize Your Data.
 
+**Use:**
+
+> TLS/SSL root certificate
+
+**Don't use:**
+
+> TLS/SSL Root Certificate
+
+### Names of products from other companies
+
+When using names of products from other companies, or referring to third-party product names, always follow that brand's naming and usage.
+
+**Use:**
+
+> Azure OpenAI Service
+
+**Don't use:**
+
+> Azure OpenAI service
+
 ### Avoid words created for UI features
 
 Avoid using UI terms when possible.
@@ -180,8 +204,12 @@ Use periods for multiple sentences.
 
 **Don't use:**
 
-> Metrics, Logs, and Traces are billed based on ingestion<br>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period
+<!-- vale Grafana.Paragraphs = NO -->
+<!-- This <br> is showing what not to do -->
 
+> Metrics, Logs, and Traces are billed based on ingestion<br>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
+
+<!-- vale Grafana.Paragraphs = YES -->
 <!-- vale Grafana.We = YES -->
 
 ### Write scannable descriptive text
@@ -273,8 +301,12 @@ Refer to the Grafana Storybook React component library for button [usage](https:
 
 ## Errors
 
+<!-- vale Grafana.Simple = NO -->
+
 Make errors visible to users, helpful, and easy to understand.
 Error messages tell the user what happened and what they can do to fix the error.
+
+<!-- vale Grafana.Simple = YES -->
 
 - The error headline includes a concise, meaningful summary of the error.
   Error details provide as much information as possible.
@@ -331,8 +363,12 @@ Refer to the Grafana Storybook React component library for an example of an [inp
 
 An alert modal displays an important message in a way that attracts the user's attention without interrupting the user's task.
 
+<!-- vale Grafana.Simple = NO -->
+
 Assume that some of your users might not understand technical terms and need simple, clear alert messages.
 Like other UI elements, use sentence case, plain language, and active voice in alerts.
+
+<!-- vale Grafana.Simple = YES -->
 
 {{< admonition type="note" >}}
 The word "modal" is considered jargon and you shouldn't use it when writing documentation, except for developer documentation of code referencing a `modal`.

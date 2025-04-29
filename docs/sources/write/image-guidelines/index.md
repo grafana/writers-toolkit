@@ -77,10 +77,11 @@ Figure captions are optional.
 
 To create diagrams, you need to access the recommended software and download the required icons and stencils.
 
-### Request a diagram from Creative Services
+### Request a diagram from the Creative/Web team
 
-The Design team at Grafana Labs can provide support for diagrams developed by internal Grafana Labs contributors.
-Contact them directly using their [design request form](https://grafana-intranet--simpplr.visualforce.com/apex/simpplr__app?u=/site/a145f000001LCBhAAO/page/a125f000001AlBMAA0).
+The Creative/Web team at Grafana Labs provides support for diagrams developed by internal Grafana Labs contributors.
+If you are a Grafana Labs employee, you can contact them in the [#design Slack channel](https://raintank-corp.slack.com/archives/CKA461W3X).
+If you're not a Grafana Labs employee, [create an issue](https://github.com/grafana/writers-toolkit/issues/new?template=BLANK_ISSUE) for your request.
 
 ## Screenshot guidelines
 
@@ -109,7 +110,7 @@ Do _not_ use screenshots for the following items:
 - Simple create operations, such as create a user, a team, an organization, and so on
 - Primary or secondary navigation items
 - Code samples (instead, show code samples in code blocks)
-- Dialog boxes that are easy to understand
+- Dialog boxes that aren't complicated
 - Message text (instead, show message text within the Markdown)
 - Progress bars
 - Simple pages, such as Wizard pages and Welcome pages
@@ -135,12 +136,34 @@ However, ensure that the screenshot accurately reflects the directions and value
 
 Consult the following guidelines when you create screenshots:
 
-- **Size**: The maximum width of a screenshot is 600 pixels.
+- **Size**: The maximum width of a screenshot is 750 pixels. Ideally, screenshots are 2:1 density, or 1500 pixels.
+- **Resolution**: For best quality, follow these guidelines:
+  - Take screenshots on your highest resolution screen. For Mac users, this is typically your laptop screen.
+  - Non-Mac users: Take screenshots at twice your max eventual max-width setting to accommodate high resolution screens. If you need to make a screenshot area bigger to accommodate this requirement, use pinch and zoom to double the pixel size. (Macs already take screenshots at 2x DPI).
+  - Review screenshots on your highest resolution screen for an accurate indication of how they look. _Good screenshots can often look bad on lower resolution screens._ For Mac users, this is typically your laptop screen.
 - **Scope**: Limit the screenshot to just the portion of the user interface that shows the action, and enough surrounding detail to help the user locate the item.
 - **Annotations**: To annotate a screenshot, use red, hexadecimal color `FF0000`, arrows and boxes.
 - **File name**: Use the naming convention documented in [Media asset file naming conventions](#media-asset-file-naming-conventions).
 - **Personal identifiable information (PII)**: Make sure to mask, modify, or remove any PII such as passwords, logins, account details, or other information that could compromise security.
 - **Alt text**: Make sure to include [alt text](#alt-text) for every image.
+
+Refer to the next section for examples of good screenshots.
+
+#### Screenshot examples
+
+Good example of size, with the image constrained to 600 pixels wide:
+{{< figure src="/media/docs/writers-toolkit/screenshot-stat-single-value-v11.6.png" max-width="600px" alt="Good size example" >}}
+
+Good examples of scope on smaller scale:
+{{< figure src="/media/docs/grafana/dashboards/screenshot-panel-links-v11.3.png" max-width="600px" alt="Good scope example 1" >}}
+{{< figure src="/media/docs/grafana-cloud/k8s/side-menu.png" max-width="350px" alt="Good scope example 2" >}}
+
+Good examples of scope on a larger scale that allows the user to see all they need to without enlarging or opening the image in a separate tab:
+![Good example of a full page](/media/docs/alerting/alert-rule-evaluation.png)
+![Good scale example](/media/docs/grafana/panels-visualizations/screenshot-traces-visualization-11.5.png)
+
+Good example of annotation use:
+{{< figure src="/media/docs/grafana/panels-visualizations/screenshot-regexp-format-v11.3.png" max-width="600px" alt="Good PII and annotation example" >}}
 
 ## Video guidelines
 
@@ -156,8 +179,11 @@ Use the following guidelines when you add video content:
 
   Video content is much more difficult to update than textual documentation.
 
-The Creative Services team creates videos for blog posts and other content.
+The Creative/Web team creates videos for blog posts and other content.
 They upload these videos to Vimeo or YouTube.
+
+If you need a video for an external-facing project, you can request a video using [their Design or video request form](https://forms.monday.com/forms/191784602449ec0baeb0fca41cdf3133).
+
 The [Grafana YouTube channel](https://www.youtube.com/@Grafana) has good, short content that highlights features and specific topics.
 
 You can embed these videos in your pages.
@@ -269,7 +295,9 @@ You use the [asset upload application](https://admin.grafana.com/upload/) to upl
 The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
 
 {{< admonition type="note" >}}
-Don't store images in the local repository, as it prohibits re-use of the asset in other content.
+There is a 10MB limit on the size of assets uploaded through the asset upload application.
+
+For larger uploads, reach out in the [#website Slack channel](https://raintank-corp.slack.com/archives/CH34H23HD) to discuss the best path forward.
 {{< /admonition >}}
 
 <table>

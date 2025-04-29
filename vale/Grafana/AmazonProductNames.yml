@@ -1,7 +1,0 @@
-"extends": "conditional"
-"first": "\\b(CloudWatch|Data Firehose|Elastic Kubernetes Service|Firehose|Kinesis|Relational Database Service)\\b"
-"level": "warning"
-"link": "https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#amazon-products"
-"message": "Use the full Amazon product name in the first instance."
-"scope": "text"
-"second": "Amazon (CloudWatch|Data Firehose|Elastic Kubernetes Service|Firehose|Kinesis|Relational Database Service)"

@@ -16,10 +16,11 @@ local word = import './word.jsonnet';
   word.new('retry', 'DGS', 'verb'),
   word.new('retryable', '', 'adjective'),
   word.new('REPL', '', 'noun') { abbreviation: true, elaboration: 'read-eval-print loop', established_abbreviation: true },
-  word.new('RHEL', '', 'noun') { abbreviation: true, description: 'RedHat Enterprise Linux', established_abbreviation: true product: true },
+  word.new('RHEL', '', 'noun') { abbreviation: true, description: 'RedHat Enterprise Linux', established_abbreviation: true, product: true },
   word.new('rollout', 'S', 'noun'),
   word.new('Rollup', '', 'noun') { description: 'The JavaScript module bundler (https://rollupjs.org/)', product: true },
   word.new('RPM', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/RPM_Package_Manager', elaboration: 'RPM Package Manager', established_abbreviation: true },
   word.new('RSA', '', 'noun') { abbreviation: true, elaboration: 'Rivest–Shamir–Adleman', established_abbreviation: true },
+  word.new('RudderStack', '', 'noun') { description: 'https://www.rudderstack.com/', product: true, swaps: { rudderstack: 'RudderStack', Rudderstack: 'RudderStack' } },
   word.new('runbook', 'S', 'noun'),
 ]

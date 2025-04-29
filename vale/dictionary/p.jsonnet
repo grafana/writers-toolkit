@@ -1,5 +1,6 @@
 local word = import './word.jsonnet';
 [
+  word.new('PagerDuty', '', 'noun') { description: 'https://www.pagerduty.com/', product: true, swaps: { 'pager[dD]uty': 'PagerDuty', Pagerduty: 'PagerDuty' } },
   word.new('Parca', '', 'noun') { product: true },
   word.new('path', 'S', 'noun') { description: 'A string that represents a file or directory location in a filesystem.', swaps: { '(?:file ?path|path ?name)': 'path', '(?:file ?path|path ?name)s': 'paths' } },
   word.new('PDF', 'S', 'noun') { abbreviation: true, elaboration: 'Portable Document Format', established_abbreviation: true },
@@ -14,10 +15,11 @@ local word = import './word.jsonnet';
   word.new('PostgreSQL', '', 'noun') { product: true, swaps: { postgresql: 'PostgreSQL' } },
   word.new('pprof', '', 'noun') { description: 'A tool for visualization and analysis of profiling data.', product: true },
   word.new('profile', 'DGRS', 'verb'),
+  word.new('Profiles Drilldown', '', 'noun') { product: true },
   word.new('Prometheus', '', 'noun') { product: true, swaps: { '(?<!kube-)prometheus': 'Prometheus' } },
   word.new('Promtail', '', 'noun') { product: true, swaps: { '(?<!lambda-)promtail': 'Promtail' } },
   word.new('PromQL', '', 'noun') { description: 'The Prometheus query language', swaps: { 'prom(?:ql|QL)': 'PromQL' } },
-  word.new('provision', 'dD', 'verb'),
+  word.new('provision', 'dDG', 'verb'),
   word.new('proxy', 'DG', 'verb'),
   word.new('Puppetfile', 'S', 'noun'),
   word.new('PVC', 'S', 'noun') { abbreviation: true, elaboration: 'Persistent Volume Claim' },

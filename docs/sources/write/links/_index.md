@@ -35,22 +35,50 @@ Although these other types of links still function, replace them with one of the
 
 ## Link from source content that's reused as multiple pages
 
-Use `ref` URIs.
-`Ref` URIs have two components:
+Use a URL, including [version substitution syntax](/docs/writers-toolkit/write/shortcodes/#about-version-substitution) if needed.
+For example:
+
+`/docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/alert-rules/`
+
+During link rendering, Hugo checks if the link destination is a mounted source.
+If it's mounted, then Hugo checks if the current page is in the same project as the mount target.
+If it is in the same project, then Hugo replaces the link destination with the mount target.
+If it isn't mounted, or the mount target isn't in the same project, then Hugo uses the link as normal.
+
+{{< admonition type="note" >}}
+Automatic mount links requires the Docs Platform team to set `mount_links: true` in the mount target front matter.
+
+Projects that have automatic mount links include:
+
+- [Grafana Cloud](/docs/grafana-cloud/)
+- [Grafana Enterprise Metrics](/docs/enterprise-metrics/)
+- [Grafana Enterprise Traces](/docs/enterprise-traces/)
+
+Contact the Docs Platform team in the #docs-platform Slack channel if you want another project to use this behavior.
+{{< /admonition >}}
+
+### Mount links example
+
+The Grafana Labs website configuration mounts the open source Grafana Alerting documentation into the Grafana Cloud documentation.
+
+From the Grafana Alerting introduction page, the link `[alert rule](/docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/alert-rules/)` has different destinations in the open source and cloud versions of the page.
+
+- In the open source version, the link stays the same.
+- For Grafana Cloud, Hugo changes the link destination from [`/docs/grafana/next/alerting/fundamentals/alert-rules/`](/docs/grafana/next/alerting/fundamentals/alert-rules/) to [`/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/alert-rules/`](/docs/grafana-cloud/alerting-and-irm/alerting/fundamentals/alert-rules).
+
+### `ref` URIs
+
+For most links, the automatic mount links behavior is correct but there may be times where you want to explicitly control the multiple destinations for a link.
+To do this, use `ref` URIs.
+
+`ref` URIs have two components:
 
 - [Link](#link)
 - [Front matter](#front-matter)
 
-{{< admonition type="note" >}}
-If you're using `doc-validator` in CI, you must upgrade to v5.0.0 to use `ref` URIs.
-
-`doc-validator` no longer checks link destinations.
-You must manually check link destinations in the local preview or fix broken links identified by the weekly website crawl.
-{{< /admonition >}}
-
 `ref` URIs look up destinations based upon the page's URL path and the definitions in the page's front matter.
 
-### Link
+#### Link
 
 A link with a `ref` URI looks like:
 
@@ -64,19 +92,15 @@ It can include hyphens (`-`).
 Hugo looks up _`<KEY>`_ in the value for the `refs` field in the page's front matter.
 If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the front matter, Hugo logs a build error.
 
-### Front matter
+#### Front matter
 
-{{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+2" >}}
+{{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
 ## Link to `grafana.com` pages
 
-Use a full URL.
+Use a URL.
 
-{{< admonition type="note" >}}
-The `doc-validator` linter doesn't check links that use full URLs.
-{{< /admonition >}}
-
-If you are linking to versioned documentation, use a full URL with version substitution syntax instead of the version path element.
+If you are linking to versioned documentation, use a URL with version substitution syntax instead of the version path element.
 For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
 
 When Hugo renders links with version substitution, it replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.
@@ -107,8 +131,8 @@ For example, to link to the [Developers](https://grafana.com/docs/grafana/latest
 https://grafana.com/docs/grafana/<GRAFANA_VERSION>/developers/
 ```
 
-- If you're linking from Grafana documentation, `<GRAFANA_VERSION>` is substituted with the version inferred from the page's URL.
-- If you're linking from other documentation, `<GRAFANA_VERSION>` is substituted with the value of `GRAFANA_VERSION` from the source page's front matter.
+- If you're linking from Grafana documentation, Hugo replaces `<GRAFANA_VERSION>` with the version inferred from the page's URL.
+- If you're linking from other documentation, Hugo replaces `<GRAFANA_VERSION>` with the value of `GRAFANA_VERSION` from the source page's front matter.
 
 **Link to Grafana Cloud documentation**:
 
@@ -131,8 +155,8 @@ For example, to link to the [Release notes](https://grafana.com/docs/mimir/lates
 https://grafana.com/docs/mimir/<MIMIR_VERSION>/release-notes/
 ```
 
-- If you're linking from Mimir documentation, `<MIMIR_VERSION>` is substituted with the version inferred from the page's URL.
-- If you're linking from other documentation, `<MIMIR_VERSION>` is substituted with the value of `MIMIR_VERSION` from the source page's front matter.
+- If you're linking from Mimir documentation, Hugo replaces `<MIMIR_VERSION>` with the version inferred from the page's URL.
+- If you're linking from other documentation, Hugo replaces `<MIMIR_VERSION>` with the value of `MIMIR_VERSION` from the source page's front matter.
 
 ## Link to external pages
 

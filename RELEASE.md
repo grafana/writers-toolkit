@@ -10,6 +10,7 @@ The following directories contain GitHub Actions actions:
 - [`prettier`](./prettier/)
 - [`publish-technical-documentation`](./publish-technical-documentation/)
 - [`publish-technical-documentation-release`](./publish-technical-documentation-release/)
+- [`update-make-docs`](./update-make-docs/)
 
 You release each action by creating or updating Git tags.
 The Git tag begins with the action directory, then a slash (`/`), and then the tag version.
@@ -45,3 +46,19 @@ The major version tag should point to the same commit as the latest major and mi
 The major and minor version tag should point to the same commit as the major, minor, and patch version tag.
 
 The `--force` flag provided to the `git tag` command overwrites existing tags which you need to be able to move the major version and major and minor version tags when you release a new major, minor, and patch version.
+
+## Vale package
+
+To release a new version of the Writers' Toolkit Vale package:
+
+1. Create a new tag for the release with the form `vale/<VERSION>`.
+
+   The Vale package follows [semantic versioning](https://semver.org).
+
+1. Using the checked out tag, create an archive of the [Vale package directory](./vale/Grafana).
+
+   ```console
+   cd vale && make Grafana.zip
+   ```
+
+1. Create a GitHub release and upload the [`vale/Grafana.zip`](./vale/Grafana.zip) archive.

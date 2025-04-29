@@ -276,7 +276,7 @@ The description is also displayed on social media, such as Twitter, to provide a
 
 Since the reader isn't on the Grafana website, your description should include contextual information, such as the product name.
 
-The number of characters vary by media, so make the description concise.
+The number of characters vary by media, so make the description concise but aim for at least 150 characters.
 Provide enough information to guide users to the content by describing what content the link leads to.
 Often, this doesn't need to be original text.
 You can scan the first few paragraphs to pluck the appropriate terms or phrases into the description.
@@ -299,7 +299,15 @@ Ideally, use single terms as opposed to phrases.
 Use the `labels` key to add one or more values that you want to appear before the topic title on the published page.
 The website only supports certain label values.
 
-For `labels.products`, the supported values and the resulting published labels are as follows:
+You can set labels for a page and its children with [cascading front matter](#cascade).
+
+If the default labels are incorrect for a page or directory of pages, update the labels.
+Also, if you are adding a new page, consider whether the default labels are appropriate.
+For each page, include a label in the `labels.products` sequence for every product that the page relates to.
+
+#### `labels.products`
+
+The value of `labels.products` is an array of one or more of the following options:
 
 - `cloud`: <span class="badge docs-labels__product-cloud docs-labels__item">Grafana Cloud</span>
 - `enterprise`: <span class="badge docs-labels__product-enterprise docs-labels__item">Enterprise</span>
@@ -307,24 +315,6 @@ For `labels.products`, the supported values and the resulting published labels a
 
 You should use all labels that apply to the page's content.
 If a page has some open source content and some Grafana Cloud content, set both labels.
-
-For `labels.stages`, the supported values and the resulting published labels are as follows:
-
-- `beta`: <span class="badge docs-labels__stage docs-labels__item">Beta</span>
-- `alpha`: <span class="badge docs-labels__stage docs-labels__item">Alpha</span>
-- `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
-
-In general, each page should only have one stage label and it should apply to the whole page.
-If a page has content with multiple different stages, you should use the appropriate [release lifecycle copy](https://grafana.com/docs/release-life-cycle/) in each section.
-
-Labels can be inherited through cascading front matter.
-
-For versioned projects, the `_index.md` file resides in the `website` repository.
-For other projects, the `_index.md` file resides in the project's repository.
-
-If the default labels are incorrect for a page or directory of pages, update the labels.
-Also, if you are adding a new page, consider whether the default labels are appropriate.
-For each page, include a label in the `labels.products` sequence for every product that the page relates to.
 
 For example, if a _single page_ describes a feature available in Grafana Cloud and Grafana Enterprise, the source file front matter should include the following:
 
@@ -342,6 +332,32 @@ cascade:
   labels:
     products:
       - cloud
+```
+
+#### `labels.stage`
+
+Each page can only have one stage label and it should apply to the whole page.
+If a page has content with multiple different stages, you should use the appropriate [release lifecycle copy](https://grafana.com/docs/release-life-cycle/) in each section.
+For `labels.stage`, the supported values and the resulting published labels are as follows:
+
+- `experimental`: <span class="badge docs-labels__stage docs-labels__item">Experimental</span>
+- `private-preview`: <span class="badge docs-labels__stage docs-labels__item">Private preview</span>
+- `public-preview`: <span class="badge docs-labels__stage docs-labels__item">Public preview</span>
+- `general-availability`: <span class="badge docs-labels__stage docs-labels__item">General availability (GA)</span>
+
+For example, if a _single page_ describes an experimental feature, the source file front matter should include the following:
+
+```yaml
+labels:
+  stage: experimental
+```
+
+For a _directory of pages_ that describe an experimental feature, the branch bundle `_index.md` file front matter should include the following:
+
+```yaml
+cascade:
+  labels:
+    stage: experimental
 ```
 
 <!-- vale Grafana.Headings = NO -->
@@ -368,11 +384,12 @@ To add a new image, refer to [Where to store media assets](https://grafana.com/d
 
 ### Refs
 
-Use the `refs` front matter with `ref` URIs to link to different pages in reused content.
+For most links, the automatic mount links behavior is correct but there may be times where you want to explicitly control the multiple destinations for a link.
+To do this, use `ref` URIs and `refs` front matter.
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
-For more information, refer to [Link from source content that's used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+For more information, refer to [`ref` URIs](https://grafana.com/docs/writers-toolkit/write/links/#ref-uris).
 
 ### Review date
 
@@ -395,13 +412,16 @@ You should prefer to update the filename instead of using the `slug` front matte
 ### Title (required)
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
-Your `title` should match your first heading for search engine optimization (SEO).
-The `doc-validator` linter enforces this.
+Your `title` should match your first heading and URL slug for search engine optimization (SEO).
 
 The `title` becomes the document title element in the HTML.
 Often, browsers display this in the tab for the page.
 
-Optimize the title for search engines.
+Optimize the title for search engines, a good title:
+
+- has a length including spaces less than 70 characters
+- has context and includes more than just one or two words
+- is unique
 
 ### Weight
 

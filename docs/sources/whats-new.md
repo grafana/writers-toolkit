@@ -18,6 +18,29 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## March 2025
+
+| New guidance or change                                     | Page                                                                                           |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Updated screenshot guidelines with resolution information. | [Screenshot guidelines](/docs/writers-toolkit/write/image-guidelines/#screenshot-guidelines-1) |
+
+## February 2025
+
+| New guidance or change                                                | Page                                                                                                                |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Fixed the path to the section template file.                          | https://raw.githubusercontent.com/grafana/writers-toolkit/refs/heads/main/docs/static/templates/section-template.md |
+| Added `topic/<TYPE>` Make targets to create a topic from its template | [Topic types](/docs/writers-toolkit/structure/topic-types/)                                                         |
+| Added `video-embed` to Shortcodes page.                               | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#video-embed)                                                   |
+| Added examples to screenshot guidelines                               | [Screenshot guidelines](/docs/writers-toolkit/write/image-guidelines/#screenshot-examples)                          |
+
+## January 2025
+
+| New guidance or change                                                                                                                                         | Page                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Updated the release life cycle stages labels to match those documented in [Release life cycle for Grafana Labs](https://grafana.com/docs/release-life-cycle/). | [Labels](/docs/writers-toolkit/write/front-matter/#labels)                      |
+| Added `fixed-table` shortcode that prevents column overflow by breaking content to a new line at any character, not just spaces between words                  | [Shortcodes - Fixed-table](/docs/writers-toolkit/write/shortcodes/#fixed-table) |
+| Added column count parameter to the `column-list` shortcode that controls the number of columns in the multi-column list.                                      | [Shortcodes - Column-list](/docs/writers-toolkit/write/shortcodes/#column-list) |
+
 ## November 2024
 
 | New guidance or change                                                           | Page                                                                     |

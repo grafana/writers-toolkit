@@ -25,10 +25,35 @@ The website team maintains shortcode templates in the `layouts/shortcodes` folde
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 {{< /admonition >}}
 
+<!-- vale Grafana.Spelling = NO -->
+
+## Anchorize
+
+<!-- vale Grafana.Spelling = YES -->
+
+The `anchorize` shortcode inserts the anchor fragment for the provided first argument.
+You can use the anchor fragment in URLs to link to HTML tags with specific identifiers.
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| position 0 | String      | yes      |
+
+### Example
+
+The following example inserts the anchor fragment for `Writers' Toolkit`.
+
+```markdown
+{{</* anchorize "Writers' Toolkit" */>}}
+```
+
+Produces:
+
+{{< anchorize "Writers' Toolkit" >}}
+
 ## Admonition
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
-The style depends on the admonition type as defined in Writers' Toolkit [Style conventions]({{< relref "../style-guide/style-conventions" >}}).
+The style depends on the admonition type as defined in Writers' Toolkit [Style conventions](../markdown-guide/#images).
 
 The content of the admonition must be within opening and closing tags,
 and the type of admonition must be within quotes.
@@ -94,7 +119,7 @@ The `card-grid` shortcode renders a responsive grid of card elements that fits t
 | `grid_class`    | Optional CSS class for the grid element.                                                                                                                                                                                                                      | No       |
 | `card_class`    | Optional CSS class for the cards.                                                                                                                                                                                                                             | No       |
 
-### Card parameters (type="simple")
+### Card parameters (`type="simple"`)
 
 | Parameter     | Description                                                                                                                                                                                                                                    | Required |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
@@ -335,7 +360,13 @@ compactor:
 
 ## Column-list
 
-Formats a list with columns. Content is equally divided between columns.
+Formats a list with columns. Content is equally divided between columns unless specified with the `count` argument.
+
+| Parameter | Description                                                                               | Required |
+| --------- | ----------------------------------------------------------------------------------------- | -------- |
+| `count`   | The number columns in desktop view. You can specify a minimum of two and maximum of four. | no       |
+
+### Example
 
 ```markdown
 {{</* column-list */>}}
@@ -397,6 +428,18 @@ It can render as inline code, a table row, or a full table of the output.
 | `output`  | One of `"table"`, `"row"`, or `"string"`. The default is `"table"`. | no       |
 
 For specific usage instructions, refer to [Use the `docs/alias` shortcode](https://grafana.com/docs/writers-toolkit/write/front-matter/#use-the-docsalias-shortcode).
+
+## Docs/copy
+
+The `docs/copy` shortcode injects general copy maintained in the website repository data.
+
+The Grafana Labs technical documentation team maintains the copy internally.
+If you are a Grafana Labs employee and want to make changes, edit [`copy.yaml`](https://github.com/grafana/website/blob/master/data/docs/copy.yaml).
+If you aren't a Grafana Labs employee, request changes by [creating an issue](https://github.com/grafana/writers-toolkit/issues/new).
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `name`    | The name of a key in the data YAML file. | yes      |
 
 ## Docs/experimental-deployment
 
@@ -466,7 +509,7 @@ This is rendered after the ignore.
 
 ## Docs/openapi/info
 
-Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification. Use the percentage shortcode tag `{{%/* */%}}` to include the content in the table of contents generation.
+Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
 
 | Parameter | Description                                                                                       | Required |
 | --------- | ------------------------------------------------------------------------------------------------- | -------- |
@@ -476,27 +519,27 @@ Display information about an OpenAPI 3.0+ specification, use either the `url` or
 To fetch a remote specification from a URL:
 
 ```markdown
-{{%/* docs/openapi/info url="<SPECIFICATION_URL>" */%}}
+{{</* docs/openapi/info url="<SPECIFICATION_URL>" */>}}
 ```
 
 To use a local specification from the website `data/docs/openapi/` directory:
 
 ```markdown
-{{%/* docs/openapi/info data="<SPECIFICATION_FILENAME>" */%}}
+{{</* docs/openapi/info data="<SPECIFICATION_FILENAME>" */>}}
 ```
 
-### Examples
+### Example
 
 Display the API information for a remote specification at `https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json`:
 
 ```markdown
-{{%/* docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" */%}}
+{{</* docs/openapi/info url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.json" */>}}
 ```
 
 Display the API information for a local specification named `grafana`:
 
 ```markdown
-{{%/* docs/openapi/info data="grafana" */%}}
+{{</* docs/openapi/info data="grafana" */>}}
 ```
 
 ## Docs/openapi/path
@@ -507,26 +550,26 @@ Display API path information, use either the `url` or `data` parameter to specif
 | --------- | ------------------------------------------------------------------------------------------------- | -------- |
 | `url`     | The URL of the OpenAPI specification to fetch.                                                    | no       |
 | `title`   | The filename of the OpenAPI specification to use from the website `data/docs/openapi/` directory. | no       |
-| `scope`   | The API path to scope output to.                                                                  | no       |
+| `scope`   | Path tags to scope output to.                                                                     | no       |
 
-{{< admonition type="note" >}}
-Reference lookups function except for nested Response properties which require linking to an Object definition, probably embedded later in the page.
-{{< /admonition >}}
+The [Grafana Cloud k6 REST API v6 documentation](/docs/grafana-cloud/testing/k6/reference/cloud-rest-api/v6/) uses the OpenAPI shortcodes to generate API documentation.
+
+If you would like to collaborate with the Documentation and Technical Writing team to launch your API documentation, reach out in the #docs Slack channel.
 
 ### Example
 
 Display all paths for the `grafana` data specification:
 
 ```markdown
-{{%/* docs/openapi/path data="grafana" */%}}
+{{</* docs/openapi/path data="grafana" */>}}
 or
-{{%/* docs/openapi/path data="grafana" scope="" */%}}
+{{</* docs/openapi/path data="grafana" scope="" */>}}
 ```
 
-Display only the `/teams` paths for the `grafana` data specification:
+Display only paths with the `enterprise` tag for the `grafana` data specification:
 
 ```markdown
-{{%/* docs/openapi/path data="grafana" scope="/teams" */%}}
+{{</* docs/openapi/path data="grafana" scope="enterprise" */>}}
 ```
 
 ## Docs/play
@@ -570,7 +613,7 @@ The `docs/public-preview` shortcode produces a note admonition with the preferre
 
 | Parameter     | Description                                                              | Required |
 | ------------- | ------------------------------------------------------------------------ | -------- |
-| `product`     | The name of the product or feature.                                      | yes      |
+| `product`     | The name of the product or feature.                                      | no       |
 | `featureFlag` | The name of the feature flag users use to enable the product or feature. | no       |
 
 ```markdown
@@ -588,6 +631,14 @@ Produces:
 Produces:
 
 {{< docs/public-preview product="public-preview-feature" featureFlag="its-feature-flag" >}}
+
+```markdown
+{{</* docs/public-preview featureFlag="a-feature-flag" */>}}
+```
+
+Produces:
+
+{{< docs/public-preview featureFlag="a-feature-flag" >}}
 
 ## Docs/reference
 
@@ -649,13 +700,13 @@ For example:
 **Reference:**
 
 ```markdown
-[Grafana website]: www.grafana.com
+[grafana website]: www.grafana.com
 ```
 
 **Body text:**
 
 ```markdown
-Find more information on [Grafana][Grafana website].
+Find more information on [Grafana][grafana website].
 ```
 
 ## Docs/shared
@@ -715,6 +766,44 @@ Headings are offset by one level, so if the source content contains an `h1`, the
 ```markdown
 {{</* docs/shared lookup="shared-page.md" source="enterprise-metrics" version="<GEM_VERSION>" leveloffset="+1" */>}}
 ```
+
+## Fixed-table
+
+The `fixed-table` shortcode prevents column overflow by breaking content to a new line at any character, not just spaces between words.
+
+### Example
+
+```markdown
+{{</* fixed-table */>}}
+
+| Metric                         | CloudWatch Metric | Statistics                                                               |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
+| **aws_amazonmq_info**          |                   |
+| **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+| **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+
+{{</* /fixed-table */>}}
+```
+
+Produces:
+
+{{< fixed-table >}}
+
+| Metric                         | CloudWatch Metric | Statistics                                                               |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
+| **aws_amazonmq_info**          |                   |
+| **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+| **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+
+{{< /fixed-table >}}
+
+Without the shortcode:
+
+| Metric                         | CloudWatch Metric | Statistics                                                               |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------ |
+| **aws_amazonmq_info**          |                   |
+| **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
+| **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
 
 ## Figure
 
@@ -830,6 +919,9 @@ Grot guides are interactive guides embedded in a documentation page that people 
 
 To learn more about Grot guides, refer to the [Grot guides](/docs/writers-toolkit/write/grot-guides/) documentation in the Writers' Toolkit.
 
+<!-- vale Grafana.Simple = NO -->
+<!-- This shortcode has an unfortunate name -->
+
 ## Hero (simple)
 
 A hero section is a large section that contains a title, description, and image, usually placed at the top of a page.
@@ -887,6 +979,8 @@ Insert a simple hero using shortcode arguments:
 {{</* hero-simple title="Alerts and IRM" level="1" image="/media/docs/grafana-cloud/alerting-and-irm/grafana-cloud-docs-hero-alerts-irm.svg" width="110" height="110" description="Alerts & IRM is Grafana Cloud's Incident Response Management (IRM) solution, which enables you to detect, respond, and learn from incidents in one centralized platform." */>}}
 ```
 
+<!-- vale Grafana.Simple = YES -->
+
 <!-- vale Grafana.Spelling = NO -->
 
 ## Param
@@ -900,11 +994,12 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-{{< admonition type="note" >}}
 If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
+For example:
 
-For example: `{﻿{% param VARIABLE %}}`.
-{{< /admonition >}}
+```markdown
+# Heading {{%/* param VARIABLE */%}}
+```
 
 ### Example
 
@@ -1037,6 +1132,46 @@ The following shortcode inserts a lists of links to child pages and includes the
 {{</* section withDescriptions="true"*/>}}
 ```
 
+## Shared
+
+The `shared` shortcode sets up a snippet for sharing.
+You can reuse that snippet in another page with the [`shared-snippet`](#shared-snippet) shortcode.
+
+| Parameter | Description                                                     | Required |
+| --------- | --------------------------------------------------------------- | -------- |
+| id        | Identifier to give to the snippet that's unique within the page | yes      |
+
+## Shared snippet
+
+The `shared-snippet` shortcode includes a section of another page marked between `section` HTML tags.
+You should only use the shortcode in [learning journeys](/docs/learning-journeys/).
+
+To set up a snippet for sharing, wrap it in the `shared` shortcode with a meaningful ID.
+For example:
+
+```markdown
+{{< shared id="dashboard-overview" >}}
+A Grafana dashboard is a set of one or more [panels](/docs/grafana/<GRAFANA_VERSION>/panels-visualizations/panel-overview/), organized and arranged into one or more rows, that provide an at-a-glance view of related information. These panels are created using components that query and transform raw data from a data source into charts, graphs, and other visualizations.
+{{< /shared >}}
+```
+
+You can then use that section in another page using the `shared-snippet` shortcode:
+
+```markdown
+{{%/* shared-snippet path="/docs/grafana/next/dashboards/_index.md" id="dashboard-overview" */%}}
+```
+
+{{< admonition type="note" >}}
+You must use the percent (`%`) shortcode syntax for the `shared-snippet` shortcode because it returns Markdown rather than HTML.
+
+The `shared` shortcode returns its inner content as HTML and should use the usual shortcode syntax.
+{{< /admonition >}}
+
+| Parameter | Description                                                    | Required |
+| --------- | -------------------------------------------------------------- | -------- |
+| path      | Path to the page source                                        | yes      |
+| id        | Identifier that matches the `id` set on the `shared` shortcode | yes      |
+
 ## Table of contents
 
 The `table-of-contents` shortcode renders the page's table of contents in the page body.
@@ -1140,6 +1275,17 @@ Employees of Grafana Labs can look up the keys in the [internationalization dire
 Produces:
 
 {{< translate "docs_feedback_heading" >}}
+
+## Video-embed
+
+The `video-embed` shortcode embeds videos on the page.
+Use `.mp4` files of 10 MB or smaller.
+
+The shortcode requires a single parameter, the `src`, to set the source of the image. For this, use the path to the recording file:
+
+```
+{{</* video-embed src="<PATH>" */>}}
+```
 
 ## Vimeo
 

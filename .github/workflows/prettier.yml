@@ -2,17 +2,19 @@ name: Run `prettier` on a branch
 on:
   workflow_dispatch:
     inputs:
-      trace:
-        default: false
-        description: Print command traces?
-        required: false
-        type: boolean
+      path:
+        default: docs/sources
+        description: Path to run `prettier` on.
+        type: string
 jobs:
   prettier:
-    if:  ${{ github.repository == 'grafana/writers-toolkit' }}
+    permissions:
+      contents: read
+      id-token: write
+    if: ${{ github.repository == 'grafana/writers-toolkit' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: ./prettier
+      - uses: grafana/writers-toolkit/prettier@main
         with:
           branch: ${{ env.GITHUB_REF }}
-          trace: ${{ inputs.trace }}
+          path: ${{ inputs.path }}

@@ -78,6 +78,8 @@ The passive voice variation is "The car was driven by John."
 | After you create a dashboard, add a panel.        | After the dashboard has been created, the panel can be added.           |
 | Click **OK** to save the dashboard configuration. | The dashboard configuration is saved when the **OK** button is clicked. |
 
+<!-- vale Grafana.Simple = NO -->
+
 ### Write simple words, sentences, and paragraphs
 
 Simple, direct communication is the key to effective technical communication.
@@ -96,6 +98,8 @@ Simple, direct communication is the key to effective technical communication.
 - Keep paragraphs to three sentences or less.
   - Condense the text, add more headings, or do both.
 - Use contractions in common and negative cases to express a conversational style: _you're_, _that's_, _isn't_ or \_don't\_, for example.
+
+<!-- vale Grafana.Simple = YES -->
 
 Make content relevant to the user's context.
 The more familiar you are with the user's context, the better you can communicate without using a lot of words.

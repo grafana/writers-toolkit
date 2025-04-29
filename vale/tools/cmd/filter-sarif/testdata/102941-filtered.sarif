@@ -1,0 +1,39 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Vale",
+          "informationUri": "https://vale.sh",
+          "version": "0.1.0"
+        }
+      },
+      "results": [
+       {
+          "ruleId": "Grafana.WordList",
+          "level": "warning",
+          "message": {
+            "markdown": "Use 'free-form' or 'user-written' instead of 'ad-hoc'.\n\nFor more information, refer to \u003chttps://grafana.com/docs/writers-toolkit/write/style-guide/word-list/\u003e.\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.WordList%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).\n\nTo fix this, Replace the matched content with one of the following:\n\n- `free-form`\n- `user-written`.",
+            "text": "Use 'free-form' or 'user-written' instead of 'ad-hoc'.\n\nFor more information, refer to https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/.\n\nTo fix this, Replace the matched content with one of the following:\n\n- `free-form`\n- `user-written`."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 387,
+                  "endColumn": 392
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

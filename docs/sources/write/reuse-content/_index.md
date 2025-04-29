@@ -26,9 +26,11 @@ Reusing content introduces maintenance overheads that can be greater than the ov
 
 You can reuse content in the following ways:
 
-1. Link to definitive content
-1. Share chunks of content
-1. Mount directories of content
+1. [Link to definitive content](#link-to-definitive-content)
+1. [Define site-wide copy](#define-site-wide-copy)
+1. [Share content to learning journeys](#share-content-to-learning-journeys)
+1. [Share chunks of content](#share-chunks-of-content)
+1. [Mount directories of content](#mount-directories-of-content)
 
 The following sections discuss each option in detail.
 
@@ -51,6 +53,18 @@ Instead of directly including content in your documentation, you can link to the
 - Users might lose context by following the link to another page or section.
 
   This concern hasn't been validated with UX research.
+
+### Link to definitive content
+
+For copy that should be consistent across the whole site, use the [`docs/copy`](/docs/writers-toolkit/write/shortcodes/#docscopy) shortcode.
+
+### Share content to learning journeys
+
+For copy in learning journeys, use the [`shared` shortcode](/docs/writers-toolkit/write/shortcodes/#shared).
+
+The shortcode doesn't require you to create new headless pages like you do to [share chunks of content to other projects](#share-chunks-of-content).
+
+Only learning journeys should reuse the content shared with the `shared` shortcode.
 
 ### Share chunks of content
 

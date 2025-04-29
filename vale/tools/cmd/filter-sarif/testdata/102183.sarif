@@ -1,0 +1,83 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Vale",
+          "informationUri": "https://vale.sh",
+          "version": "0.1.0"
+        }
+      },
+      "results": [
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'deprovisioning'? The Grafana dictionary might not know of this word yet.\n\nTo add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).\n\nAlternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20deprovisioning) and a maintainer will add it for you.\n\nFor UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).\n\nThe spell checker doesn't check words with bold formatting.\n\nFor paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).\n\nThe spell checker doesn't check words with code formatting.\n\n\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance, to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'deprovisioning'? The Grafana dictionary might not know of this word yet"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/setup-grafana/configure-security/configure-scim-provisioning/manage-users-teams/_index.md"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 43,
+                  "endColumn": 56
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.ProductPossessives",
+          "level": "warning",
+          "message": {
+            "markdown": "Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it.\n\nInstead, use the name as a modifier or rewrite to use a word like of to indicate the relationship.\n\n\n\nFor more information, refer to \u003chttps://developers.google.com/style/possessives#product,-feature,-and-company-names\u003e.\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.ProductPossessives%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance, to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Don't form a possessive from a feature name, product name, or trademark, regardless of who owns it. For more information, refer to https://developers.google.com/style/possessives#product,-feature,-and-company-names."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/setup-grafana/configure-security/configure-scim-provisioning/manage-users-teams/_index.md"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 87,
+                  "endColumn": 95
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'Grafana's'? The Grafana dictionary might not know of this word yet.\n\nTo add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).\n\nAlternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20Grafana's) and a maintainer will add it for you.\n\nFor UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).\n\nThe spell checker doesn't check words with bold formatting.\n\nFor paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).\n\nThe spell checker doesn't check words with code formatting.\n\n\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance, to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'Grafana's'? The Grafana dictionary might not know of this word yet"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/setup-grafana/configure-security/configure-scim-provisioning/manage-users-teams/_index.md"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 87,
+                  "endColumn": 95
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

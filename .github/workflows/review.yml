@@ -1,11 +1,17 @@
 name: Check for pages that require review
+
+permissions: {}
 on:
   schedule:
     - cron: "0 7 * * 1-5"
   workflow_dispatch:
+
 jobs:
   main:
     if: github.repository == 'grafana/writers-toolkit'
+    permissions:
+      contents: read
+      issues: write
     runs-on: ubuntu-latest
 
     steps:

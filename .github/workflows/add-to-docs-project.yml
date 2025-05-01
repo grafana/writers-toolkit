@@ -1,4 +1,7 @@
 name: Add issues to the Docs project
+
+permissions: {}
+
 on:
   schedule:
     # Runs at 07:03, Monday through Friday.

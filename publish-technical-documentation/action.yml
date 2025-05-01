@@ -13,6 +13,9 @@ inputs:
   source_directory:
     default: docs/sources
     description: Path to source directory, relative to the project root, to sync documentation from.
+  website_branch:
+    default: master
+    description: Website repository branch to sync the documentation to.
   website_directory:
     description: Website directory to sync the documentation to.
     required: true
@@ -53,7 +56,7 @@ runs:
       with:
         allow_no_changes: true
         repository: grafana/website
-        branch: master
+        branch: ${{ inputs.website_branch }}
         host: github.com
         github_pat: grafanabot:${{ steps.app-token.outputs.token }}
         source_folder: ${{ inputs.source_directory }}

@@ -1,5 +1,7 @@
 name: deploy-preview
 
+permissions: {}
+
 on:
   workflow_call:
     inputs:

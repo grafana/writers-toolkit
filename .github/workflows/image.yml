@@ -1,5 +1,7 @@
 name: Publish grafana/vale image
 
+permissions: {}
+
 on:
   push:
     branches:

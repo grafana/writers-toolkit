@@ -8,7 +8,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/google/go-github/v70/github"
+	"github.com/google/go-github/v71/github"
 	"github.com/grafana/writers-toolkit/tools/exit"
 	"github.com/grafana/writers-toolkit/vale/tools/cmd/filter-sarif/sarif"
 )

@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/google/go-github/v70/github"
+	"github.com/google/go-github/v71/github"
 	"github.com/grafana/writers-toolkit/vale/tools/cmd/filter-sarif/sarif"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

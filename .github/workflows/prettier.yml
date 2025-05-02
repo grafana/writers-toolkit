@@ -1,4 +1,7 @@
 name: Run `prettier` on a branch
+
+permissions: {}
+
 on:
   workflow_dispatch:
     inputs:
@@ -6,15 +9,16 @@ on:
         default: docs/sources
         description: Path to run `prettier` on.
         type: string
+
 jobs:
   prettier:
     permissions:
       contents: read
       id-token: write
-    if: ${{ github.repository == 'grafana/writers-toolkit' }}
+    if: github.repository == 'grafana/writers-toolkit'
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/writers-toolkit/prettier@main
+      - uses: grafana/writers-toolkit/prettier@main # zizmor: ignore[unpinned-uses] It's a protected branch in the same repository.
         with:
           branch: ${{ env.GITHUB_REF }}
           path: ${{ inputs.path }}

@@ -1,6 +1,10 @@
 name: Update generated Vale files on a branch
+
+permissions: {}
+
 on:
   workflow_dispatch:
+
 jobs:
   main:
     if: github.repository == 'grafana/writers-toolkit'

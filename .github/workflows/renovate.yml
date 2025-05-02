@@ -1,4 +1,7 @@
 name: Renovate
+
+permissions: {}
+
 on:
   schedule:
     - cron: 13 10 * * 1-5

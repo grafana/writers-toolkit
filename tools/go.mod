@@ -6,7 +6,7 @@ toolchain go1.24.2
 
 require (
 	github.com/BurntSushi/toml v1.5.0
-	github.com/gohugoio/hugo v0.146.7
+	github.com/gohugoio/hugo v0.147.2
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -24,7 +24,7 @@ require (
 	github.com/spf13/afero v1.14.0 // indirect
 	github.com/spf13/cast v1.7.1 // indirect
 	github.com/tdewolff/parse/v2 v2.7.19 // indirect
-	github.com/yuin/goldmark v1.7.10 // indirect
+	github.com/yuin/goldmark v1.7.11 // indirect
 	golang.org/x/net v0.39.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
 	golang.org/x/text v0.24.0 // indirect

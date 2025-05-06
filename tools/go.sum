@@ -95,6 +95,8 @@ github.com/gohugoio/hugo v0.146.6 h1:rI8YWmRvkVM2A+0mejYA9wFz7IdTutu9VAetixWh4F4
 github.com/gohugoio/hugo v0.146.6/go.mod h1:4cfcrxxrcT3pBo3sQ7GDpihSAVZir0T9yMts0B1DzBY=
 github.com/gohugoio/hugo v0.146.7 h1:HZ2BVvXX4DsAqBvPXe31HhOGMppIcE+ur2HD6mGr/k0=
 github.com/gohugoio/hugo v0.146.7/go.mod h1:EoUvqV0cPxt+ghvJylO9cnsxKNfUGFYSi8ui1/wuS1I=
+github.com/gohugoio/hugo v0.147.2 h1:PP8FpN5q0VEVNLXvh1rp1OT5vMuJwrKbH0JSsW5Mx24=
+github.com/gohugoio/hugo v0.147.2/go.mod h1:OuccInajjJHOqzbWB6JoVa20Jg9vUaf+n25lO+FLqq4=
 github.com/gohugoio/hugo-goldmark-extensions/extras v0.2.0 h1:MNdY6hYCTQEekY0oAfsxWZU1CDt6iH+tMLgyMJQh/sg=
 github.com/gohugoio/hugo-goldmark-extensions/extras v0.2.0/go.mod h1:oBdBVuiZ0fv9xd8xflUgt53QxW5jOCb1S+xntcN4SKo=
 github.com/gohugoio/hugo-goldmark-extensions/passthrough v0.3.0 h1:7PY5PIJ2mck7v6R52yCFvvYHvsPMEbulgRviw3I9lP4=
@@ -183,6 +185,8 @@ github.com/yuin/goldmark v1.7.9 h1:rVSeT+f7/lAM+bJHVm5YHGwNrnd40i1Ch2DEocEjHQ0=
 github.com/yuin/goldmark v1.7.9/go.mod h1:ip/1k0VRfGynBgxOz0yCqHrbZXhcjxyuS66Brc7iBKg=
 github.com/yuin/goldmark v1.7.10 h1:S+LrtBjRmqMac2UdtB6yyCEJm+UILZ2fefI4p7o0QpI=
 github.com/yuin/goldmark v1.7.10/go.mod h1:ip/1k0VRfGynBgxOz0yCqHrbZXhcjxyuS66Brc7iBKg=
+github.com/yuin/goldmark v1.7.11 h1:ZCxLyDMtz0nT2HFfsYG8WZ47Trip2+JyLysKcMYE5bo=
+github.com/yuin/goldmark v1.7.11/go.mod h1:ip/1k0VRfGynBgxOz0yCqHrbZXhcjxyuS66Brc7iBKg=
 github.com/yuin/goldmark-emoji v1.0.4 h1:vCwMkPZSNefSUnOW2ZKRUjBSD5Ok3W78IXhGxxAEF90=
 github.com/yuin/goldmark-emoji v1.0.4/go.mod h1:tTkZEbwu5wkPmgTcitqddVxY9osFZiavD+r4AzQrh1U=
 golang.org/x/exp v0.0.0-20221031165847-c99f073a8326 h1:QfTh0HpN6hlw6D3vu8DAwC8pBIwikq0AI1evdm+FksE=

@@ -13,6 +13,5 @@ script: |
   matches := []
 
   for match in text.re_find(`{{% +/?admonition .*%}}`, scope, -1) {
-      matches = append(matches, {begin: match[0].begin, end: match[0].end})
-    }
+    matches = append(matches, {begin: match[0].begin, end: match[0].end})
   }

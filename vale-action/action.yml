@@ -89,7 +89,7 @@ runs:
 
     - name: Output SARIF file
       if: failure() && github.event.repository.private && github.event_name != 'pull_request'
-      run: cat vale.darif
+      run: cat vale.sarif
       shell: sh
 
     - name: Upload SARIF file

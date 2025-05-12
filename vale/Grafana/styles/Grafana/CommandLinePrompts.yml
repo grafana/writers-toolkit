@@ -7,25 +7,4 @@ message: |
 
   Also, don't use `#` to include comments in commands.
   That explanation should be outside of the code block.
-script: |
-  text := import("text")
-  matches := []
-  code_blocks := text.re_find("(?s)```([^\n]*)\n(.*?)```\n", scope, -1)
-  for code_block in code_blocks {
-    info := code_block[1].text
-    if info == "" || info == "bash" || info == "console" || info == "sh" || info == "shell" {
-      begin := code_block[2].begin
-      for line in text.split(code_block[2].text, "\n") {
-        indent := -1
-        for c in line {
-          if c == ' ' {
-            indent += 1
-          }
-        }
-        if text.re_match("^ *[#$] ", text.trim_space(line)) {
-          matches = append(matches, {begin: begin + indent, end: begin + len(line)})
-        }
-        begin += len(line)
-      }
-    }
-  }
+script: CommandLinePrompts.tengo

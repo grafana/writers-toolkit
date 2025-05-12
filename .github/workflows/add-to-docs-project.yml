@@ -1,4 +1,7 @@
 name: Add issues to the Docs project
+
+permissions: {}
+
 on:
   schedule:
     # Runs at 07:03, Monday through Friday.
@@ -19,7 +22,7 @@ jobs:
             ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
             ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
 
-      - uses: actions/create-github-app-token@af35edadc00be37caa72ed9f3e6d5f7801bfdf09 # v1.11.7
+      - uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
         id: app-token
         with:
           app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
@@ -30,7 +33,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           cache: npm
           node-version-file: "add-to-docs-project/package.json"

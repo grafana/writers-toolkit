@@ -1,0 +1,493 @@
+diff --git a/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/_index.md b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/_index.md
+new file mode 100644
+index 0000000000000..1f044108e0566
+--- /dev/null
++++ b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/_index.md
+@@ -0,0 +1,86 @@
++---
++description: Learn how to use SCIM provisioning to synchronize users and groups from your identity provider to Grafana. SCIM enables automated user management, team provisioning, and enhanced security through real-time synchronization with your identity provider.
++keywords:
++  - grafana
++  - scim
++  - provisioning
++  - user-management
++  - team-management
++labels:
++  products:
++    - cloud
++    - enterprise
++menuTitle: Configure SCIM provisioning
++title: Configure SCIM provisioning
++weight: 300
++---
++
++# Configure SCIM provisioning
++
++System for Cross-domain Identity Management (SCIM) is an open standard that allows automated user provisioning and management. With SCIM, you can automate the provisioning of users and groups from your identity provider to Grafana.
++
++{{< admonition type="note" >}}
++Available in [Grafana Enterprise](../../../introduction/grafana-enterprise/) and [Grafana Cloud Advanced](/docs/grafana-cloud/).
++{{< /admonition >}}
++
++{{< admonition type="note" >}}
++This feature is behind the `enableSCIM` feature toggle.
++You can enable feature toggles through configuration file or environment variables.
++
++For more information, refer to the [feature toggles documentation](/docs/grafana/<GRAFANA_VERSION>/setup-grafana/configure-grafana/#feature_toggles).
++{{< /admonition >}}
++
++## Benefits
++
++{{< admonition type="note" >}}
++SCIM provisioning only works SAML authentication.
++Other authentication methods aren't supported.
++{{< /admonition >}}
++
++SCIM offers several advantages for managing users and teams in Grafana:
++
++- **Automated user provisioning**: Automatically create, update, and disable users in Grafana when changes occur in your identity provider
++- **Automated team provisioning**: Automatically create, update, and delete teams in Grafana based on groups in your identity provider
++- **Reduced administrative overhead**: Eliminate manual user management tasks and reduce the risk of human error
++- **Enhanced security**: Automatically disable access when users leave your organization
++
++## Supported identity providers
++
++The following identity providers are supported:
++
++- [Azure AD](../configure-authentication/azuread/)
++- [Okta](../configure-authentication/saml/)
++
++## How it works
++
++The synchronization process works as follows:
++
++1. Configure SCIM in both your identity provider and Grafana
++2. Your identity provider sends SCIM requests to the Grafana SCIM API endpoint
++3. Grafana processes these requests to create, update, or deactivate users and teams, and synchronize team memberships
++
++## Comparison with other sync methods
++
++Grafana offers several methods for synchronizing users, teams, and roles.
++The following table compares SCIM with other synchronization methods to help you understand its advantages:
++
++| Sync Method                                                                    | Users | Teams | Roles | Automation | Key Benefits                                                             | Limitations                                                  | On-Prem | Cloud |
++| ------------------------------------------------------------------------------ | ----- | ----- | ----- | ---------- | ------------------------------------------------------------------------ | ------------------------------------------------------------ | ------- | ----- |
++| SCIM                                                                           | ✅    | ✅    | ⚠️    | Full       | Complete user and team lifecycle management with automatic team creation | Requires SAML authentication; uses Role Sync for basic roles | ✅      | ✅    |
++| [Team Sync](../configure-team-sync/)                                           | ❌    | ⚠️    | ❌    | Partial    | Syncs team memberships to existing teams                                 | Requires manual team creation; no team lifecycle management  | ✅      | ✅    |
++| [Active LDAP Sync](../configure-authentication/enhanced-ldap/)                 | ✅    | ❌    | ❌    | Full       | Background synchronization of LDAP users                                 | Limited to LDAP environments                                 | ✅      | ❌    |
++| [Role Sync](../configure-authentication/saml#configure-role-sync)              | ❌    | ❌    | ✅    | Full       | Full automation of basic role assignment                                 | Limited to basic roles only                                  | ✅      | ✅    |
++| [Org Mapping](../configure-authentication/saml#configure-organization-mapping) | ❌    | ❌    | ⚠️    | Full       | Full automation of basic role assignment per organization                | Limited to basic roles only; on-premises only                | ⚠️      | ❌    |
++
++### Key advantages
++
++- **Comprehensive user and team automation**: SCIM provides full automation for user and team provisioning, while role management is handled separately through Role Sync
++- **Dynamic team creation**: Teams are created automatically based on identity provider groups
++- **Near real-time synchronization**: Changes in your identity provider are reflected based on the provider's synchronization schedule
++- **Enterprise-ready**: Designed for large organizations with complex user management needs
++
++## Next steps
++
++- [Manage users and teams with SCIM provisioning](manage-users-teams/)
++- [Configure SCIM with Azure AD](azuread/)
++- [Configure SCIM with Okta](okta/)
+diff --git a/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/configure-scim-with-azuread/_index.md b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/configure-scim-with-azuread/_index.md
+new file mode 100644
+index 0000000000000..5c100a1ec6726
+--- /dev/null
++++ b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/configure-scim-with-azuread/_index.md
+@@ -0,0 +1,124 @@
++---
++description: Learn how to configure SCIM provisioning with Azure AD in Grafana Enterprise. This guide provides step-by-step instructions for setting up automated user and team management, including enterprise application configuration, service account creation, attribute mapping, and provisioning settings to ensure seamless integration between Azure AD and Grafana.
++keywords:
++  - grafana
++  - scim
++  - azure
++  - azure ad
++  - entra id
++  - provisioning
++  - user-management
++  - team-management
++labels:
++  products:
++    - cloud
++    - enterprise
++menuTitle: Configure SCIM with Azure AD
++title: Configure SCIM with Azure AD
++weight: 320
++---
++
++# Configure SCIM with Azure AD
++
++{{< admonition type="note" >}}
++Available in [Grafana Enterprise](../../../introduction/grafana-enterprise/) and [Grafana Cloud Advanced](/docs/grafana-cloud/).
++{{< /admonition >}}
++
++This guide explains how to configure SCIM provisioning with Azure AD to automate user and team management in Grafana.
++
++{{< admonition type="note" >}}
++This feature is behind the `enableSCIM` feature toggle.
++You can enable feature toggles through configuration file or environment variables.
++
++For more information, refer to the [feature toggles documentation](/docs/grafana/<GRAFANA_VERSION>/setup-grafana/configure-grafana/#feature_toggles).
++{{< /admonition >}}
++
++## Prerequisites
++
++Before configuring SCIM with Azure AD, ensure you have:
++
++- Grafana Enterprise or Grafana Cloud Advanced
++- Admin access to both Grafana and Azure AD
++- [SAML authentication configured with Azure AD](../../configure-authentication/saml/#set-up-saml-with-azure-ad)
++- SCIM feature enabled in Grafana
++
++## Configure SCIM in Grafana
++
++To enable SCIM provisioning in Grafana, create a service account and generate a service account token that will be used to authenticate SCIM requests from Azure AD.
++
++### Create a service account
++
++1. Navigate to **Administration > User Access > Service accounts**
++2. Click **Add new service account**
++3. Create a new access token and save it securely
++   - This token will be used in the Azure AD configuration
++
++## Configure SCIM in Azure AD
++
++Configure the enterprise application in Azure AD to enable automated user and team synchronization with Grafana. This involves creating a new application and setting up both authentication and provisioning.
++
++### Create the enterprise application
++
++1. Open Azure Portal Entra ID (Azure AD)
++2. Click **+ Add** dropdown
++3. Click **Add Enterprise Application**
++4. Click **+ Create Your Own Application**
++5. Name the application and select **non-gallery**
++
++### Configure provisioning
++
++1. In the application overview, select **Provisioning**
++2. Click **+ New Configuration**
++3. Configure the following settings:
++   - **Tenant URL:** `https://{grafana_url}/scim`
++   - **Secret Token:** Enter the service account token from Grafana
++4. Click **Test connection** to verify the configuration
++5. Click **Create** to save the settings
++
++### Configure attribute mappings
++
++{{< admonition type="note" >}}
++Only work email addresses are supported. Azure AD must be configured to use `emails[type eq "work"].value` for email mapping.
++{{< /admonition >}}
++
++Configure the following required attributes:
++
++| Azure AD Attribute.  | Grafana Attribute              |
++| -------------------- | ------------------------------ |
++| `userPrincipalName`  | `userName`                     |
++| `mail`               | `emails[type eq "work"].value` |
++| `displayName`        | `displayName`                  |
++
++### Enable provisioning
++
++1. Set **Provisioning Status** to **On**
++2. Configure the following settings:
++   - **Scope:** Select which users and groups to sync
++   - **Create users:** Enabled
++   - **Update users:** Enabled
++   - **Delete users:** Convert to disabled
++   - **Create groups:** Enabled
++   - **Update groups:** Enabled
++   - **Delete groups:** Disabled
++
++### Configure group provisioning
++
++To enable group synchronization:
++
++1. Navigate to the **Groups** tab in provisioning
++2. Enable **Group provisioning**
++3. Select the groups to synchronize with Grafana
++4. Save the changes
++
++## Test the integration
++
++After completing the configuration:
++
++1. Test the SCIM connector in Azure AD
++2. Assign a test user to the application
++3. Verify the user is provisioned in Grafana
++4. Test group synchronization if configured
++
++## Troubleshooting
++
++For common issues and solutions when working with SCIM provisioning, refer to the [SCIM troubleshooting guide](../troubleshooting/).
+diff --git a/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/configure-scim-with-okta/_index.md b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/configure-scim-with-okta/_index.md
+new file mode 100644
+index 0000000000000..75a2b8b77c12b
+--- /dev/null
++++ b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/configure-scim-with-okta/_index.md
+@@ -0,0 +1,96 @@
++---
++description: Learn how to configure SCIM provisioning with Okta in Grafana. This guide provides step-by-step instructions for setting up automated user and team management, including SAML configuration, service account creation, attribute mapping, and provisioning settings to ensure seamless integration between Okta and Grafana.
++keywords:
++  - grafana
++  - scim
++  - okta
++  - provisioning
++  - user-management
++  - team-management
++labels:
++  products:
++    - cloud
++    - enterprise
++menuTitle: Configure SCIM with Okta
++title: Configure SCIM with Okta
++weight: 320
++---
++
++# Configure SCIM with Okta
++
++{{< admonition type="note" >}}
++Available in [Grafana Enterprise](../../../introduction/grafana-enterprise/) and [Grafana Cloud Advanced](/docs/grafana-cloud/).
++{{< /admonition >}}
++
++This guide explains how to configure SCIM provisioning with Okta to automate user and team management in Grafana.
++
++{{< admonition type="note" >}}
++This feature is behind the `enableSCIM` feature toggle.
++You can enable feature toggles through configuration file or environment variables.
++
++For more information, refer to the [feature toggles documentation](/docs/grafana/<GRAFANA_VERSION>/setup-grafana/configure-grafana/#feature_toggles).
++{{< /admonition >}}
++
++## Prerequisites
++
++Before configuring SCIM with Okta, ensure you have:
++
++- Grafana Enterprise or Grafana Cloud Advanced
++- Admin access to both Grafana and Okta
++- [SAML authentication configured with Okta](../../configure-authentication/saml/#set-up-saml-with-okta)
++- SCIM feature enabled in Grafana
++
++## Configure SCIM in Grafana
++
++To enable SCIM provisioning in Grafana, create a service account and generate an access token that will be used to authenticate SCIM requests from Okta.
++
++### Create a service account
++
++1. Navigate to **Administration > User Access > Service accounts**
++2. Click **Add new service account**
++3. Create a new access token and save it securely
++   - This token will be used in the Okta configuration
++
++## Configure SCIM in Okta
++
++Configure both SAML authentication and SCIM provisioning in Okta to enable automated user and team synchronization with Grafana. Start by creating a SAML application, then enable and configure SCIM provisioning for that application.
++
++### Enable SCIM provisioning
++
++1. Navigate to the **General** tab of your SAML App Integration in Okta
++2. Enable SCIM provisioning
++   - A new provisioning tab will appear
++
++### Configure provisioning settings
++
++In the **To App** tab, enable:
++
++- Create Users
++- Update User Attributes
++- Deactivate Users
++
++### Configure SCIM integration
++
++In the **Integration** tab, configure:
++
++- **SCIM Connector base URL:**
++  ```
++  https://{resource_name}/apis/scim.grafana.app/v0alpha1/namespaces/stacks-{stack-id}
++  ```
++- **Unique identifier field:** userName
++- **Supported provisioning actions:**
++  - Import New Users and Profile Updates
++  - Push New Users
++  - Push Profile Updates
++
++## Test the integration
++
++After completing the configuration:
++
++1. Test the SCIM connector in Okta
++2. Assign a test user to the application
++3. Verify the user is provisioned in Grafana
++
++## Troubleshooting
++
++For common issues and solutions when working with SCIM provisioning, refer to the [SCIM troubleshooting guide](../troubleshooting/).
+diff --git a/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/manage-users-teams/_index.md b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/manage-users-teams/_index.md
+new file mode 100644
+index 0000000000000..79a00e9223b7d
+--- /dev/null
++++ b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/manage-users-teams/_index.md
+@@ -0,0 +1,160 @@
++---
++description: Learn how to implement SCIM provisioning in Grafana for automated user and team synchronization. SCIM integrates with identity providers like Okta and Azure AD to streamline user management, automate team provisioning, and replace Team Sync.
++keywords:
++  - grafana
++  - scim
++  - provisioning
++  - user-management
++  - team-management
++labels:
++  products:
++    - cloud
++    - enterprise
++menuTitle: Manage users and teams with SCIM
++title: Manage users and teams with SCIM
++weight: 310
++---
++
++# Manage users and teams with SCIM
++
++{{< admonition type="note" >}}
++Available in [Grafana Enterprise](../../../introduction/grafana-enterprise/) and [Grafana Cloud Advanced](/docs/grafana-cloud/).
++{{< /admonition >}}
++
++SCIM streamlines identity management in Grafana by automating user lifecycle and team membership operations. This guide explains how SCIM works with existing Grafana setups, handles user provisioning, and manages team synchronization.
++
++With SCIM, you can:
++
++- **Automate user lifecycle** from creation to deactivation
++- **Manage existing users** by linking them with identity provider identities
++- **Synchronize team memberships** based on identity provider group assignments
++- **Maintain security** through automated deprovisioning
++- **Replace Team Sync** with more robust SCIM group synchronization
++
++## User provisioning with SCIM
++
++SCIM provisioning works in conjunction with existing user management methods in Grafana. While SCIM automates user provisioning from the identity provider, users can still be created through SAML just-in-time provisioning when they log in, manually through the Grafana UI, or via automation tools like Terraform and the Grafana API. For the most consistent user management experience, we recommend centralizing user provisioning through SCIM.
++
++For detailed configuration steps specific to the identity provider, see:
++
++- [Configure SCIM with Azure AD](../configure-scim-azure/)
++- [Configure SCIM with Okta](../configure-scim-okta/)
++
++### How SCIM identifies users
++
++SCIM uses a specific process to establish and maintain user identity between the identity provider and Grafana:
++
++1. Initial user lookup:
++
++   - The identity provider looks up users in Grafana using the user's login and the Unique identifier field (configurable at IdP)
++   - The identity provider expects a single result from Grafana for each user
++
++2. Identity linking:
++
++   - The identity provider learns the relationship between the found Grafana user and Grafana's internal ID
++   - The identity provider updates Grafana with the External ID
++   - Grafana updates its authentication validations to expect this External ID
++
++3. Authentication validation:
++   - Grafana expects the SAML integration to return the same External ID in SAML assertions
++   - This External ID is used to validate that the logged-in user matches the provisioned user
++
++This process ensures secure and consistent user identification across both systems, preventing security issues that could arise from email changes or other user attribute modifications.
++
++### Existing Grafana users
++
++{{< admonition type="note" >}}
++Existing users must be assigned to the Grafana app in the identity provider to maintain access once SCIM is enabled.
++{{< /admonition >}}
++
++For users who already exist in the Grafana instance:
++
++- SCIM establishes the relationship through the External ID matching process
++- Creates a secure link with the identity provider identity
++- Preserves all existing settings and access
++- Keeps the account active and unchanged until assigned in the identity provider
++
++#### Handling users from other provisioning methods
++
++To prevent conflicts and maintain consistent user management, disable or restrict other provisioning methods when implementing SCIM. This ensures that all new users are created through SCIM and prevents duplicate or conflicting user records.
++
++- SAML Just-in-Time (JIT) provisioning:
++
++  - Disable `allow_sign_up` in SAML settings to prevent automatic user creation
++  - Existing JIT-provisioned users will continue to work but should be migrated to SCIM
++
++- Terraform or API provisioning:
++
++  - Stop creating new users through these methods
++  - Existing users will continue to work but should be migrated to SCIM
++  - Consider removing or archiving Terraform user creation resources
++
++- Manual user creation:
++  - Restrict UI-based user creation to administrators only
++  - Plan to migrate manually created users to SCIM
++
++### New users
++
++For users who don't yet exist in Grafana:
++
++- SCIM creates accounts when users are assigned to Grafana in the identity provider
++- Sets up initial access based on identity provider group memberships and SAML role mapping
++- No manual Grafana account creation needed
++
++### Role management
++
++SCIM handles user synchronization but not role assignments. Role management is handled through [Role Sync](../../configure-authentication/saml#configure-role-sync), and any role changes take effect during user authentication.
++
++## Team provisioning with SCIM
++
++SCIM provides automated team management capabilities that go beyond what Team Sync offers. While Team Sync only maps identity provider groups to existing Grafana teams, SCIM can automatically create and delete teams based on group changes in the identity provider.
++
++For detailed configuration steps specific to the identity provider, see:
++
++- [Configure SCIM with Azure AD](../configure-scim-azure/)
++- [Configure SCIM with Okta](../configure-scim-okta/)
++
++### SCIM vs Team Sync
++
++{{< admonition type="warning" >}}
++Do not enable both SCIM Group Sync and Team Sync simultaneously as these methods can conflict with each other.
++{{< /admonition >}}
++
++Choose one synchronization method:
++
++- If you enable SCIM, disable Team Sync and use SCIM for team management
++- If you prefer Team Sync, do not enable SCIM provisioning
++
++{{< admonition type="warning" >}}
++**Migration Considerations:** Currently, there is no official migration path or tooling available for transitioning from Team Sync to SCIM Group Sync. Attempting to migrate without proper tooling can lead to service disruption, loss of team permissions, and potential access issues. We recommend keeping your existing Team Sync setup until official migration tooling becomes available.
++{{< /admonition >}}
++
++### Key differences
++
++SCIM Group Sync provides several advantages over Team Sync:
++
++- **Automatic team creation:** SCIM automatically creates Grafana teams when new groups are added to the identity provider
++- **Automatic team deletion:** SCIM removes teams when their corresponding groups are deleted from the identity provider
++- **Real-time updates:** Team memberships are updated immediately when group assignments change
++- **Simplified management:** No need to manually create teams in Grafana before mapping them
++
++### How team synchronization works
++
++SCIM manages teams through the following process:
++
++Group assignment:
++
++- User is assigned to groups in the identity provider
++- SCIM detects group membership changes
++
++Team creation and mapping:
++
++- Creates Grafana teams for new identity provider groups
++- Maps users to appropriate teams
++- Removes users from teams when group membership changes
++
++Team membership maintenance:
++
++- Continuously syncs team memberships
++- Removes users from teams when removed from groups
++- Updates team memberships when groups change
+diff --git a/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/troubleshooting/_index.md b/docs/sources/setup-grafana/configure-security/configure-scim-provisioning/troubleshooting/_index.md
+new file mode 100644
+index 0000000000000..e69de29bb2d1d

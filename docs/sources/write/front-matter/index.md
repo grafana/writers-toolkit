@@ -384,11 +384,12 @@ To add a new image, refer to [Where to store media assets](https://grafana.com/d
 
 ### Refs
 
-Use the `refs` front matter with `ref` URIs to link to different pages in reused content.
+For most links, the automatic mount links behavior is correct but there may be times where you want to explicitly control the multiple destinations for a link.
+To do this, use `ref` URIs and `refs` front matter.
 
 {{< docs/shared source="writers-toolkit" lookup="refs-example.md" leveloffset="+3" >}}
 
-For more information, refer to [Link from source content that's used in multiple projects](https://grafana.com/docs/writers-toolkit/write/links/#link-from-source-content-thats-used-in-multiple-projects).
+For more information, refer to [`ref` URIs](https://grafana.com/docs/writers-toolkit/write/links/#ref-uris).
 
 ### Review date
 
@@ -412,7 +413,6 @@ You should prefer to update the filename instead of using the `slug` front matte
 
 Hugo uses the `title` to generate the sidebar table of contents if there is no `menuTitle` specified in the front matter.
 Your `title` should match your first heading and URL slug for search engine optimization (SEO).
-The `doc-validator` linter enforces this.
 
 The `title` becomes the document title element in the HTML.
 Often, browsers display this in the tab for the page.

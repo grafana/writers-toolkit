@@ -2,14 +2,14 @@
   "author": "@jdbaldry",
   "dependencies": {
     "@actions/core": "1.11.1",
-    "@octokit/graphql": "8.2.1",
+    "@octokit/graphql": "8.2.2",
     "@octokit/rest": "21.1.1"
   },
   "description": "Adds all issues labeled `type/docs` to the Docs organization project.",
   "devDependencies": {
-    "@types/node": "22.13.12",
+    "@types/node": "22.15.17",
     "ts-node": "10.9.2",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "engines": {
     "node": ">=22",

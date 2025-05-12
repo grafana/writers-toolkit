@@ -25,10 +25,35 @@ The website team maintains shortcode templates in the `layouts/shortcodes` folde
 To request custom shortcodes, [create an issue](https://github.com/grafana/writers-toolkit/issues).
 {{< /admonition >}}
 
+<!-- vale Grafana.Spelling = NO -->
+
+## Anchorize
+
+<!-- vale Grafana.Spelling = YES -->
+
+The `anchorize` shortcode inserts the anchor fragment for the provided first argument.
+You can use the anchor fragment in URLs to link to HTML tags with specific identifiers.
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| position 0 | String      | yes      |
+
+### Example
+
+The following example inserts the anchor fragment for `Writers' Toolkit`.
+
+```markdown
+{{</* anchorize "Writers' Toolkit" */>}}
+```
+
+Produces:
+
+{{< anchorize "Writers' Toolkit" >}}
+
 ## Admonition
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
-The style depends on the admonition type as defined in Writers' Toolkit [Style conventions]({{< relref "../style-guide/style-conventions" >}}).
+The style depends on the admonition type as defined in Writers' Toolkit [Style conventions](../markdown-guide/#images).
 
 The content of the admonition must be within opening and closing tags,
 and the type of admonition must be within quotes.
@@ -403,6 +428,18 @@ It can render as inline code, a table row, or a full table of the output.
 | `output`  | One of `"table"`, `"row"`, or `"string"`. The default is `"table"`. | no       |
 
 For specific usage instructions, refer to [Use the `docs/alias` shortcode](https://grafana.com/docs/writers-toolkit/write/front-matter/#use-the-docsalias-shortcode).
+
+## Docs/copy
+
+The `docs/copy` shortcode injects general copy maintained in the website repository data.
+
+The Grafana Labs technical documentation team maintains the copy internally.
+If you are a Grafana Labs employee and want to make changes, edit [`copy.yaml`](https://github.com/grafana/website/blob/master/data/docs/copy.yaml).
+If you aren't a Grafana Labs employee, request changes by [creating an issue](https://github.com/grafana/writers-toolkit/issues/new).
+
+| Parameter | Description                              | Required |
+| --------- | ---------------------------------------- | -------- |
+| `name`    | The name of a key in the data YAML file. | yes      |
 
 ## Docs/experimental-deployment
 
@@ -1094,6 +1131,46 @@ The following shortcode inserts a lists of links to child pages and includes the
 ```markdown
 {{</* section withDescriptions="true"*/>}}
 ```
+
+## Shared
+
+The `shared` shortcode sets up a snippet for sharing.
+You can reuse that snippet in another page with the [`shared-snippet`](#shared-snippet) shortcode.
+
+| Parameter | Description                                                     | Required |
+| --------- | --------------------------------------------------------------- | -------- |
+| id        | Identifier to give to the snippet that's unique within the page | yes      |
+
+## Shared snippet
+
+The `shared-snippet` shortcode includes a section of another page marked between `section` HTML tags.
+You should only use the shortcode in [learning journeys](/docs/learning-journeys/).
+
+To set up a snippet for sharing, wrap it in the `shared` shortcode with a meaningful ID.
+For example:
+
+```markdown
+{{< shared id="dashboard-overview" >}}
+A Grafana dashboard is a set of one or more [panels](/docs/grafana/<GRAFANA_VERSION>/panels-visualizations/panel-overview/), organized and arranged into one or more rows, that provide an at-a-glance view of related information. These panels are created using components that query and transform raw data from a data source into charts, graphs, and other visualizations.
+{{< /shared >}}
+```
+
+You can then use that section in another page using the `shared-snippet` shortcode:
+
+```markdown
+{{%/* shared-snippet path="/docs/grafana/next/dashboards/_index.md" id="dashboard-overview" */%}}
+```
+
+{{< admonition type="note" >}}
+You must use the percent (`%`) shortcode syntax for the `shared-snippet` shortcode because it returns Markdown rather than HTML.
+
+The `shared` shortcode returns its inner content as HTML and should use the usual shortcode syntax.
+{{< /admonition >}}
+
+| Parameter | Description                                                    | Required |
+| --------- | -------------------------------------------------------------- | -------- |
+| path      | Path to the page source                                        | yes      |
+| id        | Identifier that matches the `id` set on the `shared` shortcode | yes      |
 
 ## Table of contents
 

@@ -45,6 +45,7 @@ inputs:
     default: false
     description: |
       Set to true for repositories that only release from tags and don't maintain long lived release branches.
+    type: boolean
   website_branch:
     default: master
     description: |
@@ -66,7 +67,7 @@ runs:
       # Tags aren't necessarily made to the HEAD of the branch.
       # The documentation to be published is always on the HEAD of the branch.
       # However, if the repository only releases from tags, there's no release branch to check out.
-      if: github.ref_type == 'tag' && !inputs.tags_only
+      if: github.ref_type == 'tag' && inputs.tags_only == 'false'
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
         GITHUB_REF: ${{ github.ref }}
@@ -84,7 +85,7 @@ runs:
       shell: bash
 
     - name: Build website
-      uses: grafana/writers-toolkit/build-website@4b1248585248751e3b12fd020cf7ac91540ca09c # build-website/v1.0.1
+      uses: grafana/writers-toolkit/build-website@44d8e2b29fbbdba5c3614ddcfc29be47e5f9e61c # build-website/v1
       with:
         source_directory: ${{ inputs.source_directory }}
         website_directory: ${{ inputs.website_directory }}
@@ -96,7 +97,7 @@ runs:
           PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID=docs-team/publish-technical-documentation:app-id
           PUBLISH_TECHNICAL_DOCUMENTATION_PRIVATE_KEY=docs-team/publish-technical-documentation:key
 
-    - uses: actions/create-github-app-token@af35edadc00be37caa72ed9f3e6d5f7801bfdf09 # v1.11.7
+    - uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
       id: app-token
       with:
         app-id: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID }}

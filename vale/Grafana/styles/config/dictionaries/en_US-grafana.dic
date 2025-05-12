@@ -1,4 +1,4 @@
-362
+365
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -30,6 +30,7 @@ blackbox/ po:noun
 blocklist/DGS po:verb
 blocklist/S po:noun
 blockquote/S po:noun
+Bollinger/ po:noun
 boolean/ po:noun
 BoringCrypto/ po:noun
 BPF/ po:noun
@@ -65,6 +66,7 @@ CSV/S po:noun
 CVE/S po:noun
 data center/S po:noun
 data source/S po:noun
+datagrid/S po:noun
 dataset/S po:noun
 Data Firehose/ po:noun
 Databricks/ po:noun
@@ -103,6 +105,7 @@ FreeBSD/ po:noun
 frontend/S po:noun
 GEM/ po:noun
 geomap/S po:noun
+geospatial/ po:adjective
 GKE/ po:noun
 Git/ po:noun
 GitHub/ po:noun
@@ -232,7 +235,7 @@ Profiles Drilldown/ po:noun
 Prometheus/ po:noun
 Promtail/ po:noun
 PromQL/ po:noun
-provision/dD po:verb
+provision/dDG po:verb
 proxy/DG po:verb
 Puppetfile/S po:noun
 PVC/S po:noun
@@ -356,6 +359,7 @@ windows_exporter/S po:noun
 worktree/ po:noun
 XML/ po:noun
 XSS/ po:noun
+xy chart/S po:noun
 YAML/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective

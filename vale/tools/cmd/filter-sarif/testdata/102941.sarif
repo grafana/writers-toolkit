@@ -1,0 +1,215 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Vale",
+          "informationUri": "https://vale.sh",
+          "version": "0.1.0"
+        }
+      },
+      "results": [
+       {
+          "ruleId": "Grafana.WordList",
+          "level": "warning",
+          "message": {
+            "markdown": "Use 'free-form' or 'user-written' instead of 'ad-hoc'.\n\nFor more information, refer to \u003chttps://grafana.com/docs/writers-toolkit/write/style-guide/word-list/\u003e.\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.WordList%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).\n\nTo fix this, Replace the matched content with one of the following:\n\n- `free-form`\n- `user-written`.",
+            "text": "Use 'free-form' or 'user-written' instead of 'ad-hoc'.\n\nFor more information, refer to https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/.\n\nTo fix this, Replace the matched content with one of the following:\n\n- `free-form`\n- `user-written`."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 387,
+                  "endColumn": 392
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.WordList",
+          "level": "warning",
+          "message": {
+            "markdown": "Use 'free-form' or 'user-written' instead of 'ad-hoc'.\n\nFor more information, refer to \u003chttps://grafana.com/docs/writers-toolkit/write/style-guide/word-list/\u003e.\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.WordList%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).\n\nTo fix this, Replace the matched content with one of the following:\n\n- `free-form`\n- `user-written`.",
+            "text": "Use 'free-form' or 'user-written' instead of 'ad-hoc'.\n\nFor more information, refer to https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/.\n\nTo fix this, Replace the matched content with one of the following:\n\n- `free-form`\n- `user-written`."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 75,
+                  "endColumn": 80
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.WordList",
+          "level": "warning",
+          "message": {
+            "markdown": "Use 'After' instead of 'Once'.\n\nFor more information, refer to \u003chttps://grafana.com/docs/writers-toolkit/write/style-guide/word-list/\u003e.\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.WordList%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).\n\nTo fix this, Replace the matched content with one of the following:\n\n- `After`.",
+            "text": "Use 'After' instead of 'Once'.\n\nFor more information, refer to https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/.\n\nTo fix this, Replace the matched content with one of the following:\n\n- `After`."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 133,
+                  "endColumn": 136
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.WordList",
+          "level": "warning",
+          "message": {
+            "markdown": "Use 'data sources' instead of 'datasources'.\n\nFor more information, refer to \u003chttps://grafana.com/docs/writers-toolkit/write/style-guide/word-list/\u003e.\n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.WordList%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).\n\nTo fix this, Replace the matched content with one of the following:\n\n- `data sources`.",
+            "text": "Use 'data sources' instead of 'datasources'.\n\nFor more information, refer to https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/.\n\nTo fix this, Replace the matched content with one of the following:\n\n- `data sources`."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 541,
+                  "endColumn": 551
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'datasources'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20datasources) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. \n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'datasources'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20datasources) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 541,
+                  "endColumn": 551
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. \n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 76,
+                  "endColumn": 78
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. \n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 179,
+                  "endColumn": 181
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. \n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 61,
+                  "endColumn": 63
+                }
+              }
+            }
+          ]
+        },
+       {
+          "ruleId": "Grafana.Spelling",
+          "level": "error",
+          "message": {
+            "markdown": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. \n\nIf the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3A%20%3CISSUE%3E).\n\nIf you have reason to diverge from the style guidance,\nto skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).",
+            "text": "Did you really mean 'dev'? The Grafana dictionary might not know of this word yet. To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/). Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%3A%20dev) and a maintainer will add it for you. For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with bold formatting. For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold). The spell checker doesn't check words with code formatting. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/sources/upgrade-guide/when-to-upgrade/index.md"
+                },
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 19,
+                  "endColumn": 21
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

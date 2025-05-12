@@ -19,7 +19,7 @@ local word = import './word.jsonnet';
   word.new('Prometheus', '', 'noun') { product: true, swaps: { '(?<!kube-)prometheus': 'Prometheus' } },
   word.new('Promtail', '', 'noun') { product: true, swaps: { '(?<!lambda-)promtail': 'Promtail' } },
   word.new('PromQL', '', 'noun') { description: 'The Prometheus query language', swaps: { 'prom(?:ql|QL)': 'PromQL' } },
-  word.new('provision', 'dD', 'verb'),
+  word.new('provision', 'dDG', 'verb'),
   word.new('proxy', 'DG', 'verb'),
   word.new('Puppetfile', 'S', 'noun'),
   word.new('PVC', 'S', 'noun') { abbreviation: true, elaboration: 'Persistent Volume Claim' },

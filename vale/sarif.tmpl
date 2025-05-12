@@ -24,20 +24,20 @@
       {{ $level = "note" -}}
     {{ end -}}
 
-    {{ $markdown := .Message -}}
-    {{ $text := .Message -}}
+    {{ $message := splitList ". " .Message -}}
+    {{ $markdown := join ".\n\n" $message -}}
+    {{ $text := first $message -}}
 
     {{ with .Link -}}
+      {{ $text = printf "%s. For more information, refer to %s." $text . -}}
       {{ $markdown = printf "%s\n\nFor more information, refer to <%s>." $markdown . -}}
-      {{ $text = printf "%s\n\nFor more information, refer to %s." $text . -}}
     {{ end -}}
 
     {{ $markdown := printf `%s
 
 If the rule is incorrect or needs improving, [report an issue](https://github.com/grafana/writers-toolkit/issues/new?title=%s%%20%%3A%%20%%3CISSUE%%3E).
 
-If you have reason to diverge from the style guidance,
-to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).`
+If you have reason to diverge from the style guidance, to skip a rule, refer to [Skip rules](https://grafana.com/docs/writers-toolkit/review/lint-prose/#skip-rules).`
     $markdown .Check -}}
 
     {{ $help := "" -}}

@@ -1,5 +1,7 @@
 name: deploy-preview
 
+permissions: {}
+
 on:
   workflow_call:
     inputs:
@@ -81,6 +83,16 @@ on:
 
 env:
   CLOUD_RUN_REGION: us-south1
+  SHA: ${{ inputs.sha }}
+  BRANCH: ${{ inputs.branch }}
+  EVENT_NUMBER: ${{ inputs.event_number }}
+  TITLE: ${{ inputs.title }}
+  REPO: ${{ inputs.repo }}
+  SOURCE_DIRECTORY: ${{ inputs.source_directory }}
+  WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
+  INDEX_FILE: ${{ inputs.index_file }}
+  RELATIVE_PREFIX: ${{ inputs.relative_prefix }}
+  SOURCES: ${{ inputs.sources }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
@@ -161,14 +173,14 @@ jobs:
         shell: bash
         env:
           # Legacy input.
-          SOURCE_DIRECTORY: ${{ inputs.source_directory }}
-          WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
-          INDEX_FILE: ${{ inputs.index_file }}
-          REPO: ${{ inputs.repo }}
+          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
+          INDEX_FILE: ${{ env.INDEX_FILE }}
+          REPO: ${{ env.REPO }}
           # End legacy input.
           GH_TOKEN: ${{ github.token }}
-          SOURCES: ${{ inputs.SOURCES }}
-          BRANCH: ${{ inputs.branch }}
+          SOURCES: ${{ env.SOURCES }}
+          BRANCH: ${{ env.BRANCH }}
         run: ./deploy-preview-files/deploy-preview/build
 
       - name: Print build header value
@@ -179,7 +191,7 @@ jobs:
         run: |
           printf "%s" "add_header 'Build' '"${SHA}"';" > build.conf
 
-      - uses: google-github-actions/auth@71f986410dfbc7added4569d411d040a91dc6935 # v2.1.8
+      - uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: gcloud-auth
         with:
@@ -201,10 +213,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
         with:
-          images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}"
+          images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}"
           tags: |-
-            "${{ inputs.sha }}"
-            "${{ inputs.event_number }}"
+            "${{ env.SHA }}"
+            "${{ env.EVENT_NUMBER }}"
 
       - name: Set up Docker Buildx
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -215,7 +227,7 @@ jobs:
 
       - name: Build the container
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
-        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
+        uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0
         id: build
         with:
           context: .
@@ -223,7 +235,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           file: ./deploy-preview-files/deploy-preview/Dockerfile
 
-      - uses: google-github-actions/auth@71f986410dfbc7added4569d411d040a91dc6935 # v2.1.8
+      - uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
         id: gcloud-auth-cloud-run
         with:
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
@@ -234,8 +246,8 @@ jobs:
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: deploy
         with:
-          image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ inputs.repo }}:${{ inputs.sha }}
-          service: deploy-preview-${{ inputs.repo }}-${{ inputs.event_number }}
+          image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}:${{ env.SHA }}
+          service: deploy-preview-${{ env.REPO }}-${{ env.EVENT_NUMBER }}
           project_id: grafanalabs-dev
           region: ${{ env.CLOUD_RUN_REGION }}
           flags: --port=80 --ingress=all --allow-unauthenticated
@@ -253,8 +265,8 @@ jobs:
           EVENT_NUMBER: ${{ inputs.event_number }}
         run: |
           SERVICE_NAME="deploy-preview-${REPO}-${EVENT_NUMBER}"
-          if gcloud run services describe $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev > /dev/null 2>&1; then
-            gcloud run services delete $SERVICE_NAME --region=${{ env.CLOUD_RUN_REGION }} --project=grafanalabs-dev --quiet
+          if gcloud run services describe $SERVICE_NAME --region=$CLOUD_RUN_REGION --project=grafanalabs-dev > /dev/null 2>&1; then
+            gcloud run services delete $SERVICE_NAME --region=$CLOUD_RUN_REGION --project=grafanalabs-dev --quiet
           else
             echo "Service $SERVICE_NAME does not exist. Skipping step."
           fi
@@ -269,11 +281,11 @@ jobs:
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
-        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        if: "!env.WEBSITE_DIRECTORY && (github.event.action == 'opened' || github.event.action == 'synchronize')"
         with:
           name: deploy_preview
           status: "${{ job.status }}"
-          url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(inputs.sources))[0].relative_prefix }}"
+          url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(env.SOURCES))[0].relative_prefix }}"
           description: "Public deploy preview"
 
       - name: Get preview URLs
@@ -289,9 +301,9 @@ jobs:
         if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}$RELATIVE_PREFIX
 
       - name: Create comment with available deploy preview
         if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''"
@@ -306,7 +318,7 @@ jobs:
         if: github.event.action == 'closed'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           comment-id: ${{ steps.fc.outputs.comment-id }}
           edit-mode: replace
           body: |
@@ -318,7 +330,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
             :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
@@ -328,7 +340,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ inputs.event_number }}
+          issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
             :computer: Deploy preview available:

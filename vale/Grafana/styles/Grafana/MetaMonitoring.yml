@@ -7,3 +7,4 @@ action:
   name: replace
 swap:
   "meta ?monitoring": meta-monitoring
+  "meat ?monitoring": meta-monitoring

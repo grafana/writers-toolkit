@@ -68,7 +68,7 @@ jobs:
       contents: read
       pull-requests: write
     container:
-      image: grafana/vale:latest@sha256:55bf7dcba4ceac896b55225084bdb0b27e2e2f70c1398313bee13cb45eb60a95
+      image: grafana/vale:latest@sha256:dc7c7e77329463db4c9a39ecb70c5b1e3760b53e7476463c5d289c717acb6f4a
     name: Report readability
     runs-on: ubuntu-latest
     steps:

@@ -39,7 +39,18 @@
     {
       // Run the custom matcher on early Monday mornings (UTC)
       schedule: "* 0-4 * * 1",
-      matchPackageNames: ["ghcr.io/renovatebot/renovate"],
+    },
+    {
+      matchFileNames: [ "vale/tools/go.mod" ],
+      matchPackageNames: ["github.com/grafana/writers-toolkit/tools",],
+      enabled: false,
+      description: "This is a depdency from the same repository",
+    },
+    {
+      matchPackagePatterns: ["grafana/vale"],
+      matchDatasources: ["docker"],
+      enabled: false,
+      description: "The repository publishes this image on every push.",
     },
   ],
   platformCommit: "enabled",

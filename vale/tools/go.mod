@@ -3,9 +3,9 @@ module github.com/grafana/writers-toolkit/vale/tools
 go 1.23.3
 
 require (
+	github.com/google/go-github/v71 v71.0.0
 	github.com/google/go-github/v72 v72.0.0
-	github.com/google/go-github/v72 v72.0.0
-	github.com/grafana/writers-toolkit/tools v0.0.0-20250108111324-7ed051741521
+	github.com/grafana/writers-toolkit/tools v0.0.0-20250512073351-ab95d9c48d3a
 	github.com/sourcegraph/go-diff v0.7.0
 	github.com/stretchr/testify v1.10.0
 )

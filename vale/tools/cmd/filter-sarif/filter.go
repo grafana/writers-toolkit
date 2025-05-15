@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/google/go-github/v71/github"
+	"github.com/google/go-github/v72/github"
 	"github.com/grafana/writers-toolkit/vale/tools/cmd/filter-sarif/sarif"
 	"github.com/sourcegraph/go-diff/diff"
 )

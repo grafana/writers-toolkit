@@ -47,6 +47,12 @@
       description: "This is a depdency from the same repository",
     },
     {
+      matchFileNames: [ "vale/tools/go.mod" ],
+      matchPackageNames: ["github.com/google/go-github",],
+      enabled: false,
+      description: "The version bumps don't get reflected in the code imports.",
+    },
+    {
       matchPackagePatterns: ["grafana/vale"],
       matchDatasources: ["docker"],
       enabled: false,

@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-03-18"
+review_date: "2025-05-17"
 title: Vale rules
 ---
 
@@ -81,10 +81,12 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.ReadabilityLIX = NO -->
 <!-- vale Grafana.ReadabilitySMOG = NO -->
 <!-- vale Grafana.ReferTo = NO -->
+<!-- vale Grafana.Relref = NO -->
 <!-- vale Grafana.RepeatedWords = NO -->
 <!-- vale Grafana.SQL = NO -->
 <!-- vale Grafana.SelfManaged = NO -->
 <!-- vale Grafana.Shortcodes = NO -->
+<!-- vale Grafana.Simple = NO -->
 <!-- vale Grafana.SmartQuotes = NO -->
 <!-- vale Grafana.Spelling = NO -->
 <!-- vale Grafana.Timeless = NO -->
@@ -311,6 +313,8 @@ Extends: script
 
 br elements must be used only for line breaks that are actually part of the content, as in poems or addresses.
 
+In tables, instead of br elements, use p for paragraphs, and ul or ol for list items.
+
 [More information ->](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element)
 
 ### Grafana.Please
@@ -339,6 +343,16 @@ When linking in Markdown, use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>
 | `see \[`       | `refer to [`     |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#links-and-references)
+
+### Grafana.Relref
+
+Extends: script
+
+Don't use the relref shortcode for any links as they don't follow redirects and have confusing semantics.
+
+Instead use one of the links described in [links](https://grafana.com/docs/writers-toolkit/write/links/).
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/links/)
 
 ### Grafana.RepeatedWords
 
@@ -493,8 +507,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ unless you're referring
 
 Extends: script
 
-Don't add `$` or `#` as prompts before commands.
-Make it easy for users to copy and paste commands.
+Don't add `$` or `#` as prompts before commands so users can copy and paste them.
 
 Also, don't use `#` to include comments in commands.
 That explanation should be outside of the code block.
@@ -719,6 +732,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 | Current text       | Replacement text  |
 | ------------------ | ----------------- |
+| `meat ?monitoring` | `meta-monitoring` |
 | `meta ?monitoring` | `meta-monitoring` |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#meta-monitoring)
@@ -802,6 +816,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `InfluxDB's`
 - `Jaeger's`
 - `Jira's`
+- `JMESPath's`
 - `journald's`
 - `Jsonnet's`
 - `Kibana's`
@@ -969,6 +984,23 @@ The percent syntax is used for special behavior that isn't required with this sh
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition)
 
+### Grafana.Simple
+
+Extends: existence
+
+Avoid the word easy or simple -- what might be simple for you might not be simple for others.
+
+Try eliminating this word from the sentence because usually you can convey the same meaning without it.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `easy(?![ -]to[ -]understand)`
+- `easily`
+- `simple`
+- `simply`
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#simple)
+
 ### Grafana.SmartQuotes
 
 Extends: script
@@ -1007,6 +1039,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `(?:WiFi\|wifi)`                                                  | `Wi-Fi`                    |
 | `(?:[Oo]penshift\|openShift)`                                     | `OpenShift`                |
 | `(?:[eE]-mail)`                                                   | `email`                    |
+| `(?:[jJ][mM][eE][sS]p\|jmesP)ath`                                 | `JMESPath`                 |
 | `(?:[oO]pentelemetry\|openTelemetry)`                             | `OpenTelemetry`            |
 | `(?:alert[Mm]anager\|[Aa]lert [Mm]anager\|AlertManager)`          | `Alertmanager`             |
 | `(?:cell ?phone\|smart ?phone)`                                   | `phone\|mobile phone`      |

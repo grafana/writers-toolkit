@@ -20,6 +20,8 @@ This section includes capitalization and punctuation guidelines.
 
 Write headings in sentence case.
 
+Refer to [Headings and titles](https://developers.google.com/style/headings) in the [Google developer documentation style guide](https://developers.google.com/style/) for more information.
+
 Consult the following capitalization guidelines when you write.
 
 ### Sentence case

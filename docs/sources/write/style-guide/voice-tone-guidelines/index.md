@@ -25,13 +25,13 @@ The tone you choose reflects the urgency of your message and can therefore chang
 
 Consult the following voice and tone guidelines when you write technical documentation.
 
-### Project confidence
+## Project confidence
 
 You know the subject matter better than anyone.
 Let your style reflect your expertise.
 Write in an authoritative tone to evoke confidence in your reader.
 
-### Be conversational
+## Be conversational
 
 <!-- vale Grafana.Simple = NO -->
 
@@ -41,7 +41,7 @@ Keep your language simple and straightforward.
 
 <!-- vale Grafana.Simple = YES -->
 
-### Tone
+## Tone
 
 A casual tone is accepted in UI copy and supporting material compared to traditional business writing.
 
@@ -49,19 +49,25 @@ As long as they allow for shorter sentences, you can use the words _and_, _but_,
 
 Use contractions like _isn't_ for _is not_ to help to convey an informal tone.
 
-### Task completion
+## Task completion
 
 Provide the user with just enough information to complete a task.
 Inform the user that something has happened as expected once the task is completed.
 
-### Learning
+In headings for tasks, use a verb that clearly describes the action completed by the task.
+Avoid using gerunds in headings.
+For example, use "Configure metrics-generator" as a heading instead of "Configuring metrics-generator".
+
+Refer to [Headings and titles](https://developers.google.com/style/headings) in the [Google developer documentation style guide](https://developers.google.com/style/) for more information.
+
+## Learning
 
 There are times when it's helpful to explain or educate users more.
 It's important to Grafana Labs that users feel confident about their actions and Grafana Labs' product capabilities.
 
 Don't just teach people how to perform an action, but also why they should.
 
-### Motivation
+## Motivation
 
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This is talking about the future next steps -->

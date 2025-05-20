@@ -67,7 +67,7 @@ It's important to Grafana Labs that users feel confident about their actions and
 
 Don't just teach people how to perform an action, but also why they should.
 
-### Motivation
+## Motivation
 
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This is talking about the future next steps -->

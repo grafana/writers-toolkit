@@ -21,7 +21,7 @@ Task topics include numbered steps that describe how to achieve an outcome.
 
 A _task_ topic includes the following elements:
 
-- **Topic title:** Write a task topic title that combines a verb and an object.
+- **Topic title:** Write a task topic title that combines a verb and an object. The verb should describe the action completed by the task, for example, "Configure metrics-generator." Refer to [Headings and titles](https://developers.google.com/style/headings) in the [Google developer documentation style guide](https://developers.google.com/style/) for more information.
 
 - **Introduction:** Provide an introduction that explains why the end user should care about the task.
 

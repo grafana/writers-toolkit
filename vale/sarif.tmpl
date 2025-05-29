@@ -60,13 +60,13 @@ If you have reason to diverge from the style guidance, to skip a rule, refer to 
       {{ end -}}
       {{ if eq .Name "edit" }}{{/* https://vale.sh/docs/fixers/edit */ -}}
         {{ if and (gt (len .Params) 0) (eq (index .Params 0) "regex") -}}
-          {{ $help = "Perform the following regular expression substitution: `s/%s/%s/`" (index .Params 1) (index .Params 2) -}}
+          {{ $help = printf "Perform the following regular expression substitution: `s/%s/%s/`" (index .Params 1) (index .Params 2) -}}
         {{ end -}}
         {{ if and (gt (len .Params) 0) (eq (index .Params 0) "trim_right") -}}
-          {{ $help = "Trim `%s` from the end of the matched content" (index .Params 1) -}}
+          {{ $help = printf "Trim `%s` from the end of the matched content" (index .Params 1) -}}
         {{ end -}}
         {{ if and (gt (len .Params) 0) (eq (index .Params 0) "trim_left") -}}
-          {{ $help = "Trim `%s` from the start of the matched content" (index .Params 1) -}}
+          {{ $help = printf "Trim `%s` from the start of the matched content" (index .Params 1) -}}
         {{ end -}}
       {{ end -}}
     {{ end -}}

@@ -48,6 +48,7 @@ runs:
         path: .github/actions/website-sync
         persist-credentials: false
         repository: grafana/website-sync
+        ref: jdb/2025-05-commit-metadata
         token: ${{ steps.app-token.outputs.token }}
 
     - name: Sync to the website repository

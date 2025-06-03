@@ -507,6 +507,26 @@ This isn't rendered.
 
 This is rendered after the ignore.
 
+## Docs/learning-journeys
+
+The `docs/learning-journeys` shortcode produces a note admonition with the preferred copy for linking to a Grafana Learning Journey.
+
+| Parameter | Description                                | Required |
+| --------- | ------------------------------------------ | -------- |
+| `title`   | The title of the Grafana Learning Journey. | yes      |
+| `url`     | The URL of the Grafana Learning Journey.   | yes      |
+
+### Example
+
+```markdown
+{{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+```
+
+Produces:
+
+{{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+
+
 ## Docs/openapi/info
 
 Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.

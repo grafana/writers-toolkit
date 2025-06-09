@@ -509,7 +509,7 @@ This is rendered after the ignore.
 
 ## Docs/learning-journeys
 
-The `docs/learning-journeys` shortcode produces a note admonition with the preferred copy for linking to a Grafana Learning Journey.
+The `docs/learning-journeys` shortcode produces a call to action (CTA) that links to a Grafana Learning Journey.
 
 | Parameter | Description                                | Required |
 | --------- | ------------------------------------------ | -------- |
@@ -519,7 +519,7 @@ The `docs/learning-journeys` shortcode produces a note admonition with the prefe
 ### Example
 
 ```markdown
-{{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+{{</* docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" */>}}
 ```
 
 Produces:
@@ -594,7 +594,7 @@ Display only paths with the `enterprise` tag for the `grafana` data specificatio
 
 ## Docs/play
 
-The `docs/play` shortcode produces a note admonition with the preferred copy for linking to a Grafana Play dashboard.
+The `docs/play` shortcode produces a call to action (CTA) that links to a Grafana Play dashboard.
 
 | Parameter | Description                              | Required |
 | --------- | ---------------------------------------- | -------- |

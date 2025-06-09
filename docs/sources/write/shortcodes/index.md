@@ -519,7 +519,7 @@ The `docs/learning-journeys` shortcode produces a note admonition with the prefe
 ### Example
 
 ```markdown
-{{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+{{</* docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" */>}}
 ```
 
 Produces:

@@ -4,10 +4,17 @@ description: |
 
   All steps require the `contents: read` permission
 
-  To use the Vale step, you'll need the following additional permissions:
+
+  To use the build step, you'll need the following additional permissions:
 
   ```yaml
   checks: write
+  ```
+
+  To use the Vale step, you'll need the following additional permissions:
+
+  ```yaml
+  security-events: write
   ```
 on:
   workflow_call:

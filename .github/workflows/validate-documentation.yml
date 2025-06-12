@@ -13,6 +13,7 @@ jobs:
     permissions:
       contents: read
       checks: write
+      security-events: write
     uses: ./.github/workflows/docs-ci.yml
     with:
       build: true

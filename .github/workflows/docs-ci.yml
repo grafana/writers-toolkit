@@ -1,0 +1,84 @@
+name: Documentation CI
+description: |
+  This action provides consistent steps for documentation CI.
+
+  All steps require the `contents: read` permission
+
+  To use the Vale step, you'll need the following additional permissions:
+
+  ```yaml
+  checks: write
+  ```
+on:
+  workflow_call:
+    inputs:
+      build:
+        default: false
+        description: Whether to test a website build.
+        type: boolean
+      build-website-directory:
+        default: content/docs/test-build
+        description: Directory to mount documentation for the build job.
+
+      prettier:
+        default: false
+        description: Whether to enforce prettier formatting.
+        type: boolean
+
+      vale:
+        default: false
+        description: Whether to run the Vale linter.
+        type: boolean
+jobs:
+  prettier:
+    if: inputs.prettier
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 20
+      - run: |
+          npm install --no-save prettier
+          npx prettier -w docs/sources
+          if ! git diff --exit-code; then
+            echo 'Not all documentation has been formatted with `prettier`, run `npx prettier -w docs/sources` and commit the result to resolve the issue.'
+          fi
+  build:
+    if: inputs.build
+    permissions:
+      contents: read
+      checks: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Build website
+        uses: grafana/writers-toolkit/build-website@44d8e2b29fbbdba5c3614ddcfc29be47e5f9e61c # build-website/v1
+        with:
+          website_directory: ${{ inputs.build-website-directory }}
+
+  vale:
+    if: inputs.vale
+    permissions:
+      contents: read
+      security-events: write
+    runs-on: ubuntu-latest
+    container:
+      image: grafana/vale:latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event_name == 'push'
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: grafana/writers-toolkit/vale-action@f49dd90f007967990095ac2d18c5bdf37b412a5f # vale-action/v1.4.5

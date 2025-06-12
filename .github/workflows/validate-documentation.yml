@@ -10,18 +10,15 @@ on:
 
 jobs:
   ci:
-    if: github.repository == 'grafana/writers-toolkit'
     permissions:
       contents: read
       checks: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/workflows/docs-ci.yml
-        with:
-          build: true
-          build-website-directory: content/docs/writers-toolkit
-          prettier: true
-          vale: true
+    uses: ./.github/workflows/docs-ci.yml
+    with:
+      build: true
+      build-website-directory: content/docs/writers-toolkit
+      prettier: true
+      vale: true
 
   report-readability:
     if: github.repository == 'grafana/writers-toolkit' || github.event_name == 'pull_request'

@@ -19,6 +19,7 @@ on:
       build-website-directory:
         default: content/docs/test-build
         description: Directory to mount documentation for the build job.
+        type: string
 
       prettier:
         default: false

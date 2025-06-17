@@ -7,23 +7,11 @@ on:
     paths-ignore: ["docs/sources/**", "vale/**"]
 
 jobs:
-  doc-validator:
-    runs-on: "ubuntu-latest"
-    steps:
-      - run: echo 'No build required'
-  prettier:
-    runs-on: "ubuntu-latest"
-    steps:
-      - run: echo 'No build required'
-  vale:
+  ci: 
     runs-on: "ubuntu-latest"
     steps:
       - run: echo 'No build required'
   report-readability:
-    runs-on: "ubuntu-latest"
-    steps:
-      - run: echo 'No build required'
-  test:
     runs-on: "ubuntu-latest"
     steps:
       - run: echo 'No build required'

@@ -9,58 +9,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  prettier:
-    if: github.repository == 'grafana/writers-toolkit'
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: 20
-      - run: |
-          npm install --no-save prettier
-          npx prettier -w docs/sources
-          if ! git diff --exit-code; then
-            echo 'Not all documentation has been formatted with `prettier`, run `npx prettier -w docs/sources` to resolve'
-          fi
-  test:
-    if: github.repository == 'grafana/writers-toolkit'
+  ci:
     permissions:
       contents: read
       checks: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - name: Build website
-        uses: ./build-website
-        with:
-          website_directory: docs/writers-toolkit
-
-  vale:
-    if: github.repository == 'grafana/writers-toolkit'
-    permissions:
-      contents: read
       security-events: write
-    runs-on: ubuntu-latest
-    container:
-      image: grafana/vale:latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
-        with:
-          persist-credentials: false
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        if: github.event_name == 'push'
-        with:
-          fetch-depth: 2
-          persist-credentials: false
-      - uses: ./vale-action
+    uses: ./.github/workflows/docs-ci.yml
+    with:
+      build: true
+      build-website-directory: content/docs/writers-toolkit
+      prettier: true
+      vale: true
 
   report-readability:
     if: github.repository == 'grafana/writers-toolkit' || github.event_name == 'pull_request'

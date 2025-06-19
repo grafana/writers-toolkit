@@ -1,4 +1,4 @@
-366
+367
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -361,6 +361,7 @@ XML/ po:noun
 XSS/ po:noun
 xy chart/S po:noun
 YAML/ po:noun
+YugabyteDB/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective
 Zipkin/ po:noun

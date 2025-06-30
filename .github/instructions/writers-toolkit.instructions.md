@@ -102,7 +102,7 @@ cascade:
 
 # OpenTelemetry
 
-Markdown content...
+<MARKDOWN CONTENT>
 ```
 
 Only edit front matter copy if specifically asked to.
@@ -164,7 +164,7 @@ Before you begin ensure you have the following:
 - ...
 ```
 
-Suggest and link to next steps and related resources at the end of the article,
+If asked to do so, suggest and link to next steps and related resources at the end of the article,
 for example:
 
 - Learn more about A, B, C
@@ -305,7 +305,7 @@ Never use asterisks for unordered lists, for example:
 * List item 3 (wrong)
 ```
 
-Never use full stops at the end of unordered list items, for example:
+Use full stops at the end of list items if the item is a full sentence, otherwise, omit it.
 
 ```markdown
 - Works with all languages and frameworks (correct)
@@ -336,15 +336,6 @@ Always start the next list item immediately on the next line, for example:
 - List item 3
 ```
 
-Never use new lines between list items, for example:
-
-```markdown
-- List item 1
-
-- List item 2 (wrong)
-
-- List item 3 (wrong)
-```
 
 If a list starts with a keyword, bold the keyword and follow with a colon,
 for example:
@@ -498,7 +489,7 @@ Use the following values for option:
 
 - YAML/JSON, code, or parameter field if one exists for that configuration
 - Environment variable field if one exists for that configuration
-- If there is a YAML and Environment variable option separate them with `<br>`
+- Use semantic HTML inside table cells for multiple paragraphs or list items.
 
 Use a short sentence for the summary.
 After the summary sentence and in the same cell,

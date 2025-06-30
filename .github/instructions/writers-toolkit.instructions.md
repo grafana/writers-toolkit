@@ -607,3 +607,11 @@ for example don't delete shortcodes:
 ```markdown
 {{< docs/shared source="opentelemetry" lookup="grafana-cloud.md" version="" >}}
 ```
+
+## Learning journeys
+
+- [Learning journeys](learning-journey/learning-journey.instructions.md)
+- [_index.md frontmatter template](learning-journey/_index/frontmatter.yaml)
+- [_index.md Markdown content template](learning-journey/_index/markdown.md)
+- [step/index.md Frontmatter template](learning-journey/step/frontmatter.yaml)
+- [step/index.md Markdown content template](learning-journey/step/markdown.md)

@@ -1,7 +1,7 @@
 ---
 # Required fields – must be present in all learning journey _index.md files
 
-# Clear, goal-oriented title that matches the H1 heading in the content
+# Clear, goal-oriented title that presents a comprehensive, often multi-stage experience that guides users through a broader topic or set of related, connected technologies
 # Example: "Monitor Linux servers with Grafana Alloy"
 title: "<JOURNEY_TITLE>"
 
@@ -73,7 +73,7 @@ cta:
 # - Full title: "Monitor collector health using Grafana Fleet Management" → menuTitle: "Monitor collector health"
 menuTitle: "<SHORT_MENU_TITLE>"
 
-# SEO keywords for search optimization (3-5 relevant keywords)
+# Keywords for optimization (3 to 5 relevant keywords)
 keywords:
   - <KEYWORD_1> # Focus on main topics and products
   - <KEYWORD_2>

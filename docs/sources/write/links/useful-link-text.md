@@ -44,6 +44,7 @@ Using too many links on a page makes it difficult for a user to read the content
 ### Length
 
 - Keep link text short and concise.
+- Include all the words that help a user decide whether to follow the link.
 - Never start with articles: _a_, _an_, or _the_.
 - Don't link whole sentences; aim for a maximum of four to five words.
 

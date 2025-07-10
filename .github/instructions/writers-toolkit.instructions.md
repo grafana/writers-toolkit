@@ -308,7 +308,7 @@ Never use asterisks for unordered lists, for example:
 Use full stops at the end of list items if the item is a full sentence, otherwise, omit it.
 
 ```markdown
-- Works with all languages and frameworks (correct)
+- Works with all languages and frameworks. (correct)
 - Works with all languages and frameworks (wrong)
 ```
 

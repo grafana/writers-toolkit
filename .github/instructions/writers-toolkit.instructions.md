@@ -309,7 +309,7 @@ Use full stops at the end of list items if the item is a full sentence, otherwis
 
 ```markdown
 - Works with all languages and frameworks (correct)
-- Works with all languages and frameworks (wrong)
+- Works with all languages and frameworks. (wrong)
 ```
 
 Always start every ordered list item with 1, for example:

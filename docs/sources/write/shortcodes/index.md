@@ -526,7 +526,6 @@ Produces:
 
 {{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
 
-
 ## Docs/openapi/info
 
 Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
@@ -828,7 +827,7 @@ Without the shortcode:
 ## Figure
 
 The `figure` shortcode renders an image with a caption using an HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#usage_notes) element.
-This shortcode allows you more control over how to render an image, but if you don't need these options, you can use [basic Markdown to add images]({{< relref "../markdown-guide#images" >}}).
+This shortcode allows you more control over how to render an image, but if you don't need these options, you can use [Markdown to add images](../markdown-guide/#images).
 
 To add a figure, insert the `figure` shortcode with the following named parameters:
 

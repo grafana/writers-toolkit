@@ -29,6 +29,16 @@ Repositories that run Vale in CI include:
 - [`grafana/website`](https://github.com/grafana/website/blob/master/.github/workflows/vale.yml)
 - [`grafana/writers-toolkit`](https://github.com/grafana/writers-toolkit/blob/main/.github/workflows/validate-documentation.yml#L78-L88)
 
+## Lint from the command line
+
+Repositories with the `make docs` target also include a `make vale` target that lets you lint documentation from the command line.
+It runs Vale against all the documentation in the `docs/sources/` directory.
+
+To use the `make vale` target:
+
+1. Change to the `docs/` directory.
+1. Run `make vale`
+
 ## Skip CI
 
 You may want to skip linting for pull requests that move files that have linting issues or otherwise defer linting the content.

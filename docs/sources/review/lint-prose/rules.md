@@ -369,7 +369,7 @@ Did you really mean _`<CURRENT TEXT>`_?
 The Grafana dictionary might not know of this word yet.
 
 To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
-Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%%3A%%20%[1]s) and a maintainer will add it for you.
+Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3CWORD%3E) and a maintainer will add it for you.
 
 For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
 The spell checker doesn't check words with bold formatting.

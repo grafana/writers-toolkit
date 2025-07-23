@@ -58,6 +58,16 @@
       enabled: false,
       description: "The repository publishes this image on every push.",
     },
+     {
+      matchPackageNames: ["grafana/shared-workflows"],
+      versioning: "regex:^(?<compatibility>.*)[-/]v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+
+      // By default, the dependency name is the same as the package name.
+      // For Actions, this is `org/repo`. This means that we'd get all actions from `shared-workflows` in the same branch.
+      // The shared-workflows tag scheme contains the name of the action being update to as well, so we can grab it from there and set the dep name, then put this in the branch name.
+      overrideDepName: 'grafana/shared-workflows/{{ lookup (split newVersion "/") 0 }}',
+      additionalBranchPrefix: "{{depName}}",
+    },
   ],
   platformCommit: "enabled",
   rebaseWhen: "behind-base-branch",

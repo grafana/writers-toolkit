@@ -64,6 +64,14 @@ runs:
             });
           });
 
+    - name: Check for renamed files using the shared shortcode
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      with:
+        script: |
+          const script = require('./build-website/shared-shortcode.js');
+          await script({ context, core, github });
+
     - name: Build website
       env:
         IMAGE: ${{ inputs.image }}

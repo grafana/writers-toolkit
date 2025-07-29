@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## July 2025
+
+| New guidance or change            | Page                                                        |
+| --------------------------------- | ----------------------------------------------------------- |
+| Added `badge` to Shortcodes page. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#badge) |
+
 ## March 2025
 
 | New guidance or change                                     | Page                                                                                           |

@@ -27,6 +27,52 @@ To request custom shortcodes, [create an issue](https://github.com/grafana/write
 
 <!-- vale Grafana.Spelling = NO -->
 
+## Badge
+
+The `badge` shortcode renders a styled badge with configurable styling and optional tooltip annotation.
+The badge uses the same styling system as the documentation labels.
+
+| Parameter | Description                                                                                                                                             | Required |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `text`    | The text to display in the badge                                                                                                                        | yes      |
+| `style`   | The style of the badge. One of `stage`, `product-oss`, `product-enterprise`, `product-cloud`, `product-oss-enterprise`, `product-general`, or `support` | no       |
+| `tooltip` | Optional tooltip text that appears when hovering over the badge                                                                                         | no       |
+| `id`      | Optional unique identifier for the badge tooltip. If not provided, a unique ID is generated                                                             | no       |
+
+### Examples
+
+The following example renders a basic badge with the default `stage` styling:
+
+```markdown
+{{</* badge text="Generally Available" */>}}
+```
+
+and produces: {{< badge text="Generally Available" >}}
+
+The following example renders a badge with enterprise product styling:
+
+```markdown
+{{</* badge text="Enterprise" style="product-enterprise" */>}}
+```
+
+and produces: {{< badge text="Enterprise" style="product-enterprise" >}}
+
+The following example renders a badge with a tooltip:
+
+```markdown
+{{</* badge text="Beta" style="stage" tooltip="This feature is in beta and may change" */>}}
+```
+
+and produces: {{< badge text="Beta" style="stage" tooltip="This feature is in beta and may change" >}}
+
+The following example renders a badge with OSS-Enterprise combined styling and tooltip:
+
+```markdown
+{{</* badge text="Available" style="product-oss-enterprise" tooltip="This feature is available in both open source and enterprise editions" */>}}
+```
+
+and produces: {{< badge text="Available" style="product-oss-enterprise" tooltip="This feature is available in both open source and enterprise editions" >}}
+
 ## Anchorize
 
 <!-- vale Grafana.Spelling = YES -->

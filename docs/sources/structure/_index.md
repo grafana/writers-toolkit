@@ -76,110 +76,21 @@ You can use the following high-level topics to group content.
 When writing new content, consider where it should appear given this content structure.
 For example, a conceptual page explaining metrics would go under the _Introduction_ topic.
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Topic</th>
-      <th scope="col">Example link</th>
-      <th scope="col">Contents</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Introduction</em></td>
-      <td><a href=https://grafana.com/docs/grafana/latest/fundamentals/>Introduction to Grafana</a></td>
-      <td>Conceptual, fundamental, or architectural information.</td>
-    </tr>
-    <tr>
-      <td><em>Get started</em></td>
-      <td><a href=https://grafana.com/docs/tempo/latest/getting-started/>Get started with Grafana Tempo</a></td>
-      <td>Opinionated walk-throughs and tutorials.</td>
-    </tr>
-    <tr>
-      <td><em>Set up</em></td>
-      <td><a href=https://grafana.com/docs/grafana/latest/setup-grafana/>Set up Grafana</a></td>
-      <td>System requirements, and subsections titled <em>Set up</em>, <em>Configure</em>, <em>Upgrade</em>, or <em>Migrate</em>.</td>
-    </tr>
-    <tr>
-      <td><em>Configure</em></td>
-      <td><a href=https://grafana.com/docs/tempo/latest/configuration/>Configure Tempo</a></td>
-      <td>
-        <em>Configure</em> can be its own section directory if the number of pages warrants it.
-        Making this determination isn't an exact science; use your best judgement.
-      </td>
-    </tr>
-    <tr>
-      <td><em>Create alerts</em></td>
-      <td>
-        <a href=https://grafana.com/docs/grafana-cloud/alerting-and-irm/alerting/alerting-rules/create-grafana-managed-rule/>
-          Create a Grafana managed alert rule
-        </a>
-      </td>
-      <td>
-        Specific to Grafana Ops products such as Alerting, OnCall, Incident, and SLO.
-        The word <em>alert</em> may be changed, depending upon the product.
-        If used with Grafana SLO, this then topic would be <em>Create SLO</em>.
-        Don't use with backend database products, such as Tempo and Loki.
-        Use <em>Alerts</em> instead, and refer to an operational product for details.
-      </td>
-    </tr>
-    <tr>
-      <td><em>Manage alerts</em></td>
-      <td><a href=https://grafana.com/docs/grafana-cloud/alerting-and-irm/slo/manage/>Manage SLOs</a></td>
-      <td>
-        Specific to Grafana Ops products such as Alerting, OnCall, Incident, and SLO.
-        The word <em>alert</em> may be changed, depending upon the product.
-        If used with Grafana SLO, this then topic would be <em>Create SLO</em>.
-        Don't use with backend database products, such as Tempo and Loki.
-        Use <em>Alert</em> instead, and refer to an operational product for details.
-      </td>
-    <tr>
-    <tr>
-      <td><em>Integrate [with] &lt;PRODUCT&gt;</em> or <em>Send data</em></td>
-      <td><a href=https://grafana.com/docs/grafana-cloud/monitor-infrastructure/get-started-data/>Instrument and send data to Grafana Cloud</a>
-      <td>How to set up data integrations, product integrations, data sources, clients, plugins, and more.</td>
-    </tr>
-    <tr>
-      <td><em>Query data</em></td>
-      <td><a href=https://grafana.com/docs/tempo/latest/traceql/>Query with TraceQL</a>
-      <td>Query languages, query tools, and examples.</td>
-    </tr>
-    <tr>
-      <td><em>Visualize data</em></td>
-      <td><a href=https://grafana.com/docs/grafana/latest/dashboards/>Dashboards</a>
-      <td>Dashboard concepts and procedures. Link to the definitive source of dashboard documentation, rather than duplicating the information here.</td>
-    </tr>
-    <tr>
-      <td><em>Alert</em></td>
-      <td><a href=https://grafana.com/docs/loki/latest/alert/>Alerting and recording rules</a>
-      <td>
-        This topic level is used for pages that discuss alerting features, like alerting rules in Grafana Loki.
-        It provides a place for alerting content that's not specific to the Grafana Operations products.
-      </td>
-    </tr>
-    <tr>
-      <td><em>Manage &lt;PRODUCT&gt;</em></td>
-      <td><a href=https://grafana.com/docs/grafana-cloud/alerting-and-irm/oncall/manage/user-and-team-management/>Manage users and teams for Grafana OnCall</a>
-      <td>
-        Information about managing a Grafana Labs product.
-        For example, content in this topic helps you view, edit, and iterate on the Grafana product you installed.
-      </td>
-    </tr>
-    <tr>
-      <td><em>Monitor &lt;PRODUCT&gt;</em></td>
-      <td><a href=https://grafana.com/docs/mimir/latest/operators-guide/monitor-grafana-mimir/>Monitor Grafana Mimir</a>
-      <td>Information about using tools to monitor a Grafana Labs product.</td>
-    </tr>
-    <tr>
-      <td><em>References</em></td>
-      <td><a href=https://grafana.com/docs/mimir/latest/references/>Grafana Mimir references</a>
-      <td>
-        APIs, configuration references, SDKs, and more.
-        Material that's usually not procedural.
-      </td>
-    </tr>
-  </tbody>
-<table>
+| Topic                                       | Example link                                                                                                                                        | Contents                                                                                                                                  |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| _Introduction_                              | [Introduction to Grafana](https://grafana.com/docs/grafana/latest/fundamentals/)                                                                    | Conceptual, fundamental, or architectural information.                                                                                    |
+| _Get started_                               | [Get started with Grafana Tempo](https://grafana.com/docs/tempo/latest/getting-started/)                                                            | Opinionated walk-throughs and tutorials.                                                                                                  |
+| _Set up_                                    | [Set up Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/)                                                                            | System requirements, and subsections titled _Set up_, _Configure_, _Upgrade_, or _Migrate_.                                               |
+| _Configure_                                 | [Configure Tempo](https://grafana.com/docs/tempo/latest/configuration/)                                                                             | _Configure_ can be its own section directory if the number of pages warrants it. Use your best judgment.                                  |
+| _Create alerts_                             | [Create a Grafana managed alert rule](https://grafana.com/docs/grafana-cloud/alerting-and-irm/alerting/alerting-rules/create-grafana-managed-rule/) | Specific to Grafana Ops products like Alerting, OnCall, Incident, and SLO. Use _Alerts_ instead for backend products like Tempo and Loki. |
+| _Manage alerts_                             | [Manage SLOs](https://grafana.com/docs/grafana-cloud/alerting-and-irm/slo/manage/)                                                                  | Similar to _Create alerts_, but focused on managing existing alerting features. Don't use with backend products.                          |
+| _Integrate [with] <PRODUCT>_ or _Send data_ | [Instrument and send data to Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-infrastructure/get-started-data/)                        | How to set up data integrations, product integrations, data sources, clients, plugins, and more.                                          |
+| _Query data_                                | [Query with TraceQL](https://grafana.com/docs/tempo/latest/traceql/)                                                                                | Query languages, query tools, and examples.                                                                                               |
+| _Visualize data_                            | [Dashboards](https://grafana.com/docs/grafana/latest/dashboards/)                                                                                   | Dashboard concepts and procedures. Link to definitive source rather than duplicating information.                                         |
+| _Alert_                                     | [Alerting and recording rules](https://grafana.com/docs/loki/latest/alert/)                                                                         | Pages that discuss alerting features, such as in Grafana Loki. Not specific to Ops products.                                              |
+| _Manage <PRODUCT>_                          | [Manage users and teams for Grafana OnCall](https://grafana.com/docs/grafana-cloud/alerting-and-irm/oncall/manage/user-and-team-management/)        | Info about managing a Grafana Labs product—viewing, editing, iterating, etc.                                                              |
+| _Monitor <PRODUCT>_                         | [Monitor Grafana Mimir](https://grafana.com/docs/mimir/latest/operators-guide/monitor-grafana-mimir/)                                               | Information about using tools to monitor a Grafana Labs product.                                                                          |
+| _References_                                | [Grafana Mimir references](https://grafana.com/docs/mimir/latest/references/)                                                                       | APIs, configuration references, SDKs, and other non-procedural material.                                                                  |
 
 ## Table of contents levels
 

@@ -45,6 +45,10 @@ on:
         default: false
         description: Whether to run the readability report.
         type: boolean
+      readability-directory:
+        default: docs/sources
+        description: Directory containing documentation for linting.
+        type: string
 
       vale:
         default: false
@@ -121,7 +125,7 @@ jobs:
           filter: ${{ inputs.vale-filter }}
 
   report-readability:
-    if: inputs.readability
+    if: inputs.readability && github.event_name == 'pull_request'
     permissions:
       contents: read
       pull-requests: write
@@ -143,11 +147,12 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          DIRECTORY: ${{ inputs.readability-directory }}
         run: |
           (cd /etc/vale && vale sync)
-          git config --global --add safe.directory /__w/writers-toolkit/writers-toolkit
+          git config --global --add safe.directory "${GITHUB_WORKSPACE}"
           touch .output.txt
-          for file in $(git --no-pager diff --name-only --diff-filter=ACMRT "${BASE_SHA}" -- docs/sources); do
+          for file in $(git --no-pager diff --name-only --diff-filter=ACMRT "${BASE_SHA}" -- "${DIRECTORY}"); do
             ./scripts/readability "${file}" "${BASE_SHA}" ${HEAD_SHA} >> .output.txt
           done
         shell: bash

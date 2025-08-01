@@ -27,20 +27,37 @@ on:
         default: content/docs/test-build
         description: Directory to mount documentation for the build job.
         type: string
+      build-website-image:
+        default: grafana/docs-base:latest
+        description: Container image to run for build-website action.
+        type: string
+      build-website-source-directory:
+        default: docs/sources
+        description: Path to source directory for build-website action.
+        type: string
 
       prettier:
         default: false
         description: Whether to enforce prettier formatting.
         type: boolean
 
-      vale:
-        default: false
-        description: Whether to run the Vale linter.
-        type: boolean
       readability:
         default: false
         description: Whether to run the readability report.
         type: boolean
+
+      vale:
+        default: false
+        description: Whether to run the Vale linter.
+        type: boolean
+      vale-directory:
+        default: docs/sources
+        description: Directory containing documentation for linting.
+        type: string
+      vale-filter:
+        default: ""
+        description: Vale filter that allows you to report an arbitrary subset of the Grafana style.
+        type: string
 jobs:
   prettier:
     if: inputs.prettier
@@ -74,6 +91,8 @@ jobs:
       - name: Build website
         uses: grafana/writers-toolkit/build-website@44d8e2b29fbbdba5c3614ddcfc29be47e5f9e61c # build-website/v1
         with:
+          image: ${{ inputs.build-website-image }}
+          source_directory: ${{ inputs.build-website-source-directory }}
           website_directory: ${{ inputs.build-website-directory }}
 
   vale:
@@ -95,6 +114,9 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - uses: grafana/writers-toolkit/vale-action@f49dd90f007967990095ac2d18c5bdf37b412a5f # vale-action/v1.4.5
+        with:
+          directory: ${{ inputs.vale-directory }}
+          filter: ${{ inputs.vale-filter }}
 
   report-readability:
     if: inputs.readability

@@ -26,12 +26,12 @@ runs:
         git config --global --add safe.directory "${GITHUB_WORKSPACE}"
         touch .output.txt
         for file in $(git --no-pager diff --name-only --diff-filter=ACMRT "${BASE_SHA}" -- "${DIRECTORY}"); do
-          ${{ github.action_path }}/readability "${file}" "${BASE_SHA}" ${HEAD_SHA} >> .output.txt
+          ${GITHUB_ACTION_PATH}/readability "${file}" "${BASE_SHA}" ${HEAD_SHA} >> .output.txt
         done
       shell: bash
 
     - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       with:
         script: |
-          const script = require('${{ github.action_path }}/report-readability.js');
+          const script = require(`${process.env.GITHUB_ACTION_PATH}/report-readability.js`);
           await script({ context, core, github });

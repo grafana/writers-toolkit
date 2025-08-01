@@ -2,6 +2,9 @@
 
 set -euf -o pipefail
 
+if [ -n "${RUNNER_DEBUG+x}" ]; then
+  set -x
+fi
 
 function usage {
   cat <<EOF

@@ -100,14 +100,21 @@ If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the
 
 Use a URL.
 
-If you are linking to versioned documentation, use a URL with version substitution syntax instead of the version path element.
+If you're linking to versioned documentation within your own documentation, use a URL with version substitution syntax instead of the version path element.
 For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
+
+If you're linking to versioned documentation in another project, use version substitution if you have version compatibility constraints between the projects.
+If you don't have those constraints, use `latest` in the URL.
 
 When Hugo renders links with version substitution, it replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.
 
 To understand the behavior in more detail, refer to [About version substitution](https://grafana.com/docs/writers-toolkit/write/shortcodes/#about-version-substitution)
-You use full URLs with the substitution variable so that links resolve to the correct version of documentation without requiring the writer to update the version for each release.
 For examples of behavior, refer to [Examples](#examples).
+
+{{< admonition type="caution" >}}
+Using version substitution when you link to other projects requires you to set the cascading front matter that specifies the target project version.
+If you don't set this, links in "next" and "latest" versions work but other versions won't.
+{{< /admonition >}}
 
 To override the version inferred by version substitution, set the preferred version in the root `_index.md` file for your documentation.
 The following YAML snippet sets `GRAFANA_VERSION` to be `latest` for that page and all child pages.

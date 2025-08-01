@@ -131,7 +131,6 @@ jobs:
       pull-requests: write
     container:
       image: grafana/vale:latest
-    name: Report readability
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository with history

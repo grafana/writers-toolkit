@@ -104,6 +104,8 @@ If you're linking to versioned documentation within your own documentation, use 
 For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
 
 If you're linking to versioned documentation in another project, use version substitution if you have version compatibility constraints between the projects.
+Refer to the target project in the version substitution.
+For example, when linking to Tempo documentation from Grafana, use `<TEMPO_VERSION>`.
 If you don't have those constraints, use `latest` in the URL.
 
 When Hugo renders links with version substitution, it replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.

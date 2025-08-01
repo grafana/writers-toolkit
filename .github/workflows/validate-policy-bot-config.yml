@@ -1,5 +1,7 @@
 name: Validate Policy Bot Config
 
+permissions: {}
+
 on:
   pull_request:
     paths:
@@ -15,7 +17,7 @@ jobs:
   validate:
     name: Validate policy bot config
 
-    runs-on: ubuntu-arm64-small
+    runs-on: ubuntu-latest
     permissions:
       contents: read
 

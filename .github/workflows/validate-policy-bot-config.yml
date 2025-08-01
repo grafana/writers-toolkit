@@ -26,10 +26,10 @@ jobs:
           persist-credentials: false
 
       - name: Validate policy bot config
-        run: |
-          curl \
-            --silent \
-            --fail-with-body \
-            --request PUT \
-            --upload-file .policy.yml \
-            https://github-policy-bot.grafana-ops.net/api/validate
+        run: >
+          curl
+          --silent
+          --fail-with-body
+          --request PUT
+          --upload-file .policy.yml
+          https://github-policy-bot.grafana-ops.net/api/validate

@@ -58,6 +58,10 @@ on:
         default: ""
         description: Vale filter that allows you to report an arbitrary subset of the Grafana style.
         type: string
+
+    secrets:
+      GITHUB_TOKEN:
+        required: true
 jobs:
   prettier:
     if: inputs.prettier

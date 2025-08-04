@@ -26,7 +26,7 @@ runs:
         git config --global --add safe.directory "${GITHUB_WORKSPACE}"
         touch .output.txt
         for file in $(git --no-pager diff --name-only --diff-filter=ACMRT "${BASE_SHA}" -- "${DIRECTORY}"); do
-          ${GITHUB_ACTION_PATH}/readability "${file}" "${BASE_SHA}" ${HEAD_SHA} >> .output.txt
+          ${GITHUB_ACTION_PATH}/readability "${file}" "${BASE_SHA}" ${HEAD_SHA} | tee -a .output.txt
         done
       shell: bash
 

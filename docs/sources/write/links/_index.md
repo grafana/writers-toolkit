@@ -105,7 +105,10 @@ For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL 
 
 If you're linking to versioned documentation in another project, use version substitution if you have version compatibility constraints between the projects.
 Refer to the target project in the version substitution.
-For example, when linking to Tempo documentation from Grafana, use `<TEMPO_VERSION>`.
+
+You only need version substitution if you're maintaining a specific matrix of version mappings. 
+For example, the Mimir Helm chart for a given release targets supports working only with a specific version of Mimir and Grafana Enterprise Metrics: [grafana/mimir@mimir-distributed-release-5.7/docs/sources/helm-charts/mimir-distributed/_index.md?plain=1#L11-L12](https://github.com/grafana/mimir/blob/mimir-distributed-release-5.7/docs/sources/helm-charts/mimir-distributed/_index.md?plain=1&rgh-link-date=2025-08-05T16%3A16%3A51Z#L11-L12).
+In this case, when linking to the Mimir documentation from Grafana, use `<MIMIR_VERSION>`.
 If you don't have those constraints, use `latest` in the URL.
 
 When Hugo renders links with version substitution, it replaces the `<SOMETHING_VERSION>` syntax with the version inferred from the current page.

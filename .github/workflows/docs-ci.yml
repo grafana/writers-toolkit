@@ -63,6 +63,13 @@ on:
         description: Vale filter that allows you to report an arbitrary subset of the Grafana style.
         type: string
 
+      sparse-checkout:
+        default: ""
+        description: |
+          Do a sparse checkout on given patterns. Each pattern should be separated by new lines.
+          If not provided, a full checkout will be performed.
+        type: string
+
 jobs:
   prettier:
     if: inputs.prettier
@@ -73,6 +80,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
+          sparse-checkout: ${{ inputs.sparse-checkout }}
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 20
@@ -114,11 +122,13 @@ jobs:
         if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
         with:
           persist-credentials: false
+          sparse-checkout: ${{ inputs.sparse-checkout }}
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event_name == 'push'
         with:
           fetch-depth: 2
           persist-credentials: false
+          sparse-checkout: ${{ inputs.sparse-checkout }}
       - uses: grafana/writers-toolkit/vale-action@f49dd90f007967990095ac2d18c5bdf37b412a5f # vale-action/v1.4.5
         with:
           directory: ${{ inputs.vale-directory }}
@@ -138,6 +148,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          sparse-checkout: ${{ inputs.sparse-checkout }}
 
       - name: Report readability
         uses: grafana/writers-toolkit/readability@jdb/2025-07-plumb-through-configuration

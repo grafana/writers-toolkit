@@ -96,7 +96,7 @@ When you're ready to add a What's new entry, complete the following steps:
 
 <!-- vale Grafana.GoogleWill = YES -->
 
-The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
+The entry appears in [What's new from Grafana Labs](https://grafana.com/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
 
 For Grafana versioned releases, the content you enter in the CMS is published in the versioned What's new at a later date.
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
@@ -122,7 +122,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 | CLOUD EDITIONS | Select which account types have access to the feature. | If the feature isn't available in Cloud, select **None**. |
 | SELF-MANAGED AVAILABILITY | Select the stage of the feature's self-managed release. | If the feature isn't available in the self-managed product, select **None**. |
 | SELF-MANAGED EDITIONS | Select the on-premises offerings where this feature is available. | If the feature isn't available in the self-managed product, select **None**. |
-| SELF-MANAGED VERSION | Select the version of self-managed product that will include the feature. | <p>If the feature isn't available in the self-managed product, select **None**.</p><p>If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option. |
+| SELF-MANAGED VERSION | Select the version of self-managed product that will include the feature. | <p>If the feature isn't available in the self-managed product, select **None**.</p><p>If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option.</p><p>If the entry is for a data source, select **Data Source** and mention the data source version in the BODY field. |
 | BODY | Include an overview of the feature and the problem it solves. | If you want to view some best practices around what to write here, refer to [Guidelines for What's new content](#guidelines-for-whats-new-content).</p><p>Add any [screenshots](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#screenshot-guidelines) or [screen recordings](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#screen-recordings) here. For general information on adding media, refer to [Image and diagram guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#image-and-diagram-guidelines).</p><p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the `traceToProfile` [feature toggle](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/).</p> |
 | DOCUMENTATION URL (OPTIONAL) | URL to the public documentation for this feature. | Use the Cloud docs URL here. Add the self-managed docs URL in the INTERNAL INFORMATION field, if applicable. |
 | ENABLEMENT VIDEO (OPTIONAL) | Link to the video used for enablement. | <p>Enablement videos are perhaps the fastest, most engaging tool for employees and users to learn about your feature. Use them for maximum engagement.</p><p>Follow these instructions to create and upload a video: [Enablement video instructions](https://docs.google.com/document/d/1nCiG62FxJ9J_qLTnlzNopSsT-VEAlxCUCsrAEpWL68U/edit#heading=h.fierz9i4q8ft).</p><p>When you upload an enablement video, the Content team receives a notification, edits it for the public, and uploads it to YouTube to coincide with your feature's release. They need a few weeks' lead time for this. |
@@ -178,7 +178,7 @@ This is typically someone on the Technical Writing team.
 
 1. Label the PR `no-backport` for now; this may change.
 
-1. Have someone, typically the Tech Writing team build engineer, generate a Markdown file from the _What's new in Cloud_ with the following conditions:
+1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and generate a Markdown file from the _What's new from Grafana Labs_ by opening the **Run workflow** dropdown, filling in the fields, and clicking the **Run workflow** button
 
    - Filtered by the relevant Grafana version
    - Includes front matter for each entry

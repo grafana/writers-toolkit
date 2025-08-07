@@ -174,20 +174,19 @@ This is typically someone on the Technical Writing team.
    - Updates to the `whatsnew/_index.md`
    - Update to the link and version number located on the What's new tile of `docs/sources/_index.md`
    - The new upgrade guide
-   - The new breaking changes page, if needed
 
 1. Label the PR `no-backport` for now; this may change.
 
-1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and generate a Markdown file from the _What's new from Grafana Labs_ by opening the **Run workflow** dropdown, filling in the fields, and clicking the **Run workflow** button
+1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and generate a YAML file from the _What's new from Grafana Labs_ by opening the **Run workflow** dropdown, filling in the fields, and clicking the **Run workflow** button.
 
-   - Filtered by the relevant Grafana version
-   - Includes front matter for each entry
-   - Grouped by tags; entries with multiple tags should only be included once, grouped by their first tag alphabetically
+1. When the workflow finishes, click **Upload artifact for Grafana What's new** for that workflow run.
 
-1. Add the content of this Markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
+1. Under Artifacts, click the download button to download the generated Markdown file.
+
+1. Add the content of this YAML file to the frontmatter of the `whats-new-in-vxx-x.md` after the `title:` field.
 
    If internal enablement videos are listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later.
-   To do this, generate another Markdown file from the _What's new in Cloud_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
+   To do this, generate another Markdown file from the _What's new from Grafana Labs_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
 
 1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
@@ -200,9 +199,9 @@ This is typically someone on the Technical Writing team.
 
 1. Add a backport label to the PR, if needed.
 
-1. Two days before the release, get a final generated Markdown file from the _What's new in Cloud_ and make any needed additions to the `whats-new-in-vxx-x.md` file.
+1. Two days before the release, get a final generated Markdown file from the _What's new from Grafana Labs_ and make any needed additions to the `whats-new-in-vxx-x.md` file.
 
-1. On the day before release day, merge the What's new branch into `main`.
+1. On the day before release day, merge the What's new branch into `main` and backport it to the relevant `release-x.x.x` branch.
 
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This section speaks of the future -->

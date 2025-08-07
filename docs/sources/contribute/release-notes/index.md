@@ -183,7 +183,7 @@ This is typically someone on the Technical Writing team.
 
 1. Under Artifacts, click the download button to download the generated Markdown file.
 
-1. Add the content of this YAML file to the frontmatter of the `whats-new-in-vxx-x.md` after the `title:` field.
+1. Add the content of this YAML file to the front matter of the `whats-new-in-vxx-x.md` after the `title:` field.
 
    If internal enablement videos are listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later.
    To do this, generate another Markdown file from the _What's new from Grafana Labs_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.

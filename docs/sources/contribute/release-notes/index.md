@@ -175,13 +175,19 @@ This is typically someone on the Technical Writing team.
    - Update to the link and version number located on the What's new tile of `docs/sources/_index.md`
    - The new upgrade guide
 
-1. Label the PR `no-backport` for now; this may change.
+1. Label the PR with the `backport vx.x.x` label created for the release.
 
-1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and generate a YAML file from the _What's new from Grafana Labs_ by opening the **Run workflow** dropdown, filling in the fields, and clicking the **Run workflow** button.
+1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and:
+
+   1. Open the **Run workflow** dropdown
+   
+   1. Fill in the fields
+   
+   1. Click the **Run workflow** button to generate a YAML file from the _What's new from Grafana Labs_.
 
 1. When the workflow finishes, click **Upload artifact for Grafana What's new** for that workflow run.
 
-1. Under Artifacts, click the download button to download the generated Markdown file.
+1. Under Artifacts, click the download button to download the generated YAML file.
 
 1. Add the content of this YAML file to the front matter of the `whats-new-in-vxx-x.md` after the `title:` field.
 

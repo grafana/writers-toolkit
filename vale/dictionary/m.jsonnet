@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('manage', 'uD', 'verb'),
   word.new('Markdown', '', 'noun') { product: true, swaps: { markdown: 'Markdown' } },
+  word.new('Mapbox', '', 'noun') { description: another term for the MapLibre map layer type for geomap visualizations },
   word.new('marshal', 'u', 'verb'),
   word.new('matcher', 'S', 'noun'),
   word.new('media type', 'S', 'noun') { swaps: { '(?:content|media)-?type': 'media type', 'content type': 'media type' } },

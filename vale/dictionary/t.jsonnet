@@ -12,7 +12,7 @@ local word = import './word.jsonnet';
   word.new('TraceQL', '', 'noun') { swaps: { 'trace(?:ql|QL)': 'TraceQL' } },
   word.new('traceroute', 'S', 'noun'),
   word.new('Traces Drilldown', '', 'noun') { product: true },
-  word.new('trendline', 'S', 'noun') { description: a transformation that infers data points not represented using linear regression },
+  word.new('trendline', 'S', 'noun') { description: 'a transformation that infers data points not represented using linear regression' },
   word.new('triage', 'D', 'verb'),
   word.new('TSDB', 'S', 'noun') { abbreviation: true, elaboration: 'time-series database', established_abbreviation: true },
   word.new('TTL', 'S', 'noun') { abbreviation: true, elaboration: 'time to live' },

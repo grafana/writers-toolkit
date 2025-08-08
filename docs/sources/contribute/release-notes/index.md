@@ -179,9 +179,9 @@ This is typically someone on the Technical Writing team.
 
 1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and:
 
-   1. Open the **Run workflow** dropdown
+   1. Open the **Run workflow** dropdown.
    
-   1. Fill in the fields
+   1. Fill in the fields.
    
    1. Click the **Run workflow** button to generate a YAML file from the _What's new from Grafana Labs_.
 

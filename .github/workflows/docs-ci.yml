@@ -151,6 +151,6 @@ jobs:
           sparse-checkout: ${{ inputs.sparse-checkout }}
 
       - name: Report readability
-        uses: grafana/writers-toolkit/readability@jdb/2025-07-plumb-through-configuration
+        uses: grafana/writers-toolkit/readability@5dead25d737f5e74d045ffb0d39dc75e73d24215
         with:
           directory: ${{ inputs.readability-directory }}

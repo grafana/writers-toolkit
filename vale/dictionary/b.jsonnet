@@ -3,6 +3,7 @@ local word = import './word.jsonnet';
 
   word.new('backend', 'S', 'noun') { swaps: { 'back[ -]end': 'backend' } },
   word.new('backport', 'DGS', 'verb'),
+  word.new('basemap', '', 'noun') { description: 'A type of map layer available in geomap visualizations' },
   word.new('Beyla', '', 'noun') { product: true },
   word.new('blackbox', '', 'noun'),
   word.new('blocklist', 'DGS', 'verb') { swaps: { blacklisted: 'blocklisted', blacklisting: 'blocklisting', blacklists: 'blocklists' } },

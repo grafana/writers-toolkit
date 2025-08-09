@@ -1,4 +1,4 @@
-367
+370
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -25,6 +25,7 @@ AWS Distro for OpenTelemetry Collector/ po:noun
 AWS X-Ray/ po:noun
 backend/S po:noun
 backport/DGS po:verb
+basemap/ po:noun
 Beyla/ po:noun
 blackbox/ po:noun
 blocklist/DGS po:verb
@@ -182,6 +183,7 @@ loopback/ po:noun
 Lucene/ po:noun
 manage/uD po:verb
 Markdown/ po:noun
+Mapbox/ po:noun
 marshal/u po:verb
 matcher/S po:noun
 media type/S po:noun
@@ -325,6 +327,7 @@ tracepoint/S po:noun
 TraceQL/ po:noun
 traceroute/S po:noun
 Traces Drilldown/ po:noun
+trendline/S po:noun
 triage/D po:verb
 TSDB/S po:noun
 TTL/S po:noun

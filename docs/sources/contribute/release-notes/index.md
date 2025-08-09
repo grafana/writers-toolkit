@@ -96,7 +96,7 @@ When you're ready to add a What's new entry, complete the following steps:
 
 <!-- vale Grafana.GoogleWill = YES -->
 
-The entry appears in [What's new in Cloud](https://grafana.com/docs/grafana-cloud/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
+The entry appears in [What's new from Grafana Labs](https://grafana.com/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
 
 For Grafana versioned releases, the content you enter in the CMS is published in the versioned What's new at a later date.
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
@@ -122,7 +122,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 | CLOUD EDITIONS | Select which account types have access to the feature. | If the feature isn't available in Cloud, select **None**. |
 | SELF-MANAGED AVAILABILITY | Select the stage of the feature's self-managed release. | If the feature isn't available in the self-managed product, select **None**. |
 | SELF-MANAGED EDITIONS | Select the on-premises offerings where this feature is available. | If the feature isn't available in the self-managed product, select **None**. |
-| SELF-MANAGED VERSION | Select the version of self-managed product that will include the feature. | <p>If the feature isn't available in the self-managed product, select **None**.</p><p>If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option. |
+| SELF-MANAGED VERSION | Select the version of self-managed product that will include the feature. | <p>If the feature isn't available in the self-managed product, select **None**.</p><p>If the version isn't available, select **No suitable option** and reach out in the **#docs** Slack channel so that a maintainer can add a new option.</p><p>If the entry is for a data source, select **Data Source** and mention the data source version in the BODY field.</p> |
 | BODY | Include an overview of the feature and the problem it solves. | If you want to view some best practices around what to write here, refer to [Guidelines for What's new content](#guidelines-for-whats-new-content).</p><p>Add any [screenshots](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#screenshot-guidelines) or [screen recordings](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#screen-recordings) here. For general information on adding media, refer to [Image and diagram guidelines](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#image-and-diagram-guidelines).</p><p>If you need to mention a feature flag, use this format: To try out Trace to profiles, enable the `traceToProfile` [feature toggle](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/feature-toggles/).</p> |
 | DOCUMENTATION URL (OPTIONAL) | URL to the public documentation for this feature. | Use the Cloud docs URL here. Add the self-managed docs URL in the INTERNAL INFORMATION field, if applicable. |
 | ENABLEMENT VIDEO (OPTIONAL) | Link to the video used for enablement. | <p>Enablement videos are perhaps the fastest, most engaging tool for employees and users to learn about your feature. Use them for maximum engagement.</p><p>Follow these instructions to create and upload a video: [Enablement video instructions](https://docs.google.com/document/d/1nCiG62FxJ9J_qLTnlzNopSsT-VEAlxCUCsrAEpWL68U/edit#heading=h.fierz9i4q8ft).</p><p>When you upload an enablement video, the Content team receives a notification, edits it for the public, and uploads it to YouTube to coincide with your feature's release. They need a few weeks' lead time for this. |
@@ -174,20 +174,25 @@ This is typically someone on the Technical Writing team.
    - Updates to the `whatsnew/_index.md`
    - Update to the link and version number located on the What's new tile of `docs/sources/_index.md`
    - The new upgrade guide
-   - The new breaking changes page, if needed
 
-1. Label the PR `no-backport` for now; this may change.
+1. Label the PR with the `backport vx.x.x` label created for the release.
 
-1. Have someone, typically the Tech Writing team build engineer, generate a Markdown file from the _What's new in Cloud_ with the following conditions:
+1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and:
 
-   - Filtered by the relevant Grafana version
-   - Includes front matter for each entry
-   - Grouped by tags; entries with multiple tags should only be included once, grouped by their first tag alphabetically
+   1. Open the **Run workflow** drop-down list.
+   
+   1. Fill in the fields.
+   
+   1. Click the **Run workflow** button to generate a YAML file from the _What's new from Grafana Labs_.
 
-1. Add the content of this Markdown file to the `whats-new-in-vxx-x.md` file using the tags data to group items.
+1. When the workflow finishes, click **Upload artifact for Grafana What's new** for that workflow run.
+
+1. Under **Artifacts**, click the download button to download the generated YAML file.
+
+1. Add the content of this YAML file to the front matter of the `whats-new-in-vxx-x.md` after the `title:` field.
 
    If internal enablement videos are listed for entries, but the associated YouTube videos aren't in the body text of those entries yet, you'll need to add them later.
-   To do this, generate another Markdown file from the _What's new in Cloud_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
+   To do this, generate another Markdown file from the _What's new from Grafana Labs_ closer to the release date and make updates in `whats-new-in-vxx-x.md` from the newly generated file.
 
 1. A week before the release date, change the PR status from **Draft** to **Ready for Review** to signal to other stakeholders that the PR is now ready for any further review.
 
@@ -200,9 +205,9 @@ This is typically someone on the Technical Writing team.
 
 1. Add a backport label to the PR, if needed.
 
-1. Two days before the release, get a final generated Markdown file from the _What's new in Cloud_ and make any needed additions to the `whats-new-in-vxx-x.md` file.
+1. Two days before the release, get a final generated Markdown file from the _What's new from Grafana Labs_ and make any needed additions to the `whats-new-in-vxx-x.md` file.
 
-1. On the day before release day, merge the What's new branch into `main`.
+1. On the day before release day, merge the What's new branch into `main` and backport it to the relevant `release-x.x.x` branch.
 
 <!-- vale Grafana.GoogleWill = NO -->
 <!-- This section speaks of the future -->

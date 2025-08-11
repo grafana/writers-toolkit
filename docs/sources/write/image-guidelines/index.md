@@ -19,6 +19,133 @@ weight: 750
 At Grafana Labs, media are an essential part of helpful, clear, and concise content.
 Follow the standards in this section when creating images for your documents.
 
+## Where to store media assets
+
+All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees.
+You use the [asset upload application](https://admin.grafana.com/upload/) to upload assets.
+The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
+
+{{< admonition type="note" >}}
+There is a 10MB limit on the size of assets uploaded through the asset upload application.
+
+For larger uploads, reach out in the [#website Slack channel](https://raintank-corp.slack.com/archives/CH34H23HD) to discuss the best path forward.
+{{< /admonition >}}
+
+<table>
+  <thead>
+    <tr>
+      <th>If you are a</th>
+      <th>Complete these steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left" valign="top">Grafana Labs employee</td>
+      <td align="left" valign="top">
+        <ol>
+          <li>Create a PR against the local repository that includes the Markdown file.</li>
+          <li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.
+          </li>
+          <li>Find or create a directory under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
+          <li>Use a free image optimizer like <a href="https://tinypng.com/">TinyPNG</a> to decrease the image file size.
+          </li>
+          <li>Browse and select assets to upload.</li>
+          <li>Click <strong>Upload</strong>.</li>
+          <li>The asset is available under <code>https://grafana.com/media/</code> in the directory where you uploaded it.</li>
+          <li>Click <strong>Copy</strong> to copy the path of the file to your clipboard.</li>
+          <li>
+            <p>Add the reference to the Markdown file.</p>
+            <p>The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</p>
+          </li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">Grafana Labs community contributor</td>
+      <td align="left" valign="top">
+        <ol>
+          <li>Create a PR against the local repository that includes the Markdown file.</li>
+          <li><p>Add the image reference to the Markdown file.</p>
+          <p>
+          You don't need to test that the image renders in a local build of the documentation. The Grafana technical documentation team reviewing the PR ensures that the image reference works correctly.</p></li>
+          <li>Attach the image to the GitHub PR description.</li>
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Add an image to a Markdown file
+
+To add an image to a Markdown file, insert a reference to the image below the associated step and indent it so that the reference aligns with the step text.
+
+The image reference path conforms to the following convention:
+
+`![<ALT TEXT>](/media/<PATH TO IMAGE>)`
+
+For example:
+
+```
+![A table from the console bot showing the Property, Location, and Diff of the breaking changes.](/media/breaking-changes-console-screenshot-1.png)
+```
+
+## Test images in a local build
+
+{{< admonition type="note" >}}
+This section is relevant to internal Grafana Labs contributors.
+{{< /admonition >}}
+
+It's important that you generate a local build of your docs so that you can verify that the path to the image, the image size, and the image placement are correct.
+
+1. Follow the steps in [Where to store media assets](#where-to-store-media-assets).
+
+1. Run `make docs` on your branch and verify that the image appears.
+1. If it doesn't render as you desire, upload another version and test again.
+
+## Alt text
+
+Alt text is an HTML attribute that you can use to provide a concise description of an image.
+The text is used in situations where the image isn't visible, such as when people use screen readers or have a low-bandwidth internet connection.
+
+In Markdown, the alt text is the text in square brackets when declaring an image:
+
+```markdown
+![<ALT TEXT>](/media/<PATH TO IMAGE>)
+```
+
+Or, if you're using the `figure` [shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#figure), you can use the `alt` parameter:
+
+```markdown
+{{</* figure alt="<ALT TEXT>"  src="/media/<PATH TO IMAGE>" */>}}
+```
+
+Every image that you add to the Grafana documentation should have an alt text.
+
+A good piece of guidance for writing good alt text from [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt) is:
+
+> One way to think of alternative text is to think about how you would read the page containing the image to someone over the phone, without mentioning that there is an image present. Whatever you say instead of the image is typically a good start for writing the alternative text.
+
+For more information about how to write good alt text, refer to:
+
+- [Google developer documentation style guide](https://developers.google.com/style/images#alt-text)
+- [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)
+- [gov.uk Design102 blog: What's the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
+- [W3C Web Accessibility Initiative: An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
+
+## Screen recordings
+
+The recommended format for screen recordings is `.mp4`.
+Don't use `.gif` or `.mov` formats.
+In particular, avoid animated GIFs because they distract users.
+For more information about distracting content, refer to [Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html#intent).
+
+Screen recordings follow the same upload procedure and file naming convention as other media assets.
+Use the `video-embed` shortcode to embed the video on the page:
+
+```
+{{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}
+```
+
 ## Image and diagram guidelines
 
 Images and diagrams can complement text, enabling readers to quickly grasp a concept and visualize complex processes in a simplified way.
@@ -287,130 +414,3 @@ General rules:
 - Web browser: Use [Photopea](https://www.photopea.com/)
 
 <!-- vale Grafana.Spelling = YES -->
-
-## Where to store media assets
-
-All visual assets are stored in Google Cloud Storage, only accessible to Grafana Labs employees.
-You use the [asset upload application](https://admin.grafana.com/upload/) to upload assets.
-The following table lists the steps you take to provide the Grafana Labs technical documentation team with the image.
-
-{{< admonition type="note" >}}
-There is a 10MB limit on the size of assets uploaded through the asset upload application.
-
-For larger uploads, reach out in the [#website Slack channel](https://raintank-corp.slack.com/archives/CH34H23HD) to discuss the best path forward.
-{{< /admonition >}}
-
-<table>
-  <thead>
-    <tr>
-      <th>If you are a</th>
-      <th>Complete these steps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="left" valign="top">Grafana Labs employee</td>
-      <td align="left" valign="top">
-        <ol>
-          <li>Create a PR against the local repository that includes the Markdown file.</li>
-          <li>Navigate to <a href="https://admin.grafana.com/upload/">https://admin.grafana.com/upload/</a>.
-          </li>
-          <li>Find or create a directory under the media directory. To create a directory, <strong>type the directory name</strong> in the upload input field.</li>
-          <li>Use a free image optimizer like <a href="https://tinypng.com/">TinyPNG</a> to decrease the image file size.
-          </li>
-          <li>Browse and select assets to upload.</li>
-          <li>Click <strong>Upload</strong>.</li>
-          <li>The asset is available under <code>https://grafana.com/media/</code> in the directory where you uploaded it.</li>
-          <li>Click <strong>Copy</strong> to copy the path of the file to your clipboard.</li>
-          <li>
-            <p>Add the reference to the Markdown file.</p>
-            <p>The reference that you add to the Markdown renders the image when you build the Grafana website or a local docs preview.</p>
-          </li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top">Grafana Labs community contributor</td>
-      <td align="left" valign="top">
-        <ol>
-          <li>Create a PR against the local repository that includes the Markdown file.</li>
-          <li><p>Add the image reference to the Markdown file.</p>
-          <p>
-          You don't need to test that the image renders in a local build of the documentation. The Grafana technical documentation team reviewing the PR ensures that the image reference works correctly.</p></li>
-          <li>Attach the image to the GitHub PR description.</li>
-        </ol>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-## Add an image to a Markdown file
-
-To add an image to a Markdown file, insert a reference to the image below the associated step and indent it so that the reference aligns with the step text.
-
-The image reference path conforms to the following convention:
-
-`![<ALT TEXT>](/media/<PATH TO IMAGE>)`
-
-For example:
-
-```
-![A table from the console bot showing the Property, Location, and Diff of the breaking changes.](/media/breaking-changes-console-screenshot-1.png)
-```
-
-## Test images in a local build
-
-{{< admonition type="note" >}}
-This section is relevant to internal Grafana Labs contributors.
-{{< /admonition >}}
-
-It's important that you generate a local build of your docs so that you can verify that the path to the image, the image size, and the image placement are correct.
-
-1. Follow the steps in [Where to store media assets](#where-to-store-media-assets).
-
-1. Run `make docs` on your branch and verify that the image appears.
-1. If it doesn't render as you desire, upload another version and test again.
-
-## Alt text
-
-Alt text is an HTML attribute that you can use to provide a concise description of an image.
-The text is used in situations where the image isn't visible, such as when people use screen readers or have a low-bandwidth internet connection.
-
-In Markdown, the alt text is the text in square brackets when declaring an image:
-
-```markdown
-![<ALT TEXT>](/media/<PATH TO IMAGE>)
-```
-
-Or, if you're using the `figure` [shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#figure), you can use the `alt` parameter:
-
-```markdown
-{{</* figure alt="<ALT TEXT>"  src="/media/<PATH TO IMAGE>" */>}}
-```
-
-Every image that you add to the Grafana documentation should have an alt text.
-
-A good piece of guidance for writing good alt text from [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt) is:
-
-> One way to think of alternative text is to think about how you would read the page containing the image to someone over the phone, without mentioning that there is an image present. Whatever you say instead of the image is typically a good start for writing the alternative text.
-
-For more information about how to write good alt text, refer to:
-
-- [Google developer documentation style guide](https://developers.google.com/style/images#alt-text)
-- [HTML: The Living Standard](https://html.spec.whatwg.org/dev/images.html#alt)
-- [gov.uk Design102 blog: What's the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
-- [W3C Web Accessibility Initiative: An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
-
-## Screen recordings
-
-The recommended format for screen recordings is `.mp4`.
-Don't use `.gif` or `.mov` formats.
-In particular, avoid animated GIFs because they distract users.
-For more information about distracting content, refer to [Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html#intent).
-
-Screen recordings follow the same upload procedure and file naming convention as other media assets.
-Use the `video-embed` shortcode to embed the video on the page:
-
-```
-{{</* video-embed src="/media/<path-to-recording/recording.mp4>" */>}}
-```

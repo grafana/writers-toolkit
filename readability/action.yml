@@ -1,0 +1,37 @@
+name: Report readability
+description: |
+  Reports readability metrics for changed documentation files in a pull request.
+
+  Note that the action assumes you are running the steps using the grafana/vale container image.
+inputs:
+  directory:
+    default: docs/sources
+    description: Directory containing documentation for linting.
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Install Bash
+      run: apk add bash
+      shell: sh
+
+    - name: Run tool
+      env:
+        BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        DIRECTORY: ${{ inputs.directory }}
+      run: |
+        (cd /etc/vale && vale sync)
+        git config --global --add safe.directory "${GITHUB_WORKSPACE}"
+        touch .output.txt
+        for file in $(git --no-pager diff --name-only --diff-filter=ACMRT "${BASE_SHA}" -- "${DIRECTORY}"); do
+          ${GITHUB_ACTION_PATH}/readability "${file}" "${BASE_SHA}" ${HEAD_SHA} | tee -a .output.txt
+        done
+      shell: bash
+
+    - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      with:
+        script: |
+          const script = require(`${process.env.GITHUB_ACTION_PATH}/report-readability.js`);
+          await script({ context, core, github });

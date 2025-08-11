@@ -1188,13 +1188,19 @@ The following shortcode inserts a list of links to child pages.
 The link text uses the value of `menuTitle` from the front matter of the child page.
 
 ```markdown
-{{</* section menuTitle="true"*/>}}
+{{</* section menuTitle="true" */>}}
 ```
 
 The following shortcode inserts a lists of links to child pages and includes the `description` content from the front matter of each child page.
 
 ```markdown
-{{</* section withDescriptions="true"*/>}}
+{{</* section withDescriptions="true" */>}}
+```
+
+The following shortcode inserts a lists of links to child pages and the children of those pages.
+
+```markdown
+{{</* section depth="2" */>}}
 ```
 
 ## Shared

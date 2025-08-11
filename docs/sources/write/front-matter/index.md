@@ -363,6 +363,19 @@ cascade:
 <!-- vale Grafana.Headings = NO -->
 <!-- False positive due to the PascalCase that results from capitalizing camelCased shortcodes -->
 
+#### `labels.tags`
+
+You can add general purpose labels to a page. The `tags` definition must include the text for the label, and can have an optional tooltip.
+
+For example, if a page describes a feature that's built and supported by the open source community, the source file front matter should include the following:
+
+```yaml
+labels:
+  tags:
+    - text: Community
+      tooltip: This feature is developed, maintained, and supported by the Grafana user community.
+```
+
 ### MenuTitle
 
 <!-- vale Grafana.Headings = YES -->

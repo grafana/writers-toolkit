@@ -30,7 +30,7 @@ Think about what your users want to do, what they need to know, and how they can
 
 This approach applies not only to content on a page but also to how you organize a set of documentation, whether it's for a product or a feature.
 
-With well-structured content, you can find what you need quickly and easily.
+With well-structured content, you can find what you need quickly.
 Topics flow in a logical progression.
 
 ## Structure of published content

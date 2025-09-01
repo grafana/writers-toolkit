@@ -38,8 +38,12 @@ on:
 
       prettier:
         default: false
-        description: Whether to enforce prettier formatting.
+        description: Whether to enforce Prettier formatting.
         type: boolean
+      prettier-directory:
+        default: docs/sources
+        description: Directory to lint with Prettier.
+        type: string
 
       readability:
         default: false
@@ -84,11 +88,13 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 20
-      - run: |
+      - env:
+          DIRECTORY: ${{ inputs.prettier-directory }}
+        run: |
           npm install --no-save prettier
-          npx prettier -w docs/sources
+          npx prettier -w "${DIRECTORY}"
           if ! git diff --exit-code; then
-            echo 'Not all documentation has been formatted with `prettier`, run `npx prettier -w docs/sources` and commit the result to resolve the issue.'
+            echo "Not all documentation has been formatted with prettier, run 'npx prettier -w ${DIRECTORY}' and commit the result to resolve the issue."
           fi
   build:
     if: inputs.build

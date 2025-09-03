@@ -430,6 +430,76 @@ Automatic merge failed; fix conflicts and then commit the result.
 GitHub has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
 For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
+### Backport changes to a branch
+
+Backporting is the process of applying commits from one branch to another branch.
+This is commonly used to apply bug fixes or documentation fixes from the main branch to release branches.
+Git provides the `cherry-pick` command to apply specific commits to your current branch.
+
+To backport changes, first identify the commit hash you want to apply.
+For pull requests on GitHub, this is the merge commit of the pull request.
+
+After you've merged your pull request, you can find the merge commit in the **Conversation** tab of the pull request.
+It's typically near the bottom before the status checks.
+
+You can also use the `gh` CLI tool to find the merge commit for a pull request.
+The following command gets the merge commit for pull request `110066`:
+
+```bash
+gh pr view --json mergeCommit --jq .mergeCommit.oid 110066
+```
+
+The output is similar to the following:
+
+```console
+c5cd1cf3cf73fe10d815274bd2f7d152b6fca3b1
+```
+
+Switch to a branch created from the target branch where you want to apply the commit:
+
+```bash
+git fetch
+git checkout -b backport-110066-to-release-1.0 origin/release-1.0
+```
+
+Apply the specific commit using `git cherry-pick`:
+
+```bash
+git cherry-pick a1b2c3d
+```
+
+If successful, Git creates a commit on your current branch with the changes from the specified commit.
+The output is similar to the following:
+
+```console
+[release-1.0 m1n2o3p] Fix typo
+ Date: Mon Oct 23 10:30:00 2023 -0700
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+```
+
+If conflicts occur during cherry-picking, Git pauses and asks you to resolve them.
+To resolve conflicts, refer to [Resolve conflicts](#resolve-conflicts).
+After resolving conflicts, stage the changes and continue.
+
+To stop a cherry-pick operation and return to the previous state:
+
+```bash
+git cherry-pick --abort
+```
+
+After successfully cherry-picking commits, push your changes to the remote repository:
+
+```bash
+git push -u origin backport-110066-to-release-1.0
+```
+
+Finally, open a pull request for your branch.
+
+{{< admonition type="caution" >}}
+Make sure you pick the correct target branch in the GitHub UI when you open your pull request.
+It defaults to `main` and you should change that to your target branch _before_ you submit the pull request.
+{{< /admonition >}}
+
 ## Sync a fork with its upstream
 
 To sync a fork with its upstream repository, change to the directory of your repository checkout and run:

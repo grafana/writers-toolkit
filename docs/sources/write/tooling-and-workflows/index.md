@@ -459,7 +459,7 @@ Switch to a branch created from the target branch where you want to apply the co
 
 ```bash
 git fetch
-git checkout backport-110066-to-release-1.0 origin/release-1.0
+git checkout -b backport-110066-to-release-1.0 origin/release-1.0
 ```
 
 Apply the specific commit using `git cherry-pick`:

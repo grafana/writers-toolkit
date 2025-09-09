@@ -7,7 +7,7 @@ keywords:
   - data source
   - plugin
 menuTitle: Data sources writing guide
-review_date: "2025-10-15"
+review_date: "2025-09-15"
 title: Data sources writing guide
 weight: 500
 ---
@@ -92,6 +92,7 @@ The "Configure" document describes how to configure the data source and should s
 Start with a clear introduction that includes the following:
 
 Standard text:
+
 ```markdown
 This document provides instructions for configuring the (data_source_name) data source and explains available configuration options. For general information on managing data sources, refer to [Data source management](ref:data-source-management).
 ```
@@ -107,6 +108,7 @@ This document provides instructions for configuring the (data_source_name) data 
 - How to provision the data source with YAML.
 
 Standard text:
+
 ```markdown
 You can define and configure the data source in YAML files as part of the Grafana provisioning system. For more information about provisioning and available configuration options, refer to [Provision Grafana](ref:provisioning-data-sources).
 ```
@@ -162,7 +164,7 @@ Standard text:
 
 ## Template variables document
 
-This topic document explains templates and variables associated with the data source. You will need to work with the data source SME on this topic to ensure all information is accurate.
+This document explains templates and variables associated with the data source. 
 
 **File structure:**
 
@@ -184,6 +186,7 @@ Grafana refers to such variables as template variables.
 
 For an introduction to templating and template variables, refer to the [Templating](ref:variables) and [Add and manage variables](ref:add-template-variables) documentation.
 ```
+
 - What types of variables are supported with this data source?
   - Query variables, custom variables, interval variables, etc.
 - Provide syntax and examples.
@@ -192,7 +195,7 @@ For an introduction to templating and template variables, refer to the [Templati
 
 ## Annotations document
 
-Add annotations, graphs, and dashboards to provide contextual information about specific points in time. This topic describes how annotations work with this data source.
+Add annotations, graphs, and dashboards to provide contextual information about specific points in time. This document describes how annotations work with this data source.
 
 **File structure:**
 
@@ -204,6 +207,8 @@ Add annotations, graphs, and dashboards to provide contextual information about 
 This document should include the following information:
 
 - Overview - What are annotations in Grafana?
+
+Standard text:
 
 ```markdown
 Annotations in Grafana are visual markers that you can add to your graphs and dashboards to provide context about specific events or time periods. They appear as vertical lines or regions on your time-series charts, helping you correlate metrics with real-world events.
@@ -224,7 +229,7 @@ For general information on annotations, refer to [Annotate visualizations](ref:a
 
 ## Alerting document
 
-Can you use this data source for alerting? Create alerts to incoming metrics data or log entries and set up your Grafana Alerting system to watch for specific events or circumstances.
+Can you use this data source for alerting? Create alerts to incoming metrics data or log entries and set up your Grafana Alerting system to watch for specific events or circumstances. 
 
 **File structure:**
 
@@ -267,13 +272,19 @@ This document provides troubleshooting steps users can try before opening a supp
 
 This document should include the following information:
 
-- Common connection issues
+Standard text:
+
+```markdown
+
+This document provides troubleshooting guidance for the <data source name> data source.
+
+- Common connection issues when configuring the data source.
   - List any common connection issues with this data source.
   - Provide a list of connection error messages and how to troubleshoot them.
   - Possible causes - Why might this happen?
-- Logs and Diagnostics
-  - Where can the user find relevant logs to help with troubleshooting
-  - How to interpret common error messages in logs.
+- Logs and diagnostics.
+  - Where can the user find relevant logs to help with troubleshooting?
+  - Explain how to interpret common error messages in logs.
   - Add step-by-step resolutions. Provide the specific actions to take.
-- Troubleshooting checklist
+- Troubleshooting checklist.
   - Include a troubleshooting checklist that users can work through systematically and attach to support cases when needed.

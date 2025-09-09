@@ -73,23 +73,25 @@ Standard text:
 Always ensure your plugin version is up-to-date to access all current features. Navigate to **Plugins and data > Plugins** to check for updates.
 ```
 
-Best practices:
+<!-- Best practices:
 
 - Avoid technical jargon in opening paragraphs.
-- Ensure all links are functional and correctly referenced.
+- Ensure all links are functional and correctly referenced. -->
 
 ## Configure document
+
+The Configure document describes how to configure the data source and should serve as a comprehensive setup guide for users.
 
 **File structure:**
 
 - **File name:** configure.md
-- **Location:** configure folder within the ain data source folder
+- **Location:** configure folder within the main data source folder
 - **menuTitle:** Configure
 - **title:** Configure the (insert data source name) data source
 
-The "Configure" document describes how to configure the data source and should serve as a comprehensive setup guide for users. This topic doc should include:
+This document should include:
 
-Start with a clear introduction that includes the following:
+- Introduction
 
 Standard text:
 
@@ -105,16 +107,35 @@ This document provides instructions for configuring the (data_source_name) data 
   - Any prerequisites that may be unique to the data source. (example: Salesforce requires that a specific account be created prior to connecting to Grafana.)
   - Know your authentication method (e.g., API key, OAuth, certificates). Have your security keys and certificates handy.
 
+- Explain how to configure the specific data source using the UI.
+  - Step-by-step setup instructions using the UI
+  - Describe each configuration option or setting.
+  - Include examples (e.g., connection strings).
+  - If the data source supports PDC:
+
+  Standard text:
+
+  ```markdown
+  - **Private data source connect** - _Only for Grafana Cloud users._ Private data source connect, or PDC, allows you to establish a private, secured connection between a Grafana Cloud instance, or stack, and data sources secured within a private network. Click the drop-down to locate the URL for PDC. For more information regarding Grafana PDC, refer to [Private data source connect (PDC)](ref:private-data-source-connect) and [Configure Grafana private data source connect (PDC)](ref:configure-pdc) for instructions on setting up a PDC connection.
+  Click **Manage private data source connect ** to open your PDC connection page and view your configuration details.
+  ```
+
+  - Describe the success message or expected validation outcome.
+
 - How to provision the data source with YAML.
 
-Standard text:
-
+  Standard text:
+  
 ```markdown
 You can define and configure the data source in YAML files as part of the Grafana provisioning system. For more information about provisioning and available configuration options, refer to [Provision Grafana](ref:provisioning-data-sources).
 ```
 
-- Add instructions for provisioning via YAML.
-- Include a working example or examples.  
+  - Add instructions for provisioning via YAML.
+  - Include a working example or examples.  
+
+- How to provision the data source with Terraform.
+  - Reference the Grafana Terraform Provider.
+  - Provide an example Terraform configuration.
 
 - Troubleshooting:
   - List common issues and how to resolve them.
@@ -170,8 +191,8 @@ This document explains templates and variables associated with the data source.
 
 - **File name:** template-variables.md
 - **Location:** template-variables folder within the main data source folder
-- **menuTitle:** Query editor
-- **title:** (Insert data source) query editor
+- **menuTitle:** Template variables
+- **title:** (Insert data source) template variables
 
 This document should include the following information:
 
@@ -234,7 +255,7 @@ Can you use this data source for alerting? Create alerts to incoming metrics dat
 **File structure:**
 
 - **File name:** alerting.md
-- **Location:** annotations folder within the ain data source folder
+- **Location:** Alerting folder within the main data source folder
 - **menuTitle:** Alerting
 - **title:** Alerting and (insert data source)
 
@@ -266,7 +287,7 @@ This document provides troubleshooting steps users can try before opening a supp
 **File structure:**
 
 - **File name:** troubleshooting.md
-- **Location:** annotations folder within the ain data source folder
+- **Location:** troubleshooting folder within the main data source folder
 - **menuTitle:** Troubleshooting
 - **title:** Troubleshooting issues with the (insert data source name) data source
 
@@ -275,8 +296,8 @@ This document should include the following information:
 Standard text:
 
 ```markdown
-
-This document provides troubleshooting guidance for the <data source name> data source.
+This document provides troubleshooting guidance for the <data source name> data source, covering common configuration problems, error messages, and other frequently encountered issues.
+```
 
 - Common connection issues when configuring the data source.
   - List any common connection issues with this data source.

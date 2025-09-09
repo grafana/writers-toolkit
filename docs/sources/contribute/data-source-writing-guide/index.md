@@ -18,13 +18,13 @@ Grafana offers almost 400 data sources to Grafana users, both open source and en
 
 The following data sources come bundled with Grafana and are considered core data sources:
 
-Enterprise plugins reside in the [Plugins-Private](https://github.com/grafana/plugins-private) repo, which is a private repo. Other plugins have their own separate repos, so you will need to clone each repo to work on data source documentation updates. These repos are also private. 
+Enterprise plugins reside in the [Plugins-Private](https://github.com/grafana/plugins-private) repo, which is a private repo. Other plugins have their own separate repos, so you will need to clone each repo to work on data source documentation updates. These repos are also private.
 
 ## General writing guidance
 
 - Use active voice and present tense. Refer to [Voice and tone guidelines](https://grafana.com/docs/writers-toolkit/write/style-guide/voice-tone-guidelines/) for more information.
 - Refer to [Style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/) for guidance on writing techniques.
-- Refer to the [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/) for content style guidelines. 
+- Refer to the [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/) for content style guidelines.
 
 ## Docs by topic
 
@@ -41,10 +41,10 @@ This document introduces the data source and serves as the "landing page" that u
 
 This document should include the following information:
 
-- What is this data source? 
+- What is this data source?
   - Provide a clear, concise description of the data source.
   - Include some primary use cases and capabilities.
-- What’s unique about this data source in general? Introduce these features or concepts. (Example: Prometheus uses exemplars). 
+- What’s unique about this data source in general? Introduce these features or concepts. (Example: Prometheus uses exemplars).
 - What’s unique about working with this data source in Grafana?
 - Is there native support for this data source or do I need to install a plugin?
 - What are the best practices when working with this data source?
@@ -73,11 +73,6 @@ Standard text:
 Always ensure your plugin version is up-to-date to access all current features. Navigate to **Plugins and data > Plugins** to check for updates.
 ```
 
-<!-- Best practices:
-
-- Avoid technical jargon in opening paragraphs.
-- Ensure all links are functional and correctly referenced. -->
-
 ## Configure document
 
 The Configure document describes how to configure the data source and should serve as a comprehensive setup guide for users.
@@ -91,15 +86,15 @@ The Configure document describes how to configure the data source and should ser
 
 This document should include:
 
-- Introduction
+- Introduction paragraph.
 
-Standard text:
+  Standard text:
 
-```markdown
-This document provides instructions for configuring the (data_source_name) data source and explains available configuration options. For general information on managing data sources, refer to [Data source management](ref:data-source-management).
-```
+  ```markdown
+  This document provides instructions for configuring the (data_source_name) data source and explains available configuration options. For general information on managing data sources, refer to [Data source management](ref:data-source-management).
+  ```
 
-- "Before you begin" section. Include any prerequisites necessary before configuring the data source. 
+- "Before you begin" section. Include any prerequisites necessary before configuring the data source.
   - Native support availability.
   - Plugin installation requirements with a link to installation instructions. This applies to any non-core data source. 
   - Note that the `Organization administrator` role is required to add a data source.
@@ -107,8 +102,8 @@ This document provides instructions for configuring the (data_source_name) data 
   - Any prerequisites that may be unique to the data source. (example: Salesforce requires that a specific account be created prior to connecting to Grafana.)
   - Know your authentication method (e.g., API key, OAuth, certificates). Have your security keys and certificates handy.
 
-- Explain how to configure the specific data source using the UI.
-  - Step-by-step setup instructions using the UI
+- Explain how to configure the specific data source using the UI section.
+  - Step-by-step setup instructions using the UI.
   - Describe each configuration option or setting.
   - Include examples (e.g., connection strings).
   - If the data source supports PDC:
@@ -120,9 +115,9 @@ This document provides instructions for configuring the (data_source_name) data 
   Click **Manage private data source connect ** to open your PDC connection page and view your configuration details.
   ```
 
-  - Describe the success message or expected validation outcome.
+- Describe the success message or expected validation outcome.
 
-- How to provision the data source with YAML.
+- How to provision the data source with YAML section.
 
   Standard text:
   
@@ -130,14 +125,14 @@ This document provides instructions for configuring the (data_source_name) data 
 You can define and configure the data source in YAML files as part of the Grafana provisioning system. For more information about provisioning and available configuration options, refer to [Provision Grafana](ref:provisioning-data-sources).
 ```
 
-  - Add instructions for provisioning via YAML.
-  - Include a working example or examples.  
+- Add instructions for provisioning via YAML.
+- Include a working example or examples.  
 
-- How to provision the data source with Terraform.
+- How to provision the data source with Terraform section (if applicable).
   - Reference the Grafana Terraform Provider.
   - Provide an example Terraform configuration.
 
-- Troubleshooting:
+- Troubleshooting configuration issues section.
   - List common issues and how to resolve them.
   - What can users try before contacting support?
   - How to confirm a working connection in Explore.
@@ -151,7 +146,7 @@ The query editor is part of the Explore page. It is the section where you create
 - **File name:** query-editor.md
 - **Location:** query-editor folder within the ain data source folder
 - **menuTitle:** Query editor
-- **title:** 
+- **title:**
 
 This document should include:
 
@@ -163,14 +158,14 @@ Standard text:
   Grafana provides a query editor for the CloudWatch data source, which allows you to query, visualize, and alert on logs and metrics stored in Amazon CloudWatch.  It's located on the [Explore](ref:explore) page. For general documentation on querying data sources in Grafana, refer to [Query and transform data](ref:query-transform-data).
 ```
 
-- Available query modes 
-  - Visual query builder or raw query
+- Available query modes.
+  - Visual query builder or raw query.
   - What query types are supported?
     - Table
     - Time series
-- Explain how to build queries using the editor. 
+- Explain how to build queries using the editor.
 - Describe each query editor option. This should include a description of each query type, an explanation of what each component or field is, and include examples where appropriate.
--Highlight data source-specific components or syntax. Provide examples for each component where applicable. 
+-Highlight data source-specific components or syntax. Provide examples for each component where applicable.
 - Include example queries, both simple and complex.
 - Any other information useful when working with the query editor, such as information on aggregations or aggregating data.
 - Are Grafana macros supported?
@@ -185,7 +180,7 @@ Standard text:
 
 ## Template variables document
 
-This document explains templates and variables associated with the data source. 
+This document explains templates and variables associated with the data source.
 
 **File structure:**
 
@@ -196,7 +191,7 @@ This document explains templates and variables associated with the data source.
 
 This document should include the following information:
 
-- What are variables? 
+- What are variables?
 
 Standard text:
 
@@ -250,7 +245,7 @@ For general information on annotations, refer to [Annotate visualizations](ref:a
 
 ## Alerting document
 
-Can you use this data source for alerting? Create alerts to incoming metrics data or log entries and set up your Grafana Alerting system to watch for specific events or circumstances. 
+Can you use this data source for alerting? Create alerts to incoming metrics data or log entries and set up your Grafana Alerting system to watch for specific events or circumstances.
 
 **File structure:**
 

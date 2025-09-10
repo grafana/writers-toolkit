@@ -166,7 +166,7 @@ Standard text:
 - Explain how to build queries using the editor.
 - Describe each query editor option. This should include a description of each query type, an explanation of what each component or field is, and include examples where appropriate.
 -Highlight data source-specific components or syntax. Provide examples for each component where applicable.
-- Include example queries, both simple and complex.
+- Include example queries of different complexities.
 - Any other information useful when working with the query editor, such as information on aggregations or aggregating data.
 - Are Grafana macros supported?
   - Provide a table of supported macros with examples.

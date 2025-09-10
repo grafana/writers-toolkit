@@ -275,7 +275,7 @@ For general information on alerting in Grafana refer to [Grafana alerting](ref:a
   - Known limitations or common alerting issues.
   - Tips for debugging alert rules.
 
-## Troubleshooting document
+## Troubleshoot document
 
 This document provides troubleshooting steps users can try before opening a support case. If support is still needed, users can reference this list to show what they've already attempted.
 

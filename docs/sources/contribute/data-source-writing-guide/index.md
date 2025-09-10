@@ -150,7 +150,7 @@ The query editor is part of the Explore page. It is the section where you create
 
 This document should include:
 
-- Where to access the query editor (e.g., Explore, dashboard panels).
+- Where to access the query editor. For example, in Grafana Explore or dashboard panels.
 
 Standard text:
 

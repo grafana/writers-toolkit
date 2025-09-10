@@ -243,7 +243,7 @@ For general information on annotations, refer to [Annotate visualizations](ref:a
 - Troubleshooting
   - Common problems and how to resolve them.
 
-## Alerting document
+## Grafana Alerting document
 
 Can you use this data source for alerting? Create alerts to incoming metrics data or log entries and set up your Grafana Alerting system to watch for specific events or circumstances.
 

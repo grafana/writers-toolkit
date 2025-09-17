@@ -1,0 +1,119 @@
+---
+# Required fields – must be present in all learning journey _index.md files
+
+# Clear, goal-oriented title that presents a comprehensive, often multi-stage experience that guides users through a broader topic or set of related, connected technologies
+# Example: "Monitor Linux servers with Grafana Alloy"
+title: "<JOURNEY_TITLE>"
+
+# Brief description of what users will achieve in this learning journey
+# Pattern: "Welcome to the [Grafana/specific] learning journey that [shows/teaches/provides] [action/outcome]"
+# Examples:
+# - "Welcome to the Grafana learning journey that shows you how to use Logs Drilldown to explore your logs and provide insight into troubleshooting."
+# - "Learn how to monitor a Kubernetes cluster in Grafana Cloud."
+# - "Welcome to the Grafana learning journey that provides the best practice for configuring Alloy to send logs to Grafana Cloud."
+description: "<JOURNEY_DESCRIPTION>"
+
+# Ordering weight for navigation (use increments of 100)
+# Orders learning journeys on the index and navigation
+weight: <WEIGHT_NUMBER>
+
+# Learning journey metadata
+journey:
+  # Skill level for the target audience
+  skill: <SKILL_LEVEL> # Options: Beginner, Intermediate, Advanced
+  # Source type for the journey content
+  source: "<CONTENT_SOURCE>" # Example: "Docs & blog posts"
+  # Journey logo configuration
+  logo:
+    # Path to logo image file
+    src: <LOGO_PATH> # Example: /static/img/menu/alloy-icon.svg
+    # Background color for the logo (hex color code)
+    background: "<BACKGROUND_COLOR>" # Example: '#0068FF'
+    # Logo width in pixels
+    width: <LOGO_WIDTH> # Example: 46
+    # Logo height in pixels
+    height: <LOGO_HEIGHT> # Example: 55
+
+# Step number (always 1 for _index.md files)
+step: 1
+
+# Layout template for learning journey pages
+layout: single-journey
+
+# Cascade configuration applies to all pages in this journey
+cascade:
+  # Layout template inherited by all journey step pages
+  layout: single-journey
+
+# Call-to-action button configuration
+# Pattern: CTAs create engagement and guide users to the next action
+# For _index.md files, always use type "start" to begin the learning journey
+# Standard values: title: "Are you ready?" and cta_text: "Let's go!" are most common
+cta:
+  # CTA type for the journey start page – always "start" for _index.md files
+  type: start
+  # CTA section title text – appears above the button
+  title: "<CTA_TITLE>" # Common: "Are you ready?"
+  # CTA button text – the clickable button text
+  cta_text: "<CTA_BUTTON_TEXT>" # Common: "Let's go!"
+
+# Optional fields – include only when needed
+
+# Shorter navigation title when the main title is too long for menus
+# Pattern: Use when the full title is over 50 characters or contains redundant words for navigation
+# Guidelines:
+# 1. Remove "learning journey" or similar meta-language
+# 2. Keep the core action verb and main product/technology
+# 3. Aim for 20-35 characters when possible
+# 4. Preserve the essential meaning while being concise
+# Examples:
+# - Full title: "Monitor Linux servers with Grafana Alloy" → menuTitle: "Monitor a Linux server"
+# - Full title: "Explore logs using Logs Drilldown" → menuTitle: "Logs Drilldown"
+# - Full title: "Use Traces Drilldown to identify high latency service requests" → menuTitle: "Identify high latency service requests"
+# - Full title: "Monitor collector health using Grafana Fleet Management" → menuTitle: "Monitor collector health"
+menuTitle: "<SHORT_MENU_TITLE>"
+
+# Keywords for optimization (3 to 5 relevant keywords)
+keywords:
+  - <KEYWORD_1> # Focus on main topics and products
+  - <KEYWORD_2>
+  - <KEYWORD_3>
+  - <KEYWORD_4>
+  - <KEYWORD_5>
+
+# Additional labels for categorization
+labels:
+  # Difficulty level label
+  difficulty: "<DIFFICULTY_LABEL>" # Options: beginner, intermediate, advanced
+  # Time estimate label
+  time: "<TIME_ESTIMATE>" # Example: "10 minutes"
+
+# URL aliases for renamed or moved content (maintains old URL access)
+aliases:
+  - /<OLD_PATH_1>/
+  - /<OLD_PATH_2>/
+
+# Related journeys section for prerequisites or complementary content
+# Use when users need data/setup from other journeys or when suggesting logical next steps
+# Pattern: Explains why these journeys are related and when users should consider them
+related_journeys:
+  # Section title for related journeys
+  title: "<RELATED_SECTION_TITLE>" # Common: "Related journeys"
+  # Contextual explanation of why these journeys are related
+  # Patterns:
+  # 1. Prerequisites: "[Journey] expects [data type] to be available. If you don't yet have [data type] flowing into Grafana Cloud, any of these related journeys will help you."
+  # 2. Recommendations: "Consider taking the following journeys before you start this journey."
+  # 3. Dependencies: "This journey expects [prerequisite] to be installed. If you don't yet have [prerequisite] installed, any of these related journeys will help you."
+  # Examples:
+  # - "Logs Drilldown expects logs to be available. If you don't yet have logs flowing into Grafana Cloud, any of these related journeys will help you."
+  # - "Consider taking the following journeys before you start this journey."
+  # - "This journey expects Grafana Alloy to be installed. If you don't yet have Grafana Alloy installed, any of these related journeys will help you."
+  heading: "<RELATED_JOURNEYS_CONTEXT>"
+  # List of related journey links
+  items:
+    - title: "<RELATED_JOURNEY_1_TITLE>"
+      link: "<RELATED_JOURNEY_1_LINK>"
+    - title: "<RELATED_JOURNEY_2_TITLE>"
+      link: "<RELATED_JOURNEY_2_LINK>"
+---
+

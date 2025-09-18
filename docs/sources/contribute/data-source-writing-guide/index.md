@@ -206,7 +206,7 @@ For an introduction to templating and template variables, refer to the [Templati
 ```
 
 - What types of variables are supported with this data source?
-  - Query variables, custom variables, interval variables, etc.
+  - Query variables, custom variables, interval variables, or any other kinds of variables.
 - Provide syntax and examples.
 - Usage tips and options.
 - Common issues with variables and how to fix them.

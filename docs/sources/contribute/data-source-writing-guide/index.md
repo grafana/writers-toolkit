@@ -155,7 +155,9 @@ This document should include:
 Standard text:
 
 ```markdown
-  Grafana provides a query editor for the CloudWatch data source, which allows you to query, visualize, and alert on logs and metrics stored in Amazon CloudWatch.  It's located on the [Explore](ref:explore) page. For general documentation on querying data sources in Grafana, refer to [Query and transform data](ref:query-transform-data).
+  Grafana provides a query editor for the CloudWatch data source, which allows you to query, visualize, and alert on logs and metrics stored in Amazon CloudWatch.
+  It's located on the [Explore](/docs/grafana/latest/explore/) page.
+  For general documentation on querying data sources in Grafana, refer to [Query and transform data](/docs/grafana/latest/panels-visualizations/query-transform-data/).
 ```
 
 - Available query modes.

@@ -186,10 +186,10 @@ This document explains templates and variables associated with the data source.
 
 **File structure:**
 
-- **File name:** template-variables.md
-- **Location:** template-variables folder within the main data source folder
+- **File name:** `template-variables.md`
+- **Location:** Main data source directory
 - **menuTitle:** Template variables
-- **title:** (Insert data source) template variables
+- **title:** <DATA SOURCE NAME> template variables
 
 This document should include the following information:
 

@@ -18,7 +18,9 @@ While many are maintained by Grafana, others are maintained by Grafana Champions
 
 The following data sources come bundled with Grafana and are considered core data sources:
 
-Enterprise plugins reside in the [Plugins-Private](https://github.com/grafana/plugins-private) repo, which is a private repo. Other plugins have their own separate repos, so you will need to clone each repo to work on data source documentation updates. These repos are also private.
+Enterprise plugins reside in the [`grafana/plugins-private`](https://github.com/grafana/plugins-private) repository, which is a private repository.
+Other plugins have their own separate repos, and you need to clone each repo to work on data source documentation updates.
+These repositories are sometimes also private.
 
 ## General writing guidance
 

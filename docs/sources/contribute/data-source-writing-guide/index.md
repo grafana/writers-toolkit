@@ -217,10 +217,10 @@ Add annotations, graphs, and dashboards to provide contextual information about 
 
 **File structure:**
 
-- **File name:** annotations.md
-- **Location:** annotations folder within the ain data source folder
+- **File name:**` annotations.md`
+- **Location:** Main data source directory
 - **menuTitle:** Annotations
-- **title:** Annotations and (insert data source)
+- **title:** Annotations and <DATA SOURCE NAME>
 
 This document should include the following information:
 

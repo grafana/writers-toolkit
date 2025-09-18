@@ -16,7 +16,6 @@ weight: 500
 Grafana offers almost 400 data sources to Grafana users, both open source and enterprise.
 While many are maintained by Grafana, others are maintained by Grafana Champions and other users or companies that partner with Grafana Labs.
 
-The following data sources come bundled with Grafana and are considered core data sources:
 
 Enterprise plugins reside in the [`grafana/plugins-private`](https://github.com/grafana/plugins-private) repository, which is a private repository.
 Other plugins have their own separate repos, and you need to clone each repo to work on data source documentation updates.

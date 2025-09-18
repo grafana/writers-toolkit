@@ -13,7 +13,8 @@ weight: 500
 
 # Data sources writing guide
 
-Grafana offers almost 400 data sources to Grafana users, both open source and enterprise. While many are maintained by Grafana, others are maintained by Grafana Champions and other users or companies that partner with Grafana Labs. The data sources vary in type, from key data sources to less-used data source plugins.
+Grafana offers almost 400 data sources to Grafana users, both open source and enterprise.
+While many are maintained by Grafana, others are maintained by Grafana Champions and other users or companies that partner with Grafana Labs.
 
 The following data sources come bundled with Grafana and are considered core data sources:
 

@@ -16,7 +16,6 @@ weight: 500
 Grafana offers almost 400 data sources to Grafana users, both open source and enterprise.
 While many are maintained by Grafana, others are maintained by Grafana Champions and other users or companies that partner with Grafana Labs.
 
-
 Enterprise plugins reside in the [`grafana/plugins-private`](https://github.com/grafana/plugins-private) repository, which is a private repository.
 Other plugins have their own separate repos, and you need to clone each repo to work on data source documentation updates.
 These repositories are sometimes also private.
@@ -66,6 +65,23 @@ This document should include the following information:
   - Add transformations
   - Set up alerting
   - Additional things you can do with the specific data source
+
+  Standard text:
+
+  ```
+
+## "Get the most out of the data source
+
+Once you have connected the <INSERT NAME> data source, you can:
+
+- Use the [query editor](add link tot he data source's query editor doc) to create and edit queries.
+- Create a wide variety of [visualizations](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/).
+- Configure and use [Templates and variables](https://grafana.com/docs/grafana/latest/variables/).
+- Add [Transformations](https://grafana.com/docs/grafana/latest/panels/transformations/).
+- Set up alerting; refer to [Alerts overview](https://grafana.com/docs/grafana/latest/alerting/).
+- Add [Annotations](https://grafana.com/docs/grafana/latest/dashboards/annotations/).
+```
+
 If the data source requires plugin installation, add this to the bottom of this introduction doc.
 
 Standard text:
@@ -156,13 +172,13 @@ This document should include:
 Standard text:
 
 ```markdown
-  Grafana provides a query editor for the CloudWatch data source, which allows you to query, visualize, and alert on logs and metrics stored in Amazon CloudWatch.
+  Grafana provides a query editor for the <INSERT NAME> data source, which allows you to query, visualize, and alert on logs and metrics stored in Amazon CloudWatch.
   It's located on the [Explore](/docs/grafana/latest/explore/) page.
   For general documentation on querying data sources in Grafana, refer to [Query and transform data](/docs/grafana/latest/panels-visualizations/query-transform-data/).
 ```
 
 - Available query modes.
-  - Visual query builder or raw query.
+  - Visual query builder or raw query (Builder and Code mode).
   - What query types are supported?
     - Table
     - Time series
@@ -203,13 +219,13 @@ Instead of hard-coding details such as server, application, and sensor names in 
 Grafana lists these variables in drop-down selection boxes at the top of the dashboard to help you change the data displayed in your dashboard.
 Grafana refers to such variables as template variables.
 
-For an introduction to templating and template variables, refer to the [Templating](ref:variables) and [Add and manage variables](ref:add-template-variables) documentation.
+For an introduction to templating and template variables, refer to [Template variables](https://grafana.com/docs/grafana/latest/dashboards/variables/#templates) and [Add variables](https://grafana.com/docs/grafana/latest/dashboards/variables/add-template-variables/#add-variables).
 ```
 
 - What types of variables are supported with this data source?
   - Query variables, custom variables, interval variables, or any other kinds of variables.
 - Provide syntax and examples.
-- Usage tips and options.
+- Provide usage tips and options.
 - Common issues with variables and how to fix them.
 
 ## Annotations document

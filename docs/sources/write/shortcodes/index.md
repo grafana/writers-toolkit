@@ -99,7 +99,7 @@ Produces:
 ## Admonition
 
 The `admonition` shortcode renders its content in a blockquote or stylized banner.
-The style depends on the admonition type as defined in Writers' Toolkit [Style conventions](../markdown-guide/#images).
+The style depends on the admonition type as defined in Writers' Toolkit [Style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#admonitions).
 
 The content of the admonition must be within opening and closing tags,
 and the type of admonition must be within quotes.

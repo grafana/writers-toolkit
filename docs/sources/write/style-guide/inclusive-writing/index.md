@@ -135,3 +135,22 @@ Hyphenate when you're modifying a noun. For example:
 - scroll toward the lower right
 
 Don't use the word _hand_ as a qualifier like in _right-hand corner_.
+
+### Avoid directional language
+
+Language that relies only on spatial direction doesn't help users with visual disabilities or those who use screen readers. Remove directional language from your documentation when possible, and add language that doesn't depend on spatial cues to help users navigate.
+
+Use:
+
+- In the previous section
+- In the following table
+- The next step
+- Earlier in this topic
+
+Don't use:
+
+- In the section above
+- The table below
+- To the right
+- See the sidebar on the left
+

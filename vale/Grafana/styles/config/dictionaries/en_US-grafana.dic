@@ -1,4 +1,4 @@
-370
+371
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -221,6 +221,7 @@ overutilization/S po:noun
 PagerDuty/ po:noun
 Parca/ po:noun
 path/S po:noun
+PDC/ po:noun
 PDF/S po:noun
 performant/ po:adjective
 Phlare/M po:noun

@@ -72,7 +72,7 @@ It is no longer deployed, enhanced, or supported.
 
 ### Paused development
 
-Scenario: Development of a feature or product has been paused and it will not receive new enhancements. 
+Scenario: Development of a feature or product has been paused and it won't receive new enhancements. 
 
 Example text:
 

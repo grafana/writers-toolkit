@@ -70,6 +70,18 @@ It is no longer deployed, enhanced, or supported.
 {{</* /admonition */>}}
 ```
 
+### Paused development
+
+Scenario: Development of a feature or product has been paused and it will not receive new enhancements. 
+
+Example text:
+
+```markdown
+{{</* admonition type="note" */>}}
+Development of <PRODUCT OR FEATURE NAME> is paused. Existing features continue to work, but new enhancements are on hold.
+{{</* /admonition */>}}
+```
+
 ## Documentation deprecation
 
 Scenario: There are situations in which you may deprecate documentation independent of feature deprecation.

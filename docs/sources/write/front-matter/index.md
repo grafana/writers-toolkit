@@ -99,11 +99,11 @@ To determine the relative alias, you must first understand the meaning of the cu
 
 For an alias in the page `/docs/grafana/latest/alerting/manage-notifications/`:
 
-- The current directory element (`.`) refers to the directory containing the current page, _not_ the directory of the current page.
+- The current directory element (`.`) refers to the directory that contains the current page.
 
-  In this example, this is the page `/docs/grafana/latest/alerting/`.
+  In the source file for the page `/docs/grafana/latest/alerting/manage-notifications/`, `.` refers to `/docs/grafana/latest/alerting/`.
 
-- The parent directory element (`..`) refers to the parent directory of the current directory element.
+- The parent directory element (`..`) refers in turn to the parent directory of the current (`.`) directory element.
 
   In this example, this is the page `/docs/grafana/latest/`.
 

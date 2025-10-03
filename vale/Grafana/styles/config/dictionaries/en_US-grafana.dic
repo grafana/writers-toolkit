@@ -1,4 +1,4 @@
-371
+372
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -24,6 +24,7 @@ AWS/ po:noun
 AWS Distro for OpenTelemetry Collector/ po:noun
 AWS X-Ray/ po:noun
 backend/S po:noun
+backoff/ po:noun
 backport/DGS po:verb
 basemap/ po:noun
 Beyla/ po:noun

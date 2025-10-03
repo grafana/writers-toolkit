@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
 
   word.new('backend', 'S', 'noun') { swaps: { 'back[ -]end': 'backend' } },
+  word.new('backoff', '', 'noun') { description: 'Refers to exponential backoff (retry logic)' },
   word.new('backport', 'DGS', 'verb'),
   word.new('basemap', '', 'noun') { description: 'A type of map layer available in geomap visualizations' },
   word.new('Beyla', '', 'noun') { product: true },

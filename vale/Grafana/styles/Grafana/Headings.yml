@@ -80,6 +80,7 @@
   - "OTel"
   - "PagerDuty"
   - "Parca"
+  - "PDC"
   - "Phlare"
   - "Pinecone"
   - "Podman"

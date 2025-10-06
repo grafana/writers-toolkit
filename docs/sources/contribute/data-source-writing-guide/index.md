@@ -26,7 +26,7 @@ These repositories are sometimes also private.
 - Refer to [Style conventions](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/) for guidance on writing techniques.
 - Refer to the [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/) for content style guidelines.
 
-## Docs by topic
+## Structure documentation with topics
 
 In the past, a data source document tended to be one long document containing background, requirements, configuration options, query editor options and templates and variables.
 To make information easier to find, the technical writing team, with agreement from product management and engineering, decided to refactor the documentation into separate topics.

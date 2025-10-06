@@ -311,7 +311,7 @@ This document provides troubleshooting steps users can try before opening a supp
 
 - **File name:** `troubleshooting.md`
 - **Location:**  Main data source directory
-- **menuTitle:** Troubleshooting
+- **menuTitle:** Troubleshoot
 - **title:** Troubleshoot issues with the <DATA SOURCE NAME> data source
 
 This document should include the following information:

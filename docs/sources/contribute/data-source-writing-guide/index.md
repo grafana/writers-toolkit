@@ -28,7 +28,9 @@ These repositories are sometimes also private.
 
 ## Docs by topic
 
-In the past, a data source document tended to be one long document containing background, requirements, configuration options, query editor options and templates and variables. To make information easier to find, the technical writing team, with agreement from product management and engineering, decided to refactor the documentation into separate topics. The idea behind this refactor was to better serve our users. If a customer wants to know how to configure the data source, it’s easier to go directly to that topic page rather than wade through one long document where lots of scrolling is required. This refactor has gotten positive feedback from the user community.
+In the past, a data source document tended to be one long document containing background, requirements, configuration options, query editor options and templates and variables.
+To make information easier to find, the technical writing team, with agreement from product management and engineering, decided to refactor the documentation into separate topics.
+If a customer wants to know how to configure the data source, it's easier to go directly to that topic page rather than wade through one long document where lots of scrolling is required.
 
 ## Introduction document
 
@@ -36,17 +38,17 @@ This document introduces the data source and serves as the "landing page" that u
 
 **File structure:**
 
-- **File name:** _index.md
-- **Location:** Main data source folder
+- **File name:** `_index.md`
+- **Location:** Main data source directory
 
 This document should include the following information:
 
 - What is this data source?
   - Provide a clear, concise description of the data source.
   - Include some primary use cases and capabilities.
-- What’s unique about this data source in general? Introduce these features or concepts. (Example: Prometheus uses exemplars).
-- What’s unique about working with this data source in Grafana?
-- Is there native support for this data source or do I need to install a plugin?
+- What's unique about this data source in general? Introduce these features or concepts. For example, Prometheus uses exemplars.
+- What's unique about working with this data source in Grafana?
+- Is there native support for this data source or does the user need to install a plugin?
 - What are the best practices when working with this data source?
 - Are there any requirements or prerequisites for adding the data source.
   - Example of a prerequisite:  Salesforce requires a Salesforce Connected App.
@@ -57,10 +59,10 @@ This document should include the following information:
   - query editor topic
   - templates and variable topic
   - other data source-related topics
-- What can I do once I’ve configured this data source?
+- What can the user do after they've configured this data source?
   - Add links to relevant documentation, such as for using variables or annotations, or configuring alerting.
 - Any details regarding pre-made dashboards for the data source, and how to find these dashboards
-- Add a "next steps" section at the bottom with link to the following:
+- Add a "Next steps" section at the end of the page with links to the following:
   - Add annotations
   - Add transformations
   - Set up alerting
@@ -96,10 +98,10 @@ The Configure document describes how to configure the data source and should ser
 
 **File structure:**
 
-- **File name:** configure.md
-- **Location:** configure folder within the main data source folder
+- **File name:** `configure.md`
+- **Location:** Main data source directory
 - **menuTitle:** Configure
-- **title:** Configure the (insert data source name) data source
+- **title:** Configure the <DATA SOURCE NAME> data source
 
 This document should include:
 
@@ -108,7 +110,8 @@ This document should include:
   Standard text:
 
   ```markdown
-  This document provides instructions for configuring the (data_source_name) data source and explains available configuration options. For general information on managing data sources, refer to [Data source management](ref:data-source-management).
+  This document provides instructions for configuring the <DATA SOURCE NAME> data source and explains available configuration options.
+  For general information on managing data sources, refer to [Data source management](/docs/grafana/latest/administration/data-source-management/).
   ```
 
 - "Before you begin" section. Include any prerequisites necessary before configuring the data source.
@@ -116,19 +119,21 @@ This document should include:
   - Plugin installation requirements with a link to installation instructions. This applies to any non-core data source. 
   - Note that the `Organization administrator` role is required to add a data source.
   - Is a separate account needed for the data source?
-  - Any prerequisites that may be unique to the data source. (example: Salesforce requires that a specific account be created prior to connecting to Grafana.)
-  - Know your authentication method (e.g., API key, OAuth, certificates). Have your security keys and certificates handy.
+  - Any prerequisites that may be unique to the data source. For example, Salesforce requires that a specific account be created prior to connecting to Grafana.
+  - Know your authentication method such as, API key, OAuth 2.0, or certificates. Have your security keys and certificates handy.
 
 - Explain how to configure the specific data source using the UI section.
   - Step-by-step setup instructions using the UI.
   - Describe each configuration option or setting.
-  - Include examples (e.g., connection strings).
-  - If the data source supports PDC:
+  - Include examples like connection strings.
+  - If the data source supports private data source connect (PDC):
 
   Standard text:
 
   ```markdown
-  - **Private data source connect** - _Only for Grafana Cloud users._ Private data source connect, or PDC, allows you to establish a private, secured connection between a Grafana Cloud instance, or stack, and data sources secured within a private network. Click the drop-down to locate the URL for PDC. For more information regarding Grafana PDC, refer to [Private data source connect (PDC)](ref:private-data-source-connect) and [Configure Grafana private data source connect (PDC)](ref:configure-pdc) for instructions on setting up a PDC connection.
+  - **Private data source connect** - _Only for Grafana Cloud users._ Private data source connect, or PDC, allows you to establish a private, secured connection between a Grafana Cloud instance, or stack, and data sources secured within a private network.
+  Click the drop-down to locate the URL for PDC.
+  For more information regarding Grafana PDC, refer to [Private data source connect (PDC)](https://grafana.com/docs/grafana-cloud/connect-externally-hosted/private-data-source-connect/) and [Configure Grafana private data source connect (PDC)](https://grafana.com/docs/grafana-cloud/connect-externally-hosted/private-data-source-connect/configure-pdc/) for instructions on setting up a PDC connection.
   Click **Manage private data source connect ** to open your PDC connection page and view your configuration details.
   ```
 
@@ -156,14 +161,17 @@ You can define and configure the data source in YAML files as part of the Grafan
 
 ## Query editor document
 
-The query editor is part of the Explore page. It is the section where you create the query, either by a visual query builder or via a field where you add your query and some additional query options. Some query editors do not include a visual query builder, such as MongoDB or Jira. Datadog and Prometheus have very detailed query builders.
+The query editor is part of the **Explore** page.
+It's the section where you create the query, either by a visual query builder or via a field where you add your query and some additional query options.
+Some query editors don't include a visual query builder, such as MongoDB or Jira.
+Datadog and Prometheus have very detailed query builders.
 
 **File structure:**
 
-- **File name:** query-editor.md
-- **Location:** query-editor folder within the ain data source folder
+- **File name:** `query-editor.md`
+- **Location:** Main data source directory
 - **menuTitle:** Query editor
-- **title:**
+- **title:** Query editor
 
 This document should include:
 
@@ -248,13 +256,13 @@ Standard text:
 ```markdown
 Annotations in Grafana are visual markers that you can add to your graphs and dashboards to provide context about specific events or time periods. They appear as vertical lines or regions on your time-series charts, helping you correlate metrics with real-world events.
 
-For general information on annotations, refer to [Annotate visualizations](ref:annotations).
+For general information on annotations, refer to [Annotate visualizations](/docs/grafana/latest/dashboards/build-dashboards/annotate-visualizations/).
 ```
 
 - What types of annotations can you create for this data source?
 - Are there any limitations to using annotations with this data source?
 - Querying for annotations
-  - Field requirements: time, text, tags, optional timeEnd
+  - Field requirements: `time`, `text`, `tags`, optional `timeEnd`
 - Provide one or two example annotation queries.
 - Configuration
   - How to add annotation queries to a dashboard.
@@ -264,23 +272,24 @@ For general information on annotations, refer to [Annotate visualizations](ref:a
 
 ## Grafana Alerting document
 
-Can you use this data source for alerting? Create alerts to incoming metrics data or log entries and set up your Grafana Alerting system to watch for specific events or circumstances.
+Can you use this data source with Grafana Alerting?
+Create alerts for metrics data or log entries and configure Grafana Alerting to alert on that information.
 
 **File structure:**
 
-- **File name:** alerting.md
-- **Location:** Alerting folder within the main data source folder
-- **menuTitle:** Alerting
-- **title:** Alerting and (insert data source)
+- **File name:** `alerting.md`
+- **Location:** Main data source directory
+- **menuTitle:** Grafana Alerting
+- **title:** Alerting and <DATA SOURCE NAME>
 
 This document should include the following information:
 
 Standard text:
 
 ```markdown
-Grafana alerting is a powerful system for monitoring your metrics and receiving notifications when certain conditions are met. It's designed to help you proactively identify and respond to issues in your infrastructure and applications.
+Grafana Alerting is a powerful system for monitoring your metrics and receiving notifications when certain conditions are met. It's designed to help you proactively identify and respond to issues in your infrastructure and applications.
 
-For general information on alerting in Grafana refer to [Grafana alerting](ref:aleting).
+For general information on alerting in Grafana refer to [Grafana Alerting](/docs/grafana/latest/alerting/).
 ```
 
 - What kinds of alerts can you create with this data source?
@@ -300,17 +309,17 @@ This document provides troubleshooting steps users can try before opening a supp
 
 **File structure:**
 
-- **File name:** troubleshooting.md
-- **Location:** troubleshooting folder within the main data source folder
+- **File name:** `troubleshooting.md`
+- **Location:**  Main data source directory
 - **menuTitle:** Troubleshooting
-- **title:** Troubleshooting issues with the (insert data source name) data source
+- **title:** Troubleshoot issues with the <DATA SOURCE NAME> data source
 
 This document should include the following information:
 
 Standard text:
 
 ```markdown
-This document provides troubleshooting guidance for the <data source name> data source, covering common configuration problems, error messages, and other frequently encountered issues.
+This document provides troubleshooting guidance for the <DATA SOURCE NAME> data source, covering common configuration problems, error messages, and other frequently encountered issues.
 ```
 
 - Common connection issues when configuring the data source.

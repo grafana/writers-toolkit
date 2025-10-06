@@ -82,7 +82,7 @@ Once you have connected the <INSERT NAME> data source, you can:
 - Add [Annotations](https://grafana.com/docs/grafana/latest/dashboards/annotations/).
 ```
 
-If the data source requires plugin installation, add this to the bottom of this introduction doc.
+If the data source requires plugin installation, add this to the end of this introduction document.
 
 Standard text:
 

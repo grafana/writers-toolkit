@@ -58,7 +58,7 @@ This document should include the following information:
   - templates and variable topic
   - other data source-related topics
 - What can I do once I’ve configured this data source?
-  - Add links to relevant docs (e.g., add variables, alerting, annotations).
+  - Add links to relevant documentation, such as for using variables or annotations, or configuring alerting.
 - Any details regarding pre-made dashboards for the data source, and how to find these dashboards
 - Add a "next steps" section at the bottom with link to the following:
   - Add annotations

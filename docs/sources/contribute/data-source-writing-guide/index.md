@@ -139,7 +139,7 @@ This document should include:
   Standard text:
   
 ```markdown
-You can define and configure the data source in YAML files as part of the Grafana provisioning system. For more information about provisioning and available configuration options, refer to [Provision Grafana](ref:provisioning-data-sources).
+You can define and configure the data source in YAML files as part of the Grafana provisioning system. For more information about provisioning and available configuration options, refer to [Provision Grafana](https://grafana.com/docs/grafana/latest/administration/provisioning/#data-sources).
 ```
 
 - Add instructions for provisioning via YAML.

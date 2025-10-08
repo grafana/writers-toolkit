@@ -6,7 +6,7 @@ local word = import './word.jsonnet';
   word.new('inclusivity', '', 'noun'),
   word.new('InfluxDB', '', 'noun') { product: true, swaps: { 'influx[Dd][Bb]': 'InfluxDB', 'Influx[Dd]b': 'InfluxDB', 'Influxd[Bb]': 'InfluxDB' } },
   word.new('ingester', 'MS', 'noun'),
-  word.new('inode', 's', 'noun') { description: 'A data structure in a Unix-style file system that describes a file-system object such as a file or a directory (https://en.wikipedia.org/wiki/Inode)' },
-  word.new('instrumentation', 's', 'noun'),
+  word.new('inode', 'S', 'noun') { description: 'A data structure in a Unix-style file system that describes a file-system object such as a file or a directory (https://en.wikipedia.org/wiki/Inode)' },
+  word.new('instrumentation', 'S', 'noun'),
   word.new('Istio', '', 'noun'),
 ]

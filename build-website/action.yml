@@ -30,6 +30,12 @@ runs:
           });
 
           async function isBinary(path) {
+            try {
+              await exec.exec(`test -f ${path}`);
+            } catch {
+              core.info(`path ${path} is not a regular file, skipping binary test`);
+              return false;
+            }
             return exec
               .getExecOutput(`file --mime-encoding ${path}`)
               .then(({ stdout }) => {

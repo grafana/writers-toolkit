@@ -19,12 +19,6 @@ approval_rules:
           workflows:
             - .github/workflows/validate-documentation.yml
   - name: no documentation changes
-    if:
-      not:
-        changed_files:
-          paths:
-            - ^docs/sources/.+$
-            - ^vale/.+$
     requires:
       conditions:
         has_workflow_result:

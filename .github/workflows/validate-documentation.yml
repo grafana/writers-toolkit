@@ -35,3 +35,21 @@ jobs:
       prettier: true
       vale: true
       readability: true
+
+  result:
+    runs-on: ubuntu-latest
+    needs: [changed-files, ci]
+    if: always()
+    steps:
+      - name: Determine result
+        run: |
+          if [[ "${{ needs.changed-files.outputs.any_changed }}" == "false" ]]; then
+            echo "No documentation files changed, skipping CI"
+            exit 0
+          elif [[ "${{ needs.ci.result }}" == "success" ]]; then
+            echo "CI passed"
+            exit 0
+          else
+            echo "CI failed or was cancelled"
+            exit 1
+          fi

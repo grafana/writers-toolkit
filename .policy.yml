@@ -13,6 +13,5 @@ approval_rules:
         has_workflow_result:
           conclusions:
             - success
-            - skipped
           workflows:
             - .github/workflows/validate-documentation.yml

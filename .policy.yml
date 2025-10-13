@@ -1,28 +1,18 @@
 policy:
   approval:
-    - or:
-      - documentation validation passes
-      - no documentation changes
+    - documentation validation passes or no documentation changes
 
 approval_rules:
-  - name: documentation validation passes
+  - name: documentation validation passes or no documentation changes
     if:
-      changed_files:
+      file_not_deleted:
         paths:
-          - ^docs/sources/.+$
-          - ^vale/.+$
+          - .github/workflows/validate-documentation.yml
     requires:
       conditions:
         has_workflow_result:
           conclusions:
             - success
-          workflows:
-            - .github/workflows/validate-documentation.yml
-  - name: no documentation changes
-    requires:
-      conditions:
-        has_workflow_result:
-          conclusions:
             - skipped
           workflows:
             - .github/workflows/validate-documentation.yml

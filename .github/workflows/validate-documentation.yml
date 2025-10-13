@@ -3,8 +3,6 @@ name: Documentation CI
 permissions: {}
 
 on:
-  push:
-    branches: [main,fix/ignore-binary-type-for-symlinks]
   pull_request:
   workflow_dispatch:
 

@@ -108,7 +108,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Build website
-        uses: grafana/writers-toolkit/build-website@44d8e2b29fbbdba5c3614ddcfc29be47e5f9e61c # build-website/v1
+        uses: grafana/writers-toolkit/build-website@7e0981fdbf5a4446e309ecb655596a71113d60ae # build-website/v1
         with:
           image: ${{ inputs.build-website-image }}
           source_directory: ${{ inputs.build-website-source-directory }}

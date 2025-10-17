@@ -95,7 +95,7 @@ env:
   SOURCES: ${{ inputs.sources }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -113,7 +113,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           comment-author: "github-actions[bot]"
-          body-includes: Deploy preview available
+          body-includes: "Deploy preview available (${{ inputs.title }})"
 
       - name: Update comment with in-progress deploy preview
         if: steps.fc.outputs.comment-id != '' && (github.event.action == 'opened' || github.event.action == 'synchronize')
@@ -303,7 +303,7 @@ jobs:
         with:
           issue-number: ${{ env.EVENT_NUMBER }}
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}$RELATIVE_PREFIX
+            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}$RELATIVE_PREFIX
 
       - name: Create comment with available deploy preview
         if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''"
@@ -311,7 +311,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
-            :computer: Deploy preview available:
+            :computer: Deploy preview available (${{ inputs.title }}):
             ${{ steps.urls.outputs.urls }}
 
       - name: Update comment with deleted deploy preview
@@ -322,7 +322,7 @@ jobs:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview deleted.
+            :computer: Deploy preview deleted (${{ inputs.title }}).
 
 
       - name: Update comment with available deploy preview
@@ -333,7 +333,7 @@ jobs:
           issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
 
       - name: Update comment with available deploy preview
         if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''"
@@ -343,5 +343,5 @@ jobs:
           issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available:
+            :computer: Deploy preview available (${{ inputs.title }}):
             ${{ steps.urls.outputs.urls }}

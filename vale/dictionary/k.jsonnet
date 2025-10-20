@@ -2,7 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('KEDA', 'M', 'noun') { abbreviation: true, elaboration: 'Kubernetes-based Event-Driven Autoscaling' },
   word.new('keepalive', '', 'noun') { description: 'A message sent by one device to another to check that the link between the two is operating (https://en.wikipedia.org/wiki/Keepalive).' },
-  word.new('Keycloack', '', 'noun') { description: 'Open source identity and access management solution.', product: true },
+  word.new('Keycloak', '', 'noun') { description: 'Open source identity and access management solution.', product: true },
   word.new('Kibana', '', 'noun') { product: true },
   word.new('Killercoda', '', 'noun') { product: true },
   word.new('Kinesis', '', 'noun') { Amazon: true, product: true },

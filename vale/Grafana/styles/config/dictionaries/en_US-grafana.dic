@@ -1,4 +1,4 @@
-375
+376
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -159,6 +159,7 @@ JSX/ po:noun
 JUnit/M po:noun
 KEDA/M po:noun
 keepalive/ po:noun
+Keycloak/ po:noun
 Kibana/ po:noun
 Killercoda/ po:noun
 Kinesis/ po:noun

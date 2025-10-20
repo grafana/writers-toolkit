@@ -2,7 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('TCP', '', 'noun') { abbreviation: true, elaboration: 'Transmission Control Protocol', established_abbreviation: true },
   word.new('templated', '', 'adjective'),
-  word.new('Team Sync', '', 'noun') { description: 'DESCRIPTION HERE', product: true },
+  word.new('Team Sync', '', 'noun') { description: 'Synch your auth providers teams and teams in Grafana.', product: true },
   word.new('Tempo', '', 'noun') { product: true, swaps: { tempo: 'Tempo' } },
   word.new('Thanos', '', 'noun') { product: true },
   word.new('Threema', '', 'noun') { description: 'https://threema.ch/en', product: true, swaps: { threema: 'Threema' } },

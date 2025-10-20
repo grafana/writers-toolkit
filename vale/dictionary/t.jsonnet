@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('TCP', '', 'noun') { abbreviation: true, elaboration: 'Transmission Control Protocol', established_abbreviation: true },
   word.new('templated', '', 'adjective'),
+  word.new('Team Sync', '', 'noun') { product: true },
   word.new('Tempo', '', 'noun') { product: true, swaps: { tempo: 'Tempo' } },
   word.new('Thanos', '', 'noun') { product: true },
   word.new('Threema', '', 'noun') { description: 'https://threema.ch/en', product: true, swaps: { threema: 'Threema' } },
@@ -11,7 +12,7 @@ local word = import './word.jsonnet';
   word.new('tracepoint', 'S', 'noun'),
   word.new('TraceQL', '', 'noun') { swaps: { 'trace(?:ql|QL)': 'TraceQL' } },
   word.new('traceroute', 'S', 'noun'),
-  word.new('Traces Drilldown', '', 'noun') { product: true },
+
   word.new('trendline', 'S', 'noun') { description: 'A transformation that infers data points not represented using linear regression' },
   word.new('triage', 'D', 'verb'),
   word.new('TSDB', 'S', 'noun') { abbreviation: true, elaboration: 'time-series database', established_abbreviation: true },

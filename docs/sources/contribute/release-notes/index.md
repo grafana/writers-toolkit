@@ -63,6 +63,8 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. Go to the What's new collection of the [website CMS](https://admin.grafana.com/content-admin/#/collections/whats-new) and click **New Feature** at the top of the page.
 1. Fill out [the CMS fields](#cms-fields).
+1. (Optional) To control how much of your post is shown before the **Read more** button in list views everywhere, add `<!--more-->` to a line as a cutoff point for the preview. Without this, the system will automatically pick a cutoff point for the preview.
+
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.
 
@@ -75,10 +77,6 @@ When you're ready to add a What's new entry, complete the following steps:
    - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
      To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
      For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
-
-   {{< admonition type="note" >}}
-   You can use the [more shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#more) to choose a custom cutoff for the preview of your What's New post in list views.
-   {{< /admonition >}}
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:

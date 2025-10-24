@@ -76,6 +76,10 @@ When you're ready to add a What's new entry, complete the following steps:
      To see it, in the deploy preview URL, replace `/docs/grafana-cloud` with the heading for your entry.
      For example: `https://deploy-preview-18347-zb444pucvq-uw.a.run.app/whats-new/#create-subtables-in-table-visualizations`.
 
+   {{< admonition type="note" >}}
+   You can use the [more shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#more) to choose a custom cutoff for the preview of your What's New post in list views.
+   {{< /admonition >}}
+
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
 
@@ -180,9 +184,7 @@ This is typically someone on the Technical Writing team.
 1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and:
 
    1. Open the **Run workflow** drop-down list.
-   
    1. Fill in the fields.
-   
    1. Click the **Run workflow** button to generate a YAML file from the _What's new from Grafana Labs_.
 
 1. When the workflow finishes, click **Upload artifact for Grafana What's new** for that workflow run.

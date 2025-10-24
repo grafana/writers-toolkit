@@ -1046,6 +1046,34 @@ Insert a simple hero using shortcode arguments:
 
 <!-- vale Grafana.Simple = YES -->
 
+## More
+
+The `<!--more-->` shortcode determines a custom cutoff for the preview of indidivudal What's New posts in list views everywhere, such as the internal feed, https://grafana.com/whats-new/, or a given releases "What's new in Grafana" post. Anything after the `<!--more-->` shortcode is only visibile after clicking the **Read More** button from the list view or by otherwise manually going to that What's New post's full URL.
+
+If you don't use the `<!--more-->` shortcode, Hugo automatically determines a cutoff for the preview.
+
+### Example
+
+Given the following body of text:
+
+```markdown
+Actions for visualizations are now generally available. With actions, you can trigger basic, unauthenticated API calls from a dashboard panel. Previously experimental, actions are now generally available for the following visualizations:
+
+- Time series
+- Bar chart
+- Candlestick
+- State timeline
+- Status history
+- Table
+- Trend
+- XY chart
+<!--more-->
+
+You can find actions under the **Data links and actions** section of the panel editor pane (previously the **Data links** section).
+```
+
+The preview includes the bullet points. Not using the `<!--more-->` shortcode results in Hugo cutting off the preview before the bullet points.
+
 <!-- vale Grafana.Spelling = NO -->
 
 ## Param

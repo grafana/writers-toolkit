@@ -1048,7 +1048,7 @@ Insert a simple hero using shortcode arguments:
 
 ## More
 
-The `<!--more-->` shortcode determines a custom cutoff for the preview of indidivudal What's New posts in list views everywhere, such as the internal feed, https://grafana.com/whats-new/, or a given releases "What's new in Grafana" post. Anything after the `<!--more-->` shortcode is only visibile after clicking the **Read More** button from the list view or by otherwise manually going to that What's New post's full URL.
+The `<!--more-->` shortcode determines a custom cutoff for the preview of individual What's New posts in list views everywhere, such as the internal feed, https://grafana.com/whats-new/, or a given releases "What's new in Grafana" post. Anything after the `<!--more-->` shortcode is only visible after clicking the **Read More** button from the list view or by otherwise manually going to that What's New post's full URL.
 
 If you don't use the `<!--more-->` shortcode, Hugo automatically determines a cutoff for the preview.
 

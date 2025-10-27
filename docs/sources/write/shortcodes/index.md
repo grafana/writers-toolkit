@@ -572,6 +572,21 @@ Produces:
 
 {{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
 
+## Docs/list
+
+The `docs/list` shortcode restarts the numbering of ordered lists that occur after a list from shared content. To restart the list, wrap the shared content and subsequent list items. For example:
+
+```markdown
+To build a dashboard with the Infinity data source, complete the following steps:
+
+{{</* docs/list */>}}
+{{</* shared-snippet path="/path/to/file/index.md" id="unique-identifier" */>}}
+
+1. Search for the Infinity data source and select it.
+
+{{</* /docs/list */>}}
+```
+
 ## Docs/openapi/info
 
 Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.

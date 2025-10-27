@@ -5,6 +5,7 @@ aliases:
   - /docs/writers-toolkit/contribute/release-notes/
   - /docs/writers-toolkit/writing-guide/contribute-documentation/contribute-release-notes/
 date: "2022-08-02T14:45:05+01:00"
+divider: "<!--more-->"
 description:
   Learn the different ways of contributing to the Grafana Labs What's new
   document and Grafana release notes.
@@ -63,7 +64,8 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. Go to the What's new collection of the [website CMS](https://admin.grafana.com/content-admin/#/collections/whats-new) and click **New Feature** at the top of the page.
 1. Fill out [the CMS fields](#cms-fields).
-1. (Optional) To control how much of your post is shown before the **Read more** button in list views everywhere, add `<!--more-->` to a line as a cutoff point for the preview. Without this, the system will automatically pick a cutoff point for the preview.
+1. (Optional) To control how much of your post is shown before the **Read more** button in list views everywhere, use a `{{< param "divider" >}}` divider as a cutoff point for the preview.
+   Without this, the system will automatically pick a cutoff point for the preview.
 
 1. Click **Save**.
    The entry is now in **Draft** status and the CMS opens a pull request in the `grafana/website` repository.

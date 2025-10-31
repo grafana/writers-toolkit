@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('TCP', '', 'noun') { abbreviation: true, elaboration: 'Transmission Control Protocol', established_abbreviation: true },
+  word.new('Telegraf', '', 'noun') { description: 'An open-source agent for collecting, processing, aggregating, and writing metrics and logs, originally developed by InfluxData.' },
   word.new('templated', '', 'adjective'),
   word.new('Team Sync', '', 'noun') { description: 'Synch your auth providers teams and teams in Grafana.', product: true },
   word.new('Tempo', '', 'noun') { product: true, swaps: { tempo: 'Tempo' } },

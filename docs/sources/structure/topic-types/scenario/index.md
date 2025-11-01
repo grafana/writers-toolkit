@@ -51,7 +51,7 @@ Follow these guidelines for narrative and style:
 - Focus on decisions, signals, and trade-offs. State the principle behind each step to help readers apply it in new situations.  
 - Keep step lists short and link to tasks for detail. Keep explanations concise and link to concepts for depth.
 
-For navigation, place scenarios under a Scenarios section within each product’s docs or near Learn content, depending on your IA. Link scenarios from related concepts, tutorials, and tasks to create a learning path.
+For navigation, place scenarios under a "Scenarios" section within each product’s docs or near "Learn" content, depending on your IA. Link scenarios from related concepts, tutorials, and tasks to create a learning path.
 
 ## Write a scenario topic
 

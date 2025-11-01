@@ -59,9 +59,9 @@ Follow these steps to write a scenario topic:
 
 1. Choose a real situation users face, such as on-call, rollout, migration, optimization, or investigation.  
 1. Identify the few key principles and decisions that drive the path to resolution.  
-1. Draft the Overview and Before you begin sections to set expectations and assumptions.  
+1. Draft the "Overview" and "Before you begin" sections to set expectations and assumptions.  
 1. Map 2–4 stages. In each, link to existing tasks and concepts instead of repeating steps.  
-1. Add Verify outcomes and Next steps to reinforce learning and help readers apply it to their own environment.
+1. Add "Verify outcomes" and "Next steps" to reinforce learning and help readers apply it to their own environment.
 
 ## Difference between scenarios and other topic types
 

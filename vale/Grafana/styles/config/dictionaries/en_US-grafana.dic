@@ -1,4 +1,4 @@
-376
+377
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -321,6 +321,7 @@ syntax/S po:noun
 syslog/ po:noun
 systemd/ po:noun
 TCP/ po:noun
+Telegraf/ po:noun
 templated/ po:adjective
 Team Sync/ po:noun
 Tempo/ po:noun

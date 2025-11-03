@@ -2,14 +2,37 @@
 aliases:
   - /docs/writers-toolkit/write/shortcodes/
   - /docs/writers-toolkit/writing-guide/shortcodes/
-date: "2022-10-18T18:16:25-04:00"
+date: '2022-10-18T18:16:25-04:00'
 description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo
   - shortcodes
-review_date: "2024-04-15"
+review_date: '2024-04-15'
 title: Shortcodes
 weight: 500
+image_maps:
+  - key: dashboard
+    src: https://grafana.com/static/img/grafana/showcase_visualize.jpg
+    alt: Grafana dashboard
+    points:
+      - x_coord: 22
+        y_coord: 28
+        content: |
+          **Cafe Terrace**
+
+          Small cozy cafe, open 7am–7pm.
+      - x_coord: 64
+        y_coord: 40
+        content: |
+          **City Park**
+
+          Playground, pond, and walking trails.
+      - x_coord: 44
+        y_coord: 72
+        content: |
+          **Historic House**
+
+          Built 1895 — guided tours available.
 ---
 
 # Shortcodes
@@ -572,21 +595,6 @@ Produces:
 
 {{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
 
-## Docs/list
-
-The `docs/list` shortcode restarts the numbering of ordered lists that occur after a list from shared content. To restart the list, wrap the shared content and subsequent list items. For example:
-
-```markdown
-To build a dashboard with the Infinity data source, complete the following steps:
-
-{{</* docs/list */>}}
-{{</* shared-snippet path="/path/to/file/index.md" id="unique-identifier" */>}}
-
-1. Search for the Infinity data source and select it.
-
-{{</* /docs/list */>}}
-```
-
 ## Docs/openapi/info
 
 Display information about an OpenAPI 3.0+ specification, use either the `url` or `data` parameter to specify an OpenAPI specification.
@@ -1062,6 +1070,85 @@ Insert a simple hero using shortcode arguments:
 <!-- vale Grafana.Simple = YES -->
 
 <!-- vale Grafana.Spelling = NO -->
+
+## Image-map
+
+The `image-map` shortcode creates an interactive image with clickable hotspots.
+Each hotspot displays a tooltip with content when the user hovers over or clicks on specific coordinates on the image.
+
+To add an image map, define the map configuration in the page's front matter and reference it using the shortcode.
+
+### Front matter parameters
+
+Define your image map in the front matter using the `image_maps` parameter.
+
+| Parameter | Description                                                                                    | Required |
+| --------- | ---------------------------------------------------------------------------------------------- | -------- |
+| `key`     | Unique identifier for this image map. Use this value in the shortcode to reference the map.    | yes      |
+| `src`     | Path to the image file. Can be a relative path or full URL.                                    | yes      |
+| `alt`     | Alternative text describing the image for accessibility.                                       | yes      |
+| `points`  | Array of hotspot coordinates and content. Each point defines an interactive area on the image. | yes      |
+
+#### Point parameters
+
+Each item in the `points` array requires the following parameters:
+
+| Parameter | Description                                                                                                 | Required |
+| --------- | ----------------------------------------------------------------------------------------------------------- | -------- |
+| `x_coord` | Horizontal position of the hotspot as a percentage (0-100) of the image width.                              | yes      |
+| `y_coord` | Vertical position of the hotspot as a percentage (0-100) of the image height.                               | yes      |
+| `content` | Markdown content to display in the tooltip. Supports headings, lists, links, and other Markdown formatting. | yes      |
+
+### Shortcode parameters
+
+| Parameter | Description                                                                            | Required |
+| --------- | -------------------------------------------------------------------------------------- | -------- |
+| `key`     | The unique key value from the front matter that identifies which image map to display. | yes      |
+
+### Example
+
+Define the image map in your front matter:
+
+```yaml
+---
+title: My Page
+image_maps:
+  - key: dashboard
+    src: https://grafana.com/static/img/grafana/showcase_visualize.jpg
+    alt: Grafana dashboard
+    points:
+      - x_coord: 22
+        y_coord: 28
+        content: |
+          **Cafe Terrace**
+
+          Small cozy cafe, open 7am–7pm.
+      - x_coord: 64
+        y_coord: 40
+        content: |
+          **City Park**
+
+          Playground, pond, and walking trails.
+      - x_coord: 44
+        y_coord: 72
+        content: |
+          **Historic House**
+
+          Built 1895 — guided tours available.
+---
+```
+
+Reference the image map in your content:
+
+```markdown
+{{</* image-map key="dashboard" */>}}
+```
+
+Produces:
+
+{{< image-map key="dashboard" >}}
+
+This creates an interactive image where hovering over or clicking the specified coordinates displays the associated tooltip content.
 
 ## Param
 

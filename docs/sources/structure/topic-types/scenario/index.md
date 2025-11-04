@@ -69,7 +69,7 @@ This table shows how scenarios differ from other content types:
 
 | Type | Purpose | Data & path | Reader outcome |
 |------|----------|--------------|----------------|
-| Scenario | Apply knowledge to solve a realistic problem and practice judgment. | Often uses the reader's own environment; multiple valid paths; links to tasks and concepts. | Reader can solve a similar problem and adapt the approach to their context. |
+| Scenario | Apply knowledge to solve a realistic problem and practice judgment. | Often uses the reader's own environment, has multiple valid paths, and provides links to tasks and concepts. | Reader can solve a similar problem and adapt the approach to their context. |
 | Tutorial | Teach a defined skill through reproducible steps. | Uses controlled inputs and expected results in a linear path. | Reader can replicate the taught workflow. |
 | Task | Complete a specific action with numbered steps. | Minimal context; single path. | Reader can perform the action once they're in the right place. |
 | Concept | Explain what something is and why it matters. | Explanatory only; no procedures. | Reader understands the idea and components. |

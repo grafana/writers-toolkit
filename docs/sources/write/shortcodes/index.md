@@ -323,7 +323,7 @@ Note: Only a single code snippet in a single programming language is supported p
 ````markdown
 {{</* code annotated="true" */>}}
 
-```river
+```alloy
 // Let's send and process more logs!
 
 loki.source.api "listener" {

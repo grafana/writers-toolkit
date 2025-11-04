@@ -39,7 +39,7 @@ Use this structure to keep scenarios consistent across products while allowing f
 
 ## Audience and scope
 
-Scenarios are for users who have completed onboarding and want to apply what they've learned to real environments. Assume readers have a functioning setup with access, permissions, and live data. Unlike tutorials, which use canned datasets, scenarios use the reader's own data and context. 
+Scenarios are for users who have completed onboarding and want to apply what they've learned to real environments. Assume readers have a functioning setup with access, permissions, and live data. Unlike tutorials, which use canned datasets, scenarios use the reader's own data and context.
 
 Scenario topics can vary in scope. Write micro scenarios that focus on a single decision, such as "Alert fired: Is it noisy or real?", or end-to-end scenarios that cover broader workflows, such as "Respond to a latency regression after a deploy." Choose the smallest scope that produces a clear, transferable outcome.
 

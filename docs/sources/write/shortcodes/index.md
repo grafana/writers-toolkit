@@ -314,16 +314,18 @@ Code annotations clarify full code examples by explaining what the code does and
 
 They help users understand code line by line, as well as help grasp design decisions and adapt code to their needs.
 
-The annotate logic only supports line comments with `#` and `//` prefixes.
+The annotate logic only supports line comments with `#` and `//` prefixes and a space after the prefix.
 
-Note: Only a single code snippet in a single programming language is supported per annotated example.
+{{< admonition type="note" >}}
+Only a single code snippet in a single programming language is supported per annotated example.
+{{< /admonition >}}
 
 ### Annotated code block example
 
 ````markdown
 {{</* code annotated="true" */>}}
 
-```alloy
+```river
 // Let's send and process more logs!
 
 loki.source.api "listener" {
@@ -375,7 +377,7 @@ Produces:
 
 {{< code annotated="true" >}}
 
-```river
+```alloy
 // Let's send and process more logs!
 
 loki.source.api "listener" {
@@ -503,8 +505,6 @@ compactor:
 ```
 
 {{</* /collapse */>}}
-````
-
 ````
 
 Produces:
@@ -1566,4 +1566,3 @@ If the page's URL has the prefix `/docs/grafana/latest/`, the shortcode replaces
 You can override version inference by including additional metadata in the front matter of the file.
 To override the value of `<GRAFANA_VERSION>`, set the `GRAFANA_VERSION` parameter in the page's front matter.
 For example, to set the version to `next` irrespective of the source content version, add the following to the front matter: `GRAFANA_VERSION: next`.
-````

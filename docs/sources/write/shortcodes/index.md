@@ -314,7 +314,7 @@ Code annotations clarify full code examples by explaining what the code does and
 
 They help users understand code line by line, as well as help grasp design decisions and adapt code to their needs.
 
-Only comments in `#` and `\\` format are supported.
+The annotate logic only supports line comments with `#` and `//` prefixes.
 
 Note: Only a single code snippet in a single programming language is supported per annotated example.
 

@@ -325,22 +325,17 @@ Only a single code snippet in a single programming language is supported per ann
 ````markdown
 {{</* code annotated="true" */>}}
 
-```river
+```alloy
 // Let's send and process more logs!
-
 loki.source.api "listener" {
     http {
         listen_address = "127.0.0.1"
         listen_port    = 9999
     }
-
     labels = { "source" = "api" }
-
     forward_to = [loki.process.process_logs.receiver]
 }
-
 loki.process "process_logs" {
-
     // Stage 1
     stage.json {
         expressions = {
@@ -348,24 +343,20 @@ loki.process "process_logs" {
             ts  = "timestamp",
         }
     }
-
     // Stage 2
     stage.timestamp {
         source = "ts"
         format = "RFC3339"
     }
-
     // Stage 3
     stage.json {
         source = "log"
-
         expressions = {
             is_secret = "",
             level     = "",
             log_line  = "message",
         }
     }
-
 }
 
 ```
@@ -379,20 +370,15 @@ Produces:
 
 ```alloy
 // Let's send and process more logs!
-
 loki.source.api "listener" {
     http {
         listen_address = "127.0.0.1"
         listen_port    = 9999
     }
-
     labels = { "source" = "api" }
-
     forward_to = [loki.process.process_logs.receiver]
 }
-
 loki.process "process_logs" {
-
     // Stage 1
     stage.json {
         expressions = {
@@ -400,24 +386,20 @@ loki.process "process_logs" {
             ts  = "timestamp",
         }
     }
-
     // Stage 2
     stage.timestamp {
         source = "ts"
         format = "RFC3339"
     }
-
     // Stage 3
     stage.json {
         source = "log"
-
         expressions = {
             is_secret = "",
             level     = "",
             log_line  = "message",
         }
     }
-
 }
 
 ```

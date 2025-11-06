@@ -1075,6 +1075,7 @@ Insert a simple hero using shortcode arguments:
 
 The `image-map` shortcode creates an interactive image with clickable hotspots.
 Each hotspot displays a tooltip with content when the user hovers over or clicks on specific coordinates on the image.
+The image is followed by a list with the tooltip content to make the image more accessible.
 
 To add an image map, define the map configuration in the page's front matter and reference it using the shortcode.
 

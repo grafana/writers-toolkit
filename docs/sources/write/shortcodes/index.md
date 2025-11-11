@@ -605,7 +605,8 @@ To build a dashboard with the Infinity data source, complete the following steps
 {{</* shared-snippet path="/path/to/file/index.md" id="unique-identifier" */>}}
 
 1. Search for the Infinity data source and select it.
-   {{</* /docs/list */>}}
+
+{{</* /docs/list */>}}
 ```
 
 ## Docs/openapi/info

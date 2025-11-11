@@ -2,12 +2,12 @@
 aliases:
   - /docs/writers-toolkit/write/shortcodes/
   - /docs/writers-toolkit/writing-guide/shortcodes/
-date: "2022-10-18T18:16:25-04:00"
+date: '2022-10-18T18:16:25-04:00'
 description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo
   - shortcodes
-review_date: "2024-04-15"
+review_date: '2024-04-15'
 title: Shortcodes
 weight: 500
 image_maps:
@@ -232,6 +232,10 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
 When a user selects a language, the website sets other code blocks on the page to that language.
 The website saves the selected language to browser storage and persists it across navigation.
 
+| Parameter   | Description                                                                          | Required |
+| ----------- | ------------------------------------------------------------------------------------ | -------- |
+| `annotated` | Render the code block in a two-column layout with comments to the right of the code. | no       |
+
 ### Example
 
 {{< admonition type="note" >}}
@@ -326,6 +330,104 @@ Authorization: Bearer glsa_HOruNAb7SOiCdshU9algkrq7F...
 {{< /code >}}
 
 <!-- prettier-ignore-end -->
+
+### Annotated code block
+
+Code annotations clarify full code examples by explaining what the code does and why. They appear beside the code in a two-pane layout, allowing detailed explanations without cluttering the code. Annotations should only be used when necessary and not for short snippets.
+
+They help users understand code line by line, as well as help grasp design decisions and adapt code to their needs.
+
+The annotate logic only supports line comments with `#` and `//` prefixes and a space after the prefix.
+
+{{< admonition type="note" >}}
+Only a single code snippet in a single programming language is supported per annotated example.
+{{< /admonition >}}
+
+### Annotated code block example
+
+````markdown
+{{</* code annotated="true" */>}}
+
+```alloy
+// Let's send and process more logs!
+loki.source.api "listener" {
+    http {
+        listen_address = "127.0.0.1"
+        listen_port    = 9999
+    }
+    labels = { "source" = "api" }
+    forward_to = [loki.process.process_logs.receiver]
+}
+loki.process "process_logs" {
+    // Stage 1
+    stage.json {
+        expressions = {
+            log = "",
+            ts  = "timestamp",
+        }
+    }
+    // Stage 2
+    stage.timestamp {
+        source = "ts"
+        format = "RFC3339"
+    }
+    // Stage 3
+    stage.json {
+        source = "log"
+        expressions = {
+            is_secret = "",
+            level     = "",
+            log_line  = "message",
+        }
+    }
+}
+
+```
+
+{{</* /code */>}}
+````
+
+Produces:
+
+{{< code annotated="true" >}}
+
+```alloy
+// Let's send and process more logs!
+loki.source.api "listener" {
+    http {
+        listen_address = "127.0.0.1"
+        listen_port    = 9999
+    }
+    labels = { "source" = "api" }
+    forward_to = [loki.process.process_logs.receiver]
+}
+loki.process "process_logs" {
+    // Stage 1
+    stage.json {
+        expressions = {
+            log = "",
+            ts  = "timestamp",
+        }
+    }
+    // Stage 2
+    stage.timestamp {
+        source = "ts"
+        format = "RFC3339"
+    }
+    // Stage 3
+    stage.json {
+        source = "log"
+        expressions = {
+            is_secret = "",
+            level     = "",
+            log_line  = "message",
+        }
+    }
+}
+
+```
+
+{{< /code >}}
 
 ## Collapse
 

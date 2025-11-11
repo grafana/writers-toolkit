@@ -170,7 +170,7 @@ This procedure is for writers who have permissions to update the Grafana website
 
 To add your tutorial to the Tutorials page:
 
-1. Add the following YAML to the `manual_mounts` field in the `config/_default/config.yaml` file in the website repository.
+1. Add the following YAML to the `manual_mounts` field in the `config/_default/params.yaml` file in the website repository.
 
    Replace _`<PROJECT>`_ with your project name, _`<TUTORIAL>`_ with the directory of your tutorial, and _`<VERSION>`_ with the version of documentation you want to mount.
    Typically _`<VERSION>`_ is either "next" or "latest".

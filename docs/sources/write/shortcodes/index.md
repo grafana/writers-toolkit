@@ -2,12 +2,12 @@
 aliases:
   - /docs/writers-toolkit/write/shortcodes/
   - /docs/writers-toolkit/writing-guide/shortcodes/
-date: '2022-10-18T18:16:25-04:00'
+date: "2022-10-18T18:16:25-04:00"
 description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo
   - shortcodes
-review_date: '2024-04-15'
+review_date: "2024-04-15"
 title: Shortcodes
 weight: 500
 image_maps:
@@ -594,6 +594,19 @@ The `docs/learning-journeys` shortcode produces a call to action (CTA) that link
 Produces:
 
 {{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+
+## Docs/list
+
+The `docs/list` shortcode restarts the numbering of ordered lists that occur after a list from shared content. To restart the list, wrap the shared content and subsequent list items. For example:
+
+```markdown
+To build a dashboard with the Infinity data source, complete the following steps:
+{{</* docs/list */>}}
+{{</* shared-snippet path="/path/to/file/index.md" id="unique-identifier" */>}}
+
+1. Search for the Infinity data source and select it.
+   {{</* /docs/list */>}}
+```
 
 ## Docs/openapi/info
 

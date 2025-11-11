@@ -1,4 +1,4 @@
-377
+378
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -143,6 +143,7 @@ InfluxDB/ po:noun
 ingester/MS po:noun
 inode/S po:noun
 instrumentation/S po:noun
+intrinsic/S po:noun
 Istio/ po:noun
 Jaeger/ po:adjective
 Jaeger/ po:noun

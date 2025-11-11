@@ -20,9 +20,10 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 ## November 2025
 
-| New guidance or change                | Page                                                            |
-| ------------------------------------- | --------------------------------------------------------------- |
-| Added `image-map` to Shortcodes page. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#image-map) |
+| New guidance or change                            | Page                                                                       |
+| ------------------------------------------------- | -------------------------------------------------------------------------- |
+| Added `image-map` to Shortcodes page.             | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#image-map)            |
+| Added `annotated` code blocks to Shortcodes page. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#annotated-code-block) |
 
 ## July 2025
 

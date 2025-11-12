@@ -2,12 +2,12 @@
 aliases:
   - /docs/writers-toolkit/write/shortcodes/
   - /docs/writers-toolkit/writing-guide/shortcodes/
-date: '2022-10-18T18:16:25-04:00'
+date: "2022-10-18T18:16:25-04:00"
 description: Understand what shortcodes are and how to use them in your Markdown.
 keywords:
   - Hugo
   - shortcodes
-review_date: '2024-04-15'
+review_date: "2024-04-15"
 title: Shortcodes
 weight: 500
 image_maps:
@@ -425,6 +425,72 @@ loki.process "process_logs" {
     }
 }
 
+```
+
+{{< /code >}}
+
+### Editable placeholders
+
+Editable placeholders are parts of a code example you can click and edit directly in the docs. They look like this: `@@@PLACEHOLDER@@@`. Users type their value once, and all code blocks with the same placeholder update automatically. This eliminates the user's need to copy and edit multiple snippets, and reduces mistakes by keeping values consistent across examples.
+
+Placeholder values are synced across page navigation.
+
+All placeholder variables exist in a global store that spans the entire documentation site. This means that `@@@PROJECT_ID@@@` has the same value across all documentation projects and pages. This global behavior provides flexibility - if multiple projects need to share variables, they can reference the same placeholder name.
+
+However, when creating placeholders, consider using a naming convention that includes project-specific prefixes to avoid unintended conflicts. For example:
+
+- `@@@LOKI_PROJECT_ID@@@` for Loki-specific project IDs
+- `@@@TEMPO_ENDPOINT@@@` for Tempo-specific endpoints
+- `@@@MIMIR_API_KEY@@@` for Mimir-specific API keys
+
+Using namespaces helps prevent accidental variable sharing between unrelated documentation while still allowing intentional sharing when needed.
+
+### Editable placeholder example
+
+````markdown
+{{</* code */>}}
+
+```go
+projectID := "@@@YOUR_PROJECT_ID@@@"
+backupProjectID := "@@@YOUR_PROJECT_ID@@@"
+region := "@@@YOUR_REGION@@@"
+```
+
+```javascript
+const projectId = "@@@YOUR_PROJECT_ID@@@";
+const region = "@@@YOUR_REGION@@@";
+const backupProject = "@@@YOUR_PROJECT_ID@@@";
+```
+
+```python
+project_id = "@@@YOUR_PROJECT_ID@@@"
+region = "@@@YOUR_REGION@@@"
+backup_project_id = "@@@YOUR_PROJECT_ID@@@"
+```
+
+{{</* /code */>}}
+````
+
+Produces:
+
+{{< code >}}
+
+```go
+projectID := "@@@YOUR_PROJECT_ID@@@"
+backupProjectID := "@@@YOUR_PROJECT_ID@@@"
+region := "@@@YOUR_REGION@@@"
+```
+
+```javascript
+const projectId = "@@@YOUR_PROJECT_ID@@@";
+const region = "@@@YOUR_REGION@@@";
+const backupProject = "@@@YOUR_PROJECT_ID@@@";
+```
+
+```python
+project_id = "@@@YOUR_PROJECT_ID@@@"
+region = "@@@YOUR_REGION@@@"
+backup_project_id = "@@@YOUR_PROJECT_ID@@@"
 ```
 
 {{< /code >}}

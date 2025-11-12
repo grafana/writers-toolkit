@@ -443,7 +443,7 @@ However, when creating placeholders, consider using a naming convention that inc
 - `@@@TEMPO_ENDPOINT@@@` for Tempo-specific endpoints
 - `@@@MIMIR_API_KEY@@@` for Mimir-specific API keys
 
-This namespacing approach helps prevent accidental variable sharing between unrelated documentation while still allowing intentional sharing when needed.
+Using namespaces helps prevent accidental variable sharing between unrelated documentation while still allowing intentional sharing when needed.
 
 ### Editable placeholder example
 

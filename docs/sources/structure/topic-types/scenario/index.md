@@ -21,7 +21,7 @@ A scenario shows how to apply product knowledge to solve a real problem in a rea
 
 Use this structure to keep scenarios consistent across products while allowing flexibility for scope and narrative.
 
-- Topic title: Name the situation and goal. Use either a verb phrase or a noun phrase. For example, "Investigate a CPU spike during a deployment" or "CPU spike investigation during deployment." Choose the form that best communicates the real-world context.
+- **Topic title:** Name the situation and goal. Use either a verb phrase or a noun phrase. For example, "Investigate a CPU spike during a deployment" or "CPU spike investigation during deployment." Choose the form that best communicates the real-world context.
 
 - Overview: State the situation, the goal, and what the reader can do after completing the scenario. Highlight key decisions they'll make. Example: "By the end, you can identify the source of a CPU spike and decide whether to scale or optimize."
 

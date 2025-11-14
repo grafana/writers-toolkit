@@ -20,10 +20,11 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 ## November 2025
 
-| New guidance or change                               | Page                                                                        |
-| ---------------------------------------------------- | --------------------------------------------------------------------------- |
-| Added `image-map` to Shortcodes page.                | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#image-map)             |
-| Added `annotated` code blocks to Shortcodes page.    | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#annotated-code-block)  |
+| New guidance or change                  | Page                                                                    |
+| --------------------------------------- | ----------------------------------------------------------------------- |
+| Added scenario topic type and examples. | [Scenario topic](/docs/writers-toolkit/structure/topic-types/scenario/) |
+| Added `image-map` to Shortcodes page.   | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#image-map)         |
+| Added `annotated` code blocks to Shortcodes page. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#annotated-code-block)  |
 | Added editable code placeholders to Shortcodes page. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#editable-placeholders) |
 
 ## July 2025

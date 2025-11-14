@@ -77,7 +77,7 @@ This table shows how scenarios differ from other content types:
 | Tutorial | Teach a defined skill through reproducible steps. | Uses controlled inputs and expected results in a linear path. | Reader can replicate the taught workflow. |
 | Task | Complete a specific action with numbered steps. | Minimal context, single path. | Reader can perform the action once they're in the right place. |
 | Concept | Explain what something is and why it matters. | Explanatory only. No procedures. | Reader understands the idea and components. |
-| Example / Use case | Illustrate a pattern or system interaction. | Brief and abstract. May be non-procedural. | Reader recognizes where it applies. |
+| Example / Use case | Show a common pattern, configuration, or system interaction, such as how alerting rules and dashboards work together. | Brief and abstract. May be non-procedural or focus on relationships rather than steps. | Reader recognizes when and where to apply a similar pattern in their own environment. |
 
 {{< admonition type="tip" >}}
 If you're writing many steps with canned data and guaranteed outputs, write a tutorial. If you're helping readers decide what to do with their own data to reach a goal, write a scenario.
@@ -121,10 +121,22 @@ You know you're done when <SIGNALS_OR_THRESHOLDS>.
 - <TUTORIAL_LINK>
 ````
 
-<!--
+## Use AI to create scenario documentation
+
+You can use AI to speed up planning and drafting of scenarios. 
+
+When you prompt an AI tool:
+- Add context files such as your product docs, this scenario template, and the Grafana style guide.  
+- Ask the AI to anonymize any transcripts and focus on the user’s goal, decisions, and outcomes.  
+- Review the draft for accuracy and adjust the tone to match Grafana documentation.
+
+For more example prompts and workflows, refer to the [Docs AI Toolkit repository](https://github.com/grafana/docs-ai/).
+
 ## Examples
 
-Add links to example topics
--->
+- [Drop low-value traces to reduce noise](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/drop-traces-scenario/)
+- [Onboard a group of services](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/onboard-services-scenario/)
+
+
 
 

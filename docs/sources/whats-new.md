@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## November 2025
+
+| New guidance or change                 | Page                                                                   |
+| -------------------------------------- | ---------------------------------------------------------------------- |
+| Added Scenario topic type and examples | [Scenario topic](/docs/writers-toolkit/structure/topic-types/scenario/) |
+
 ## July 2025
 
 | New guidance or change            | Page                                                        |

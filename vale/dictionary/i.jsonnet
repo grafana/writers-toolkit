@@ -8,5 +8,6 @@ local word = import './word.jsonnet';
   word.new('ingester', 'MS', 'noun'),
   word.new('inode', 'S', 'noun') { description: 'A data structure in a Unix-style file system that describes a file-system object such as a file or a directory (https://en.wikipedia.org/wiki/Inode)' },
   word.new('instrumentation', 'S', 'noun'),
+  word.new('intrinsic', 'S', 'noun'),
   word.new('Istio', '', 'noun'),
 ]

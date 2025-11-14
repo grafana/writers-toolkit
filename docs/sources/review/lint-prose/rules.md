@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-05-17"
+review_date: "2025-11-13"
 title: Vale rules
 ---
 
@@ -369,7 +369,7 @@ Did you really mean _`<CURRENT TEXT>`_?
 The Grafana dictionary might not know of this word yet.
 
 To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
-Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%20%3CWORD%3E) and a maintainer will add it for you.
+Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%%3A%%20%[1]s) and a maintainer will add it for you.
 
 For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
 The spell checker doesn't check words with bold formatting.
@@ -819,6 +819,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `JMESPath's`
 - `journald's`
 - `Jsonnet's`
+- `Keycloak's`
 - `Kibana's`
 - `Killercoda's`
 - `Kinesis'`
@@ -850,6 +851,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `OTel's`
 - `PagerDuty's`
 - `Parca's`
+- `PDC's`
 - `Phlare's`
 - `Pinecone's`
 - `Podman's`
@@ -873,6 +875,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Splunk's`
 - `SSM's`
 - `SUSE's`
+- `Team Sync's`
 - `Tempo's`
 - `Thanos'`
 - `Threema's`
@@ -883,6 +886,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Webex's`
 - `WildFly's`
 - `windows_exporter's`
+- `YugabyteDB's`
 - `Zipkin's`
 
 [More information ->](https://developers.google.com/style/possessives#product,-feature,-and-company-names)
@@ -1151,6 +1155,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `whitelisted`                                                     | `allowlisted`              |
 | `whitelisting`                                                    | `allowlisting`             |
 | `whitelists`                                                      | `allowlists`               |
+| `yugabyte`                                                        | `YugabyteDB`               |
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/)
 

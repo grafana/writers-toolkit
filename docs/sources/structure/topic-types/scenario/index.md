@@ -134,8 +134,8 @@ For more example prompts and workflows, refer to the [Docs AI Toolkit repository
 
 ## Examples
 
-- [Drop low-value traces to reduce noise](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/drop-traces-scenario/)
-- [Onboard a group of services](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/onboard-services-scenario/)
+- [Drop low-value traces to reduce noise](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/drop-traces-scenario/).
+- [Onboard a group of services](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/onboard-services-scenario/).
 
 
 

@@ -31,7 +31,8 @@ Use this structure to keep scenarios consistent across products while allowing f
   - Context: What you observe and why it matters.  
   - Actions: What to try first. Link to tasks for steps and to concepts for background. Keep inline steps minimal.  
   - Decision: What to conclude or choose based on evidence.  
-  - Principle (optional): The transferable idea, such as "start with symptom → scope → isolate source."
+  - Principle (optional): The underlying takeaway or method you can apply to other problems, such as "begin with the alert signal, check dashboards for trends, and drill into logs or traces to confirm the root cause".
+
 
 - Verify outcomes: Describe what "good" looks like and how to tell you're done. For example, "p95 latency returns under target and the alert clears."
 
@@ -51,7 +52,10 @@ Follow these guidelines for narrative and style:
 - Focus on decisions, signals, and trade-offs. State the principle behind each step to help readers apply it in new situations.  
 - Keep step lists short and link to tasks for detail. Keep explanations concise and link to concepts for depth.
 
-For navigation, place scenarios under a "Scenarios" section within each product's docs or near "Learn" content, depending on your IA. Link scenarios from related concepts, tutorials, and tasks to create a learning path.
+## Placement
+
+Place scenarios under a **Scenarios** section within each product's documentation, or near **Learn** content depending on your information architecture (IA).  
+Link scenarios from related concepts, tutorials, and tasks to create a clear learning path through the documentation.
 
 ## Write a scenario topic
 

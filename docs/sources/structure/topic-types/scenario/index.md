@@ -127,7 +127,7 @@ You can use AI to speed up planning and drafting of scenarios.
 
 When you prompt an AI tool:
 - Add context files such as your product docs, this scenario template, and the Grafana style guide.  
-- Ask the AI to anonymize any transcripts and focus on the user’s goal, decisions, and outcomes.  
+- Ask the AI to anonymize any transcripts and focus on the user's goal, decisions, and outcomes.  
 - Review the draft for accuracy and adjust the tone to match Grafana documentation.
 
 For more example prompts and workflows, refer to the [Docs AI Toolkit repository](https://github.com/grafana/docs-ai/).

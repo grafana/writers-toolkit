@@ -21,7 +21,7 @@ A scenario shows how to apply product knowledge to solve a real problem in a rea
 
 Use this structure to keep scenarios consistent across products while allowing flexibility for scope and narrative.
 
-- **Topic title:** Name the situation and goal. Use either a verb phrase or a noun phrase. For example, "Investigate a CPU spike during a deployment" or "CPU spike investigation during deployment." Choose the form that best communicates the real-world context.
+- Topic title: Name the situation and goal. Use either a verb phrase or a noun phrase. For example, "Investigate a CPU spike during a deployment" or "CPU spike investigation during deployment." Choose the form that best communicates the real-world context.
 
 - Overview: State the situation, the goal, and what the reader can do after completing the scenario. Highlight key decisions they'll make. Example: "By the end, you can identify the source of a CPU spike and decide whether to scale or optimize."
 
@@ -34,7 +34,7 @@ Use this structure to keep scenarios consistent across products while allowing f
   - Principle (optional): The underlying takeaway or method you can apply to other problems, such as "begin with the alert signal, check dashboards for trends, and drill into logs or traces to confirm the root cause".
 
 
-- Verify outcomes: Describe what "good" looks like and how to tell you're done. For example, "p95 latency returns under target and the alert clears."
+- Verify outcomes: Describe what "good" looks like and how to tell you're done. For example, "p95 latency returns under target and the alert clears".
 
 - Next steps: Link to related tutorials for learning and to tasks for implementation.
 
@@ -42,7 +42,7 @@ Use this structure to keep scenarios consistent across products while allowing f
 
 Scenarios are for users who have completed onboarding and want to apply what they've learned to real environments. Assume readers have a functioning setup with access, permissions, and live data. Unlike tutorials, which use canned datasets, scenarios use the reader's own data and context.
 
-Scenario topics can vary in scope. You can write micro scenarios that focus on a single decision, such as "Alert fired: Is it noisy or real?", or end-to-end scenarios that cover broader workflows, such as "Respond to a latency regression after a deploy." Choose the smallest scope that produces a clear, transferable outcome.
+Scenario topics can vary in scope. You can write micro scenarios that focus on a single decision, such as "Alert fired: Is it noisy or real?", or end-to-end scenarios that cover broader workflows, such as "Respond to a latency regression after a deploy". Choose the smallest scope that produces a clear, transferable outcome.
 
 ## Narrative and style
 
@@ -121,7 +121,7 @@ You know you're done when <SIGNALS_OR_THRESHOLDS>.
 - <TUTORIAL_LINK>
 ````
 
-## Use AI to create scenario documentation
+## Use AI to write scenarios
 
 You can use AI to speed up planning and drafting of scenarios. 
 
@@ -134,8 +134,8 @@ For more example prompts and workflows, refer to the [Docs AI Toolkit repository
 
 ## Examples
 
-- [Drop low-value traces to reduce noise](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/drop-traces-scenario/).
-- [Onboard a group of services](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/onboard-services-scenario/).
+- [Drop low-value traces to reduce noise](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/drop-traces-scenario/)
+- [Onboard a group of services](https://grafana.com/docs/grafana-cloud/adaptive-telemetry/adaptive-traces/guides/onboard-services-scenario/)
 
 
 

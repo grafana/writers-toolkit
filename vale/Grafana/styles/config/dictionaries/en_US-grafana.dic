@@ -1,4 +1,4 @@
-378
+379
 ACL/S po:noun
 ADOT/ po:noun
 AI Observability/ po:noun
@@ -203,6 +203,7 @@ mixin/S po:noun
 Moodle/ po:noun
 MySQL/ po:noun
 namespace/S po:noun
+navigation/S po:noun
 NAT/ po:noun
 nginx/ po:noun
 Netlink/ po:noun
@@ -232,7 +233,7 @@ Phlare/M po:noun
 PHP/ po:noun
 Pinecone/ po:noun
 PLZ/S po:noun
-PNG/ po:noun
+PNG/S po:noun
 Podman/ po:noun
 Postgres/ po:noun
 PostgreSQL/ po:noun

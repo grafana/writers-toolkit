@@ -7,6 +7,7 @@ local word = import './word.jsonnet';
   word.new('Tempo', '', 'noun') { product: true, swaps: { tempo: 'Tempo' } },
   word.new('Thanos', '', 'noun') { product: true },
   word.new('Threema', '', 'noun') { description: 'https://threema.ch/en', product: true, swaps: { threema: 'Threema' } },
+  word.new('Timestream', '', 'noun') { Amazon: true, product: true },
   word.new('TLS', '', 'noun') { abbreviation: true, description: 'A cryptographic protocol designed to provide secure communications over network.', elaboration: 'Transport Layer Security', established_abbreviation: true },
   word.new('toolset', 'S', 'noun'),
   word.new('tooltip', 'S', 'noun'),

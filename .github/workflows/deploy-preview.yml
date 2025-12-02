@@ -191,7 +191,7 @@ jobs:
         run: |
           printf "%s" "add_header 'Build' '"${SHA}"';" > build.conf
 
-      - uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
+      - uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2.1.13
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: gcloud-auth
         with:
@@ -235,7 +235,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           file: ./deploy-preview-files/deploy-preview/Dockerfile
 
-      - uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
+      - uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2.1.13
         id: gcloud-auth-cloud-run
         with:
           workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"

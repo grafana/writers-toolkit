@@ -321,14 +321,15 @@ This helps focus on metrics from particular services or systems.
 **Parameters:**
 
 - `id` (required) - Unique identifier for the assistant section
-- `type` (required) - Type of assistance to provide (e.g., "query", "explanation", "troubleshooting")
+- `type` (required) - Type of assistance to provide
 
-**Common types:**
+**Types:**
 
-- `query` - Assistance with query syntax and examples
-- `explanation` - Detailed explanations of concepts or UI elements
-- `troubleshooting` - Help with common issues or error resolution
-- `best-practice` - Guidance on recommended approaches
+| Type     | Use for                   | Example                         |
+| -------- | ------------------------- | ------------------------------- |
+| `query`  | PromQL, LogQL, SQL        | `rate(http_requests_total[5m])` |
+| `config` | URLs, hostnames, settings | `http://prometheus:9090`        |
+| `code`   | YAML, JSON, scripts       | Alert rules, recording rules    |
 
 **Integration with other shortcodes:**
 

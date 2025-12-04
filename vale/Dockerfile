@@ -1,5 +1,5 @@
 ################################################################################
-FROM --platform=${BUILDPLATFORM} golang:alpine AS filter-sarif
+FROM --platform=${BUILDPLATFORM} golang:alpine@sha256:26111811bc967321e7b6f852e914d14bede324cd1accb7f81811929a6a57fea9 AS filter-sarif
 ARG TARGETOS TARGETARCH
 
 RUN mkdir /src /out
@@ -10,7 +10,7 @@ RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o filter-sarif ./cmd/fil
 RUN mv filter-sarif /out
 
 ################################################################################
-FROM jdkato/vale:v3.8.0
+FROM jdkato/vale:v3.8.0@sha256:a744bc4f8164bceab6bda0fad6253dcd9cdab2365b437aa5e08fe4f07d6e3357
 
 COPY --from=filter-sarif /out/filter-sarif /bin
 

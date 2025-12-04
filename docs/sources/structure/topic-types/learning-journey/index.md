@@ -59,6 +59,11 @@ The following plain Markdown:
 
 Could become the following interactive sequence:
 
+{{< admonition type="note" >}}
+Because the steps are part of an interactive sequence, you no longer need to number them.
+Each interactive step is automatically numbered.
+{{< /admonition >}}
+
 ```markdown
 {{</* interactive/sequence
     id="search-filter-metrics"
@@ -296,6 +301,52 @@ On the Grafana Cloud home page, open the navigation menu on the left side of the
 - `step-timeout` - Timeout in milliseconds for each step
 - `skippable` - Set to `"true"` to allow skipping if steps fail
 - `hint` - Description of what the guided steps accomplish
+
+### `interactive/assistant`
+
+Marks content sections for AI assistant integration within interactive learning journeys.
+Creates a container that the interactive learning plugin can use to provide contextual AI assistance or enhanced explanations.
+
+**Usage:**
+
+```markdown
+{{</* interactive/assistant
+    id="unique-assistant-id"
+    type="query" */>}}
+Use **label filters** to narrow down metrics by specific label values like `job="my-service"` or `instance="localhost"`.
+This helps focus on metrics from particular services or systems.
+{{</* /interactive/assistant */>}}
+```
+
+**Parameters:**
+
+- `id` (required) - Unique identifier for the assistant section
+- `type` (required) - Type of assistance to provide (e.g., "query", "explanation", "troubleshooting")
+
+**Common types:**
+
+- `query` - Assistance with query syntax and examples
+- `explanation` - Detailed explanations of concepts or UI elements
+- `troubleshooting` - Help with common issues or error resolution
+- `best-practice` - Guidance on recommended approaches
+
+**Integration with other shortcodes:**
+
+The `interactive/assistant` shortcode works well nested within other interactive elements to provide enhanced context:
+
+```markdown
+{{</* interactive/highlight
+    reftarget="input[placeholder='Filter by label values']"
+    requirements="exists-reftarget"
+    doit="false" */>}}
+Use the **Filter by label values** field to narrow metrics by specific labels (optional).
+
+{{</* interactive/assistant id="label-filter-help" type="query" */>}}
+Use **label filters** to narrow down metrics by specific label values like `job="my-service"` or `instance="localhost"`.
+This helps focus on metrics from particular services or systems.
+{{</* /interactive/assistant */>}}
+{{</* /interactive/highlight */>}}
+```
 
 ### `interactive/ignore`
 

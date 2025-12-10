@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-11-13"
+review_date: "2025-12-10"
 title: Vale rules
 ---
 
@@ -879,6 +879,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Tempo's`
 - `Thanos'`
 - `Threema's`
+- `Timestream's`
 - `Traces Drilldown's`
 - `Velero's`
 - `Vite's`

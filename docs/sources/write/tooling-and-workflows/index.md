@@ -461,11 +461,12 @@ git rebase --continue
 Repeat this process for each commit you're editing.
 
 Finally, push your changes to GitHub.
-The rebase rewrites history so you need to force push the rewrite to GitHub.
+The `git rebase` command rewrites history so you need to force push the new history to GitHub.
 The following command force pushes your changes as long as nothing else has changed on GitHub.
 
 ```
 git push --force-with-lease
+```
 
 ### Backport changes to a branch
 

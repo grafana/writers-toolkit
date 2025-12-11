@@ -366,3 +366,4 @@ Use code formatting (\`) to refer to:
 - User input
 - Code in text/inline text
 - Class and method names, status codes, and console output
+- Names of command line utilities

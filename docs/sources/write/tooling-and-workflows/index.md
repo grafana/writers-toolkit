@@ -430,6 +430,36 @@ Automatic merge failed; fix conflicts and then commit the result.
 GitHub has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
 For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
+### Rewrite history to claim authorship
+
+Sometimes you need to rewrite Git history to correct authorship information on commits.
+This is useful to claim authorship of commits made by Cursor web agents that have the `cursorbot` author.
+Don't claim authorship of community contributions, contributors must sign the CLA.
+
+To change the author of the most recent commit:
+
+```bash
+git commit --amend --author="Your Name <your.email@example.com>"
+```
+
+To change the author of multiple commits, use interactive `git rebase`.
+Replace the number `3` in `HEAD~3` with the number of commits you want to modify:
+
+```bash
+git rebase -i HEAD~3
+```
+
+In the interactive editor, change `pick` to `edit` for each commit you want to modify.
+Save and close the editor.
+For each commit marked for editing, Git pauses and allows you to make changes:
+
+```bash
+git commit --amend --author="Your Name <your.email@example.com>"
+git rebase --continue
+```
+
+Repeat this process for each commit you're editing.
+
 ### Backport changes to a branch
 
 Backporting is the process of applying commits from one branch to another branch.

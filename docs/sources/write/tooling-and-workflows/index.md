@@ -439,29 +439,33 @@ This is useful to claim authorship of commits made by Cursor web agents that hav
 Don't claim authorship of community contributions, contributors must sign the CLA.
 {{< /admonition >}}
 
-To change the author of the most recent commit:
-
+To change the author of commits in your branch, use interactive `git rebase`.
+The following command assumes you've branched from `main`.
+If you've branched from another branch, replace `origin/main` with the name of that original branch.
 ```bash
-git commit --amend --author="Your Name <your.email@example.com>"
+git rebase -i "$(git merge-base HEAD origin/main)"
 ```
 
-To change the author of multiple commits, use interactive `git rebase`.
-Replace the number `3` in `HEAD~3` with the number of commits you want to modify:
+Git opens your text editor with the list of commits you're modifying.
 
-```bash
-git rebase -i HEAD~3
-```
+1. In the interactive editor, change `pick` to `edit` for each commit you want to change the author for.
+1. Save and close the editor.
 
-In the interactive editor, change `pick` to `edit` for each commit you want to modify.
-Save and close the editor.
 For each commit marked for editing, Git pauses and allows you to make changes:
 
 ```bash
-git commit --amend --author="Your Name <your.email@example.com>"
+git commit --amend --reset-author
 git rebase --continue
 ```
 
 Repeat this process for each commit you're editing.
+
+Finally, push your changes to GitHub.
+The rebase rewrites history so you need to force push the rewrite to GitHub.
+The following command force pushes your changes as long as nothing else has changed on GitHub.
+
+```
+git push --force-with-lease
 
 ### Backport changes to a branch
 

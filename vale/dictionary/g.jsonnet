@@ -16,6 +16,7 @@ local word = import './word.jsonnet';
   word.new('GPU', 'S', 'noun') { abbreviation: true, elaboration: 'graphics processing unit', established_abbreviation: true },
   word.new('Grafana', '', 'adjective'),
   word.new('Grafana', '', 'noun') { product: true, swaps: { grafana: 'Grafana' } },
+  word.new('grafanactl', '', 'noun') { product: true },
   word.new('Gravatar', '', 'adjective'),
   word.new('Gravatar', '', 'noun') { product: true },
   word.new('Graylog', '', 'noun') { product: true },

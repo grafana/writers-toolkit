@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('ACL', 'S', 'noun') { abbreviation: true },
+  word.new('actionability', '', 'noun') { description: 'The quality or state of being convertible into concrete actions' },
   word.new('ADOT', '', 'noun') { abbreviation: true, description: 'AWS Distro for OpenTelemetry', established_abbreviation: true, product: true },
   word.new('AI Observability', '', 'noun') { product: true, swaps: { 'Grafana AI observability': 'Grafana AI Observability' } },
   word.new('Adaptive Metrics', '', 'noun') { swaps: { '\\b(?:[aA]daptive metrics|adaptive Metrics)\\b': 'Adaptive Metrics' } },

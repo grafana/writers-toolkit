@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## January 2026
+
+| New guidance or change                                          | Page                                                                        |
+| --------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Added information about Grafana Cloud deep links to Links page. | [Links](/docs/writers-toolkit/write/links/#link-to-grafana-cloud-resources) |
+
 ## December 2025
 
 | New guidance or change                    | Page                                                          |

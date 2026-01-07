@@ -430,6 +430,45 @@ Automatic merge failed; fix conflicts and then commit the result.
 GitHub has detailed, cross-platform instructions for resolving a merge conflict using Git on the command line.
 For more information refer to [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
+### Rewrite history to claim authorship
+
+Sometimes you need to rewrite Git history to correct authorship information on commits.
+This is useful to claim authorship of commits made by Cursor web agents that have the `cursorbot` author.
+If you don't change the author, CLA checks may fail and block your pull request.
+
+{{< admonition type="caution" >}}
+Don't claim authorship of community contributions, contributors must sign the CLA.
+{{< /admonition >}}
+
+To change the author of commits in your branch, use interactive `git rebase`.
+The following command assumes you've branched from `main`.
+If you've branched from another branch, replace `origin/main` with the name of that original branch.
+```bash
+git rebase -i "$(git merge-base HEAD origin/main)"
+```
+
+Git opens your text editor with the list of commits you're modifying.
+
+1. In the interactive editor, change `pick` to `edit` for each commit you want to change the author for.
+1. Save and close the editor.
+
+For each commit marked for editing, Git pauses and allows you to make changes:
+
+```bash
+git commit --amend --reset-author
+git rebase --continue
+```
+
+Repeat this process for each commit you're editing.
+
+Finally, push your changes to GitHub.
+The `git rebase` command rewrites history so you need to force push the new history to GitHub.
+The following command force pushes your changes as long as nothing else has changed on GitHub.
+
+```
+git push --force-with-lease
+```
+
 ### Backport changes to a branch
 
 Backporting is the process of applying commits from one branch to another branch.

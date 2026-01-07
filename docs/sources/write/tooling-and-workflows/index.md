@@ -434,6 +434,7 @@ For more information refer to [Resolving a merge conflict using the command line
 
 Sometimes you need to rewrite Git history to correct authorship information on commits.
 This is useful to claim authorship of commits made by Cursor web agents that have the `cursorbot` author.
+If you don't change the author, CLA checks may fail and block your pull request.
 
 {{< admonition type="caution" >}}
 Don't claim authorship of community contributions, contributors must sign the CLA.

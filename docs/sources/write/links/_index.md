@@ -27,6 +27,7 @@ Choose your link type based on your goal:
 - [Link to external pages](#link-to-external-pages)
 - [Link to page headings](#link-to-page-headings)
   - Use this with one of the preceding options.
+- [Link to Grafana Cloud resources](#link-to-grafana-cloud-resources)
 
 Although these other types of links still function, replace them with one of the preceding options:
 
@@ -210,3 +211,34 @@ To convert a heading to an anchor, make the following changes:
 1. Prefix with a `#`.
 
 The heading _Link to page headings_ becomes the anchor `#link-to-page-headings`.
+
+## Link to Grafana Cloud resources
+
+Use deep links to direct users to specific pages in their Grafana Cloud instances.
+Deep links prompt the user to select their organization and stack, and then navigate to the specified page.
+
+The link path follows `https://grafana.com/launch/` and appends the target page path.
+
+For example:
+
+```markdown
+https://grafana.com/launch/dashboards
+```
+
+This link opens the **Dashboards** page in the selected stack:
+
+```markdown
+https://STACK_NAME.grafana.net/dashboards
+```
+
+### Examples
+
+The following examples show deep links to Grafana Cloud pages:
+
+- `https://grafana.com/launch/a/grafana-irm-app/incidents`
+
+  Opens the **Alerts & IRM > IRM > [Incidents](https://grafana.com/launch/a/grafana-irm-app/incidents)** page.
+
+- `https://grafana.com/launch/connections/datasources/new`
+
+  Opens the **Connections > Data sources > [Add data source](https://grafana.com/launch/connections/datasources/new)** page.

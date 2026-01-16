@@ -22,9 +22,11 @@ local word = import './word.jsonnet';
   word.new('CORS', '', 'noun') { abbreviation: true, established_abbreviation: true, description: 'Cross-origin resource sharing. Allows a web page to access restricted resources from a server on a domain different than the domain that served the web page.' },
   word.new('Couchbase', 'M', 'noun'),
   word.new('CPU', 'S', 'noun') { abbreviation: true, elaboration: 'central processing unit', established_abbreviation: true },
+  word.new('CPython', '', 'noun') { description: 'CPython is the reference implementation of the Python programming language', product: true },
   word.new('CRD', 'S', 'noun') { abbreviation: true, elaboration: 'Custom Resource Definition', established_abbreviation: true },
   word.new('cron', '', 'noun'),
   word.new('CSS', '', 'noun') { abbreviation: true, elaboration: 'Cascading Style Sheets', established_abbreviation: true },
   word.new('CSV', 'S', 'noun') { abbreviation: true, elaboration: 'Comma-separated values', established_abbreviation: true },
   word.new('CVE', 'S', 'noun'),
+
 ]

@@ -7,7 +7,7 @@
   },
   "description": "Adds all issues labeled `type/docs` to the Docs organization project.",
   "devDependencies": {
-    "@types/node": "22.15.17",
+    "@types/node": "22.19.7",
     "ts-node": "10.9.2",
     "typescript": "5.8.3"
   },

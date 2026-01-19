@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
 
       - id: push-to-dockerhub
-        uses: grafana/shared-workflows/actions/build-push-to-dockerhub@45747d11c20341064eab8c186e00a46d20ba4e73 # build-push-to-dockerhub-v0.1.0
+        uses: grafana/shared-workflows/actions/build-push-to-dockerhub@f02d5da7ddff4ea32bbe5034c7c70e90d2b9622c # build-push-to-dockerhub/v0.4.1
         with:
           context: vale
           platforms: linux/amd64,linux/arm64

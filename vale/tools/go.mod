@@ -4,7 +4,7 @@ go 1.23.3
 
 require (
 	github.com/google/go-github/v72 v72.0.0
-	github.com/grafana/writers-toolkit/tools v0.0.0-20260119104133-15eed0bd2efd
+	github.com/grafana/writers-toolkit/tools v1.0.0
 	github.com/sourcegraph/go-diff v0.7.0
 	github.com/stretchr/testify v1.10.0
 )

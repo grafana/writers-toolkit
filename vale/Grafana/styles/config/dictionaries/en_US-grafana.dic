@@ -1,4 +1,4 @@
-381
+382
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -62,6 +62,7 @@ contentful/ po:adjective
 CORS/ po:noun
 Couchbase/M po:noun
 CPU/S po:noun
+CPython/ po:noun
 CRD/S po:noun
 cron/ po:noun
 CSS/ po:noun

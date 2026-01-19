@@ -2,7 +2,7 @@ module github.com/grafana/writers-toolkit/tools
 
 go 1.23.0
 
-toolchain go1.24.3
+toolchain go1.25.6
 
 require (
 	github.com/BurntSushi/toml v1.5.0
@@ -15,7 +15,6 @@ require (
 	github.com/bep/golibsass v1.2.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
-	github.com/cli/safeexec v1.0.1 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/gohugoio/hashstructure v0.5.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

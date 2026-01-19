@@ -28,7 +28,7 @@ runs:
         repo_secrets: |
           DOCS_PLATFORM_TEAM_APP_ID=docs-platform-team:app-id
           DOCS_PLATFORM_TEAM_PRIVATE_KEY=docs-platform-team:key
-    - uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+    - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
       if: inputs.token == ''
       id: app-token
       with:

@@ -157,6 +157,6 @@ jobs:
           sparse-checkout: ${{ inputs.sparse-checkout }}
 
       - name: Report readability
-        uses: grafana/writers-toolkit/readability@f3a94170b240b67204e3407a8b026484c7e23947
+        uses: grafana/writers-toolkit/readability@db70a56778bfaa00bbf2a6c37bbab2b79fb5c598 # readability/v1
         with:
           directory: ${{ inputs.readability-directory }}

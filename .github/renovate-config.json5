@@ -16,9 +16,9 @@
   customManagers: [
     {
       customType: "regex",
-      managerFilePatterns: [
-        "/(?:^|/)\\.github/(?:workflows|actions)/.+\\.ya?ml$/",
-        "/(?:^|/)action\\.ya?ml$/",
+      fileMatch: [
+        "(?:^|/)\\.github/(?:workflows|actions)/.+\\.ya?ml$",
+        "(?:^|/)action\\.ya?ml$",
       ],
       matchStrings: [
         "# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+[A-Za-z0-9_-]+?[_-](?:VERSION|version)\\s*:\\s*[\"']?(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?[\"']?",
@@ -50,7 +50,6 @@
       // By default, the dependency name is the same as the package name.
       // For Actions, this is `org/repo`. This means that we'd get all actions from `shared-workflows` in the same branch.
       // The shared-workflows tag scheme contains the name of the action being update to as well, so we can grab it from there and set the dep name, then put this in the branch name.
-      overrideDepName: 'grafana/shared-workflows/{{ lookup (split newVersion "/") 0 }}',
       additionalBranchPrefix: "{{depName}}",
     },
   ],

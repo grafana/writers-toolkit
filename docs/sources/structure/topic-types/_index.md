@@ -17,7 +17,7 @@ weight: 400
 
 # Topic types
 
-Grafana Labs documentation uses different topic types: _concept_, _task_, _reference_, _tutorial_, and _scenario_.
+Grafana Labs documentation uses different topic types: _concept_, _task_, _reference_, _tutorial_, _scenario_, and _learning journey_.
 When you write content, you should use one of these topic types.
 
 Depending on the needs of a particular product area, select a topic type from the following table to learn about each.
@@ -38,6 +38,9 @@ Depending on the needs of a particular product area, select a topic type from th
 
 **[Scenario](https://grafana.com/docs/writers-toolkit/structure/topic-types/scenario/)**
 : Provides guidance to apply knowledge to solve a real problem in context. Answers the question "How should I approach this situation?".
+
+**[Learning journey](https://grafana.com/docs/writers-toolkit/structure/topic-types/learning-journey/)**
+: Provides a structured, step-by-step guide through a complete workflow with sequential milestones. Answers the question "How do I accomplish this end-to-end?".
 
 **[Section](https://grafana.com/docs/writers-toolkit/structure/topic-types/section/)**
 : Provides a landing page for users to find content.

@@ -188,7 +188,7 @@ To create an interactive milestone:
    Content is everything after the front matter:
 
    ```markdown
-   {{< pathfinder/json >}}
+   {{</*  pathfinder/json */>}}
    ```
 
 1. Create a `pathfinder.json` file in the same directory as the milestone's `index.md` file.
@@ -267,7 +267,7 @@ To write a learning journey, complete these steps:
    - Number milestones sequentially (weight increments of 100, step increments of 1)
    - Start the first milestone at `step: 2` (the introduction is `step: 1`)
 
-1. For interactive milestones, create `pathfinder.json` files and add the `{{< pathfinder/json >}}` shortcode to the milestone's `index.md`.
+1. For interactive milestones, create `pathfinder.json` files and add the `{{</* pathfinder/json */>}}` shortcode to the milestone's `index.md`.
 
 1. Add content to each milestone following the structure described in [Milestone structure](#milestone-structure).
 

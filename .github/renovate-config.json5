@@ -1,6 +1,18 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  branchPrefix: "grafanarenovatebot/",
+  extends: [
+    "github>grafana/grafana-renovate-config//presets/base",
+    "github>grafana/grafana-renovate-config//presets/automerge",
+    "github>grafana/grafana-renovate-config//presets/labels",
+    "github>grafana/grafana-renovate-config//presets/security",
+    "github>grafana/grafana-renovate-config//presets/github-actions",
+    "github>grafana/grafana-renovate-config//presets/helm",
+    "github>grafana/grafana-renovate-config//presets/shared-workflows",
+    "github>grafana/grafana-renovate-config//presets/rate-limits",
+  ],
+  ignorePresets: [
+    "github>grafana/grafana-renovate-config//presets/docker",
+  ],
   customManagers: [
     {
       customType: "regex",
@@ -13,33 +25,7 @@
       ],
     },
   ],
-  dependencyDashboard: false,
-  enabledManagers: ["custom.regex", "github-actions", "gomod", "npm"],
-  forkProcessing: "enabled",
-  globalExtends: [":pinDependencies", "config:best-practices"],
-  onboarding: false,
-  osvVulnerabilityAlerts: true,
   packageRules: [
-    {
-      labels: ["update-major"],
-      matchUpdateTypes: ["major"],
-    },
-    {
-      labels: ["update-minor"],
-      matchUpdateTypes: ["minor"],
-    },
-    {
-      labels: ["update-patch"],
-      matchUpdateTypes: ["patch"],
-    },
-    {
-      labels: ["update-digest"],
-      matchUpdateTypes: ["digest"],
-    },
-    {
-      // Run the custom matcher on early Monday mornings (UTC)
-      schedule: "* 0-4 * * 1",
-    },
     {
       matchFileNames: [ "vale/tools/go.mod" ],
       matchPackageNames: ["github.com/grafana/writers-toolkit/tools",],
@@ -53,26 +39,18 @@
       description: "The version bumps don't get reflected in the code imports.",
     },
     {
-      matchPackagePatterns: ["grafana/vale"],
+      matchPackageNames: ["/grafana/vale/"],
       matchDatasources: ["docker"],
       enabled: false,
-      description: "The repository publishes this image on every push.",
+      description: "We control this image and use :latest tag, so we don't want Renovate to pin the SHA.",
     },
-     {
+    {
       matchPackageNames: ["grafana/shared-workflows"],
       versioning: "regex:^(?<compatibility>.*)[-/]v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-
       // By default, the dependency name is the same as the package name.
       // For Actions, this is `org/repo`. This means that we'd get all actions from `shared-workflows` in the same branch.
       // The shared-workflows tag scheme contains the name of the action being update to as well, so we can grab it from there and set the dep name, then put this in the branch name.
-      overrideDepName: 'grafana/shared-workflows/{{ lookup (split newVersion "/") 0 }}',
       additionalBranchPrefix: "{{depName}}",
     },
   ],
-  platformCommit: "enabled",
-  rebaseWhen: "behind-base-branch",
-  requireConfig: "optional",
-  vulnerabilityAlerts: {
-    enabled: true,
-  },
 }

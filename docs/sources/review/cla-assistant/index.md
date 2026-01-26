@@ -50,11 +50,13 @@ For example, to trigger the CLA assistant workflow for the pull request `https:/
 The URL redirects your browser back to https://github.com without any feedback suggesting the workflow has run.
 {{< /admonition >}}
 
-### Trigger CLA assistant workflow for all pull requests
+### Trigger CLA assistant workflow for all pull requests in a repository
 
 If the CLA assistant workflow isn't reported on multiple open pull requests in one repository or if the above didn't work, you can request that the CLA assistant run again for all pull requests:
 
 1. Navigate to https://cla-assistant.io/ and sign in with your GitHub account.
-1. Wait for all repositories to load (this can take up to a minute). 
-1. Next to the repository that is impacted, click on the three dots (`More...`) and on `Recheck PRs`.
+1. Wait for all repositories to load. 
+
+   This can take a minute to finish.
+1. Next to the repository that is impacted, click on the **More...** three dots icon and on **Recheck PRs**.
 1. Wait for a few minutes for the workflow to run on all open pull requests of the repository.

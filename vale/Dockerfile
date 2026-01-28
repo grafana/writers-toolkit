@@ -1,5 +1,5 @@
 ################################################################################
-FROM --platform=${BUILDPLATFORM} golang:alpine@sha256:26111811bc967321e7b6f852e914d14bede324cd1accb7f81811929a6a57fea9 AS filter-sarif
+FROM --platform=${BUILDPLATFORM} golang:alpine@sha256:660f0b83cf50091e3777e4730ccc0e63e83fea2c420c872af5c60cb357dcafb2 AS filter-sarif
 ARG TARGETOS TARGETARCH
 
 RUN mkdir /src /out

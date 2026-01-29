@@ -4,17 +4,57 @@ permissions: {}
 
 on:
   workflow_dispatch:
+  issue_comment:
+    types: [created]
 
 jobs:
   main:
-    if: github.repository == 'grafana/writers-toolkit'
+    if: |
+      github.repository == 'grafana/writers-toolkit' && (
+        github.event_name == 'workflow_dispatch' ||
+        (github.event_name == 'issue_comment' &&
+         github.event.issue.pull_request &&
+         contains(github.event.comment.body, '/regenerate-dictionaries'))
+      )
     permissions:
       contents: read
       id-token: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - name: React to comment
+        if: github.event_name == 'issue_comment'
+        env:
+          COMMENT_ID: ${{ github.event.comment.id }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api \
+            --method POST \
+            "repos/${REPOSITORY}/issues/comments/${COMMENT_ID}/reactions" \
+            -f content='eyes'
+        shell: bash
+      - name: Get PR branch
+        if: github.event_name == 'issue_comment'
+        id: pr-branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          info="$(gh api "repos/${REPOSITORY}/pulls/${PR}")"
+          echo "ref=$(echo "${info}" | jq -r .head.ref)" >> "$GITHUB_OUTPUT"
+          echo "repo=$(echo "${info}" | jq -r .head.repo.full_name)" >> "$GITHUB_OUTPUT"
+        shell: bash
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        if: github.event_name == 'workflow_dispatch'
         with:
+          persist-credentials: false
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        if: github.event_name == 'issue_comment'
+        with:
+          repository: ${{ steps.pr-branch.outputs.repo }}
+          ref: ${{ steps.pr-branch.outputs.ref }}
           persist-credentials: false
       - id: get-secrets
         uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1

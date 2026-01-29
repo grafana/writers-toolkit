@@ -22,8 +22,37 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - name: React to comment
+      - name: Check user permission
         if: github.event_name == 'issue_comment'
+        id: check-permission
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          USERNAME: ${{ github.event.comment.user.login }}
+        run: |
+          permission=$(gh api "repos/${REPOSITORY}/collaborators/${USERNAME}/permission" --jq .permission)
+          if [[ "$permission" == "admin" || "$permission" == "write" ]]; then
+            echo "has_permission=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_permission=false" >> "$GITHUB_OUTPUT"
+          fi
+        shell: bash
+      - name: React with thumbs down if no permission
+        if: github.event_name == 'issue_comment' && steps.check-permission.outputs.has_permission == 'false'
+        env:
+          COMMENT_ID: ${{ github.event.comment.id }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api \
+            --method POST \
+            "repos/${REPOSITORY}/issues/comments/${COMMENT_ID}/reactions" \
+            -f content='-1'
+          echo "::error::User does not have write access to this repository"
+          exit 1
+        shell: bash
+      - name: React to comment
+        if: github.event_name == 'issue_comment' && steps.check-permission.outputs.has_permission == 'true'
         env:
           COMMENT_ID: ${{ github.event.comment.id }}
           GH_TOKEN: ${{ github.token }}
@@ -35,7 +64,7 @@ jobs:
             -f content='eyes'
         shell: bash
       - name: Get PR branch
-        if: github.event_name == 'issue_comment'
+        if: github.event_name == 'issue_comment' && steps.check-permission.outputs.has_permission == 'true'
         id: pr-branch
         env:
           GH_TOKEN: ${{ github.token }}
@@ -45,13 +74,31 @@ jobs:
           info="$(gh api "repos/${REPOSITORY}/pulls/${PR}")"
           echo "ref=$(echo "${info}" | jq -r .head.ref)" >> "$GITHUB_OUTPUT"
           echo "repo=$(echo "${info}" | jq -r .head.repo.full_name)" >> "$GITHUB_OUTPUT"
+          echo "is_fork=$(echo "${info}" | jq -r '.head.repo.full_name != .base.repo.full_name')" >> "$GITHUB_OUTPUT"
+        shell: bash
+      - name: Block fork PRs
+        if: github.event_name == 'issue_comment' && steps.pr-branch.outputs.is_fork == 'true'
+        env:
+          COMMENT_ID: ${{ github.event.comment.id }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api \
+            --method POST \
+            "repos/${REPOSITORY}/issues/comments/${COMMENT_ID}/reactions" \
+            -f content='confused'
+          gh pr comment ${{ github.event.issue.number }} \
+            --repo "${REPOSITORY}" \
+            --body "❌ This command cannot be run on PRs from forks for security reasons. Create a branch in the main repository instead."
+          echo "::error::Cannot run on fork-based PRs for security reasons"
+          exit 1
         shell: bash
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         if: github.event_name == 'workflow_dispatch'
         with:
           persist-credentials: false
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-        if: github.event_name == 'issue_comment'
+        if: github.event_name == 'issue_comment' && steps.check-permission.outputs.has_permission == 'true' && steps.pr-branch.outputs.is_fork == 'false'
         with:
           repository: ${{ steps.pr-branch.outputs.repo }}
           ref: ${{ steps.pr-branch.outputs.ref }}

@@ -18,7 +18,7 @@ local word = import './word.jsonnet';
   word.new('Apdex', '', 'noun'),
   word.new('API', 'S', 'noun') { abbreviation: true, elaboration: 'Application Programming Interface', established_abbreviation: true },
   word.new('APT', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/APT_(software)', elaboration: 'Advanced package tool', established_abbreviation: true },
-  word.new('ARN', '', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Resource Name', established_abbreviation: true, product: true },
+  word.new('ARN', 'S', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Resource Name', established_abbreviation: true, product: true },
   word.new('Asserts', '', 'noun') { description: 'https://grafana.com/products/cloud/asserts/', product: true },
   word.new('autoscale', 'DGS', 'verb'),
   word.new('autoscaler', 'S', 'noun'),

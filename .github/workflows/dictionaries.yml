@@ -104,7 +104,7 @@ jobs:
           ref: ${{ steps.pr-branch.outputs.ref }}
           persist-credentials: false
       - id: get-secrets
-        uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1
+        uses: grafana/shared-workflows/actions/get-vault-secrets@a37de51f3d713a30a9e4b21bcdfbd38170020593 # get-vault-secrets/v1.3.0
         with:
           repo_secrets: |
             DOCS_PLATFORM_TEAM_APP_ID=docs-platform-team:app-id

@@ -1,4 +1,4 @@
-384
+385
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -17,7 +17,7 @@ Ansible/ po:noun
 Apdex/ po:noun
 API/S po:noun
 APT/ po:noun
-ARN/ po:noun
+ARN/S po:noun
 Asserts/ po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun
@@ -347,6 +347,7 @@ TTL/S po:noun
 UI/S po:noun
 UID/S po:noun
 uprobe/S po:noun
+unary/ po:adjective
 URI/S po:noun
 URL/S po:noun
 USB/ po:noun

@@ -1,4 +1,4 @@
-382
+384
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -324,6 +324,7 @@ sync/DG po:verb
 syntax/S po:noun
 syslog/ po:noun
 systemd/ po:noun
+Tailscale/ po:noun
 TCP/ po:noun
 Telegraf/ po:noun
 templated/ po:adjective
@@ -377,6 +378,7 @@ XSS/ po:noun
 xy chart/S po:noun
 YAML/ po:noun
 YugabyteDB/ po:noun
+Zabbix/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective
 Zipkin/ po:noun

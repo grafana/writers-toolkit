@@ -104,6 +104,7 @@
   - "Splunk's"
   - "SSM's"
   - "SUSE's"
+  - "Tailscale's"
   - "Team Sync's"
   - "Tempo's"
   - "Thanos'"
@@ -117,4 +118,5 @@
   - "WildFly's"
   - "windows_exporter's"
   - "YugabyteDB's"
+  - "Zabbix's"
   - "Zipkin's"

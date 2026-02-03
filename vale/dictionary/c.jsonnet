@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('cAdvisor', 'M', 'noun') { description: 'cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. (https://github.com/google/cadvisor)', swaps: { cadvisor: 'cAdvisor' } },
   word.new('callee', 'S', 'noun') { description: 'A function that is called by another function' },
+  word.new('Catchpoint', '', 'noun') { product: true },
   word.new('CDN', '', 'noun') { abbreviation: true, elaboration: 'Content Delivery Network' },
   word.new('CentOS', '', 'noun') { description: 'A Linux distribution that provides a free, community-supported computing platform functionally compatible with its upstream source, Red Hat Enterprise Linux (RHEL).', product: true, swaps: { '[cC]entos': 'CentOS' } },
   word.new('checkbox', 'S', 'noun') { description: 'A small box that can be checked or unchecked', swaps: { 'check[- ]box': 'checkbox' } },

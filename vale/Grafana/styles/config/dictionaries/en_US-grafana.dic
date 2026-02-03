@@ -1,4 +1,4 @@
-385
+391
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -19,6 +19,7 @@ API/S po:noun
 APT/ po:noun
 ARN/S po:noun
 Asserts/ po:noun
+Atlassian/ po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun
 AWS/ po:noun
@@ -42,6 +43,7 @@ burndown/ po:adjective
 bundler/S po:noun
 cAdvisor/M po:noun
 callee/S po:noun
+Catchpoint/ po:noun
 CDN/ po:noun
 CentOS/ po:noun
 checkbox/S po:noun
@@ -208,6 +210,7 @@ namespace/S po:noun
 navigation/S po:noun
 NAT/ po:noun
 nginx/ po:noun
+Netlify/ po:noun
 Netlink/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
@@ -310,6 +313,7 @@ SSM/ po:noun
 SSH/ po:noun
 SSL/ po:noun
 SSO/ po:noun
+Statuspage/ po:noun
 stylesheet/S po:noun
 subchart/S po:noun
 subfolder/S po:noun
@@ -356,6 +360,7 @@ UTF/ po:noun
 UUID/S po:noun
 UX/ po:noun
 Velero/ po:noun
+Vercel/ po:noun
 versus/ po:preposition
 viewport/S po:noun
 Vite/ po:noun
@@ -380,6 +385,7 @@ xy chart/S po:noun
 YAML/ po:noun
 YugabyteDB/ po:noun
 Zabbix/ po:noun
+Zendesk/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective
 Zipkin/ po:noun

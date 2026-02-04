@@ -28,13 +28,11 @@ async function addIssuesToProject(): Promise<Array<string>> {
       console.log(
         `Adding issue ${issue.title} (${issue.url}) to the Docs project.`,
       );
-      added.push(
-        // https://api.slack.com/reference/surfaces/formatting#escaping
-        `${issue.url}|${issue.title}`
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;"),
-      );
+      const escapedTitle = issue.title
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;");
+      added.push(`${issue.url}|${escapedTitle}`);
 
       await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
         projectId: PROJECT_ID,

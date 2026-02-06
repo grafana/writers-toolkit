@@ -62,11 +62,6 @@ sync:
 	cd $(GIT_ROOT) && vale sync; cd -
 	npx prettier -w .
 
-.vale.ini ../.vale.ini: ## Generate Vale INI configuration from the Jsonnet data template.
-.vale.ini ../.vale.ini: .vale.jsonnet
-	jsonnet -Se "(import '.vale.jsonnet').container" | sed '$${/^$$/d;}' > .vale.ini
-	jsonnet -Se "(import '.vale.jsonnet').repository" | sed '$${/^$$/d;}' > ../.vale.ini
-
 .PHONY: Grafana/styles/Grafana/Google
 Grafana/styles/Grafana/Google: ## Generate the Grafana style from the Google style.
 Grafana/styles/Grafana/Google: google.jsonnet

@@ -6,7 +6,7 @@ require (
 	github.com/google/go-github/v72 v72.0.0
 	github.com/grafana/writers-toolkit/tools v1.0.0
 	github.com/sourcegraph/go-diff v0.7.0
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.1
 )
 
 require (

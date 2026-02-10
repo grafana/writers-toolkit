@@ -702,7 +702,7 @@ The tree uses the following format:
 
 ### Examples
 
-The following example renders a simple API tree:
+The following example renders a visual API tree:
 
 ```markdown
 <!-- prettier-ignore-start -->

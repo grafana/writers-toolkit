@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## February 2026
+
+| New guidance or change           | Page                                                          |
+| -------------------------------- | ------------------------------------------------------------- |
+| Added `docs/api-tree` shortcode. | [Links](/docs/writers-toolkit/write/shortcodes/#docsapi-tree) |
+
 ## January 2026
 
 | New guidance or change                                          | Page                                                                        |

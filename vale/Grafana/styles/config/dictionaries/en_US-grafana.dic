@@ -1,4 +1,4 @@
-391
+392
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -78,6 +78,7 @@ Data Firehose/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
+deleter/S po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
 distroless/ po:adjective

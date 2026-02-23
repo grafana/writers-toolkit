@@ -1,4 +1,4 @@
-382
+392
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -17,8 +17,9 @@ Ansible/ po:noun
 Apdex/ po:noun
 API/S po:noun
 APT/ po:noun
-ARN/ po:noun
+ARN/S po:noun
 Asserts/ po:noun
+Atlassian/ po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun
 AWS/ po:noun
@@ -42,6 +43,7 @@ burndown/ po:adjective
 bundler/S po:noun
 cAdvisor/M po:noun
 callee/S po:noun
+Catchpoint/ po:noun
 CDN/ po:noun
 CentOS/ po:noun
 checkbox/S po:noun
@@ -76,6 +78,7 @@ Data Firehose/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
+deleter/S po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
 distroless/ po:adjective
@@ -208,6 +211,7 @@ namespace/S po:noun
 navigation/S po:noun
 NAT/ po:noun
 nginx/ po:noun
+Netlify/ po:noun
 Netlink/ po:noun
 OAuth/ po:noun
 Okta/ po:noun
@@ -310,6 +314,7 @@ SSM/ po:noun
 SSH/ po:noun
 SSL/ po:noun
 SSO/ po:noun
+Statuspage/ po:noun
 stylesheet/S po:noun
 subchart/S po:noun
 subfolder/S po:noun
@@ -324,6 +329,7 @@ sync/DG po:verb
 syntax/S po:noun
 syslog/ po:noun
 systemd/ po:noun
+Tailscale/ po:noun
 TCP/ po:noun
 Telegraf/ po:noun
 templated/ po:adjective
@@ -346,6 +352,7 @@ TTL/S po:noun
 UI/S po:noun
 UID/S po:noun
 uprobe/S po:noun
+unary/ po:adjective
 URI/S po:noun
 URL/S po:noun
 USB/ po:noun
@@ -354,6 +361,7 @@ UTF/ po:noun
 UUID/S po:noun
 UX/ po:noun
 Velero/ po:noun
+Vercel/ po:noun
 versus/ po:preposition
 viewport/S po:noun
 Vite/ po:noun
@@ -377,6 +385,8 @@ XSS/ po:noun
 xy chart/S po:noun
 YAML/ po:noun
 YugabyteDB/ po:noun
+Zabbix/ po:noun
+Zendesk/ po:noun
 ZIP/ po:noun
 Zipkin/ po:adjective
 Zipkin/ po:noun

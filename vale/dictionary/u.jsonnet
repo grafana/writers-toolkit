@@ -3,6 +3,7 @@ local word = import './word.jsonnet';
   word.new('UI', 'S', 'noun') { abbreviation: true, elaboration: 'user interface', established_abbreviation: true },
   word.new('UID', 'S', 'noun') { abbreviation: true, elaboration: 'unique identifier', established_abbreviation: true },
   word.new('uprobe', 'S', 'noun'),
+  word.new('unary', '', 'adjective'),
   word.new('URI', 'S', 'noun') { abbreviation: true, elaboration: 'Uniform Resource Identifier', established_abbreviation: true },
   word.new('URL', 'S', 'noun') { abbreviation: true, elaboration: 'Uniform Resource Locator', established_abbreviation: true, swaps: { url: 'URL', urls: 'URLs' } },
   word.new('USB', '', 'noun') { abbreviation: true, elaboration: 'Universal Serial Bus', established_abbreviation: true },

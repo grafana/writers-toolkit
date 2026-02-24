@@ -28,8 +28,10 @@ async function addIssuesToProject(): Promise<Array<{ url: string; title: string 
       console.log(
         `Adding issue ${issue.title} (${issue.url}) to the Docs project.`,
       );
-      // Escape special characters for Slack mrkdwn format.
+      // Normalize whitespace and escape special characters for Slack mrkdwn format.
       const escapedTitle = issue.title
+        .replace(/\s+/g, " ")
+        .trim()
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;");

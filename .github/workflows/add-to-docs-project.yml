@@ -55,7 +55,7 @@ jobs:
           script: |
             const added = JSON.parse(${{ toJSON(steps.add-to-docs-project.outputs.added) }});
             const lines = added.map(issue => `- <${issue.url}|${issue.title}>`);
-            return lines.join('\n');
+            return lines.join('\\n');
           result-encoding: string
 
       - name: Send Slack Message

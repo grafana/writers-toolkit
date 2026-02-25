@@ -6,7 +6,7 @@ local word = import './word.jsonnet';
   word.new('email', '', 'noun') { swaps: { '(?:[eE]-mail)': 'email' } },
   word.new('enablement', '', 'noun'),
   word.new('enqueue', 'DS', 'verb'),
-  word.new('enrichment', 'S', 'noun') { description: "<DESCRIPTION>" },
+  word.new('enrichment', 'S', 'noun') { description: 'An addition of context or metadata' },
   word.new('Entra', '', 'noun') { Azure: true, product: true },
   word.new('ESLint', 'M', 'noun'),
   word.new('etcd', '', 'noun'),

@@ -561,7 +561,7 @@ UserService
         └── users (list<[User](../api/#user)\>)
 ```
 
-The following example shows an API tree with nested message types and enums:
+The following example shows an API tree with nested message types:
 
 ````markdown
 ```api-tree

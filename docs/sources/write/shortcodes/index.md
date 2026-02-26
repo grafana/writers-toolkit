@@ -495,6 +495,120 @@ backup_project_id = "@@@YOUR_PROJECT_ID@@@"
 
 {{< /code >}}
 
+### api-tree
+
+The `api-tree` code block type renders an interactive, collapsible tree diagram for visualizing API structures.
+It's particularly useful for documenting REST APIs or any hierarchical API structure.
+
+The code block takes the tree structure as inner content using Unicode box-drawing characters to represent the hierarchy.
+It supports clickable links, data types, and requirement badges (`required` or `optional`).
+
+### api-tree structure syntax
+
+The tree uses the following format:
+
+- **Node name**: The name of the API method, request, response, or field
+- **Links**: Use Markdown link syntax `[NodeName](url)` to make nodes clickable
+- **Data types**: Add data types in parentheses `(string)`, `(bool)`, `(int)`, etc.
+- **Data type links**: Use Markdown link syntax for data types `([CustomType](url))`
+- **Requirements**: Add `\[required\]` or `\[optional\]` after data types
+- **Hierarchy**: Use box-drawing characters:
+  - `├──` for branch nodes
+  - `└──` for the last child in a group
+  - `│` for vertical continuation lines
+
+### api-tree examples
+
+The following example renders a visual API tree:
+
+````markdown
+```api-tree
+UserService
+├── [GetUser](../api/#getuser)
+│   ├── Request: [GetUserRequest](../api/#getuserrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── fields (list<string>) \[optional\]
+│   └── Response: [User](../api/#user)
+│       ├── id (string)
+│       ├── name (string)
+│       └── email (string)
+└── [ListUsers](../api/#listusers)
+    ├── Request: [ListUsersRequest](../api/#listusersrequest)
+    │   ├── page_size (int) \[optional\]
+    │   └── page_token (string) \[optional\]
+    └── Response: [ListUsersResponse](../api/#listusersresponse)
+        └── users (list<[User](../api/#user)\>)
+```
+````
+
+Produces:
+
+```api-tree
+UserService
+├── [GetUser](../api/#getuser)
+│   ├── Request: [GetUserRequest](../api/#getuserrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── fields (list<string>) \[optional\]
+│   └── Response: [User](../api/#user)
+│       ├── id (string)
+│       ├── name (string)
+│       └── email (string)
+└── [ListUsers](../api/#listusers)
+    ├── Request: [ListUsersRequest](../api/#listusersrequest)
+    │   ├── page_size (int) \[optional\]
+    │   └── page_token (string) \[optional\]
+    └── Response: [ListUsersResponse](../api/#listusersresponse)
+        └── users (list<[User](../api/#user)\>)
+```
+
+The following example shows an API tree with nested message types and enums:
+
+````markdown
+```api-tree
+├── [GetConfig](../api/#getconfig)
+│   ├── Request: [GetConfigRequest](../api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── options ([ConfigOptions](../api/#configoptions)) \[optional\]
+│   │       ├── verbose (bool)
+│   │       └── format ([Format](../api/#format))
+│   │           ├── JSON
+│   │           ├── YAML
+│   │           └── TOML
+│   └── Response: [GetConfigResponse](../api/#getconfigresponse)
+│       ├── config (string)
+│       └── hash (string)
+└── [UpdateConfig](../api/#updateconfig)
+    ├── Request: [UpdateConfigRequest](../api/#updateconfigrequest)
+    │   ├── id (string) \[required\]
+    │   └── config (string) \[required\]
+    └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
+        └── success (bool)
+```
+````
+
+Produces:
+
+```api-tree
+├── [GetConfig](../api/#getconfig)
+│   ├── Request: [GetConfigRequest](../api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── options ([ConfigOptions](../api/#configoptions)) \[optional\]
+│   │       ├── verbose (bool)
+│   │       └── format ([Format](../api/#format))
+│   │           ├── JSON
+│   │           ├── YAML
+│   │           └── TOML
+│   └── Response: [GetConfigResponse](../api/#getconfigresponse)
+│       ├── config (string)
+│       └── hash (string)
+└── [UpdateConfig](../api/#updateconfig)
+    ├── Request: [UpdateConfigRequest](../api/#updateconfigrequest)
+    │   ├── id (string) \[required\]
+    │   └── config (string) \[required\]
+    └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
+        └── success (bool)
+```
+
 ## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.
@@ -665,142 +779,6 @@ It can render as inline code, a table row, or a full table of the output.
 | `output`  | One of `"table"`, `"row"`, or `"string"`. The default is `"table"`. | no       |
 
 For specific usage instructions, refer to [Use the `docs/alias` shortcode](https://grafana.com/docs/writers-toolkit/write/front-matter/#use-the-docsalias-shortcode).
-
-## Docs/api-tree
-
-The `docs/api-tree` shortcode renders an interactive, collapsible tree diagram for visualizing API structures.
-It's particularly useful for documenting REST APIs or any hierarchical API structure.
-
-The shortcode takes the tree structure as inner content using Unicode box-drawing characters to represent the hierarchy.
-It supports clickable links, data types, and requirement badges (`required` or `optional`).
-
-{{< admonition type="note" >}}
-When using the `docs/api-tree` shortcode, wrap it with Prettier ignore comments to prevent the formatter from modifying the tree structure:
-{{< /admonition >}}
-
-```markdown
-<!-- prettier-ignore-start -->
-{{</* docs/api-tree */>}}
-...tree content...
-{{</* /docs/api-tree */>}}
-<!-- prettier-ignore-end -->
-```
-
-### Tree structure syntax
-
-The tree uses the following format:
-
-- **Node name**: The name of the API method, request, response, or field
-- **Links**: Use Markdown link syntax `[NodeName](url)` to make nodes clickable
-- **Data types**: Add data types in parentheses `(string)`, `(bool)`, `(int)`, etc.
-- **Data type links**: Use Markdown link syntax for data types `([CustomType](url))`
-- **Requirements**: Add `\[required\]` or `\[optional\]` after data types
-- **Hierarchy**: Use box-drawing characters:
-  - `├──` for branch nodes
-  - `└──` for the last child in a group
-  - `│` for vertical continuation lines
-
-### Examples
-
-The following example renders a visual API tree:
-
-```markdown
-<!-- prettier-ignore-start -->
-{{</* docs/api-tree */>}}
-UserService
-├── [GetUser](../api/#getuser)
-│   ├── Request: [GetUserRequest](../api/#getuserrequest)
-│   │   ├── id (string) \[required\]
-│   │   └── fields (list<string>) \[optional\]
-│   └── Response: [User](../api/#user)
-│       ├── id (string)
-│       ├── name (string)
-│       └── email (string)
-└── [ListUsers](../api/#listusers)
-    ├── Request: [ListUsersRequest](../api/#listusersrequest)
-    │   ├── page_size (int) \[optional\]
-    │   └── page_token (string) \[optional\]
-    └── Response: [ListUsersResponse](../api/#listusersresponse)
-        └── users (list<[User](../api/#user)\>)
-{{</* /docs/api-tree */>}}
-<!-- prettier-ignore-end -->
-```
-
-Produces:
-
-<!-- prettier-ignore-start -->
-{{< docs/api-tree >}}
-UserService
-├── [GetUser](../api/#getuser)
-│   ├── Request: [GetUserRequest](../api/#getuserrequest)
-│   │   ├── id (string) \[required\]
-│   │   └── fields (list<string>) \[optional\]
-│   └── Response: [User](../api/#user)
-│       ├── id (string)
-│       ├── name (string)
-│       └── email (string)
-└── [ListUsers](../api/#listusers)
-    ├── Request: [ListUsersRequest](../api/#listusersrequest)
-    │   ├── page_size (int) \[optional\]
-    │   └── page_token (string) \[optional\]
-    └── Response: [ListUsersResponse](../api/#listusersresponse)
-        └── users (list<[User](../api/#user)\>)
-{{< /docs/api-tree >}}
-<!-- prettier-ignore-end -->
-
-The following example shows an API tree with nested message types and enums:
-
-```markdown
-<!-- prettier-ignore-start -->
-{{</* docs/api-tree */>}}
-ConfigService
-├── [GetConfig](../api/#getconfig)
-│   ├── Request: [GetConfigRequest](../api/#getconfigrequest)
-│   │   ├── id (string) \[required\]
-│   │   └── options ([ConfigOptions](../api/#configoptions)) \[optional\]
-│   │       ├── verbose (bool)
-│   │       └── format ([Format](../api/#format))
-│   │           ├── JSON
-│   │           ├── YAML
-│   │           └── TOML
-│   └── Response: [GetConfigResponse](../api/#getconfigresponse)
-│       ├── config (string)
-│       └── hash (string)
-└── [UpdateConfig](../api/#updateconfig)
-    ├── Request: [UpdateConfigRequest](../api/#updateconfigrequest)
-    │   ├── id (string) \[required\]
-    │   └── config (string) \[required\]
-    └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
-        └── success (bool)
-{{</* /docs/api-tree */>}}
-<!-- prettier-ignore-end -->
-```
-
-Produces:
-
-<!-- prettier-ignore-start -->
-{{< docs/api-tree >}}
-ConfigService
-├── [GetConfig](../api/#getconfig)
-│   ├── Request: [GetConfigRequest](../api/#getconfigrequest)
-│   │   ├── id (string) \[required\]
-│   │   └── options ([ConfigOptions](../api/#configoptions)) \[optional\]
-│   │       ├── verbose (bool)
-│   │       └── format ([Format](../api/#format))
-│   │           ├── JSON
-│   │           ├── YAML
-│   │           └── TOML
-│   └── Response: [GetConfigResponse](../api/#getconfigresponse)
-│       ├── config (string)
-│       └── hash (string)
-└── [UpdateConfig](../api/#updateconfig)
-    ├── Request: [UpdateConfigRequest](../api/#updateconfigrequest)
-    │   ├── id (string) \[required\]
-    │   └── config (string) \[required\]
-    └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
-        └── success (bool)
-{{< /docs/api-tree >}}
-<!-- prettier-ignore-end -->
 
 ## Docs/copy
 

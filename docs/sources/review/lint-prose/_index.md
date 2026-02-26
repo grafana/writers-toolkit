@@ -119,6 +119,8 @@ If you manually install Vale, you must configure your system to add Vale to your
 
    {{< /code >}}
 
+1. In Visual Studio Code, enable the extension.
+
 1. Create a `.vale.ini` file in your home directory or in a working directory with the following contents:
 
    ```ini

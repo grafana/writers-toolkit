@@ -8,6 +8,7 @@ local word = import './word.jsonnet';
   word.new('Databricks', '', 'noun') { product: true },
   word.new('Datadog', '', 'adjective'),
   word.new('Datadog', '', 'noun') { product: true },
+  word.new('deleter', 'S', 'noun'),
   word.new('deliverable', 'S', 'noun'),
   word.new('disaggregate', 'DS', 'verb'),
   word.new('distroless', '', 'adjective'),

@@ -13,8 +13,8 @@ const ADD_TO_PROJECT_MUTATION = fs.readFileSync(
   "utf8",
 );
 
-async function addIssuesToProject(): Promise<Array<string>> {
-  const added: Array<string> = [];
+async function addIssuesToProject(): Promise<Array<{ url: string; title: string }>> {
+  const added: Array<{ url: string; title: string }> = [];
   try {
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
@@ -28,11 +28,18 @@ async function addIssuesToProject(): Promise<Array<string>> {
       console.log(
         `Adding issue ${issue.title} (${issue.url}) to the Docs project.`,
       );
+      // Normalize whitespace and escape special characters for Slack mrkdwn format.
       const escapedTitle = issue.title
+        .replace(/\s+/g, " ")
+        .trim()
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;");
-      added.push(`${issue.url}|${escapedTitle}`);
+
+      added.push({
+        url: issue.url,
+        title: escapedTitle,
+      });
 
       await octokit.graphql(ADD_TO_PROJECT_MUTATION, {
         projectId: PROJECT_ID,
@@ -50,5 +57,5 @@ async function addIssuesToProject(): Promise<Array<string>> {
 const added = await addIssuesToProject();
 core.setOutput(
   "added",
-  added.map((issue) => `- <${issue}>`.replaceAll('"', '\\"')).join("\\n"),
+  JSON.stringify(added),
 );

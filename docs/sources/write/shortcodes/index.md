@@ -495,7 +495,7 @@ backup_project_id = "@@@YOUR_PROJECT_ID@@@"
 
 {{< /code >}}
 
-### api-tree
+### Api-tree
 
 The `api-tree` code block type renders an interactive, collapsible tree diagram for visualizing API structures.
 It's particularly useful for documenting REST APIs or any hierarchical API structure.
@@ -503,7 +503,7 @@ It's particularly useful for documenting REST APIs or any hierarchical API struc
 The code block takes the tree structure as inner content using Unicode box-drawing characters to represent the hierarchy.
 It supports clickable links, data types, and requirement badges (`required` or `optional`).
 
-### api-tree structure syntax
+### Api-tree structure syntax
 
 The tree uses the following format:
 
@@ -517,7 +517,7 @@ The tree uses the following format:
   - `└──` for the last child in a group
   - `│` for vertical continuation lines
 
-### api-tree examples
+### Api-tree examples
 
 The following example renders a visual API tree:
 

@@ -495,6 +495,120 @@ backup_project_id = "@@@YOUR_PROJECT_ID@@@"
 
 {{< /code >}}
 
+### Api-tree
+
+The `api-tree` code block type renders an interactive, collapsible tree diagram for visualizing API structures.
+It's particularly useful for documenting REST APIs or any hierarchical API structure.
+
+The code block takes the tree structure as inner content using Unicode box-drawing characters to represent the hierarchy.
+It supports clickable links, data types, and requirement badges (`required` or `optional`).
+
+### Api-tree structure syntax
+
+The tree uses the following format:
+
+- **Node name**: The name of the API method, request, response, or field
+- **Links**: Use Markdown link syntax `[NodeName](url)` to make nodes clickable
+- **Data types**: Add data types in parentheses `(string)`, `(bool)`, `(int)`, etc.
+- **Data type links**: Use Markdown link syntax for data types `([CustomType](url))`
+- **Requirements**: Add `\[required\]` or `\[optional\]` after data types
+- **Hierarchy**: Use box-drawing characters:
+  - `├──` for branch nodes
+  - `└──` for the last child in a group
+  - `│` for vertical continuation lines
+
+### Api-tree examples
+
+The following example renders a visual API tree:
+
+````markdown
+```api-tree
+UserService
+├── [GetUser](../api/#getuser)
+│   ├── Request: [GetUserRequest](../api/#getuserrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── fields (list<string>) \[optional\]
+│   └── Response: [User](../api/#user)
+│       ├── id (string)
+│       ├── name (string)
+│       └── email (string)
+└── [ListUsers](../api/#listusers)
+    ├── Request: [ListUsersRequest](../api/#listusersrequest)
+    │   ├── page_size (int) \[optional\]
+    │   └── page_token (string) \[optional\]
+    └── Response: [ListUsersResponse](../api/#listusersresponse)
+        └── users (list<[User](../api/#user)\>)
+```
+````
+
+Produces:
+
+```api-tree
+UserService
+├── [GetUser](../api/#getuser)
+│   ├── Request: [GetUserRequest](../api/#getuserrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── fields (list<string>) \[optional\]
+│   └── Response: [User](../api/#user)
+│       ├── id (string)
+│       ├── name (string)
+│       └── email (string)
+└── [ListUsers](../api/#listusers)
+    ├── Request: [ListUsersRequest](../api/#listusersrequest)
+    │   ├── page_size (int) \[optional\]
+    │   └── page_token (string) \[optional\]
+    └── Response: [ListUsersResponse](../api/#listusersresponse)
+        └── users (list<[User](../api/#user)\>)
+```
+
+The following example shows an API tree with nested message types:
+
+````markdown
+```api-tree
+├── [GetConfig](../api/#getconfig)
+│   ├── Request: [GetConfigRequest](../api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── options ([ConfigOptions](../api/#configoptions)) \[optional\]
+│   │       ├── verbose (bool)
+│   │       └── format ([Format](../api/#format))
+│   │           ├── JSON
+│   │           ├── YAML
+│   │           └── TOML
+│   └── Response: [GetConfigResponse](../api/#getconfigresponse)
+│       ├── config (string)
+│       └── hash (string)
+└── [UpdateConfig](../api/#updateconfig)
+    ├── Request: [UpdateConfigRequest](../api/#updateconfigrequest)
+    │   ├── id (string) \[required\]
+    │   └── config (string) \[required\]
+    └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
+        └── success (bool)
+```
+````
+
+Produces:
+
+```api-tree
+├── [GetConfig](../api/#getconfig)
+│   ├── Request: [GetConfigRequest](../api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   └── options ([ConfigOptions](../api/#configoptions)) \[optional\]
+│   │       ├── verbose (bool)
+│   │       └── format ([Format](../api/#format))
+│   │           ├── JSON
+│   │           ├── YAML
+│   │           └── TOML
+│   └── Response: [GetConfigResponse](../api/#getconfigresponse)
+│       ├── config (string)
+│       └── hash (string)
+└── [UpdateConfig](../api/#updateconfig)
+    ├── Request: [UpdateConfigRequest](../api/#updateconfigrequest)
+    │   ├── id (string) \[required\]
+    │   └── config (string) \[required\]
+    └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
+        └── success (bool)
+```
+
 ## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.

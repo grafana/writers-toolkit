@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## February 2026
+
+| New guidance or change            | Page                                                      |
+| --------------------------------- | --------------------------------------------------------- |
+| Added `api-tree` code block type. | [Links](/docs/writers-toolkit/write/shortcodes/#api-tree) |
+
 ## January 2026
 
 | New guidance or change                                          | Page                                                                        |

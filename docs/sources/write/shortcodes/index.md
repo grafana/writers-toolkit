@@ -96,6 +96,81 @@ The following example renders a badge with OSS-Enterprise combined styling and t
 
 and produces: {{< badge text="Available" style="product-oss-enterprise" tooltip="This feature is available in both open source and enterprise editions" >}}
 
+## Alloy-config
+
+The `docs/alloy-config` shortcode renders an interactive, collapsible configuration tree from a Markdown table.
+
+### Alloy-config example
+
+```markdown
+{{</* docs/alloy-config */>}}
+| Hierarchy | Block | Description | Required |
+| ------------------------------------ | ----------------- | -------------------------------------------------------------------------- | -------- |
+| resolver | [resolver][] | Configures discovering the endpoints to export to. | yes |
+| resolver > static | [static][] | Static list of endpoints to export to. | no |
+| resolver > dns | [dns][] | DNS-sourced list of endpoints to export to. | no |
+| resolver > kubernetes | [kubernetes][] | Kubernetes-sourced list of endpoints to export to. | no |
+| protocol | [protocol][] | Protocol settings. Only OTLP is supported at the moment. | no |
+| protocol > otlp | [otlp][] | Configures an OTLP exporter. | no |
+| protocol > otlp > client | [client][] | Configures the exporter gRPC client. | no |
+| protocol > otlp > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
+| protocol > otlp > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
+| protocol > otlp > queue | [queue][] | Configures batching of data before sending. | no |
+| protocol > otlp > retry | [retry][] | Configures retry mechanism for failed requests. | no |
+| debug_metrics | [debug_metrics][] | Configures the metrics that this component generates to monitor its state. | no |
+
+[resolver]: #resolver-block
+[static]: #static-block
+[dns]: #dns-block
+[kubernetes]: #kubernetes-block
+[protocol]: #protocol-block
+[otlp]: #otlp-block
+[client]: #client-block
+[tls]: #tls-block
+[keepalive]: #keepalive-block
+[queue]: #queue-block
+[retry]: #retry-block
+[debug_metrics]: #debug_metrics-block
+
+{{</* /docs/alloy-config */>}}
+```
+
+Produces:
+
+{{< docs/alloy-config >}}
+| Hierarchy | Block | Description | Required |
+| ------------------------------------ | ----------------- | -------------------------------------------------------------------------- | -------- |
+| resolver | [resolver][] | Configures discovering the endpoints to export to. | yes |
+| resolver > static | [static][] | Static list of endpoints to export to. | no |
+| resolver > dns | [dns][] | DNS-sourced list of endpoints to export to. | no |
+| resolver > kubernetes | [kubernetes][] | Kubernetes-sourced list of endpoints to export to. | no |
+| protocol | [protocol][] | Protocol settings. Only OTLP is supported at the moment. | no |
+| protocol > otlp | [otlp][] | Configures an OTLP exporter. | no |
+| protocol > otlp > client | [client][] | Configures the exporter gRPC client. | no |
+| protocol > otlp > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
+| protocol > otlp > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
+| protocol > otlp > queue | [queue][] | Configures batching of data before sending. | no |
+| protocol > otlp > retry | [retry][] | Configures retry mechanism for failed requests. | no |
+| debug_metrics | [debug_metrics][] | Configures the metrics that this component generates to monitor its state. | no |
+
+The `>` symbol indicates deeper levels of nesting. For example, `resolver > static`
+refers to a `static` block defined inside a `resolver` block.
+
+[resolver]: #resolver-block
+[static]: #static-block
+[dns]: #dns-block
+[kubernetes]: #kubernetes-block
+[protocol]: #protocol-block
+[otlp]: #otlp-block
+[client]: #client-block
+[tls]: #tls-block
+[keepalive]: #keepalive-block
+[queue]: #queue-block
+[retry]: #retry-block
+[debug_metrics]: #debug_metrics-block
+
+{{< /docs/alloy-config >}}
+
 ## Anchorize
 
 <!-- vale Grafana.Spelling = YES -->

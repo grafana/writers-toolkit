@@ -769,7 +769,7 @@ Produces:
 
 ## Datatable
 
-The `datatable` shortcode wraps a Markdown table and enables interactive DataTables functionality including column sorting, text search filtering, and pagination.
+The `datatable` shortcode wraps a Markdown table and enables interactive functionality including column sorting, text search filtering, and pagination.
 
 The shortcode takes no parameters. Place a standard Markdown table between the opening and closing tags.
 

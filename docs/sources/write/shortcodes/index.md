@@ -111,12 +111,12 @@ The `docs/alloy-config` shortcode renders an interactive, collapsible configurat
 | resolver > dns | [dns][] | DNS-sourced list of endpoints to export to. | no |
 | resolver > kubernetes | [kubernetes][] | Kubernetes-sourced list of endpoints to export to. | no |
 | protocol | [protocol][] | Protocol settings. Only OTLP is supported at the moment. | no |
-| protocol > otlp | [otlp][] | Configures an OTLP exporter. | no |
-| protocol > otlp > client | [client][] | Configures the exporter gRPC client. | no |
-| protocol > otlp > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
-| protocol > otlp > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
-| protocol > otlp > queue | [queue][] | Configures batching of data before sending. | no |
-| protocol > otlp > retry | [retry][] | Configures retry mechanism for failed requests. | no |
+| protocol > OTLP | [OTLP][] | Configures an OTLP exporter. | no |
+| protocol > OTLP > client | [client][] | Configures the exporter gRPC client. | no |
+| protocol > OTLP > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
+| protocol > OTLP > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
+| protocol > OTLP > queue | [queue][] | Configures batching of data before sending. | no |
+| protocol > OTLP > retry | [retry][] | Configures retry mechanism for failed requests. | no |
 | debug_metrics | [debug_metrics][] | Configures the metrics that this component generates to monitor its state. | no |
 
 [resolver]: #resolver-block
@@ -124,7 +124,7 @@ The `docs/alloy-config` shortcode renders an interactive, collapsible configurat
 [dns]: #dns-block
 [kubernetes]: #kubernetes-block
 [protocol]: #protocol-block
-[otlp]: #otlp-block
+[OTLP]: #OTLP-block
 [client]: #client-block
 [tls]: #tls-block
 [keepalive]: #keepalive-block
@@ -145,12 +145,12 @@ Produces:
 | resolver > dns | [dns][] | DNS-sourced list of endpoints to export to. | no |
 | resolver > kubernetes | [kubernetes][] | Kubernetes-sourced list of endpoints to export to. | no |
 | protocol | [protocol][] | Protocol settings. Only OTLP is supported at the moment. | no |
-| protocol > otlp | [otlp][] | Configures an OTLP exporter. | no |
-| protocol > otlp > client | [client][] | Configures the exporter gRPC client. | no |
-| protocol > otlp > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
-| protocol > otlp > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
-| protocol > otlp > queue | [queue][] | Configures batching of data before sending. | no |
-| protocol > otlp > retry | [retry][] | Configures retry mechanism for failed requests. | no |
+| protocol > OTLP | [OTLP][] | Configures an OTLP exporter. | no |
+| protocol > OTLP > client | [client][] | Configures the exporter gRPC client. | no |
+| protocol > OTLP > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
+| protocol > OTLP > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
+| protocol > OTLP > queue | [queue][] | Configures batching of data before sending. | no |
+| protocol > OTLP > retry | [retry][] | Configures retry mechanism for failed requests. | no |
 | debug_metrics | [debug_metrics][] | Configures the metrics that this component generates to monitor its state. | no |
 
 The `>` symbol indicates deeper levels of nesting. For example, `resolver > static`
@@ -161,7 +161,7 @@ refers to a `static` block defined inside a `resolver` block.
 [dns]: #dns-block
 [kubernetes]: #kubernetes-block
 [protocol]: #protocol-block
-[otlp]: #otlp-block
+[OTLP]: #OTLP-block
 [client]: #client-block
 [tls]: #tls-block
 [keepalive]: #keepalive-block

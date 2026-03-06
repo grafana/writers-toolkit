@@ -788,33 +788,49 @@ The `docs/alloy-config` shortcode renders an interactive, collapsible configurat
 
 ```markdown
 {{</* docs/alloy-config */>}}
-| Hierarchy | Block | Description | Required |
-| ------------------------------------ | ----------------- | -------------------------------------------------------------------------- | -------- |
-| resolver | [resolver][] | Configures discovering the endpoints to export to. | yes |
-| resolver > static | [static][] | Static list of endpoints to export to. | no |
-| resolver > dns | [dns][] | DNS-sourced list of endpoints to export to. | no |
-| resolver > kubernetes | [kubernetes][] | Kubernetes-sourced list of endpoints to export to. | no |
-| protocol | [protocol][] | Protocol settings. Only OTLP is supported at the moment. | no |
-| protocol > OTLP | [OTLP][] | Configures an OTLP exporter. | no |
-| protocol > OTLP > client | [client][] | Configures the exporter gRPC client. | no |
-| protocol > OTLP > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
-| protocol > OTLP > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
-| protocol > OTLP > queue | [queue][] | Configures batching of data before sending. | no |
-| protocol > OTLP > retry | [retry][] | Configures retry mechanism for failed requests. | no |
-| debug_metrics | [debug_metrics][] | Configures the metrics that this component generates to monitor its state. | no |
+| Block | Description | Required |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------- | -------- |
+| [`resolver`][resolver] | Configures discovering the endpoints to export to. | yes |
+| `resolver` > [`aws_cloud_map`][aws_cloud_map] | AWS CloudMap-sourced list of endpoints to export to. | no |
+| `resolver` > [`dns`][dns] | DNS-sourced list of endpoints to export to. | no |
+| `resolver` > [`kubernetes`][kubernetes] | Kubernetes-sourced list of endpoints to export to. | no |
+| `resolver` > [`static`][static] | Static list of endpoints to export to. | no |
+| [`protocol`][protocol] | Protocol settings. Only OTLP is supported at the moment. | no |
+| `protocol` > [`otlp`][otlp] | Configures an OTLP exporter. | no |
+| `protocol` > `otlp` > [`client`][client] | Configures the exporter gRPC client. | no |
+| `protocol` > `otlp` > `client` > [`keepalive`][keepalive] | Configures keepalive settings for the gRPC client. | no |
+| `protocol` > `otlp` > `client` > [`tls`][tls] | Configures TLS for the gRPC client. | no |
+| `protocol` > `otlp` > `client` > `tls` > [`tpm`][tpm] | Configures TPM settings for the TLS `key_file`. | no |
+| `protocol` > `otlp` > [`queue`][queue] | Configures batching of data before sending. | no |
+| `protocol` > `otlp` > [`retry`][retry] | Configures retry mechanism for failed requests. | no |
+| [`sending_queue`][queue] | Configures batching of data before sending to the `otlp > protocol` exporter. | no |
+| `sending_queue` > [`batch`][batch] | Configures batching requests based on a timeout and a minimum number of items. | no |
+| [`retry`][retry] | Configures retry mechanism for failed requests to the `otlp > protocol` exporter. | no |
+| [`debug_metrics`][debug_metrics] | Configures the metrics that this component generates to monitor its state. | no |
 
-[resolver]: #resolver-block
-[static]: #static-block
-[dns]: #dns-block
-[kubernetes]: #kubernetes-block
-[protocol]: #protocol-block
-[OTLP]: #OTLP-block
-[client]: #client-block
-[tls]: #tls-block
-[keepalive]: #keepalive-block
-[queue]: #queue-block
-[retry]: #retry-block
-[debug_metrics]: #debug_metrics-block
+There are two types of [queue][] and [retry][] blocks:
+
+- The queue and retry blocks under `protocol > otlp`.
+  This is useful for temporary problems with a specific backend, like transient network issues.
+- The top-level queue and retry blocks for `otelcol.exporter.loadbalancing`.
+  Those configuration options provide capability to re-route data into a new set of healthy backends.
+  This is useful for highly elastic environments like Kubernetes, where the list of resolved endpoints changes frequently due to deployments and scaling events.
+
+[resolver]: #resolver
+[static]: #static
+[dns]: #dns
+[kubernetes]: #kubernetes
+[aws_cloud_map]: #aws_cloud_map
+[protocol]: #protocol
+[otlp]: #otlp
+[client]: #client
+[tls]: #tls
+[tpm]: #tpm
+[keepalive]: #keepalive
+[queue]: #queue
+[batch]: #batch
+[retry]: #retry
+[debug_metrics]: #debug_metrics
 
 {{</* /docs/alloy-config */>}}
 ```
@@ -822,36 +838,49 @@ The `docs/alloy-config` shortcode renders an interactive, collapsible configurat
 Produces:
 
 {{< docs/alloy-config >}}
-| Hierarchy | Block | Description | Required |
-| ------------------------------------ | ----------------- | -------------------------------------------------------------------------- | -------- |
-| resolver | [resolver][] | Configures discovering the endpoints to export to. | yes |
-| resolver > static | [static][] | Static list of endpoints to export to. | no |
-| resolver > dns | [dns][] | DNS-sourced list of endpoints to export to. | no |
-| resolver > kubernetes | [kubernetes][] | Kubernetes-sourced list of endpoints to export to. | no |
-| protocol | [protocol][] | Protocol settings. Only OTLP is supported at the moment. | no |
-| protocol > OTLP | [OTLP][] | Configures an OTLP exporter. | no |
-| protocol > OTLP > client | [client][] | Configures the exporter gRPC client. | no |
-| protocol > OTLP > client > tls | [tls][] | Configures TLS for the gRPC client. | no |
-| protocol > OTLP > client > keepalive | [keepalive][] | Configures keepalive settings for the gRPC client. | no |
-| protocol > OTLP > queue | [queue][] | Configures batching of data before sending. | no |
-| protocol > OTLP > retry | [retry][] | Configures retry mechanism for failed requests. | no |
-| debug_metrics | [debug_metrics][] | Configures the metrics that this component generates to monitor its state. | no |
+| Block | Description | Required |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------- | -------- |
+| [`resolver`][resolver] | Configures discovering the endpoints to export to. | yes |
+| `resolver` > [`aws_cloud_map`][aws_cloud_map] | AWS CloudMap-sourced list of endpoints to export to. | no |
+| `resolver` > [`dns`][dns] | DNS-sourced list of endpoints to export to. | no |
+| `resolver` > [`kubernetes`][kubernetes] | Kubernetes-sourced list of endpoints to export to. | no |
+| `resolver` > [`static`][static] | Static list of endpoints to export to. | no |
+| [`protocol`][protocol] | Protocol settings. Only OTLP is supported at the moment. | no |
+| `protocol` > [`otlp`][otlp] | Configures an OTLP exporter. | no |
+| `protocol` > `otlp` > [`client`][client] | Configures the exporter gRPC client. | no |
+| `protocol` > `otlp` > `client` > [`keepalive`][keepalive] | Configures keepalive settings for the gRPC client. | no |
+| `protocol` > `otlp` > `client` > [`tls`][tls] | Configures TLS for the gRPC client. | no |
+| `protocol` > `otlp` > `client` > `tls` > [`tpm`][tpm] | Configures TPM settings for the TLS `key_file`. | no |
+| `protocol` > `otlp` > [`queue`][queue] | Configures batching of data before sending. | no |
+| `protocol` > `otlp` > [`retry`][retry] | Configures retry mechanism for failed requests. | no |
+| [`sending_queue`][queue] | Configures batching of data before sending to the `otlp > protocol` exporter. | no |
+| `sending_queue` > [`batch`][batch] | Configures batching requests based on a timeout and a minimum number of items. | no |
+| [`retry`][retry] | Configures retry mechanism for failed requests to the `otlp > protocol` exporter. | no |
+| [`debug_metrics`][debug_metrics] | Configures the metrics that this component generates to monitor its state. | no |
 
-The `>` symbol indicates deeper levels of nesting. For example, `resolver > static`
-refers to a `static` block defined inside a `resolver` block.
+There are two types of [queue][] and [retry][] blocks:
 
-[resolver]: #resolver-block
-[static]: #static-block
-[dns]: #dns-block
-[kubernetes]: #kubernetes-block
-[protocol]: #protocol-block
-[OTLP]: #OTLP-block
-[client]: #client-block
-[tls]: #tls-block
-[keepalive]: #keepalive-block
-[queue]: #queue-block
-[retry]: #retry-block
-[debug_metrics]: #debug_metrics-block
+- The queue and retry blocks under `protocol > otlp`.
+  This is useful for temporary problems with a specific backend, like transient network issues.
+- The top-level queue and retry blocks for `otelcol.exporter.loadbalancing`.
+  Those configuration options provide capability to re-route data into a new set of healthy backends.
+  This is useful for highly elastic environments like Kubernetes, where the list of resolved endpoints changes frequently due to deployments and scaling events.
+
+[resolver]: #resolver
+[static]: #static
+[dns]: #dns
+[kubernetes]: #kubernetes
+[aws_cloud_map]: #aws_cloud_map
+[protocol]: #protocol
+[otlp]: #otlp
+[client]: #client
+[tls]: #tls
+[tpm]: #tpm
+[keepalive]: #keepalive
+[queue]: #queue
+[batch]: #batch
+[retry]: #retry
+[debug_metrics]: #debug_metrics
 
 {{< /docs/alloy-config >}}
 

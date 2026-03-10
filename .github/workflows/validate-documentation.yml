@@ -32,6 +32,7 @@ jobs:
     with:
       build: true
       build-website-directory: content/docs/writers-toolkit
+      build-website-image: grafana/docs-base:nightly
       prettier: true
       vale: true
       readability: true

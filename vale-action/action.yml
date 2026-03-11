@@ -22,7 +22,8 @@ runs:
       id: changed-files
       uses: step-security/changed-files@95b56dadb92a30ca9036f16423fd3c088a71ee94 # v46.0.5
       with:
-        files: ${{ inputs.directory }}/**
+        files: |
+          ${{ inputs.directory }}/**/*.md
 
     - run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
       shell: sh

@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## March 2026
+
+| New guidance or change              | Page                                                          |
+| ----------------------------------- | ------------------------------------------------------------- |
+| Added `mermaid` to Shortcodes page. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#mermaid) |
+
 ## February 2026
 
 | New guidance or change            | Page                                                      |

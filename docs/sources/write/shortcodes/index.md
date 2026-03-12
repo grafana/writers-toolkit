@@ -1551,6 +1551,35 @@ Produces:
 
 This creates an interactive image where hovering over or clicking the specified coordinates displays the associated tooltip content.
 
+## Mermaid
+
+The `mermaid` shortcode renders [Mermaid](https://mermaid.js.org/) diagrams.
+Write the Mermaid diagram syntax as the shortcode's inner content.
+
+### Example
+
+The following example renders a simple flowchart:
+
+```markdown
+{{</* mermaid */>}}
+flowchart LR
+A[Start] --> B{Is it working?}
+B -- Yes --> C[Great!]
+B -- No --> D[Debug]
+D --> B
+{{</* /mermaid */>}}
+```
+
+Produces:
+
+{{< mermaid >}}
+flowchart LR
+A[Start] --> B{Is it working?}
+B -- Yes --> C[Great!]
+B -- No --> D[Debug]
+D --> B
+{{< /mermaid >}}
+
 ## Param
 
 <!-- vale Grafana.Spelling = YES -->

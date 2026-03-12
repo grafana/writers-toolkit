@@ -1558,7 +1558,7 @@ Write the Mermaid diagram syntax as the shortcode's inner content.
 
 ### Example
 
-The following example renders a simple flowchart:
+The following example renders a flowchart:
 
 ```markdown
 {{</* mermaid */>}}

@@ -219,7 +219,7 @@ EOSCRIPT
     cat <<EOF
 docker run \
 ${volumes[@]} \
---rm "${IMAGE:-grafana/docs-base:latest}" \
+--rm ${IMAGE:-grafana/docs-base:latest} \
 /entrypoint
 EOF
   }

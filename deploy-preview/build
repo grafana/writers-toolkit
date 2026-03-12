@@ -21,7 +21,7 @@ if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
          -e INDEX_FILE \
          -e REPO \
          -e WEBSITE_DIRECTORY \
-         --rm grafana/docs-base:latest \
+         --rm "${IMAGE:-grafana/docs-base:latest}" \
          /bin/bash \
          -c '
 if [[ "${INDEX_FILE}" == "true" ]]; then
@@ -219,7 +219,7 @@ EOSCRIPT
     cat <<EOF
 docker run \
 ${volumes[@]} \
---rm grafana/docs-base:latest \
+--rm "${IMAGE:-grafana/docs-base:latest}" \
 /entrypoint
 EOF
   }

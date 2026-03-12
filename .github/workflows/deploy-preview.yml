@@ -184,6 +184,7 @@ jobs:
           REPO: ${{ env.REPO }}
           # End legacy input.
           GH_TOKEN: ${{ github.token }}
+          IMAGE: ${{ env.IMAGE }}
           SOURCES: ${{ env.SOURCES }}
           BRANCH: ${{ env.BRANCH }}
         run: ./deploy-preview-files/deploy-preview/build

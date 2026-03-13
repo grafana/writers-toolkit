@@ -163,7 +163,7 @@ func baseURLForPrefix(prefix, port string) string {
 }
 
 func defaultExcludePattern(port string) string {
-	return fmt.Sprintf("http://(?:127\\.0\\.0\\.1|localhost):%s/(?:static|media|api|connect|launch)", port)
+	return fmt.Sprintf("http://(?:127\\.0\\.0\\.1|localhost):%s/(?:static|media|api|connect|launch|web)", port)
 }
 
 func run(ctx context.Context, opts options) error {

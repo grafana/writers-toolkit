@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"html"
 	"io"
+	"net"
 	"net/http"
 	"net/url"
 	"os"
@@ -18,6 +19,7 @@ import (
 	"regexp"
 	"runtime"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 	"syscall"
@@ -26,20 +28,41 @@ import (
 
 const defaultRelativePrefix = "/docs/"
 
+var (
+	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)=["']([^"'<>]+)["']`)
+	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset=["']([^"'<>]+)["']`)
+)
+
 type options struct {
-	baseURL        string
-	include        string
-	exclude        string
 	outputPath     string
 	logRequests    bool
 	nginxPort      string
-	relativePrefix string
 	relativePaths  []string
 	startupTimeout time.Duration
+	requestTimeout time.Duration
+	maxConcurrency int
+	excludePattern string
+	excludeRegex   *regexp.Regexp
+	nginxReadyURL  string
 }
 
 type sourceConfig struct {
 	RelativePrefix string `json:"relative_prefix"`
+}
+
+type linkReport struct {
+	URL   string `json:"url"`
+	Error string `json:"error"`
+}
+
+type pageReport struct {
+	URL   string       `json:"url"`
+	Links []linkReport `json:"links"`
+}
+
+type linkCheckResult struct {
+	URL   string
+	Error string
 }
 
 func main() {
@@ -56,24 +79,32 @@ func main() {
 
 func parseFlags() options {
 	var opts options
-	flag.StringVar(&opts.baseURL, "base-url", "", "Base URL to crawl")
-	flag.StringVar(&opts.include, "include", "", "Muffet include pattern")
-	flag.StringVar(&opts.exclude, "exclude", "", "Muffet exclude pattern")
 	flag.StringVar(&opts.outputPath, "output", "links.json", "Output JSON path")
-	flag.BoolVar(&opts.logRequests, "log-requests", true, "Stream nginx access logs while muffet runs")
+	flag.BoolVar(&opts.logRequests, "log-requests", true, "Stream nginx access logs while checks run")
 	flag.StringVar(&opts.nginxPort, "nginx-port", "3002", "Local nginx listen port")
 	flag.DurationVar(&opts.startupTimeout, "startup-timeout", 45*time.Second, "Nginx startup timeout")
+	flag.DurationVar(&opts.requestTimeout, "request-timeout", 15*time.Second, "HTTP request timeout")
+	flag.IntVar(&opts.maxConcurrency, "max-concurrency", 16, "Maximum concurrent link checks")
+	flag.StringVar(&opts.excludePattern, "exclude", "", "Skip checking URLs matched by this regex")
 	flag.Parse()
 
-	relativePrefixes := resolveRelativePrefixes()
-	opts.relativePaths = relativePrefixes
-	opts.relativePrefix = relativePrefixes[0]
-	if opts.baseURL == "" {
-		opts.baseURL = baseURLForPrefix(opts.relativePrefix, opts.nginxPort)
+	if opts.maxConcurrency < 1 {
+		opts.maxConcurrency = 1
 	}
-	if opts.exclude == "" {
-		opts.exclude = defaultExcludePattern(opts.nginxPort)
+
+	opts.relativePaths = resolveRelativePrefixes()
+	if opts.excludePattern == "" {
+		opts.excludePattern = defaultExcludePattern(opts.nginxPort)
 	}
+	if opts.excludePattern != "" {
+		regex, err := regexp.Compile(opts.excludePattern)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "invalid exclude regex %q: %v\n", opts.excludePattern, err)
+			os.Exit(1)
+		}
+		opts.excludeRegex = regex
+	}
+	opts.nginxReadyURL = baseURLForPrefix(opts.relativePaths[0], opts.nginxPort)
 
 	return opts
 }
@@ -96,20 +127,21 @@ func resolveRelativePrefixes() []string {
 	prefixes := make([]string, 0, len(configs))
 	seen := map[string]struct{}{}
 	for _, config := range configs {
-		if strings.TrimSpace(config.RelativePrefix) != "" {
-			normalized := normalizeRelativePrefix(config.RelativePrefix)
-			if _, ok := seen[normalized]; ok {
-				continue
-			}
-			seen[normalized] = struct{}{}
-			prefixes = append(prefixes, normalized)
+		if strings.TrimSpace(config.RelativePrefix) == "" {
+			continue
 		}
+		normalized := normalizeRelativePrefix(config.RelativePrefix)
+		if _, ok := seen[normalized]; ok {
+			continue
+		}
+		seen[normalized] = struct{}{}
+		prefixes = append(prefixes, normalized)
 	}
-	if len(prefixes) > 0 {
-		return prefixes
+	if len(prefixes) == 0 {
+		return []string{defaultRelativePrefix}
 	}
 
-	return []string{defaultRelativePrefix}
+	return prefixes
 }
 
 func normalizeRelativePrefix(prefix string) string {
@@ -153,18 +185,17 @@ func run(ctx context.Context, opts options) error {
 		_ = stopProcessGroup(nginxCmd, nginxState.done, 10*time.Second)
 	}()
 
-	if err := waitForNginx(ctx, opts.baseURL, nginxState, opts.startupTimeout); err != nil {
+	if err := waitForNginx(ctx, opts.nginxReadyURL, nginxState, opts.startupTimeout); err != nil {
 		return err
 	}
 
-	if err := runMuffet(ctx, opts, nginxState); err != nil {
+	if err := runChecks(ctx, opts, nginxState); err != nil {
 		return err
 	}
 
 	select {
 	case <-nginxState.done:
-		err := nginxState.err()
-		if err != nil {
+		if err := nginxState.err(); err != nil {
 			return fmt.Errorf("nginx exited before completion: %w", err)
 		}
 		return errors.New("nginx exited before completion")
@@ -322,7 +353,7 @@ func startNginx(ctx context.Context) (*exec.Cmd, *processState, error) {
 	return cmd, state, nil
 }
 
-func waitForNginx(ctx context.Context, url string, nginxState *processState, timeout time.Duration) error {
+func waitForNginx(ctx context.Context, readyURL string, nginxState *processState, timeout time.Duration) error {
 	client := &http.Client{Timeout: 2 * time.Second}
 	deadline := time.NewTimer(timeout)
 	defer deadline.Stop()
@@ -336,226 +367,66 @@ func waitForNginx(ctx context.Context, url string, nginxState *processState, tim
 		case <-deadline.C:
 			return fmt.Errorf("nginx did not become ready within %s", timeout)
 		case <-nginxState.done:
-			err := nginxState.err()
-			if err != nil {
+			if err := nginxState.err(); err != nil {
 				return fmt.Errorf("nginx exited before ready: %w", err)
 			}
 			return errors.New("nginx exited before ready")
 		case <-ticker.C:
-			resp, err := client.Get(url)
+			response, err := client.Get(readyURL)
 			if err != nil {
 				continue
 			}
-			_ = resp.Body.Close()
-			if resp.StatusCode > 0 {
+			_ = response.Body.Close()
+			if response.StatusCode > 0 {
 				return nil
 			}
 		}
 	}
 }
 
-func runMuffet(ctx context.Context, opts options, nginxState *processState) error {
+func runChecks(ctx context.Context, opts options, nginxState *processState) error {
 	sourceURLs, err := collectSourcePageURLs(opts.relativePaths, opts.nginxPort)
 	if err != nil {
 		return err
 	}
-	if len(sourceURLs) == 0 {
-		return writeMergedReport(opts.outputPath, nil)
-	}
 
-	client := &http.Client{Timeout: 20 * time.Second}
+	localClient := newHTTPClient(opts.requestTimeout)
 	pageTargets := make(map[string][]string, len(sourceURLs))
-	uniqueTargets := make([]string, 0)
-	sourceURLSet := make(map[string]struct{}, len(sourceURLs))
-	for _, sourceURL := range sourceURLs {
-		sourceURLSet[sourceURL] = struct{}{}
-	}
-	seenTargets := map[string]struct{}{}
+	checkResults := make(map[string]linkCheckResult, len(sourceURLs))
+
 	for _, sourceURL := range sourceURLs {
 		fmt.Fprintf(os.Stdout, "collecting links from: %s\n", sourceURL)
-		targets, err := collectTargetsFromPage(ctx, client, sourceURL)
+		body, err := fetchPageBody(ctx, localClient, sourceURL)
 		if err != nil {
 			return err
 		}
-		pageTargets[sourceURL] = targets
-		for _, target := range targets {
-			if _, ok := sourceURLSet[target]; ok {
-				continue
-			}
-			if _, ok := seenTargets[target]; ok {
-				continue
-			}
-			seenTargets[target] = struct{}{}
-			uniqueTargets = append(uniqueTargets, target)
-		}
+
+		checkResults[sourceURL] = linkCheckResult{URL: sourceURL}
+		pageTargets[sourceURL] = filterTargets(extractLinks(sourceURL, string(body), opts.nginxPort), opts.excludeRegex)
 	}
 
-	if len(uniqueTargets) == 0 {
-		return writeMergedReport(opts.outputPath, nil)
-	}
-
-	manifestURL, cleanupManifest, err := writeTargetManifest(uniqueTargets, opts.nginxPort)
-	if err != nil {
-		return err
-	}
-	defer cleanupManifest()
-
-	tempReportPath := filepath.Join(os.TempDir(), "muffet-targets.json")
-	fmt.Fprintf(os.Stdout, "running muffet unique-target check (%d urls)\n", len(uniqueTargets))
-	if err := runMuffetOnce(ctx, opts, nginxState, manifestURL, tempReportPath); err != nil {
-		return err
-	}
-
-	brokenTargets, err := readBrokenTargets(tempReportPath)
-	if err != nil {
-		return err
-	}
-
-	reports := buildReports(sourceURLs, pageTargets, brokenTargets)
-	return writeMergedReport(opts.outputPath, reports)
-}
-
-func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, startURL, outputPath string) error {
-	outFile, err := os.Create(outputPath)
-	if err != nil {
-		return fmt.Errorf("create %s: %w", outputPath, err)
-	}
-	defer func() {
-		_ = outFile.Close()
-	}()
-
-	args := []string{}
-	if opts.include != "" {
-		args = append(args, "--include="+opts.include)
-	}
-	if opts.exclude != "" {
-		args = append(args, "--exclude="+opts.exclude)
-	}
-	args = append(args, "--one-page-only", "-f", "-b", "9999", "--format=json")
-	args = append(args, startURL)
-
-	cmd := exec.CommandContext(ctx, "muffet", args...)
-	cmd.Stdout = outFile
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Start(); err != nil {
-		return fmt.Errorf("start muffet: %w", err)
-	}
-
-	done := make(chan error, 1)
-	go func() {
-		done <- cmd.Wait()
-	}()
-
-	for {
-		select {
-		case err := <-done:
-			if err != nil {
-				if isMuffetReportExit(err) {
-					if jsonErr := validateJSONReport(outputPath); jsonErr == nil {
-						return nil
-					}
-				}
-				return fmt.Errorf("run muffet: %w", err)
-			}
-			return nil
-		case <-nginxState.done:
-			_ = stopCommand(cmd, done, 5*time.Second)
-			err := nginxState.err()
-			if err != nil {
-				return fmt.Errorf("nginx exited while muffet was running: %w", err)
-			}
-			return errors.New("nginx exited while muffet was running")
-		case <-ctx.Done():
-			_ = stopCommand(cmd, done, 5*time.Second)
-			return ctx.Err()
-		}
-	}
-}
-
-type linkReport struct {
-	URL   string `json:"url"`
-	Error string `json:"error"`
-}
-
-type pageReport struct {
-	URL   string       `json:"url"`
-	Links []linkReport `json:"links"`
-}
-
-func readReport(path string) ([]pageReport, error) {
-	content, err := os.ReadFile(path)
-	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", path, err)
-	}
-
-	var report []pageReport
-	if err := json.Unmarshal(content, &report); err != nil {
-		return nil, fmt.Errorf("parse %s: %w", path, err)
-	}
-
-	return report, nil
-}
-
-func readBrokenTargets(path string) (map[string]linkReport, error) {
-	report, err := readReport(path)
-	if err != nil {
-		return nil, err
-	}
-
-	brokenTargets := map[string]linkReport{}
-	for _, page := range report {
-		for _, link := range page.Links {
-			if _, ok := brokenTargets[link.URL]; ok {
-				continue
-			}
-			brokenTargets[link.URL] = link
-		}
-	}
-
-	return brokenTargets, nil
-}
-
-func buildReports(sourceURLs []string, pageTargets map[string][]string, brokenTargets map[string]linkReport) []pageReport {
-	reports := make([]pageReport, 0, len(sourceURLs))
-	for _, sourceURL := range sourceURLs {
-		targets := pageTargets[sourceURL]
-		brokenLinks := make([]linkReport, 0)
-		for _, target := range targets {
-			link, ok := brokenTargets[target]
-			if !ok {
-				continue
-			}
-			brokenLinks = append(brokenLinks, link)
-		}
-		if len(brokenLinks) == 0 {
+	targetToPages := invertPageTargets(pageTargets)
+	targetURLs := make([]string, 0, len(targetToPages))
+	for targetURL := range targetToPages {
+		if _, alreadyChecked := checkResults[targetURL]; alreadyChecked {
 			continue
 		}
-		reports = append(reports, pageReport{
-			URL:   sourceURL,
-			Links: brokenLinks,
-		})
+		targetURLs = append(targetURLs, targetURL)
 	}
-	return reports
-}
+	sort.Strings(targetURLs)
 
-func writeMergedReport(path string, reports []pageReport) error {
-	content, err := json.MarshalIndent(reports, "", "  ")
-	if err != nil {
-		return fmt.Errorf("marshal merged report: %w", err)
-	}
-	content = append(content, '\n')
-
-	if err := os.WriteFile(path, content, 0o644); err != nil {
-		return fmt.Errorf("write %s: %w", path, err)
+	if err := checkTargets(ctx, localClient, opts, nginxState, targetURLs, checkResults); err != nil {
+		return err
 	}
 
-	return nil
+	reports := buildReports(sourceURLs, pageTargets, checkResults)
+	return writeReport(opts.outputPath, reports)
 }
 
 func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, error) {
 	urls := make([]string, 0)
 	seen := map[string]struct{}{}
+
 	for _, relativePrefix := range relativePrefixes {
 		prefixRoot := filepath.Join("dist", filepath.FromSlash(strings.TrimPrefix(normalizeRelativePrefix(relativePrefix), "/")))
 		err := filepath.Walk(prefixRoot, func(path string, info os.FileInfo, walkErr error) error {
@@ -610,7 +481,31 @@ func htmlFilePathToURLPath(path string) (string, bool) {
 	}
 }
 
-func collectTargetsFromPage(ctx context.Context, client *http.Client, pageURL string) ([]string, error) {
+func newHTTPClient(timeout time.Duration) *http.Client {
+	transport := &http.Transport{
+		Proxy:                 http.ProxyFromEnvironment,
+		DialContext:           (&net.Dialer{Timeout: timeout, KeepAlive: 30 * time.Second}).DialContext,
+		TLSHandshakeTimeout:   timeout,
+		ResponseHeaderTimeout: timeout,
+		ExpectContinueTimeout: 1 * time.Second,
+		MaxIdleConns:          100,
+		MaxIdleConnsPerHost:   20,
+		IdleConnTimeout:       90 * time.Second,
+	}
+
+	return &http.Client{
+		Timeout:   timeout,
+		Transport: transport,
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			if len(via) >= 10 {
+				return errors.New("stopped after 10 redirects")
+			}
+			return nil
+		},
+	}
+}
+
+func fetchPageBody(ctx context.Context, client *http.Client, pageURL string) ([]byte, error) {
 	request, err := http.NewRequestWithContext(ctx, http.MethodGet, pageURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("build request for %s: %w", pageURL, err)
@@ -631,31 +526,29 @@ func collectTargetsFromPage(ctx context.Context, client *http.Client, pageURL st
 		return nil, fmt.Errorf("read %s: %w", pageURL, err)
 	}
 
-	return extractLinks(pageURL, string(body)), nil
+	return body, nil
 }
 
-var (
-	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)=["']([^"'<>]+)["']`)
-	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset=["']([^"'<>]+)["']`)
-)
-
-func extractLinks(pageURL, body string) []string {
+func extractLinks(pageURL, body, nginxPort string) []string {
 	links := make([]string, 0)
 	seen := map[string]struct{}{}
 
-	for _, match := range linkAttributePattern.FindAllStringSubmatch(body, -1) {
-		if len(match) < 2 {
-			continue
-		}
-		normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(match[1]))
+	appendLink := func(raw string) {
+		normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(raw), nginxPort)
 		if !ok {
-			continue
+			return
 		}
 		if _, exists := seen[normalized]; exists {
-			continue
+			return
 		}
 		seen[normalized] = struct{}{}
 		links = append(links, normalized)
+	}
+
+	for _, match := range linkAttributePattern.FindAllStringSubmatch(body, -1) {
+		if len(match) >= 2 {
+			appendLink(match[1])
+		}
 	}
 
 	for _, match := range srcsetPattern.FindAllStringSubmatch(body, -1) {
@@ -664,25 +557,16 @@ func extractLinks(pageURL, body string) []string {
 		}
 		for _, candidate := range strings.Split(match[1], ",") {
 			fields := strings.Fields(strings.TrimSpace(candidate))
-			if len(fields) == 0 {
-				continue
+			if len(fields) > 0 {
+				appendLink(fields[0])
 			}
-			normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(fields[0]))
-			if !ok {
-				continue
-			}
-			if _, exists := seen[normalized]; exists {
-				continue
-			}
-			seen[normalized] = struct{}{}
-			links = append(links, normalized)
 		}
 	}
 
 	return links
 }
 
-func normalizeLinkURL(pageURL, raw string) (string, bool) {
+func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {
 	raw = strings.TrimSpace(raw)
 	if raw == "" || raw == "#" {
 		return "", false
@@ -710,36 +594,205 @@ func normalizeLinkURL(pageURL, raw string) (string, bool) {
 	}
 	resolved.Fragment = ""
 
+	if isLocalPreviewHost(resolved.Hostname()) {
+		resolved.Host = net.JoinHostPort("127.0.0.1", resolved.Port())
+		if resolved.Port() == "" {
+			resolved.Host = net.JoinHostPort("127.0.0.1", nginxPort)
+		}
+	}
+
 	return resolved.String(), true
 }
 
-func writeTargetManifest(targets []string, port string) (string, func(), error) {
-	manifestDir := filepath.Join("dist", "__linkcheck__")
-	if err := os.MkdirAll(manifestDir, 0o755); err != nil {
-		return "", nil, fmt.Errorf("create manifest dir: %w", err)
+func isLocalPreviewHost(host string) bool {
+	return host == "127.0.0.1" || host == "localhost"
+}
+
+func filterTargets(targets []string, excludeRegex *regexp.Regexp) []string {
+	if excludeRegex == nil {
+		return targets
 	}
 
-	var builder strings.Builder
-	builder.WriteString("<!doctype html><html><body>\n")
+	filtered := make([]string, 0, len(targets))
 	for _, target := range targets {
-		escaped := html.EscapeString(target)
-		builder.WriteString(`<a href="`)
-		builder.WriteString(escaped)
-		builder.WriteString(`">`)
-		builder.WriteString(escaped)
-		builder.WriteString("</a>\n")
+		if excludeRegex.MatchString(target) {
+			continue
+		}
+		filtered = append(filtered, target)
 	}
-	builder.WriteString("</body></html>\n")
+	return filtered
+}
 
-	manifestPath := filepath.Join(manifestDir, "index.html")
-	if err := os.WriteFile(manifestPath, []byte(builder.String()), 0o644); err != nil {
-		return "", nil, fmt.Errorf("write manifest page: %w", err)
+func invertPageTargets(pageTargets map[string][]string) map[string][]string {
+	targetToPages := map[string][]string{}
+	for pageURL, targets := range pageTargets {
+		for _, target := range targets {
+			targetToPages[target] = append(targetToPages[target], pageURL)
+		}
+	}
+	return targetToPages
+}
+
+func checkTargets(ctx context.Context, client *http.Client, opts options, nginxState *processState, targetURLs []string, results map[string]linkCheckResult) error {
+	if len(targetURLs) == 0 {
+		return nil
 	}
 
-	cleanup := func() {
-		_ = os.RemoveAll(manifestDir)
+	type checkOutcome struct {
+		result linkCheckResult
+		err    error
 	}
-	return fmt.Sprintf("http://127.0.0.1:%s/__linkcheck__/", port), cleanup, nil
+
+	jobs := make(chan string)
+	outcomes := make(chan checkOutcome, len(targetURLs))
+	var workers sync.WaitGroup
+
+	for i := 0; i < opts.maxConcurrency; i++ {
+		workers.Add(1)
+		go func() {
+			defer workers.Done()
+			for targetURL := range jobs {
+				result, err := checkTarget(ctx, client, targetURL)
+				outcomes <- checkOutcome{result: result, err: err}
+			}
+		}()
+	}
+
+	go func() {
+		for _, targetURL := range targetURLs {
+			select {
+			case <-ctx.Done():
+				close(jobs)
+				workers.Wait()
+				close(outcomes)
+				return
+			case <-nginxState.done:
+				close(jobs)
+				workers.Wait()
+				close(outcomes)
+				return
+			case jobs <- targetURL:
+			}
+		}
+		close(jobs)
+		workers.Wait()
+		close(outcomes)
+	}()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return ctx.Err()
+		case <-nginxState.done:
+			if err := nginxState.err(); err != nil {
+				return fmt.Errorf("nginx exited while link checks were running: %w", err)
+			}
+			return errors.New("nginx exited while link checks were running")
+		case outcome, ok := <-outcomes:
+			if !ok {
+				return nil
+			}
+			if outcome.err != nil {
+				return outcome.err
+			}
+			results[outcome.result.URL] = outcome.result
+		}
+	}
+}
+
+func checkTarget(ctx context.Context, client *http.Client, targetURL string) (linkCheckResult, error) {
+	request, err := http.NewRequestWithContext(ctx, http.MethodGet, targetURL, nil)
+	if err != nil {
+		return linkCheckResult{}, fmt.Errorf("build request for %s: %w", targetURL, err)
+	}
+
+	response, err := client.Do(request)
+	if err != nil {
+		return linkCheckResult{
+			URL:   targetURL,
+			Error: classifyRequestError(err),
+		}, nil
+	}
+	defer func() { _ = response.Body.Close() }()
+
+	_, _ = io.CopyN(io.Discard, response.Body, 1)
+
+	if response.StatusCode >= 200 && response.StatusCode < 400 {
+		return linkCheckResult{URL: targetURL}, nil
+	}
+
+	return linkCheckResult{
+		URL:   targetURL,
+		Error: strconv.Itoa(response.StatusCode),
+	}, nil
+}
+
+func classifyRequestError(err error) string {
+	if err == nil {
+		return ""
+	}
+
+	var urlErr *url.Error
+	if errors.As(err, &urlErr) {
+		if isTimeoutError(urlErr.Err) {
+			return "timeout"
+		}
+		return urlErr.Err.Error()
+	}
+	if isTimeoutError(err) {
+		return "timeout"
+	}
+	return err.Error()
+}
+
+func isTimeoutError(err error) bool {
+	if err == nil {
+		return false
+	}
+	var netErr net.Error
+	if errors.As(err, &netErr) && netErr.Timeout() {
+		return true
+	}
+	return errors.Is(err, context.DeadlineExceeded)
+}
+
+func buildReports(sourceURLs []string, pageTargets map[string][]string, results map[string]linkCheckResult) []pageReport {
+	reports := make([]pageReport, 0, len(sourceURLs))
+	for _, sourceURL := range sourceURLs {
+		targets := pageTargets[sourceURL]
+		brokenLinks := make([]linkReport, 0)
+		for _, target := range targets {
+			result, ok := results[target]
+			if !ok || result.Error == "" {
+				continue
+			}
+			brokenLinks = append(brokenLinks, linkReport{
+				URL:   target,
+				Error: result.Error,
+			})
+		}
+		if len(brokenLinks) == 0 {
+			continue
+		}
+		reports = append(reports, pageReport{
+			URL:   sourceURL,
+			Links: brokenLinks,
+		})
+	}
+	return reports
+}
+
+func writeReport(path string, reports []pageReport) error {
+	content, err := json.MarshalIndent(reports, "", "  ")
+	if err != nil {
+		return fmt.Errorf("marshal report: %w", err)
+	}
+	content = append(content, '\n')
+
+	if err := os.WriteFile(path, content, 0o644); err != nil {
+		return fmt.Errorf("write %s: %w", path, err)
+	}
+	return nil
 }
 
 func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, stderr io.Writer) func() {
@@ -770,7 +823,6 @@ func startLogStreaming(parent context.Context, path, prefix string, output io.Wr
 		defer func() { _ = file.Close() }()
 
 		reader := bufio.NewReader(file)
-
 		for {
 			line, err := reader.ReadString('\n')
 			if err != nil {
@@ -821,27 +873,6 @@ func waitForFile(ctx context.Context, path string, timeout time.Duration) (*os.F
 	}
 }
 
-func isMuffetReportExit(err error) bool {
-	var exitErr *exec.ExitError
-	return errors.As(err, &exitErr)
-}
-
-func validateJSONReport(path string) error {
-	content, err := os.ReadFile(path)
-	if err != nil {
-		return err
-	}
-	if len(strings.TrimSpace(string(content))) == 0 {
-		return errors.New("empty report")
-	}
-
-	var out any
-	if err := json.Unmarshal(content, &out); err != nil {
-		return err
-	}
-	return nil
-}
-
 func stopProcessGroup(cmd *exec.Cmd, done <-chan struct{}, timeout time.Duration) error {
 	if cmd == nil || cmd.Process == nil {
 		return nil
@@ -870,28 +901,6 @@ func stopProcessGroup(cmd *exec.Cmd, done <-chan struct{}, timeout time.Duration
 			return cmd.Process.Kill()
 		}
 		return syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL)
-	}
-}
-
-func stopCommand(cmd *exec.Cmd, done <-chan error, timeout time.Duration) error {
-	if cmd == nil || cmd.Process == nil {
-		return nil
-	}
-
-	if runtime.GOOS == "windows" {
-		_ = cmd.Process.Kill()
-	} else {
-		_ = cmd.Process.Signal(syscall.SIGTERM)
-	}
-
-	timer := time.NewTimer(timeout)
-	defer timer.Stop()
-
-	select {
-	case <-done:
-		return nil
-	case <-timer.C:
-		return cmd.Process.Kill()
 	}
 }
 

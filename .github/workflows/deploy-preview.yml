@@ -379,9 +379,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq nginx
 
-      - name: Install muffet
-        run: go install github.com/raviqqe/muffet/v2@latest
-
       - name: Check links
         run: go run scripts/check-links.go
 

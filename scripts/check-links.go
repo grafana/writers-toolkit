@@ -7,12 +7,15 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"html"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"os/exec"
 	"os/signal"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"sort"
 	"strings"
@@ -352,34 +355,64 @@ func waitForNginx(ctx context.Context, url string, nginxState *processState, tim
 }
 
 func runMuffet(ctx context.Context, opts options, nginxState *processState) error {
-	pageURLs, err := collectPageURLs(opts.relativePaths, opts.nginxPort)
+	sourceURLs, err := collectSourcePageURLs(opts.relativePaths, opts.nginxPort)
+	if err != nil {
+		return err
+	}
+	if len(sourceURLs) == 0 {
+		return writeMergedReport(opts.outputPath, nil)
+	}
+
+	client := &http.Client{Timeout: 20 * time.Second}
+	pageTargets := make(map[string][]string, len(sourceURLs))
+	uniqueTargets := make([]string, 0)
+	sourceURLSet := make(map[string]struct{}, len(sourceURLs))
+	for _, sourceURL := range sourceURLs {
+		sourceURLSet[sourceURL] = struct{}{}
+	}
+	seenTargets := map[string]struct{}{}
+	for _, sourceURL := range sourceURLs {
+		fmt.Fprintf(os.Stdout, "collecting links from: %s\n", sourceURL)
+		targets, err := collectTargetsFromPage(ctx, client, sourceURL)
+		if err != nil {
+			return err
+		}
+		pageTargets[sourceURL] = targets
+		for _, target := range targets {
+			if _, ok := sourceURLSet[target]; ok {
+				continue
+			}
+			if _, ok := seenTargets[target]; ok {
+				continue
+			}
+			seenTargets[target] = struct{}{}
+			uniqueTargets = append(uniqueTargets, target)
+		}
+	}
+
+	if len(uniqueTargets) == 0 {
+		return writeMergedReport(opts.outputPath, nil)
+	}
+
+	manifestURL, cleanupManifest, err := writeTargetManifest(uniqueTargets, opts.nginxPort)
+	if err != nil {
+		return err
+	}
+	defer cleanupManifest()
+
+	tempReportPath := filepath.Join(os.TempDir(), "muffet-targets.json")
+	fmt.Fprintf(os.Stdout, "running muffet unique-target check (%d urls)\n", len(uniqueTargets))
+	if err := runMuffetOnce(ctx, opts, nginxState, manifestURL, tempReportPath); err != nil {
+		return err
+	}
+
+	brokenTargets, err := readBrokenTargets(tempReportPath)
 	if err != nil {
 		return err
 	}
 
-	reportsByURL := map[string]map[string]any{}
-	for _, pageURL := range pageURLs {
-		tempReportPath := tempReportPathForURL(pageURL)
-
-		fmt.Fprintf(os.Stdout, "running muffet one-page check from: %s\n", pageURL)
-		if err := runMuffetOnce(ctx, opts, nginxState, pageURL, tempReportPath); err != nil {
-			return err
-		}
-
-		reportEntries, err := readReport(tempReportPath)
-		if err != nil {
-			return err
-		}
-		for _, entry := range reportEntries {
-			url, ok := entry["url"].(string)
-			if !ok || url == "" {
-				return fmt.Errorf("report entry in %s missing url", tempReportPath)
-			}
-			reportsByURL[url] = entry
-		}
-	}
-
-	return writeMergedReport(opts.outputPath, reportsByURL)
+	reports := buildReports(sourceURLs, pageTargets, brokenTargets)
+	return writeMergedReport(opts.outputPath, reports)
 }
 
 func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, startURL, outputPath string) error {
@@ -440,67 +473,23 @@ func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, 
 	}
 }
 
-func collectPageURLs(relativePrefixes []string, port string) ([]string, error) {
-	pageURLs := make([]string, 0)
-	seen := map[string]struct{}{}
-
-	for _, relativePrefix := range relativePrefixes {
-		root := filepath.Join("dist", strings.Trim(normalizeRelativePrefix(relativePrefix), "/"))
-		if _, err := os.Stat(root); err != nil {
-			return nil, fmt.Errorf("stat %s: %w", root, err)
-		}
-
-		err := filepath.WalkDir(root, func(path string, entry os.DirEntry, err error) error {
-			if err != nil {
-				return err
-			}
-			if entry.IsDir() {
-				return nil
-			}
-			if entry.Name() != "index.html" {
-				return nil
-			}
-
-			relativePath, err := filepath.Rel("dist", path)
-			if err != nil {
-				return err
-			}
-
-			urlPath := "/" + filepath.ToSlash(filepath.Dir(relativePath)) + "/"
-			pageURL := fmt.Sprintf("http://127.0.0.1:%s%s", port, urlPath)
-			if _, ok := seen[pageURL]; ok {
-				return nil
-			}
-			seen[pageURL] = struct{}{}
-			pageURLs = append(pageURLs, pageURL)
-			return nil
-		})
-		if err != nil {
-			return nil, fmt.Errorf("walk %s: %w", root, err)
-		}
-	}
-
-	sort.Strings(pageURLs)
-	return pageURLs, nil
+type linkReport struct {
+	URL   string `json:"url"`
+	Error string `json:"error"`
 }
 
-func tempReportPathForURL(startURL string) string {
-	sanitized := strings.Trim(strings.TrimPrefix(startURL, "http://"), "/")
-	if sanitized == "" {
-		sanitized = "root"
-	}
-	replacer := strings.NewReplacer("/", "__", ":", "_", "?", "_", "&", "_", "=", "_")
-	sanitized = replacer.Replace(sanitized)
-	return filepath.Join(os.TempDir(), "muffet-"+sanitized+".json")
+type pageReport struct {
+	URL   string       `json:"url"`
+	Links []linkReport `json:"links"`
 }
 
-func readReport(path string) ([]map[string]any, error) {
+func readReport(path string) ([]pageReport, error) {
 	content, err := os.ReadFile(path)
 	if err != nil {
 		return nil, fmt.Errorf("read %s: %w", path, err)
 	}
 
-	var report []map[string]any
+	var report []pageReport
 	if err := json.Unmarshal(content, &report); err != nil {
 		return nil, fmt.Errorf("parse %s: %w", path, err)
 	}
@@ -508,19 +497,50 @@ func readReport(path string) ([]map[string]any, error) {
 	return report, nil
 }
 
-func writeMergedReport(path string, reportsByURL map[string]map[string]any) error {
-	urls := make([]string, 0, len(reportsByURL))
-	for url := range reportsByURL {
-		urls = append(urls, url)
-	}
-	sort.Strings(urls)
-
-	merged := make([]map[string]any, 0, len(urls))
-	for _, url := range urls {
-		merged = append(merged, reportsByURL[url])
+func readBrokenTargets(path string) (map[string]linkReport, error) {
+	report, err := readReport(path)
+	if err != nil {
+		return nil, err
 	}
 
-	content, err := json.MarshalIndent(merged, "", "  ")
+	brokenTargets := map[string]linkReport{}
+	for _, page := range report {
+		for _, link := range page.Links {
+			if _, ok := brokenTargets[link.URL]; ok {
+				continue
+			}
+			brokenTargets[link.URL] = link
+		}
+	}
+
+	return brokenTargets, nil
+}
+
+func buildReports(sourceURLs []string, pageTargets map[string][]string, brokenTargets map[string]linkReport) []pageReport {
+	reports := make([]pageReport, 0, len(sourceURLs))
+	for _, sourceURL := range sourceURLs {
+		targets := pageTargets[sourceURL]
+		brokenLinks := make([]linkReport, 0)
+		for _, target := range targets {
+			link, ok := brokenTargets[target]
+			if !ok {
+				continue
+			}
+			brokenLinks = append(brokenLinks, link)
+		}
+		if len(brokenLinks) == 0 {
+			continue
+		}
+		reports = append(reports, pageReport{
+			URL:   sourceURL,
+			Links: brokenLinks,
+		})
+	}
+	return reports
+}
+
+func writeMergedReport(path string, reports []pageReport) error {
+	content, err := json.MarshalIndent(reports, "", "  ")
 	if err != nil {
 		return fmt.Errorf("marshal merged report: %w", err)
 	}
@@ -531,6 +551,195 @@ func writeMergedReport(path string, reportsByURL map[string]map[string]any) erro
 	}
 
 	return nil
+}
+
+func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, error) {
+	urls := make([]string, 0)
+	seen := map[string]struct{}{}
+	for _, relativePrefix := range relativePrefixes {
+		prefixRoot := filepath.Join("dist", filepath.FromSlash(strings.TrimPrefix(normalizeRelativePrefix(relativePrefix), "/")))
+		err := filepath.Walk(prefixRoot, func(path string, info os.FileInfo, walkErr error) error {
+			if walkErr != nil {
+				return walkErr
+			}
+			if info.IsDir() || !strings.HasSuffix(info.Name(), ".html") {
+				return nil
+			}
+
+			urlPath, ok := htmlFilePathToURLPath(path)
+			if !ok {
+				return nil
+			}
+
+			sourceURL := fmt.Sprintf("http://127.0.0.1:%s%s", port, urlPath)
+			if _, exists := seen[sourceURL]; exists {
+				return nil
+			}
+			seen[sourceURL] = struct{}{}
+			urls = append(urls, sourceURL)
+			return nil
+		})
+		if err != nil {
+			if errors.Is(err, os.ErrNotExist) {
+				continue
+			}
+			return nil, fmt.Errorf("walk %s: %w", prefixRoot, err)
+		}
+	}
+
+	sort.Strings(urls)
+	return urls, nil
+}
+
+func htmlFilePathToURLPath(path string) (string, bool) {
+	relativePath, err := filepath.Rel("dist", path)
+	if err != nil {
+		return "", false
+	}
+
+	relativePath = filepath.ToSlash(relativePath)
+	switch {
+	case relativePath == "index.html":
+		return "/", true
+	case strings.HasSuffix(relativePath, "/index.html"):
+		return "/" + strings.TrimSuffix(relativePath, "index.html"), true
+	case strings.HasSuffix(relativePath, ".html"):
+		return "/" + relativePath, true
+	default:
+		return "", false
+	}
+}
+
+func collectTargetsFromPage(ctx context.Context, client *http.Client, pageURL string) ([]string, error) {
+	request, err := http.NewRequestWithContext(ctx, http.MethodGet, pageURL, nil)
+	if err != nil {
+		return nil, fmt.Errorf("build request for %s: %w", pageURL, err)
+	}
+
+	response, err := client.Do(request)
+	if err != nil {
+		return nil, fmt.Errorf("fetch %s: %w", pageURL, err)
+	}
+	defer func() { _ = response.Body.Close() }()
+
+	if response.StatusCode < 200 || response.StatusCode >= 400 {
+		return nil, fmt.Errorf("fetch %s: unexpected status %d", pageURL, response.StatusCode)
+	}
+
+	body, err := io.ReadAll(response.Body)
+	if err != nil {
+		return nil, fmt.Errorf("read %s: %w", pageURL, err)
+	}
+
+	return extractLinks(pageURL, string(body)), nil
+}
+
+var (
+	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)=["']([^"'<>]+)["']`)
+	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset=["']([^"'<>]+)["']`)
+)
+
+func extractLinks(pageURL, body string) []string {
+	links := make([]string, 0)
+	seen := map[string]struct{}{}
+
+	for _, match := range linkAttributePattern.FindAllStringSubmatch(body, -1) {
+		if len(match) < 2 {
+			continue
+		}
+		normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(match[1]))
+		if !ok {
+			continue
+		}
+		if _, exists := seen[normalized]; exists {
+			continue
+		}
+		seen[normalized] = struct{}{}
+		links = append(links, normalized)
+	}
+
+	for _, match := range srcsetPattern.FindAllStringSubmatch(body, -1) {
+		if len(match) < 2 {
+			continue
+		}
+		for _, candidate := range strings.Split(match[1], ",") {
+			fields := strings.Fields(strings.TrimSpace(candidate))
+			if len(fields) == 0 {
+				continue
+			}
+			normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(fields[0]))
+			if !ok {
+				continue
+			}
+			if _, exists := seen[normalized]; exists {
+				continue
+			}
+			seen[normalized] = struct{}{}
+			links = append(links, normalized)
+		}
+	}
+
+	return links
+}
+
+func normalizeLinkURL(pageURL, raw string) (string, bool) {
+	raw = strings.TrimSpace(raw)
+	if raw == "" || raw == "#" {
+		return "", false
+	}
+
+	lower := strings.ToLower(raw)
+	for _, prefix := range []string{"mailto:", "tel:", "javascript:", "data:"} {
+		if strings.HasPrefix(lower, prefix) {
+			return "", false
+		}
+	}
+
+	base, err := url.Parse(pageURL)
+	if err != nil {
+		return "", false
+	}
+	reference, err := url.Parse(raw)
+	if err != nil {
+		return "", false
+	}
+
+	resolved := base.ResolveReference(reference)
+	if resolved.Scheme != "http" && resolved.Scheme != "https" {
+		return "", false
+	}
+	resolved.Fragment = ""
+
+	return resolved.String(), true
+}
+
+func writeTargetManifest(targets []string, port string) (string, func(), error) {
+	manifestDir := filepath.Join("dist", "__linkcheck__")
+	if err := os.MkdirAll(manifestDir, 0o755); err != nil {
+		return "", nil, fmt.Errorf("create manifest dir: %w", err)
+	}
+
+	var builder strings.Builder
+	builder.WriteString("<!doctype html><html><body>\n")
+	for _, target := range targets {
+		escaped := html.EscapeString(target)
+		builder.WriteString(`<a href="`)
+		builder.WriteString(escaped)
+		builder.WriteString(`">`)
+		builder.WriteString(escaped)
+		builder.WriteString("</a>\n")
+	}
+	builder.WriteString("</body></html>\n")
+
+	manifestPath := filepath.Join(manifestDir, "index.html")
+	if err := os.WriteFile(manifestPath, []byte(builder.String()), 0o644); err != nil {
+		return "", nil, fmt.Errorf("write manifest page: %w", err)
+	}
+
+	cleanup := func() {
+		_ = os.RemoveAll(manifestDir)
+	}
+	return fmt.Sprintf("http://127.0.0.1:%s/__linkcheck__/", port), cleanup, nil
 }
 
 func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, stderr io.Writer) func() {

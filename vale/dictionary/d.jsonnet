@@ -4,6 +4,7 @@ local word = import './word.jsonnet';
   word.new('data source', 'S', 'noun') { swaps: { 'data-?source': 'data source', 'data-?sources': 'data sources' } },
   word.new('datagrid', 'S', 'noun') { description: 'A Grafana visualization type.' },
   word.new('dataset', 'S', 'noun') { swaps: { 'data[- ]?set': 'dataset', 'data[- ]?sets': 'datasets' } },
+  word.new('datatable', 'S', 'noun') { description: 'A Grafana website shortcode.' },
   word.new('Data Firehose', '', 'noun') { Amazon: true, product: true, swaps: { '(?:(?<!Data )Firehose|Kinesis Data Firehose|Kinesis Firehose)': 'Data Firehose' } },
   word.new('Databricks', '', 'noun') { product: true },
   word.new('Datadog', '', 'adjective'),

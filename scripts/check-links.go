@@ -258,7 +258,7 @@ location ^~ %s {
   alias %s%s;
 }
 
-`, prefixWithoutTrailingSlash, normalizedPrefix, normalizedPrefix, distRoot, normalizedPrefix))
+		`, prefixWithoutTrailingSlash, normalizedPrefix, normalizedPrefix, distRoot, normalizedPrefix))
 	}
 
 	if hasDocsPrefix {
@@ -604,11 +604,15 @@ func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {
 	}
 	resolved.Fragment = ""
 
-	if isLocalPreviewHost(resolved.Hostname()) {
+	host := strings.ToLower(resolved.Hostname())
+	if isLocalPreviewHost(host) {
 		resolved.Host = net.JoinHostPort("127.0.0.1", resolved.Port())
 		if resolved.Port() == "" {
 			resolved.Host = net.JoinHostPort("127.0.0.1", nginxPort)
 		}
+	}
+	if !isLocalPreviewHost(host) && !isGrafanaHost(host) {
+		return "", false
 	}
 
 	return resolved.String(), true
@@ -616,6 +620,10 @@ func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {
 
 func isLocalPreviewHost(host string) bool {
 	return host == "127.0.0.1" || host == "localhost"
+}
+
+func isGrafanaHost(host string) bool {
+	return host == "grafana.com" || strings.HasSuffix(host, ".grafana.com")
 }
 
 func filterTargets(targets []string, excludeRegex *regexp.Regexp) []string {

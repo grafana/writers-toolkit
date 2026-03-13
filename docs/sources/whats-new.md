@@ -22,6 +22,7 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 | New guidance or change               | Page                                                                   |
 | ------------------------------------ | ---------------------------------------------------------------------- |
+| Added broken link checking.          | [Broken link checking](##)                                             |
 | Added `docs/alloy-config` shortcode. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#docsalloy-config) |
 | Added `datatable` code block type.   | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#datatable)        |
 | Added `mermaid` to Shortcodes page.  | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#mermaid)          |

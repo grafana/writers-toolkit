@@ -34,7 +34,8 @@ async function addIssuesToProject(): Promise<Array<{ url: string; title: string 
         .trim()
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;");
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', '\\"');
 
       added.push({
         url: issue.url,

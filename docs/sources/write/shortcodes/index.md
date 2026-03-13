@@ -767,6 +767,116 @@ Produces:
 
 {{< /column-list >}}
 
+## Datatable
+
+The `datatable` shortcode wraps a Markdown table and enables interactive functionality including column sorting, text search filtering, and pagination.
+
+The shortcode takes no parameters. Place a standard Markdown table between the opening and closing tags.
+
+Click a column header to sort by that column. Click the same header again to reverse the sort direction, and a third time to clear the sort. Use the search field to filter rows by text content.
+
+Pagination appears automatically when the table contains more than 25 rows. Tables with 25 or fewer rows display all rows without pagination controls.
+
+### Example
+
+```markdown
+{{</* datatable */>}}
+
+| Plugin       | Type        | Status     | Downloads |
+| ------------ | ----------- | ---------- | --------- |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+
+{{</* /datatable */>}}
+```
+
+Produces:
+
+{{< datatable >}}
+
+| Plugin       | Type        | Status     | Downloads |
+| ------------ | ----------- | ---------- | --------- |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+
+{{< /datatable >}}
+
 ## Docs/alias
 
 The `docs/alias` shortcode determines the relative alias between two pages.
@@ -1292,116 +1402,6 @@ Without the shortcode:
 | **aws_amazonmq_info**          |                   |
 | **aws_amazonmq_ack_rate**      | AckRate           | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
 | **aws_amazonmq_burst_balance** | BurstBalance      | **Average**, Maximum, Minimum, Sum, SampleCount, p50, p75, p90, p95, p99 |
-
-## Datatable
-
-The `datatable` shortcode wraps a Markdown table and enables interactive functionality including column sorting, text search filtering, and pagination.
-
-The shortcode takes no parameters. Place a standard Markdown table between the opening and closing tags.
-
-Click a column header to sort by that column. Click the same header again to reverse the sort direction, and a third time to clear the sort. Use the search field to filter rows by text content.
-
-Pagination appears automatically when the table contains more than 25 rows. Tables with 25 or fewer rows display all rows without pagination controls.
-
-### Example
-
-```markdown
-{{</* datatable */>}}
-
-| Plugin       | Type        | Status     | Downloads |
-| ------------ | ----------- | ---------- | --------- |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-
-{{</* /datatable */>}}
-```
-
-Produces:
-
-{{< datatable >}}
-
-| Plugin       | Type        | Status     | Downloads |
-| ------------ | ----------- | ---------- | --------- |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-| Zabbix       | Data source | Active     | 12500     |
-| Infinity     | Data source | Active     | 9800      |
-| FlowCharting | Panel       | Deprecated | 7200      |
-| Carpet plot  | Panel       | Active     | 3400      |
-| Clock Panel  | Panel       | Deprecated | 15600     |
-| Diagram      | Panel       | Active     | 5100      |
-| FlowCharting | Panel       | Active     | 8900      |
-| Breadcrumb   | Panel       | Active     | 1200      |
-| Clock        | Panel       | Active     | 22000     |
-| Boom Table   | Panel       | Active     | 6700      |
-
-{{< /datatable >}}
 
 ## Figure
 

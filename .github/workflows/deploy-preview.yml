@@ -377,7 +377,7 @@ jobs:
       - name: Install nginx
         run: |
           sudo apt-get update
-          sudo apt-get install -y nginx
+          sudo apt-get install -y jq nginx
 
       - name: Install muffet
         run: go install github.com/raviqqe/muffet/v2@latest
@@ -389,7 +389,7 @@ jobs:
         id: broken-links
         shell: bash
         run: |
-          total_broken=$(python3 -c "import json; data=json.load(open('links.json', encoding='utf-8')); print(sum(len(item.get('links', [])) for item in data if isinstance(item, dict)) if isinstance(data, list) else data.get('total', 0) if isinstance(data, dict) else 0)")
+          total_broken=$(jq 'if type == "array" then ([.[] | (.links // []) | length] | add // 0) elif type == "object" and has("total") then .total else 0 end' links.json)
           echo "total_broken=${total_broken}" >> "$GITHUB_OUTPUT"
 
       - name: Print links.json

@@ -54,7 +54,7 @@ func parseFlags() options {
 	flag.StringVar(&opts.include, "include", "", "Muffet include pattern")
 	flag.StringVar(&opts.exclude, "exclude", "", "Muffet exclude pattern")
 	flag.StringVar(&opts.outputPath, "output", "links.json", "Output JSON path")
-	flag.BoolVar(&opts.logRequests, "log-requests", true, "Log all muffet requests via nginx access log")
+	flag.BoolVar(&opts.logRequests, "log-requests", true, "Stream nginx access logs while muffet runs")
 	flag.StringVar(&opts.nginxPort, "nginx-port", "3002", "Local nginx listen port")
 	flag.DurationVar(&opts.startupTimeout, "startup-timeout", 45*time.Second, "Nginx startup timeout")
 	flag.Parse()
@@ -140,6 +140,8 @@ func run(ctx context.Context, opts options) error {
 	if err != nil {
 		return err
 	}
+	stopLogStreaming := startNginxLogStreaming(ctx, opts.logRequests, os.Stdout, os.Stderr)
+	defer stopLogStreaming()
 	defer func() {
 		_ = stopProcessGroup(nginxCmd, nginxState.done, 10*time.Second)
 	}()
@@ -320,11 +322,6 @@ func waitForNginx(ctx context.Context, url string, nginxState *processState, tim
 func runMuffet(ctx context.Context, opts options, nginxState *processState) error {
 	fmt.Fprintf(os.Stdout, "running muffet crawl from: %s\n", opts.baseURL)
 
-	if opts.logRequests {
-		stopLogging := startAccessLogStreaming(ctx, "access.log", os.Stdout)
-		defer stopLogging()
-	}
-
 	return runMuffetOnce(ctx, opts, nginxState, opts.baseURL, opts.outputPath)
 }
 
@@ -386,7 +383,20 @@ func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, 
 	}
 }
 
-func startAccessLogStreaming(parent context.Context, path string, output io.Writer) func() {
+func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, stderr io.Writer) func() {
+	stopLoggers := []func(){startLogStreaming(parent, "error.log", "[nginx-error]", stderr)}
+	if logRequests {
+		stopLoggers = append(stopLoggers, startLogStreaming(parent, "access.log", "[nginx-access]", stdout))
+	}
+
+	return func() {
+		for i := len(stopLoggers) - 1; i >= 0; i-- {
+			stopLoggers[i]()
+		}
+	}
+}
+
+func startLogStreaming(parent context.Context, path, prefix string, output io.Writer) func() {
 	ctx, cancel := context.WithCancel(parent)
 	done := make(chan struct{})
 
@@ -395,7 +405,7 @@ func startAccessLogStreaming(parent context.Context, path string, output io.Writ
 
 		file, err := waitForFile(ctx, path, 5*time.Second)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "failed to stream access log: %v\n", err)
+			fmt.Fprintf(os.Stderr, "failed to stream %s: %v\n", path, err)
 			return
 		}
 		defer func() { _ = file.Close() }()
@@ -414,11 +424,11 @@ func startAccessLogStreaming(parent context.Context, path string, output io.Writ
 						continue
 					}
 				}
-				fmt.Fprintf(os.Stderr, "failed to read access log: %v\n", err)
+				fmt.Fprintf(os.Stderr, "failed to read %s: %v\n", path, err)
 				return
 			}
 
-			_, _ = fmt.Fprintf(output, "[muffet-request] %s", line)
+			_, _ = fmt.Fprintf(output, "%s %s", prefix, line)
 		}
 	}()
 

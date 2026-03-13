@@ -23,6 +23,7 @@ jobs:
     with:
       branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
+      image: grafana/docs-base:nightly
       repo: writers-toolkit
       sha: ${{ github.event.pull_request.head.sha }}
       sources: |

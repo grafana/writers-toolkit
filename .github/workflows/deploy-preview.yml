@@ -385,6 +385,22 @@ jobs:
       - name: Check links
         run: go run scripts/check-links.go
 
+      - name: Print nginx error log
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -f error.log ]]; then
+            cat error.log
+          fi
+
+      - name: Print nginx access log
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -f access.log ]]; then
+            cat access.log
+          fi
+
       - name: Calculate total broken links
         id: broken-links
         shell: bash

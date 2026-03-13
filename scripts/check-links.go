@@ -410,7 +410,6 @@ func startLogStreaming(parent context.Context, path, prefix string, output io.Wr
 		}
 		defer func() { _ = file.Close() }()
 
-		_, _ = file.Seek(0, io.SeekEnd)
 		reader := bufio.NewReader(file)
 
 		for {

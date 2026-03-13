@@ -29,6 +29,8 @@ type options struct {
 	outputPath     string
 	logRequests    bool
 	nginxPort      string
+	relativePrefix string
+	relativePaths  []string
 	startupTimeout time.Duration
 }
 
@@ -59,12 +61,14 @@ func parseFlags() options {
 	flag.DurationVar(&opts.startupTimeout, "startup-timeout", 45*time.Second, "Nginx startup timeout")
 	flag.Parse()
 
-	relativePrefix := resolveRelativePrefix()
+	relativePrefixes := resolveRelativePrefixes()
+	opts.relativePaths = relativePrefixes
+	opts.relativePrefix = relativePrefixes[0]
 	if opts.baseURL == "" {
-		opts.baseURL = baseURLForPrefix(relativePrefix, opts.nginxPort)
+		opts.baseURL = baseURLForPrefix(opts.relativePrefix, opts.nginxPort)
 	}
 	if opts.include == "" {
-		opts.include = includePatternForPrefix(relativePrefix, opts.nginxPort)
+		opts.include = includePatternForPrefixes(relativePrefixes, opts.nginxPort)
 	}
 	if opts.exclude == "" {
 		opts.exclude = defaultExcludePattern(opts.nginxPort)
@@ -73,27 +77,38 @@ func parseFlags() options {
 	return opts
 }
 
-func resolveRelativePrefix() string {
+func resolveRelativePrefixes() []string {
 	if prefix := strings.TrimSpace(os.Getenv("RELATIVE_PREFIX")); prefix != "" {
-		return normalizeRelativePrefix(prefix)
+		return []string{normalizeRelativePrefix(prefix)}
 	}
 
 	sources := strings.TrimSpace(os.Getenv("SOURCES"))
 	if sources == "" {
-		return defaultRelativePrefix
+		return []string{defaultRelativePrefix}
 	}
 
 	var configs []sourceConfig
 	if err := json.Unmarshal([]byte(sources), &configs); err != nil {
-		return defaultRelativePrefix
-	}
-	for _, config := range configs {
-		if strings.TrimSpace(config.RelativePrefix) != "" {
-			return normalizeRelativePrefix(config.RelativePrefix)
-		}
+		return []string{defaultRelativePrefix}
 	}
 
-	return defaultRelativePrefix
+	prefixes := make([]string, 0, len(configs))
+	seen := map[string]struct{}{}
+	for _, config := range configs {
+		if strings.TrimSpace(config.RelativePrefix) != "" {
+			normalized := normalizeRelativePrefix(config.RelativePrefix)
+			if _, ok := seen[normalized]; ok {
+				continue
+			}
+			seen[normalized] = struct{}{}
+			prefixes = append(prefixes, normalized)
+		}
+	}
+	if len(prefixes) > 0 {
+		return prefixes
+	}
+
+	return []string{defaultRelativePrefix}
 }
 
 func normalizeRelativePrefix(prefix string) string {
@@ -114,18 +129,35 @@ func baseURLForPrefix(prefix, port string) string {
 	return fmt.Sprintf("http://127.0.0.1:%s%s", port, normalizeRelativePrefix(prefix))
 }
 
-func includePatternForPrefix(prefix, port string) string {
-	normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
-	if normalized == "/docs" || strings.HasPrefix(normalized, "/docs/") {
+func includePatternForPrefixes(prefixes []string, port string) string {
+	for _, prefix := range prefixes {
+		normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
+		if normalized == "/docs" || strings.HasPrefix(normalized, "/docs/") {
+			return fmt.Sprintf(
+				"http://(?:127\\.0\\.0\\.1|localhost):%s/docs(?:/.*)?(?:\\?.*)?$",
+				port,
+			)
+		}
+	}
+
+	patterns := make([]string, 0, len(prefixes))
+	for _, prefix := range prefixes {
+		normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
+		patterns = append(patterns, regexp.QuoteMeta(normalized)+"(?:/.*)?(?:\\?.*)?$")
+	}
+
+	if len(patterns) == 0 {
 		return fmt.Sprintf(
-			"http://(?:127\\.0\\.0\\.1|localhost):%s/docs(?:/.*)?(?:\\?.*)?$",
+			"http://(?:127\\.0\\.0\\.1|localhost):%s%s(?:/.*)?(?:\\?.*)?$",
 			port,
+			regexp.QuoteMeta(strings.TrimSuffix(defaultRelativePrefix, "/")),
 		)
 	}
+
 	return fmt.Sprintf(
-		"http://(?:127\\.0\\.0\\.1|localhost):%s%s(?:/.*)?(?:\\?.*)?$",
+		"http://(?:127\\.0\\.0\\.1|localhost):%s(?:%s)",
 		port,
-		regexp.QuoteMeta(normalized),
+		strings.Join(patterns, "|"),
 	)
 }
 
@@ -134,7 +166,7 @@ func defaultExcludePattern(port string) string {
 }
 
 func run(ctx context.Context, opts options) error {
-	if err := prepareNginxConfig(opts.nginxPort); err != nil {
+	if err := prepareNginxConfig(opts.nginxPort, opts.relativePaths); err != nil {
 		return err
 	}
 
@@ -172,7 +204,7 @@ func run(ctx context.Context, opts options) error {
 	}
 }
 
-func prepareNginxConfig(nginxPort string) error {
+func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 	if err := os.MkdirAll("dist", 0o755); err != nil {
 		return fmt.Errorf("create dist dir: %w", err)
 	}
@@ -180,17 +212,12 @@ func prepareNginxConfig(nginxPort string) error {
 		return fmt.Errorf("create run dir: %w", err)
 	}
 
-	buildHeader := fmt.Sprintf("add_header 'Build' '%s';", os.Getenv("SHA"))
-	if err := os.WriteFile("dist/build.conf", []byte(buildHeader), 0o644); err != nil {
-		return fmt.Errorf("write dist/build.conf: %w", err)
-	}
-
 	templateBytes, err := os.ReadFile("deploy-preview/nginx.conf")
 	if err != nil {
 		return fmt.Errorf("read deploy-preview/nginx.conf: %w", err)
 	}
 
-	rendered, err := renderLocalNginxConfig(string(templateBytes), nginxPort)
+	rendered, err := renderLocalNginxConfig(string(templateBytes), nginxPort, relativePrefixes, os.Getenv("SHA"))
 	if err != nil {
 		return err
 	}
@@ -211,7 +238,40 @@ func prepareNginxConfig(nginxPort string) error {
 	return nil
 }
 
-func renderLocalNginxConfig(config, nginxPort string) (string, error) {
+func buildServerConfig(relativePrefixes []string, distRoot, sha string) string {
+	var builder strings.Builder
+	builder.WriteString(fmt.Sprintf("add_header 'Build' '%s';\n\n", sha))
+
+	hasDocsPrefix := false
+	for _, relativePrefix := range relativePrefixes {
+		normalizedPrefix := normalizeRelativePrefix(relativePrefix)
+		prefixWithoutTrailingSlash := strings.TrimSuffix(normalizedPrefix, "/")
+		if strings.HasPrefix(prefixWithoutTrailingSlash, "/docs/") {
+			hasDocsPrefix = true
+		}
+
+		builder.WriteString(fmt.Sprintf(`location = %s {
+  return 301 %s;
+}
+
+location ^~ %s {
+  alias %s%s;
+}
+
+`, prefixWithoutTrailingSlash, normalizedPrefix, normalizedPrefix, distRoot, normalizedPrefix))
+	}
+
+	if hasDocsPrefix {
+		builder.WriteString(`location ^~ /docs/ {
+  proxy_pass https://grafana.com/docs/;
+}
+`)
+	}
+
+	return builder.String()
+}
+
+func renderLocalNginxConfig(config, nginxPort string, relativePrefixes []string, sha string) (string, error) {
 	replacements := []struct {
 		old string
 		new string
@@ -220,7 +280,7 @@ func renderLocalNginxConfig(config, nginxPort string) (string, error) {
 		{"access_log /var/log/nginx/access.log;", "access_log access.log;"},
 		{"error_log /var/log/nginx/error.log;", "error_log error.log;"},
 		{"listen 80;", fmt.Sprintf("listen %s;", nginxPort)},
-		{"include /etc/nginx/build.conf;", "include dist/build.conf;"},
+		{"include /etc/nginx/build.conf;", buildServerConfig(relativePrefixes, "dist", sha)},
 		{"root /usr/share/nginx/dist/;", "root dist/;"},
 		{"alias /usr/share/nginx/dist/;", "alias dist/;"},
 		{"alias /usr/share/nginx/assets/$1;", "alias dist/static/$1;"},

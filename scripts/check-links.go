@@ -29,8 +29,8 @@ import (
 const defaultRelativePrefix = "/docs/"
 
 var (
-	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)=["']([^"'<>]+)["']`)
-	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset=["']([^"'<>]+)["']`)
+	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `]+))`)
+	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `]+))`)
 )
 
 type options struct {
@@ -546,16 +546,17 @@ func extractLinks(pageURL, body, nginxPort string) []string {
 	}
 
 	for _, match := range linkAttributePattern.FindAllStringSubmatch(body, -1) {
-		if len(match) >= 2 {
-			appendLink(match[1])
+		if value, ok := firstNonEmptyCapture(match); ok {
+			appendLink(value)
 		}
 	}
 
 	for _, match := range srcsetPattern.FindAllStringSubmatch(body, -1) {
-		if len(match) < 2 {
+		value, ok := firstNonEmptyCapture(match)
+		if !ok {
 			continue
 		}
-		for _, candidate := range strings.Split(match[1], ",") {
+		for _, candidate := range strings.Split(value, ",") {
 			fields := strings.Fields(strings.TrimSpace(candidate))
 			if len(fields) > 0 {
 				appendLink(fields[0])
@@ -564,6 +565,15 @@ func extractLinks(pageURL, body, nginxPort string) []string {
 	}
 
 	return links
+}
+
+func firstNonEmptyCapture(match []string) (string, bool) {
+	for _, value := range match[1:] {
+		if value != "" {
+			return value, true
+		}
+	}
+	return "", false
 }
 
 func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {

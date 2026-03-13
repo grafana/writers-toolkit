@@ -424,7 +424,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           comment-author: github-actions[bot]
-          body-includes: Broken links report (${{ inputs.title }})
+          body-includes: <!-- broken-links-report:${{ inputs.repo }} -->
 
       - name: Create broken links comment
         if: steps.broken-links-comment.outputs.comment-id == ''
@@ -432,6 +432,7 @@ jobs:
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
+            <!-- broken-links-report:${{ inputs.repo }} -->
             :link: Broken links report (${{ inputs.title }}): ${{ steps.broken-links.outputs.total_broken }} broken links.
 
             The final JSON is printed in the `Print links.json` workflow step.
@@ -445,6 +446,7 @@ jobs:
           issue-number: ${{ inputs.event_number }}
           edit-mode: replace
           body: |
+            <!-- broken-links-report:${{ inputs.repo }} -->
             :link: Broken links report (${{ inputs.title }}): ${{ steps.broken-links.outputs.total_broken }} broken links.
 
             The final JSON is printed in the `Print links.json` workflow step.

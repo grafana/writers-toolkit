@@ -13,7 +13,6 @@ import (
 	"os/exec"
 	"os/signal"
 	"path/filepath"
-	"regexp"
 	"runtime"
 	"sort"
 	"strings"
@@ -68,9 +67,6 @@ func parseFlags() options {
 	opts.relativePrefix = relativePrefixes[0]
 	if opts.baseURL == "" {
 		opts.baseURL = baseURLForPrefix(opts.relativePrefix, opts.nginxPort)
-	}
-	if opts.include == "" {
-		opts.include = includePatternForPrefixes(relativePrefixes, opts.nginxPort)
 	}
 	if opts.exclude == "" {
 		opts.exclude = defaultExcludePattern(opts.nginxPort)
@@ -129,28 +125,6 @@ func normalizeRelativePrefix(prefix string) string {
 
 func baseURLForPrefix(prefix, port string) string {
 	return fmt.Sprintf("http://127.0.0.1:%s%s", port, normalizeRelativePrefix(prefix))
-}
-
-func includePatternForPrefixes(prefixes []string, port string) string {
-	patterns := make([]string, 0, len(prefixes))
-	for _, prefix := range prefixes {
-		normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
-		patterns = append(patterns, regexp.QuoteMeta(normalized)+"(?:/.*)?(?:\\?.*)?$")
-	}
-
-	if len(patterns) == 0 {
-		return fmt.Sprintf(
-			"http://(?:127\\.0\\.0\\.1|localhost):%s%s(?:/.*)?(?:\\?.*)?$",
-			port,
-			regexp.QuoteMeta(strings.TrimSuffix(defaultRelativePrefix, "/")),
-		)
-	}
-
-	return fmt.Sprintf(
-		"http://(?:127\\.0\\.0\\.1|localhost):%s(?:%s)",
-		port,
-		strings.Join(patterns, "|"),
-	)
 }
 
 func defaultExcludePattern(port string) string {
@@ -378,13 +352,17 @@ func waitForNginx(ctx context.Context, url string, nginxState *processState, tim
 }
 
 func runMuffet(ctx context.Context, opts options, nginxState *processState) error {
-	reportsByURL := map[string]map[string]any{}
-	for _, relativePrefix := range opts.relativePaths {
-		startURL := baseURLForPrefix(relativePrefix, opts.nginxPort)
-		tempReportPath := tempReportPathForPrefix(relativePrefix)
+	pageURLs, err := collectPageURLs(opts.relativePaths, opts.nginxPort)
+	if err != nil {
+		return err
+	}
 
-		fmt.Fprintf(os.Stdout, "running muffet crawl from: %s\n", startURL)
-		if err := runMuffetOnce(ctx, opts, nginxState, startURL, tempReportPath); err != nil {
+	reportsByURL := map[string]map[string]any{}
+	for _, pageURL := range pageURLs {
+		tempReportPath := tempReportPathForURL(pageURL)
+
+		fmt.Fprintf(os.Stdout, "running muffet one-page check from: %s\n", pageURL)
+		if err := runMuffetOnce(ctx, opts, nginxState, pageURL, tempReportPath); err != nil {
 			return err
 		}
 
@@ -420,7 +398,7 @@ func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, 
 	if opts.exclude != "" {
 		args = append(args, "--exclude="+opts.exclude)
 	}
-	args = append(args, "-f", "-b", "9999", "--format=json")
+	args = append(args, "--one-page-only", "-f", "-b", "9999", "--format=json")
 	args = append(args, startURL)
 
 	cmd := exec.CommandContext(ctx, "muffet", args...)
@@ -462,12 +440,57 @@ func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, 
 	}
 }
 
-func tempReportPathForPrefix(relativePrefix string) string {
-	sanitized := strings.Trim(normalizeRelativePrefix(relativePrefix), "/")
+func collectPageURLs(relativePrefixes []string, port string) ([]string, error) {
+	pageURLs := make([]string, 0)
+	seen := map[string]struct{}{}
+
+	for _, relativePrefix := range relativePrefixes {
+		root := filepath.Join("dist", strings.Trim(normalizeRelativePrefix(relativePrefix), "/"))
+		if _, err := os.Stat(root); err != nil {
+			return nil, fmt.Errorf("stat %s: %w", root, err)
+		}
+
+		err := filepath.WalkDir(root, func(path string, entry os.DirEntry, err error) error {
+			if err != nil {
+				return err
+			}
+			if entry.IsDir() {
+				return nil
+			}
+			if entry.Name() != "index.html" {
+				return nil
+			}
+
+			relativePath, err := filepath.Rel("dist", path)
+			if err != nil {
+				return err
+			}
+
+			urlPath := "/" + filepath.ToSlash(filepath.Dir(relativePath)) + "/"
+			pageURL := fmt.Sprintf("http://127.0.0.1:%s%s", port, urlPath)
+			if _, ok := seen[pageURL]; ok {
+				return nil
+			}
+			seen[pageURL] = struct{}{}
+			pageURLs = append(pageURLs, pageURL)
+			return nil
+		})
+		if err != nil {
+			return nil, fmt.Errorf("walk %s: %w", root, err)
+		}
+	}
+
+	sort.Strings(pageURLs)
+	return pageURLs, nil
+}
+
+func tempReportPathForURL(startURL string) string {
+	sanitized := strings.Trim(strings.TrimPrefix(startURL, "http://"), "/")
 	if sanitized == "" {
 		sanitized = "root"
 	}
-	sanitized = strings.ReplaceAll(sanitized, "/", "__")
+	replacer := strings.NewReplacer("/", "__", ":", "_", "?", "_", "&", "_", "=", "_")
+	sanitized = replacer.Replace(sanitized)
 	return filepath.Join(os.TempDir(), "muffet-"+sanitized+".json")
 }
 

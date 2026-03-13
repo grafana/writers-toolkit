@@ -1308,48 +1308,48 @@ Pagination appears automatically when the table contains more than 25 rows. Tabl
 ```markdown
 {{</* datatable */>}}
 
-| Plugin         | Type        | Status     | Downloads |
-| -------------- | ----------- | ---------- | --------- |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
+| Plugin       | Type        | Status     | Downloads |
+| ------------ | ----------- | ---------- | --------- |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
 
 {{</* /datatable */>}}
 ```
@@ -1358,48 +1358,48 @@ Produces:
 
 {{< datatable >}}
 
-| Plugin         | Type        | Status     | Downloads |
-| -------------- | ----------- | ---------- | --------- |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
-| Zabbix         | Data source | Active     | 12500     |
-| Infinity       | Data source | Active     | 9800      |
-| FlowCharting   | Panel       | Deprecated | 7200      |
-| Carpet plot    | Panel       | Active     | 3400      |
-| Worldmap Panel | Panel       | Deprecated | 15600     |
-| Diagram        | Panel       | Active     | 5100      |
-| Statusmap      | Panel       | Active     | 8900      |
-| Breadcrumb     | Panel       | Active     | 1200      |
-| Clock          | Panel       | Active     | 22000     |
-| Boom Table     | Panel       | Active     | 6700      |
+| Plugin       | Type        | Status     | Downloads |
+| ------------ | ----------- | ---------- | --------- |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
+| Zabbix       | Data source | Active     | 12500     |
+| Infinity     | Data source | Active     | 9800      |
+| FlowCharting | Panel       | Deprecated | 7200      |
+| Carpet plot  | Panel       | Active     | 3400      |
+| Clock Panel  | Panel       | Deprecated | 15600     |
+| Diagram      | Panel       | Active     | 5100      |
+| FlowCharting | Panel       | Active     | 8900      |
+| Breadcrumb   | Panel       | Active     | 1200      |
+| Clock        | Panel       | Active     | 22000     |
+| Boom Table   | Panel       | Active     | 6700      |
 
 {{< /datatable >}}
 

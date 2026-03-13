@@ -18,6 +18,13 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## March 2026
+
+| New guidance or change               | Page                                                              |
+| ------------------------------------ | ----------------------------------------------------------------- |
+| Added `docs/alloy-config` shortcode. | [Links](/docs/writers-toolkit/write/shortcodes/#docsalloy-config) |
+| Added `datatable` code block type.   | [Links](/docs/writers-toolkit/write/shortcodes/#datatable)        |
+
 ## February 2026
 
 | New guidance or change            | Page                                                      |

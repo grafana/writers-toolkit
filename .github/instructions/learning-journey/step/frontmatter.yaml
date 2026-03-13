@@ -1,0 +1,91 @@
+---
+# Required fields
+
+# Short navigation menu title – keep under 20 characters for readability
+# Examples: "Add to dashboard", "Create dashboard", "Install data source", "Value of Logs Drilldown"
+menuTitle: <MENU_TITLE>
+
+# Full page title – can be longer and more descriptive than menuTitle
+# Should match the h1 heading in the content. Examples:
+# "Add Logs Drilldown visualization to a dashboard"
+# "The value of Grafana Alloy"
+# "Install the Infinity data source plugin"
+title: <PAGE_TITLE>
+
+# Brief description explaining what the page covers or teaches (1-2 sentences)
+# Start with an action word like "Learn", "Understand", or "Configure"
+# Examples: "Learn how to save your query and add it to a dashboard for ongoing monitoring"
+description: <DESCRIPTION>
+
+# Numerical weight for ordering pages (increments of 100)
+# Pattern: 100, 200, 300, etc. Lower numbers appear first in navigation
+weight: <WEIGHT_NUMBER>
+
+# Step number in the learning journey sequence (matches weight pattern)
+# Examples: 2, 3, 4, 5, 6, 7, 8, 9, 10
+step: <STEP_NUMBER>
+
+# Layout template – always "single-journey" for learning journey pages
+layout: single-journey
+
+# Call-to-action configuration for navigation between journey steps
+cta:
+  # Type determines the button text and styling
+  # "continue" = shows "Continue" button for intermediate steps
+  # "conclusion" = shows completion styling for final step
+  type: <CTA_TYPE>
+
+# Optional fields – include only when needed
+
+# Keywords for SEO and search – use 3-5 relevant technical terms
+# Include product names, technologies, and key concepts covered
+# Examples: ["Grafana Labs", "observability", "monitoring", "Kubernetes"]
+keywords:
+  - <KEYWORD_1>
+  - <KEYWORD_2>
+  - <KEYWORD_3>
+
+# Related journeys section – appears only on conclusion pages
+# Suggests follow-up learning paths after completing current journey
+related_journeys:
+  # Standard title used across all journey conclusion pages
+  title: Related journeys
+  # Heading text encouraging users to continue learning
+  heading: Consider taking the following journeys after you complete this journey.
+  items:
+    # Link to other complete learning journeys that build on current knowledge
+    # Examples: "Explore data using Metrics Drilldown", "Visualize metrics in a Grafana Cloud dashboard"
+    - title: <JOURNEY_TITLE>
+      # Relative path to other learning journey starting pages
+      # Pattern: '/docs/learning-journeys/journey-name/'
+      link: <JOURNEY_LINK>
+
+# Side journeys for additional exploration – appears on most pages
+# Provides optional deep-dive content related to current step
+side_journeys:
+  # Standard title with "(optional)" suffix
+  title: More to explore (optional)
+  # Contextual heading that relates to current step in journey
+  # Examples: "At this point in your journey, you can explore the following paths:"
+  heading: <SIDE_HEADING>
+  items:
+    # Links to specific documentation pages, videos, or external resources
+    # Should be directly relevant to concepts introduced in current step
+    - title: <SIDE_JOURNEY_TITLE>
+      # Can be relative docs links or external URLs
+      # Examples: '/docs/grafana/latest/explore/', 'https://www.youtube.com/watch?v=...'
+      link: <SIDE_JOURNEY_LINK>
+
+# Image configuration – only used on conclusion pages with cta type "conclusion"
+# This overrides the basic cta configuration above
+cta:
+  type: conclusion
+  image:
+    # Path to celebration/completion image
+    # Standard images: "/media/docs/learning-journey/journey-conclusion-header-1.svg"
+    src: <IMAGE_PATH>
+    # Image dimensions in pixels – use standard values for consistency
+    # Common: width: 735, height: 175
+    width: <IMAGE_WIDTH>
+    height: <IMAGE_HEIGHT>
+---

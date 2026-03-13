@@ -31,6 +31,7 @@ const defaultRelativePrefix = "/docs/"
 var (
 	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `]+))`)
 	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `]+))`)
+	ignoredHTMLPattern   = regexp.MustCompile(`(?is)<(?:pre|code|script|style)\b[^>]*>.*?</(?:pre|code|script|style)>`)
 )
 
 type options struct {
@@ -533,6 +534,8 @@ func fetchPageBody(ctx context.Context, client *http.Client, pageURL string) ([]
 }
 
 func extractLinks(pageURL, body, nginxPort string) []string {
+	body = stripIgnoredHTML(body)
+
 	links := make([]string, 0)
 	seen := map[string]struct{}{}
 
@@ -568,6 +571,10 @@ func extractLinks(pageURL, body, nginxPort string) []string {
 	}
 
 	return links
+}
+
+func stripIgnoredHTML(body string) string {
+	return ignoredHTMLPattern.ReplaceAllString(body, "")
 }
 
 func firstNonEmptyCapture(match []string) (string, bool) {

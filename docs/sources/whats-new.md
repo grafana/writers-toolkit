@@ -20,17 +20,17 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 
 ## March 2026
 
-| New guidance or change               | Page                                                              |
-| ------------------------------------ | ----------------------------------------------------------------- |
-| Added `docs/alloy-config` shortcode. | [Links](/docs/writers-toolkit/write/shortcodes/#docsalloy-config) |
-| Added `datatable` code block type.   | [Links](/docs/writers-toolkit/write/shortcodes/#datatable)        |
-| Added `mermaid` to Shortcodes page.  | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#mermaid)     |
+| New guidance or change               | Page                                                                   |
+| ------------------------------------ | ---------------------------------------------------------------------- |
+| Added `docs/alloy-config` shortcode. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#docsalloy-config) |
+| Added `datatable` code block type.   | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#datatable)        |
+| Added `mermaid` to Shortcodes page.  | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#mermaid)          |
 
 ## February 2026
 
-| New guidance or change            | Page                                                      |
-| --------------------------------- | --------------------------------------------------------- |
-| Added `api-tree` code block type. | [Links](/docs/writers-toolkit/write/shortcodes/#api-tree) |
+| New guidance or change            | Page                                                           |
+| --------------------------------- | -------------------------------------------------------------- |
+| Added `api-tree` code block type. | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#api-tree) |
 
 ## January 2026
 

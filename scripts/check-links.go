@@ -116,6 +116,12 @@ func baseURLForPrefix(prefix, port string) string {
 
 func includePatternForPrefix(prefix, port string) string {
 	normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
+	if normalized == "/docs" || strings.HasPrefix(normalized, "/docs/") {
+		return fmt.Sprintf(
+			"http://(?:127\\.0\\.0\\.1|localhost):%s/docs(?:/.*)?(?:\\?.*)?$",
+			port,
+		)
+	}
 	return fmt.Sprintf(
 		"http://(?:127\\.0\\.0\\.1|localhost):%s%s(?:/.*)?(?:\\?.*)?$",
 		port,

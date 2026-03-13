@@ -24,6 +24,7 @@ This page provides a summary of notable changes to Writers' Toolkit guidance.
 | ------------------------------------ | ----------------------------------------------------------------- |
 | Added `docs/alloy-config` shortcode. | [Links](/docs/writers-toolkit/write/shortcodes/#docsalloy-config) |
 | Added `datatable` code block type.   | [Links](/docs/writers-toolkit/write/shortcodes/#datatable)        |
+| Added `mermaid` to Shortcodes page.  | [Shortcodes](/docs/writers-toolkit/write/shortcodes/#mermaid)     |
 
 ## February 2026
 

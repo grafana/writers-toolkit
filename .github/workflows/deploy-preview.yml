@@ -5,6 +5,10 @@ permissions: {}
 on:
   workflow_call:
     inputs:
+      image:
+        default: grafana/docs-base:latest
+        description: Container image to use for building the website.
+        type: string
       # Legacy inputs
       # Don't forget to make `sources` required when you remove these.
       source_directory:
@@ -92,6 +96,7 @@ env:
   WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
   INDEX_FILE: ${{ inputs.index_file }}
   RELATIVE_PREFIX: ${{ inputs.relative_prefix }}
+  IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
 
 concurrency:
@@ -179,6 +184,7 @@ jobs:
           REPO: ${{ env.REPO }}
           # End legacy input.
           GH_TOKEN: ${{ github.token }}
+          IMAGE: ${{ env.IMAGE }}
           SOURCES: ${{ env.SOURCES }}
           BRANCH: ${{ env.BRANCH }}
         run: ./deploy-preview-files/deploy-preview/build

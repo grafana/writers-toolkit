@@ -12,8 +12,10 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"path/filepath"
 	"regexp"
 	"runtime"
+	"sort"
 	"strings"
 	"sync"
 	"syscall"
@@ -130,16 +132,6 @@ func baseURLForPrefix(prefix, port string) string {
 }
 
 func includePatternForPrefixes(prefixes []string, port string) string {
-	for _, prefix := range prefixes {
-		normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
-		if normalized == "/docs" || strings.HasPrefix(normalized, "/docs/") {
-			return fmt.Sprintf(
-				"http://(?:127\\.0\\.0\\.1|localhost):%s/docs(?:/.*)?(?:\\?.*)?$",
-				port,
-			)
-		}
-	}
-
 	patterns := make([]string, 0, len(prefixes))
 	for _, prefix := range prefixes {
 		normalized := strings.TrimSuffix(normalizeRelativePrefix(prefix), "/")
@@ -386,9 +378,30 @@ func waitForNginx(ctx context.Context, url string, nginxState *processState, tim
 }
 
 func runMuffet(ctx context.Context, opts options, nginxState *processState) error {
-	fmt.Fprintf(os.Stdout, "running muffet crawl from: %s\n", opts.baseURL)
+	reportsByURL := map[string]map[string]any{}
+	for _, relativePrefix := range opts.relativePaths {
+		startURL := baseURLForPrefix(relativePrefix, opts.nginxPort)
+		tempReportPath := tempReportPathForPrefix(relativePrefix)
 
-	return runMuffetOnce(ctx, opts, nginxState, opts.baseURL, opts.outputPath)
+		fmt.Fprintf(os.Stdout, "running muffet crawl from: %s\n", startURL)
+		if err := runMuffetOnce(ctx, opts, nginxState, startURL, tempReportPath); err != nil {
+			return err
+		}
+
+		reportEntries, err := readReport(tempReportPath)
+		if err != nil {
+			return err
+		}
+		for _, entry := range reportEntries {
+			url, ok := entry["url"].(string)
+			if !ok || url == "" {
+				return fmt.Errorf("report entry in %s missing url", tempReportPath)
+			}
+			reportsByURL[url] = entry
+		}
+	}
+
+	return writeMergedReport(opts.outputPath, reportsByURL)
 }
 
 func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, startURL, outputPath string) error {
@@ -447,6 +460,54 @@ func runMuffetOnce(ctx context.Context, opts options, nginxState *processState, 
 			return ctx.Err()
 		}
 	}
+}
+
+func tempReportPathForPrefix(relativePrefix string) string {
+	sanitized := strings.Trim(normalizeRelativePrefix(relativePrefix), "/")
+	if sanitized == "" {
+		sanitized = "root"
+	}
+	sanitized = strings.ReplaceAll(sanitized, "/", "__")
+	return filepath.Join(os.TempDir(), "muffet-"+sanitized+".json")
+}
+
+func readReport(path string) ([]map[string]any, error) {
+	content, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("read %s: %w", path, err)
+	}
+
+	var report []map[string]any
+	if err := json.Unmarshal(content, &report); err != nil {
+		return nil, fmt.Errorf("parse %s: %w", path, err)
+	}
+
+	return report, nil
+}
+
+func writeMergedReport(path string, reportsByURL map[string]map[string]any) error {
+	urls := make([]string, 0, len(reportsByURL))
+	for url := range reportsByURL {
+		urls = append(urls, url)
+	}
+	sort.Strings(urls)
+
+	merged := make([]map[string]any, 0, len(urls))
+	for _, url := range urls {
+		merged = append(merged, reportsByURL[url])
+	}
+
+	content, err := json.MarshalIndent(merged, "", "  ")
+	if err != nil {
+		return fmt.Errorf("marshal merged report: %w", err)
+	}
+	content = append(content, '\n')
+
+	if err := os.WriteFile(path, content, 0o644); err != nil {
+		return fmt.Errorf("write %s: %w", path, err)
+	}
+
+	return nil
 }
 
 func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, stderr io.Writer) func() {

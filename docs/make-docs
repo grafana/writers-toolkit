@@ -8,6 +8,12 @@
 # [Semantic versioning](https://semver.org/) is used to help the reader identify the significance of changes.
 # Changes are relevant to this script and the support docs.mk GNU Make interface.
 #
+# ## 10.1.1 (2026-03-17)
+#
+# ### Fixed
+#
+# - Run Vale non-interactively to enable Claude Code (and similar) to run the tool.
+#
 # ## 10.1.0 (2025-11-11)
 #
 # ### Fixed
@@ -896,7 +902,6 @@ case "${image}" in
     IFS='' read -r cmd <<EOF
     ${PODMAN} run \
                 --init \
-                --interactive \
                 --rm \
                 --workdir /etc/vale \
                 --tty \

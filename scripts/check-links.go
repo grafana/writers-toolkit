@@ -110,6 +110,20 @@ func parseFlags() options {
 	return opts
 }
 
+func normalizeRelativePrefix(prefix string) string {
+	prefix = strings.TrimSpace(prefix)
+	if prefix == "" {
+		return defaultRelativePrefix
+	}
+	if !strings.HasPrefix(prefix, "/") {
+		prefix = "/" + prefix
+	}
+	if !strings.HasSuffix(prefix, "/") {
+		prefix += "/"
+	}
+	return prefix
+}
+
 func resolveRelativePrefixes() []string {
 	if prefix := strings.TrimSpace(os.Getenv("RELATIVE_PREFIX")); prefix != "" {
 		return []string{normalizeRelativePrefix(prefix)}
@@ -143,20 +157,6 @@ func resolveRelativePrefixes() []string {
 	}
 
 	return prefixes
-}
-
-func normalizeRelativePrefix(prefix string) string {
-	prefix = strings.TrimSpace(prefix)
-	if prefix == "" {
-		return defaultRelativePrefix
-	}
-	if !strings.HasPrefix(prefix, "/") {
-		prefix = "/" + prefix
-	}
-	if !strings.HasSuffix(prefix, "/") {
-		prefix += "/"
-	}
-	return prefix
 }
 
 func baseURLForPrefix(prefix, port string) string {

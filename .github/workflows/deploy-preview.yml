@@ -377,7 +377,7 @@ jobs:
       - name: Install nginx
         run: |
           sudo apt-get update
-          sudo apt-get install -y jq nginx
+          sudo apt-get install -y nginx
 
       - name: Check links
         run: go run scripts/check-links.go
@@ -398,12 +398,13 @@ jobs:
             cat access.log
           fi
 
-      - name: Calculate total broken links
-        id: broken-links
+      - name: Get changed files in pull request
         shell: bash
-        run: |
-          total_broken=$(jq 'if type == "array" then ([.[] | (.links // []) | length] | add // 0) elif type == "object" and has("total") then .total else 0 end' links.json)
-          echo "total_broken=${total_broken}" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          EVENT_NUMBER: ${{ inputs.event_number }}
+        run: gh api --paginate "repos/${GITHUB_REPOSITORY}/pulls/${EVENT_NUMBER}/files" --jq '.[].filename' > changed-files.txt
 
       - name: Print links.json
         run: cat links.json
@@ -417,6 +418,23 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Generate broken links comment
+        shell: bash
+        env:
+          SOURCES: ${{ env.SOURCES }}
+          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+        run: >
+          go run scripts/generate-broken-links-comment.go
+          -links links.json
+          -changed-files changed-files.txt
+          -output broken-links-comment.md
+          -repo "${{ inputs.repo }}"
+          -title "${{ inputs.title }}"
+          -artifact-url "${{ steps.upload-links.outputs.artifact-url }}"
+
+      - name: Print broken links comment
+        run: cat broken-links-comment.md
 
       - name: Find broken links comment
         uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
@@ -431,12 +449,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
-          body: |
-            <!-- broken-links-report:${{ inputs.repo }} -->
-            :link: Broken links report (${{ inputs.title }}): ${{ steps.broken-links.outputs.total_broken }} broken links.
-
-            The final JSON is printed in the `Print links.json` workflow step.
-            [Download the `links-${{ inputs.sha }}.json` artifact](${{ steps.upload-links.outputs.artifact-url }}) for the full report. The artifact is retained for 7 days.
+          body-path: broken-links-comment.md
 
       - name: Update broken links comment
         if: steps.broken-links-comment.outputs.comment-id != ''
@@ -445,12 +458,7 @@ jobs:
           comment-id: ${{ steps.broken-links-comment.outputs.comment-id }}
           issue-number: ${{ inputs.event_number }}
           edit-mode: replace
-          body: |
-            <!-- broken-links-report:${{ inputs.repo }} -->
-            :link: Broken links report (${{ inputs.title }}): ${{ steps.broken-links.outputs.total_broken }} broken links.
-
-            The final JSON is printed in the `Print links.json` workflow step.
-            [Download the `links-${{ inputs.sha }}.json` artifact](${{ steps.upload-links.outputs.artifact-url }}) for the full report. The artifact is retained for 7 days.
+          body-path: broken-links-comment.md
 
   cleanup-preview:
     permissions:

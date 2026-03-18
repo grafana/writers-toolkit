@@ -39,6 +39,11 @@ type brokenRow struct {
 	Error     string
 }
 
+type simpleBrokenRow struct {
+	PageURL   string
+	BrokenURL string
+}
+
 const (
 	defaultSourceDirectory        = "docs/sources"
 	generateDefaultRelativePrefix = "/docs/"
@@ -80,6 +85,15 @@ func main() {
 	}
 
 	mappings := resolveMappings(sourcesJSON, sourceDirectory, relativePrefix)
+	if strings.TrimSpace(sourcesJSON) == "" && strings.TrimSpace(relativePrefix) == "" {
+		if inferred := inferRelativePrefixFromReports(reports, changedFiles, sourceDirectory); inferred != "" {
+			mappings = []mapping{{
+				sourceDirectory: normalizeSourceDirectory(sourceDirectory),
+				relativePrefix:  inferred,
+			}}
+		}
+	}
+
 	fileToCandidates := make(map[string][]string)
 	for _, file := range changedFiles {
 		candidates := candidatePagePaths(file, mappings)
@@ -89,68 +103,7 @@ func main() {
 		fileToCandidates[file] = candidates
 	}
 
-	reportsByPath := make(map[string]pageReport, len(reports))
-	for _, report := range reports {
-		reportPath := reportPath(report.URL)
-		if reportPath == "" {
-			continue
-		}
-		reportsByPath[reportPath] = report
-	}
-
-	rows := make([]brokenRow, 0)
-	seenPageByFile := make(map[string]map[string]struct{})
-	uniqueBrokenOnChangedPages := 0
-	pageSeenForChangedTotals := map[string]struct{}{}
-
-	changedFilesWithBroken := make([]string, 0)
-	for file, candidates := range fileToCandidates {
-		fileHasBroken := false
-		for _, candidate := range candidates {
-			report, ok := reportsByPath[candidate]
-			if !ok {
-				continue
-			}
-			if _, ok := seenPageByFile[file]; !ok {
-				seenPageByFile[file] = map[string]struct{}{}
-			}
-			if _, dup := seenPageByFile[file][candidate]; dup {
-				continue
-			}
-			seenPageByFile[file][candidate] = struct{}{}
-
-			if len(report.Links) == 0 {
-				continue
-			}
-			fileHasBroken = true
-			if _, seen := pageSeenForChangedTotals[candidate]; !seen {
-				pageSeenForChangedTotals[candidate] = struct{}{}
-				uniqueBrokenOnChangedPages += len(report.Links)
-			}
-			for _, link := range report.Links {
-				rows = append(rows, brokenRow{
-					File:      file,
-					PageURL:   report.URL,
-					BrokenURL: link.URL,
-					Error:     link.Error,
-				})
-			}
-		}
-		if fileHasBroken {
-			changedFilesWithBroken = append(changedFilesWithBroken, file)
-		}
-	}
-
-	sort.Strings(changedFilesWithBroken)
-	sort.Slice(rows, func(i, j int) bool {
-		if rows[i].File != rows[j].File {
-			return rows[i].File < rows[j].File
-		}
-		if rows[i].PageURL != rows[j].PageURL {
-			return rows[i].PageURL < rows[j].PageURL
-		}
-		return rows[i].BrokenURL < rows[j].BrokenURL
-	})
+	rows, changedFilesWithBroken := collectBrokenRows(reports, fileToCandidates, mappings)
 
 	totalBroken := 0
 	for _, report := range reports {
@@ -164,8 +117,9 @@ func main() {
 		totalBroken:            totalBroken,
 		changedDocsFileCount:   len(fileToCandidates),
 		changedWithBrokenCount: len(changedFilesWithBroken),
-		brokenOnChangedPages:   uniqueBrokenOnChangedPages,
+		brokenOnChangedPages:   len(rows),
 		rows:                   rows,
+		fallbackRows:           collectAllBrokenRows(reports),
 		maxRows:                maxRows,
 	})
 
@@ -223,6 +177,171 @@ func readChangedFiles(path string) ([]string, error) {
 	return files, nil
 }
 
+// collectBrokenRows returns broken-link rows relevant to changed files and moved targets.
+func collectBrokenRows(reports []pageReport, fileToCandidates map[string][]string, mappings []mapping) ([]brokenRow, []string) {
+	reportsByPath := make(map[string]pageReport, len(reports))
+	for _, report := range reports {
+		reportPath := reportPath(report.URL)
+		if reportPath == "" {
+			continue
+		}
+		reportsByPath[reportPath] = report
+	}
+
+	candidatePathToFiles := make(map[string][]string)
+	for file, candidates := range fileToCandidates {
+		for _, candidate := range candidates {
+			candidatePathToFiles[candidate] = appendUniqueString(candidatePathToFiles[candidate], file)
+		}
+	}
+
+	rows := make([]brokenRow, 0)
+	rowSeen := map[string]struct{}{}
+	changedFilesWithBrokenSet := map[string]struct{}{}
+	addRow := func(changedFile, holderFile, pageURL, brokenURL, errText string) {
+		if changedFile != "" {
+			changedFilesWithBrokenSet[changedFile] = struct{}{}
+		}
+		key := holderFile + "\x00" + pageURL + "\x00" + brokenURL + "\x00" + errText
+		if _, ok := rowSeen[key]; ok {
+			return
+		}
+		rowSeen[key] = struct{}{}
+		rows = append(rows, brokenRow{
+			File:      holderFile,
+			PageURL:   pageURL,
+			BrokenURL: brokenURL,
+			Error:     errText,
+		})
+	}
+
+	for file, candidates := range fileToCandidates {
+		for _, candidate := range candidates {
+			report, ok := reportsByPath[candidate]
+			if !ok {
+				continue
+			}
+			holderFile := sourceFileForPageURL(report.URL, mappings)
+			for _, link := range report.Links {
+				addRow(file, holderFile, report.URL, link.URL, link.Error)
+			}
+		}
+	}
+
+	for _, report := range reports {
+		for _, link := range report.Links {
+			brokenPath := reportPath(link.URL)
+			if brokenPath == "" {
+				continue
+			}
+			files, ok := candidatePathToFiles[brokenPath]
+			if !ok {
+				continue
+			}
+			holderFile := sourceFileForPageURL(report.URL, mappings)
+			for _, file := range files {
+				addRow(file, holderFile, report.URL, link.URL, link.Error)
+			}
+		}
+	}
+
+	changedFilesWithBroken := make([]string, 0, len(changedFilesWithBrokenSet))
+	for file := range changedFilesWithBrokenSet {
+		changedFilesWithBroken = append(changedFilesWithBroken, file)
+	}
+	sort.Strings(changedFilesWithBroken)
+	sort.Slice(rows, func(i, j int) bool {
+		if rows[i].File != rows[j].File {
+			return rows[i].File < rows[j].File
+		}
+		if rows[i].PageURL != rows[j].PageURL {
+			return rows[i].PageURL < rows[j].PageURL
+		}
+		return rows[i].BrokenURL < rows[j].BrokenURL
+	})
+
+	return rows, changedFilesWithBroken
+}
+
+// sourceFileForPageURL maps a rendered page URL back to its most likely source markdown path.
+func sourceFileForPageURL(pageURL string, mappings []mapping) string {
+	reportPathValue := reportPath(pageURL)
+	if reportPathValue == "" {
+		return pageURL
+	}
+
+	sortedMappings := make([]mapping, 0, len(mappings))
+	sortedMappings = append(sortedMappings, mappings...)
+	sort.Slice(sortedMappings, func(i, j int) bool {
+		return len(sortedMappings[i].relativePrefix) > len(sortedMappings[j].relativePrefix)
+	})
+
+	for _, m := range sortedMappings {
+		prefix := normalizeReportPath(m.relativePrefix)
+		if !strings.HasSuffix(prefix, "/") {
+			prefix += "/"
+		}
+		if reportPathValue == strings.TrimSuffix(prefix, "/") || reportPathValue == prefix {
+			return m.sourceDirectory + "/_index.md"
+		}
+		if !strings.HasPrefix(reportPathValue, prefix) {
+			continue
+		}
+
+		rel := strings.TrimPrefix(reportPathValue, prefix)
+		if rel == "" {
+			return m.sourceDirectory + "/_index.md"
+		}
+		if strings.HasSuffix(rel, "/") {
+			rel = strings.TrimSuffix(rel, "/")
+			if rel == "" {
+				return m.sourceDirectory + "/_index.md"
+			}
+			return m.sourceDirectory + "/" + rel + "/index.md"
+		}
+		if strings.HasSuffix(rel, ".html") {
+			base := strings.TrimSuffix(rel, ".html")
+			if base == "index" {
+				return m.sourceDirectory + "/_index.md"
+			}
+			return m.sourceDirectory + "/" + base + ".md"
+		}
+		return m.sourceDirectory + "/" + rel + ".md"
+	}
+
+	return pageURL
+}
+
+// collectAllBrokenRows flattens all broken links from report data for fallback rendering.
+func collectAllBrokenRows(reports []pageReport) []simpleBrokenRow {
+	rows := make([]simpleBrokenRow, 0)
+	for _, report := range reports {
+		for _, link := range report.Links {
+			rows = append(rows, simpleBrokenRow{
+				PageURL:   report.URL,
+				BrokenURL: link.URL,
+			})
+		}
+	}
+	sort.Slice(rows, func(i, j int) bool {
+		if rows[i].PageURL != rows[j].PageURL {
+			return rows[i].PageURL < rows[j].PageURL
+		}
+		return rows[i].BrokenURL < rows[j].BrokenURL
+	})
+	return rows
+}
+
+// appendUniqueString appends value if it is not already present.
+func appendUniqueString(values []string, value string) []string {
+	for _, existing := range values {
+		if existing == value {
+			return values
+		}
+	}
+	return append(values, value)
+}
+
 // resolveMappings builds source-directory to relative-prefix mappings from inputs.
 func resolveMappings(sourcesJSON, sourceDirectory, relativePrefix string) []mapping {
 	mappings := make([]mapping, 0)
@@ -275,6 +394,83 @@ func normalizeRelativePrefixForComment(prefix string) string {
 		prefix += "/"
 	}
 	return prefix
+}
+
+// inferRelativePrefixFromReports infers the relative prefix from links.json for local runs.
+func inferRelativePrefixFromReports(reports []pageReport, changedFiles []string, sourceDirectory string) string {
+	sd := normalizeSourceDirectory(sourceDirectory)
+	defaultMapping := []mapping{{
+		sourceDirectory: sd,
+		relativePrefix:  generateDefaultRelativePrefix,
+	}}
+
+	tails := make([]string, 0)
+	seenTail := map[string]struct{}{}
+	for _, file := range changedFiles {
+		candidates := candidatePagePaths(file, defaultMapping)
+		for _, candidate := range candidates {
+			if !strings.HasPrefix(candidate, generateDefaultRelativePrefix) {
+				continue
+			}
+			tail := strings.TrimPrefix(candidate, generateDefaultRelativePrefix)
+			if tail == "" {
+				continue
+			}
+			if _, ok := seenTail[tail]; ok {
+				continue
+			}
+			seenTail[tail] = struct{}{}
+			tails = append(tails, tail)
+		}
+	}
+	if len(tails) == 0 {
+		return ""
+	}
+
+	sort.Slice(tails, func(i, j int) bool {
+		if len(tails[i]) != len(tails[j]) {
+			return len(tails[i]) > len(tails[j])
+		}
+		return tails[i] < tails[j]
+	})
+
+	prefixHits := map[string]int{}
+	matchPath := func(candidatePath string) {
+		if candidatePath == "" {
+			return
+		}
+		for _, tail := range tails {
+			if !strings.HasSuffix(candidatePath, tail) {
+				continue
+			}
+			prefix := strings.TrimSuffix(candidatePath, tail)
+			if prefix == "" {
+				continue
+			}
+			prefix = normalizeRelativePrefixForComment(prefix)
+			prefixHits[prefix]++
+			break
+		}
+	}
+	for _, report := range reports {
+		matchPath(reportPath(report.URL))
+		for _, link := range report.Links {
+			matchPath(reportPath(link.URL))
+		}
+	}
+
+	bestPrefix := ""
+	bestHits := 0
+	for prefix, hits := range prefixHits {
+		if hits > bestHits || (hits == bestHits && (bestPrefix == "" || len(prefix) > len(bestPrefix))) {
+			bestPrefix = prefix
+			bestHits = hits
+		}
+	}
+	if bestHits == 0 {
+		return ""
+	}
+	return bestPrefix
 }
 
 // candidatePagePaths maps a changed markdown file path to possible rendered page paths.
@@ -376,6 +572,7 @@ type commentInput struct {
 	changedWithBrokenCount int
 	brokenOnChangedPages   int
 	rows                   []brokenRow
+	fallbackRows           []simpleBrokenRow
 	maxRows                int
 }
 
@@ -394,14 +591,28 @@ func buildComment(in commentInput) string {
 	}
 
 	fmt.Fprintf(&b, "<!-- broken-links-report:%s -->\n", repo)
-	fmt.Fprintf(&b, ":link: Broken links report (%s): %d broken links total.\n\n", title, in.totalBroken)
+	fmt.Fprintf(&b, ":link: Broken links report (%s): %d broken %s total.\n\n", title, in.totalBroken, pluralize(in.totalBroken, "link", "links"))
 
 	if in.changedDocsFileCount == 0 {
 		b.WriteString("No changed Markdown files matched configured docs source directories.\n\n")
 	} else if in.changedWithBrokenCount == 0 {
-		fmt.Fprintf(&b, "No broken links were detected on changed docs files in this PR (%d %s checked).\n\n", in.changedDocsFileCount, pluralize(in.changedDocsFileCount, "file", "files"))
+		if len(in.fallbackRows) > 0 {
+			b.WriteString("First 10 broken links found in this build:\n\n")
+			b.WriteString("| Page | Broken link |\n")
+			b.WriteString("| --- | --- |\n")
+			limit := len(in.fallbackRows)
+			if limit > 10 {
+				limit = 10
+			}
+			for _, row := range in.fallbackRows[:limit] {
+				fmt.Fprintf(&b, "| `%s` | `%s` |\n", escapePipes(row.PageURL), escapePipes(row.BrokenURL))
+			}
+			b.WriteString("\nSee more in the logs.\n\n")
+		} else {
+			fmt.Fprintf(&b, "Checked %d changed docs %s and found no broken links.\n\n", in.changedDocsFileCount, pluralize(in.changedDocsFileCount, "file", "files"))
+		}
 	} else {
-		fmt.Fprintf(&b, "Broken links on files changed in this PR: %d across %d %s.\n\n", in.brokenOnChangedPages, in.changedWithBrokenCount, pluralize(in.changedWithBrokenCount, "file", "files"))
+		fmt.Fprintf(&b, "Broken links related to files changed in this PR: %d rows across %d changed %s.\n\n", in.brokenOnChangedPages, in.changedWithBrokenCount, pluralize(in.changedWithBrokenCount, "file", "files"))
 		b.WriteString("| File | Page | Broken link | Error |\n")
 		b.WriteString("| --- | --- | --- | --- |\n")
 		rows := in.rows

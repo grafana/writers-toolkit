@@ -380,7 +380,7 @@ jobs:
           sudo apt-get install -y nginx
 
       - name: Check links
-        run: go run scripts/check-links.go
+        run: go run ./scripts/cmd/check-links
 
       - name: Print nginx error log
         if: ${{ always() }}
@@ -404,7 +404,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           EVENT_NUMBER: ${{ inputs.event_number }}
-        run: gh api --paginate "repos/${GITHUB_REPOSITORY}/pulls/${EVENT_NUMBER}/files" --jq '.[].filename' > changed-files.txt
+        run: gh api --paginate "repos/${GITHUB_REPOSITORY}/pulls/${EVENT_NUMBER}/files" --jq '.[] | .filename, (.previous_filename // empty)' > changed-files.txt
 
       - name: Print links.json
         run: cat links.json
@@ -425,7 +425,7 @@ jobs:
           SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
           RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
         run: >
-          go run scripts/generate-broken-links-comment.go
+          go run ./scripts/cmd/generate-broken-links-comment
           -links links.json
           -changed-files changed-files.txt
           -output broken-links-comment.md

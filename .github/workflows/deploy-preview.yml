@@ -424,14 +424,17 @@ jobs:
           SOURCES: ${{ env.SOURCES }}
           SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
           RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+          PR_REPO: ${{ inputs.repo }}
+          PR_TITLE: ${{ inputs.title }}
+          ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
         run: >
           go run ./scripts/cmd/generate-broken-links-comment
           -links links.json
           -changed-files changed-files.txt
           -output broken-links-comment.md
-          -repo "${{ inputs.repo }}"
-          -title "${{ inputs.title }}"
-          -artifact-url "${{ steps.upload-links.outputs.artifact-url }}"
+          -repo "${PR_REPO}"
+          -title "${PR_TITLE}"
+          -artifact-url "${ARTIFACT_URL}"
 
       - name: Print broken links comment
         run: cat broken-links-comment.md

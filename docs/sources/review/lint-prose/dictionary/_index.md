@@ -33,6 +33,7 @@ The structure of that metadata is a Jsonnet object with the following fields:
 | `product`                  | `boolean`  | If `true`, the word is the name of any product, like Mimir or Facebook. Defaults to `false`.                                           |
 | `Amazon`                   | `boolean`  | If `true`, the word is the name of an Amazon product, like Amazon CloudWatch. Defaults to `false`.                                     |
 | `Apache`                   | `boolean`  | If `true`, the word is the name of an Apache project, like Apache Mesos. Defaults to `false`.                                          |
+| `Palantir`                 | `boolean`  | If `true`, the word is the name of a Palantir product, like Apollo. Defaults to `false`.                                               |
 
 You don't create the object directly in the dictionary template file.
 Instead, you use the `word.new` function which prescribes the required fields.

@@ -7,6 +7,7 @@
     Apache: false,
     Azure: false,
     Google: false,
+    Palantir: false,
     description: null,
     established_abbreviation: false,
     po: '',

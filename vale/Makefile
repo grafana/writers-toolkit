@@ -17,7 +17,7 @@ GIT_ROOT := $(shell git rev-parse --show-toplevel)
 DICTIONARIES := Grafana/styles/config/dictionaries/en_US-grafana.dic
 TESTS := fixtures/Grafana
 STYLES := Grafana/styles/Grafana/Google Grafana/styles/Grafana/Readability
-RULES := Grafana/styles/Grafana/Acronyms.yml Grafana/styles/Grafana/AmazonProductNames.yml Grafana/styles/Grafana/ApacheProjectNames.yml Grafana/styles/Grafana/GoogleProductNames.yml Grafana/styles/Grafana/Headings.yml Grafana/styles/Grafana/ProductPossessives.yml Grafana/styles/Grafana/WordList.yml
+RULES := Grafana/styles/Grafana/Acronyms.yml Grafana/styles/Grafana/AmazonProductNames.yml Grafana/styles/Grafana/ApacheProjectNames.yml Grafana/styles/Grafana/GoogleProductNames.yml Grafana/styles/Grafana/Headings.yml Grafana/styles/Grafana/PalantirProductNames.yml Grafana/styles/Grafana/ProductPossessives.yml Grafana/styles/Grafana/WordList.yml
 DOCUMENTATION := ../docs/sources/review/lint-prose/rules.md
 
 .PHONY: all

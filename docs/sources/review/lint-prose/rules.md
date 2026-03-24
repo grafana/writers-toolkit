@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2025-12-10"
+review_date: "2026-03-19"
 title: Vale rules
 ---
 
@@ -65,6 +65,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.OAuth = NO -->
 <!-- vale Grafana.OK = NO -->
 <!-- vale Grafana.Ordinal = NO -->
+<!-- vale Grafana.PalantirProductNames = NO -->
 <!-- vale Grafana.Paragraphs = NO -->
 <!-- vale Grafana.Parentheses = NO -->
 <!-- vale Grafana.Please = NO -->
@@ -768,6 +769,14 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#ok-okay)
 
+### Grafana.PalantirProductNames
+
+Extends: conditional
+
+Use the full Palantir product name in the first instance.
+
+[More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#palantir-products)
+
 ### Grafana.ProductPossessives
 
 Extends: existence
@@ -783,14 +792,17 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Alloy's`
 - `ARN's`
 - `Asserts'`
+- `Atlassian's`
 - `AWS's`
 - `AWS Distro for OpenTelemetry Collector's`
 - `AWS X-Ray's`
 - `Beyla's`
 - `BoringCrypto's`
+- `Catchpoint's`
 - `CentOS's`
 - `CloudWatch's`
 - `Codespaces'`
+- `CPython's`
 - `Data Firehose's`
 - `Databricks'`
 - `Datadog's`
@@ -841,6 +853,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Mimir's`
 - `Moodle's`
 - `MySQL's`
+- `Netlify's`
 - `Netlink's`
 - `Okta's`
 - `OnCall's`
@@ -874,7 +887,9 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Sensu Go's`
 - `Splunk's`
 - `SSM's`
+- `Statuspage's`
 - `SUSE's`
+- `Tailscale's`
 - `Team Sync's`
 - `Tempo's`
 - `Thanos'`
@@ -882,12 +897,15 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Timestream's`
 - `Traces Drilldown's`
 - `Velero's`
+- `Vercel's`
 - `Vite's`
 - `VMware's`
 - `Webex's`
 - `WildFly's`
 - `windows_exporter's`
 - `YugabyteDB's`
+- `Zabbix's`
+- `Zendesk's`
 - `Zipkin's`
 
 [More information ->](https://developers.google.com/style/possessives#product,-feature,-and-company-names)

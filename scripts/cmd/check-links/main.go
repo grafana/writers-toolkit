@@ -78,6 +78,7 @@ func main() {
 	}
 }
 
+// parseFlags builds runtime options from flags and environment defaults.
 func parseFlags() options {
 	var opts options
 	flag.StringVar(&opts.outputPath, "output", "links.json", "Output JSON path")
@@ -95,7 +96,10 @@ func parseFlags() options {
 
 	opts.relativePaths = resolveRelativePrefixes()
 	if opts.excludePattern == "" {
-		opts.excludePattern = defaultExcludePattern(opts.nginxPort)
+		opts.excludePattern = fmt.Sprintf(
+			"(?:http://(?:127\\.0\\.0\\.1|localhost):%s|https://(?:[^/]+\\.)?grafana\\.com)/(?:static|media|api|connect|launch|web)(?:/|$)",
+			opts.nginxPort,
+		)
 	}
 	if opts.excludePattern != "" {
 		regex, err := regexp.Compile(opts.excludePattern)
@@ -110,6 +114,7 @@ func parseFlags() options {
 	return opts
 }
 
+// normalizeRelativePrefix normalizes path prefixes to "/prefix/" form.
 func normalizeRelativePrefix(prefix string) string {
 	prefix = strings.TrimSpace(prefix)
 	if prefix == "" {
@@ -124,6 +129,7 @@ func normalizeRelativePrefix(prefix string) string {
 	return prefix
 }
 
+// resolveRelativePrefixes resolves documentation URL prefixes from env config.
 func resolveRelativePrefixes() []string {
 	if prefix := strings.TrimSpace(os.Getenv("RELATIVE_PREFIX")); prefix != "" {
 		return []string{normalizeRelativePrefix(prefix)}
@@ -159,17 +165,12 @@ func resolveRelativePrefixes() []string {
 	return prefixes
 }
 
+// baseURLForPrefix returns the local URL to use for a given relative prefix.
 func baseURLForPrefix(prefix, port string) string {
 	return fmt.Sprintf("http://127.0.0.1:%s%s", port, normalizeRelativePrefix(prefix))
 }
 
-func defaultExcludePattern(port string) string {
-	return fmt.Sprintf(
-		"(?:http://(?:127\\.0\\.0\\.1|localhost):%s|https://(?:[^/]+\\.)?grafana\\.com)/(?:static|media|api|connect|launch|web)(?:/|$)",
-		port,
-	)
-}
-
+// run orchestrates nginx startup, crawl, check, and report writing.
 func run(ctx context.Context, opts options) error {
 	if err := prepareNginxConfig(opts.nginxPort, opts.relativePaths); err != nil {
 		return err
@@ -208,6 +209,7 @@ func run(ctx context.Context, opts options) error {
 	}
 }
 
+// prepareNginxConfig renders and writes a local nginx configuration and logs.
 func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 	if err := os.MkdirAll("dist", 0o755); err != nil {
 		return fmt.Errorf("create dist dir: %w", err)
@@ -229,9 +231,11 @@ func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 		return fmt.Errorf("write nginx.conf: %w", err)
 	}
 
-	if err := touch("run/nginx.pid"); err != nil {
+	pidFile, err := os.OpenFile("run/nginx.pid", os.O_RDONLY|os.O_CREATE, 0o644)
+	if err != nil {
 		return fmt.Errorf("touch run/nginx.pid: %w", err)
 	}
+	_ = pidFile.Close()
 	if err := truncateFile("access.log"); err != nil {
 		return fmt.Errorf("truncate access.log: %w", err)
 	}
@@ -242,6 +246,7 @@ func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 	return nil
 }
 
+// buildServerConfig builds generated location blocks for configured prefixes.
 func buildServerConfig(relativePrefixes []string, distRoot, sha string) string {
 	var builder strings.Builder
 	builder.WriteString(fmt.Sprintf("add_header 'Build' '%s';\n\n", sha))
@@ -275,6 +280,7 @@ location ^~ %s {
 	return builder.String()
 }
 
+// renderLocalNginxConfig replaces template values for local checking.
 func renderLocalNginxConfig(config, nginxPort string, relativePrefixes []string, sha string) (string, error) {
 	replacements := []struct {
 		old string
@@ -301,14 +307,7 @@ func renderLocalNginxConfig(config, nginxPort string, relativePrefixes []string,
 	return rendered, nil
 }
 
-func touch(path string) error {
-	file, err := os.OpenFile(path, os.O_RDONLY|os.O_CREATE, 0o644)
-	if err != nil {
-		return err
-	}
-	return file.Close()
-}
-
+// truncateFile truncates or creates a file.
 func truncateFile(path string) error {
 	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
 	if err != nil {
@@ -317,6 +316,7 @@ func truncateFile(path string) error {
 	return file.Close()
 }
 
+// testNginxConfig validates the generated nginx configuration.
 func testNginxConfig() error {
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -332,6 +332,7 @@ func testNginxConfig() error {
 	return nil
 }
 
+// startNginx starts nginx in foreground mode and tracks its process state.
 func startNginx(ctx context.Context) (*exec.Cmd, *processState, error) {
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -349,7 +350,7 @@ func startNginx(ctx context.Context) (*exec.Cmd, *processState, error) {
 		return nil, nil, fmt.Errorf("start nginx: %w", err)
 	}
 
-	state := newProcessState()
+	state := &processState{done: make(chan struct{})}
 	go func() {
 		state.setErr(cmd.Wait())
 	}()
@@ -357,6 +358,7 @@ func startNginx(ctx context.Context) (*exec.Cmd, *processState, error) {
 	return cmd, state, nil
 }
 
+// waitForNginx waits until nginx responds or exits/fails.
 func waitForNginx(ctx context.Context, readyURL string, nginxState *processState, timeout time.Duration) error {
 	client := &http.Client{Timeout: 2 * time.Second}
 	deadline := time.NewTimer(timeout)
@@ -388,6 +390,7 @@ func waitForNginx(ctx context.Context, readyURL string, nginxState *processState
 	}
 }
 
+// runChecks crawls source pages, checks targets, and writes a links report.
 func runChecks(ctx context.Context, opts options, nginxState *processState) error {
 	sourceURLs, err := collectSourcePageURLs(opts.relativePaths, opts.nginxPort)
 	if err != nil {
@@ -427,6 +430,7 @@ func runChecks(ctx context.Context, opts options, nginxState *processState) erro
 	return writeReport(opts.outputPath, reports)
 }
 
+// collectSourcePageURLs collects rendered page URLs from dist html output.
 func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, error) {
 	urls := make([]string, 0)
 	seen := map[string]struct{}{}
@@ -466,6 +470,7 @@ func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, er
 	return urls, nil
 }
 
+// htmlFilePathToURLPath maps a dist html path to a URL path.
 func htmlFilePathToURLPath(path string) (string, bool) {
 	relativePath, err := filepath.Rel("dist", path)
 	if err != nil {
@@ -485,6 +490,7 @@ func htmlFilePathToURLPath(path string) (string, bool) {
 	}
 }
 
+// newHTTPClient builds the HTTP client used for page and target requests.
 func newHTTPClient(timeout time.Duration) *http.Client {
 	transport := &http.Transport{
 		Proxy:                 http.ProxyFromEnvironment,
@@ -509,6 +515,7 @@ func newHTTPClient(timeout time.Duration) *http.Client {
 	}
 }
 
+// fetchPageBody fetches and validates a page body for link extraction.
 func fetchPageBody(ctx context.Context, client *http.Client, pageURL string) ([]byte, error) {
 	request, err := http.NewRequestWithContext(ctx, http.MethodGet, pageURL, nil)
 	if err != nil {
@@ -533,8 +540,9 @@ func fetchPageBody(ctx context.Context, client *http.Client, pageURL string) ([]
 	return body, nil
 }
 
+// extractLinks extracts and normalizes unique link targets from HTML.
 func extractLinks(pageURL, body, nginxPort string) []string {
-	body = stripIgnoredHTML(body)
+	body = ignoredHTMLPattern.ReplaceAllString(body, "")
 
 	links := make([]string, 0)
 	seen := map[string]struct{}{}
@@ -573,10 +581,7 @@ func extractLinks(pageURL, body, nginxPort string) []string {
 	return links
 }
 
-func stripIgnoredHTML(body string) string {
-	return ignoredHTMLPattern.ReplaceAllString(body, "")
-}
-
+// firstNonEmptyCapture returns the first present capture group in a regex match.
 func firstNonEmptyCapture(match []string) (string, bool) {
 	for _, value := range match[1:] {
 		if value != "" {
@@ -586,6 +591,7 @@ func firstNonEmptyCapture(match []string) (string, bool) {
 	return "", false
 }
 
+// normalizeLinkURL normalizes link URLs and filters unsupported/external targets.
 func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {
 	raw = strings.TrimSpace(raw)
 	if raw == "" || raw == "#" {
@@ -628,14 +634,17 @@ func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {
 	return resolved.String(), true
 }
 
+// isLocalPreviewHost reports whether a host belongs to the local preview server.
 func isLocalPreviewHost(host string) bool {
 	return host == "127.0.0.1" || host == "localhost"
 }
 
+// isGrafanaHost reports whether a host is grafana.com or a subdomain.
 func isGrafanaHost(host string) bool {
 	return host == "grafana.com" || strings.HasSuffix(host, ".grafana.com")
 }
 
+// filterTargets applies an optional regex exclusion to candidate targets.
 func filterTargets(targets []string, excludeRegex *regexp.Regexp) []string {
 	if excludeRegex == nil {
 		return targets
@@ -651,6 +660,7 @@ func filterTargets(targets []string, excludeRegex *regexp.Regexp) []string {
 	return filtered
 }
 
+// invertPageTargets creates a reverse index from target URL to source pages.
 func invertPageTargets(pageTargets map[string][]string) map[string][]string {
 	targetToPages := map[string][]string{}
 	for pageURL, targets := range pageTargets {
@@ -661,6 +671,7 @@ func invertPageTargets(pageTargets map[string][]string) map[string][]string {
 	return targetToPages
 }
 
+// checkTargets concurrently validates each target URL and stores outcomes.
 func checkTargets(ctx context.Context, client *http.Client, opts options, nginxState *processState, targetURLs []string, results map[string]linkCheckResult) error {
 	if len(targetURLs) == 0 {
 		return nil
@@ -728,6 +739,7 @@ func checkTargets(ctx context.Context, client *http.Client, opts options, nginxS
 	}
 }
 
+// checkTarget performs a single HTTP check for one target URL.
 func checkTarget(ctx context.Context, client *http.Client, targetURL string) (linkCheckResult, error) {
 	request, err := http.NewRequestWithContext(ctx, http.MethodGet, targetURL, nil)
 	if err != nil {
@@ -755,6 +767,7 @@ func checkTarget(ctx context.Context, client *http.Client, targetURL string) (li
 	}, nil
 }
 
+// classifyRequestError converts request errors into stable report strings.
 func classifyRequestError(err error) string {
 	if err == nil {
 		return ""
@@ -773,6 +786,7 @@ func classifyRequestError(err error) string {
 	return err.Error()
 }
 
+// isTimeoutError reports whether an error is timeout-related.
 func isTimeoutError(err error) bool {
 	if err == nil {
 		return false
@@ -784,6 +798,7 @@ func isTimeoutError(err error) bool {
 	return errors.Is(err, context.DeadlineExceeded)
 }
 
+// buildReports assembles page-centric broken-link report objects.
 func buildReports(sourceURLs []string, pageTargets map[string][]string, results map[string]linkCheckResult) []pageReport {
 	reports := make([]pageReport, 0, len(sourceURLs))
 	for _, sourceURL := range sourceURLs {
@@ -810,6 +825,7 @@ func buildReports(sourceURLs []string, pageTargets map[string][]string, results 
 	return reports
 }
 
+// writeReport marshals report data to JSON and writes it to disk.
 func writeReport(path string, reports []pageReport) error {
 	content, err := json.MarshalIndent(reports, "", "  ")
 	if err != nil {
@@ -823,6 +839,7 @@ func writeReport(path string, reports []pageReport) error {
 	return nil
 }
 
+// startNginxLogStreaming starts asynchronous nginx error/access log tailing.
 func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, stderr io.Writer) func() {
 	stopLoggers := []func(){startLogStreaming(parent, "error.log", "[nginx-error]", stderr)}
 	if logRequests {
@@ -836,6 +853,7 @@ func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, st
 	}
 }
 
+// startLogStreaming tails a log file and writes prefixed lines to output.
 func startLogStreaming(parent context.Context, path, prefix string, output io.Writer) func() {
 	ctx, cancel := context.WithCancel(parent)
 	done := make(chan struct{})
@@ -876,6 +894,7 @@ func startLogStreaming(parent context.Context, path, prefix string, output io.Wr
 	}
 }
 
+// waitForFile waits for a log file to exist and opens it.
 func waitForFile(ctx context.Context, path string, timeout time.Duration) (*os.File, error) {
 	deadline := time.NewTimer(timeout)
 	defer deadline.Stop()
@@ -901,6 +920,7 @@ func waitForFile(ctx context.Context, path string, timeout time.Duration) (*os.F
 	}
 }
 
+// stopProcessGroup attempts graceful then forced process-group shutdown.
 func stopProcessGroup(cmd *exec.Cmd, done <-chan struct{}, timeout time.Duration) error {
 	if cmd == nil || cmd.Process == nil {
 		return nil
@@ -938,10 +958,7 @@ type processState struct {
 	errv error
 }
 
-func newProcessState() *processState {
-	return &processState{done: make(chan struct{})}
-}
-
+// setErr stores process exit error and marks the process as done.
 func (p *processState) setErr(err error) {
 	p.mu.Lock()
 	p.errv = err
@@ -949,6 +966,7 @@ func (p *processState) setErr(err error) {
 	close(p.done)
 }
 
+// err returns the stored process exit error.
 func (p *processState) err() error {
 	p.mu.Lock()
 	defer p.mu.Unlock()

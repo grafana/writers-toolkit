@@ -209,7 +209,7 @@ func run(ctx context.Context, opts options) error {
 	}
 }
 
-// prepareNginxConfig renders and writes a local nginx configuration and logs.
+// prepareNginxConfig renders and writes local nginx config artifacts and logs.
 func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 	if err := os.MkdirAll("dist", 0o755); err != nil {
 		return fmt.Errorf("create dist dir: %w", err)
@@ -218,12 +218,12 @@ func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 		return fmt.Errorf("create run dir: %w", err)
 	}
 
-	templateBytes, err := os.ReadFile("deploy-preview/nginx.conf")
+	templateBytes, err := os.ReadFile("scripts/cmd/check-links/nginx.local.conf")
 	if err != nil {
-		return fmt.Errorf("read deploy-preview/nginx.conf: %w", err)
+		return fmt.Errorf("read scripts/cmd/check-links/nginx.local.conf: %w", err)
 	}
 
-	rendered, err := renderLocalNginxConfig(string(templateBytes), nginxPort, relativePrefixes, os.Getenv("SHA"))
+	rendered, err := renderCheckLinksNginxConfig(string(templateBytes), nginxPort, relativePrefixes, os.Getenv("SHA"))
 	if err != nil {
 		return err
 	}
@@ -246,7 +246,8 @@ func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
 	return nil
 }
 
-// buildServerConfig builds generated location blocks for configured prefixes.
+// buildServerConfig builds location blocks that map relative prefixes to their dist dir.
+// For example, /docs/writers-toolkit/ gets aliased to dist/docs/writers-toolkit/.
 func buildServerConfig(relativePrefixes []string, distRoot, sha string) string {
 	var builder strings.Builder
 	builder.WriteString(fmt.Sprintf("add_header 'Build' '%s';\n\n", sha))
@@ -280,20 +281,15 @@ location ^~ %s {
 	return builder.String()
 }
 
-// renderLocalNginxConfig replaces template values for local checking.
-func renderLocalNginxConfig(config, nginxPort string, relativePrefixes []string, sha string) (string, error) {
+// renderCheckLinksNginxConfig injects runtime values into the local check-links template.
+func renderCheckLinksNginxConfig(config, nginxPort string, relativePrefixes []string, sha string) (string, error) {
 	replacements := []struct {
 		old string
 		new string
 	}{
-		{"pid /run/nginx.pid;", "pid run/nginx.pid;"},
-		{"access_log /var/log/nginx/access.log;", "access_log access.log;"},
-		{"error_log /var/log/nginx/error.log;", "error_log error.log;"},
 		{"listen 80;", fmt.Sprintf("listen %s;", nginxPort)},
 		{"include /etc/nginx/build.conf;", buildServerConfig(relativePrefixes, "dist", sha)},
-		{"root /usr/share/nginx/dist/;", "root dist/;"},
-		{"alias /usr/share/nginx/dist/;", "alias dist/;"},
-		{"alias /usr/share/nginx/assets/$1;", "alias dist/static/$1;"},
+		{"include /etc/nginx/locations.conf;", "include deploy-preview/locations.conf;"},
 	}
 
 	rendered := config

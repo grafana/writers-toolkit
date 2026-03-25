@@ -16,24 +16,24 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-      - uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1
+      - uses: grafana/shared-workflows/actions/get-vault-secrets@f1614b210386ac420af6807a997ac7f6d96e477a # get-vault-secrets/v1.3.1
         with:
           common_secrets: |
             ISSUE_COMMANDS_APP_ID=docs-team/issue-commands:app-id
             ISSUE_COMMANDS_PRIVATE_KEY=docs-team/issue-commands:key
 
-      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-token
         with:
           app-id: ${{ env.ISSUE_COMMANDS_APP_ID }}
           owner: grafana
           private-key: ${{ env.ISSUE_COMMANDS_PRIVATE_KEY }}
 
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           cache: npm
           node-version-file: "add-to-docs-project/package.json"
@@ -50,7 +50,7 @@ jobs:
       - name: Format Slack Message
         id: format-message
         if: ${{ steps.add-to-docs-project.outputs.added != ''}}
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
           script: |
             const added = JSON.parse(${{ toJSON(steps.add-to-docs-project.outputs.added) }});

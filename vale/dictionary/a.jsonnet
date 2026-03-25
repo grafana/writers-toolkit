@@ -16,6 +16,7 @@ local word = import './word.jsonnet';
   word.new('Ansible', '', 'adjective'),
   word.new('Ansible', '', 'noun'),
   word.new('Apdex', '', 'noun'),
+  word.new('Apollo', '', 'noun') { Palantir: true, product: true },
   word.new('API', 'S', 'noun') { abbreviation: true, elaboration: 'Application Programming Interface', established_abbreviation: true },
   word.new('APT', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/APT_(software)', elaboration: 'Advanced package tool', established_abbreviation: true },
   word.new('ARN', 'S', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Resource Name', established_abbreviation: true, product: true },

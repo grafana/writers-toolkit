@@ -1,0 +1,7 @@
+"extends": "conditional"
+"first": "\\b(Apollo)\\b"
+"level": "warning"
+"link": "https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/#palantir-products"
+"message": "Use the full Palantir product name in the first instance."
+"scope": "text"
+"second": "Palantir (Apollo)"

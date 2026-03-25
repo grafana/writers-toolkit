@@ -93,34 +93,34 @@ jobs:
           echo "::error::Cannot run on fork-based PRs for security reasons"
           exit 1
         shell: bash
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         if: github.event_name == 'workflow_dispatch'
         with:
           persist-credentials: false
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         if: github.event_name == 'issue_comment' && steps.check-permission.outputs.has_permission == 'true' && steps.pr-branch.outputs.is_fork == 'false'
         with:
           repository: ${{ steps.pr-branch.outputs.repo }}
           ref: ${{ steps.pr-branch.outputs.ref }}
           persist-credentials: false
       - id: get-secrets
-        uses: grafana/shared-workflows/actions/get-vault-secrets@97c6f45f01d4bca8a3b1acfe397113ce88858a81 # get-vault-secrets-v1.0.1
+        uses: grafana/shared-workflows/actions/get-vault-secrets@f1614b210386ac420af6807a997ac7f6d96e477a # get-vault-secrets/v1.3.1
         with:
           repo_secrets: |
             DOCS_PLATFORM_TEAM_APP_ID=docs-platform-team:app-id
             DOCS_PLATFORM_TEAM_PRIVATE_KEY=docs-platform-team:key
-      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-token
         with:
           app-id: ${{ env.DOCS_PLATFORM_TEAM_APP_ID }}
           owner: grafana
           private-key: ${{ env.DOCS_PLATFORM_TEAM_PRIVATE_KEY }}
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version-file: package.json
       - run: npm install --no-save prettier
       - name: Setup Go
-        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
         with:
           go-version-file: tools/go.mod
       - run: go install github.com/google/go-jsonnet/cmd/jsonnet@latest

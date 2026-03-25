@@ -85,6 +85,13 @@ After the first use, you can use just the project name.
 
 In headings, always use the full name including "Apache".
 
+### Palantir products
+
+When referring to Palantir products such as [Palantir Apollo](https://www.palantir.com/platforms/apollo/), include the "Palantir" name prefix.
+After the first use, you can use just the product name.
+
+In headings, always use the full name including "Palantir".
+
 ### Google products
 
 When referring to Google products such as [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine), include the "Google" name prefix.

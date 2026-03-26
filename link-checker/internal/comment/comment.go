@@ -948,9 +948,9 @@ func buildComment(in commentInput) string {
 		}
 		tableRows := make([][]string, 0, len(rows))
 		for _, row := range rows {
-			fileValue := row.File
+			fileValue := displayFilePath(row.File)
 			if row.Line > 0 && row.Column > 0 {
-				fileValue = fmt.Sprintf("%s:%d:%d", row.File, row.Line, row.Column)
+				fileValue = fmt.Sprintf("%s:%d:%d", fileValue, row.Line, row.Column)
 			}
 			tableRows = append(tableRows, []string{
 				fmt.Sprintf("`%s`", escapePipes(fileValue)),
@@ -970,6 +970,12 @@ func buildComment(in commentInput) string {
 	}
 
 	return b.String()
+}
+
+func displayFilePath(filePath string) string {
+	filePath = strings.TrimSpace(filePath)
+	filePath = strings.TrimPrefix(filePath, "source-files/")
+	return filePath
 }
 
 // renderMarkdownTable renders a markdown table with padded, equal-width columns.

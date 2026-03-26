@@ -376,3 +376,27 @@ func TestBuildCommentShowsFileLineColumn(t *testing.T) {
 		t.Fatalf("expected file column to include line/column, got:\n%s", comment)
 	}
 }
+
+func TestBuildCommentOmitsSourceCheckoutPrefix(t *testing.T) {
+	comment := buildComment(commentInput{
+		repo:        "writers-toolkit",
+		title:       "test",
+		totalBroken: 1,
+		rows: []brokenRow{
+			{
+				File:      "source-files/docs/sources/contribute/_index.md",
+				Line:      125,
+				Column:    81,
+				BrokenURL: "http://127.0.0.1:3002/docs/writers-toolkit/review/test-documentation-changes/",
+				Error:     "404",
+			},
+		},
+	})
+
+	if strings.Contains(comment, "`source-files/docs/sources/contribute/_index.md:125:81`") {
+		t.Fatalf("did not expect source checkout prefix in comment, got:\n%s", comment)
+	}
+	if !strings.Contains(comment, "`docs/sources/contribute/_index.md:125:81`") {
+		t.Fatalf("expected repo-relative file path in comment, got:\n%s", comment)
+	}
+}

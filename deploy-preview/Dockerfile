@@ -7,6 +7,7 @@ RUN rm -rf /etc/nginx/sites-enabled && \
 
 COPY deploy-preview-files/deploy-preview/nginx.conf /etc/nginx/nginx.conf
 COPY deploy-preview-files/deploy-preview/locations.conf /etc/nginx/locations.conf
+COPY deploy-preview-files/deploy-preview/redirects.conf /etc/nginx/redirects.conf
 COPY build.conf /etc/nginx/build.conf
 
 RUN nginx -t

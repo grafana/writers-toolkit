@@ -217,6 +217,7 @@ func renderConfig(config, nginxPort string, relativePrefixes []string, sha strin
 		{"listen 80;", fmt.Sprintf("listen %s;", nginxPort)},
 		{"include /etc/nginx/build.conf;", buildServerConfig(relativePrefixes, "dist", sha)},
 		{"include /etc/nginx/locations.conf;", "include deploy-preview/locations.conf;"},
+		{"include /etc/nginx/redirects.conf;", "include deploy-preview/redirects.conf;"},
 	}
 
 	rendered := config

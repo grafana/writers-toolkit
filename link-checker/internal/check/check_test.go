@@ -56,3 +56,26 @@ func TestExtractPageDataIgnoresEscapedHrefInEmbeddedJSON(t *testing.T) {
 		t.Fatalf("len(links) = %d, want 0; links=%#v", len(links), links)
 	}
 }
+
+func TestExtractPageDataIgnoresBoundTemplateAttributes(t *testing.T) {
+	pageURL := "http://127.0.0.1:3002/docs/grafana/latest/"
+	body := `
+<html>
+<body>
+  <div :src="header.image.src"></div>
+  <a :href="link.href">bad</a>
+  <img x-bind:src="error.image.src" />
+  <a x-bind:href="link.href">bad2</a>
+  <a href="/docs/grafana/latest/real-link/">good</a>
+</body>
+</html>
+`
+
+	_, links := extractPageData(pageURL, body, "3002")
+	if len(links) != 1 {
+		t.Fatalf("len(links) = %d, want 1; links=%#v", len(links), links)
+	}
+	if links[0].URL != "http://127.0.0.1:3002/docs/grafana/latest/real-link/" {
+		t.Fatalf("links[0].URL = %q", links[0].URL)
+	}
+}

@@ -28,8 +28,8 @@ import (
 const defaultRelativePrefix = "/docs/"
 
 var (
-	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
-	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
+	linkAttributePattern = regexp.MustCompile(`(?is)(?:^|[\s<])(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
+	srcsetPattern        = regexp.MustCompile(`(?is)(?:^|[\s<])srcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
 	ignoredHTMLPattern   = regexp.MustCompile(`(?is)<(?:pre|code|script|style)\b[^>]*>.*?</(?:pre|code|script|style)>`)
 	windowPathPattern    = regexp.MustCompile(`window\.Path\s*=\s*("([^"\\]|\\.)*"|'([^'\\]|\\.)*')`)
 )

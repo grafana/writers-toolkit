@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+	"path/filepath"
 	"reflect"
 	"strings"
 	"testing"
@@ -26,7 +28,8 @@ func TestInferRelativePrefixFromReports(t *testing.T) {
 func TestInferRelativePrefixFromBrokenLinkTargets(t *testing.T) {
 	reports := []pageReport{
 		{
-			URL: "http://127.0.0.1:3002/docs/writers-toolkit/contribute/",
+			URL:        "http://127.0.0.1:3002/docs/writers-toolkit/contribute/",
+			SourcePath: "docs/sources/contribute/index.md",
 			Links: []linkReport{
 				{
 					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/test-documentation-changes/",
@@ -119,6 +122,19 @@ func TestCollectBrokenRowsDeduplicatesOverlap(t *testing.T) {
 	}
 }
 
+func TestCandidatePagePathsNestedUnderscoreIndex(t *testing.T) {
+	mappings := []mapping{{
+		sourceDirectory: "docs/sources",
+		relativePrefix:  "/docs/writers-toolkit/",
+	}}
+
+	got := candidatePagePaths("docs/sources/contribute/_index.md", mappings)
+	want := []string{"/docs/writers-toolkit/contribute/"}
+	if !reflect.DeepEqual(got, want) {
+		t.Fatalf("candidatePagePaths() = %#v, want %#v", got, want)
+	}
+}
+
 func TestSourceFileForPageURL(t *testing.T) {
 	mappings := []mapping{{
 		sourceDirectory: "docs/sources",
@@ -157,6 +173,42 @@ func TestSourceFileForPageURL(t *testing.T) {
 	}
 }
 
+func TestSourceFileForReportPrefersSourcePath(t *testing.T) {
+	mappings := []mapping{{
+		sourceDirectory: "docs/sources",
+		relativePrefix:  "/docs/writers-toolkit/",
+	}}
+
+	report := pageReport{
+		URL:        "http://127.0.0.1:3002/docs/writers-toolkit/whats-new/",
+		SourcePath: "docs/writers-toolkit/whats-new.md",
+	}
+
+	got := sourceFileForReport(report, mappings)
+	want := "docs/sources/whats-new.md"
+	if got != want {
+		t.Fatalf("sourceFileForReport() = %q, want %q", got, want)
+	}
+}
+
+func TestSourceFileForReportLeavesNonMatchingSourcePath(t *testing.T) {
+	mappings := []mapping{{
+		sourceDirectory: "docs/sources",
+		relativePrefix:  "/docs/writers-toolkit/",
+	}}
+
+	report := pageReport{
+		URL:        "http://127.0.0.1:3002/docs/writers-toolkit/whats-new/",
+		SourcePath: "content/docs/other-product/index.md",
+	}
+
+	got := sourceFileForReport(report, mappings)
+	want := "content/docs/other-product/index.md"
+	if got != want {
+		t.Fatalf("sourceFileForReport() = %q, want %q", got, want)
+	}
+}
+
 func TestBuildCommentPluralization(t *testing.T) {
 	comment := buildComment(commentInput{
 		repo:                 "writers-toolkit",
@@ -171,38 +223,64 @@ func TestBuildCommentPluralization(t *testing.T) {
 	}
 }
 
-func TestBuildCommentFallbackTableWhenNoChangedMatches(t *testing.T) {
+func TestBuildCommentShowsAllBrokenRows(t *testing.T) {
 	comment := buildComment(commentInput{
-		repo:                   "writers-toolkit",
-		title:                  "test",
-		totalBroken:            2,
-		changedDocsFileCount:   3,
-		changedWithBrokenCount: 0,
-		fallbackRows: []simpleBrokenRow{
+		repo:        "writers-toolkit",
+		title:       "test",
+		totalBroken: 2,
+		rows: []brokenRow{
 			{
+				File:      "docs/sources/contribute/_index.md",
 				PageURL:   "http://127.0.0.1:3002/docs/writers-toolkit/contribute/",
 				BrokenURL: "http://127.0.0.1:3002/docs/writers-toolkit/review/test-documentation-changes/",
+				Error:     "404",
 			},
 			{
+				File:      "docs/sources/get-started/_index.md",
 				PageURL:   "http://127.0.0.1:3002/docs/writers-toolkit/get-started/",
 				BrokenURL: "http://127.0.0.1:3002/docs/writers-toolkit/review/test-documentation-changes/",
+				Error:     "404",
 			},
 		},
 		maxRows: 150,
 	})
 
-	if strings.Contains(comment, "No broken links were detected on changed docs files in this PR") {
-		t.Fatalf("did not expect old no-changed-match message, got:\n%s", comment)
+	if !strings.Contains(comment, "Broken links found in this build:") {
+		t.Fatalf("expected build-wide broken-links message, got:\n%s", comment)
 	}
-	if !strings.Contains(comment, "| Page | Broken link |") {
-		t.Fatalf("expected fallback table header, got:\n%s", comment)
+	if !strings.Contains(comment, "| File") || !strings.Contains(comment, "Broken link") {
+		t.Fatalf("expected full broken-links table header, got:\n%s", comment)
 	}
-	if !strings.Contains(comment, "See more in the logs.") {
-		t.Fatalf("expected logs hint, got:\n%s", comment)
+	if strings.Contains(comment, "| Page") {
+		t.Fatalf("did not expect page column in table, got:\n%s", comment)
+	}
+	if strings.Contains(comment, "See more in the logs.") {
+		t.Fatalf("did not expect fallback logs hint, got:\n%s", comment)
 	}
 }
 
-func TestFilterReportsForCommentExcludesUnstyled(t *testing.T) {
+func TestRenderMarkdownTablePadsColumns(t *testing.T) {
+	got := renderMarkdownTable(
+		[]string{"A", "BBB"},
+		[][]string{
+			{"xx", "y"},
+			{"z", "long"},
+		},
+	)
+
+	want := strings.Join([]string{
+		"| A  | BBB  |",
+		"| -- | ---- |",
+		"| xx | y    |",
+		"| z  | long |",
+		"",
+	}, "\n")
+	if got != want {
+		t.Fatalf("renderMarkdownTable() =\n%s\nwant:\n%s", got, want)
+	}
+}
+
+func TestFilterReportsForCommentNoFiltering(t *testing.T) {
 	reports := []pageReport{
 		{
 			URL: "http://127.0.0.1:3002/docs/writers-toolkit/contribute/",
@@ -229,13 +307,72 @@ func TestFilterReportsForCommentExcludesUnstyled(t *testing.T) {
 	}
 
 	filtered := filterReportsForComment(reports)
-	if len(filtered) != 1 {
-		t.Fatalf("len(filtered) = %d, want 1", len(filtered))
+	if len(filtered) != len(reports) {
+		t.Fatalf("len(filtered) = %d, want %d", len(filtered), len(reports))
 	}
-	if len(filtered[0].Links) != 1 {
-		t.Fatalf("len(filtered[0].Links) = %d, want 1", len(filtered[0].Links))
+	if len(filtered[0].Links) != len(reports[0].Links) {
+		t.Fatalf("len(filtered[0].Links) = %d, want %d", len(filtered[0].Links), len(reports[0].Links))
 	}
-	if strings.Contains(filtered[0].Links[0].URL, "unstyled") {
-		t.Fatalf("unexpected unstyled URL in filtered output: %q", filtered[0].Links[0].URL)
+}
+
+func TestSourceLinkLocatorFindsExactURL(t *testing.T) {
+	dir := t.TempDir()
+	filePath := filepath.Join(dir, "cla.md")
+	content := "alpha\n- [CLA](https://grafana.com/docs/grafana/latest/developers/cla/)\n"
+	if err := os.WriteFile(filePath, []byte(content), 0o644); err != nil {
+		t.Fatalf("write file: %v", err)
+	}
+
+	locator := newSourceLinkLocator()
+	line, column, ok := locator.find(filePath, linkReport{
+		URL: "http://127.0.0.1:3002/docs/grafana/latest/developers/cla/",
+		Raw: "https://grafana.com/docs/grafana/latest/developers/cla/",
+	})
+	if !ok {
+		t.Fatal("expected to find source location")
+	}
+	if line != 2 || column != 9 {
+		t.Fatalf("location = %d:%d, want 2:9", line, column)
+	}
+}
+
+func TestSourceLinkLocatorMatchesGrafanaVersionPlaceholder(t *testing.T) {
+	dir := t.TempDir()
+	filePath := filepath.Join(dir, "task.md")
+	content := "- [Create](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/dashboards/build-dashboards/create-dashboard/)\n"
+	if err := os.WriteFile(filePath, []byte(content), 0o644); err != nil {
+		t.Fatalf("write file: %v", err)
+	}
+
+	locator := newSourceLinkLocator()
+	line, column, ok := locator.find(filePath, linkReport{
+		URL: "http://127.0.0.1:3002/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/",
+	})
+	if !ok {
+		t.Fatal("expected to find source location")
+	}
+	if line != 1 || column != 12 {
+		t.Fatalf("location = %d:%d, want 1:12", line, column)
+	}
+}
+
+func TestBuildCommentShowsFileLineColumn(t *testing.T) {
+	comment := buildComment(commentInput{
+		repo:        "writers-toolkit",
+		title:       "test",
+		totalBroken: 1,
+		rows: []brokenRow{
+			{
+				File:      "docs/sources/review/cla-assistant/index.md",
+				Line:      42,
+				Column:    7,
+				BrokenURL: "http://127.0.0.1:3002/docs/grafana/latest/developers/cla/",
+				Error:     "404",
+			},
+		},
+	})
+
+	if !strings.Contains(comment, "`docs/sources/review/cla-assistant/index.md:42:7`") {
+		t.Fatalf("expected file column to include line/column, got:\n%s", comment)
 	}
 }

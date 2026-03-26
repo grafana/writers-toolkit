@@ -16,3 +16,4 @@ links.json
 broken-links-comment.md
 nginx.conf
 run/nginx.pid
+docs/dist

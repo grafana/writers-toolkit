@@ -356,6 +356,7 @@ jobs:
           repository: grafana/writers-toolkit
           ref: ${{ inputs.sha }}
           persist-credentials: false
+          fetch-depth: 0
           sparse-checkout: |
             deploy-preview
             scripts
@@ -398,14 +399,6 @@ jobs:
             cat access.log
           fi
 
-      - name: Get changed files in pull request
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          EVENT_NUMBER: ${{ inputs.event_number }}
-        run: gh api --paginate "repos/${GITHUB_REPOSITORY}/pulls/${EVENT_NUMBER}/files" --jq '.[] | .filename, (.previous_filename // empty)' > changed-files.txt
-
       - name: Print links.json
         run: cat links.json
 
@@ -426,11 +419,12 @@ jobs:
           RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
           PR_REPO: ${{ inputs.repo }}
           PR_TITLE: ${{ inputs.title }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
         run: >
           go run ./scripts/cmd/generate-broken-links-comment
           -links links.json
-          -changed-files changed-files.txt
+          -base-ref "${PR_BASE_SHA}"
           -output broken-links-comment.md
           -repo "${PR_REPO}"
           -title "${PR_TITLE}"

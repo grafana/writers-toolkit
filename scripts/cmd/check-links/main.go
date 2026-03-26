@@ -29,9 +29,10 @@ import (
 const defaultRelativePrefix = "/docs/"
 
 var (
-	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `]+))`)
-	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `]+))`)
+	linkAttributePattern = regexp.MustCompile(`(?is)\b(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
+	srcsetPattern        = regexp.MustCompile(`(?is)\bsrcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
 	ignoredHTMLPattern   = regexp.MustCompile(`(?is)<(?:pre|code|script|style)\b[^>]*>.*?</(?:pre|code|script|style)>`)
+	windowPathPattern    = regexp.MustCompile(`window\.Path\s*=\s*("([^"\\]|\\.)*"|'([^'\\]|\\.)*')`)
 )
 
 type options struct {
@@ -52,13 +53,22 @@ type sourceConfig struct {
 }
 
 type linkReport struct {
+	ID    string `json:"id,omitempty"`
 	URL   string `json:"url"`
+	Raw   string `json:"raw,omitempty"`
 	Error string `json:"error"`
 }
 
 type pageReport struct {
-	URL   string       `json:"url"`
-	Links []linkReport `json:"links"`
+	URL        string       `json:"url"`
+	SourcePath string       `json:"source_path,omitempty"`
+	Links      []linkReport `json:"links"`
+}
+
+type pageLink struct {
+	ID  string
+	URL string
+	Raw string
 }
 
 type linkCheckResult struct {
@@ -394,7 +404,8 @@ func runChecks(ctx context.Context, opts options, nginxState *processState) erro
 	}
 
 	localClient := newHTTPClient(opts.requestTimeout)
-	pageTargets := make(map[string][]string, len(sourceURLs))
+	pageTargets := make(map[string][]pageLink, len(sourceURLs))
+	sourcePaths := make(map[string]string, len(sourceURLs))
 	checkResults := make(map[string]linkCheckResult, len(sourceURLs))
 
 	for _, sourceURL := range sourceURLs {
@@ -405,7 +416,9 @@ func runChecks(ctx context.Context, opts options, nginxState *processState) erro
 		}
 
 		checkResults[sourceURL] = linkCheckResult{URL: sourceURL}
-		pageTargets[sourceURL] = filterTargets(extractLinks(sourceURL, string(body), opts.nginxPort), opts.excludeRegex)
+		sourcePath, links := extractPageData(sourceURL, string(body), opts.nginxPort)
+		sourcePaths[sourceURL] = sourcePath
+		pageTargets[sourceURL] = filterPageLinks(links, opts.excludeRegex)
 	}
 
 	targetToPages := invertPageTargets(pageTargets)
@@ -422,8 +435,43 @@ func runChecks(ctx context.Context, opts options, nginxState *processState) erro
 		return err
 	}
 
-	reports := buildReports(sourceURLs, pageTargets, checkResults)
+	reports := buildReports(sourceURLs, sourcePaths, pageTargets, checkResults)
 	return writeReport(opts.outputPath, reports)
+}
+
+// extractWindowPath extracts window.Path from rendered page HTML.
+func extractWindowPath(body string) string {
+	match := windowPathPattern.FindStringSubmatch(body)
+	if len(match) < 2 {
+		return ""
+	}
+
+	quoted := strings.TrimSpace(match[1])
+	if quoted == "" {
+		return ""
+	}
+	unquoted, err := unquoteJavaScriptString(quoted)
+	if err != nil {
+		if len(quoted) >= 2 {
+			return quoted[1 : len(quoted)-1]
+		}
+		return ""
+	}
+	return strings.TrimSpace(unquoted)
+}
+
+// unquoteJavaScriptString unquotes single- or double-quoted JavaScript string literals.
+func unquoteJavaScriptString(value string) (string, error) {
+	if len(value) < 2 {
+		return "", fmt.Errorf("invalid quoted value: %q", value)
+	}
+	if strings.HasPrefix(value, "'") && strings.HasSuffix(value, "'") {
+		inner := value[1 : len(value)-1]
+		inner = strings.ReplaceAll(inner, `\`, `\\`)
+		inner = strings.ReplaceAll(inner, `"`, `\"`)
+		return strconv.Unquote(`"` + inner + `"`)
+	}
+	return strconv.Unquote(value)
 }
 
 // collectSourcePageURLs collects rendered page URLs from dist html output.
@@ -437,7 +485,7 @@ func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, er
 			if walkErr != nil {
 				return walkErr
 			}
-			if info.IsDir() || !strings.HasSuffix(info.Name(), ".html") {
+			if info.IsDir() || !shouldCrawlHTMLFile(info.Name()) {
 				return nil
 			}
 
@@ -464,6 +512,10 @@ func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, er
 
 	sort.Strings(urls)
 	return urls, nil
+}
+
+func shouldCrawlHTMLFile(name string) bool {
+	return strings.HasSuffix(name, ".html") && name != "unstyled.html"
 }
 
 // htmlFilePathToURLPath maps a dist html path to a URL path.
@@ -536,12 +588,14 @@ func fetchPageBody(ctx context.Context, client *http.Client, pageURL string) ([]
 	return body, nil
 }
 
-// extractLinks extracts and normalizes unique link targets from HTML.
-func extractLinks(pageURL, body, nginxPort string) []string {
+// extractPageData extracts source path and normalized unique link targets from HTML.
+func extractPageData(pageURL, body, nginxPort string) (string, []pageLink) {
+	sourcePath := extractWindowPath(body)
 	body = ignoredHTMLPattern.ReplaceAllString(body, "")
 
-	links := make([]string, 0)
+	links := make([]pageLink, 0)
 	seen := map[string]struct{}{}
+	linkIndex := 0
 
 	appendLink := func(raw string) {
 		normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(raw), nginxPort)
@@ -551,8 +605,13 @@ func extractLinks(pageURL, body, nginxPort string) []string {
 		if _, exists := seen[normalized]; exists {
 			return
 		}
+		linkIndex++
 		seen[normalized] = struct{}{}
-		links = append(links, normalized)
+		links = append(links, pageLink{
+			ID:  fmt.Sprintf("%s#%d", pageURL, linkIndex),
+			URL: normalized,
+			Raw: strings.TrimSpace(raw),
+		})
 	}
 
 	for _, match := range linkAttributePattern.FindAllStringSubmatch(body, -1) {
@@ -574,7 +633,7 @@ func extractLinks(pageURL, body, nginxPort string) []string {
 		}
 	}
 
-	return links
+	return sourcePath, links
 }
 
 // firstNonEmptyCapture returns the first present capture group in a regex match.
@@ -618,10 +677,9 @@ func normalizeLinkURL(pageURL, raw, nginxPort string) (string, bool) {
 
 	host := strings.ToLower(resolved.Hostname())
 	if isLocalPreviewHost(host) {
-		resolved.Host = net.JoinHostPort("127.0.0.1", resolved.Port())
-		if resolved.Port() == "" {
-			resolved.Host = net.JoinHostPort("127.0.0.1", nginxPort)
-		}
+		// Always force local preview links to the checker nginx instance.
+		resolved.Scheme = "http"
+		resolved.Host = net.JoinHostPort("127.0.0.1", nginxPort)
 	}
 	if !isLocalPreviewHost(host) && !isGrafanaHost(host) {
 		return "", false
@@ -640,28 +698,28 @@ func isGrafanaHost(host string) bool {
 	return host == "grafana.com" || strings.HasSuffix(host, ".grafana.com")
 }
 
-// filterTargets applies an optional regex exclusion to candidate targets.
-func filterTargets(targets []string, excludeRegex *regexp.Regexp) []string {
+// filterPageLinks applies an optional regex exclusion to candidate page links.
+func filterPageLinks(links []pageLink, excludeRegex *regexp.Regexp) []pageLink {
 	if excludeRegex == nil {
-		return targets
+		return links
 	}
 
-	filtered := make([]string, 0, len(targets))
-	for _, target := range targets {
-		if excludeRegex.MatchString(target) {
+	filtered := make([]pageLink, 0, len(links))
+	for _, link := range links {
+		if excludeRegex.MatchString(link.URL) {
 			continue
 		}
-		filtered = append(filtered, target)
+		filtered = append(filtered, link)
 	}
 	return filtered
 }
 
 // invertPageTargets creates a reverse index from target URL to source pages.
-func invertPageTargets(pageTargets map[string][]string) map[string][]string {
+func invertPageTargets(pageTargets map[string][]pageLink) map[string][]string {
 	targetToPages := map[string][]string{}
-	for pageURL, targets := range pageTargets {
-		for _, target := range targets {
-			targetToPages[target] = append(targetToPages[target], pageURL)
+	for pageURL, links := range pageTargets {
+		for _, link := range links {
+			targetToPages[link.URL] = append(targetToPages[link.URL], pageURL)
 		}
 	}
 	return targetToPages
@@ -795,18 +853,20 @@ func isTimeoutError(err error) bool {
 }
 
 // buildReports assembles page-centric broken-link report objects.
-func buildReports(sourceURLs []string, pageTargets map[string][]string, results map[string]linkCheckResult) []pageReport {
+func buildReports(sourceURLs []string, sourcePaths map[string]string, pageTargets map[string][]pageLink, results map[string]linkCheckResult) []pageReport {
 	reports := make([]pageReport, 0, len(sourceURLs))
 	for _, sourceURL := range sourceURLs {
 		targets := pageTargets[sourceURL]
 		brokenLinks := make([]linkReport, 0)
-		for _, target := range targets {
-			result, ok := results[target]
+		for _, link := range targets {
+			result, ok := results[link.URL]
 			if !ok || result.Error == "" {
 				continue
 			}
 			brokenLinks = append(brokenLinks, linkReport{
-				URL:   target,
+				ID:    link.ID,
+				URL:   link.URL,
+				Raw:   link.Raw,
 				Error: result.Error,
 			})
 		}
@@ -814,8 +874,9 @@ func buildReports(sourceURLs []string, pageTargets map[string][]string, results 
 			continue
 		}
 		reports = append(reports, pageReport{
-			URL:   sourceURL,
-			Links: brokenLinks,
+			URL:        sourceURL,
+			SourcePath: sourcePaths[sourceURL],
+			Links:      brokenLinks,
 		})
 	}
 	return reports

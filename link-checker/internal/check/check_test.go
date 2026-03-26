@@ -1,4 +1,4 @@
-package main
+package check
 
 import "testing"
 
@@ -54,22 +54,5 @@ func TestExtractPageDataIgnoresEscapedHrefInEmbeddedJSON(t *testing.T) {
 	_, links := extractPageData(pageURL, body, "3002")
 	if len(links) != 0 {
 		t.Fatalf("len(links) = %d, want 0; links=%#v", len(links), links)
-	}
-}
-
-func TestShouldCrawlHTMLFile(t *testing.T) {
-	cases := []struct {
-		name string
-		want bool
-	}{
-		{name: "index.html", want: true},
-		{name: "unstyled.html", want: false},
-		{name: "index.md", want: false},
-	}
-
-	for _, tc := range cases {
-		if got := shouldCrawlHTMLFile(tc.name); got != tc.want {
-			t.Fatalf("shouldCrawlHTMLFile(%q) = %v, want %v", tc.name, got, tc.want)
-		}
 	}
 }

@@ -1,7 +1,7 @@
-name: Run Continuous Integration (scripts)
+name: Run Continuous Integration (link-checker)
 on:
   pull_request:
-    paths: 'scripts'
+    paths: 'link-checker/**'
 
 jobs:
   go-test:
@@ -15,15 +15,15 @@ jobs:
         with:
           persist-credentials: false
           sparse-checkout: |
-            scripts
+            link-checker
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
-          go-version-file: scripts/go.mod
+          go-version-file: link-checker/go.mod
       - uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9
         with:
           version-file: .golangci-version
-          working-directory: scripts
+          working-directory: link-checker
       - run: go test ./...
-        working-directory: scripts
-      - run: go build ./
-        working-directory: scripts
+        working-directory: link-checker
+      - run: go build ./cmd/link-checker
+        working-directory: link-checker

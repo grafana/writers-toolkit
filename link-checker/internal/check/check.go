@@ -1,7 +1,6 @@
-package main
+package check
 
 import (
-	"bufio"
 	"context"
 	"encoding/json"
 	"errors"
@@ -13,17 +12,17 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"os/exec"
 	"os/signal"
-	"path/filepath"
 	"regexp"
-	"runtime"
 	"sort"
 	"strconv"
 	"strings"
 	"sync"
 	"syscall"
 	"time"
+
+	"github.com/grafana/writers-toolkit/link-checker/internal/check/crawl"
+	"github.com/grafana/writers-toolkit/link-checker/internal/check/nginx"
 )
 
 const defaultRelativePrefix = "/docs/"
@@ -76,29 +75,33 @@ type linkCheckResult struct {
 	Error string
 }
 
-func main() {
-	opts := parseFlags()
+// Run executes the broken-link checker.
+func Run(args []string) error {
+	opts, err := parseFlags(args)
+	if err != nil {
+		return err
+	}
 
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer cancel()
 
-	if err := run(ctx, opts); err != nil {
-		fmt.Fprintf(os.Stderr, "check-links failed: %v\n", err)
-		os.Exit(1)
-	}
+	return run(ctx, opts)
 }
 
 // parseFlags builds runtime options from flags and environment defaults.
-func parseFlags() options {
+func parseFlags(args []string) (options, error) {
 	var opts options
-	flag.StringVar(&opts.outputPath, "output", "links.json", "Output JSON path")
-	flag.BoolVar(&opts.logRequests, "log-requests", true, "Stream nginx access logs while checks run")
-	flag.StringVar(&opts.nginxPort, "nginx-port", "3002", "Local nginx listen port")
-	flag.DurationVar(&opts.startupTimeout, "startup-timeout", 45*time.Second, "Nginx startup timeout")
-	flag.DurationVar(&opts.requestTimeout, "request-timeout", 15*time.Second, "HTTP request timeout")
-	flag.IntVar(&opts.maxConcurrency, "max-concurrency", 16, "Maximum concurrent link checks")
-	flag.StringVar(&opts.excludePattern, "exclude", "", "Skip checking URLs matched by this regex")
-	flag.Parse()
+	flags := flag.NewFlagSet("broken-links check", flag.ContinueOnError)
+	flags.StringVar(&opts.outputPath, "output", "links.json", "Output JSON path")
+	flags.BoolVar(&opts.logRequests, "log-requests", true, "Stream nginx access logs while checks run")
+	flags.StringVar(&opts.nginxPort, "nginx-port", "3002", "Local nginx listen port")
+	flags.DurationVar(&opts.startupTimeout, "startup-timeout", 45*time.Second, "Nginx startup timeout")
+	flags.DurationVar(&opts.requestTimeout, "request-timeout", 15*time.Second, "HTTP request timeout")
+	flags.IntVar(&opts.maxConcurrency, "max-concurrency", 16, "Maximum concurrent link checks")
+	flags.StringVar(&opts.excludePattern, "exclude", "", "Skip checking URLs matched by this regex")
+	if err := flags.Parse(args); err != nil {
+		return options{}, err
+	}
 
 	if opts.maxConcurrency < 1 {
 		opts.maxConcurrency = 1
@@ -114,14 +117,13 @@ func parseFlags() options {
 	if opts.excludePattern != "" {
 		regex, err := regexp.Compile(opts.excludePattern)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "invalid exclude regex %q: %v\n", opts.excludePattern, err)
-			os.Exit(1)
+			return options{}, fmt.Errorf("invalid exclude regex %q: %w", opts.excludePattern, err)
 		}
 		opts.excludeRegex = regex
 	}
 	opts.nginxReadyURL = baseURLForPrefix(opts.relativePaths[0], opts.nginxPort)
 
-	return opts
+	return opts, nil
 }
 
 // normalizeRelativePrefix normalizes path prefixes to "/prefix/" form.
@@ -182,35 +184,35 @@ func baseURLForPrefix(prefix, port string) string {
 
 // run orchestrates nginx startup, crawl, check, and report writing.
 func run(ctx context.Context, opts options) error {
-	if err := prepareNginxConfig(opts.nginxPort, opts.relativePaths); err != nil {
+	if err := nginx.PrepareConfig(opts.nginxPort, opts.relativePaths, os.Getenv("SHA")); err != nil {
 		return err
 	}
 
-	if err := testNginxConfig(); err != nil {
+	if err := nginx.TestConfig(); err != nil {
 		return err
 	}
 
-	nginxCmd, nginxState, err := startNginx(ctx)
+	server, err := nginx.Start(ctx)
 	if err != nil {
 		return err
 	}
-	stopLogStreaming := startNginxLogStreaming(ctx, opts.logRequests, os.Stdout, os.Stderr)
+	stopLogStreaming := nginx.StartLogStreaming(ctx, opts.logRequests, os.Stdout, os.Stderr)
 	defer stopLogStreaming()
 	defer func() {
-		_ = stopProcessGroup(nginxCmd, nginxState.done, 10*time.Second)
+		_ = server.Stop(10 * time.Second)
 	}()
 
-	if err := waitForNginx(ctx, opts.nginxReadyURL, nginxState, opts.startupTimeout); err != nil {
+	if err := nginx.WaitReady(ctx, opts.nginxReadyURL, server, opts.startupTimeout); err != nil {
 		return err
 	}
 
-	if err := runChecks(ctx, opts, nginxState); err != nil {
+	if err := runChecks(ctx, opts, server); err != nil {
 		return err
 	}
 
 	select {
-	case <-nginxState.done:
-		if err := nginxState.err(); err != nil {
+	case <-server.Done():
+		if err := server.Err(); err != nil {
 			return fmt.Errorf("nginx exited before completion: %w", err)
 		}
 		return errors.New("nginx exited before completion")
@@ -219,186 +221,9 @@ func run(ctx context.Context, opts options) error {
 	}
 }
 
-// prepareNginxConfig renders and writes local nginx config artifacts and logs.
-func prepareNginxConfig(nginxPort string, relativePrefixes []string) error {
-	if err := os.MkdirAll("dist", 0o755); err != nil {
-		return fmt.Errorf("create dist dir: %w", err)
-	}
-	if err := os.MkdirAll("run", 0o755); err != nil {
-		return fmt.Errorf("create run dir: %w", err)
-	}
-
-	templateBytes, err := os.ReadFile("scripts/cmd/check-links/nginx.local.conf")
-	if err != nil {
-		return fmt.Errorf("read scripts/cmd/check-links/nginx.local.conf: %w", err)
-	}
-
-	rendered, err := renderCheckLinksNginxConfig(string(templateBytes), nginxPort, relativePrefixes, os.Getenv("SHA"))
-	if err != nil {
-		return err
-	}
-	if err := os.WriteFile("nginx.conf", []byte(rendered), 0o644); err != nil {
-		return fmt.Errorf("write nginx.conf: %w", err)
-	}
-
-	pidFile, err := os.OpenFile("run/nginx.pid", os.O_RDONLY|os.O_CREATE, 0o644)
-	if err != nil {
-		return fmt.Errorf("touch run/nginx.pid: %w", err)
-	}
-	_ = pidFile.Close()
-	if err := truncateFile("access.log"); err != nil {
-		return fmt.Errorf("truncate access.log: %w", err)
-	}
-	if err := truncateFile("error.log"); err != nil {
-		return fmt.Errorf("truncate error.log: %w", err)
-	}
-
-	return nil
-}
-
-// buildServerConfig builds location blocks that map relative prefixes to their dist dir.
-// For example, /docs/writers-toolkit/ gets aliased to dist/docs/writers-toolkit/.
-func buildServerConfig(relativePrefixes []string, distRoot, sha string) string {
-	var builder strings.Builder
-	builder.WriteString(fmt.Sprintf("add_header 'Build' '%s';\n\n", sha))
-
-	hasDocsPrefix := false
-	for _, relativePrefix := range relativePrefixes {
-		normalizedPrefix := normalizeRelativePrefix(relativePrefix)
-		prefixWithoutTrailingSlash := strings.TrimSuffix(normalizedPrefix, "/")
-		if strings.HasPrefix(prefixWithoutTrailingSlash, "/docs/") {
-			hasDocsPrefix = true
-		}
-
-		builder.WriteString(fmt.Sprintf(`location = %s {
-  return 301 %s;
-}
-
-location ^~ %s {
-  alias %s%s;
-}
-
-		`, prefixWithoutTrailingSlash, normalizedPrefix, normalizedPrefix, distRoot, normalizedPrefix))
-	}
-
-	if hasDocsPrefix {
-		builder.WriteString(`location ^~ /docs/ {
-  proxy_pass https://grafana.com/docs/;
-}
-`)
-	}
-
-	return builder.String()
-}
-
-// renderCheckLinksNginxConfig injects runtime values into the local check-links template.
-func renderCheckLinksNginxConfig(config, nginxPort string, relativePrefixes []string, sha string) (string, error) {
-	replacements := []struct {
-		old string
-		new string
-	}{
-		{"listen 80;", fmt.Sprintf("listen %s;", nginxPort)},
-		{"include /etc/nginx/build.conf;", buildServerConfig(relativePrefixes, "dist", sha)},
-		{"include /etc/nginx/locations.conf;", "include deploy-preview/locations.conf;"},
-	}
-
-	rendered := config
-	for _, replacement := range replacements {
-		if !strings.Contains(rendered, replacement.old) {
-			return "", fmt.Errorf("expected nginx config to contain %q", replacement.old)
-		}
-		rendered = strings.ReplaceAll(rendered, replacement.old, replacement.new)
-	}
-
-	return rendered, nil
-}
-
-// truncateFile truncates or creates a file.
-func truncateFile(path string) error {
-	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
-	if err != nil {
-		return err
-	}
-	return file.Close()
-}
-
-// testNginxConfig validates the generated nginx configuration.
-func testNginxConfig() error {
-	cwd, err := os.Getwd()
-	if err != nil {
-		return fmt.Errorf("get working directory: %w", err)
-	}
-
-	cmd := exec.Command("nginx", "-p", cwd, "-c", "nginx.conf", "-t")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("validate nginx config: %w", err)
-	}
-	return nil
-}
-
-// startNginx starts nginx in foreground mode and tracks its process state.
-func startNginx(ctx context.Context) (*exec.Cmd, *processState, error) {
-	cwd, err := os.Getwd()
-	if err != nil {
-		return nil, nil, fmt.Errorf("get working directory: %w", err)
-	}
-
-	cmd := exec.CommandContext(ctx, "nginx", "-p", cwd, "-c", "nginx.conf", "-g", "daemon off;")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if runtime.GOOS != "windows" {
-		cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
-	}
-
-	if err := cmd.Start(); err != nil {
-		return nil, nil, fmt.Errorf("start nginx: %w", err)
-	}
-
-	state := &processState{done: make(chan struct{})}
-	go func() {
-		state.setErr(cmd.Wait())
-	}()
-
-	return cmd, state, nil
-}
-
-// waitForNginx waits until nginx responds or exits/fails.
-func waitForNginx(ctx context.Context, readyURL string, nginxState *processState, timeout time.Duration) error {
-	client := &http.Client{Timeout: 2 * time.Second}
-	deadline := time.NewTimer(timeout)
-	defer deadline.Stop()
-	ticker := time.NewTicker(500 * time.Millisecond)
-	defer ticker.Stop()
-
-	for {
-		select {
-		case <-ctx.Done():
-			return ctx.Err()
-		case <-deadline.C:
-			return fmt.Errorf("nginx did not become ready within %s", timeout)
-		case <-nginxState.done:
-			if err := nginxState.err(); err != nil {
-				return fmt.Errorf("nginx exited before ready: %w", err)
-			}
-			return errors.New("nginx exited before ready")
-		case <-ticker.C:
-			response, err := client.Get(readyURL)
-			if err != nil {
-				continue
-			}
-			_ = response.Body.Close()
-			if response.StatusCode > 0 {
-				return nil
-			}
-		}
-	}
-}
-
 // runChecks crawls source pages, checks targets, and writes a links report.
-func runChecks(ctx context.Context, opts options, nginxState *processState) error {
-	sourceURLs, err := collectSourcePageURLs(opts.relativePaths, opts.nginxPort)
+func runChecks(ctx context.Context, opts options, server *nginx.Server) error {
+	sourceURLs, err := crawl.CollectSourcePageURLs(opts.relativePaths, opts.nginxPort)
 	if err != nil {
 		return err
 	}
@@ -431,7 +256,7 @@ func runChecks(ctx context.Context, opts options, nginxState *processState) erro
 	}
 	sort.Strings(targetURLs)
 
-	if err := checkTargets(ctx, localClient, opts, nginxState, targetURLs, checkResults); err != nil {
+	if err := checkTargets(ctx, localClient, opts, server, targetURLs, checkResults); err != nil {
 		return err
 	}
 
@@ -472,70 +297,6 @@ func unquoteJavaScriptString(value string) (string, error) {
 		return strconv.Unquote(`"` + inner + `"`)
 	}
 	return strconv.Unquote(value)
-}
-
-// collectSourcePageURLs collects rendered page URLs from dist html output.
-func collectSourcePageURLs(relativePrefixes []string, port string) ([]string, error) {
-	urls := make([]string, 0)
-	seen := map[string]struct{}{}
-
-	for _, relativePrefix := range relativePrefixes {
-		prefixRoot := filepath.Join("dist", filepath.FromSlash(strings.TrimPrefix(normalizeRelativePrefix(relativePrefix), "/")))
-		err := filepath.Walk(prefixRoot, func(path string, info os.FileInfo, walkErr error) error {
-			if walkErr != nil {
-				return walkErr
-			}
-			if info.IsDir() || !shouldCrawlHTMLFile(info.Name()) {
-				return nil
-			}
-
-			urlPath, ok := htmlFilePathToURLPath(path)
-			if !ok {
-				return nil
-			}
-
-			sourceURL := fmt.Sprintf("http://127.0.0.1:%s%s", port, urlPath)
-			if _, exists := seen[sourceURL]; exists {
-				return nil
-			}
-			seen[sourceURL] = struct{}{}
-			urls = append(urls, sourceURL)
-			return nil
-		})
-		if err != nil {
-			if errors.Is(err, os.ErrNotExist) {
-				continue
-			}
-			return nil, fmt.Errorf("walk %s: %w", prefixRoot, err)
-		}
-	}
-
-	sort.Strings(urls)
-	return urls, nil
-}
-
-func shouldCrawlHTMLFile(name string) bool {
-	return strings.HasSuffix(name, ".html") && name != "unstyled.html"
-}
-
-// htmlFilePathToURLPath maps a dist html path to a URL path.
-func htmlFilePathToURLPath(path string) (string, bool) {
-	relativePath, err := filepath.Rel("dist", path)
-	if err != nil {
-		return "", false
-	}
-
-	relativePath = filepath.ToSlash(relativePath)
-	switch {
-	case relativePath == "index.html":
-		return "/", true
-	case strings.HasSuffix(relativePath, "/index.html"):
-		return "/" + strings.TrimSuffix(relativePath, "index.html"), true
-	case strings.HasSuffix(relativePath, ".html"):
-		return "/" + relativePath, true
-	default:
-		return "", false
-	}
 }
 
 // newHTTPClient builds the HTTP client used for page and target requests.
@@ -726,7 +487,7 @@ func invertPageTargets(pageTargets map[string][]pageLink) map[string][]string {
 }
 
 // checkTargets concurrently validates each target URL and stores outcomes.
-func checkTargets(ctx context.Context, client *http.Client, opts options, nginxState *processState, targetURLs []string, results map[string]linkCheckResult) error {
+func checkTargets(ctx context.Context, client *http.Client, opts options, server *nginx.Server, targetURLs []string, results map[string]linkCheckResult) error {
 	if len(targetURLs) == 0 {
 		return nil
 	}
@@ -759,7 +520,7 @@ func checkTargets(ctx context.Context, client *http.Client, opts options, nginxS
 				workers.Wait()
 				close(outcomes)
 				return
-			case <-nginxState.done:
+			case <-server.Done():
 				close(jobs)
 				workers.Wait()
 				close(outcomes)
@@ -776,8 +537,8 @@ func checkTargets(ctx context.Context, client *http.Client, opts options, nginxS
 		select {
 		case <-ctx.Done():
 			return ctx.Err()
-		case <-nginxState.done:
-			if err := nginxState.err(); err != nil {
+		case <-server.Done():
+			if err := server.Err(); err != nil {
 				return fmt.Errorf("nginx exited while link checks were running: %w", err)
 			}
 			return errors.New("nginx exited while link checks were running")
@@ -894,138 +655,4 @@ func writeReport(path string, reports []pageReport) error {
 		return fmt.Errorf("write %s: %w", path, err)
 	}
 	return nil
-}
-
-// startNginxLogStreaming starts asynchronous nginx error/access log tailing.
-func startNginxLogStreaming(parent context.Context, logRequests bool, stdout, stderr io.Writer) func() {
-	stopLoggers := []func(){startLogStreaming(parent, "error.log", "[nginx-error]", stderr)}
-	if logRequests {
-		stopLoggers = append(stopLoggers, startLogStreaming(parent, "access.log", "[nginx-access]", stdout))
-	}
-
-	return func() {
-		for i := len(stopLoggers) - 1; i >= 0; i-- {
-			stopLoggers[i]()
-		}
-	}
-}
-
-// startLogStreaming tails a log file and writes prefixed lines to output.
-func startLogStreaming(parent context.Context, path, prefix string, output io.Writer) func() {
-	ctx, cancel := context.WithCancel(parent)
-	done := make(chan struct{})
-
-	go func() {
-		defer close(done)
-
-		file, err := waitForFile(ctx, path, 5*time.Second)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "failed to stream %s: %v\n", path, err)
-			return
-		}
-		defer func() { _ = file.Close() }()
-
-		reader := bufio.NewReader(file)
-		for {
-			line, err := reader.ReadString('\n')
-			if err != nil {
-				if errors.Is(err, io.EOF) {
-					select {
-					case <-ctx.Done():
-						return
-					case <-time.After(100 * time.Millisecond):
-						continue
-					}
-				}
-				fmt.Fprintf(os.Stderr, "failed to read %s: %v\n", path, err)
-				return
-			}
-
-			_, _ = fmt.Fprintf(output, "%s %s", prefix, line)
-		}
-	}()
-
-	return func() {
-		cancel()
-		<-done
-	}
-}
-
-// waitForFile waits for a log file to exist and opens it.
-func waitForFile(ctx context.Context, path string, timeout time.Duration) (*os.File, error) {
-	deadline := time.NewTimer(timeout)
-	defer deadline.Stop()
-	ticker := time.NewTicker(100 * time.Millisecond)
-	defer ticker.Stop()
-
-	for {
-		file, err := os.Open(path)
-		if err == nil {
-			return file, nil
-		}
-		if !errors.Is(err, os.ErrNotExist) {
-			return nil, err
-		}
-
-		select {
-		case <-ctx.Done():
-			return nil, ctx.Err()
-		case <-deadline.C:
-			return nil, fmt.Errorf("timed out waiting for %s", path)
-		case <-ticker.C:
-		}
-	}
-}
-
-// stopProcessGroup attempts graceful then forced process-group shutdown.
-func stopProcessGroup(cmd *exec.Cmd, done <-chan struct{}, timeout time.Duration) error {
-	if cmd == nil || cmd.Process == nil {
-		return nil
-	}
-
-	select {
-	case <-done:
-		return nil
-	default:
-	}
-
-	if runtime.GOOS == "windows" {
-		_ = cmd.Process.Kill()
-	} else {
-		_ = syscall.Kill(-cmd.Process.Pid, syscall.SIGTERM)
-	}
-
-	timer := time.NewTimer(timeout)
-	defer timer.Stop()
-
-	select {
-	case <-done:
-		return nil
-	case <-timer.C:
-		if runtime.GOOS == "windows" {
-			return cmd.Process.Kill()
-		}
-		return syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL)
-	}
-}
-
-type processState struct {
-	done chan struct{}
-	mu   sync.Mutex
-	errv error
-}
-
-// setErr stores process exit error and marks the process as done.
-func (p *processState) setErr(err error) {
-	p.mu.Lock()
-	p.errv = err
-	p.mu.Unlock()
-	close(p.done)
-}
-
-// err returns the stored process exit error.
-func (p *processState) err() error {
-	p.mu.Lock()
-	defer p.mu.Unlock()
-	return p.errv
 }

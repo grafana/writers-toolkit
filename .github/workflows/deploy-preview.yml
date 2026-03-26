@@ -369,7 +369,7 @@ jobs:
           sparse-checkout: |
             deploy-preview
             docs/sources
-            scripts
+            link-checker
 
       - uses: actions/download-artifact@v4
         with:
@@ -391,7 +391,7 @@ jobs:
           sudo apt-get install -y nginx
 
       - name: Check links
-        run: go run ./scripts/cmd/check-links
+        run: go run ./link-checker/cmd/link-checker check
 
       - name: Print nginx error log
         if: ${{ always() }}
@@ -432,7 +432,7 @@ jobs:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
         run: >
-          go run ./scripts/cmd/generate-broken-links-comment
+          go run ./link-checker/cmd/link-checker comment
           -links links.json
           -base-ref "${PR_BASE_SHA}"
           -output broken-links-comment.md

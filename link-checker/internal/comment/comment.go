@@ -1,4 +1,4 @@
-package main
+package comment
 
 import (
 	"bufio"
@@ -56,47 +56,41 @@ const (
 	generateDefaultRelativePrefix = "/docs/"
 )
 
-// main parses inputs, correlates changed files with broken links, and writes a PR comment body.
-func main() {
-	var linksPath string
-	var changedFilesPath string
-	var baseRef string
-	var outputPath string
-	var title string
-	var repo string
-	var artifactURL string
-	var sourceDirectory string
-	var relativePrefix string
-	var sourcesJSON string
-	var maxRows int
+type runOptions struct {
+	linksPath       string
+	changedFiles    string
+	baseRef         string
+	outputPath      string
+	title           string
+	repo            string
+	artifactURL     string
+	sourceDirectory string
+	relativePrefix  string
+	sourcesJSON     string
+	maxRows         int
+}
 
-	flag.StringVar(&linksPath, "links", "links.json", "Path to links JSON report")
-	flag.StringVar(&changedFilesPath, "changed-files", "", "Path to changed files list (optional; defaults to git diff)")
-	flag.StringVar(&baseRef, "base-ref", strings.TrimSpace(os.Getenv("BROKEN_LINKS_BASE_REF")), "Git base ref used to calculate changed files when -changed-files is not provided")
-	flag.StringVar(&outputPath, "output", "broken-links-comment.md", "Path to write comment body")
-	flag.StringVar(&title, "title", "", "PR title for comment heading")
-	flag.StringVar(&repo, "repo", "", "Repository slug fragment for hidden comment marker")
-	flag.StringVar(&artifactURL, "artifact-url", "", "Uploaded artifact URL")
-	flag.StringVar(&sourceDirectory, "source-directory", strings.TrimSpace(os.Getenv("SOURCE_DIRECTORY")), "Legacy single source directory")
-	flag.StringVar(&relativePrefix, "relative-prefix", strings.TrimSpace(os.Getenv("RELATIVE_PREFIX")), "Legacy single relative prefix")
-	flag.StringVar(&sourcesJSON, "sources-json", strings.TrimSpace(os.Getenv("SOURCES")), "JSON array of source mappings")
-	flag.IntVar(&maxRows, "max-rows", 150, "Maximum number of table rows to render")
-	flag.Parse()
-
-	reports, err := readReports(linksPath)
+// Run parses inputs, correlates changed files with broken links, and writes a PR comment body.
+func Run(args []string) error {
+	options, err := parseRunOptions(args)
 	if err != nil {
-		exitWithError(err)
+		return err
 	}
 
-	mappings := resolveMappings(sourcesJSON, sourceDirectory, relativePrefix)
-	if strings.TrimSpace(sourcesJSON) == "" && strings.TrimSpace(relativePrefix) == "" {
-		changedFiles, changedErr := readChangedFiles(changedFilesPath, baseRef)
+	reports, err := readReports(options.linksPath)
+	if err != nil {
+		return err
+	}
+
+	mappings := resolveMappings(options.sourcesJSON, options.sourceDirectory, options.relativePrefix)
+	if strings.TrimSpace(options.sourcesJSON) == "" && strings.TrimSpace(options.relativePrefix) == "" {
+		changedFiles, changedErr := readChangedFiles(options.changedFiles, options.baseRef)
 		if changedErr != nil {
-			exitWithError(changedErr)
+			return changedErr
 		}
-		if inferred := inferRelativePrefixFromReports(reports, changedFiles, sourceDirectory); inferred != "" {
+		if inferred := inferRelativePrefixFromReports(reports, changedFiles, options.sourceDirectory); inferred != "" {
 			mappings = []mapping{{
-				sourceDirectory: normalizeSourceDirectory(sourceDirectory),
+				sourceDirectory: normalizeSourceDirectory(options.sourceDirectory),
 				relativePrefix:  inferred,
 			}}
 		}
@@ -105,23 +99,38 @@ func main() {
 	totalBroken := len(rows)
 
 	comment := buildComment(commentInput{
-		repo:        repo,
-		title:       title,
-		artifactURL: artifactURL,
+		repo:        options.repo,
+		title:       options.title,
+		artifactURL: options.artifactURL,
 		totalBroken: totalBroken,
 		rows:        rows,
-		maxRows:     maxRows,
+		maxRows:     options.maxRows,
 	})
 
-	if err := os.WriteFile(outputPath, []byte(comment), 0o644); err != nil {
-		exitWithError(fmt.Errorf("write %s: %w", outputPath, err))
+	if err := os.WriteFile(options.outputPath, []byte(comment), 0o644); err != nil {
+		return fmt.Errorf("write %s: %w", options.outputPath, err)
 	}
+	return nil
 }
 
-// exitWithError prints a formatted error and terminates the process.
-func exitWithError(err error) {
-	fmt.Fprintf(os.Stderr, "generate broken links comment failed: %v\n", err)
-	os.Exit(1)
+func parseRunOptions(args []string) (runOptions, error) {
+	var options runOptions
+	flags := flag.NewFlagSet("broken-links comment", flag.ContinueOnError)
+	flags.StringVar(&options.linksPath, "links", "links.json", "Path to links JSON report")
+	flags.StringVar(&options.changedFiles, "changed-files", "", "Path to changed files list (optional; defaults to git diff)")
+	flags.StringVar(&options.baseRef, "base-ref", strings.TrimSpace(os.Getenv("BROKEN_LINKS_BASE_REF")), "Git base ref used to calculate changed files when -changed-files is not provided")
+	flags.StringVar(&options.outputPath, "output", "broken-links-comment.md", "Path to write comment body")
+	flags.StringVar(&options.title, "title", "", "PR title for comment heading")
+	flags.StringVar(&options.repo, "repo", "", "Repository slug fragment for hidden comment marker")
+	flags.StringVar(&options.artifactURL, "artifact-url", "", "Uploaded artifact URL")
+	flags.StringVar(&options.sourceDirectory, "source-directory", strings.TrimSpace(os.Getenv("SOURCE_DIRECTORY")), "Legacy single source directory")
+	flags.StringVar(&options.relativePrefix, "relative-prefix", strings.TrimSpace(os.Getenv("RELATIVE_PREFIX")), "Legacy single relative prefix")
+	flags.StringVar(&options.sourcesJSON, "sources-json", strings.TrimSpace(os.Getenv("SOURCES")), "JSON array of source mappings")
+	flags.IntVar(&options.maxRows, "max-rows", 150, "Maximum number of table rows to render")
+	if err := flags.Parse(args); err != nil {
+		return runOptions{}, err
+	}
+	return options, nil
 }
 
 // readReports loads the JSON link checker output from disk.

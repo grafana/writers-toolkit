@@ -131,8 +131,8 @@ broken-links-copy-dist: ## Copy dist from running make docs container.
 	rm -rf dist
 	docker cp "$$container_id:/hugo/dist" ./dist
 
-.PHONY: broken-links-check
-broken-links-check: ## Run local broken-link checker and generate the broken-links comment.
+.PHONY: check-links
+check-links: ## Run local broken-link checker and generate the broken-links comment.
 	@if ! command -v go >/dev/null 2>&1; then
 		echo 'ERRR: `go` must be installed to run broken-links-check.' >&2
 		exit 1
@@ -155,9 +155,9 @@ broken-links-check: ## Run local broken-link checker and generate the broken-lin
 		fi
 	fi
 	cd "$(GIT_ROOT)"
-	SOURCES='$(BROKEN_LINKS_SOURCES)' go run ./scripts/cmd/check-links -nginx-port "$(BROKEN_LINKS_NGINX_PORT)"
+	SOURCES='$(BROKEN_LINKS_SOURCES)' go run ./link-checker/cmd/link-checker check -nginx-port "$(BROKEN_LINKS_NGINX_PORT)"
 
-	SOURCES='$(BROKEN_LINKS_SOURCES)' go run ./scripts/cmd/generate-broken-links-comment \
+	SOURCES='$(BROKEN_LINKS_SOURCES)' go run ./link-checker/cmd/link-checker comment \
 		-links links.json \
 		-base-ref "$(BROKEN_LINKS_BASE_REF)" \
 		-output broken-links-comment.md \
@@ -165,10 +165,6 @@ broken-links-check: ## Run local broken-link checker and generate the broken-lin
 		-title "$${BROKEN_LINKS_TITLE:-Local run}" \
 		-artifact-url "$${BROKEN_LINKS_ARTIFACT_URL:-}"
 	cat broken-links-comment.md
-
-.PHONY: broken-links-local
-broken-links-local: ## Run full local broken-links flow.
-broken-links-local: broken-links-copy-dist broken-links-check
 
 .PHONY: vale
 vale: ## Run vale on the entire docs folder which includes pulling the latest `VALE_IMAGE` (default: `grafana/vale:latest`) container image. To not pull the image, set `PULL=false`.

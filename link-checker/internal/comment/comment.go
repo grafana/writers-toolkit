@@ -952,9 +952,10 @@ func buildComment(in commentInput) string {
 			if row.Line > 0 && row.Column > 0 {
 				fileValue = fmt.Sprintf("%s:%d:%d", fileValue, row.Line, row.Column)
 			}
+			brokenURLValue := displayBrokenURL(row.BrokenURL)
 			tableRows = append(tableRows, []string{
 				fmt.Sprintf("`%s`", escapePipes(fileValue)),
-				fmt.Sprintf("`%s`", escapePipes(row.BrokenURL)),
+				fmt.Sprintf("`%s`", escapePipes(brokenURLValue)),
 				fmt.Sprintf("`%s`", escapePipes(row.Error)),
 			})
 		}
@@ -976,6 +977,32 @@ func displayFilePath(filePath string) string {
 	filePath = strings.TrimSpace(filePath)
 	filePath = strings.TrimPrefix(filePath, "source-files/")
 	return filePath
+}
+
+func displayBrokenURL(raw string) string {
+	raw = strings.TrimSpace(raw)
+	if raw == "" {
+		return raw
+	}
+
+	parsed, err := url.Parse(raw)
+	if err != nil {
+		return raw
+	}
+
+	host := strings.ToLower(parsed.Hostname())
+	if host != "127.0.0.1" && host != "localhost" {
+		return raw
+	}
+
+	pathValue := parsed.EscapedPath()
+	if pathValue == "" {
+		pathValue = "/"
+	}
+	if parsed.RawQuery != "" {
+		pathValue += "?" + parsed.RawQuery
+	}
+	return pathValue
 }
 
 // renderMarkdownTable renders a markdown table with padded, equal-width columns.

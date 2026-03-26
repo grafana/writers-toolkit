@@ -399,4 +399,26 @@ func TestBuildCommentOmitsSourceCheckoutPrefix(t *testing.T) {
 	if !strings.Contains(comment, "`docs/sources/contribute/_index.md:125:81`") {
 		t.Fatalf("expected repo-relative file path in comment, got:\n%s", comment)
 	}
+	if !strings.Contains(comment, "`/docs/writers-toolkit/review/test-documentation-changes/`") {
+		t.Fatalf("expected local preview URL to render as path, got:\n%s", comment)
+	}
+}
+
+func TestBuildCommentPreservesExternalBrokenURL(t *testing.T) {
+	comment := buildComment(commentInput{
+		repo:        "writers-toolkit",
+		title:       "test",
+		totalBroken: 1,
+		rows: []brokenRow{
+			{
+				File:      "docs/sources/contribute/_index.md",
+				BrokenURL: "https://grafana.com/docs/test/writers-toolkit/write/shortcodes/",
+				Error:     "404",
+			},
+		},
+	})
+
+	if !strings.Contains(comment, "`https://grafana.com/docs/test/writers-toolkit/write/shortcodes/`") {
+		t.Fatalf("expected external URL to remain unchanged, got:\n%s", comment)
+	}
 }

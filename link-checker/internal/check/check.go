@@ -6,7 +6,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"html"
+	stdhtml "html"
 	"io"
 	"net"
 	"net/http"
@@ -23,14 +23,12 @@ import (
 
 	"github.com/grafana/writers-toolkit/link-checker/internal/check/crawl"
 	"github.com/grafana/writers-toolkit/link-checker/internal/check/nginx"
+	xhtml "golang.org/x/net/html"
 )
 
 const defaultRelativePrefix = "/docs/"
 
 var (
-	linkAttributePattern = regexp.MustCompile(`(?is)(?:^|[\s<])(?:href|src|poster)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
-	srcsetPattern        = regexp.MustCompile(`(?is)(?:^|[\s<])srcset\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s"'=<>` + "`" + `\\]+))`)
-	ignoredHTMLPattern   = regexp.MustCompile(`(?is)<(?:pre|code|script|style)\b[^>]*>.*?</(?:pre|code|script|style)>`)
 	windowPathPattern    = regexp.MustCompile(`window\.Path\s*=\s*("([^"\\]|\\.)*"|'([^'\\]|\\.)*')`)
 )
 
@@ -352,14 +350,13 @@ func fetchPageBody(ctx context.Context, client *http.Client, pageURL string) ([]
 // extractPageData extracts source path and normalized unique link targets from HTML.
 func extractPageData(pageURL, body, nginxPort string) (string, []pageLink) {
 	sourcePath := extractWindowPath(body)
-	body = ignoredHTMLPattern.ReplaceAllString(body, "")
 
 	links := make([]pageLink, 0)
 	seen := map[string]struct{}{}
 	linkIndex := 0
 
 	appendLink := func(raw string) {
-		normalized, ok := normalizeLinkURL(pageURL, html.UnescapeString(raw), nginxPort)
+		normalized, ok := normalizeLinkURL(pageURL, stdhtml.UnescapeString(raw), nginxPort)
 		if !ok {
 			return
 		}
@@ -375,36 +372,88 @@ func extractPageData(pageURL, body, nginxPort string) (string, []pageLink) {
 		})
 	}
 
-	for _, match := range linkAttributePattern.FindAllStringSubmatch(body, -1) {
-		if value, ok := firstNonEmptyCapture(match); ok {
-			appendLink(value)
-		}
+	root, err := xhtml.Parse(strings.NewReader(body))
+	if err != nil {
+		return sourcePath, links
 	}
 
-	for _, match := range srcsetPattern.FindAllStringSubmatch(body, -1) {
-		value, ok := firstNonEmptyCapture(match)
-		if !ok {
-			continue
-		}
-		for _, candidate := range strings.Split(value, ",") {
-			fields := strings.Fields(strings.TrimSpace(candidate))
-			if len(fields) > 0 {
-				appendLink(fields[0])
-			}
-		}
+	article := findElementByID(root, "doc-article-text")
+	if article == nil {
+		return sourcePath, links
 	}
+
+	walkArticleLinks(article, func(value string) {
+		appendLink(value)
+	})
 
 	return sourcePath, links
 }
 
-// firstNonEmptyCapture returns the first present capture group in a regex match.
-func firstNonEmptyCapture(match []string) (string, bool) {
-	for _, value := range match[1:] {
-		if value != "" {
-			return value, true
+func findElementByID(node *xhtml.Node, id string) *xhtml.Node {
+	if node == nil {
+		return nil
+	}
+	if node.Type == xhtml.ElementNode {
+		for _, attr := range node.Attr {
+			if strings.EqualFold(attr.Key, "id") && attr.Val == id {
+				return node
+			}
 		}
 	}
-	return "", false
+	for child := node.FirstChild; child != nil; child = child.NextSibling {
+		if found := findElementByID(child, id); found != nil {
+			return found
+		}
+	}
+	return nil
+}
+
+func walkArticleLinks(node *xhtml.Node, visit func(string)) {
+	if node == nil {
+		return
+	}
+
+	if node.Type == xhtml.ElementNode {
+		if shouldSkipLinkSubtree(node.Data) {
+			return
+		}
+		for _, attr := range node.Attr {
+			switch strings.ToLower(attr.Key) {
+			case "href", "src", "poster":
+				visit(attr.Val)
+			case "srcset":
+				for _, candidate := range splitSrcset(attr.Val) {
+					visit(candidate)
+				}
+			}
+		}
+	}
+
+	for child := node.FirstChild; child != nil; child = child.NextSibling {
+		walkArticleLinks(child, visit)
+	}
+}
+
+func shouldSkipLinkSubtree(tag string) bool {
+	switch strings.ToLower(strings.TrimSpace(tag)) {
+	case "pre", "code", "script", "style":
+		return true
+	default:
+		return false
+	}
+}
+
+func splitSrcset(value string) []string {
+	candidates := strings.Split(value, ",")
+	urls := make([]string, 0, len(candidates))
+	for _, candidate := range candidates {
+		fields := strings.Fields(strings.TrimSpace(candidate))
+		if len(fields) == 0 {
+			continue
+		}
+		urls = append(urls, fields[0])
+	}
+	return urls
 }
 
 // normalizeLinkURL normalizes link URLs and filters unsupported/external targets.

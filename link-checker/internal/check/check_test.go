@@ -8,9 +8,11 @@ func TestExtractPageDataCapturesSourcePathAndIDs(t *testing.T) {
 <html>
 <head><script>window.Path="docs/writers-toolkit/contribute/index.md"</script></head>
 <body>
-  <a href="/docs/writers-toolkit/review/test-documentation-changes/">one</a>
-  <a href="/docs/writers-toolkit/review/test-documentation-changes/">duplicate</a>
-  <a href="https://grafana.com/docs/grafana/latest/developers/cla/">two</a>
+  <div id="doc-article-text">
+    <a href="/docs/writers-toolkit/review/test-documentation-changes/">one</a>
+    <a href="/docs/writers-toolkit/review/test-documentation-changes/">duplicate</a>
+    <a href="https://grafana.com/docs/grafana/latest/developers/cla/">two</a>
+  </div>
 </body>
 </html>
 `
@@ -46,7 +48,9 @@ func TestExtractPageDataIgnoresEscapedHrefInEmbeddedJSON(t *testing.T) {
 	body := `
 <html>
 <body>
-  <div x-data='{"html":"\u003ca href=\"#resolver\"\u003elink\u003c/a\u003e"}'></div>
+  <div id="doc-article-text">
+    <div x-data='{"html":"\u003ca href=\"#resolver\"\u003elink\u003c/a\u003e"}'></div>
+  </div>
 </body>
 </html>
 `
@@ -62,11 +66,13 @@ func TestExtractPageDataIgnoresBoundTemplateAttributes(t *testing.T) {
 	body := `
 <html>
 <body>
-  <div :src="header.image.src"></div>
-  <a :href="link.href">bad</a>
-  <img x-bind:src="error.image.src" />
-  <a x-bind:href="link.href">bad2</a>
-  <a href="/docs/grafana/latest/real-link/">good</a>
+  <div id="doc-article-text">
+    <div :src="header.image.src"></div>
+    <a :href="link.href">bad</a>
+    <img x-bind:src="error.image.src" />
+    <a x-bind:href="link.href">bad2</a>
+    <a href="/docs/grafana/latest/real-link/">good</a>
+  </div>
 </body>
 </html>
 `
@@ -77,5 +83,43 @@ func TestExtractPageDataIgnoresBoundTemplateAttributes(t *testing.T) {
 	}
 	if links[0].URL != "http://127.0.0.1:3002/docs/grafana/latest/real-link/" {
 		t.Fatalf("links[0].URL = %q", links[0].URL)
+	}
+}
+
+func TestExtractPageDataOnlyChecksDocArticleText(t *testing.T) {
+	pageURL := "http://127.0.0.1:3002/docs/grafana/latest/"
+	body := `
+<html>
+<body>
+  <a href="/docs/grafana/latest/outside/">outside</a>
+  <div id="doc-article-text">
+    <a href="/docs/grafana/latest/inside/">inside</a>
+  </div>
+</body>
+</html>
+`
+
+	_, links := extractPageData(pageURL, body, "3002")
+	if len(links) != 1 {
+		t.Fatalf("len(links) = %d, want 1; links=%#v", len(links), links)
+	}
+	if links[0].URL != "http://127.0.0.1:3002/docs/grafana/latest/inside/" {
+		t.Fatalf("links[0].URL = %q", links[0].URL)
+	}
+}
+
+func TestExtractPageDataReturnsNoLinksWithoutDocArticleText(t *testing.T) {
+	pageURL := "http://127.0.0.1:3002/docs/grafana/latest/"
+	body := `
+<html>
+<body>
+  <a href="/docs/grafana/latest/outside/">outside</a>
+</body>
+</html>
+`
+
+	_, links := extractPageData(pageURL, body, "3002")
+	if len(links) != 0 {
+		t.Fatalf("len(links) = %d, want 0; links=%#v", len(links), links)
 	}
 }

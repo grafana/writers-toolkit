@@ -93,6 +93,7 @@ func main() {
 			}}
 		}
 	}
+	reportsForComment := filterReportsForComment(reports)
 
 	fileToCandidates := make(map[string][]string)
 	for _, file := range changedFiles {
@@ -103,10 +104,10 @@ func main() {
 		fileToCandidates[file] = candidates
 	}
 
-	rows, changedFilesWithBroken := collectBrokenRows(reports, fileToCandidates, mappings)
+	rows, changedFilesWithBroken := collectBrokenRows(reportsForComment, fileToCandidates, mappings)
 
 	totalBroken := 0
-	for _, report := range reports {
+	for _, report := range reportsForComment {
 		totalBroken += len(report.Links)
 	}
 
@@ -119,7 +120,7 @@ func main() {
 		changedWithBrokenCount: len(changedFilesWithBroken),
 		brokenOnChangedPages:   len(rows),
 		rows:                   rows,
-		fallbackRows:           collectAllBrokenRows(reports),
+		fallbackRows:           collectAllBrokenRows(reportsForComment),
 		maxRows:                maxRows,
 	})
 
@@ -175,6 +176,39 @@ func readChangedFiles(path string) ([]string, error) {
 	}
 	sort.Strings(files)
 	return files, nil
+}
+
+// filterReportsForComment removes links/pages that should not be included in PR comments.
+func filterReportsForComment(reports []pageReport) []pageReport {
+	filteredReports := make([]pageReport, 0, len(reports))
+	for _, report := range reports {
+		if shouldExcludeFromComment(report.URL) {
+			continue
+		}
+
+		filteredLinks := make([]linkReport, 0, len(report.Links))
+		for _, link := range report.Links {
+			if shouldExcludeFromComment(link.URL) {
+				continue
+			}
+			filteredLinks = append(filteredLinks, link)
+		}
+		if len(filteredLinks) == 0 {
+			continue
+		}
+
+		filteredReports = append(filteredReports, pageReport{
+			URL:   report.URL,
+			Links: filteredLinks,
+		})
+	}
+
+	return filteredReports
+}
+
+// shouldExcludeFromComment returns true when a URL/path should be omitted from comment output.
+func shouldExcludeFromComment(value string) bool {
+	return strings.Contains(strings.ToLower(value), "unstyled")
 }
 
 // collectBrokenRows returns broken-link rows relevant to changed files and moved targets.

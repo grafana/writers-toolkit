@@ -201,3 +201,41 @@ func TestBuildCommentFallbackTableWhenNoChangedMatches(t *testing.T) {
 		t.Fatalf("expected logs hint, got:\n%s", comment)
 	}
 }
+
+func TestFilterReportsForCommentExcludesUnstyled(t *testing.T) {
+	reports := []pageReport{
+		{
+			URL: "http://127.0.0.1:3002/docs/writers-toolkit/contribute/",
+			Links: []linkReport{
+				{
+					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/unstyled.html",
+					Error: "404",
+				},
+				{
+					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/missing-page/",
+					Error: "404",
+				},
+			},
+		},
+		{
+			URL: "http://127.0.0.1:3002/docs/writers-toolkit/tutorials/unstyled.html",
+			Links: []linkReport{
+				{
+					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/missing-page/",
+					Error: "404",
+				},
+			},
+		},
+	}
+
+	filtered := filterReportsForComment(reports)
+	if len(filtered) != 1 {
+		t.Fatalf("len(filtered) = %d, want 1", len(filtered))
+	}
+	if len(filtered[0].Links) != 1 {
+		t.Fatalf("len(filtered[0].Links) = %d, want 1", len(filtered[0].Links))
+	}
+	if strings.Contains(filtered[0].Links[0].URL, "unstyled") {
+		t.Fatalf("unexpected unstyled URL in filtered output: %q", filtered[0].Links[0].URL)
+	}
+}

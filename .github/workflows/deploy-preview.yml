@@ -72,6 +72,11 @@ on:
       sha:
         required: true
         type: string
+      toolkit_ref:
+        description: Ref used to checkout writers-toolkit helper files (branch, tag, or SHA). Defaults to PR SHA when running in writers-toolkit, otherwise main.
+        required: false
+        default: ""
+        type: string
       branch:
         required: true
         type: string
@@ -121,11 +126,12 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.sha }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
             deploy-preview
+            link-checker
 
       - name: Keep only necessary files
         if: inputs.website_directory
@@ -205,7 +211,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.sha }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |

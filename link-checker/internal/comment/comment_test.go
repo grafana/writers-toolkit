@@ -211,11 +211,10 @@ func TestSourceFileForReportLeavesNonMatchingSourcePath(t *testing.T) {
 
 func TestBuildCommentPluralization(t *testing.T) {
 	comment := buildComment(commentInput{
-		repo:                 "writers-toolkit",
-		title:                "test",
-		totalBroken:          1,
-		changedDocsFileCount: 1,
-		maxRows:              150,
+		repo:        "writers-toolkit",
+		title:       "test",
+		totalBroken: 1,
+		maxRows:     150,
 	})
 
 	if !strings.Contains(comment, "1 broken link total.") {
@@ -277,41 +276,6 @@ func TestRenderMarkdownTablePadsColumns(t *testing.T) {
 	}, "\n")
 	if got != want {
 		t.Fatalf("renderMarkdownTable() =\n%s\nwant:\n%s", got, want)
-	}
-}
-
-func TestFilterReportsForCommentNoFiltering(t *testing.T) {
-	reports := []pageReport{
-		{
-			URL: "http://127.0.0.1:3002/docs/writers-toolkit/contribute/",
-			Links: []linkReport{
-				{
-					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/unstyled.html",
-					Error: "404",
-				},
-				{
-					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/missing-page/",
-					Error: "404",
-				},
-			},
-		},
-		{
-			URL: "http://127.0.0.1:3002/docs/writers-toolkit/tutorials/unstyled.html",
-			Links: []linkReport{
-				{
-					URL:   "http://127.0.0.1:3002/docs/writers-toolkit/review/missing-page/",
-					Error: "404",
-				},
-			},
-		},
-	}
-
-	filtered := filterReportsForComment(reports)
-	if len(filtered) != len(reports) {
-		t.Fatalf("len(filtered) = %d, want %d", len(filtered), len(reports))
-	}
-	if len(filtered[0].Links) != len(reports[0].Links) {
-		t.Fatalf("len(filtered[0].Links) = %d, want %d", len(filtered[0].Links), len(reports[0].Links))
 	}
 }
 

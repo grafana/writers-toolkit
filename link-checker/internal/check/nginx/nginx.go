@@ -177,7 +177,7 @@ func StartLogStreaming(parent context.Context, logRequests bool, stdout, stderr 
 // For example, /docs/writers-toolkit/ gets aliased to dist/docs/writers-toolkit/.
 func buildServerConfig(relativePrefixes []string, distRoot, sha string) string {
 	var builder strings.Builder
-	builder.WriteString(fmt.Sprintf("add_header 'Build' '%s';\n\n", sha))
+	_, _ = fmt.Fprintf(&builder, "add_header 'Build' '%s';\n\n", sha)
 
 	hasDocsPrefix := false
 	for _, relativePrefix := range relativePrefixes {
@@ -187,7 +187,7 @@ func buildServerConfig(relativePrefixes []string, distRoot, sha string) string {
 			hasDocsPrefix = true
 		}
 
-		builder.WriteString(fmt.Sprintf(`location = %s {
+		_, _ = fmt.Fprintf(&builder, `location = %s {
   return 301 %s;
 }
 
@@ -195,7 +195,7 @@ location ^~ %s {
   alias %s%s;
 }
 
-		`, prefixWithoutTrailingSlash, normalizedPrefix, normalizedPrefix, distRoot, normalizedPrefix))
+		`, prefixWithoutTrailingSlash, normalizedPrefix, normalizedPrefix, distRoot, normalizedPrefix)
 	}
 
 	if hasDocsPrefix {

@@ -46,11 +46,6 @@ type brokenRow struct {
 	Error     string
 }
 
-type simpleBrokenRow struct {
-	PageURL   string
-	BrokenURL string
-}
-
 const (
 	defaultSourceDirectory        = "docs/sources"
 	generateDefaultRelativePrefix = "/docs/"
@@ -287,16 +282,6 @@ func runGitOutput(args ...string) (string, error) {
 		return "", err
 	}
 	return string(output), nil
-}
-
-// filterReportsForComment removes links/pages that should not be included in PR comments.
-func filterReportsForComment(reports []pageReport) []pageReport {
-	return reports
-}
-
-// shouldExcludeFromComment returns true when a URL/path should be omitted from comment output.
-func shouldExcludeFromComment(value string) bool {
-	return strings.Contains(strings.ToLower(value), "unstyled")
 }
 
 // collectRowsForComment returns all broken-link rows from reports without changed-file filtering.
@@ -648,26 +633,6 @@ func sourceFileForPageURL(pageURL string, mappings []mapping) string {
 	return pageURL
 }
 
-// collectAllBrokenRows flattens all broken links from report data for fallback rendering.
-func collectAllBrokenRows(reports []pageReport) []simpleBrokenRow {
-	rows := make([]simpleBrokenRow, 0)
-	for _, report := range reports {
-		for _, link := range report.Links {
-			rows = append(rows, simpleBrokenRow{
-				PageURL:   report.URL,
-				BrokenURL: link.URL,
-			})
-		}
-	}
-	sort.Slice(rows, func(i, j int) bool {
-		if rows[i].PageURL != rows[j].PageURL {
-			return rows[i].PageURL < rows[j].PageURL
-		}
-		return rows[i].BrokenURL < rows[j].BrokenURL
-	})
-	return rows
-}
-
 // appendUniqueString appends value if it is not already present.
 func appendUniqueString(values []string, value string) []string {
 	for _, existing := range values {
@@ -909,16 +874,12 @@ func normalizeReportPath(p string) string {
 }
 
 type commentInput struct {
-	repo                   string
-	title                  string
-	artifactURL            string
-	totalBroken            int
-	changedDocsFileCount   int
-	changedWithBrokenCount int
-	brokenOnChangedPages   int
-	rows                   []brokenRow
-	fallbackRows           []simpleBrokenRow
-	maxRows                int
+	repo        string
+	title       string
+	artifactURL string
+	totalBroken int
+	rows        []brokenRow
+	maxRows     int
 }
 
 // buildComment renders the final Markdown body for the broken-links PR comment.

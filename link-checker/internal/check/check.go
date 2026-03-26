@@ -234,7 +234,7 @@ func runChecks(ctx context.Context, opts options, server *nginx.Server) error {
 	checkResults := make(map[string]linkCheckResult, len(sourceURLs))
 
 	for _, sourceURL := range sourceURLs {
-		fmt.Fprintf(os.Stdout, "collecting links from: %s\n", sourceURL)
+		_, _ = fmt.Fprintf(os.Stdout, "collecting links from: %s\n", sourceURL)
 		body, err := fetchPageBody(ctx, localClient, sourceURL)
 		if err != nil {
 			return err

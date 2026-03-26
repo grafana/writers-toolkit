@@ -377,6 +377,31 @@ jobs:
             docs/sources
             link-checker
 
+      - name: Check out source files
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ inputs.sha }}
+          path: source-files
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Prepare source paths for comment lookup
+        id: comment-source-paths
+        shell: bash
+        env:
+          SOURCES: ${{ env.SOURCES }}
+          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+        run: |
+          if [[ -n "${SOURCES}" ]]; then
+            mapped_sources="$(jq -c 'map(.source_directory |= if . == null or . == "" then . else "source-files/" + . end)' <<<"${SOURCES}")"
+            printf 'sources=%s\n' "${mapped_sources}" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [[ -n "${SOURCE_DIRECTORY}" ]]; then
+            printf 'source_directory=%s\n' "source-files/${SOURCE_DIRECTORY}" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/download-artifact@v4
         with:
           name: dist-${{ inputs.sha }}
@@ -430,8 +455,8 @@ jobs:
       - name: Generate broken links comment
         shell: bash
         env:
-          SOURCES: ${{ env.SOURCES }}
-          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+          SOURCES: ${{ steps.comment-source-paths.outputs.sources != '' && steps.comment-source-paths.outputs.sources || env.SOURCES }}
+          SOURCE_DIRECTORY: ${{ steps.comment-source-paths.outputs.source_directory != '' && steps.comment-source-paths.outputs.source_directory || env.SOURCE_DIRECTORY }}
           RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
           PR_REPO: ${{ inputs.repo }}
           PR_TITLE: ${{ inputs.title }}

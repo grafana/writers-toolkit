@@ -3,6 +3,8 @@ package crawl
 import (
 	"errors"
 	"fmt"
+	"net"
+	"net/url"
 	"os"
 	"path/filepath"
 	"sort"
@@ -31,7 +33,7 @@ func CollectSourcePageURLs(relativePrefixes []string, port string) ([]string, er
 				return nil
 			}
 
-			sourceURL := fmt.Sprintf("http://127.0.0.1:%s%s", port, urlPath)
+			sourceURL := buildLocalURL(port, urlPath)
 			if _, exists := seen[sourceURL]; exists {
 				return nil
 			}
@@ -88,4 +90,13 @@ func normalizeRelativePrefix(prefix string) string {
 		prefix += "/"
 	}
 	return prefix
+}
+
+// buildLocalURL builds a local preview URL and escapes reserved path characters.
+func buildLocalURL(port, path string) string {
+	return (&url.URL{
+		Scheme: "http",
+		Host:   net.JoinHostPort("127.0.0.1", port),
+		Path:   path,
+	}).String()
 }

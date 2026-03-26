@@ -47,35 +47,26 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         working-directory: ./add-to-docs-project
 
-      - name: Format Slack Message
+      - name: Format Slack message
         id: format-message
-        if: ${{ steps.add-to-docs-project.outputs.added != ''}}
+        if: ${{ steps.add-to-docs-project.outputs.added != '' }}
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
           script: |
             const added = JSON.parse(${{ toJSON(steps.add-to-docs-project.outputs.added) }});
+            if (added.length === 0) return '';
             const lines = added.map(issue => `- <${issue.url}|${issue.title}>`);
             return lines.join('\\n');
           result-encoding: string
 
-      - name: Send Slack Message
-        id: slack
-        if: ${{ steps.add-to-docs-project.outputs.added != ''}}
+      - name: Send Slack message
+        if: ${{ steps.format-message.outputs.result != '' }}
         uses: grafana/shared-workflows/actions/send-slack-message@7b628e7352c2dea057c565cc4fcd5564d5f396c0 # v1.0.0
         with:
           channel-id: C05V6A36MB7
           payload: |
             {
-              "text": "Added issues to the Docs project",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Added the following issues to the Docs project:\n${{ steps.format-message.outputs.result }}"
-                  }
-                }
-              ]
+              "text": "Added the following issues to the Docs project:\n${{ steps.format-message.outputs.result }}"
             }
 
       - name: Notify failure
@@ -85,14 +76,5 @@ jobs:
           channel-id: C05V6A36MB7
           payload: |
             {
-              "text": "Failed to add issues to the Docs project in run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Failed to add issues to the Docs project in run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                  }
-                }
-              ]
+              "text": "Failed to add issues to the Docs project in run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }

@@ -17,4 +17,5 @@ local word = import './word.jsonnet';
   word.new('mixin', 'S', 'noun') { swaps: { 'mix[- ]in': 'mixin' } },
   word.new('Moodle', '', 'noun') { product: true },
   word.new('MySQL', '', 'noun') { product: true, swaps: { mysql: 'MySQL' } },
+  word.new('multi-tenancy', '', 'noun') { swaps: { multitenancy: 'multi-tenancy' } },
 ]

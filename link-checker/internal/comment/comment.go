@@ -920,7 +920,7 @@ func buildComment(in commentInput) string {
 			brokenURLValue := displayBrokenURL(row.BrokenURL)
 			tableRows = append(tableRows, []string{
 				formatMarkdownLink(fileValue, githubFileURL(in.repo, in.branch, displayFilePath(row.File), row.Line)),
-				formatMarkdownLink(brokenURLValue, grafanaLinkTarget(row.BrokenURL)),
+				fmt.Sprintf("`%s`", escapePipes(brokenURLValue)),
 			})
 		}
 		b.WriteString(renderMarkdownTable([]string{"File", "Broken link"}, tableRows))
@@ -982,14 +982,6 @@ func githubFileURL(repo, branch, filePath string, line int) string {
 		urlValue += fmt.Sprintf("#L%d", line)
 	}
 	return urlValue
-}
-
-func grafanaLinkTarget(raw string) string {
-	displayValue := displayBrokenURL(raw)
-	if strings.HasPrefix(displayValue, "/") {
-		return "https://grafana.com" + displayValue
-	}
-	return strings.TrimSpace(raw)
 }
 
 func formatMarkdownLink(label, target string) string {

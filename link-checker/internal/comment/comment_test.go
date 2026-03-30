@@ -225,6 +225,7 @@ func TestBuildCommentPluralization(t *testing.T) {
 func TestBuildCommentShowsAllBrokenRows(t *testing.T) {
 	comment := buildComment(commentInput{
 		repo:        "writers-toolkit",
+		branch:      "main",
 		title:       "test",
 		totalBroken: 2,
 		rows: []brokenRow{
@@ -249,6 +250,9 @@ func TestBuildCommentShowsAllBrokenRows(t *testing.T) {
 	}
 	if !strings.Contains(comment, "| File") || !strings.Contains(comment, "Broken link") {
 		t.Fatalf("expected full broken-links table header, got:\n%s", comment)
+	}
+	if strings.Contains(comment, "| Error") {
+		t.Fatalf("did not expect error column in table, got:\n%s", comment)
 	}
 	if strings.Contains(comment, "| Page") {
 		t.Fatalf("did not expect page column in table, got:\n%s", comment)
@@ -323,6 +327,7 @@ func TestSourceLinkLocatorMatchesGrafanaVersionPlaceholder(t *testing.T) {
 func TestBuildCommentShowsFileLineColumn(t *testing.T) {
 	comment := buildComment(commentInput{
 		repo:        "writers-toolkit",
+		branch:      "main",
 		title:       "test",
 		totalBroken: 1,
 		rows: []brokenRow{
@@ -336,14 +341,15 @@ func TestBuildCommentShowsFileLineColumn(t *testing.T) {
 		},
 	})
 
-	if !strings.Contains(comment, "`docs/sources/review/cla-assistant/index.md:42:7`") {
-		t.Fatalf("expected file column to include line/column, got:\n%s", comment)
+	if !strings.Contains(comment, "[`docs/sources/review/cla-assistant/index.md:42:7`](https://github.com/grafana/writers-toolkit/blob/main/docs/sources/review/cla-assistant/index.md?plain=1#L42)") {
+		t.Fatalf("expected file column to include linked line/column, got:\n%s", comment)
 	}
 }
 
 func TestBuildCommentOmitsSourceCheckoutPrefix(t *testing.T) {
 	comment := buildComment(commentInput{
 		repo:        "writers-toolkit",
+		branch:      "main",
 		title:       "test",
 		totalBroken: 1,
 		rows: []brokenRow{
@@ -360,17 +366,18 @@ func TestBuildCommentOmitsSourceCheckoutPrefix(t *testing.T) {
 	if strings.Contains(comment, "`source-files/docs/sources/contribute/_index.md:125:81`") {
 		t.Fatalf("did not expect source checkout prefix in comment, got:\n%s", comment)
 	}
-	if !strings.Contains(comment, "`docs/sources/contribute/_index.md:125:81`") {
+	if !strings.Contains(comment, "[`docs/sources/contribute/_index.md:125:81`](https://github.com/grafana/writers-toolkit/blob/main/docs/sources/contribute/_index.md?plain=1#L125)") {
 		t.Fatalf("expected repo-relative file path in comment, got:\n%s", comment)
 	}
-	if !strings.Contains(comment, "`/docs/writers-toolkit/review/test-documentation-changes/`") {
-		t.Fatalf("expected local preview URL to render as path, got:\n%s", comment)
+	if !strings.Contains(comment, "[`/docs/writers-toolkit/review/test-documentation-changes/`](https://grafana.com/docs/writers-toolkit/review/test-documentation-changes/)") {
+		t.Fatalf("expected local preview URL to render as linked path, got:\n%s", comment)
 	}
 }
 
 func TestBuildCommentPreservesExternalBrokenURL(t *testing.T) {
 	comment := buildComment(commentInput{
 		repo:        "writers-toolkit",
+		branch:      "main",
 		title:       "test",
 		totalBroken: 1,
 		rows: []brokenRow{
@@ -382,7 +389,7 @@ func TestBuildCommentPreservesExternalBrokenURL(t *testing.T) {
 		},
 	})
 
-	if !strings.Contains(comment, "`https://grafana.com/docs/test/writers-toolkit/write/shortcodes/`") {
+	if !strings.Contains(comment, "[`https://grafana.com/docs/test/writers-toolkit/write/shortcodes/`](https://grafana.com/docs/test/writers-toolkit/write/shortcodes/)") {
 		t.Fatalf("expected external URL to remain unchanged, got:\n%s", comment)
 	}
 }

@@ -58,6 +58,7 @@ type runOptions struct {
 	outputPath      string
 	title           string
 	repo            string
+	branch          string
 	artifactURL     string
 	sourceDirectory string
 	relativePrefix  string
@@ -95,6 +96,7 @@ func Run(args []string) error {
 
 	comment := buildComment(commentInput{
 		repo:        options.repo,
+		branch:      options.branch,
 		title:       options.title,
 		artifactURL: options.artifactURL,
 		totalBroken: totalBroken,
@@ -117,6 +119,7 @@ func parseRunOptions(args []string) (runOptions, error) {
 	flags.StringVar(&options.outputPath, "output", "broken-links-comment.md", "Path to write comment body")
 	flags.StringVar(&options.title, "title", "", "PR title for comment heading")
 	flags.StringVar(&options.repo, "repo", "", "Repository slug fragment for hidden comment marker")
+	flags.StringVar(&options.branch, "branch", strings.TrimSpace(os.Getenv("BRANCH")), "Git branch used to build file links")
 	flags.StringVar(&options.artifactURL, "artifact-url", "", "Uploaded artifact URL")
 	flags.StringVar(&options.sourceDirectory, "source-directory", strings.TrimSpace(os.Getenv("SOURCE_DIRECTORY")), "Legacy single source directory")
 	flags.StringVar(&options.relativePrefix, "relative-prefix", strings.TrimSpace(os.Getenv("RELATIVE_PREFIX")), "Legacy single relative prefix")
@@ -875,6 +878,7 @@ func normalizeReportPath(p string) string {
 
 type commentInput struct {
 	repo        string
+	branch      string
 	title       string
 	artifactURL string
 	totalBroken int
@@ -915,12 +919,11 @@ func buildComment(in commentInput) string {
 			}
 			brokenURLValue := displayBrokenURL(row.BrokenURL)
 			tableRows = append(tableRows, []string{
-				fmt.Sprintf("`%s`", escapePipes(fileValue)),
-				fmt.Sprintf("`%s`", escapePipes(brokenURLValue)),
-				fmt.Sprintf("`%s`", escapePipes(row.Error)),
+				formatMarkdownLink(fileValue, githubFileURL(in.repo, in.branch, displayFilePath(row.File), row.Line)),
+				formatMarkdownLink(brokenURLValue, grafanaLinkTarget(row.BrokenURL)),
 			})
 		}
-		b.WriteString(renderMarkdownTable([]string{"File", "Broken link", "Error"}, tableRows))
+		b.WriteString(renderMarkdownTable([]string{"File", "Broken link"}, tableRows))
 		if in.maxRows > 0 && len(in.rows) > in.maxRows {
 			fmt.Fprintf(&b, "\nShowing first %d of %d broken-link rows.\n", in.maxRows, len(in.rows))
 		}
@@ -964,6 +967,43 @@ func displayBrokenURL(raw string) string {
 		pathValue += "?" + parsed.RawQuery
 	}
 	return pathValue
+}
+
+func githubFileURL(repo, branch, filePath string, line int) string {
+	repo = strings.TrimSpace(repo)
+	branch = strings.TrimSpace(branch)
+	filePath = strings.TrimSpace(filePath)
+	if repo == "" || branch == "" || filePath == "" {
+		return ""
+	}
+
+	urlValue := fmt.Sprintf("https://github.com/grafana/%s/blob/%s/%s?plain=1", repo, branch, filePath)
+	if line > 0 {
+		urlValue += fmt.Sprintf("#L%d", line)
+	}
+	return urlValue
+}
+
+func grafanaLinkTarget(raw string) string {
+	displayValue := displayBrokenURL(raw)
+	if strings.HasPrefix(displayValue, "/") {
+		return "https://grafana.com" + displayValue
+	}
+	return strings.TrimSpace(raw)
+}
+
+func formatMarkdownLink(label, target string) string {
+	label = strings.TrimSpace(label)
+	if label == "" {
+		return ""
+	}
+
+	formattedLabel := fmt.Sprintf("`%s`", escapePipes(label))
+	target = strings.TrimSpace(target)
+	if target == "" {
+		return formattedLabel
+	}
+	return fmt.Sprintf("[%s](%s)", formattedLabel, target)
 }
 
 // renderMarkdownTable renders a markdown table with padded, equal-width columns.

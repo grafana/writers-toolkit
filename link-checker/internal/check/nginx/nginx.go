@@ -36,6 +36,18 @@ func PrepareConfig(nginxPort string, relativePrefixes []string, sha string) erro
 	if err := os.MkdirAll("run", 0o755); err != nil {
 		return fmt.Errorf("create run dir: %w", err)
 	}
+	for _, dir := range []string{
+		"temp",
+		"temp/client_temp",
+		"temp/proxy_temp",
+		"temp/fastcgi_temp",
+		"temp/uwsgi_temp",
+		"temp/scgi_temp",
+	} {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return fmt.Errorf("create %s dir: %w", dir, err)
+		}
+	}
 
 	rendered, err := renderConfig(localTemplate, nginxPort, relativePrefixes, sha)
 	if err != nil {

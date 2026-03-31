@@ -26,3 +26,6 @@ jobs:
         working-directory: link-checker
       - run: go build ./cmd/link-checker
         working-directory: link-checker
+      - run: docker build --tag writers-toolkit-link-checker:test .
+        working-directory: link-checker
+      - run: docker run --rm writers-toolkit-link-checker:test help

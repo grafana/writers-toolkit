@@ -17,4 +17,7 @@ func TestRenderConfigIncludesRedirects(t *testing.T) {
 	if !strings.Contains(rendered, "include deploy-preview/redirects.conf;") {
 		t.Fatalf("expected rendered config to include redirects.conf, got:\n%s", rendered)
 	}
+	if !strings.Contains(rendered, "client_body_temp_path temp/client_temp;") {
+		t.Fatalf("expected rendered config to include writable temp paths, got:\n%s", rendered)
+	}
 }

@@ -411,7 +411,6 @@ jobs:
         shell: bash
         run: |
           docker run --rm \
-            --user "$(id -u):$(id -g)" \
             -e RELATIVE_PREFIX \
             -e SHA \
             -e SOURCES \
@@ -461,7 +460,6 @@ jobs:
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
         run: |
           docker run --rm \
-            --user "$(id -u):$(id -g)" \
             -e BRANCH="${PR_BRANCH}" \
             -e RELATIVE_PREFIX \
             -e SOURCE_DIRECTORY \

@@ -407,22 +407,18 @@ jobs:
           name: dist-${{ inputs.sha }}
           path: dist
 
-      - name: Set up Go
-        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
-        with:
-          go-version: 1.22.x
-
-      - name: Add Go bin to PATH
-        shell: bash
-        run: echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
-
-      - name: Install nginx
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y nginx
-
       - name: Check links
-        run: go run ./link-checker/cmd/link-checker check
+        shell: bash
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -e RELATIVE_PREFIX \
+            -e SHA \
+            -e SOURCES \
+            -v "${PWD}:/work" \
+            -w /work \
+            robbymilo/link-checker:latest \
+            check
 
       - name: Print nginx error log
         if: ${{ always() }}
@@ -463,15 +459,24 @@ jobs:
           PR_TITLE: ${{ inputs.title }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
-        run: >
-          go run ./link-checker/cmd/link-checker comment
-          -links links.json
-          -base-ref "${PR_BASE_SHA}"
-          -output broken-links-comment.md
-          -repo "${PR_REPO}"
-          -branch "${PR_BRANCH}"
-          -title "${PR_TITLE}"
-          -artifact-url "${ARTIFACT_URL}"
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -e BRANCH="${PR_BRANCH}" \
+            -e RELATIVE_PREFIX \
+            -e SOURCE_DIRECTORY \
+            -e SOURCES \
+            -v "${PWD}:/work" \
+            -w /work \
+            robbymilo/link-checker:latest \
+            comment \
+            -links links.json \
+            -base-ref "${PR_BASE_SHA}" \
+            -output broken-links-comment.md \
+            -repo "${PR_REPO}" \
+            -branch "${PR_BRANCH}" \
+            -title "${PR_TITLE}" \
+            -artifact-url "${ARTIFACT_URL}"
 
       - name: Print broken links comment
         run: cat broken-links-comment.md

@@ -31,7 +31,6 @@ Choose your link type based on your goal:
 
 Although these other types of links still function, replace them with one of the preceding options:
 
-- [Hugo `relref` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#relref)
 - [`docs/reference` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#docsreference)
 
 ## Link from source content that's reused as multiple pages

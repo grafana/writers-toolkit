@@ -412,6 +412,7 @@ jobs:
         run: |
           docker run --rm \
             -e RELATIVE_PREFIX \
+            -e SOURCE_DIRECTORY \
             -e SHA \
             -e SOURCES \
             -v "${PWD}:/work" \

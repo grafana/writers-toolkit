@@ -609,6 +609,64 @@ Produces:
         └── success (bool)
 ```
 
+By default, all nodes are expanded. To load the tree with all nodes collapsed, add the `collapsed` class to the code fence info block:
+
+````markdown
+```api-tree {class="collapsed"}
+CollectorService
+├── [GetConfig](../collector-api/#getconfigrequest)
+│   ├── Request: [GetConfigRequest](../collector-api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   ├── local\_attributes (map<string>) \[optional\]
+│   │   ├── hash (string) \[optional\]
+│   │   ├── remote\_config\_status ([RemoteConfigStatus](../collector-api/#remoteconfigstatus)) \[optional\]
+│   │   │   ├── status ([RemoteConfigStatuses](../collector-api/#remoteconfigstatuses))
+│   │   │   │   ├── UNSET
+│   │   │   │   ├── APPLIED
+│   │   │   │   ├── APPLYING
+│   │   │   │   └── FAILED
+│   │   │   └── error\_message (string) \[optional\]
+│   │   └── effective\_config ([EffectiveConfig](../collector-api/#effectiveconfig)) \[optional\]
+│   │       └── config\_map ([AgentConfigMap](../collector-api/#agentconfigmap))
+│   │           └── config\_map (map<string, [AgentConfigFile](../collector-api/#agentconfigfile)\>)
+│   │               └── [AgentConfigFile](../collector-api/#agentconfigfile)
+│   │                   ├── body (bytes)
+│   │                   └── content\_type (string) \[optional\]
+│   └── Response: [GetConfigResponse](../collector-api/#getconfigresponse)
+│       ├── content (string)
+│       ├── hash (string)
+│       └── not\_modified (bool)
+```
+````
+
+Produces:
+
+```api-tree {class="collapsed"}
+CollectorService
+├── [GetConfig](../collector-api/#getconfigrequest)
+│   ├── Request: [GetConfigRequest](../collector-api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   ├── local\_attributes (map<string>) \[optional\]
+│   │   ├── hash (string) \[optional\]
+│   │   ├── remote\_config\_status ([RemoteConfigStatus](../collector-api/#remoteconfigstatus)) \[optional\]
+│   │   │   ├── status ([RemoteConfigStatuses](../collector-api/#remoteconfigstatuses))
+│   │   │   │   ├── UNSET
+│   │   │   │   ├── APPLIED
+│   │   │   │   ├── APPLYING
+│   │   │   │   └── FAILED
+│   │   │   └── error\_message (string) \[optional\]
+│   │   └── effective\_config ([EffectiveConfig](../collector-api/#effectiveconfig)) \[optional\]
+│   │       └── config\_map ([AgentConfigMap](../collector-api/#agentconfigmap))
+│   │           └── config\_map (map<string, [AgentConfigFile](../collector-api/#agentconfigfile)\>)
+│   │               └── [AgentConfigFile](../collector-api/#agentconfigfile)
+│   │                   ├── body (bytes)
+│   │                   └── content\_type (string) \[optional\]
+│   └── Response: [GetConfigResponse](../collector-api/#getconfigresponse)
+│       ├── content (string)
+│       ├── hash (string)
+│       └── not\_modified (bool)
+```
+
 ## Collapse
 
 The `collapse` shortcode toggles visibility of sections of content, often helpful when hiding and showing large amounts of content.

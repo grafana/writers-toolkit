@@ -101,7 +101,7 @@ If there is no _`<KEY>`_ in the `refs` field, or there is no `refs` field in the
 Use a URL.
 
 If you're linking to versioned documentation within your own documentation, use a URL with version substitution syntax instead of the version path element.
-For example, in Grafana, use `<GRAFANA_VERSION>` instead of `latest` in the URL `https://grafana.com/docs/grafana/latest/`.
+For example, instead of the URL `https://grafana.com/docs/grafana/latest/`, use `https://grafana.com/docs/grafana/<GRAFANA_VERSION>/`.
 
 If you're linking to versioned documentation in another project, use version substitution if you have version compatibility constraints between the projects.
 Refer to the target project in the version substitution.

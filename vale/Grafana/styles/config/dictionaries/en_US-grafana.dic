@@ -1,4 +1,4 @@
-397
+398
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -358,6 +358,8 @@ UI/S po:noun
 UID/S po:noun
 uprobe/S po:noun
 unary/ po:adjective
+undock/DGS po:verb
+ungroup/DGS po:verb
 URI/S po:noun
 URL/S po:noun
 USB/ po:noun

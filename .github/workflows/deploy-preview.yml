@@ -156,18 +156,44 @@ jobs:
           ls -al .
           ls -al deploy-preview-files
 
+      - name: Resolve docs target
+        id: resolve-docs-target
+        shell: bash
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          SOURCES: ${{ env.SOURCES }}
+          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
+          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+        run: |
+          DOCS_TARGET="$(./deploy-preview-files/deploy-preview/docs-target "${BASE_REF}")"
+          echo "docs_target=${DOCS_TARGET}" >> "$GITHUB_OUTPUT"
+
+          if [[ -n "${SOURCES}" ]]; then
+            resolved_sources="$(jq -c --arg target "${DOCS_TARGET}" 'map(.website_directory |= gsub("latest"; $target) | .relative_prefix |= gsub("latest"; $target))' <<<"${SOURCES}")"
+            echo "sources=${resolved_sources}" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
+            echo "website_directory=${WEBSITE_DIRECTORY//latest/${DOCS_TARGET}}" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [[ -n "${RELATIVE_PREFIX}" ]]; then
+            echo "relative_prefix=${RELATIVE_PREFIX//latest/${DOCS_TARGET}}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build website
         shell: bash
         env:
           # Legacy input.
           SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
-          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
+          WEBSITE_DIRECTORY: ${{ steps.resolve-docs-target.outputs.website_directory || env.WEBSITE_DIRECTORY }}
           INDEX_FILE: ${{ env.INDEX_FILE }}
           REPO: ${{ env.REPO }}
+          RELATIVE_PREFIX: ${{ steps.resolve-docs-target.outputs.relative_prefix || env.RELATIVE_PREFIX }}
           # End legacy input.
           GH_TOKEN: ${{ github.token }}
           IMAGE: ${{ env.IMAGE }}
-          SOURCES: ${{ env.SOURCES }}
+          SOURCES: ${{ steps.resolve-docs-target.outputs.sources || env.SOURCES }}
           BRANCH: ${{ env.BRANCH }}
         run: ./deploy-preview-files/deploy-preview/build
 
@@ -221,6 +247,29 @@ jobs:
         with:
           name: dist-${{ inputs.sha }}
           path: dist
+
+      - name: Resolve docs target
+        shell: bash
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          SOURCES: ${{ env.SOURCES }}
+          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
+          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+        run: |
+          DOCS_TARGET="$(./deploy-preview-files/deploy-preview/docs-target "${BASE_REF}")"
+
+          if [[ -n "${SOURCES}" ]]; then
+            resolved_sources="$(jq -c --arg target "${DOCS_TARGET}" 'map(.website_directory |= gsub("latest"; $target) | .relative_prefix |= gsub("latest"; $target))' <<<"${SOURCES}")"
+            echo "SOURCES=${resolved_sources}" >> "$GITHUB_ENV"
+          fi
+
+          if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
+            echo "WEBSITE_DIRECTORY=${WEBSITE_DIRECTORY//latest/${DOCS_TARGET}}" >> "$GITHUB_ENV"
+          fi
+
+          if [[ -n "${RELATIVE_PREFIX}" ]]; then
+            echo "RELATIVE_PREFIX=${RELATIVE_PREFIX//latest/${DOCS_TARGET}}" >> "$GITHUB_ENV"
+          fi
 
       - name: Print build header value
         shell: bash
@@ -299,7 +348,7 @@ jobs:
         with:
           name: deploy_preview
           status: ${{ job.status }}
-          url: ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+          url: ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
@@ -325,7 +374,7 @@ jobs:
         with:
           issue-number: ${{ env.EVENT_NUMBER }}
           body: |
-            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
 
       - name: Create comment with available deploy preview
         if: "!inputs.website_directory && steps.fc.outputs.comment-id == ''"
@@ -344,7 +393,7 @@ jobs:
           issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
 
       - name: Update comment with available deploy preview
         if: "!inputs.website_directory && steps.fc.outputs.comment-id != ''"
@@ -385,6 +434,25 @@ jobs:
           path: source-files
           persist-credentials: false
           fetch-depth: 1
+
+      - name: Resolve docs target
+        shell: bash
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          SOURCES: ${{ env.SOURCES }}
+          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+        run: |
+          DOCS_TARGET="$(./deploy-preview/docs-target "${BASE_REF}")"
+
+          if [[ -n "${SOURCES}" ]]; then
+            resolved_sources="$(jq -c --arg target "${DOCS_TARGET}" 'map(.website_directory |= gsub("latest"; $target) | .relative_prefix |= gsub("latest"; $target))' <<<"${SOURCES}")"
+            echo "SOURCES=${resolved_sources}" >> "$GITHUB_ENV"
+          fi
+
+          if [[ -n "${RELATIVE_PREFIX}" ]]; then
+            echo "RELATIVE_PREFIX=${RELATIVE_PREFIX//latest/${DOCS_TARGET}}" >> "$GITHUB_ENV"
+          fi
 
       - name: Prepare source paths for comment lookup
         id: comment-source-paths

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Determine the documentation target directory from a Git base ref.
+# Mirrors the logic from https://github.com/grafana/grafana-github-actions/tree/main/docs-target
+#
+# Usage: docs-target <base_ref>
+#
+# For main/master branches, the target is "next".
+# For release branches, the target is "latest".
+
+set -euf -o pipefail
+
+readonly BASE_REF="${1:-}"
+
+if [[ -z "${BASE_REF}" ]]; then
+  echo "Usage: docs-target <base_ref>" >&2
+  exit 1
+fi
+
+case "${BASE_REF}" in
+  main|master)
+    echo "next"
+    ;;
+  *)
+    echo "latest"
+    ;;
+esac

@@ -144,7 +144,27 @@ Produces:
 
 {{< docs/alias from="/docs/grafana/latest/old-alerting/" to="/docs/grafana/latest/alerting/manage-notifications/" >}}
 
-##### Other projects
+##### Unversioned projects
+
+Unversioned projects, such as Grafana Cloud, use absolute paths for aliases because there's no version component in the URL.
+
+For example, if you rename `old-page-name/` to `new-page-name/` within the Grafana Cloud alerting documentation, add the following alias to the front matter of `new-page-name/`:
+
+```markdown
+---
+aliases:
+  - /docs/grafana-cloud/alerting-and-irm/alerting/old-page-name/
+---
+```
+
+Unlike versioned projects:
+
+- Use **absolute paths** starting with `/docs/` rather than relative paths starting with `./` or `../`.
+  Because there's no version in the URL, absolute aliases can't cause incorrect cross-version redirects.
+- Don't include a YAML comment to clarify the expanded path.
+  The absolute path already represents the full URL path.
+
+Additional guidelines:
 
 - Include an `aliases` entry for the current URL path.
 - Add an `aliases` entry to make it safer to move content around, as the redirect from old to new page location is already in place.
@@ -447,6 +467,25 @@ Pages with the same weight are displayed in alphabetical order.
 Use increments of `100` for content files.
 Doing so makes it easier for you to re-order existing topics when you add new topics.
 Weights are per directory.
+
+### _build
+
+Use `_build` when you want to hide content for private preview features.  `_build` controls how Hugo builds and lists a page.
+The `_build` front matter has two fields: `list` and `render`.
+
+The `list` field controls whether Hugo includes the page in page collections, such as the sidebar table of contents. When you do not want a topic to appear in the table of contents, set `list: false` in the front matter of your topic.
+
+The `render` field controls whether Hugo renders the page to a URL.  Because you want to have a URL to provide to private preview customers, you want to set `render: true` in your frontmatter.
+
+#### Example
+
+The following front matter makes a page accessible by its direct URL but excludes it from the sidebar table of contents:
+
+```yaml
+_build:
+  list: false
+  render: true
+```
 
 ## Tutorials
 

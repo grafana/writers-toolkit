@@ -143,9 +143,9 @@ You must first use the shortcode in your source file and then copy the result fr
 Produces:
 
 {{< docs/alias from="/docs/grafana/latest/old-alerting/" to="/docs/grafana/latest/alerting/manage-notifications/" >}}
-
+<!-- vale Grafana.Spelling = NO -->
 ##### Unversioned projects
-
+<!-- vale Grafana.Spelling = YES -->
 Unversioned projects, such as Grafana Cloud, use absolute paths for aliases because there's no version component in the URL.
 
 For example, if you rename `old-page-name/` to `new-page-name/` within the Grafana Cloud alerting documentation, add the following alias to the front matter of `new-page-name/`:
@@ -467,15 +467,15 @@ Pages with the same weight are displayed in alphabetical order.
 Use increments of `100` for content files.
 Doing so makes it easier for you to re-order existing topics when you add new topics.
 Weights are per directory.
-
+<!-- vale Grafana.Headings = NO -->
 ### _build
-
+<!-- vale Grafana.Headings = YES -->
 Use `_build` when you want to hide content for private preview features.  `_build` controls how Hugo builds and lists a page.
 The `_build` front matter has two fields: `list` and `render`.
 
 The `list` field controls whether Hugo includes the page in page collections, such as the sidebar table of contents. When you do not want a topic to appear in the table of contents, set `list: false` in the front matter of your topic.
 
-The `render` field controls whether Hugo renders the page to a URL.  Because you want to have a URL to provide to private preview customers, you want to set `render: true` in your frontmatter.
+The `render` field controls whether Hugo renders the page to a URL.  Because you want to have a URL to provide to private preview customers, you want to set `render: true` in your front matter.
 
 #### Example
 

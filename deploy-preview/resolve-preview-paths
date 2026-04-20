@@ -13,10 +13,13 @@ readonly BASE_SOURCES="${BASE_SOURCES:-}"
 readonly DOCS_TARGET="${DOCS_TARGET:-}"
 readonly DOCS_TARGET_OUTCOME="${DOCS_TARGET_OUTCOME:-}"
 readonly TARGET_REF_NAME="${TARGET_REF_NAME:-}"
-readonly VERSION_SUFFIX="${VERSION_SUFFIX:-}"
 
 sources="${BASE_SOURCES}"
 should_resolve_target=false
+
+if [[ -n "${sources}" ]]; then
+  sources="$(jq -c . <<<"${sources}")"
+fi
 
 function is_versioned_path {
   local path="${1:-}"
@@ -34,7 +37,7 @@ if [[ "${should_resolve_target}" == "true" && -n "${TARGET_REF_NAME}" && -n "${D
 fi
 
 if [[ "${should_resolve_target}" == "true" && -n "${DOCS_TARGET}" ]]; then
-  target="${DOCS_TARGET}${VERSION_SUFFIX}"
+  target="${DOCS_TARGET}"
 
   if [[ -n "${sources}" ]]; then
     sources="$(jq -c --arg target "${target}" 'map(

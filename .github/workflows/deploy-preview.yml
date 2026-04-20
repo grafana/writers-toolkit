@@ -25,10 +25,6 @@ on:
           Optional Git ref name used to derive the documentation target with `./actions/docs-target`.
           For pull requests, pass the base branch name.
         type: string
-      version_suffix:
-        description: Optional suffix appended to the target derived by `./actions/docs-target`.
-        default: ""
-        type: string
       # End legacy inputs
       sources:
         description: |
@@ -152,7 +148,6 @@ jobs:
         env:
           BASE_SOURCES: ${{ inputs.sources }}
           TARGET_REF_NAME: ${{ inputs.target_ref_name }}
-          VERSION_SUFFIX: ${{ inputs.version_suffix }}
         run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
 
       - name: Checkout Actions library
@@ -184,7 +179,6 @@ jobs:
           DOCS_TARGET: ${{ steps.docs-target.outputs.target }}
           DOCS_TARGET_OUTCOME: ${{ steps.docs-target.outcome }}
           TARGET_REF_NAME: ${{ inputs.target_ref_name }}
-          VERSION_SUFFIX: ${{ inputs.version_suffix }}
         run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
 
       - name: Keep only necessary files

@@ -104,10 +104,30 @@ Use it instead of raw HTML anchor tags to keep Markdown free of presentational m
 | Parameter | Description                                                                           | Required |
 | --------- | ------------------------------------------------------------------------------------- | -------- |
 | `link`    | The URL the button navigates to.                                                      | yes      |
-| `type`    | The visual style of the button. For example, `primary`.                               | yes      |
-| `size`    | The size modifier for the button. For example, `large`.                               | no       |
+| `type`    | The visual style of the button.                                                       | yes      |
+| `size`    | The size modifier for the button.                                                     | no       |
 | `target`  | The value of the HTML `target` attribute. Use `_blank` to open the link in a new tab. | no       |
 | `class`   | Additional CSS classes to apply to the button.                                        | no       |
+
+#### `type` values
+
+- `primary`: Solid blue fill, white text.
+- `secondary`: White background, navy text, blue border.
+- `white`: White background, navy text.
+- `outline-white`: Transparent background, white border and text.
+- `outline-gray`: Transparent background, grey border and text.
+- `outline-blue`: Transparent background, dark-blue border, white text.
+- `success`: Green fill, white text.
+- `empty`: No border or background; underline on hover.
+- `none`: No border, background, or underline.
+
+#### `size` values
+
+- `mini`: 32px height.
+- `small`: 30px height.
+- `slim`: 40px height, smaller font.
+- `large`: 50px height, larger font.
+- `hero`: 40px height, larger font.
 
 ### Examples
 

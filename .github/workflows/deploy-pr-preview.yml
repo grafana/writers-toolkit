@@ -24,11 +24,14 @@ jobs:
       branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
       image: grafana/docs-base:nightly
-      relative_prefix: /docs/writers-toolkit/
       repo: writers-toolkit
       sha: ${{ github.event.pull_request.head.sha }}
-      source_directory: docs/sources
-      target_ref_name: ${{ github.base_ref }}
+      sources: |
+        [{
+            "index_file": null,
+            "relative_prefix": "/docs/writers-toolkit/",
+            "repo": "writers-toolkit",
+            "source_directory": "docs/sources",
+            "website_directory": "content/docs/writers-toolkit"
+        }]
       title: ${{ github.event.pull_request.title }}
-      version_suffix: .x
-      website_directory: content/docs/writers-toolkit

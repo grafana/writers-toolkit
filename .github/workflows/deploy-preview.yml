@@ -20,6 +20,15 @@ on:
         type: string
       index_file: # creates the necessary project _index.md file for versioned repos
         type: boolean
+      target_ref_name:
+        description: |
+          Optional Git ref name used to derive the documentation target with `./actions/docs-target`.
+          For pull requests, pass the base branch name.
+        type: string
+      version_suffix:
+        description: Optional suffix appended to the target derived by `./actions/docs-target`.
+        default: ""
+        type: string
       # End legacy inputs
       sources:
         description: |
@@ -110,6 +119,10 @@ concurrency:
 
 jobs:
   build-website:
+    outputs:
+      relative_prefix: ${{ steps.preview-paths.outputs.relative_prefix != '' && steps.preview-paths.outputs.relative_prefix || env.RELATIVE_PREFIX }}
+      sources: ${{ steps.preview-paths.outputs.sources != '' && steps.preview-paths.outputs.sources || env.SOURCES }}
+      website_directory: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
     permissions:
       contents: read # Clone repositories.
     if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -121,6 +134,72 @@ jobs:
           persist-credentials: false
           sparse-checkout-cone-mode: false # exclude root files
           sparse-checkout: docs
+
+      - name: Checkout Actions library
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        if: inputs.target_ref_name != ''
+        with:
+          repository: grafana/grafana-github-actions
+          path: ./actions
+          persist-credentials: false
+
+      - name: Install Actions from library
+        if: inputs.target_ref_name != ''
+        run: npm install --production --prefix ./actions
+        shell: bash
+
+      - name: Determine technical documentation target
+        if: inputs.target_ref_name != ''
+        id: docs-target
+        continue-on-error: true
+        uses: ./actions/docs-target
+        with:
+          ref_name: ${{ inputs.target_ref_name }}
+
+      - name: Resolve preview paths
+        id: preview-paths
+        shell: bash
+        env:
+          BASE_RELATIVE_PREFIX: ${{ inputs.relative_prefix }}
+          BASE_SOURCES: ${{ inputs.sources }}
+          BASE_WEBSITE_DIRECTORY: ${{ inputs.website_directory }}
+          DOCS_TARGET: ${{ steps.docs-target.outputs.target }}
+          DOCS_TARGET_OUTCOME: ${{ steps.docs-target.outcome }}
+          TARGET_REF_NAME: ${{ inputs.target_ref_name }}
+          VERSION_SUFFIX: ${{ inputs.version_suffix }}
+        run: |
+          website_directory="${BASE_WEBSITE_DIRECTORY}"
+          relative_prefix="${BASE_RELATIVE_PREFIX}"
+          sources="${BASE_SOURCES}"
+
+          if [[ -n "${TARGET_REF_NAME}" && "${DOCS_TARGET_OUTCOME}" != "success" ]]; then
+            echo "::warning ::Unable to determine docs target for ${TARGET_REF_NAME}; using base preview paths."
+          fi
+
+          if [[ -n "${DOCS_TARGET}" ]]; then
+            target="${DOCS_TARGET}${VERSION_SUFFIX}"
+
+            if [[ -n "${website_directory}" ]]; then
+              website_directory="${website_directory%/}/${target}"
+            fi
+
+            if [[ -n "${relative_prefix}" ]]; then
+              relative_prefix="${relative_prefix%/}/${target}/"
+            fi
+
+            if [[ -n "${sources}" ]]; then
+              sources="$(jq -c --arg target "${target}" 'map(
+                .website_directory |= if . == null or . == "" then . else (. | sub("/$"; "") + "/" + $target) end |
+                .relative_prefix |= if . == null or . == "" then . else (. | sub("/$"; "") + "/" + $target + "/") end
+              )' <<<"${sources}")"
+            fi
+          fi
+
+          {
+            echo "website_directory=${website_directory}"
+            echo "relative_prefix=${relative_prefix}"
+            echo "sources=${sources}"
+          } >> "${GITHUB_OUTPUT}"
 
       - name: Sparse checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -156,44 +235,19 @@ jobs:
           ls -al .
           ls -al deploy-preview-files
 
-      - name: Resolve docs target
-        id: resolve-docs-target
-        shell: bash
-        env:
-          BASE_REF: ${{ github.event.pull_request.base.ref }}
-          SOURCES: ${{ env.SOURCES }}
-          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
-          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
-        run: |
-          DOCS_TARGET="$(./deploy-preview-files/deploy-preview/docs-target "${BASE_REF}")"
-          echo "docs_target=${DOCS_TARGET}" >> "$GITHUB_OUTPUT"
-
-          if [[ -n "${SOURCES}" ]]; then
-            resolved_sources="$(jq -c --arg target "${DOCS_TARGET}" 'map(.website_directory |= gsub("latest"; $target) | .relative_prefix |= gsub("latest"; $target))' <<<"${SOURCES}")"
-            echo "sources=${resolved_sources}" >> "$GITHUB_OUTPUT"
-          fi
-
-          if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
-            echo "website_directory=${WEBSITE_DIRECTORY//latest/${DOCS_TARGET}}" >> "$GITHUB_OUTPUT"
-          fi
-
-          if [[ -n "${RELATIVE_PREFIX}" ]]; then
-            echo "relative_prefix=${RELATIVE_PREFIX//latest/${DOCS_TARGET}}" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Build website
         shell: bash
         env:
           # Legacy input.
           SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
-          WEBSITE_DIRECTORY: ${{ steps.resolve-docs-target.outputs.website_directory || env.WEBSITE_DIRECTORY }}
+          WEBSITE_DIRECTORY: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
           INDEX_FILE: ${{ env.INDEX_FILE }}
           REPO: ${{ env.REPO }}
-          RELATIVE_PREFIX: ${{ steps.resolve-docs-target.outputs.relative_prefix || env.RELATIVE_PREFIX }}
+          RELATIVE_PREFIX: ${{ steps.preview-paths.outputs.relative_prefix != '' && steps.preview-paths.outputs.relative_prefix || env.RELATIVE_PREFIX }}
           # End legacy input.
           GH_TOKEN: ${{ github.token }}
           IMAGE: ${{ env.IMAGE }}
-          SOURCES: ${{ steps.resolve-docs-target.outputs.sources || env.SOURCES }}
+          SOURCES: ${{ steps.preview-paths.outputs.sources != '' && steps.preview-paths.outputs.sources || env.SOURCES }}
           BRANCH: ${{ env.BRANCH }}
         run: ./deploy-preview-files/deploy-preview/build
 
@@ -248,27 +302,18 @@ jobs:
           name: dist-${{ inputs.sha }}
           path: dist
 
-      - name: Resolve docs target
+      - name: Use resolved preview paths
         shell: bash
         env:
-          BASE_REF: ${{ github.event.pull_request.base.ref }}
-          SOURCES: ${{ env.SOURCES }}
-          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
-          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+          RESOLVED_RELATIVE_PREFIX: ${{ needs.build-website.outputs.relative_prefix }}
+          RESOLVED_SOURCES: ${{ needs.build-website.outputs.sources }}
         run: |
-          DOCS_TARGET="$(./deploy-preview-files/deploy-preview/docs-target "${BASE_REF}")"
-
-          if [[ -n "${SOURCES}" ]]; then
-            resolved_sources="$(jq -c --arg target "${DOCS_TARGET}" 'map(.website_directory |= gsub("latest"; $target) | .relative_prefix |= gsub("latest"; $target))' <<<"${SOURCES}")"
-            echo "SOURCES=${resolved_sources}" >> "$GITHUB_ENV"
+          if [[ -n "${RESOLVED_SOURCES}" ]]; then
+            echo "SOURCES=${RESOLVED_SOURCES}" >> "$GITHUB_ENV"
           fi
 
-          if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
-            echo "WEBSITE_DIRECTORY=${WEBSITE_DIRECTORY//latest/${DOCS_TARGET}}" >> "$GITHUB_ENV"
-          fi
-
-          if [[ -n "${RELATIVE_PREFIX}" ]]; then
-            echo "RELATIVE_PREFIX=${RELATIVE_PREFIX//latest/${DOCS_TARGET}}" >> "$GITHUB_ENV"
+          if [[ -n "${RESOLVED_RELATIVE_PREFIX}" ]]; then
+            echo "RELATIVE_PREFIX=${RESOLVED_RELATIVE_PREFIX}" >> "$GITHUB_ENV"
           fi
 
       - name: Print build header value
@@ -341,14 +386,14 @@ jobs:
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
         if: inputs.website_directory
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
-        if: github.event.action == 'closed'
         with:
           name: deploy_preview
           status: ${{ job.status }}
           url: ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
+        if: github.event.action == 'closed'
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
@@ -435,23 +480,18 @@ jobs:
           persist-credentials: false
           fetch-depth: 1
 
-      - name: Resolve docs target
+      - name: Use resolved preview paths
         shell: bash
         env:
-          BASE_REF: ${{ github.event.pull_request.base.ref }}
-          SOURCES: ${{ env.SOURCES }}
-          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
-          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+          RESOLVED_RELATIVE_PREFIX: ${{ needs.build-website.outputs.relative_prefix }}
+          RESOLVED_SOURCES: ${{ needs.build-website.outputs.sources }}
         run: |
-          DOCS_TARGET="$(./deploy-preview/docs-target "${BASE_REF}")"
-
-          if [[ -n "${SOURCES}" ]]; then
-            resolved_sources="$(jq -c --arg target "${DOCS_TARGET}" 'map(.website_directory |= gsub("latest"; $target) | .relative_prefix |= gsub("latest"; $target))' <<<"${SOURCES}")"
-            echo "SOURCES=${resolved_sources}" >> "$GITHUB_ENV"
+          if [[ -n "${RESOLVED_SOURCES}" ]]; then
+            echo "SOURCES=${RESOLVED_SOURCES}" >> "$GITHUB_ENV"
           fi
 
-          if [[ -n "${RELATIVE_PREFIX}" ]]; then
-            echo "RELATIVE_PREFIX=${RELATIVE_PREFIX//latest/${DOCS_TARGET}}" >> "$GITHUB_ENV"
+          if [[ -n "${RESOLVED_RELATIVE_PREFIX}" ]]; then
+            echo "RELATIVE_PREFIX=${RESOLVED_RELATIVE_PREFIX}" >> "$GITHUB_ENV"
           fi
 
       - name: Prepare source paths for comment lookup

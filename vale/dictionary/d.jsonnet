@@ -9,7 +9,7 @@ local word = import './word.jsonnet';
   word.new('Databricks', '', 'noun') { product: true },
   word.new('Datadog', '', 'adjective'),
   word.new('Datadog', '', 'noun') { product: true },
-  word.new(`decrypter`, `MS`, `noun`) { description: `A Grafana service that can read the value of secrets created using the Grafana secrets management service` },
+  word.new('decrypter', 'MS', 'noun') { description: 'A Grafana service that can read the value of secrets created using the Grafana secrets management service' },
   word.new('deleter', 'S', 'noun'),
   word.new('deliverable', 'S', 'noun'),
   word.new('disaggregate', 'DS', 'verb'),

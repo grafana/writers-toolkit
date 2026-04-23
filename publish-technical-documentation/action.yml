@@ -1,8 +1,12 @@
 name: Publish technical documentation
 description: |
-  This action syncs the documentation to the website repository where it is published on the website.
+  This action syncs the documentation to a branch on the website repository and opens a pull request labelled publish-docs.
 
-  You need the following permissions on the workflow step to fetch secrets from Vault needed by this action.
+  The website branch is derived from the source repository name and ref:
+    sync/docs/<REPO NAME>/<REF NAME>
+
+  You need the following permissions on the workflow step to fetch secrets from Vault
+  needed by this action.
 
   ```yaml
   permissions:
@@ -14,14 +18,31 @@ inputs:
     default: docs/sources
     description: Path to source directory, relative to the project root, to sync documentation from.
   website_branch:
-    default: master
-    description: Website repository branch to sync the documentation to.
+    default: ""
+    description: |
+      Website repository branch to sync the documentation to.
+      When empty, the branch is derived from the source repository name and ref as sync/docs/<REPO NAME>/<REF NAME>.
   website_directory:
     description: Website directory to sync the documentation to.
     required: true
 runs:
   using: composite
   steps:
+    - name: Determine website branch
+      id: website-branch
+      env:
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_REF_NAME: ${{ github.ref_name }}
+        WEBSITE_BRANCH_OVERRIDE: ${{ inputs.website_branch }}
+      run: |
+        if [[ -n "${WEBSITE_BRANCH_OVERRIDE}" ]]; then
+          echo "branch=${WEBSITE_BRANCH_OVERRIDE}" >> "${GITHUB_OUTPUT}"
+        else
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          echo "branch=sync/docs/${repo_name}/${GITHUB_REF_NAME}" >> "${GITHUB_OUTPUT}"
+        fi
+      shell: bash
+
     - name: Build website
       uses: grafana/writers-toolkit/build-website@7e0981fdbf5a4446e309ecb655596a71113d60ae # build-website/v1
       with:
@@ -56,8 +77,29 @@ runs:
       with:
         allow_no_changes: true
         repository: grafana/website
-        branch: ${{ inputs.website_branch }}
+        branch: ${{ steps.website-branch.outputs.branch }}
         host: github.com
         github_pat: grafanabot:${{ steps.app-token.outputs.token }}
         source_folder: ${{ inputs.source_directory }}
         target_folder: ${{ inputs.website_directory }}
+
+    - name: Open pull request
+      if: steps.publish.outputs.commit_hash != ''
+      env:
+        GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        GITHUB_REF_NAME: ${{ github.ref_name }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        WEBSITE_BRANCH: ${{ steps.website-branch.outputs.branch }}
+      run: |
+        existing="$(gh pr list --repo grafana/website --head "${WEBSITE_BRANCH}" --json number --jq '.[0].number // empty')"
+
+        if [[ -z "${existing}" ]]; then
+          gh pr create \
+            --repo grafana/website \
+            --base master \
+            --head "${WEBSITE_BRANCH}" \
+            --title "Publish technical documentation: ${GITHUB_REPOSITORY}@${GITHUB_REF_NAME}" \
+            --body "Automated documentation sync from [${GITHUB_REPOSITORY}](https://github.com/${GITHUB_REPOSITORY}) branch \`${GITHUB_REF_NAME}\`." \
+            --label publish-docs
+        fi
+      shell: bash

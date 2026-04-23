@@ -1,4 +1,4 @@
-400
+404
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -80,6 +80,7 @@ Data Firehose/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
+decrypter/MS po:noun
 deleter/S po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
@@ -151,6 +152,7 @@ inclusivity/ po:noun
 InfluxDB/ po:noun
 ingester/MS po:noun
 inode/S po:noun
+interconnectivity/ po:noun
 instrumentation/S po:noun
 intrinsic/S po:noun
 Istio/ po:noun
@@ -291,6 +293,7 @@ RSA/ po:noun
 RudderStack/ po:noun
 runbook/S po:noun
 sandbox/DG po:verb
+scattergram/MS po:noun
 scheduler/MS po:noun
 SCM/ po:noun
 SCSS/ po:noun

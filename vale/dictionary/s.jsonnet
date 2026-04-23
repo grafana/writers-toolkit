@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('sandbox', 'DG', 'verb'),
+  word.new('scattergram', 'MS', 'noun') { description: 'A chart that uses Cartesian coordinates to depict a value for two variables; also known as a scatter, scatter graph, or scatter plot' },
   word.new('scheduler', 'MS', 'noun') { description: 'A Kubernetes component that schedules workloads' },
   word.new('SCM', '', 'noun') { abbreviation: true, elaboration: 'source code management', established_abbreviation: true },
   word.new('SCSS', '', 'noun') { abbreviation: true, elaboration: 'Sassy CSS', established_abbreviation: true },

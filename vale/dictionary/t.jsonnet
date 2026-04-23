@@ -10,7 +10,7 @@ local word = import './word.jsonnet';
   word.new('Threema', '', 'noun') { description: 'https://threema.ch/en', product: true, swaps: { threema: 'Threema' } },
   word.new('Timestream', '', 'noun') { Amazon: true, product: true },
   word.new('TLS', '', 'noun') { abbreviation: true, description: 'A cryptographic protocol designed to provide secure communications over network.', elaboration: 'Transport Layer Security', established_abbreviation: true },
-  word.new('Tolerations', '', 'noun'),
+  word.new('toleration', 'S', 'noun') { description: 'A Kubernetes Pod specification field that allows Pods to be scheduled on nodes with matching taints.' },
   word.new('toolset', 'S', 'noun'),
   word.new('tooltip', 'S', 'noun'),
   word.new('tracepoint', 'S', 'noun'),

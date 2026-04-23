@@ -1,55 +1,66 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
-    "github>grafana/grafana-renovate-config//presets/base",
-    "github>grafana/grafana-renovate-config//presets/automerge",
-    "github>grafana/grafana-renovate-config//presets/labels",
-    "github>grafana/grafana-renovate-config//presets/github-actions",
-    "github>grafana/grafana-renovate-config//presets/helm",
-    "github>grafana/grafana-renovate-config//presets/shared-workflows",
-    "github>grafana/grafana-renovate-config//presets/rate-limits",
+    'github>grafana/grafana-renovate-config//presets/base',
+    'github>grafana/grafana-renovate-config//presets/automerge',
+    'github>grafana/grafana-renovate-config//presets/labels',
+    'github>grafana/grafana-renovate-config//presets/github-actions',
+    'github>grafana/grafana-renovate-config//presets/helm',
+    'github>grafana/grafana-renovate-config//presets/shared-workflows',
+    'github>grafana/grafana-renovate-config//presets/rate-limits',
   ],
   ignorePresets: [
-    "github>grafana/grafana-renovate-config//presets/docker",
+    'github>grafana/grafana-renovate-config//presets/docker',
   ],
   customManagers: [
     {
-      customType: "regex",
-      fileMatch: [
-        "(?:^|/)\\.github/(?:workflows|actions)/.+\\.ya?ml$",
-        "(?:^|/)action\\.ya?ml$",
+      customType: 'regex',
+      managerFilePatterns: [
+        '/(?:^|/)\\.github/(?:workflows|actions)/.+\\.ya?ml$/',
+        '/(?:^|/)action\\.ya?ml$/',
       ],
       matchStrings: [
-        "# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+[A-Za-z0-9_-]+?[_-](?:VERSION|version)\\s*:\\s*[\"']?(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?[\"']?",
+        '# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+[A-Za-z0-9_-]+?[_-](?:VERSION|version)\\s*:\\s*["\']?(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?["\']?',
       ],
     },
   ],
   packageRules: [
     {
-      matchFileNames: [ "vale/tools/go.mod" ],
-      matchPackageNames: ["github.com/grafana/writers-toolkit/tools",],
+      matchFileNames: [
+        'vale/tools/go.mod',
+      ],
+      matchPackageNames: [
+        'github.com/grafana/writers-toolkit/tools',
+      ],
       enabled: false,
-      description: "This is a depdency from the same repository",
+      description: 'This is a depdency from the same repository',
     },
     {
-      matchFileNames: [ "vale/tools/go.mod" ],
-      matchPackageNames: ["github.com/google/go-github",],
+      matchFileNames: [
+        'vale/tools/go.mod',
+      ],
+      matchPackageNames: [
+        'github.com/google/go-github',
+      ],
       enabled: false,
       description: "The version bumps don't get reflected in the code imports.",
     },
     {
-      matchPackageNames: ["/grafana/vale/"],
-      matchDatasources: ["docker"],
+      matchPackageNames: [
+        '/grafana/vale/',
+      ],
+      matchDatasources: [
+        'docker',
+      ],
       enabled: false,
       description: "We control this image and use :latest tag, so we don't want Renovate to pin the SHA.",
     },
     {
-      matchPackageNames: ["grafana/shared-workflows"],
-      versioning: "regex:^(?<compatibility>.*)[-/]v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-      // By default, the dependency name is the same as the package name.
-      // For Actions, this is `org/repo`. This means that we'd get all actions from `shared-workflows` in the same branch.
-      // The shared-workflows tag scheme contains the name of the action being update to as well, so we can grab it from there and set the dep name, then put this in the branch name.
-      additionalBranchPrefix: "{{depName}}",
+      matchPackageNames: [
+        'grafana/shared-workflows',
+      ],
+      versioning: 'regex:^(?<compatibility>.*)[-/]v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$',
+      additionalBranchPrefix: '{{depName}}',
     },
   ],
 }

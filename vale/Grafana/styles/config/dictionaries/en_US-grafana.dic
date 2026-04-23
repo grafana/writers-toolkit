@@ -1,4 +1,4 @@
-398
+400
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -113,6 +113,7 @@ Firehose/M po:noun
 firewall rules/ po:noun
 FreeBSD/ po:noun
 frontend/S po:noun
+gcx/ po:noun
 GEM/ po:noun
 geomap/S po:noun
 geospatial/ po:adjective
@@ -344,6 +345,7 @@ Thanos/ po:noun
 Threema/ po:noun
 Timestream/ po:noun
 TLS/ po:noun
+toleration/S po:noun
 toolset/S po:noun
 tooltip/S po:noun
 tracepoint/S po:noun

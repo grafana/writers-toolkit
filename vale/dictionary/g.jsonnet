@@ -1,5 +1,6 @@
 local word = import './word.jsonnet';
 [
+  word.new('gcx', '', 'noun') { abbreviation: true, elaboration: 'Grafana Cloud CLI', product: true },
   word.new('GEM', '', 'noun') { abbreviation: true, elaboration: 'Grafana Enterprise Metrics', product: true, swaps: { GME: 'GEM' } },
   word.new('geomap', 'S', 'noun') { description: 'A Grafana visualization type.' },
   word.new('geospatial', '', 'adjective'),

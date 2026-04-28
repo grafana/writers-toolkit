@@ -22,6 +22,7 @@ local word = import './word.jsonnet';
   word.new('ARN', 'S', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Resource Name', established_abbreviation: true, product: true },
   word.new('Asserts', '', 'noun') { description: 'https://grafana.com/products/cloud/asserts/', product: true },
   word.new('Atlassian', '', 'noun') { product: true },
+  word.new('autocomplete', 'S', 'noun'),
   word.new('autoscale', 'DGS', 'verb'),
   word.new('autoscaler', 'S', 'noun'),
   word.new('AWS', '', 'noun') { abbreviation: true, elaboration: 'Amazon Web Services', established_abbreviation: true, product: true },

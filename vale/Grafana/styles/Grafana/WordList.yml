@@ -82,6 +82,7 @@
   "memcached": "Memcached"
   "meta[- ]data": "metadata"
   "mix[- ]in": "mixin"
+  "multitenancy": "multi-tenancy"
   "mysql": "MySQL"
   "network IP address": "internal IP address"
   "open-source": "open source"

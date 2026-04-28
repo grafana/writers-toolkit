@@ -1,4 +1,4 @@
-393
+404
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -15,6 +15,7 @@ anonymize/DGS po:verb
 Ansible/ po:adjective
 Ansible/ po:noun
 Apdex/ po:noun
+Apollo/ po:noun
 API/S po:noun
 APT/ po:noun
 ARN/S po:noun
@@ -74,10 +75,12 @@ data center/S po:noun
 data source/S po:noun
 datagrid/S po:noun
 dataset/S po:noun
+datatable/S po:noun
 Data Firehose/ po:noun
 Databricks/ po:noun
 Datadog/ po:adjective
 Datadog/ po:noun
+decrypter/MS po:noun
 deleter/S po:noun
 deliverable/S po:noun
 disaggregate/DS po:verb
@@ -111,6 +114,7 @@ Firehose/M po:noun
 firewall rules/ po:noun
 FreeBSD/ po:noun
 frontend/S po:noun
+gcx/ po:noun
 GEM/ po:noun
 geomap/S po:noun
 geospatial/ po:adjective
@@ -148,6 +152,7 @@ inclusivity/ po:noun
 InfluxDB/ po:noun
 ingester/MS po:noun
 inode/S po:noun
+interconnectivity/ po:noun
 instrumentation/S po:noun
 intrinsic/S po:noun
 Istio/ po:noun
@@ -208,6 +213,7 @@ misconfiguration/S po:noun
 mixin/S po:noun
 Moodle/ po:noun
 MySQL/ po:noun
+multi-tenancy/ po:noun
 namespace/S po:noun
 navigation/S po:noun
 NAT/ po:noun
@@ -231,6 +237,7 @@ OTLP/ po:noun
 overbill/DG po:verb
 overutilization/S po:noun
 PagerDuty/ po:noun
+Palantir/ po:noun
 Parca/ po:noun
 path/S po:noun
 PDC/ po:noun
@@ -286,6 +293,7 @@ RSA/ po:noun
 RudderStack/ po:noun
 runbook/S po:noun
 sandbox/DG po:verb
+scattergram/MS po:noun
 scheduler/MS po:noun
 SCM/ po:noun
 SCSS/ po:noun
@@ -340,6 +348,7 @@ Thanos/ po:noun
 Threema/ po:noun
 Timestream/ po:noun
 TLS/ po:noun
+toleration/S po:noun
 toolset/S po:noun
 tooltip/S po:noun
 tracepoint/S po:noun
@@ -354,6 +363,8 @@ UI/S po:noun
 UID/S po:noun
 uprobe/S po:noun
 unary/ po:adjective
+undock/DGS po:verb
+ungroup/DGS po:verb
 URI/S po:noun
 URL/S po:noun
 USB/ po:noun

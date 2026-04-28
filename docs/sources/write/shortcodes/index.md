@@ -96,6 +96,55 @@ The following example renders a badge with OSS-Enterprise combined styling and t
 
 and produces: {{< badge text="Available" style="product-oss-enterprise" tooltip="This feature is available in both open source and enterprise editions" >}}
 
+## Button
+
+The `button` shortcode renders a styled link as a button.
+Use it instead of raw HTML anchor tags to keep Markdown free of presentational markup.
+
+| Parameter | Description                                                                           | Required |
+| --------- | ------------------------------------------------------------------------------------- | -------- |
+| `link`    | The URL the button navigates to.                                                      | yes      |
+| `type`    | The visual style of the button.                                                       | yes      |
+| `size`    | The size modifier for the button.                                                     | no       |
+| `target`  | The value of the HTML `target` attribute. Use `_blank` to open the link in a new tab. | no       |
+| `class`   | Additional CSS classes to apply to the button.                                        | no       |
+
+#### `type` values
+
+- `primary`: Solid blue fill, white text.
+- `secondary`: White background, navy text, blue border.
+- `white`: White background, navy text.
+- `outline-white`: Transparent background, white border and text.
+- `outline-gray`: Transparent background, grey border and text.
+- `outline-blue`: Transparent background, dark-blue border, white text.
+- `success`: Green fill, white text.
+- `empty`: No border or background; underline on hover.
+- `none`: No border, background, or underline.
+
+#### `size` values
+
+- `mini`: 32px height.
+- `small`: 30px height.
+- `slim`: 40px height, smaller font.
+- `large`: 50px height, larger font.
+- `hero`: 40px height, larger font.
+
+### Examples
+
+The following example renders a primary button that links to the Grafana documentation:
+
+```markdown
+{{</* button link="/docs/grafana/latest/" type="primary" */>}}
+Read the docs
+{{</* /button */>}}
+```
+
+Produces:
+
+{{< button link="/docs/grafana/latest/" type="primary" >}}
+Read the docs
+{{< /button >}}
+
 ## Anchorize
 
 <!-- vale Grafana.Spelling = YES -->
@@ -607,6 +656,64 @@ Produces:
     │   └── config (string) \[required\]
     └── Response: [UpdateConfigResponse](../api/#updateconfigresponse)
         └── success (bool)
+```
+
+By default, all nodes are expanded. To load the tree with all nodes collapsed, add the `collapsed` class to the code fence info block:
+
+````markdown
+```api-tree {class="collapsed"}
+CollectorService
+├── [GetConfig](../collector-api/#getconfigrequest)
+│   ├── Request: [GetConfigRequest](../collector-api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   ├── local\_attributes (map<string>) \[optional\]
+│   │   ├── hash (string) \[optional\]
+│   │   ├── remote\_config\_status ([RemoteConfigStatus](../collector-api/#remoteconfigstatus)) \[optional\]
+│   │   │   ├── status ([RemoteConfigStatuses](../collector-api/#remoteconfigstatuses))
+│   │   │   │   ├── UNSET
+│   │   │   │   ├── APPLIED
+│   │   │   │   ├── APPLYING
+│   │   │   │   └── FAILED
+│   │   │   └── error\_message (string) \[optional\]
+│   │   └── effective\_config ([EffectiveConfig](../collector-api/#effectiveconfig)) \[optional\]
+│   │       └── config\_map ([AgentConfigMap](../collector-api/#agentconfigmap))
+│   │           └── config\_map (map<string, [AgentConfigFile](../collector-api/#agentconfigfile)\>)
+│   │               └── [AgentConfigFile](../collector-api/#agentconfigfile)
+│   │                   ├── body (bytes)
+│   │                   └── content\_type (string) \[optional\]
+│   └── Response: [GetConfigResponse](../collector-api/#getconfigresponse)
+│       ├── content (string)
+│       ├── hash (string)
+│       └── not\_modified (bool)
+```
+````
+
+Produces:
+
+```api-tree {class="collapsed"}
+CollectorService
+├── [GetConfig](../collector-api/#getconfigrequest)
+│   ├── Request: [GetConfigRequest](../collector-api/#getconfigrequest)
+│   │   ├── id (string) \[required\]
+│   │   ├── local\_attributes (map<string>) \[optional\]
+│   │   ├── hash (string) \[optional\]
+│   │   ├── remote\_config\_status ([RemoteConfigStatus](../collector-api/#remoteconfigstatus)) \[optional\]
+│   │   │   ├── status ([RemoteConfigStatuses](../collector-api/#remoteconfigstatuses))
+│   │   │   │   ├── UNSET
+│   │   │   │   ├── APPLIED
+│   │   │   │   ├── APPLYING
+│   │   │   │   └── FAILED
+│   │   │   └── error\_message (string) \[optional\]
+│   │   └── effective\_config ([EffectiveConfig](../collector-api/#effectiveconfig)) \[optional\]
+│   │       └── config\_map ([AgentConfigMap](../collector-api/#agentconfigmap))
+│   │           └── config\_map (map<string, [AgentConfigFile](../collector-api/#agentconfigfile)\>)
+│   │               └── [AgentConfigFile](../collector-api/#agentconfigfile)
+│   │                   ├── body (bytes)
+│   │                   └── content\_type (string) \[optional\]
+│   └── Response: [GetConfigResponse](../collector-api/#getconfigresponse)
+│       ├── content (string)
+│       ├── hash (string)
+│       └── not\_modified (bool)
 ```
 
 ## Collapse

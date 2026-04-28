@@ -34,75 +34,9 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
-function commentMarker(check, match) {
-    return `<!-- vale-action check="${check}" match="${match}" -->`;
-}
-function parseMarker(body) {
-    const m = body.match(/<!-- vale-action check="([^"]*)" match="([^"]*)" -->/);
-    if (!m) {
-        return undefined;
-    }
-    return { check: m[1], match: m[2] };
-}
-const LINK_TEXT = {
-    "developers.google.com": "Google developer documentation style guide",
-    "grafana.com": "Grafana Writers' Toolkit",
-    "html.spec.whatwg.org": "HTML specification",
-    "docs.aws.amazon.com": "AWS documentation",
-};
-function linkText(url) {
-    try {
-        const { hostname } = new URL(url);
-        return LINK_TEXT[hostname] ?? hostname;
-    }
-    catch {
-        return "style guide";
-    }
-}
-function buildSuggestion(alert, filePath) {
-    const { Name, Params } = alert.Action;
-    if (Name !== "replace" && Name !== "remove") {
-        return null;
-    }
-    const lines = fs.readFileSync(filePath, "utf-8").split("\n");
-    const line = lines[alert.Line - 1];
-    if (line === undefined) {
-        return null;
-    }
-    const [start, end] = alert.Span;
-    const before = line.slice(0, start - 1);
-    const after = line.slice(end);
-    let corrected;
-    if (Name === "remove") {
-        corrected = (before + after).replace(/ {2,}/g, " ").trimEnd();
-    }
-    else {
-        const first = Params?.[0] ?? "";
-        corrected = before + first + after;
-    }
-    let suggestion = "```suggestion\n" + corrected + "\n```";
-    if (Name === "replace" && Params && Params.length > 1) {
-        const alternatives = Params.slice(1)
-            .map((p) => `\`${p}\``)
-            .join(", ");
-        suggestion += `\n\nAlternatives: ${alternatives}`;
-    }
-    return suggestion;
-}
-function formatComment(alert, filePath) {
-    const reference = alert.Link
-        ? `\n\nFor more information, refer to [${linkText(alert.Link)}](${alert.Link}).`
-        : "";
-    const suggestion = buildSuggestion(alert, filePath);
-    const suggestionBlock = suggestion ? `\n\n${suggestion}` : "";
-    const issueTitle = encodeURIComponent(`Vale rule: ${alert.Check}`);
-    const issueUrl = `https://github.com/grafana/writers-toolkit/issues/new?title=${issueTitle}`;
-    const footer = "\n\n---\n_Reported by Vale using Grafana Writers' Toolkit style." +
-        ` If you believe we can improve the rule, [report an issue](${issueUrl})._`;
-    return `${commentMarker(alert.Check, alert.Match)}
-**${alert.Check}** (${alert.Severity})
-
-${alert.Message.trimEnd()}${suggestionBlock}${reference}${footer}`;
+const suggestion_1 = require("./suggestion");
+function readLine(filePath, lineNumber) {
+    return fs.readFileSync(filePath, "utf-8").split("\n")[lineNumber - 1];
 }
 module.exports = async ({ context, core, github, }) => {
     const raw = fs.readFileSync("vale.json", "utf-8");
@@ -124,12 +58,13 @@ module.exports = async ({ context, core, github, }) => {
         pull_number: pullNumber,
     });
     const existingKeys = new Set(existingComments.flatMap((c) => {
-        const parsed = parseMarker(c.body);
+        const parsed = (0, suggestion_1.parseMarker)(c.body);
         return parsed ? [`${c.path}:${parsed.check}:${parsed.match}`] : [];
     }));
     for (const [filePath, alerts] of Object.entries(valeOutput)) {
         for (const alert of alerts) {
-            const body = formatComment(alert, filePath);
+            const line = readLine(filePath, alert.Line) ?? "";
+            const body = (0, suggestion_1.formatComment)(alert, line);
             const dedupeKey = `${filePath}:${alert.Check}:${alert.Match}`;
             if (existingKeys.has(dedupeKey)) {
                 continue;

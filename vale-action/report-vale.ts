@@ -31,7 +31,19 @@ interface ScriptArgs {
   github: InstanceType<typeof GitHub>;
 }
 
-const COMMENT_MARKER = "<!-- vale-action -->";
+function commentMarker(check: string, match: string): string {
+  return `<!-- vale-action check="${check}" match="${match}" -->`;
+}
+
+function parseMarker(
+  body: string,
+): { check: string; match: string } | undefined {
+  const m = body.match(/<!-- vale-action check="([^"]*)" match="([^"]*)" -->/);
+  if (!m) {
+    return undefined;
+  }
+  return { check: m[1], match: m[2] };
+}
 
 const LINK_TEXT: Record<string, string> = {
   "developers.google.com": "Google developer documentation style guide",
@@ -94,10 +106,16 @@ function formatComment(alert: ValeAlert, filePath: string): string {
   const suggestion = buildSuggestion(alert, filePath);
   const suggestionBlock = suggestion ? `\n\n${suggestion}` : "";
 
-  return `${COMMENT_MARKER}
+  const issueTitle = encodeURIComponent(`Vale rule: ${alert.Check}`);
+  const issueUrl = `https://github.com/grafana/writers-toolkit/issues/new?title=${issueTitle}`;
+  const footer =
+    "\n\n---\n_Reported by Vale using Grafana Writers' Toolkit style." +
+    ` If you believe we can improve the rule, [report an issue](${issueUrl})._`;
+
+  return `${commentMarker(alert.Check, alert.Match)}
 **${alert.Check}** (${alert.Severity})
 
-${alert.Message.trimEnd()}${suggestionBlock}${reference}`;
+${alert.Message.trimEnd()}${suggestionBlock}${reference}${footer}`;
 }
 
 module.exports = async ({
@@ -124,23 +142,25 @@ module.exports = async ({
     return;
   }
 
-  const { data: existingComments } =
-    await github.rest.pulls.listReviewComments({
+  const { data: existingComments } = await github.rest.pulls.listReviewComments(
+    {
       owner,
       repo,
       pull_number: pullNumber,
-    });
+    },
+  );
 
   const existingKeys = new Set(
-    existingComments
-      .filter((c: ReviewComment) => c.body.startsWith(COMMENT_MARKER))
-      .map((c: ReviewComment) => `${c.path}:${c.line}:${c.body}`),
+    existingComments.flatMap((c: ReviewComment) => {
+      const parsed = parseMarker(c.body);
+      return parsed ? [`${c.path}:${parsed.check}:${parsed.match}`] : [];
+    }),
   );
 
   for (const [filePath, alerts] of Object.entries(valeOutput)) {
     for (const alert of alerts) {
       const body = formatComment(alert, filePath);
-      const dedupeKey = `${filePath}:${alert.Line}:${body}`;
+      const dedupeKey = `${filePath}:${alert.Check}:${alert.Match}`;
 
       if (existingKeys.has(dedupeKey)) {
         continue;

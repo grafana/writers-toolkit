@@ -1,0 +1,31 @@
+name: Run Continuous Integration (link-checker)
+on:
+  pull_request:
+    paths: 'link-checker/**'
+
+jobs:
+  go-test:
+    permissions:
+      contents: read
+      # Allow write access to checks to allow the golangci-lint action to annotate code in the PR.
+      checks: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            link-checker
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        with:
+          go-version-file: link-checker/go.mod
+      - uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9
+        with:
+          working-directory: link-checker
+      - run: go test ./...
+        working-directory: link-checker
+      - run: go build ./cmd/link-checker
+        working-directory: link-checker
+      - run: docker build --tag writers-toolkit-link-checker:test .
+        working-directory: link-checker
+      - run: docker run --rm writers-toolkit-link-checker:test help

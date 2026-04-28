@@ -1,6 +1,6 @@
 extends: script
 message: |
-  Prefer `{{<` and `>}}` instead of `{{%` and `%}}`
+  Use `{{<` and `>}}` delimiters instead of `{{%` and `%}}` for admonition shortcodes.
 
   It has the most consistent semantics.
 

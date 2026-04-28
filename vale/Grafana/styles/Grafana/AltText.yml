@@ -1,5 +1,10 @@
 extends: script
-message: All images must have alt text.
+message: |
+  Add alt text to this image.
+
+  Alt text describes the image content for readers using screen readers, improves SEO, and displays when the image fails to load.
+  Write the alt text between the square brackets: ![Descriptive alt text here](image-path).
+  Describe what the image shows, not what it is. For example, write 'Graph showing CPU usage spiking at 14:00' rather than 'CPU graph'.
 link: https://grafana.com/docs/writers-toolkit/write/image-guidelines/#alt-text
 scope: raw
 script: |

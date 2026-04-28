@@ -4,7 +4,11 @@ extends: substitution
 ignorecase: true
 level: error
 link: https://developers.google.com/style/abbreviations#dont-use
-message: Use '%s' instead of '%s'.
+message: |
+  Use '%s' instead of '%s'.
+
+  Latin abbreviations such as 'e.g.' and 'i.e.' are easily confused with each other and with other abbreviations.
+  Spelling them out improves clarity, especially for readers who aren't native English speakers.
 swap:
   'e\.?g[,.]?': for example
   'i\.?e[,.]?': that is

@@ -134,7 +134,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
           sparse-checkout: ${{ inputs.sparse-checkout }}
-      - uses: grafana/writers-toolkit/vale-action@f49dd90f007967990095ac2d18c5bdf37b412a5f # vale-action/v1.4.5
+      - uses: ./vale-action
         with:
           directory: ${{ inputs.vale-directory }}
           filter: ${{ inputs.vale-filter }}

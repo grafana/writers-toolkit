@@ -1,5 +1,9 @@
 extends: existence
-message: "It's great to be polite, but using 'please' in a set of instructions is overdoing the politeness."
+message: |
+  Remove 'please' from instructions.
+
+  Direct imperative sentences are clearer and more appropriate in technical documentation.
+  Excessive politeness reads as filler and adds length without improving comprehension.
 level: error
 link: https://developers.google.com/style/tone#politeness
 ignorecase: true

@@ -1,8 +1,11 @@
 extends: substitution
 level: warning
 link: https://developers.google.com/style/word-list#wish
-message: Use '%s' instead of '%s'.
+message: |
+  Use '%s' instead of '%s'.
 
+  'Wish' is informal and vague in technical writing.
+  Use 'need' when the reader requires something to proceed, or 'want' when describing an optional goal.
 ignorecase: false
 
 action:

@@ -17,3 +17,4 @@ broken-links-comment.md
 nginx.conf
 run/nginx.pid
 docs/dist
+/vale-action/node_modules/

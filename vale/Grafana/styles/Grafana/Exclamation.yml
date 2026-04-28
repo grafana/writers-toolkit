@@ -3,7 +3,10 @@ action:
 extends: existence
 level: warning
 link: https://developers.google.com/style/tone#some-things-to-avoid-where-possible
-message: Avoid exclamation points in text, except in rare really exciting moments.
+message: |
+  Remove the exclamation point.
+
+  Exclamation points make technical documentation feel informal and hyperbolic.
 nonword: true
 tokens:
   - "\\w+!(?:\\s|$)"

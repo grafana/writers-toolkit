@@ -35,20 +35,63 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
 const COMMENT_MARKER = "<!-- vale-action -->";
-const SEVERITY_EMOJI = {
-    error: "🔴",
-    warning: "🟡",
-    suggestion: "🔵",
+const LINK_TEXT = {
+    "developers.google.com": "Google developer documentation style guide",
+    "grafana.com": "Grafana Writers' Toolkit",
+    "html.spec.whatwg.org": "HTML specification",
+    "docs.aws.amazon.com": "AWS documentation",
 };
-function formatComment(alert) {
-    const emoji = SEVERITY_EMOJI[alert.Severity];
-    const link = alert.Link ? `\n\n[Style guide](${alert.Link})` : "";
-    return `${COMMENT_MARKER}
-${emoji} **${alert.Check}** (${alert.Severity})
-
-${alert.Message.trimEnd()}${link}`;
+function linkText(url) {
+    try {
+        const { hostname } = new URL(url);
+        return LINK_TEXT[hostname] ?? hostname;
+    }
+    catch {
+        return "style guide";
+    }
 }
-module.exports = async ({ context, core, github }) => {
+function buildSuggestion(alert, filePath) {
+    const { Name, Params } = alert.Action;
+    if (Name !== "replace" && Name !== "remove") {
+        return null;
+    }
+    const lines = fs.readFileSync(filePath, "utf-8").split("\n");
+    const line = lines[alert.Line - 1];
+    if (line === undefined) {
+        return null;
+    }
+    const [start, end] = alert.Span;
+    const before = line.slice(0, start - 1);
+    const after = line.slice(end);
+    let corrected;
+    if (Name === "remove") {
+        corrected = (before + after).replace(/ {2,}/g, " ").trimEnd();
+    }
+    else {
+        const first = Params?.[0] ?? "";
+        corrected = before + first + after;
+    }
+    let suggestion = "```suggestion\n" + corrected + "\n```";
+    if (Name === "replace" && Params && Params.length > 1) {
+        const alternatives = Params.slice(1)
+            .map((p) => `\`${p}\``)
+            .join(", ");
+        suggestion += `\n\nAlternatives: ${alternatives}`;
+    }
+    return suggestion;
+}
+function formatComment(alert, filePath) {
+    const reference = alert.Link
+        ? `\n\nFor more information, refer to [${linkText(alert.Link)}](${alert.Link}).`
+        : "";
+    const suggestion = buildSuggestion(alert, filePath);
+    const suggestionBlock = suggestion ? `\n\n${suggestion}` : "";
+    return `${COMMENT_MARKER}
+**${alert.Check}** (${alert.Severity})
+
+${alert.Message.trimEnd()}${suggestionBlock}${reference}`;
+}
+module.exports = async ({ context, core, github, }) => {
     const raw = fs.readFileSync("vale.json", "utf-8");
     if (!raw.trim()) {
         return;
@@ -72,7 +115,7 @@ module.exports = async ({ context, core, github }) => {
         .map((c) => `${c.path}:${c.line}:${c.body}`));
     for (const [filePath, alerts] of Object.entries(valeOutput)) {
         for (const alert of alerts) {
-            const body = formatComment(alert);
+            const body = formatComment(alert, filePath);
             const dedupeKey = `${filePath}:${alert.Line}:${body}`;
             if (existingKeys.has(dedupeKey)) {
                 continue;

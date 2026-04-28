@@ -26,6 +26,7 @@ title: Writers' Toolkit
 # Writers' Toolkit
 
 Writers' Toolkit is for anyone who writes or edits customer-facing technical documentation for Grafana Labs.
+It includes a toolchain for linting and validating documentation.
 Use it as the source of truth for voice and tone, grammar, style, templates, and more.
 
 Writers' Toolkit helps you to create technical documentation that's consistent and applies the voice and tone in use at Grafana Labs.

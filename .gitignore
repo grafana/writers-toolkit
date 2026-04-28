@@ -8,3 +8,4 @@ build.conf
 /dist
 /vale/Grafana.zip
 vale/tools/inhibit-rules
+/vale-action/node_modules/

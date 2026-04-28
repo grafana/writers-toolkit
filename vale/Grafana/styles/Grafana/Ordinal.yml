@@ -1,7 +1,11 @@
 extends: existence
 level: error
 link: https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#numbers
-message: For ordinals, write out first through ninth. For 10th on, use numerals.
+message: |
+  Replace this numeral ordinal with a word.
+
+  Write out ordinals from first through ninth as words, and use numerals from 10th onward.
+  For example, use 'first', 'second', and 'third', not '1st', '2nd', and '3rd'.
 tokens:
   - 1st
   - 2nd

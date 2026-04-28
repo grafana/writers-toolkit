@@ -1,11 +1,13 @@
 extends: existence
 level: suggestion
 link: https://developers.google.com/style/parentheses
-message: Use parentheses judiciously.
+message: |
+  Consider rewriting to avoid parentheses.
 
+  Parenthetical content often indicates a sentence that can be restructured for clarity.
+  If the content is important enough to include, integrate it into the sentence.
+  If it's not important, remove it.
 nonword: true
 
 tokens:
-  # Allow for single characters in backticks.
-  # For example, don't use single asterisks (`*`).
   - "\\(.{4,}\\)"

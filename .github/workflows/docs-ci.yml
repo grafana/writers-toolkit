@@ -14,7 +14,7 @@ description: |
   To use the Vale step, you'll need the following additional permissions:
 
   ```yaml
-  security-events: write
+  pull-requests: write
   ```
 on:
   workflow_call:
@@ -118,8 +118,7 @@ jobs:
     if: inputs.vale
     permissions:
       contents: read
-      pull-requests: read
-      security-events: write
+      pull-requests: write
     runs-on: ubuntu-latest
     container:
       image: grafana/vale:latest # zizmor: ignore[unpinned-images] We control this image and use :latest tag, so we don't need to pin the SHA.

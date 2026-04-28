@@ -32,70 +32,27 @@ runs:
       if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
       env:
         FILES: ${{ steps.changed-files.outputs.all_changed_files || inputs.directory }}
-        FILTER: --filter=${{ inputs.filter }}
+        FILTER: ${{ inputs.filter }}
         GITHUB_TOKEN: ${{ github.token }}
-        OWNER: ${{ github.repository_owner }}
-        REPO: ${{ github.repository }}
-        PR_NUMBER: ${{ github.event.pull_request.number }}
       run: |
         if [ -n "${RUNNER_DEBUG+x}" ]; then
           set -x
         fi
 
+        filter_arg=""
+        if [ -n "${FILTER}" ]; then
+          filter_arg="--filter=${FILTER}"
+        fi
+
         (cd /etc/vale && vale sync)
-        vale "${FILTER}" --no-exit --output=/etc/vale/sarif.tmpl ${FILES} > unfiltered.sarif
-        /bin/filter-sarif "${OWNER}" "${REPO#${OWNER}/}" "${PR_NUMBER}" unfiltered.sarif > vale.sarif
+        vale ${filter_arg} --no-exit --output=line ${FILES}
+        vale ${filter_arg} --no-exit --output=JSON ${FILES} > vale.json
       shell: sh
 
-    - name: Create annotations from SARIF
-      if: failure() && github.event.repository.private && github.event_name == 'pull_request'
+    - name: Post inline PR review comments
+      if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
       uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
       with:
         script: |
-          const fs = require('fs');
-          const sarif = JSON.parse(fs.readFileSync('vale.sarif', 'utf8'));
-
-          for (const run of sarif.runs) {
-            for (const result of run.results) {
-              const location = result.locations[0];
-              const path = location.physicalLocation.artifactLocation.uri;
-              const region = location.physicalLocation.region;
-              const line = region.startLine;
-              const startColumn = region.startColumn;
-              const endColumn = region.endColumn;
-
-              const options = {
-                title: 'Vale',
-                file: path,
-                startLine: line,
-                startColumn: startColumn
-              };
-
-              if (endColumn) {
-                options.endColumn = endColumn;
-              }
-
-              switch(result.level) {
-                case 'error':
-                  core.error(result.message.text, options);
-                  break;
-                case 'warning':
-                  core.warning(result.message.text, options);
-                  break;
-                default:
-                  core.notice(result.message.text, options);
-              }
-            }
-          }
-
-    - name: Output SARIF file
-      if: failure() && github.event.repository.private && github.event_name != 'pull_request'
-      run: cat vale.sarif
-      shell: sh
-
-    - name: Upload SARIF file
-      if: failure() && !github.event.repository.private
-      uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
-      with:
-        sarif_file: vale.sarif
-        category: Vale
+          const script = require(`${process.env.GITHUB_ACTION_PATH}/report-vale.js`);
+          await script({ context, core, github });

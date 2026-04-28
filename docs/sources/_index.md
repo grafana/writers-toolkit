@@ -31,7 +31,7 @@ Use it as the source of truth for voice and tone, grammar, style, templates, and
 Writers' Toolkit helps you to create technical documentation that's consistent and applies the voice and tone in use at Grafana Labs.
 
 The style guide extends [Google's developer documentation style guide](https://developers.google.com/style).
-If you can't find guidance on a specific topic in Writers' Toolkit, refer to Google's style guide.
+If you can't find guidance on a specific topic in Writers' Toolkit, e.g. punctuation, refer to Google's style guide.
 
 If it's your first time using the guide, start with the [Get started](https://grafana.com/docs/writers-toolkit/get-started/) section.
 

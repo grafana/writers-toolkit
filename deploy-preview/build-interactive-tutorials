@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+if [[ -n "${RUNNER_DEBUG+x}" ]]; then
+	set -x
+fi
+
+gh repo clone grafana/interactive-tutorials src/interactive-tutorials
+(cd src/interactive-tutorials && gh pr checkout "${BRANCH}")
+
+DATA_DIR=$(mktemp -d)
+CONTENT_DIR=$(mktemp -d)
+trap 'rm -rf "${DATA_DIR}" "${CONTENT_DIR}"' EXIT
+
+while IFS= read -r rel_path; do
+	rel_dir=$(dirname "${rel_path}")
+	mkdir -p "${DATA_DIR}/${rel_dir}"
+	cp "src/interactive-tutorials/${rel_path}" "${DATA_DIR}/${rel_path}"
+done < <(git -C src/interactive-tutorials ls-files '**/content.json')
+
+write_page() {
+  local out="${1}"
+  local website_yaml="${2}"
+  local content_json="${3}"
+  local manifest_json="${4}"
+  local pathfinder_data="${5}"
+  local title description
+
+  title=$(jq '.title // .id // ""' "${content_json}" 2>/dev/null) || title='""'
+  description=$(jq '.description // ""' "${manifest_json}" 2>/dev/null) || description='""'
+
+  mkdir -p "$(dirname "${out}")"
+  {
+    echo "---"
+    [[ -f "${website_yaml}" ]] && cat "${website_yaml}"
+    echo "type: docs"
+    echo "title: ${title}"
+    echo "description: ${description}"
+    echo "pathfinder_data: ${pathfinder_data}"
+    echo "---"
+    echo ""
+    echo "{{< pathfinder/json >}}"
+  } > "${out}"
+  echo "wrote ${out}"
+}
+
+mkdir -p "${CONTENT_DIR}"
+
+index_body=""
+
+for lj_dir in src/interactive-tutorials/*-lj; do
+	[[ -d "${lj_dir}" ]] || continue
+	lj_name=$(basename "${lj_dir}")
+	slug="${lj_name%-lj}"
+
+	write_page \
+		"${CONTENT_DIR}/${slug}/_index.md" \
+		"${lj_dir}/website.yaml" \
+		"${lj_dir}/content.json" \
+		"${lj_dir}/manifest.json" \
+		"${lj_name}"
+
+	path_title=$(jq -r '.title // .id // ""' "${lj_dir}/content.json" 2>/dev/null || echo "${slug}")
+	index_body+="- [${path_title}](/docs/learning-paths/${slug}/)"$'\n'
+
+	for milestone_dir in "${lj_dir}"/*/; do
+		[[ -d "${milestone_dir}" ]] || continue
+		[[ -f "${milestone_dir}/content.json" ]] || continue
+		milestone_name=$(basename "${milestone_dir}")
+
+		write_page \
+			"${CONTENT_DIR}/${slug}/${milestone_name}/index.md" \
+			"${milestone_dir}/website.yaml" \
+			"${milestone_dir}/content.json" \
+			"${milestone_dir}/manifest.json" \
+			"${lj_name}/${milestone_name}"
+	done
+done
+
+cat > "${CONTENT_DIR}/_index.md" <<EOMD
+---
+title: Learning paths preview
+menuTitle: Learning paths
+weight: 100
+---
+
+${index_body}
+EOMD
+
+echo "content.json files found in checkout:"
+git -C src/interactive-tutorials ls-files '**/content.json' | head -5 || echo "git ls-files failed"
+echo "DATA_DIR: ${DATA_DIR}"
+echo "DATA_DIR file count: $(find "${DATA_DIR}" -type f | wc -l)"
+find "${DATA_DIR}" -type f | head -5 || true
+echo "CONTENT_DIR: ${CONTENT_DIR}"
+echo "CONTENT_DIR file count: $(find "${CONTENT_DIR}" -type f | wc -l)"
+find "${CONTENT_DIR}" -type f | head -5 || true
+
+docker run \
+	--volume "${PWD}/dist:/hugo/dist" \
+	--volume "${DATA_DIR}:/hugo/data/docs/interactive-learning" \
+	--volume "${CONTENT_DIR}:/hugo/content/docs/learning-paths" \
+	--rm "${IMAGE:-grafana/docs-base:latest}" \
+	  /bin/bash -c 'echo "Data dir:"; ls /hugo/data/docs/interactive-learning/ | head -5; echo "Content dir:"; ls /hugo/content/docs/learning-paths/ | head -5; HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify 2>&1 | tail -5'

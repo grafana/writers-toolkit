@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { applySuggestion, ValeAlert } from "./suggestion";
+import { applySuggestion, inhibitAlerts, ValeAlert } from "./suggestion";
 
 function makeAlert(
   check: string,
@@ -95,5 +95,42 @@ describe("applySuggestion", () => {
         "```suggestion\nIt works.\n```",
       );
     });
+  });
+});
+
+describe("inhibitAlerts", () => {
+  it("keeps the only alert at a location", () => {
+    const alert = makeAlert("Grafana.Spelling", "replace", ["Grafana"], "grafana", [1, 7]);
+    const output = inhibitAlerts({ "docs/index.md": [alert] });
+    assert.deepEqual(output["docs/index.md"], [alert]);
+  });
+
+  it("keeps the higher-precedence rule when two rules fire at the same location", () => {
+    const spelling = makeAlert("Grafana.Spelling", "replace", ["Grafana"], "grafana", [1, 7]);
+    const wordList = { ...spelling, Check: "Grafana.WordList" };
+    const output = inhibitAlerts({ "docs/index.md": [spelling, wordList] });
+    assert.deepEqual(output["docs/index.md"], [wordList]);
+  });
+
+  it("keeps both alerts when they are at different locations", () => {
+    const a = makeAlert("Grafana.Spelling", "replace", ["Grafana"], "grafana", [1, 7]);
+    const b = { ...makeAlert("Grafana.Spelling", "replace", ["Loki"], "loki", [10, 13]), Line: 2 };
+    const output = inhibitAlerts({ "docs/index.md": [a, b] });
+    assert.equal(output["docs/index.md"].length, 2);
+  });
+
+  it("handles alerts in multiple files independently", () => {
+    const a = makeAlert("Grafana.Spelling", "replace", ["Grafana"], "grafana", [1, 7]);
+    const b = makeAlert("Grafana.WordList", "replace", ["Grafana"], "grafana", [1, 7]);
+    const output = inhibitAlerts({ "docs/a.md": [a], "docs/b.md": [b] });
+    assert.deepEqual(output["docs/a.md"], [a]);
+    assert.deepEqual(output["docs/b.md"], [b]);
+  });
+
+  it("unknown rule takes precedence over known rules at the same location", () => {
+    const a = makeAlert("Grafana.Latin", "replace", ["for example"], "e.g", [5, 7]);
+    const b = makeAlert("Grafana.Spelling", "replace", ["Grafana"], "grafana", [5, 7]);
+    const output = inhibitAlerts({ "docs/index.md": [a, b] });
+    assert.deepEqual(output["docs/index.md"], [a]);
   });
 });

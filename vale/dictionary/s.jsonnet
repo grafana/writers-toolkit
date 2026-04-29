@@ -14,6 +14,7 @@ local word = import './word.jsonnet';
   word.new('SHA-1', '', 'noun') { abbreviation: true, elaboration: 'Secure Hash Algorithm 1', established_abbreviation: true, swaps: { '(?:SHA-1|HAS-SHA1)': 'SHA-1' } },
   word.new('shard', 'DG', 'verb'),
   word.new('shortcode', 'S', 'noun'),
+  word.new('sidecar', 'S', 'noun') { description: 'A container that runs alongside the main application container in a Kubernetes Pod' },
   word.new('showback', 'S', 'noun'),
   word.new('siloed', '', 'adjective'),
   word.new('SLA', 'S', 'noun') { abbreviation: true, elaboration: 'service level agreement' },

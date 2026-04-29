@@ -1,4 +1,4 @@
-404
+410
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -21,6 +21,7 @@ APT/ po:noun
 ARN/S po:noun
 Asserts/ po:noun
 Atlassian/ po:noun
+autocomplete/S po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun
 AWS/ po:noun
@@ -218,6 +219,7 @@ namespace/S po:noun
 navigation/S po:noun
 NAT/ po:noun
 nginx/ po:noun
+node-exporter/ po:noun
 Netlify/ po:noun
 Netlink/ po:noun
 OAuth/ po:noun
@@ -235,6 +237,7 @@ OTel/ po:adjective
 OTel/ po:noun
 OTLP/ po:noun
 overbill/DG po:verb
+overprovision/DG po:verb
 overutilization/S po:noun
 PagerDuty/ po:noun
 Palantir/ po:noun
@@ -306,6 +309,7 @@ serverless/ po:adjective
 SHA-1/ po:noun
 shard/DG po:verb
 shortcode/S po:noun
+sidecar/S po:noun
 showback/S po:noun
 siloed/ po:adjective
 SLA/S po:noun
@@ -363,6 +367,7 @@ UI/S po:noun
 UID/S po:noun
 uprobe/S po:noun
 unary/ po:adjective
+underprovision/DG po:verb
 undock/DGS po:verb
 ungroup/DGS po:verb
 URI/S po:noun
@@ -391,6 +396,7 @@ Webex/ po:noun
 Wi-Fi/ po:noun
 WildFly/ po:noun
 windows_exporter/S po:noun
+workload/S po:noun
 worktree/ po:noun
 XML/ po:noun
 XSS/ po:noun

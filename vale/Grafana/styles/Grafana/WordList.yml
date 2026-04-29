@@ -4,11 +4,7 @@
 "ignorecase": false
 "level": "warning"
 "link": "https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/"
-"message": |
-  Use '%s' instead of '%s'.
-
-  This word or phrase is not consistent with the Grafana style guide word list.
-  Refer to the style guide for the full list of preferred terms and their rationale.
+"message": "Use '%s' instead of '%s'."
 "swap":
   "(?:(?<!Data )Firehose|Kinesis Data Firehose|Kinesis Firehose)": "Data Firehose"
   "(?:SHA-1|HAS-SHA1)": "SHA-1"

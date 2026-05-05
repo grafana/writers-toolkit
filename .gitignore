@@ -8,4 +8,13 @@ build.conf
 /dist
 /vale/Grafana.zip
 vale/tools/inhibit-rules
+access.log
+.gitignore
+changed-files.txt
+error.log
+links.json
+broken-links-comment.md
+nginx.conf
+run/nginx.pid
+docs/dist
 /vale-action/node_modules/

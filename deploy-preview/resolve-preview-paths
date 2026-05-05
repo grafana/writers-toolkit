@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Resolve preview path inputs for deploy-preview.
+
+set -euf -o pipefail
+
+if [[ -n "${RUNNER_DEBUG+x}" ]]; then
+  set -x
+fi
+
+readonly GITHUB_OUTPUT="${GITHUB_OUTPUT:-/dev/stdout}"
+readonly BASE_SOURCES="${BASE_SOURCES:-}"
+readonly DOCS_TARGET="${DOCS_TARGET:-}"
+readonly DOCS_TARGET_OUTCOME="${DOCS_TARGET_OUTCOME:-}"
+readonly TARGET_REF_NAME="${TARGET_REF_NAME:-}"
+
+sources="${BASE_SOURCES}"
+should_resolve_target=false
+
+if [[ -n "${sources}" ]]; then
+  sources="$(jq -c . <<<"${sources}")"
+fi
+
+function is_versioned_path {
+  local path="${1:-}"
+  path="${path%/}"
+
+  [[ "${path}" == */next || "${path}" == */latest ]]
+}
+
+if [[ -n "${BASE_SOURCES}" ]] && jq -e 'any(.[]?; ((.website_directory // "") | sub("/$"; "")) | test("(^|/)(next|latest)$"))' <<<"${BASE_SOURCES}" >/dev/null; then
+  should_resolve_target=true
+fi
+
+if [[ "${should_resolve_target}" == "true" && -n "${TARGET_REF_NAME}" && -n "${DOCS_TARGET_OUTCOME}" && "${DOCS_TARGET_OUTCOME}" != "success" ]]; then
+  echo "::warning ::Unable to determine docs target for ${TARGET_REF_NAME}; using base preview paths."
+fi
+
+if [[ "${should_resolve_target}" == "true" && -n "${DOCS_TARGET}" ]]; then
+  target="${DOCS_TARGET}"
+
+  if [[ -n "${sources}" ]]; then
+    sources="$(jq -c --arg target "${target}" 'map(
+      if (((.website_directory // "") | sub("/$"; "")) | test("(^|/)(next|latest)$")) then
+        .website_directory |= ((. // "") | sub("/$"; "") | sub("/(next|latest)$"; "/" + $target))
+        | .relative_prefix |= if . == null or . == "" then . else ((. | sub("/$"; "") | sub("/(next|latest)$"; "/" + $target)) + "/") end
+      else
+        .
+      end
+    )' <<<"${sources}")"
+  fi
+fi
+
+{
+  echo "should_resolve_target=${should_resolve_target}"
+  echo "sources=${sources}"
+} >> "${GITHUB_OUTPUT}"

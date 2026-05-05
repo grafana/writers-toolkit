@@ -1,7 +1,6 @@
 ---
 aliases:
   - /docs/writers-toolkit/review/run-a-local-webserver/
-  - /docs/writers-toolkit/review/test-documentation-changes/
   - /docs/writers-toolkit/writing-guide/tooling-and-workflows/run-a-local-webserver/
 date: "2024-02-23T15:12:32+00:00"
 description: Test documentation changes by running a local documentation web server

@@ -20,6 +20,11 @@ on:
         type: string
       index_file: # creates the necessary project _index.md file for versioned repos
         type: boolean
+      target_ref_name:
+        description: |
+          Optional Git ref name used to derive the documentation target with `./actions/docs-target`.
+          For pull requests, pass the base branch name.
+        type: string
       # End legacy inputs
       sources:
         description: |
@@ -72,6 +77,11 @@ on:
       sha:
         required: true
         type: string
+      toolkit_ref:
+        description: Ref used to checkout writers-toolkit helper files (branch, tag, or SHA). Defaults to PR SHA when running in writers-toolkit, otherwise main.
+        required: false
+        default: ""
+        type: string
       branch:
         required: true
         type: string
@@ -104,36 +114,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy-preview:
+  build-website:
+    outputs:
+      relative_prefix: ${{ steps.preview-paths.outputs.relative_prefix != '' && steps.preview-paths.outputs.relative_prefix || env.RELATIVE_PREFIX }}
+      sources: ${{ steps.preview-paths.outputs.sources != '' && steps.preview-paths.outputs.sources || env.SOURCES }}
+      website_directory: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
     permissions:
       contents: read # Clone repositories.
-      id-token: write # Fetch Vault secrets.
-      pull-requests: write # Create or update PR comments.
-      statuses: write # Update GitHub status check with deploy preview link.
+    if: github.event.action == 'opened' || github.event.action == 'synchronize'
     runs-on: ubuntu-latest
     steps:
-      - name: Find comment
-        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
-        id: fc
-        with:
-          issue-number: ${{ inputs.event_number }}
-          comment-author: "github-actions[bot]"
-          body-includes: "Deploy preview available (${{ inputs.title }})"
-
-      - name: Update comment with in-progress deploy preview
-        if: steps.fc.outputs.comment-id != '' && (github.event.action == 'opened' || github.event.action == 'synchronize')
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
-        with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ inputs.event_number }}
-          edit-mode: append
-          append-separator: newline
-          body: |
-            :building_construction: Updating deploy preview...
-
-
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
+        if: inputs.website_directory
         with:
           persist-credentials: false
           sparse-checkout-cone-mode: false # exclude root files
@@ -141,17 +133,56 @@ jobs:
 
       - name: Sparse checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         with:
-          repository: "grafana/writers-toolkit"
-          ref: main
+          repository: grafana/writers-toolkit
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
             deploy-preview
+            link-checker
+
+      - name: Detect versioned preview sources
+        id: base-preview-paths
+        shell: bash
+        env:
+          BASE_SOURCES: ${{ inputs.sources }}
+          TARGET_REF_NAME: ${{ inputs.target_ref_name }}
+        run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
+
+      - name: Checkout Actions library
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        if: inputs.target_ref_name != '' && steps.base-preview-paths.outputs.should_resolve_target == 'true'
+        with:
+          repository: grafana/grafana-github-actions
+          path: ./actions
+          persist-credentials: false
+
+      - name: Install Actions from library
+        if: inputs.target_ref_name != '' && steps.base-preview-paths.outputs.should_resolve_target == 'true'
+        run: npm install --production --prefix ./actions
+        shell: bash
+
+      - name: Determine technical documentation target
+        if: inputs.target_ref_name != '' && steps.base-preview-paths.outputs.should_resolve_target == 'true'
+        id: docs-target
+        continue-on-error: true
+        uses: ./actions/docs-target
+        with:
+          ref_name: ${{ inputs.target_ref_name }}
+
+      - name: Resolve preview paths
+        id: preview-paths
+        shell: bash
+        env:
+          BASE_SOURCES: ${{ inputs.sources }}
+          DOCS_TARGET: ${{ steps.docs-target.outputs.target }}
+          DOCS_TARGET_OUTCOME: ${{ steps.docs-target.outcome }}
+          TARGET_REF_NAME: ${{ inputs.target_ref_name }}
+        run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
 
       - name: Keep only necessary files
-        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
+        if: inputs.website_directory
         shell: bash
         env:
           SOURCE_DIRECTORY: ${{ inputs.source_directory }}
@@ -165,7 +196,7 @@ jobs:
       # sparse checkout with cone mode disabled includes root files, even when using exclusions
       # see https://github.com/actions/checkout/issues/1430#issuecomment-1756326892
       - name: Keep only necessary files
-        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        if: "!inputs.website_directory"
         shell: bash
         run: |
           shopt -s extglob
@@ -174,23 +205,87 @@ jobs:
           ls -al deploy-preview-files
 
       - name: Build website
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         env:
           # Legacy input.
           SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
-          WEBSITE_DIRECTORY: ${{ env.WEBSITE_DIRECTORY }}
+          WEBSITE_DIRECTORY: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
           INDEX_FILE: ${{ env.INDEX_FILE }}
           REPO: ${{ env.REPO }}
+          RELATIVE_PREFIX: ${{ steps.preview-paths.outputs.relative_prefix != '' && steps.preview-paths.outputs.relative_prefix || env.RELATIVE_PREFIX }}
           # End legacy input.
           GH_TOKEN: ${{ github.token }}
           IMAGE: ${{ env.IMAGE }}
-          SOURCES: ${{ env.SOURCES }}
+          SOURCES: ${{ steps.preview-paths.outputs.sources != '' && steps.preview-paths.outputs.sources || env.SOURCES }}
           BRANCH: ${{ env.BRANCH }}
         run: ./deploy-preview-files/deploy-preview/build
 
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: dist-${{ inputs.sha }}
+          path: dist
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy-preview:
+    permissions:
+      contents: read # Clone repositories.
+      id-token: write # Fetch Vault secrets.
+      pull-requests: write # Create or update PR comments.
+      statuses: write # Update GitHub status check with deploy preview link.
+    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    needs: build-website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: fc
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: github-actions[bot]
+          body-includes: Deploy preview available (${{ inputs.title }})
+
+      - name: Update comment with in-progress deploy preview
+        if: steps.fc.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: append
+          append-separator: newline
+          body: |
+            :building_construction: Updating deploy preview...
+
+      - name: Sparse checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: grafana/writers-toolkit
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          path: deploy-preview-files
+          persist-credentials: false
+          sparse-checkout: |
+            deploy-preview
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ inputs.sha }}
+          path: dist
+
+      - name: Use resolved preview paths
+        shell: bash
+        env:
+          RESOLVED_RELATIVE_PREFIX: ${{ needs.build-website.outputs.relative_prefix }}
+          RESOLVED_SOURCES: ${{ needs.build-website.outputs.sources }}
+        run: |
+          if [[ -n "${RESOLVED_SOURCES}" ]]; then
+            echo "SOURCES=${RESOLVED_SOURCES}" >> "$GITHUB_ENV"
+          fi
+
+          if [[ -n "${RESOLVED_RELATIVE_PREFIX}" ]]; then
+            echo "RELATIVE_PREFIX=${RESOLVED_RELATIVE_PREFIX}" >> "$GITHUB_ENV"
+          fi
+
       - name: Print build header value
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         shell: bash
         env:
           SHA: ${{ inputs.sha }}
@@ -202,7 +297,7 @@ jobs:
         id: gcloud-auth
         with:
           token_format: access_token
-          workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
+          workload_identity_provider: projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider
           service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
           create_credentials_file: false
 
@@ -215,14 +310,13 @@ jobs:
           password: ${{ steps.gcloud-auth.outputs.access_token }}
 
       - name: Extract metadata (tags, labels) for Docker
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
         id: meta
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
         with:
-          images: "us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}"
+          images: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}
           tags: |-
-            "${{ env.SHA }}"
-            "${{ env.EVENT_NUMBER }}"
+            ${{ env.SHA }}
+            ${{ env.EVENT_NUMBER }}
 
       - name: Set up Docker Buildx
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
@@ -244,8 +338,8 @@ jobs:
       - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
         id: gcloud-auth-cloud-run
         with:
-          workload_identity_provider: "projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider"
-          service_account: "github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com"
+          workload_identity_provider: projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider
+          service_account: github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@2028e2d7d30a78c6910e0632e48dd561b064884d # v3.0.1
@@ -258,61 +352,46 @@ jobs:
           region: ${{ env.CLOUD_RUN_REGION }}
           flags: --port=80 --ingress=all --allow-unauthenticated
 
+      - name: Send commit status
+        uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
+        if: inputs.website_directory
+        with:
+          name: deploy_preview
+          status: ${{ job.status }}
+          url: ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
+
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
         if: github.event.action == 'closed'
-        with:
-          project_id: grafanalabs-dev
-
-      - name: Delete deploy preview
-        if: github.event.action == 'closed'
-        env:
-          REPO: ${{ inputs.repo }}
-          EVENT_NUMBER: ${{ inputs.event_number }}
-        run: |
-          SERVICE_NAME="deploy-preview-${REPO}-${EVENT_NUMBER}"
-          if gcloud run services describe $SERVICE_NAME --region=$CLOUD_RUN_REGION --project=grafanalabs-dev > /dev/null 2>&1; then
-            gcloud run services delete $SERVICE_NAME --region=$CLOUD_RUN_REGION --project=grafanalabs-dev --quiet
-          else
-            echo "Service $SERVICE_NAME does not exist. Skipping step."
-          fi
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
-        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
+        if: "!env.WEBSITE_DIRECTORY"
         with:
           name: deploy_preview
-          status: "${{ job.status }}"
-          url: "${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}"
-
-      - name: Send commit status
-        uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
-        if: "!env.WEBSITE_DIRECTORY && (github.event.action == 'opened' || github.event.action == 'synchronize')"
-        with:
-          name: deploy_preview
-          status: "${{ job.status }}"
-          url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(env.SOURCES))[0].relative_prefix }}"
-          description: "Public deploy preview"
+          status: ${{ job.status }}
+          url: ${{ steps.deploy.outputs.url }}${{ (fromJSON(env.SOURCES))[0].relative_prefix }}
+          description: Public deploy preview
 
       - name: Get preview URLs
         id: urls
-        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        if: "!inputs.website_directory"
         shell: bash
         env:
-          SOURCES: ${{ inputs.SOURCES }}
+          SOURCES: ${{ env.SOURCES }}
           URL: ${{ steps.deploy.outputs.url }}
         run: ./deploy-preview-files/deploy-preview/urls
 
       - name: Create comment with available deploy preview
-        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''
+        if: inputs.website_directory && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ env.EVENT_NUMBER }}
           body: |
-            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}$RELATIVE_PREFIX
+            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
 
       - name: Create comment with available deploy preview
-        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''"
+        if: "!inputs.website_directory && steps.fc.outputs.comment-id == ''"
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
@@ -320,29 +399,18 @@ jobs:
             :computer: Deploy preview available (${{ inputs.title }}):
             ${{ steps.urls.outputs.urls }}
 
-      - name: Update comment with deleted deploy preview
-        if: github.event.action == 'closed'
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
-        with:
-          issue-number: ${{ env.EVENT_NUMBER }}
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          edit-mode: replace
-          body: |
-            :computer: Deploy preview deleted (${{ inputs.title }}).
-
-
       - name: Update comment with available deploy preview
-        if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''
+        if: inputs.website_directory && steps.fc.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ env.EVENT_NUMBER }}
           edit-mode: replace
           body: |
-            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ inputs.relative_prefix }}
+            :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
 
       - name: Update comment with available deploy preview
-        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id != ''"
+        if: "!inputs.website_directory && steps.fc.outputs.comment-id != ''"
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -351,3 +419,212 @@ jobs:
           body: |
             :computer: Deploy preview available (${{ inputs.title }}):
             ${{ steps.urls.outputs.urls }}
+
+  check-links:
+    permissions:
+      contents: read
+      pull-requests: write
+    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    needs: build-website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sparse checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: grafana/writers-toolkit
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          persist-credentials: false
+          fetch-depth: 0
+          sparse-checkout: |
+            deploy-preview
+            docs/sources
+            link-checker
+
+      - name: Check out source files
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ inputs.sha }}
+          path: source-files
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Use resolved preview paths
+        shell: bash
+        env:
+          RESOLVED_RELATIVE_PREFIX: ${{ needs.build-website.outputs.relative_prefix }}
+          RESOLVED_SOURCES: ${{ needs.build-website.outputs.sources }}
+        run: |
+          if [[ -n "${RESOLVED_SOURCES}" ]]; then
+            echo "SOURCES=${RESOLVED_SOURCES}" >> "$GITHUB_ENV"
+          fi
+
+          if [[ -n "${RESOLVED_RELATIVE_PREFIX}" ]]; then
+            echo "RELATIVE_PREFIX=${RESOLVED_RELATIVE_PREFIX}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Prepare source paths for comment lookup
+        id: comment-source-paths
+        shell: bash
+        env:
+          SOURCES: ${{ env.SOURCES }}
+          SOURCE_DIRECTORY: ${{ env.SOURCE_DIRECTORY }}
+        run: |
+          if [[ -n "${SOURCES}" ]]; then
+            mapped_sources="$(jq -c 'map(.source_directory |= if . == null or . == "" then . else "source-files/" + . end)' <<<"${SOURCES}")"
+            printf 'sources=%s\n' "${mapped_sources}" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [[ -n "${SOURCE_DIRECTORY}" ]]; then
+            printf 'source_directory=%s\n' "source-files/${SOURCE_DIRECTORY}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ inputs.sha }}
+          path: dist
+
+      - name: Check links
+        shell: bash
+        run: |
+          docker run --rm \
+            -e RELATIVE_PREFIX \
+            -e SOURCE_DIRECTORY \
+            -e SHA \
+            -e SOURCES \
+            -v "${PWD}:/work" \
+            -w /work \
+            grafana/link-checker:nightly \
+            check
+
+      - name: Print nginx error log
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -f error.log ]]; then
+            cat error.log
+          fi
+
+      - name: Print nginx access log
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -f access.log ]]; then
+            cat access.log
+          fi
+
+      - name: Print links.json
+        run: cat links.json
+
+      - name: Upload links report
+        id: upload-links
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: links-${{ inputs.sha }}.json
+          path: links.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Generate broken links comment
+        shell: bash
+        env:
+          SOURCES: ${{ steps.comment-source-paths.outputs.sources != '' && steps.comment-source-paths.outputs.sources || env.SOURCES }}
+          SOURCE_DIRECTORY: ${{ steps.comment-source-paths.outputs.source_directory != '' && steps.comment-source-paths.outputs.source_directory || env.SOURCE_DIRECTORY }}
+          RELATIVE_PREFIX: ${{ env.RELATIVE_PREFIX }}
+          PR_REPO: ${{ inputs.repo }}
+          PR_BRANCH: ${{ inputs.branch }}
+          PR_TITLE: ${{ inputs.title }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
+        run: |
+          docker run --rm \
+            -e BRANCH="${PR_BRANCH}" \
+            -e RELATIVE_PREFIX \
+            -e SOURCE_DIRECTORY \
+            -e SOURCES \
+            -v "${PWD}:/work" \
+            -w /work \
+            grafana/link-checker:nightly \
+            comment \
+            -links links.json \
+            -base-ref "${PR_BASE_SHA}" \
+            -output broken-links-comment.md \
+            -repo "${PR_REPO}" \
+            -branch "${PR_BRANCH}" \
+            -title "${PR_TITLE}" \
+            -artifact-url "${ARTIFACT_URL}"
+
+      - name: Print broken links comment
+        run: cat broken-links-comment.md
+
+      - name: Find broken links comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: broken-links-comment
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: github-actions[bot]
+          body-includes: <!-- broken-links-report:${{ inputs.repo }} -->
+
+      - name: Create broken links comment
+        if: steps.broken-links-comment.outputs.comment-id == ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          body-path: broken-links-comment.md
+
+      - name: Update broken links comment
+        if: steps.broken-links-comment.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.broken-links-comment.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: replace
+          body-path: broken-links-comment.md
+
+  cleanup-preview:
+    permissions:
+      id-token: write
+      pull-requests: write
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: fc
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: github-actions[bot]
+          body-includes: Deploy preview available (${{ inputs.title }})
+
+      - uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2.1.13
+        id: gcloud-auth-cloud-run
+        with:
+          workload_identity_provider: projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider
+          service_account: github-docs-cloud-run-dev@grafanalabs-workload-identity.iam.gserviceaccount.com
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@e427ad8a34f8676edf47cf7d7925499adf3eb74f # v2.2.1
+        with:
+          project_id: grafanalabs-dev
+
+      - name: Delete deploy preview
+        env:
+          REPO: ${{ inputs.repo }}
+          EVENT_NUMBER: ${{ inputs.event_number }}
+        run: |
+          SERVICE_NAME="deploy-preview-${REPO}-${EVENT_NUMBER}"
+          if gcloud run services describe "$SERVICE_NAME" --region="$CLOUD_RUN_REGION" --project=grafanalabs-dev > /dev/null 2>&1; then
+            gcloud run services delete "$SERVICE_NAME" --region="$CLOUD_RUN_REGION" --project=grafanalabs-dev --quiet
+          else
+            echo "Service $SERVICE_NAME does not exist. Skipping step."
+          fi
+
+      - name: Update comment with deleted deploy preview
+        if: steps.fc.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ env.EVENT_NUMBER }}
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            :computer: Deploy preview deleted (${{ inputs.title }}).

@@ -17,8 +17,16 @@ if ! jq -e . <<<"${SOURCES}" >/dev/null; then
   exit 1
 fi
 
+visible_sources="$(jq -c '[.[] | select(.include_in_output_links != false)]' <<<"${SOURCES}")"
+if [[ "$(jq 'length' <<<"${visible_sources}")" -eq 0 ]]; then
+  visible_sources="${SOURCES}"
+fi
+
+primary_relative_prefix="$(jq -r '.[0].relative_prefix // ""' <<<"${visible_sources}")"
+printf 'primary_relative_prefix=%s\n' "${primary_relative_prefix}" >> "${GITHUB_OUTPUT}"
+
 echo "urls<<EOF" >> "${GITHUB_OUTPUT}"
 while read -r relative_prefix; do
   echo "- ${URL}${relative_prefix}" >> "${GITHUB_OUTPUT}"
-done < <(jq -r '.[].relative_prefix' <<<"${SOURCES}")
+done < <(jq -r '.[].relative_prefix' <<<"${visible_sources}")
 echo "EOF" >> "${GITHUB_OUTPUT}"

@@ -53,6 +53,10 @@ on:
             description: Optional git ref to check out for this source. If omitted, the workflow checks out the caller PR branch.
             required: false
             type: string
+          include_in_output_links:
+            description: Optional boolean that controls whether this source appears in output links such as PR comments. Defaults to true.
+            required: false
+            type: boolean
 
           The following example mounts both the Mimir documentation and the mimir-distributed Helm chart documentation:
 
@@ -70,7 +74,8 @@ on:
               "repo": "mimir",
               "source_directory": "docs/sources/mimir-distributed",
               "website_directory": "content/docs/helm-charts/mimir-distributed/latest",
-              "ref": "main"
+              "ref": "main",
+              "include_in_output_links": false
             }
           ]
         type: string
@@ -292,6 +297,15 @@ jobs:
             echo "Service $SERVICE_NAME does not exist. Skipping step."
           fi
 
+      - name: Get preview URLs
+        id: urls
+        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        shell: bash
+        env:
+          SOURCES: ${{ inputs.SOURCES }}
+          URL: ${{ steps.deploy.outputs.url }}
+        run: ./deploy-preview-files/deploy-preview/urls
+
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
         if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')
@@ -306,17 +320,8 @@ jobs:
         with:
           name: deploy_preview
           status: "${{ job.status }}"
-          url: "${{ steps.deploy.outputs.url }}${{ (fromJSON(env.SOURCES))[0].relative_prefix }}"
+          url: "${{ steps.deploy.outputs.url }}${{ steps.urls.outputs.primary_relative_prefix }}"
           description: "Public deploy preview"
-
-      - name: Get preview URLs
-        id: urls
-        if: "!inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize')"
-        shell: bash
-        env:
-          SOURCES: ${{ inputs.SOURCES }}
-          URL: ${{ steps.deploy.outputs.url }}
-        run: ./deploy-preview-files/deploy-preview/urls
 
       - name: Create comment with available deploy preview
         if: inputs.website_directory && (github.event.action == 'opened' || github.event.action == 'synchronize') && steps.fc.outputs.comment-id == ''

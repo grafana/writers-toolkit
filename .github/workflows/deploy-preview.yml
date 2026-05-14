@@ -49,6 +49,10 @@ on:
             description: The path to mount the documentation in the website content structure. For example, "content/docs/mimir/latest".
             required: true
             type: string
+          ref:
+            description: Optional git ref to check out for this source. If omitted, the workflow checks out the caller PR branch.
+            required: false
+            type: string
 
           The following example mounts both the Mimir documentation and the mimir-distributed Helm chart documentation:
 
@@ -65,7 +69,8 @@ on:
               "relative_prefix": "/docs/helm-charts/mimir-distributed/latest/",
               "repo": "mimir",
               "source_directory": "docs/sources/mimir-distributed",
-              "website_directory": "content/docs/helm-charts/mimir-distributed/latest"
+              "website_directory": "content/docs/helm-charts/mimir-distributed/latest",
+              "ref": "main"
             }
           ]
         type: string

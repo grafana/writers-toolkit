@@ -6,6 +6,17 @@ if [[ -n "${RUNNER_DEBUG+x}" ]]; then
 	set -x
 fi
 
+require_env() {
+	local name="${1}"
+	if [[ -z "${!name:-}" ]]; then
+		echo "Error: required environment variable '${name}' is not set or is empty." >&2
+		exit 1
+	fi
+}
+
+require_env BRANCH
+require_env GH_TOKEN
+
 gh repo clone grafana/interactive-tutorials src/interactive-tutorials
 (cd src/interactive-tutorials && gh pr checkout "${BRANCH}")
 

@@ -1,4 +1,4 @@
-404
+405
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -20,6 +20,7 @@ API/S po:noun
 APT/ po:noun
 ARN/S po:noun
 Asserts/ po:noun
+async/ po:adjective
 Atlassian/ po:noun
 autoscale/DGS po:verb
 autoscaler/S po:noun

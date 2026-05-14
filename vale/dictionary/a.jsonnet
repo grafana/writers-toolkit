@@ -21,6 +21,7 @@ local word = import './word.jsonnet';
   word.new('APT', '', 'noun') { abbreviation: true, description: 'https://en.wikipedia.org/wiki/APT_(software)', elaboration: 'Advanced package tool', established_abbreviation: true },
   word.new('ARN', 'S', 'noun') { Amazon: true, abbreviation: true, description: 'Amazon Resource Name', established_abbreviation: true, product: true },
   word.new('Asserts', '', 'noun') { description: 'https://grafana.com/products/cloud/asserts/', product: true },
+  word.new('async', '', 'adjective') { description: 'Short for asynchronous' },
   word.new('Atlassian', '', 'noun') { product: true },
   word.new('autoscale', 'DGS', 'verb'),
   word.new('autoscaler', 'S', 'noun'),

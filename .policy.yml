@@ -1,17 +1,35 @@
 policy:
   approval:
-    - documentation validation passes or no documentation changes
+    - documentation validation workflow exists when documentation changes
+    - documentation validation passes when documentation changes
 
 approval_rules:
-  - name: documentation validation passes or no documentation changes
+  - name: documentation validation workflow exists when documentation changes
     if:
+      changed_files:
+        paths:
+          - ^docs\/sources\/(?:(?:[^/]*(?:/|$))*)$
+          - ^vale\/(?:(?:[^/]*(?:/|$))*)$
+    requires:
+      conditions:
+        file_not_deleted:
+          paths:
+            - ^\.github\/workflows\/validate-documentation\.yml$
+
+  - name: documentation validation passes when documentation changes
+    if:
+      changed_files:
+        paths:
+          - ^docs\/sources\/(?:(?:[^/]*(?:/|$))*)$
+          - ^vale\/(?:(?:[^/]*(?:/|$))*)$
       file_not_deleted:
         paths:
-          - .github/workflows/validate-documentation.yml
+          - ^\.github\/workflows\/validate-documentation\.yml$
     requires:
       conditions:
         has_workflow_result:
           conclusions:
+            - skipped
             - success
           workflows:
             - .github/workflows/validate-documentation.yml

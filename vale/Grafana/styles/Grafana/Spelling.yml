@@ -10,7 +10,6 @@ message: |
   - [Code](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#code-font) — use for paths, configuration, user input, code, class, method, and variable names, status codes, and console output.
 level: error
 append: true
-dicpath: config/dictionaries
 dictionaries:
   - en_US-grafana
   - en_US-places

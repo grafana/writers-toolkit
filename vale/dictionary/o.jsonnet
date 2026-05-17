@@ -15,5 +15,6 @@ local word = import './word.jsonnet';
   word.new('OTel', '', 'noun') { product: true, swaps: { otel: 'OTel' } },
   word.new('OTLP', '', 'noun') { abbreviation: true, elaboration: 'OpenTelemetry Protocol', established_abbreviation: true, swaps: { otlp: 'OTLP' } },
   word.new('overbill', 'DG', 'verb'),
+  word.new('overprovision', 'DG', 'verb'),
   word.new('overutilization', 'S', 'noun'),
 ]

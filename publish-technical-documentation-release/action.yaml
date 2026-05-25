@@ -90,26 +90,18 @@ runs:
         source_directory: ${{ inputs.source_directory }}
         website_directory: ${{ inputs.website_directory }}
 
-    - id: get-secrets
-      uses: grafana/shared-workflows/actions/get-vault-secrets@f1614b210386ac420af6807a997ac7f6d96e477a # get-vault-secrets/v1.3.1
+    - name: Get GitHub App token
+      id: get-github-app-token
+      uses: grafana/shared-workflows/actions/create-github-app-token@259ba21cb3ff07724f331e26d926d655d24b317b # create-github-app-token/v0.2.3
       with:
-        common_secrets: |
-          PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID=docs-team/publish-technical-documentation:app-id
-          PUBLISH_TECHNICAL_DOCUMENTATION_PRIVATE_KEY=docs-team/publish-technical-documentation:key
-
-    - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
-      id: app-token
-      with:
-        app-id: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_APP_ID }}
-        owner: grafana
-        private-key: ${{ env.PUBLISH_TECHNICAL_DOCUMENTATION_PRIVATE_KEY }}
+        github_app: publish-technical-documentation
 
     - name: Checkout sync action
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         path: .github/actions/website-sync
         repository: grafana/website-sync
-        token: ${{ steps.app-token.outputs.token }}
+        token: ${{ steps.get-github-app-token.outputs.token }}
 
     - name: Checkout Actions library
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -146,7 +138,7 @@ runs:
         repository: grafana/website
         branch: ${{ inputs.website_branch }}
         host: github.com
-        github_pat: grafanabot:${{ steps.app-token.outputs.token }}
+        github_pat: grafanabot:${{ steps.get-github-app-token.outputs.token }}
         source_folder: ${{ inputs.source_directory }}
         target_folder: ${{ inputs.website_directory }}/${{ steps.target.outputs.target }}${{ inputs.version_suffix }}
         allow_no_changes: ${{ inputs.allow_no_changes }}

@@ -19,5 +19,6 @@
     "build": "tsc",
     "test": "node --require ts-node/register --test suggestion.test.ts"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "packageManager": "npm@11.6.2"
 }

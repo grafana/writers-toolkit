@@ -43,7 +43,7 @@ module.exports = async ({ context, core, github, }) => {
     if (!raw.trim()) {
         return;
     }
-    const valeOutput = JSON.parse(raw);
+    const valeOutput = (0, suggestion_1.inhibitAlerts)(JSON.parse(raw));
     const { owner, repo } = context.repo;
     const pullNumber = context.issue.number;
     const payload = context.payload;
@@ -61,8 +61,10 @@ module.exports = async ({ context, core, github, }) => {
         const parsed = (0, suggestion_1.parseMarker)(c.body);
         return parsed ? [`${c.path}:${parsed.check}:${parsed.match}`] : [];
     }));
+    let alertCount = 0;
     for (const [filePath, alerts] of Object.entries(valeOutput)) {
         for (const alert of alerts) {
+            alertCount++;
             const line = readLine(filePath, alert.Line) ?? "";
             const body = (0, suggestion_1.formatComment)(alert, line);
             const dedupeKey = `${filePath}:${alert.Check}:${alert.Match}`;
@@ -85,5 +87,8 @@ module.exports = async ({ context, core, github, }) => {
                 core.warning(`Could not post comment on ${filePath}:${alert.Line}: ${message}`);
             }
         }
+    }
+    if (process.env.FAIL_ON_ERROR === "true" && alertCount > 0) {
+        core.setFailed(`Vale reported ${alertCount} linting error(s).`);
     }
 };

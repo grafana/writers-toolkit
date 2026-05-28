@@ -6,6 +6,7 @@ import type { RestEndpointMethodTypes } from "@octokit/plugin-rest-endpoint-meth
 import {
   commentMarker,
   formatComment,
+  inhibitAlerts,
   parseMarker,
   ValeAlert,
   ValeOutput,
@@ -34,7 +35,7 @@ module.exports = async ({
     return;
   }
 
-  const valeOutput = JSON.parse(raw) as ValeOutput;
+  const valeOutput = inhibitAlerts(JSON.parse(raw) as ValeOutput);
 
   const { owner, repo } = context.repo;
   const pullNumber = context.issue.number;
@@ -62,8 +63,11 @@ module.exports = async ({
     }),
   );
 
+  let alertCount = 0;
+
   for (const [filePath, alerts] of Object.entries(valeOutput)) {
     for (const alert of alerts as ValeAlert[]) {
+      alertCount++;
       const line = readLine(filePath, alert.Line) ?? "";
       const body = formatComment(alert, line);
       const dedupeKey = `${filePath}:${alert.Check}:${alert.Match}`;
@@ -89,5 +93,9 @@ module.exports = async ({
         );
       }
     }
+  }
+
+  if (process.env.FAIL_ON_ERROR === "true" && alertCount > 0) {
+    core.setFailed(`Vale reported ${alertCount} linting error(s).`);
   }
 };

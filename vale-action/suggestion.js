@@ -1,10 +1,37 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.inhibitAlerts = inhibitAlerts;
 exports.commentMarker = commentMarker;
 exports.parseMarker = parseMarker;
 exports.linkText = linkText;
 exports.applySuggestion = applySuggestion;
 exports.formatComment = formatComment;
+const RULE_PRECEDENCE = {
+    "Grafana.GrafanaCom": 0,
+    "Grafana.ProductPossessives": 1,
+    "Grafana.WordList": 2,
+    "Grafana.Spelling": 3,
+};
+function locationKey(filePath, alert) {
+    return `${filePath}:${alert.Line}:${alert.Span[0]}`;
+}
+function inhibitAlerts(valeOutput) {
+    const result = {};
+    for (const [filePath, alerts] of Object.entries(valeOutput)) {
+        const kept = new Map();
+        for (const alert of alerts) {
+            const key = locationKey(filePath, alert);
+            const existing = kept.get(key);
+            if (existing === undefined ||
+                (RULE_PRECEDENCE[alert.Check] ?? -Infinity) <
+                    (RULE_PRECEDENCE[existing.Check] ?? -Infinity)) {
+                kept.set(key, alert);
+            }
+        }
+        result[filePath] = Array.from(kept.values());
+    }
+    return result;
+}
 const LINK_TEXT = {
     "developers.google.com": "Google developer documentation style guide",
     "grafana.com": "Grafana Writers' Toolkit",

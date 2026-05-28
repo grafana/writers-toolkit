@@ -14,6 +14,12 @@ inputs:
       Vale filter that allows you to report an arbitrary subset of the Grafana style.
 
       For more information, refer to https://vale.sh/docs/filters.
+  fail_on_error:
+    default: "false"
+    description: |
+      Exit with a non-zero status code if Vale reports any linting errors.
+
+      Set to 'true' to fail the workflow when linting errors are present.
 runs:
   using: composite
   steps:
@@ -45,12 +51,14 @@ runs:
         fi
 
         (cd /etc/vale && vale sync)
-        vale ${filter_arg} --no-exit --output=line ${FILES}
-        vale ${filter_arg} --no-exit --output=JSON ${FILES} > vale.json
+        vale ${filter_arg:+"${filter_arg}"} --no-exit --output=line ${FILES}
+        vale ${filter_arg:+"${filter_arg}"} --no-exit --output=JSON ${FILES} > vale.json
       shell: sh
 
     - name: Post inline PR review comments
       if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.body, '<!-- vale = NO -->')
+      env:
+        FAIL_ON_ERROR: ${{ inputs.fail_on_error }}
       uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
       with:
         script: |

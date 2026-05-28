@@ -94,6 +94,9 @@ on:
       title:
         required: true
         type: string
+      build_script:
+        description: "Build script to run. Allowed values: build, build-interactive-tutorials. Defaults to build."
+        type: string
 
 env:
   CLOUD_RUN_REGION: us-south1
@@ -108,6 +111,7 @@ env:
   RELATIVE_PREFIX: ${{ inputs.relative_prefix }}
   IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
+  BUILD_SCRIPT: ${{ inputs.build_script }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
@@ -218,7 +222,13 @@ jobs:
           IMAGE: ${{ env.IMAGE }}
           SOURCES: ${{ steps.preview-paths.outputs.sources != '' && steps.preview-paths.outputs.sources || env.SOURCES }}
           BRANCH: ${{ env.BRANCH }}
-        run: ./deploy-preview-files/deploy-preview/build
+        run: |
+          script="${BUILD_SCRIPT:-build}"
+          case "${script}" in
+            build | build-interactive-tutorials) ;;
+            *) echo "build_script must be one of: build, build-interactive-tutorials"; exit 1 ;;
+          esac
+          "./deploy-preview-files/deploy-preview/${script}"
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -366,7 +376,7 @@ jobs:
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
-        if: "!env.WEBSITE_DIRECTORY"
+        if: "!env.WEBSITE_DIRECTORY && env.SOURCES && (github.event.action == 'opened' || github.event.action == 'synchronize')"
         with:
           name: deploy_preview
           status: ${{ job.status }}

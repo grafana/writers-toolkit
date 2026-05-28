@@ -16,6 +16,42 @@ export interface ValeAlert {
 
 export type ValeOutput = Record<string, ValeAlert[]>;
 
+const RULE_PRECEDENCE: Record<string, number> = {
+  "Grafana.GrafanaCom": 0,
+  "Grafana.ProductPossessives": 1,
+  "Grafana.WordList": 2,
+  "Grafana.Spelling": 3,
+};
+
+function locationKey(filePath: string, alert: ValeAlert): string {
+  return `${filePath}:${alert.Line}:${alert.Span[0]}`;
+}
+
+export function inhibitAlerts(valeOutput: ValeOutput): ValeOutput {
+  const result: ValeOutput = {};
+
+  for (const [filePath, alerts] of Object.entries(valeOutput)) {
+    const kept = new Map<string, ValeAlert>();
+
+    for (const alert of alerts) {
+      const key = locationKey(filePath, alert);
+      const existing = kept.get(key);
+
+      if (
+        existing === undefined ||
+        (RULE_PRECEDENCE[alert.Check] ?? -Infinity) <
+          (RULE_PRECEDENCE[existing.Check] ?? -Infinity)
+      ) {
+        kept.set(key, alert);
+      }
+    }
+
+    result[filePath] = Array.from(kept.values());
+  }
+
+  return result;
+}
+
 const LINK_TEXT: Record<string, string> = {
   "developers.google.com": "Google developer documentation style guide",
   "grafana.com": "Grafana Writers' Toolkit",

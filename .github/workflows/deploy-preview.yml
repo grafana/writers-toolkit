@@ -504,7 +504,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            grafana/link-checker:nightly \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e60f1c334eea9208ad86e45ca58b96f9943f9fd94424e00c6f99ebf116f2fd53 \
             check
 
       - name: Print nginx error log

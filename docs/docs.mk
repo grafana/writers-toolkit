@@ -31,14 +31,37 @@ ifeq ($(PROJECTS),)
 $(error "PROJECTS variable must be defined in variables.mk")
 endif
 
+# First project slug from PROJECTS, without any optional :version/:repo/:path suffixes.
+BROKEN_LINKS_PROJECT := $(firstword $(subst :, ,$(word 1,$(PROJECTS))))
+
 # Host port to publish container port to.
 ifeq ($(origin DOCS_HOST_PORT), undefined)
 export DOCS_HOST_PORT := 3002
 endif
 
+# Host port used by local nginx during broken-link checks.
+ifeq ($(origin BROKEN_LINKS_NGINX_PORT), undefined)
+export BROKEN_LINKS_NGINX_PORT := 3002
+endif
+
+# Git ref used to determine changed files for the local broken-links comment.
+ifeq ($(origin BROKEN_LINKS_BASE_REF), undefined)
+export BROKEN_LINKS_BASE_REF := origin/main
+endif
+
+# Sources mapping used by local broken-links checks; mirrors CI deploy-pr-preview sources.
+ifeq ($(origin BROKEN_LINKS_SOURCES), undefined)
+export BROKEN_LINKS_SOURCES := [{"index_file":null,"relative_prefix":"/docs/$(BROKEN_LINKS_PROJECT)/","repo":"$(BROKEN_LINKS_PROJECT)","source_directory":"docs/sources","website_directory":"content/docs/$(BROKEN_LINKS_PROJECT)"}]
+endif
+
 # Container image used to perform Hugo build.
 ifeq ($(origin DOCS_IMAGE), undefined)
 export DOCS_IMAGE := grafana/docs-base:latest
+endif
+
+# Container ancestor used to copy dist from a running make docs server.
+ifeq ($(origin BROKEN_LINKS_CONTAINER_ANCESTOR), undefined)
+export BROKEN_LINKS_CONTAINER_ANCESTOR := $(DOCS_IMAGE)
 endif
 
 # Container image used for Vale linting.
@@ -90,6 +113,58 @@ endif
 docs-debug: ## Run Hugo web server with debugging enabled. TODO: support all SERVER_FLAGS defined in website Makefile.
 docs-debug: make-docs
 	WEBSITE_EXEC='hugo server --bind 0.0.0.0 --port 3002 --logLevel debug' $(CURDIR)/make-docs $(PROJECTS)
+
+.PHONY: broken-links-copy-dist
+broken-links-copy-dist: ## Copy dist from running make docs container.
+	@if ! command -v docker >/dev/null 2>&1; then
+		echo 'ERRR: `docker` must be installed to run broken-links-copy-dist.' >&2
+		exit 1
+	fi
+	cd "$(GIT_ROOT)"
+	container_id="$$(docker ps -q --filter "ancestor=$(BROKEN_LINKS_CONTAINER_ANCESTOR)" | head -n 1)"
+	if [[ -z "$$container_id" ]]; then
+		echo "ERRR: no running docs container found for ancestor '$(BROKEN_LINKS_CONTAINER_ANCESTOR)'." >&2
+		echo 'NOTE: run `make docs` first, or override BROKEN_LINKS_CONTAINER_ANCESTOR.' >&2
+		exit 1
+	fi
+
+	rm -rf dist
+	docker cp "$$container_id:/hugo/dist" ./dist
+
+.PHONY: check-links
+check-links: ## Run local broken-link checker and generate the broken-links comment.
+	@if ! command -v go >/dev/null 2>&1; then
+		echo 'ERRR: `go` must be installed to run broken-links-check.' >&2
+		exit 1
+	fi
+	@if ! command -v nginx >/dev/null 2>&1; then
+		echo 'ERRR: `nginx` must be installed to run broken-links-check.' >&2
+		exit 1
+	fi
+	if [[ "$(BROKEN_LINKS_NGINX_PORT)" == "3002" ]]; then
+		if command -v lsof >/dev/null 2>&1; then
+			if lsof -nP -iTCP:3002 -sTCP:LISTEN >/dev/null 2>&1; then
+				echo 'ERRR: port 3002 is already in use. Stop the running service before make broken-links-check.' >&2
+				exit 1
+			fi
+		elif command -v ss >/dev/null 2>&1; then
+			if ss -H -ltn 'sport = :3002' | grep -q .; then
+				echo 'ERRR: port 3002 is already in use. Stop the running service before make broken-links-check.' >&2
+				exit 1
+			fi
+		fi
+	fi
+	cd "$(GIT_ROOT)"
+	SOURCES='$(BROKEN_LINKS_SOURCES)' go run ./link-checker/cmd/link-checker check -nginx-port "$(BROKEN_LINKS_NGINX_PORT)"
+
+	SOURCES='$(BROKEN_LINKS_SOURCES)' go run ./link-checker/cmd/link-checker comment \
+		-links links.json \
+		-base-ref "$(BROKEN_LINKS_BASE_REF)" \
+		-output broken-links-comment.md \
+		-repo "$${BROKEN_LINKS_REPO:-$$(basename "$$(git rev-parse --show-toplevel)")}" \
+		-title "$${BROKEN_LINKS_TITLE:-Local run}" \
+		-artifact-url "$${BROKEN_LINKS_ARTIFACT_URL:-}"
+	cat broken-links-comment.md
 
 .PHONY: vale
 vale: ## Run vale on the entire docs folder which includes pulling the latest `VALE_IMAGE` (default: `grafana/vale:latest`) container image. To not pull the image, set `PULL=false`.

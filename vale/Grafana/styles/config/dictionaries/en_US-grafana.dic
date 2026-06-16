@@ -1,4 +1,4 @@
-404
+406
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -7,6 +7,8 @@ Adaptive Metrics/ po:noun
 Aerospike/ po:noun
 after/ po:preposition
 Agent/ po:noun
+agentic/ po:adjective
+Agentic testing/ po:noun
 Alertmanager/MS po:noun
 allowlist/DGS po:verb
 allowlist/S po:noun

@@ -8,6 +8,8 @@ local word = import './word.jsonnet';
   word.new('Aerospike', '', 'noun'),
   word.new('after', '', 'preposition') { swaps: { Once: 'After' } },
   word.new('Agent', '', 'noun') { product: true },
+  word.new('agentic', '', 'adjective') { description: 'Relating to AI agents that act autonomously to accomplish tasks.' },
+  word.new('Agentic testing', '', 'noun') { description: 'Grafana Cloud feature for creating functional browser tests from plain-language user journeys.', product: true },
   word.new('Alertmanager', 'MS', 'noun') { swaps: { '(?:alert[Mm]anager|[Aa]lert [Mm]anager|AlertManager)': 'Alertmanager' } },
   word.new('allowlist', 'DGS', 'verb') { swaps: { whitelisted: 'allowlisted', whitelisting: 'allowlisting', whitelists: 'allowlists' } },
   word.new('allowlist', 'S', 'noun') { swaps: { whitelist: 'allowlist' } },

@@ -504,7 +504,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:sha-ae13078@sha256:b77a56eb4b174dc6efe3398069e728ebcaab5fd1df361ed184485dd5e473a682 \
             check
 
       - name: Print nginx error log
@@ -554,7 +554,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:sha-ae13078@sha256:b77a56eb4b174dc6efe3398069e728ebcaab5fd1df361ed184485dd5e473a682 \
             comment \
             -links links.json \
             -base-ref "${PR_BASE_SHA}" \

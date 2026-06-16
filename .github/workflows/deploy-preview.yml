@@ -504,7 +504,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:d24c28b715d681a7f9eea4f6e0e34eb04cd908144c11787cc33b06db316891bd \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e1532e022d0cdb34db48feb4b8d23fb7993714233f1daaa0a1ccad65c6b12835 \
             check
 
       - name: Print nginx error log
@@ -535,6 +535,14 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Find broken links comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: broken-links-comment
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: github-actions[bot]
+          body-includes: <!-- broken-links-report:${{ inputs.repo }} -->
+
       - name: Generate broken links comment
         shell: bash
         env:
@@ -546,6 +554,9 @@ jobs:
           PR_TITLE: ${{ inputs.title }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
+          # When a broken-links comment already exists, report a resolved state
+          # if the PR has since fixed every broken link instead of staying silent.
+          COMMENT_EXISTS: ${{ steps.broken-links-comment.outputs.comment-id != '' }}
         run: |
           docker run --rm \
             -e BRANCH="${PR_BRANCH}" \
@@ -554,7 +565,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:d24c28b715d681a7f9eea4f6e0e34eb04cd908144c11787cc33b06db316891bd \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e1532e022d0cdb34db48feb4b8d23fb7993714233f1daaa0a1ccad65c6b12835 \
             comment \
             -links links.json \
             -base-ref "${PR_BASE_SHA}" \
@@ -562,28 +573,31 @@ jobs:
             -repo "${PR_REPO}" \
             -branch "${PR_BRANCH}" \
             -title "${PR_TITLE}" \
-            -artifact-url "${ARTIFACT_URL}"
+            -artifact-url "${ARTIFACT_URL}" \
+            -comment-exists "${COMMENT_EXISTS}"
 
       - name: Print broken links comment
         run: cat broken-links-comment.md
 
-      - name: Find broken links comment
-        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
-        id: broken-links-comment
-        with:
-          issue-number: ${{ inputs.event_number }}
-          comment-author: github-actions[bot]
-          body-includes: <!-- broken-links-report:${{ inputs.repo }} -->
+      - name: Check broken links comment body
+        id: broken-links-comment-body
+        shell: bash
+        run: |
+          if [[ -s broken-links-comment.md ]]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Create broken links comment
-        if: steps.broken-links-comment.outputs.comment-id == ''
+        if: steps.broken-links-comment.outputs.comment-id == '' && steps.broken-links-comment-body.outputs.present == 'true'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
           body-path: broken-links-comment.md
 
       - name: Update broken links comment
-        if: steps.broken-links-comment.outputs.comment-id != ''
+        if: steps.broken-links-comment.outputs.comment-id != '' && steps.broken-links-comment-body.outputs.present == 'true'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.broken-links-comment.outputs.comment-id }}

@@ -1,4 +1,4 @@
-404
+407
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -7,6 +7,7 @@ Adaptive Metrics/ po:noun
 Aerospike/ po:noun
 after/ po:preposition
 Agent/ po:noun
+agentic/ po:adjective
 Alertmanager/MS po:noun
 allowlist/DGS po:verb
 allowlist/S po:noun
@@ -73,6 +74,7 @@ CSV/S po:noun
 CVE/S po:noun
 data center/S po:noun
 data source/S po:noun
+datagram/S po:noun
 datagrid/S po:noun
 dataset/S po:noun
 datatable/S po:noun
@@ -344,6 +346,7 @@ Telegraf/ po:noun
 templated/ po:adjective
 Team Sync/ po:noun
 Tempo/ po:noun
+textbox/ po:noun
 Thanos/ po:noun
 Threema/ po:noun
 Timestream/ po:noun

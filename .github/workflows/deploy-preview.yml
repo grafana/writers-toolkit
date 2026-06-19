@@ -239,6 +239,7 @@ jobs:
       - name: Remove files with invalid artifact paths
         shell: bash
         run: |
+          sudo chown -R "$(id -u):$(id -g)" "${GITHUB_WORKSPACE}/dist"
           ( cd deploy-preview-files/deploy-preview/remove-invalid-paths && go run . -dist "${GITHUB_WORKSPACE}/dist" )
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

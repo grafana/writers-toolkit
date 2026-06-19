@@ -504,7 +504,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:641e4baf103af9d527bde21ceb7be1c65c8ea0f2222ecf3a7b4b1fef7b9aeedd \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e60f1c334eea9208ad86e45ca58b96f9943f9fd94424e00c6f99ebf116f2fd53 \
             check
 
       - name: Print nginx error log
@@ -534,6 +534,18 @@ jobs:
           path: links.json
           if-no-files-found: error
           retention-days: 7
+
+      - name: Determine changed files
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_REPO_FULL: ${{ github.repository }}
+          PR_NUMBER: ${{ inputs.event_number }}
+        run: |
+          gh api --paginate "repos/${PR_REPO_FULL}/pulls/${PR_NUMBER}/files" \
+            --jq '.[].filename' > changed-files.txt
+          echo "Changed files:"
+          cat changed-files.txt
 
       # Find any existing broken-links comment before generating the body so the
       # generator knows whether to emit a "resolved" body once all broken links
@@ -567,11 +579,13 @@ jobs:
             -e RELATIVE_PREFIX \
             -e SOURCE_DIRECTORY \
             -e SOURCES \
+            -e BROKEN_LINKS_COMMENT_EXISTS \
             -v "${PWD}:/work" \
             -w /work \
             us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:641e4baf103af9d527bde21ceb7be1c65c8ea0f2222ecf3a7b4b1fef7b9aeedd \
             comment \
             -links links.json \
+            -changed-files changed-files.txt \
             -base-ref "${PR_BASE_SHA}" \
             -output broken-links-comment.md \
             -repo "${PR_REPO}" \

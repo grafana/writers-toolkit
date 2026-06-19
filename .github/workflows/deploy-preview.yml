@@ -504,7 +504,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e1532e022d0cdb34db48feb4b8d23fb7993714233f1daaa0a1ccad65c6b12835 \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:641e4baf103af9d527bde21ceb7be1c65c8ea0f2222ecf3a7b4b1fef7b9aeedd \
             check
 
       - name: Print nginx error log
@@ -535,6 +535,12 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      # Find any existing broken-links comment before generating the body so the
+      # generator knows whether to emit a "resolved" body once all broken links
+      # are fixed, and so the create/update steps can target the comment. This
+      # must run unconditionally (regardless of whether the current build has
+      # broken links) so that a comment showing the resolved state is still
+      # updated when a later commit reintroduces broken links.
       - name: Find broken links comment
         uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
         id: broken-links-comment
@@ -554,9 +560,7 @@ jobs:
           PR_TITLE: ${{ inputs.title }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
-          # When a broken-links comment already exists, report a resolved state
-          # if the PR has since fixed every broken link instead of staying silent.
-          COMMENT_EXISTS: ${{ steps.broken-links-comment.outputs.comment-id != '' }}
+          BROKEN_LINKS_COMMENT_EXISTS: ${{ steps.broken-links-comment.outputs.comment-id != '' }}
         run: |
           docker run --rm \
             -e BRANCH="${PR_BRANCH}" \
@@ -565,7 +569,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e1532e022d0cdb34db48feb4b8d23fb7993714233f1daaa0a1ccad65c6b12835 \
+            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:641e4baf103af9d527bde21ceb7be1c65c8ea0f2222ecf3a7b4b1fef7b9aeedd \
             comment \
             -links links.json \
             -base-ref "${PR_BASE_SHA}" \
@@ -573,31 +577,32 @@ jobs:
             -repo "${PR_REPO}" \
             -branch "${PR_BRANCH}" \
             -title "${PR_TITLE}" \
-            -artifact-url "${ARTIFACT_URL}" \
-            -comment-exists "${COMMENT_EXISTS}"
+            -artifact-url "${ARTIFACT_URL}"
 
       - name: Print broken links comment
         run: cat broken-links-comment.md
 
-      - name: Check broken links comment body
+      # The comment body is empty when there are no broken links in files
+      # changed in this PR. In that case we skip commenting on the PR entirely.
+      - name: Check for broken links comment
         id: broken-links-comment-body
         shell: bash
         run: |
-          if [[ -s broken-links-comment.md ]]; then
-            echo "present=true" >> "$GITHUB_OUTPUT"
+          if [ -s broken-links-comment.md ]; then
+            echo "has-content=true" >> "${GITHUB_OUTPUT}"
           else
-            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "has-content=false" >> "${GITHUB_OUTPUT}"
           fi
 
       - name: Create broken links comment
-        if: steps.broken-links-comment.outputs.comment-id == '' && steps.broken-links-comment-body.outputs.present == 'true'
+        if: steps.broken-links-comment-body.outputs.has-content == 'true' && steps.broken-links-comment.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ inputs.event_number }}
           body-path: broken-links-comment.md
 
       - name: Update broken links comment
-        if: steps.broken-links-comment.outputs.comment-id != '' && steps.broken-links-comment-body.outputs.present == 'true'
+        if: steps.broken-links-comment-body.outputs.has-content == 'true' && steps.broken-links-comment.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ steps.broken-links-comment.outputs.comment-id }}

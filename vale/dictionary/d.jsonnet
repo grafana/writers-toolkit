@@ -2,6 +2,7 @@ local word = import './word.jsonnet';
 [
   word.new('data center', 'S', 'noun') { swaps: { datacenter: 'data center', datacenters: 'data centers' } },
   word.new('data source', 'S', 'noun') { swaps: { 'data-?source': 'data source', 'data-?sources': 'data sources' } },
+  word.new('datagram', 'S', 'noun') { description: 'A self-contained, independent unit of data transmitted over a packet-switched network.' },
   word.new('datagrid', 'S', 'noun') { description: 'A Grafana visualization type.' },
   word.new('dataset', 'S', 'noun') { swaps: { 'data[- ]?set': 'dataset', 'data[- ]?sets': 'datasets' } },
   word.new('datatable', 'S', 'noun') { description: 'A Grafana website shortcode.' },

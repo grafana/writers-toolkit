@@ -230,6 +230,17 @@ jobs:
           esac
           "./deploy-preview-files/deploy-preview/${script}"
 
+      - name: Set up Go
+        uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version-file: deploy-preview-files/deploy-preview/remove-invalid-paths/go.mod
+          cache: false # The tool has no module dependencies, so there is nothing to cache.
+
+      - name: Remove files with invalid artifact paths
+        shell: bash
+        run: |
+          ( cd deploy-preview-files/deploy-preview/remove-invalid-paths && go run . -dist "${GITHUB_WORKSPACE}/dist" )
+
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: dist-${{ inputs.sha }}

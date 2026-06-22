@@ -6,6 +6,7 @@ local static_exceptions = [
   'AzureAD',
   'Beyla',
   'BoltDB',
+  'Bring Your Own Cloud',
   'CLI',
   'Cloud Logs',
   'Cloud Metrics',

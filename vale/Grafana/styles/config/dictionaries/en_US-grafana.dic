@@ -1,4 +1,4 @@
-407
+408
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -173,6 +173,7 @@ JSX/ po:noun
 JUnit/M po:noun
 KEDA/M po:noun
 keepalive/ po:noun
+Kerberos/ po:noun
 Keycloak/ po:noun
 Kibana/ po:noun
 Killercoda/ po:noun

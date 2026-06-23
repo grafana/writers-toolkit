@@ -141,42 +141,11 @@ jobs:
             deploy-preview
             link-checker
 
-      - name: Detect versioned preview sources
-        id: base-preview-paths
-        shell: bash
-        env:
-          BASE_SOURCES: ${{ inputs.sources }}
-          TARGET_REF_NAME: ${{ github.event.pull_request.base.ref }}
-        run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
-
-      - name: Checkout Actions library
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        if: steps.base-preview-paths.outputs.should_resolve_target == 'true'
-        with:
-          repository: grafana/grafana-github-actions
-          path: ./actions
-          persist-credentials: false
-
-      - name: Install Actions from library
-        if: steps.base-preview-paths.outputs.should_resolve_target == 'true'
-        run: npm install --production --prefix ./actions
-        shell: bash
-
-      - name: Determine technical documentation target
-        if: steps.base-preview-paths.outputs.should_resolve_target == 'true'
-        id: docs-target
-        continue-on-error: true
-        uses: ./actions/docs-target
-        with:
-          ref_name: ${{ github.event.pull_request.base.ref }}
-
       - name: Resolve preview paths
         id: preview-paths
         shell: bash
         env:
           BASE_SOURCES: ${{ inputs.sources }}
-          DOCS_TARGET: ${{ steps.docs-target.outputs.target }}
-          DOCS_TARGET_OUTCOME: ${{ steps.docs-target.outcome }}
           TARGET_REF_NAME: ${{ github.event.pull_request.base.ref }}
         run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
 

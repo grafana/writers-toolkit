@@ -21,20 +21,11 @@ runs:
         ref: ${{ inputs.branch }}
         # Use github.token since that can usually always read the repository contents.
         token: ${{ github.token }}
-    - id: get-secrets
+    - id: app-token
       if: inputs.token == ''
-      uses: grafana/shared-workflows/actions/get-vault-secrets@f1614b210386ac420af6807a997ac7f6d96e477a # get-vault-secrets/v1.3.1
+      uses: grafana/shared-workflows/actions/create-github-app-token@259ba21cb3ff07724f331e26d926d655d24b317b # create-github-app-token/v0.2.3
       with:
-        repo_secrets: |
-          DOCS_PLATFORM_TEAM_APP_ID=docs-platform-team:app-id
-          DOCS_PLATFORM_TEAM_PRIVATE_KEY=docs-platform-team:key
-    - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
-      if: inputs.token == ''
-      id: app-token
-      with:
-        app-id: ${{ env.DOCS_PLATFORM_TEAM_APP_ID }}
-        owner: grafana
-        private-key: ${{ env.DOCS_PLATFORM_TEAM_PRIVATE_KEY }}
+        github_app: docs-platform-team
     - name: Update `make docs` procedure
       env:
         # Use App token if present because the github.token doesn't trigger other workflows like CI for pull requests.

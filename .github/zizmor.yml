@@ -1,0 +1,8 @@
+rules:
+  artipacked:
+    ignore:
+      # step-security/changed-files runs git-fetch to retrieve the PR base branch
+      # and requires persisted credentials. The action is pinned to a specific SHA
+      # so a supply chain compromise would have to target that exact commit.
+      # No artifacts are uploaded so the token cannot be exfiltrated that way.
+      - validate-documentation.yml:17

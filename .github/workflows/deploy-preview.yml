@@ -120,6 +120,7 @@ jobs:
       website_directory: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
     permissions:
       contents: read # Clone repositories.
+      pull-requests: read # `gh pr checkout` in deploy-preview/build queries the pullRequests GraphQL API.
     if: github.event.action == 'opened' || github.event.action == 'synchronize'
     runs-on: ubuntu-latest
     steps:

@@ -20,5 +20,5 @@ jobs:
     steps:
       - uses: grafana/writers-toolkit/prettier@main # zizmor: ignore[unpinned-uses] It's a protected branch in the same repository.
         with:
-          branch: ${{ env.GITHUB_REF }}
+          branch: ${{ github.ref_name }}
           path: ${{ inputs.path }}

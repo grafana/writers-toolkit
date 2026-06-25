@@ -26,10 +26,8 @@ runs:
       uses: grafana/shared-workflows/actions/create-github-app-token@259ba21cb3ff07724f331e26d926d655d24b317b # create-github-app-token/v0.2.3
       with:
         github_app: docs-platform-team
-    - name: Update `make docs` procedure
+    - id: prettier
       env:
-        # Use App token if present because the github.token doesn't trigger other workflows like CI for pull requests.
-        GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
         PRETTIER_PATH: ${{ inputs.path }}
       run: |
         set -euf -o pipefail
@@ -38,19 +36,21 @@ runs:
           set -x
         fi
 
-        # commit adds and commits the updated files as the Grafanabot GitHub user.
-        function commit {
-          git add .
-          git config --local user.email bot@grafana.com
-          git config --local user.name grafanabot
-          git commit --message 'Run `prettier`'
-        }
-
         npx prettier -w "${PRETTIER_PATH}"
 
-        if ! git diff --exit-code; then
-          commit
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/grafana/writers-toolkit"
-          git push origin
+        if git diff --quiet; then
+          echo "changed=false" >> "${GITHUB_OUTPUT}"
+        else
+          echo "changed=true" >> "${GITHUB_OUTPUT}"
         fi
       shell: bash
+    - name: Create signed commit
+      if: steps.prettier.outputs.changed == 'true'
+      uses: planetscale/ghcommit-action@a6b150b81dca5dd027baa898604418eec9e11465 # v0.2.22
+      env:
+        # Use App token if present because the github.token doesn't trigger other workflows like CI for pull requests.
+        GITHUB_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+      with:
+        commit_message: Run `prettier`
+        repo: ${{ github.repository }}
+        branch: ${{ inputs.branch }}

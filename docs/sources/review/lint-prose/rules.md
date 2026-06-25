@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2026-03-19"
+review_date: "2026-06-25"
 title: Vale rules
 ---
 
@@ -281,6 +281,9 @@ Extends: substitution
 
 Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
+Latin abbreviations such as 'e.g.' and 'i.e.' are easily confused with each other and with other abbreviations.
+Spelling them out improves clarity, especially for readers who aren't native English speakers.
+
 | Current text | Replacement text |
 | ------------ | ---------------- |
 | `e\.?g[,.]?` | `for example`    |
@@ -292,7 +295,10 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Extends: existence
 
-For ordinals, write out first through ninth. For 10th on, use numerals.
+Replace this numeral ordinal with a word.
+
+Write out ordinals from first through ninth as words, and use numerals from 10th onward.
+For example, use 'first', 'second', and 'third', not '1st', '2nd', and '3rd'.
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
@@ -322,7 +328,10 @@ In tables, instead of br elements, use p for paragraphs, and ul or ol for list i
 
 Extends: existence
 
-It's great to be polite, but using 'please' in a set of instructions is overdoing the politeness.
+Remove 'please' from instructions.
+
+Direct imperative sentences are clearer and more appropriate in technical documentation.
+Excessive politeness reads as filler and adds length without improving comprehension.
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
@@ -359,24 +368,23 @@ Instead use one of the links described in [links](https://grafana.com/docs/write
 
 Extends: repetition
 
-_`<CURRENT TEXT>`_ is repeated
+_`<CURRENT TEXT>`_ is repeated.
+
+Remove the duplicate word.
 
 ### Grafana.Spelling
 
 Extends: spelling
 
-Did you really mean _`<CURRENT TEXT>`_?
+_`<CURRENT TEXT>`_ is not in the Grafana dictionary.
 
-The Grafana dictionary might not know of this word yet.
-
-To add a new word, refer to [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
+If the word is correct, add it to the dictionary by following [Add words to the Grafana Labs dictionary](https://grafana.com/docs/writers-toolkit/review/lint-prose/dictionary/add-words/).
 Alternatively, raise an [issue](https://github.com/grafana/writers-toolkit/issues/new?title=Grafana.Spelling%%3A%%20%[1]s) and a maintainer will add it for you.
 
-For UI elements, use [bold formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
-The spell checker doesn't check words with bold formatting.
+The spell checker ignores words in the following formatting:
 
-For paths; configuration; user input; code; class, method, and variable names; statuscodes; and console output, use [code formatting](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold).
-The spell checker doesn't check words with code formatting.
+- [Bold](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#bold) — use for UI elements.
+- [Code](https://grafana.com/docs/writers-toolkit/write/style-guide/style-conventions/#code-font) — use for paths, configuration, user input, code, class, method, and variable names, status codes, and console output.
 
 ## Warnings
 
@@ -438,7 +446,11 @@ Allows to is a common wording error.
 
 Extends: script
 
-All images must have alt text.
+Add alt text to this image.
+
+Alt text describes the image content for readers using screen readers, improves SEO, and displays when the image fails to load.
+Write the alt text between the square brackets: ![Descriptive alt text here](image-path).
+Describe what the image shows, not what it is. For example, write 'Graph showing CPU usage spiking at 14:00' rather than 'CPU graph'.
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/image-guidelines/#alt-text)
 
@@ -567,7 +579,9 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Extends: existence
 
-Avoid exclamation points in text, except in rare really exciting moments.
+Remove the exclamation point.
+
+Exclamation points make technical documentation feel informal and hyperbolic.
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 
@@ -790,6 +804,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `AI Observability's`
 - `Agent's`
 - `Alloy's`
+- `Apollo's`
 - `ARN's`
 - `Asserts'`
 - `Atlassian's`
@@ -813,6 +828,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Figma's`
 - `Firehose's`
 - `FreeBSD's`
+- `gcx's`
 - `GEM's`
 - `GKE's`
 - `Git's`
@@ -831,6 +847,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `JMESPath's`
 - `journald's`
 - `Jsonnet's`
+- `Kerberos'`
 - `Keycloak's`
 - `Kibana's`
 - `Killercoda's`
@@ -863,6 +880,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Opsgenie's`
 - `OTel's`
 - `PagerDuty's`
+- `Palantir's`
 - `Parca's`
 - `PDC's`
 - `Phlare's`
@@ -999,7 +1017,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_ when talking about Graf
 
 Extends: script
 
-Prefer `{{</*` and `*/>}}` instead of `{{%/*` and `*/%}}`
+Use `{{</*` and `*/>}}` delimiters instead of `{{%/*` and `*/%}}` for admonition shortcodes.
 
 It has the most consistent semantics.
 
@@ -1042,6 +1060,9 @@ The website renders paired quotes using smart quotes in paragraphs.
 Extends: substitution
 
 Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
+
+'Wish' is informal and vague in technical writing.
+Use 'need' when the reader requires something to proceed, or 'want' when describing an optional goal.
 
 | Current text | Replacement text |
 | ------------ | ---------------- |
@@ -1133,6 +1154,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `memcached`                                                       | `Memcached`                |
 | `meta[- ]data`                                                    | `metadata`                 |
 | `mix[- ]in`                                                       | `mixin`                    |
+| `multitenancy`                                                    | `multi-tenancy`            |
 | `mysql`                                                           | `MySQL`                    |
 | `network IP address`                                              | `internal IP address`      |
 | `open-source`                                                     | `open source`              |
@@ -1479,7 +1501,11 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 
 Extends: existence
 
-Use parentheses judiciously.
+Consider rewriting to avoid parentheses.
+
+Parenthetical content often indicates a sentence that can be restructured for clarity.
+If the content is important enough to include, integrate it into the sentence.
+If it's not important, remove it.
 
 _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
 

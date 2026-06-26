@@ -6,6 +6,7 @@ local word = import './word.jsonnet';
   word.new('templated', '', 'adjective'),
   word.new('Team Sync', '', 'noun') { description: 'Sync your auth providers teams and teams in Grafana.', product: true },
   word.new('Tempo', '', 'noun') { product: true, swaps: { tempo: 'Tempo' } },
+  word.new('textbox', '', 'noun') { description: 'A type of variable that provides a free text input field with an optional default value.' },
   word.new('Thanos', '', 'noun') { product: true },
   word.new('Threema', '', 'noun') { description: 'https://threema.ch/en', product: true, swaps: { threema: 'Threema' } },
   word.new('Timestream', '', 'noun') { Amazon: true, product: true },

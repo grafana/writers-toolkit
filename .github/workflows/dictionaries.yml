@@ -103,18 +103,10 @@ jobs:
           repository: ${{ steps.pr-branch.outputs.repo }}
           ref: ${{ steps.pr-branch.outputs.ref }}
           persist-credentials: false
-      - id: get-secrets
-        uses: grafana/shared-workflows/actions/get-vault-secrets@f1614b210386ac420af6807a997ac7f6d96e477a # get-vault-secrets/v1.3.1
+      - id: app-token
+        uses: grafana/shared-workflows/actions/create-github-app-token@259ba21cb3ff07724f331e26d926d655d24b317b # create-github-app-token/v0.2.3
         with:
-          repo_secrets: |
-            DOCS_PLATFORM_TEAM_APP_ID=docs-platform-team:app-id
-            DOCS_PLATFORM_TEAM_PRIVATE_KEY=docs-platform-team:key
-      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
-        id: app-token
-        with:
-          app-id: ${{ env.DOCS_PLATFORM_TEAM_APP_ID }}
-          owner: grafana
-          private-key: ${{ env.DOCS_PLATFORM_TEAM_PRIVATE_KEY }}
+          github_app: docs-platform-team
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version-file: package.json
@@ -124,9 +116,8 @@ jobs:
         with:
           go-version-file: tools/go.mod
       - run: go install github.com/google/go-jsonnet/cmd/jsonnet@latest
-      - working-directory: vale
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - id: regenerate
+        working-directory: vale
         run: |
           set -euf -o pipefail
 
@@ -134,20 +125,21 @@ jobs:
             set -x
           fi
 
-          # commit adds and commits the updated files as the Grafanabot GitHub user.
-          function commit {
-            git add .
-            git config --local user.email bot@grafana.com
-            git config --local user.name grafanabot
-            git commit --message 'Update generated Vale files'
-          }
-
           # It's fine to run this even though it depends on committed code because only repository collaborators with write access can trigger the workflow (Grafana Labs employees).
           make -B all
 
-          if ! git diff --exit-code; then
-            commit
-            git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/grafana/writers-toolkit"
-            git push origin
+          if git diff --quiet; then
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+          else
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
           fi
         shell: bash
+      - name: Create signed commit
+        if: steps.regenerate.outputs.changed == 'true'
+        uses: planetscale/ghcommit-action@a6b150b81dca5dd027baa898604418eec9e11465 # v0.2.22
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        with:
+          commit_message: Update generated Vale files
+          repo: ${{ github.repository }}
+          branch: ${{ steps.pr-branch.outputs.ref || github.ref_name }}

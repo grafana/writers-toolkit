@@ -18,6 +18,14 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## April 2026
+
+| New guidance or change                | Page                                                                   |
+| ------------------------------------- | ---------------------------------------------------------------------- |
+| Added alias example for Grafana Cloud | [Alias](/docs/writers-toolkit/write/front-matter/#aliases)             |
+| Added documentation for `_build`      | [_build](/docs/writers-toolkit/write/front-matter/#_build)             |
+
+
 ## March 2026
 
 | New guidance or change               | Page                                                                   |

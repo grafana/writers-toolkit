@@ -116,9 +116,8 @@ jobs:
         with:
           go-version-file: tools/go.mod
       - run: go install github.com/google/go-jsonnet/cmd/jsonnet@latest
-      - working-directory: vale
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - id: regenerate
+        working-directory: vale
         run: |
           set -euf -o pipefail
 
@@ -126,20 +125,21 @@ jobs:
             set -x
           fi
 
-          # commit adds and commits the updated files as the Grafanabot GitHub user.
-          function commit {
-            git add .
-            git config --local user.email bot@grafana.com
-            git config --local user.name grafanabot
-            git commit --message 'Update generated Vale files'
-          }
-
           # It's fine to run this even though it depends on committed code because only repository collaborators with write access can trigger the workflow (Grafana Labs employees).
           make -B all
 
-          if ! git diff --exit-code; then
-            commit
-            git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/grafana/writers-toolkit"
-            git push origin
+          if git diff --quiet; then
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+          else
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
           fi
         shell: bash
+      - name: Create signed commit
+        if: steps.regenerate.outputs.changed == 'true'
+        uses: planetscale/ghcommit-action@a6b150b81dca5dd027baa898604418eec9e11465 # v0.2.22
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        with:
+          commit_message: Update generated Vale files
+          repo: ${{ github.repository }}
+          branch: ${{ steps.pr-branch.outputs.ref || github.ref_name }}

@@ -1,35 +1,44 @@
 policy:
   approval:
-    - documentation validation workflow exists when documentation changes
-    - documentation validation passes when documentation changes
+    - documentation validation workflow is present
+    - documentation validation passes
+    - changes to validation pipeline are reviewed by docs tooling
 
 approval_rules:
-  - name: documentation validation workflow exists when documentation changes
-    if:
-      changed_files:
-        paths:
-          - ^docs\/sources\/(?:(?:[^/]*(?:/|$))*)$
-          - ^vale\/(?:(?:[^/]*(?:/|$))*)$
+  - name: documentation validation workflow is present
     requires:
       conditions:
         file_not_deleted:
           paths:
-            - ^\.github\/workflows\/validate-documentation\.yml$
+            - ^\.github/workflows/validate-documentation\.yml$
+            - ^\.github/workflows/docs-ci\.yml$
+            - ^\.github/workflows/validate-policy-bot-config\.yml$
+            - ^\.github/CODEOWNERS$
 
-  - name: documentation validation passes when documentation changes
-    if:
-      changed_files:
-        paths:
-          - ^docs\/sources\/(?:(?:[^/]*(?:/|$))*)$
-          - ^vale\/(?:(?:[^/]*(?:/|$))*)$
-      file_not_deleted:
-        paths:
-          - ^\.github\/workflows\/validate-documentation\.yml$
+  - name: documentation validation passes
     requires:
       conditions:
         has_workflow_result:
           conclusions:
-            - skipped
             - success
           workflows:
             - .github/workflows/validate-documentation.yml
+
+  - name: changes to validation pipeline are reviewed by docs tooling
+    if:
+      changed_files:
+        paths:
+          - ^\.github/workflows/validate-documentation\.yml$
+          - ^\.github/workflows/docs-ci\.yml$
+          - ^\.github/workflows/validate-policy-bot-config\.yml$
+          - ^\.github/CODEOWNERS$
+          - ^\.policy\.yml$
+    options:
+      invalidate_on_push: true
+      methods:
+        github_review: true
+        github_review_comment_patterns: []
+    requires:
+      count: 1
+      teams:
+        - grafana/docs-tooling

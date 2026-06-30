@@ -1,13 +1,21 @@
 policy:
   approval:
-    - documentation validation passes or no documentation changes
+    - documentation validation workflow is present
+    - documentation validation passes
+    - changes to validation pipeline are reviewed by docs tooling
 
 approval_rules:
-  - name: documentation validation passes or no documentation changes
-    if:
-      file_not_deleted:
-        paths:
-          - .github/workflows/validate-documentation.yml
+  - name: documentation validation workflow is present
+    requires:
+      conditions:
+        file_not_deleted:
+          paths:
+            - ^\.github/workflows/validate-documentation\.yml$
+            - ^\.github/workflows/docs-ci\.yml$
+            - ^\.github/workflows/validate-policy-bot-config\.yml$
+            - ^\.github/CODEOWNERS$
+
+  - name: documentation validation passes
     requires:
       conditions:
         has_workflow_result:
@@ -15,3 +23,22 @@ approval_rules:
             - success
           workflows:
             - .github/workflows/validate-documentation.yml
+
+  - name: changes to validation pipeline are reviewed by docs tooling
+    if:
+      changed_files:
+        paths:
+          - ^\.github/workflows/validate-documentation\.yml$
+          - ^\.github/workflows/docs-ci\.yml$
+          - ^\.github/workflows/validate-policy-bot-config\.yml$
+          - ^\.github/CODEOWNERS$
+          - ^\.policy\.yml$
+    options:
+      invalidate_on_push: true
+      methods:
+        github_review: true
+        github_review_comment_patterns: []
+    requires:
+      count: 1
+      teams:
+        - grafana/docs-tooling

@@ -107,6 +107,7 @@ env:
   IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
+  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:sha-611ff2e@sha256:426a18c1a88c2e9ddfe1bc1afd4476b20124e7920fa086a57eb23442c524c73e
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
@@ -481,7 +482,7 @@ jobs:
             -e SOURCES \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:e60f1c334eea9208ad86e45ca58b96f9943f9fd94424e00c6f99ebf116f2fd53 \
+            ${{ env.LINK_CHECKER_IMAGE }} \
             check
 
       - name: Print nginx error log
@@ -559,7 +560,7 @@ jobs:
             -e BROKEN_LINKS_COMMENT_EXISTS \
             -v "${PWD}:/work" \
             -w /work \
-            us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:nightly@sha256:641e4baf103af9d527bde21ceb7be1c65c8ea0f2222ecf3a7b4b1fef7b9aeedd \
+            ${{ env.LINK_CHECKER_IMAGE }} \
             comment \
             -links links.json \
             -changed-files changed-files.txt \

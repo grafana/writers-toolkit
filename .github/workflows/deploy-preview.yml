@@ -107,7 +107,7 @@ env:
   IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
-  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:sha-6d5cd72@sha256:69d864de43ee60f92a6be00e19cf992cb95fb18304e791d4424e1ef371180386
+  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:sha-3b4520e@sha256:09c6cc50dba5974b4b1d5cef482dba0123d828009519e7b49c03ea60641ba76e
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}

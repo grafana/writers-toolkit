@@ -201,6 +201,37 @@ To test an alias results in the correct redirect, use your browser or a command-
 
 1. Confirm that the value of the `destination` `const` in the `<script>` tag is the pretty URL for the page with the alias.
 
+### Banners
+
+Use `banners` to render one or more admonitions at the top of a page's content in the docs layout.
+Each entry becomes an [admonition](https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition) rendered by the website.
+
+Set `banners` under [`cascade`](#cascade) on a section's `_index.md` to apply the same banners to every descendant page.
+This is the common way to add a project-wide notice, such as an end-of-life or archival notice.
+
+The value of `banners` is a sequence of mappings.
+Each mapping has the following fields:
+
+| Field  | Description                                                            | Required |
+| ------ | ---------------------------------------------------------------------- | -------- |
+| `type` | The type of admonition. One of `caution`, `note`, `tip`, or `warning`. | yes      |
+| `body` | The Markdown content of the admonition.                                | yes      |
+
+Use the YAML block scalar indicator `|` for `body` so you can write multi-line Markdown, including links.
+
+#### Example
+
+The following front matter, on a project's `_index.md`, applies a caution banner to every page in the project:
+
+```yaml
+cascade:
+  banners:
+    - type: caution
+      body: |
+        This project reached end-of-life on 2025-11-01.
+        Migrate to [the replacement product](https://grafana.com/) for continued support.
+```
+
 ### Canonical
 
 The `canonical` front matter sets the preferred URL for duplicate or very similar pages.

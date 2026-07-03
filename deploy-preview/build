@@ -171,7 +171,7 @@ else
   function check_out_sources {
     declare -A seen=()
     index_files=()
-    while IFS=$'\t' read -r repo ref; do
+    while IFS='|' read -r repo ref; do
       if [[ -z "${repo}" ]]; then
         continue
       fi
@@ -182,7 +182,7 @@ else
       fi
       seen["${directory}"]=1
       clone "${repo}" "${ref}" "${directory}"
-    done < <(jq -r '.[] | [(.repo // ""), (.ref // "")] | @tsv' <<<"${SOURCES}")
+    done < <(jq -r '.[] | [(.repo // ""), (.ref // "")] | join("|")' <<<"${SOURCES}")
   }
 
   # Create an entrypoint script for the container.
@@ -239,12 +239,15 @@ EOSCRIPT
   # Add mounts to the volumes variable.
   function configure_volumes {
     volumes=("--volume=${PWD}/dist:/hugo/dist" "--volume=${tempfile}:/entrypoint:z")
-    while IFS=$'\t' read -r repo ref source_directory website_directory; do
+    # Fields are joined with '|' rather than a tab because bash treats tab as
+    # IFS whitespace and collapses empty fields, which shifts subsequent
+    # variables when .ref is absent from a source entry.
+    while IFS='|' read -r repo ref source_directory website_directory; do
       directory="$(checkout_directory "${repo}" "${ref}")"
       # Resolve <LATEST> placeholder in source_directory
       resolved_source_directory=$(resolve_latest_placeholder "${source_directory}" "${PWD}/${directory}")
       volumes+=("--volume=${PWD}/${directory}/${resolved_source_directory}:/hugo/${website_directory}:z")
-    done < <(jq -r '.[] | [(.repo // ""), (.ref // ""), (.source_directory // ""), (.website_directory // "")] | @tsv' <<<"${SOURCES}")
+    done < <(jq -r '.[] | [(.repo // ""), (.ref // ""), (.source_directory // ""), (.website_directory // "")] | join("|")' <<<"${SOURCES}")
   }
 
   # Prepare the command to run the container.

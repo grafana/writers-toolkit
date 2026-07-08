@@ -19,6 +19,7 @@ if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
   docker run \
          -v "${PWD}/dist:/hugo/dist" \
          -v "${PWD}/${SOURCE_DIRECTORY}:/hugo/${WEBSITE_DIRECTORY}" \
+         -v "${WHATS_NEW_DIR}:/hugo/content/whats-new:z" \
          -e INDEX_FILE \
          -e REPO \
          -e WEBSITE_DIRECTORY \
@@ -238,7 +239,11 @@ EOSCRIPT
 
   # Add mounts to the volumes variable.
   function configure_volumes {
-    volumes=("--volume=${PWD}/dist:/hugo/dist" "--volume=${tempfile}:/entrypoint:z")
+    volumes=(
+      "--volume=${PWD}/dist:/hugo/dist"
+      "--volume=${tempfile}:/entrypoint:z"
+      "--volume=${WHATS_NEW_DIR}:/hugo/content/whats-new:z"
+    )
     # Fields are joined with '|' rather than a tab because bash treats tab as
     # IFS whitespace and collapses empty fields, which shifts subsequent
     # variables when .ref is absent from a source entry.

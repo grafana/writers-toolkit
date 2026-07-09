@@ -8,7 +8,7 @@ include variables.mk
 export SHELL     := bash
 export SHELLOPTS := pipefail:errexit
 MAKEFLAGS += --warn-undefined-variables
-MAKEFLAGS += --no-builtin-rule
+MAKEFLAGS += --no-builtin-rules
 
 .DEFAULT_GOAL: help
 
@@ -62,15 +62,11 @@ ifeq ($(origin PULL), undefined)
 export PULL := true
 endif
 
-.PHONY: docs-rm
-docs-rm: ## Remove the docs container.
-	$(PODMAN) rm -f $(DOCS_CONTAINER)
-
 .PHONY: docs-pull
 docs-pull: ## Pull documentation base image.
 	$(PODMAN) pull -q $(DOCS_IMAGE)
 
-make-docs: ## Fetch the latest make-docs script.
+make-docs: ## Verify that the make-docs script is present in the working directory.
 make-docs:
 	if [[ ! -f "$(CURDIR)/make-docs" ]]; then
 		echo 'WARN: No make-docs script found in the working directory. Run `make update` to download it.' >&2

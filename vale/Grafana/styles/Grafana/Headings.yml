@@ -55,6 +55,7 @@
   - "JMESPath"
   - "journald"
   - "Jsonnet"
+  - "Kerberos"
   - "Keycloak"
   - "Kibana"
   - "Killercoda"

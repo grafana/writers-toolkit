@@ -847,6 +847,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `JMESPath's`
 - `journald's`
 - `Jsonnet's`
+- `Kerberos'`
 - `Keycloak's`
 - `Kibana's`
 - `Killercoda's`

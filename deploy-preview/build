@@ -57,10 +57,23 @@ else
     exit 1
   fi
 
+  function checkout_directory {
+    local repo=$1
+    local ref=$2
+    local sanitized_ref="${ref//[^A-Za-z0-9._-]/_}"
+
+    if [[ -z "${ref}" ]]; then
+      echo "src/${repo}"
+    else
+      echo "src/${repo}__${sanitized_ref}"
+    fi
+  }
+
   # Clone a repository to a specific directory.
   function clone {
     local repo=$1
-    local directory=$2
+    local ref=$2
+    local directory=$3
 
     if [[ -d "${directory}" ]]; then
       echo "Directory ${directory} already exists, skipping clone"
@@ -69,7 +82,19 @@ else
     fi
 
     gh repo clone "grafana/${repo}" "${directory}"
-    (cd "${directory}" && gh pr checkout "${BRANCH}")
+    if [[ -z "${ref}" ]]; then
+      (cd "${directory}" && gh pr checkout "${BRANCH}")
+    else
+      (
+        cd "${directory}"
+        if git checkout "${ref}" >/dev/null 2>&1; then
+          :
+        else
+          git fetch origin "${ref}"
+          git checkout FETCH_HEAD
+        fi
+      )
+    fi
   }
 
   # Find the highest semantic version directory in a given path
@@ -144,15 +169,20 @@ else
 
   # Check out all the source repositories defined in SOURCES.
   function check_out_sources {
+    declare -A seen=()
     index_files=()
-    while read -r repo; do
+    while IFS='|' read -r repo ref; do
       if [[ -z "${repo}" ]]; then
         continue
       fi
 
-      clone "${repo}" "src/${repo}"
-
-    done < <(jq -r '.[].repo' <<<"${SOURCES}")
+      directory="$(checkout_directory "${repo}" "${ref}")"
+      if [[ -n "${seen[${directory}]+x}" ]]; then
+        continue
+      fi
+      seen["${directory}"]=1
+      clone "${repo}" "${ref}" "${directory}"
+    done < <(jq -r '.[] | [(.repo // ""), (.ref // "")] | join("|")' <<<"${SOURCES}")
   }
 
   # Create an entrypoint script for the container.
@@ -209,11 +239,15 @@ EOSCRIPT
   # Add mounts to the volumes variable.
   function configure_volumes {
     volumes=("--volume=${PWD}/dist:/hugo/dist" "--volume=${tempfile}:/entrypoint:z")
-    while read -r repo source_directory website_directory; do
+    # Fields are joined with '|' rather than a tab because bash treats tab as
+    # IFS whitespace and collapses empty fields, which shifts subsequent
+    # variables when .ref is absent from a source entry.
+    while IFS='|' read -r repo ref source_directory website_directory; do
+      directory="$(checkout_directory "${repo}" "${ref}")"
       # Resolve <LATEST> placeholder in source_directory
-      resolved_source_directory=$(resolve_latest_placeholder "${source_directory}" "${PWD}/src/${repo}")
-      volumes+=("--volume=${PWD}/src/${repo}/${resolved_source_directory}:/hugo/${website_directory}:z")
-    done < <(jq -r '.[] | "\(.repo) \(.source_directory) \(.website_directory)"' <<<"${SOURCES}")
+      resolved_source_directory=$(resolve_latest_placeholder "${source_directory}" "${PWD}/${directory}")
+      volumes+=("--volume=${PWD}/${directory}/${resolved_source_directory}:/hugo/${website_directory}:z")
+    done < <(jq -r '.[] | [(.repo // ""), (.ref // ""), (.source_directory // ""), (.website_directory // "")] | join("|")' <<<"${SOURCES}")
   }
 
   # Prepare the command to run the container.

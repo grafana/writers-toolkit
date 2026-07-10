@@ -49,6 +49,10 @@ on:
             description: The path to mount the documentation in the website content structure. For example, "content/docs/mimir/latest".
             required: true
             type: string
+          ref:
+            description: Optional git ref to check out for this source. If omitted, the workflow checks out the caller PR branch.
+            required: false
+            type: string
 
           The following example mounts both the Mimir documentation and the mimir-distributed Helm chart documentation:
 
@@ -65,7 +69,8 @@ on:
               "relative_prefix": "/docs/helm-charts/mimir-distributed/latest/",
               "repo": "mimir",
               "source_directory": "docs/sources/mimir-distributed",
-              "website_directory": "content/docs/helm-charts/mimir-distributed/latest"
+              "website_directory": "content/docs/helm-charts/mimir-distributed/latest",
+              "ref": "main"
             }
           ]
         type: string
@@ -107,7 +112,7 @@ env:
   IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
-  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:sha-611ff2e@sha256:426a18c1a88c2e9ddfe1bc1afd4476b20124e7920fa086a57eb23442c524c73e
+  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:nightly
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
@@ -513,6 +518,11 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      # Capture the full pull request files payload, including the per-file
+      # `patch` diffs. The comment command uses the patches to scope reporting
+      # to broken links on lines the PR actually modified, and reads the
+      # filename/previous_filename fields to still catch links pointing at pages
+      # the PR moved, renamed, or deleted.
       - name: Determine changed files
         shell: bash
         env:
@@ -520,10 +530,9 @@ jobs:
           PR_REPO_FULL: ${{ github.repository }}
           PR_NUMBER: ${{ inputs.event_number }}
         run: |
-          gh api --paginate "repos/${PR_REPO_FULL}/pulls/${PR_NUMBER}/files" \
-            --jq '.[] | .filename, (.previous_filename // empty)' > changed-files.txt
+          gh api --paginate "repos/${PR_REPO_FULL}/pulls/${PR_NUMBER}/files" > changed-files.json
           echo "Changed files:"
-          cat changed-files.txt
+          jq -r '.[] | .filename, (.previous_filename // empty)' changed-files.json
 
       # Find any existing broken-links comment before generating the body so the
       # generator knows whether to emit a "resolved" body once all broken links
@@ -548,7 +557,7 @@ jobs:
           PR_REPO: ${{ inputs.repo }}
           PR_BRANCH: ${{ inputs.branch }}
           PR_TITLE: ${{ inputs.title }}
-          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_SHA: ${{ inputs.sha }}
           ARTIFACT_URL: ${{ steps.upload-links.outputs.artifact-url }}
           BROKEN_LINKS_COMMENT_EXISTS: ${{ steps.broken-links-comment.outputs.comment-id != '' }}
         run: |
@@ -563,11 +572,11 @@ jobs:
             ${{ env.LINK_CHECKER_IMAGE }} \
             comment \
             -links links.json \
-            -changed-files changed-files.txt \
-            -base-ref "${PR_BASE_SHA}" \
+            -changed-files-json changed-files.json \
             -output broken-links-comment.md \
             -repo "${PR_REPO}" \
             -branch "${PR_BRANCH}" \
+            -commit "${PR_SHA}" \
             -title "${PR_TITLE}" \
             -artifact-url "${ARTIFACT_URL}"
 

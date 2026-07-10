@@ -3,6 +3,6 @@
 export SHELL     := bash
 export SHELLOPTS := pipefail:errexit
 MAKEFLAGS += --warn-undefined-variables
-MAKEFLAGS += --no-builtin-rule
+MAKEFLAGS += --no-builtin-rules
 
 include docs.mk

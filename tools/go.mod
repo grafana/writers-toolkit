@@ -21,7 +21,7 @@ require (
 	github.com/gohugoio/hashstructure v0.6.0 // indirect
 	github.com/mattn/go-isatty v0.0.22 // indirect
 	github.com/niklasfasching/go-org v1.9.1 // indirect
-	github.com/pelletier/go-toml/v2 v2.3.1 // indirect
+	github.com/pelletier/go-toml/v2 v2.4.3 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/tdewolff/parse/v2 v2.8.12 // indirect

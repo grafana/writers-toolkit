@@ -93,18 +93,18 @@ jobs:
           echo "::error::Cannot run on fork-based PRs for security reasons"
           exit 1
         shell: bash
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         if: github.event_name == 'workflow_dispatch'
         with:
           persist-credentials: false
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         if: github.event_name == 'issue_comment' && steps.check-permission.outputs.has_permission == 'true' && steps.pr-branch.outputs.is_fork == 'false'
         with:
           repository: ${{ steps.pr-branch.outputs.repo }}
           ref: ${{ steps.pr-branch.outputs.ref }}
           persist-credentials: false
       - id: app-token
-        uses: grafana/shared-workflows/actions/create-github-app-token@259ba21cb3ff07724f331e26d926d655d24b317b # create-github-app-token/v0.2.3
+        uses: grafana/shared-workflows/actions/create-github-app-token@46f48da11e78ebdba7a8747ae456b11062fac83e # create-github-app-token/v0.3.1
         with:
           github_app: docs-platform-team
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
@@ -112,7 +112,7 @@ jobs:
           node-version-file: package.json
       - run: npm install --no-save prettier
       - name: Setup Go
-        uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
           go-version-file: tools/go.mod
       - run: go install github.com/google/go-jsonnet/cmd/jsonnet@latest

@@ -296,7 +296,7 @@ jobs:
 
       - name: Login to GAR
         if: github.event.action == 'opened' || github.event.action == 'synchronize'
-        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0
+        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
         with:
           registry: us-docker.pkg.dev
           username: oauth2accesstoken

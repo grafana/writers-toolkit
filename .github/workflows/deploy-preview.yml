@@ -127,7 +127,7 @@ jobs:
     permissions:
       contents: read # Clone repositories.
       pull-requests: read # `gh pr checkout` in deploy-preview/build queries the pullRequests GraphQL API.
-    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -226,7 +226,7 @@ jobs:
       id-token: write # Fetch Vault secrets.
       pull-requests: write # Create or update PR comments.
       statuses: write # Update GitHub status check with deploy preview link.
-    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
     needs: build-website
     runs-on: ubuntu-latest
     steps:
@@ -286,7 +286,7 @@ jobs:
           printf "%s" "add_header 'Build' '"${SHA}"';" > build.conf
 
       - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
         id: gcloud-auth
         with:
           token_format: access_token
@@ -295,7 +295,7 @@ jobs:
           create_credentials_file: false
 
       - name: Login to GAR
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
         uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
         with:
           registry: us-docker.pkg.dev
@@ -312,14 +312,14 @@ jobs:
             ${{ env.EVENT_NUMBER }}
 
       - name: Set up Docker Buildx
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
         uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4.0.0
         with:
           cache-binary: false
           driver: docker-container
 
       - name: Build the container
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
         uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
         id: build
         with:
@@ -336,7 +336,7 @@ jobs:
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@2028e2d7d30a78c6910e0632e48dd561b064884d # v3.0.1
-        if: github.event.action == 'opened' || github.event.action == 'synchronize'
+        if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
         id: deploy
         with:
           image: us-docker.pkg.dev/grafanalabs-dev/docker-docs-previews-dev/${{ env.REPO }}:${{ env.SHA }}
@@ -359,7 +359,7 @@ jobs:
 
       - name: Send commit status
         uses: ouzi-dev/commit-status-updater@26588d166ff273fc4c0664517359948f7cdc9bf1 # v2.0.2
-        if: "!env.WEBSITE_DIRECTORY && env.SOURCES && (github.event.action == 'opened' || github.event.action == 'synchronize')"
+        if: "!env.WEBSITE_DIRECTORY && env.SOURCES && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled')"
         with:
           name: deploy_preview
           status: ${{ job.status }}
@@ -417,7 +417,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
     needs: build-website
     runs-on: ubuntu-latest
     steps:

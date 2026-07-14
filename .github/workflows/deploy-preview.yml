@@ -153,7 +153,7 @@ jobs:
         run: |
           mkdir -p "${RUNNER_TEMP}/whats-new"
           gsutil -m rsync -r -d \
-            gs://website-assets-public/deploy-preview/whats-new/ \
+            gs://grafana-website-assets-public/deploy-preview/whats-new/ \
             "${RUNNER_TEMP}/whats-new/"
           echo "WHATS_NEW_DIR=${RUNNER_TEMP}/whats-new" >> "${GITHUB_ENV}"
 

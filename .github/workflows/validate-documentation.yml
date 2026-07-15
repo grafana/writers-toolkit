@@ -21,6 +21,8 @@ jobs:
           files: |
             docs/sources/**
             vale/**
+            .github/workflows/docs-ci.yml
+            .github/workflows/validate-documentation.yml
 
   ci:
     needs: changed-files

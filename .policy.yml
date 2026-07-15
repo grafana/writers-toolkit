@@ -3,6 +3,7 @@ policy:
     - documentation validation workflow is present
     - documentation validation passes
     - changes to validation pipeline are reviewed by docs tooling
+    - contributor license agreement is signed
 
 approval_rules:
   - name: documentation validation workflow is present
@@ -23,6 +24,12 @@ approval_rules:
             - success
           workflows:
             - .github/workflows/validate-documentation.yml
+
+  - name: contributor license agreement is signed
+    requires:
+      conditions:
+        has_successful_status:
+          - license/cla
 
   - name: changes to validation pipeline are reviewed by docs tooling
     if:

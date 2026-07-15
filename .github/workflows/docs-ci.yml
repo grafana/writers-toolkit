@@ -85,16 +85,18 @@ jobs:
         with:
           persist-credentials: false
           sparse-checkout: ${{ inputs.sparse-checkout }}
+      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.5.3
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: 20
       - env:
           DIRECTORY: ${{ inputs.prettier-directory }}
         run: |
-          npm install --no-save prettier
-          npx prettier -w "${DIRECTORY}"
+          pnpm dlx prettier@3.8.1 -w "${DIRECTORY}"
           if ! git diff --exit-code; then
-            echo "Not all documentation has been formatted with prettier, run 'npx prettier -w ${DIRECTORY}' and commit the result to resolve the issue."
+            echo "Not all documentation has been formatted with prettier, run 'pnpm dlx prettier@3.8.1 -w ${DIRECTORY}' and commit the result to resolve the issue."
           fi
   build:
     if: inputs.build

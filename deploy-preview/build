@@ -6,6 +6,18 @@ if [[ -n "${RUNNER_DEBUG+x}" ]]; then
   set -x
 fi
 
+if [[ -n "${WHATS_NEW_DIR:-}" && -d "${WHATS_NEW_DIR}" ]]; then
+  cat > "${WHATS_NEW_DIR}/_index.md" <<'EOF'
+---
+description: What's new from Grafana Labs
+title: What's new from Grafana Labs
+whats_new: true
+---
+
+Grafana Labs products, projects, and features can go through multiple release stages before becoming generally available. These stages in the release life cycle can present varying degrees of stability and support. For more information, refer to <a class="text-gray-6 text-underline" href="/docs/release-life-cycle/">release life cycle for Grafana Labs</a>.
+EOF
+fi
+
 # Legacy build.
 if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
   echo "::warning ::Using legacy inputs. Reach out to #docs-platform (https://raintank-corp.slack.com/archives/C07R2REUULS) to update."

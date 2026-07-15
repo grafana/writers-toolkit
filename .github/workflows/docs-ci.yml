@@ -87,7 +87,7 @@ jobs:
           sparse-checkout: ${{ inputs.sparse-checkout }}
       - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
         with:
-          version: 10.34.5
+          version: 11.5.3
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: 20

@@ -112,5 +112,6 @@ docker run \
 	--volume "${PWD}/dist:/hugo/dist" \
 	--volume "${DATA_DIR}:/hugo/data/docs/interactive-learning" \
 	--volume "${CONTENT_DIR}:/hugo/content/docs/learning-paths" \
+	--volume "${WHATS_NEW_DIR}:/hugo/content/whats-new" \
 	--rm "${IMAGE:-grafana/docs-base:latest}" \
 	  /bin/bash -c 'set -o pipefail; echo "Data dir:"; ls /hugo/data/docs/interactive-learning/ | head -5; echo "Content dir:"; ls /hugo/content/docs/learning-paths/ | head -5; HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify 2>&1 | tail -5'

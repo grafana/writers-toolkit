@@ -148,6 +148,15 @@ jobs:
             deploy-preview
             link-checker
 
+      - name: Download what's-new markdown from GCS
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/whats-new"
+          gsutil -m rsync -r -d \
+            gs://grafana-website-assets-public/deploy-preview/whats-new/ \
+            "${RUNNER_TEMP}/whats-new/"
+          echo "WHATS_NEW_DIR=${RUNNER_TEMP}/whats-new" >> "${GITHUB_ENV}"
+
       - name: Resolve preview paths
         id: preview-paths
         shell: bash

@@ -25,6 +25,44 @@ function readLine(filePath: string, lineNumber: number): string | undefined {
   return fs.readFileSync(filePath, "utf-8").split("\n")[lineNumber - 1];
 }
 
+const HUNK_HEADER =
+  /^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@(?: .*)?$/;
+
+export function addedLinesFromPatch(patch: string): Set<number> {
+  const added = new Set<number>();
+  let newLine = 0;
+  let oldRemaining = 0;
+  let newRemaining = 0;
+
+  for (const rawLine of patch.split("\n")) {
+    if (oldRemaining <= 0 && newRemaining <= 0) {
+      const m = HUNK_HEADER.exec(rawLine);
+      if (m) {
+        oldRemaining = m[2] === undefined ? 1 : parseInt(m[2], 10);
+        newLine = parseInt(m[3], 10);
+        newRemaining = m[4] === undefined ? 1 : parseInt(m[4], 10);
+      }
+      continue;
+    }
+
+    if (rawLine.startsWith("+")) {
+      added.add(newLine);
+      newLine++;
+      newRemaining--;
+    } else if (rawLine.startsWith("-")) {
+      oldRemaining--;
+    } else if (rawLine.startsWith("\\")) {
+      // "\ No newline at end of file" consumes nothing.
+    } else {
+      newLine++;
+      oldRemaining--;
+      newRemaining--;
+    }
+  }
+
+  return added;
+}
+
 module.exports = async ({
   context,
   core,
@@ -49,6 +87,19 @@ module.exports = async ({
     return;
   }
 
+  const changedFiles = await github.paginate(github.rest.pulls.listFiles, {
+    owner,
+    repo,
+    pull_number: pullNumber,
+  });
+
+  const addedLinesByFile = new Map<string, Set<number>>();
+  for (const file of changedFiles) {
+    if (typeof file.patch === "string") {
+      addedLinesByFile.set(file.filename, addedLinesFromPatch(file.patch));
+    }
+  }
+
   const { data: existingComments } =
     await github.rest.pulls.listReviewComments({
       owner,
@@ -66,7 +117,12 @@ module.exports = async ({
   let alertCount = 0;
 
   for (const [filePath, alerts] of Object.entries(valeOutput)) {
+    const addedLines = addedLinesByFile.get(filePath);
     for (const alert of alerts as ValeAlert[]) {
+      if (!addedLines || !addedLines.has(alert.Line)) {
+        continue;
+      }
+
       alertCount++;
       const line = readLine(filePath, alert.Line) ?? "";
       const body = formatComment(alert, line);

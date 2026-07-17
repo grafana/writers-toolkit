@@ -33,10 +33,46 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.addedLinesFromPatch = addedLinesFromPatch;
 const fs = __importStar(require("fs"));
 const suggestion_1 = require("./suggestion");
 function readLine(filePath, lineNumber) {
     return fs.readFileSync(filePath, "utf-8").split("\n")[lineNumber - 1];
+}
+const HUNK_HEADER = /^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@(?: .*)?$/;
+function addedLinesFromPatch(patch) {
+    const added = new Set();
+    let newLine = 0;
+    let oldRemaining = 0;
+    let newRemaining = 0;
+    for (const rawLine of patch.split("\n")) {
+        if (oldRemaining <= 0 && newRemaining <= 0) {
+            const m = HUNK_HEADER.exec(rawLine);
+            if (m) {
+                oldRemaining = m[2] === undefined ? 1 : parseInt(m[2], 10);
+                newLine = parseInt(m[3], 10);
+                newRemaining = m[4] === undefined ? 1 : parseInt(m[4], 10);
+            }
+            continue;
+        }
+        if (rawLine.startsWith("+")) {
+            added.add(newLine);
+            newLine++;
+            newRemaining--;
+        }
+        else if (rawLine.startsWith("-")) {
+            oldRemaining--;
+        }
+        else if (rawLine.startsWith("\\")) {
+            // "\ No newline at end of file" consumes nothing.
+        }
+        else {
+            newLine++;
+            oldRemaining--;
+            newRemaining--;
+        }
+    }
+    return added;
 }
 module.exports = async ({ context, core, github, }) => {
     const raw = fs.readFileSync("vale.json", "utf-8");
@@ -52,6 +88,17 @@ module.exports = async ({ context, core, github, }) => {
         core.setFailed("Could not determine the head commit SHA.");
         return;
     }
+    const changedFiles = await github.paginate(github.rest.pulls.listFiles, {
+        owner,
+        repo,
+        pull_number: pullNumber,
+    });
+    const addedLinesByFile = new Map();
+    for (const file of changedFiles) {
+        if (typeof file.patch === "string") {
+            addedLinesByFile.set(file.filename, addedLinesFromPatch(file.patch));
+        }
+    }
     const { data: existingComments } = await github.rest.pulls.listReviewComments({
         owner,
         repo,
@@ -63,7 +110,11 @@ module.exports = async ({ context, core, github, }) => {
     }));
     let alertCount = 0;
     for (const [filePath, alerts] of Object.entries(valeOutput)) {
+        const addedLines = addedLinesByFile.get(filePath);
         for (const alert of alerts) {
+            if (!addedLines || !addedLines.has(alert.Line)) {
+                continue;
+            }
             alertCount++;
             const line = readLine(filePath, alert.Line) ?? "";
             const body = (0, suggestion_1.formatComment)(alert, line);

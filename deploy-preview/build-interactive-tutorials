@@ -44,11 +44,8 @@ write_page() {
   mkdir -p "$(dirname "${out}")"
   {
     echo "---"
-    # website.yaml is concatenated into Hugo front matter, then this script appends
-    # type/title/description. Guarantee a newline after cat so a missing EOF newline
-    # cannot merge the last YAML line with "type: docs" (Hugo: mapping values are
-    # not allowed). An extra blank line is harmless when the file already ends in \n.
-    # See grafana/interactive-tutorials#453 and #419.
+    # Guarantee a newline after cat so a missing EOF newline doesn't break Hugo builds when the delimiter isn't on its own line.
+    # An extra blank line is harmless when the file already ends in one.
     if [[ -f "${website_yaml}" ]]; then
       cat "${website_yaml}"
       echo

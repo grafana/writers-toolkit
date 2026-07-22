@@ -20,6 +20,7 @@
   "(?:file ?path|path ?name)s": "paths"
   "(?:github|gitHub|Github)": "GitHub"
   "(?:gitlab|gitLab|Gitlab)": "GitLab"
+  "(?:gitleaks|gitLeaks|GitLeaks)": "Gitleaks"
   "(?:hamburger menu|kebab menu)": "menu icon"
   "(?:java[Ss]cript|Javascript)": "JavaScript"
   "(?:kill|terminate|abort)": "stop|exit|cancel|end"

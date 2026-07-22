@@ -1,4 +1,4 @@
-413
+415
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -125,6 +125,7 @@ GKE/ po:noun
 Git/ po:noun
 GitHub/ po:noun
 GitLab/ po:noun
+Gitleaks/ po:noun
 glob/G po:noun
 globbing/ po:verb
 GNU/ po:noun

@@ -48,7 +48,7 @@ To skip Vale linting in CI, include `<-- vale = NO -->` in your pull request des
 ## Skip rules
 
 To skip a rule, enclose the section with HTML comments that first disable, and then re-enable the specific Vale rule.
-Include the specific rule name in the comment, for example `Grafana.We` or `Grafana.GoogleEllipses`.
+Include the specific rule name in the comment, for example `Grafana.FirstPersonPlural` or `Grafana.GoogleEllipses`.
 The following example shows how to disable the `Grafana.GooglePassive` rule:
 
 ```markdown

@@ -9,7 +9,7 @@ title: Vale rules
 # Vale rules
 
 <!-- These are our style rules. -->
-<!-- vale Grafana.We = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 
 Vale codifies our style guide into a series of rules that can be checked against your prose.
 The following is a list of all the rules that we've defined.
@@ -34,6 +34,7 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.DropDown = NO -->
 <!-- vale Grafana.EndToEnd = NO -->
 <!-- vale Grafana.Exclamation = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 <!-- vale Grafana.Gerunds = NO -->
 <!-- vale Grafana.GoogleAMPM = NO -->
 <!-- vale Grafana.GoogleContractions = NO -->
@@ -91,7 +92,6 @@ The following is a list of all the rules that we've defined.
 <!-- vale Grafana.SmartQuotes = NO -->
 <!-- vale Grafana.Spelling = NO -->
 <!-- vale Grafana.Timeless = NO -->
-<!-- vale Grafana.We = NO -->
 <!-- vale Grafana.Wish = NO -->
 <!-- vale Grafana.WordList = NO -->
 
@@ -1242,6 +1242,26 @@ Use drop-down as a modifier rather than as a standalone noun. For example: _drop
 
 [More information ->](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/#drop-down)
 
+### Grafana.FirstPersonPlural
+
+Extends: existence
+
+Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
+
+Don't use first person plural pronouns when you're talking about the reader, instead use 'you'.
+
+It's OK to use first person plural pronouns when you're talking about Grafana Labs.
+
+_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
+
+- `[Ww]e`
+- `[Ww]e'(?:ve|re)`
+- `[Oo]urs?`
+- `[Uu]s`
+- `[Ll]et's`
+
+[More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)
+
 ### Grafana.GoogleContractions
 
 Extends: substitution
@@ -1604,23 +1624,3 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `soon`
 
 [More information ->](https://developers.google.com/style/timeless-documentation)
-
-### Grafana.We
-
-Extends: existence
-
-Use first person plural pronouns like _`<CURRENT TEXT>`_ carefully.
-
-Don't use 'we' when you're talking about the reader, instead use 'you'.
-
-It's OK to use 'we' when you're talking about Grafana Labs.
-
-_`<CURRENT TEXT>`_ was matched by one or more of the following regular expressions:
-
-- `we`
-- `we'(?:ve|re)`
-- `ours?`
-- `us`
-- `let's`
-
-[More information ->](https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully)

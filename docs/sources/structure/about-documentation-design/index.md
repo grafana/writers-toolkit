@@ -16,7 +16,7 @@ weight: 100
 
 # About documentation design at Grafana Labs
 
-<!-- vale Grafana.We = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 <!-- According to https://developers.google.com/style/pronouns#personal-pronouns, it is acceptable to use personal pronouns "after using your organization's name". -->
 
 Our documentation website uses a modern design approach to make technical documentation accessible and scalable.

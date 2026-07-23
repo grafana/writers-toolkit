@@ -1,7 +1,7 @@
 # Writers’ Toolkit
 
 <!-- vale Grafana.GoogleExclamation = NO -->
-<!-- vale Grafana.We = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 
 Welcome!
 

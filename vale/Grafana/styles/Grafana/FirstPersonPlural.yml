@@ -1,0 +1,16 @@
+extends: existence
+message: |
+  Use first person plural pronouns like '%s' carefully.
+
+  Don't use first person plural pronouns when you're talking about the reader, instead use 'you'.
+
+  It's OK to use first person plural pronouns when you're talking about Grafana Labs.
+link: https://developers.google.com/style/person#use-first-person-plural-pronouns-carefully
+level: suggestion
+ignorecase: false
+tokens:
+  - "[Ww]e"
+  - "[Ww]e'(?:ve|re)"
+  - "[Oo]urs?"
+  - "[Uu]s"
+  - "[Ll]et's"

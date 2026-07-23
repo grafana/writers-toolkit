@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2026-07-10"
+review_date: "2026-07-22"
 title: Vale rules
 ---
 
@@ -834,6 +834,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Git's`
 - `GitHub's`
 - `GitLab's`
+- `Gitleaks'`
 - `GNU's`
 - `Grafana's`
 - `Gravatar's`
@@ -1092,6 +1093,7 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `(?:file ?path\|path ?name)s`                                     | `paths`                    |
 | `(?:github\|gitHub\|Github)`                                      | `GitHub`                   |
 | `(?:gitlab\|gitLab\|Gitlab)`                                      | `GitLab`                   |
+| `(?:gitleaks\|gitLeaks\|GitLeaks)`                                | `Gitleaks`                 |
 | `(?:hamburger menu\|kebab menu)`                                  | `menu icon`                |
 | `(?:java[Ss]cript\|Javascript)`                                   | `JavaScript`               |
 | `(?:kill\|terminate\|abort)`                                      | `stop\|exit\|cancel\|end`  |

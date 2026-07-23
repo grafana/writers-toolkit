@@ -8,6 +8,7 @@ local word = import './word.jsonnet';
   word.new('Git', '', 'noun') { product: true, swaps: { git: 'Git' } },
   word.new('GitHub', '', 'noun') { product: true, swaps: { '(?:github|gitHub|Github)': 'GitHub' } },
   word.new('GitLab', '', 'noun') { product: true, swaps: { '(?:gitlab|gitLab|Gitlab)': 'GitLab' } },
+  word.new('Gitleaks', '', 'noun') { product: true, swaps: { '(?:gitleaks|gitLeaks|GitLeaks)': 'Gitleaks' } },
   word.new('glob', 'G', 'noun') { description: 'In computer programming, glob patterns specify sets of filenames with wildcard characters.' },
   word.new('globbing', '', 'verb') { description: 'In computer programming, glob patterns specify sets of filenames with wildcard characters.' },
   word.new('GNU', '', 'noun') { abbreviation: true, established_abbreviation: true, product: true },

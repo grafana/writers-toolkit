@@ -51,6 +51,14 @@ EOF
 fi
 cat "/hugo/content/docs/${REPO}/_index.md"
 HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify
+
+# Generate nginx rewrites for the preview server from the Hugo redirects
+# manifest. Older docs-base images have a redirects binary without the
+# --manifest option, so fall back to scraping dist for alias pages.
+touch dist/preview-redirects.conf
+redirects --base-url "" --manifest dist/redirects.txt dist dist/preview-redirects.conf \
+  || redirects --base-url "" dist dist/preview-redirects.conf \
+  || true
 '
 # End legacy input.
 else
@@ -245,6 +253,14 @@ EOINDEX
 done
 
 HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify
+
+# Generate nginx rewrites for the preview server from the Hugo redirects
+# manifest. Older docs-base images have a redirects binary without the
+# --manifest option, so fall back to scraping dist for alias pages.
+touch dist/preview-redirects.conf
+redirects --base-url "" --manifest dist/redirects.txt dist dist/preview-redirects.conf \
+  || redirects --base-url "" dist dist/preview-redirects.conf \
+  || true
 EOSCRIPT
     chmod +x "${tempfile}"
   }

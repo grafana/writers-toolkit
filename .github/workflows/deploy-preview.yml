@@ -126,10 +126,17 @@ jobs:
       website_directory: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
     permissions:
       contents: read # Clone repositories.
+      id-token: write # Log in to GAR to pull development docs-base images.
       pull-requests: read # `gh pr checkout` in deploy-preview/build queries the pullRequests GraphQL API.
     if: github.event.action == 'opened' || github.event.action == 'synchronize'
     runs-on: ubuntu-latest
     steps:
+      - name: Log in to GAR
+        if: startsWith(inputs.image, 'us-docker.pkg.dev/')
+        uses: grafana/shared-workflows/actions/login-to-gar@12c87e5aa323694c820c1ff3d8e47e8237e05136 # login-to-gar/v1.0.2
+        with:
+          registry: us-docker.pkg.dev
+
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         if: inputs.website_directory
         with:

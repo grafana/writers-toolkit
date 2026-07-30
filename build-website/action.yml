@@ -19,9 +19,11 @@ runs:
     - name: Check for binary assets
       if: github.event_name == 'pull_request'
       uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+      env:
+        SOURCE_DIRECTORY: ${{ inputs.source_directory }}
       with:
         script: |
-          const sourceDirectory = core.getInput("source_directory", { required: false });
+          const sourceDirectory = process.env.SOURCE_DIRECTORY;
 
           const { data: files } = await github.rest.pulls.listFiles({
             owner: context.repo.owner,
@@ -30,10 +32,19 @@ runs:
           });
 
           async function isBinary(path) {
+            let stats;
             try {
-              await exec.exec(`test -f ${path}`);
+              stats = await require("fs/promises").stat(path);
             } catch {
+              core.info(`path ${path} does not exist, skipping binary test`);
+              return false;
+            }
+            if (!stats.isFile()) {
               core.info(`path ${path} is not a regular file, skipping binary test`);
+              return false;
+            }
+            // `file --mime-encoding` reports zero-length files as binary.
+            if (stats.size === 0) {
               return false;
             }
             return exec

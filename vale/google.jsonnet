@@ -36,7 +36,7 @@ std.prune({
   'Grafana/styles/Grafana/GoogleSpelling.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Spelling.yml')),
   // More often than not, we need to be consistent with Prometheus units or units used Grafana UI which are not represented in the form encouraged by SI.
   'Grafana/styles/Grafana/GoogleUnits.yml': null,
-  // Replaced by Grafana/We.yml.
+  // Replaced by Grafana/FirstPersonPlural.yml.
   'Grafana/styles/Grafana/GoogleWe.yml': null,
   'Grafana/styles/Grafana/GoogleWill.yml': std.manifestYamlDoc(std.parseYaml(importstr 'Google/Will.yml') {
     message: super.message + '\n\n' + |||

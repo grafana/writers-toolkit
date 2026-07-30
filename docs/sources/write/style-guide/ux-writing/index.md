@@ -40,14 +40,14 @@ Be conversational but don't use the voice you use when texting a friend.
 
 <!-- vale Grafana.Please = YES -->
 
-<!-- vale Grafana.We = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 <!-- UX microcopy has different guidelines to technical documentation and encourages writing like you're an engineer talking to other engineers. -->
 
 **Use:**
 
 > We'll guide you through the process of creating your SLOs.
 
-<!-- vale Grafana.We = YES -->
+<!-- vale Grafana.FirstPersonPlural = YES -->
 
 **Don't use:**
 
@@ -194,7 +194,7 @@ Don't use colons after labels.
 
 Use periods for multiple sentences.
 
-<!-- vale Grafana.We = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 <!-- UX microcopy has different guidelines to technical documentation and encourages writing like you're an engineer talking to other engineers. -->
 
 **Use:**
@@ -210,7 +210,7 @@ Use periods for multiple sentences.
 > Metrics, Logs, and Traces are billed based on ingestion<br>For Metrics, we bill based on the number of active series using the ninety-fifth percentile during the period.
 
 <!-- vale Grafana.Paragraphs = YES -->
-<!-- vale Grafana.We = YES -->
+<!-- vale Grafana.FirstPersonPlural = YES -->
 
 ### Write scannable descriptive text
 

@@ -15,7 +15,7 @@ weight: 400
 
 # Inclusive writing
 
-<!-- vale Grafana.We = NO -->
+<!-- vale Grafana.FirstPersonPlural = NO -->
 <!-- This page talks about the voice and tone of our organization. -->
 
 When writing for Grafana Labs, always use inclusive terminology and phrasing.

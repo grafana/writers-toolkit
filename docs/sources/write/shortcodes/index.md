@@ -816,6 +816,65 @@ compactor:
 
 {{< /collapse >}}
 
+## Q&A
+
+The `qa` shortcode renders one collapsible question-and-answer entry.
+Use it inside a `qa-list` wrapper.
+The question and answer are rendered in the HTML even when collapsed.
+
+| Parameter | Description | Required |
+| --------- | ----------- | -------- |
+| `question` | The question text. You can also pass this as the first positional argument. | yes |
+| `open` | Set to `"true"` to render the entry expanded by default. | no |
+
+### Example
+
+```markdown
+{{</* qa question="What is Grafana?" */>}}
+Grafana is open source software for visualizing and correlating telemetry data.
+{{</* /qa */>}}
+```
+
+Produces:
+
+{{< qa question="What is Grafana?" >}}
+Grafana is open source software for visualizing and correlating telemetry data.
+{{< /qa >}}
+
+## Q&A list
+
+The `qa-list` shortcode groups multiple `qa` entries and adds an expand-all control.
+Use it for FAQ sections.
+
+| Parameter | Description | Required |
+| --------- | ----------- | -------- |
+| `expand` | Label for the button when entries are collapsed. Default: `Expand all`. | no |
+| `collapse` | Label for the button when entries are expanded. Default: `Collapse all`. | no |
+
+### Example
+
+```markdown
+{{</* qa-list expand="Expand all" collapse="Collapse all" */>}}
+{{</* qa question="What is Grafana?" */>}}
+Grafana is open source software for visualizing and correlating telemetry data.
+{{</* /qa */>}}
+{{</* qa question="Is Grafana Cloud free?" */>}}
+Grafana Cloud includes a free tier.
+{{</* /qa */>}}
+{{</* /qa-list */>}}
+```
+
+Produces:
+
+{{< qa-list >}}
+{{< qa question="What is Grafana?" >}}
+Grafana is open source software for visualizing and correlating telemetry data.
+{{< /qa >}}
+{{< qa question="Is Grafana Cloud free?" >}}
+Grafana Cloud includes a free tier.
+{{< /qa >}}
+{{< /qa-list >}}
+
 ## Column-list
 
 Formats a list with columns. Content is equally divided between columns unless specified with the `count` argument.

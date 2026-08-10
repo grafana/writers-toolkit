@@ -112,7 +112,7 @@ env:
   IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
-  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:nightly
+  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/link-checker:sha-752d4e2@sha256:8aadbafc9be1077514533d6f7b7d41e9a796ef3c9c5b291b924bf55b9b9ab3e1
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}

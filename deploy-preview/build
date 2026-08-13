@@ -51,14 +51,6 @@ EOF
 fi
 cat "/hugo/content/docs/${REPO}/_index.md"
 HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify
-
-# Generate nginx rewrites for the preview server from the Hugo redirects
-# manifest. Older docs-base images have a redirects binary without the
-# --manifest option, so fall back to scraping dist for alias pages.
-touch dist/preview-redirects.conf
-redirects --base-url "" --manifest dist/redirects.txt dist dist/preview-redirects.conf \
-  || redirects --base-url "" dist dist/preview-redirects.conf \
-  || true
 '
 # End legacy input.
 else
@@ -287,82 +279,7 @@ if [[ "${#mounted_docs_roots[@]}" -gt 0 ]]; then
   done
 fi
 
-fallback_title() {
-  local value="\${1//[-_]/ }"
-  local token=""
-  local titled=""
-
-  for token in \${value}; do
-    titled+="\${token^} "
-  done
-
-  echo "\${titled% }"
-}
-
-# Ensure mounted docs roots always have index metadata with titles.
-for docs_dir in /hugo/content/docs/*; do
-  if [[ ! -d "\${docs_dir}" ]]; then
-    continue
-  fi
-
-  index="\${docs_dir}/_index.md"
-  title="$(fallback_title "\${docs_dir##*/}")"
-
-  if [[ ! -f "\${index}" ]]; then
-    cat > "\${index}" <<EOINDEX
----
-title: \${title}
----
-
-# \${title}
-
-{{< section >}}
-EOINDEX
-    continue
-  fi
-
-  if grep -Eq '^(title|menuTitle|linkTitle):' "\${index}"; then
-    continue
-  fi
-
-  if [[ "$(head -n 1 "\${index}")" == '---' ]]; then
-    tmpfile="$(mktemp)"
-    awk -v t="\${title}" '
-      BEGIN { in_front_matter = 0; inserted = 0 }
-      NR == 1 && $0 == "---" { in_front_matter = 1; print; next }
-      in_front_matter && $0 == "---" && !inserted {
-        print "title: " t
-        print
-        inserted = 1
-        in_front_matter = 0
-        next
-      }
-      { print }
-    ' "\${index}" >"\${tmpfile}"
-    mv "\${tmpfile}" "\${index}"
-    continue
-  fi
-
-  tmpfile="$(mktemp)"
-  cat > "\${tmpfile}" <<EOINDEX
----
-title: \${title}
----
-
-EOINDEX
-  cat "\${index}" >> "\${tmpfile}"
-  mv "\${tmpfile}" "\${index}"
-done
-
 HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify
-
-# Generate nginx rewrites for the preview server from the Hugo redirects
-# manifest. Older docs-base images have a redirects binary without the
-# --manifest option, so fall back to scraping dist for alias pages.
-touch dist/preview-redirects.conf
-redirects --base-url "" --manifest dist/redirects.txt dist dist/preview-redirects.conf \
-  || redirects --base-url "" dist dist/preview-redirects.conf \
-  || true
 EOSCRIPT
     chmod +x "${tempfile}"
   }

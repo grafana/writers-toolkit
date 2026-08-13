@@ -216,6 +216,14 @@ else
         index_files+=("${index_file}:${relative_prefix}")
       fi
     done < <(jq -r '.[] | "\(.index_file) \(.relative_prefix)"' <<<"${SOURCES}")
+
+    mounted_docs_roots=()
+    while read -r docs_root; do
+      if [[ -n "${docs_root}" ]]; then
+        mounted_docs_roots+=("${docs_root}")
+      fi
+    done < <(jq -r '.[] | (.website_directory // "") | select(startswith("content/docs/")) | sub("^content/docs/"; "") | split("/") | .[0]' <<<"${SOURCES}" | sort -u)
+
     cat <<EOSCRIPT >"${tempfile}"
 #!/usr/bin/env bash
 
@@ -252,23 +260,41 @@ EOINDEX
   cat "\${dst}"
 done
 
+mounted_docs_roots=(${mounted_docs_roots[@]})
+
+if [[ "${#mounted_docs_roots[@]}" -gt 0 ]]; then
+  for docs_dir in /hugo/content/docs/*; do
+    if [[ ! -d "\${docs_dir}" ]]; then
+      continue
+    fi
+
+    keep="false"
+    for mounted_root in "\${mounted_docs_roots[@]}"; do
+      if [[ "\${docs_dir##*/}" == "\${mounted_root}" ]]; then
+        keep="true"
+        break
+      fi
+    done
+
+    if [[ "\${keep}" != "true" ]]; then
+      rm -rf "\${docs_dir}"
+    fi
+  done
+fi
+
 fallback_title() {
   local value="\${1//[-_]/ }"
+  local token=""
+  local titled=""
 
-  awk 'BEGIN{ORS=""} {
-    for (i = 1; i <= NF; i++) {
-      if (i > 1) {
-        printf " "
-      }
-      printf toupper(substr($i, 1, 1)) substr($i, 2)
-    }
-  } END{print ""}' <<<"\${value}"
+  for token in \${value}; do
+    titled+="\${token^} "
+  done
+
+  echo "\${titled% }"
 }
 
-# docs-base contains top-level docs directories for many products, but several
-# do not include _index metadata with titles. In deploy previews this creates
-# blank labels in the left docs navigation. Fill missing titles with a fallback
-# based on the directory name.
+# Ensure mounted docs roots always have index metadata with titles.
 for docs_dir in /hugo/content/docs/*; do
   if [[ ! -d "\${docs_dir}" ]]; then
     continue

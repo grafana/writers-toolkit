@@ -250,8 +250,13 @@ EOPARENT
     parent="\${parent%/*}"
   done
 
+  redirect_title="\${dst%/*}"
+  redirect_title="\${redirect_title##*/}"
+
   cat > "\${dst}" <<EOINDEX
 ---
+title: \${redirect_title}
+menuTitle: \${redirect_title}
 type: redirect
 redirectURL: \${relative_prefix}
 versioned: true

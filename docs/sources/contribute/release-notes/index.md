@@ -73,7 +73,6 @@ When you're ready to add a What's new entry, complete the following steps:
 1. (Optional) Preview your entry on GitHub.
 
    While the CMS provides a preview of your entry, it doesn't render video. Previewing your entry on GitHub lets you view videos and see your entry in the context of the website.
-
    - **Release date in the past** - Your entry will be visible in the website-generated preview.
 
    - **Release date in the future** - Your entry is only visible in the preview of the _internal feed_.
@@ -82,7 +81,6 @@ When you're ready to add a What's new entry, complete the following steps:
 
 1. If your entry is ready to publish, proceed to the next step.
    If your entry requires review, follow these steps:
-
    1. In the **Status** drop-down, select **In review.**
    1. Work with your team to review and finalize the generated pull request.
 
@@ -91,16 +89,15 @@ When you're ready to add a What's new entry, complete the following steps:
    {{< /admonition >}}
 
 1. Publish your entry by the release date you've entered.
-
    - To publish from GitHub, merge your PR.
    - To publish from the CMS:
-
    1. In the **Status** drop-down, click **Ready**.
    1. In the **Publish** drop-down, click **Publish now**.
 
 <!-- vale Grafana.GoogleWill = YES -->
 
-The entry appears in [What's new from Grafana Labs](https://grafana.com/whats-new/) on the release date you've entered. If the date is in the past, it appears immediately.
+The `FEATURE RELEASE DATE` sets the earliest time that a note can be included in [What's new from Grafana Labs](https://grafana.com/whats-new/).
+If the date is in the past, the note is included in the next public website build.
 
 For Grafana versioned releases, the content you enter in the CMS is published in the versioned What's new at a later date.
 To understand the process of creating release notes for Grafana versioned releases, refer to [Create the versioned release notes](#create-the-versioned-release-notes).
@@ -117,7 +114,7 @@ If you add an entry to the CMS after the relevant versioned What's new has alrea
 | Field | Description | Guidance |
 |---|---|---|
 | FEATURE NAME | Short headline for the feature. | For example, _Grafana OnCall integration for Alerting_. |
-| FEATURE RELEASE DATE | Date and time in UTC that you want this note to be live. | <p>This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users, the date is when the feature was first available to users opting in.</p><p>If you've opened a review PR, you must merge it before the date you've added here. If you enter a date that has passed, the website publishes the note on the next build.</p> |
+| FEATURE RELEASE DATE | Date and time in UTC after which this note can appear on the public website. | <p>This should also be the feature release date. If the feature is behind a feature toggle and gets rolled out only to a fraction of users, the date is when the feature was first available to users opting in.</p><p>If you've opened a review PR, you must merge it before the date you've added here. After that time passes, the next public website build can include the note.</p><p>Public website builds run hourly, but GitHub Actions scheduling can delay a build. On release day, choose a reasonable release time instead of targeting an exact go-live minute.</p> |
 | CONTACT | First and last name. | The contents of this field aren't publicly viewable. |
 | INTERNAL ONLY? (OPTIONAL) | Set to true to only post the note on [https://admin.grafana.com/whats-new/](https://admin.grafana.com/whats-new/) |  |
 | TAGS (OPTIONAL) | Select category tags that users can use to filter their view. | Select as many as apply. |
@@ -142,7 +139,6 @@ Regardless of the status of your entry, it's always best to use the CMS to make 
 To make edits, follow these steps:
 
 1. Navigate to the [CMS](https://admin.grafana.com/content-admin/#/collections/whats-new).
-
    - If your entry is already in **Published** status, you can find it [in the Contents section of the CMS under What's New in Cloud](https://admin.grafana.com/content-admin/#/collections/whats-new).
    - If your entry is still in **Draft** or **Review** status, you can find it [in the Workflow section of the CMS](https://admin.grafana.com/content-admin/#/workflow) under the appropriate heading.
 
@@ -150,7 +146,6 @@ To make edits, follow these steps:
 1. Click **Save**.
    The entry is now in **Draft** status.
 1. Do one of the following:
-
    - If your entry is ready to publish, select **Ready** in the **Status** drop-down, and then **Publish now** in the **Publish** drop-down.
    - If your entry needs to be reviewed, select **In review** in the **Status** drop-down to open a review PR.
      For more information on managing review PRs, see step 3 in the [Create a What's new entry](#create-a-whats-new-entry).
@@ -174,7 +169,6 @@ This is typically someone on the Technical Writing team.
 
 1. After the cut-off date for What's new entries has passed, cut a branch and create a draft pull request with an empty `whats-new-in-vxx-x.md` file to be populated with the What's new content for the next release.
    This PR should include:
-
    - Updates to the `whatsnew/_index.md`
    - Update to the link and version number located on the What's new tile of `docs/sources/_index.md`
    - The new upgrade guide
@@ -182,7 +176,6 @@ This is typically someone on the Technical Writing team.
 1. Label the PR with the `backport vx.x.x` label created for the release.
 
 1. Go to [Upload artifact for Grafana What's New](https://github.com/grafana/website/actions/workflows/generate-whats-new.yml) and:
-
    1. Open the **Run workflow** drop-down list.
    1. Fill in the fields.
    1. Click the **Run workflow** button to generate a YAML file from the _What's new from Grafana Labs_.

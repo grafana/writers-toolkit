@@ -208,6 +208,14 @@ else
         index_files+=("${index_file}:${relative_prefix}")
       fi
     done < <(jq -r '.[] | "\(.index_file) \(.relative_prefix)"' <<<"${SOURCES}")
+
+    mounted_docs_roots=()
+    while read -r docs_root; do
+      if [[ -n "${docs_root}" ]]; then
+        mounted_docs_roots+=("${docs_root}")
+      fi
+    done < <(jq -r '.[] | (.website_directory // "") | select(startswith("content/docs/")) | sub("^content/docs/"; "") | split("/") | .[0]' <<<"${SOURCES}" | sort -u)
+
     cat <<EOSCRIPT >"${tempfile}"
 #!/usr/bin/env bash
 
@@ -234,8 +242,13 @@ EOPARENT
     parent="\${parent%/*}"
   done
 
+  redirect_title="\${dst%/*}"
+  redirect_title="\${redirect_title##*/}"
+
   cat > "\${dst}" <<EOINDEX
 ---
+title: \${redirect_title}
+menuTitle: \${redirect_title}
 type: redirect
 redirectURL: \${relative_prefix}
 versioned: true
@@ -243,6 +256,28 @@ versioned: true
 EOINDEX
   cat "\${dst}"
 done
+
+mounted_docs_roots=(${mounted_docs_roots[@]})
+
+if [[ "${#mounted_docs_roots[@]}" -gt 0 ]]; then
+  for docs_dir in /hugo/content/docs/*; do
+    if [[ ! -d "\${docs_dir}" ]]; then
+      continue
+    fi
+
+    keep="false"
+    for mounted_root in "\${mounted_docs_roots[@]}"; do
+      if [[ "\${docs_dir##*/}" == "\${mounted_root}" ]]; then
+        keep="true"
+        break
+      fi
+    done
+
+    if [[ "\${keep}" != "true" ]]; then
+      rm -rf "\${docs_dir}"
+    fi
+  done
+fi
 
 HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify
 EOSCRIPT

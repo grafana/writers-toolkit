@@ -50,6 +50,9 @@ write_page() {
       cat "${website_yaml}"
       echo
     fi
+    if [[ ! -f "${website_yaml}" ]] || ! grep -Eq '^[[:space:]]*layout:[[:space:]]*' "${website_yaml}"; then
+      echo "layout: single-journey"
+    fi
     echo "type: docs"
     echo "title: ${title}"
     echo "description: ${description}"

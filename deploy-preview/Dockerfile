@@ -8,4 +8,8 @@ RUN rm -rf /etc/nginx/sites-enabled && \
 COPY deploy-preview-files/deploy-preview/nginx.conf /etc/nginx/nginx.conf
 COPY build.conf /etc/nginx/build.conf
 
+# The build script writes redirect rewrites into dist. Ensure the include
+# target exists even when the build script predates redirects generation.
+RUN touch /usr/share/nginx/dist/preview-redirects.conf
+
 RUN nginx -t

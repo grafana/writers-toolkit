@@ -259,7 +259,7 @@ jobs:
             :building_construction: Updating deploy preview...
 
       - name: Sparse checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           repository: grafana/writers-toolkit
           ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
@@ -431,7 +431,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sparse checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           repository: grafana/writers-toolkit
           ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
@@ -443,7 +443,7 @@ jobs:
             link-checker
 
       - name: Check out source files
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           repository: ${{ github.repository }}
           ref: ${{ inputs.sha }}

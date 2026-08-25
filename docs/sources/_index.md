@@ -7,10 +7,10 @@ cascade:
     products:
       - oss
   public_docs: true
-  replace_dir: "docs/writers-toolkit/"
+  replace_dir: 'docs/writers-toolkit/'
   search_section: Writers' Toolkit
   search_type: doc
-date: "2022-06-23T11:09:48+01:00"
+date: '2022-06-23T11:09:48+01:00'
 description: |
   A toolkit for writing technical documentation for Grafana Labs.
   Use it as the source of truth for voice and tone, grammar, style, templates, and more.
@@ -19,7 +19,7 @@ keywords:
   - style guide
   - Grafana
   - documentation
-review_date: "2025-06-12"
+review_date: '2025-06-12'
 title: Writers' Toolkit
 ---
 
@@ -39,3 +39,5 @@ If it's your first time using the guide, start with the [Get started](https://gr
 
 Writers' Toolkit is open source and available at [`grafana/writers-toolkit`](https://github.com/grafana/writers-toolkit).
 If you have questions, or feedback on how to improve this documentation, [open an issue](https://github.com/grafana/writers-toolkit/issues/new) and help make this an even better resource.
+
+test

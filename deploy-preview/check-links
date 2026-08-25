@@ -20,11 +20,11 @@ trap cleanup EXIT
 # immutable preview image. Both containers then read the exact artifact that is
 # deployed to Cloud Run, without putting the checker binary in that image.
 docker volume create "${preview_volume}" >/dev/null
-docker run --detach --name "${preview_container}" \
+docker run --pull never --detach --name "${preview_container}" \
   --mount "type=volume,source=${preview_volume},target=/usr/share/nginx" \
   "${PREVIEW_IMAGE}" >/dev/null
 
-if ! docker run --rm \
+if ! docker run --pull never --rm \
   --network "container:${preview_container}" \
   -e RELATIVE_PREFIX \
   -e SOURCE_DIRECTORY \

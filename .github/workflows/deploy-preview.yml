@@ -486,11 +486,36 @@ jobs:
             printf 'source_directory=%s\n' "source-files/${SOURCE_DIRECTORY}" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Log in to Google Artifact Registry
+      - name: Authenticate to GAR for the preview image
+        id: gcloud-auth-preview-check
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          token_format: access_token
+          workload_identity_provider: projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider
+          service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
+          create_credentials_file: false
+
+      - name: Log in to GAR for the preview image
+        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
+        with:
+          registry: us-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.gcloud-auth-preview-check.outputs.access_token }}
+
+      - name: Pull the immutable preview image
+        env:
+          PREVIEW_IMAGE: ${{ needs.build-website.outputs.preview_image }}
+        run: docker pull "${PREVIEW_IMAGE}"
+
+      - name: Log in to production GAR for the link checker
+        if: contains(env.LINK_CHECKER_IMAGE, 'grafanalabs-global')
         uses: grafana/shared-workflows/actions/login-to-gar@974c33049d0967c5c9cfc249fe675daf341dc78f # v0.4.0
         with:
           registry: us-docker.pkg.dev
           environment: prod
+
+      - name: Pull the link checker image
+        run: docker pull "${LINK_CHECKER_IMAGE}"
 
       - name: Determine changed files and compare complete front matter
         shell: bash
@@ -499,7 +524,7 @@ jobs:
           PR_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ inputs.event_number }}
         run: |
-          docker run --rm \
+          docker run --pull never --rm \
             -e GH_TOKEN \
             -e SOURCE_DIRECTORY \
             -e SOURCES \
@@ -550,7 +575,7 @@ jobs:
           BROKEN_LINKS_COMMENT_EXISTS: ${{ steps.broken-links-comment.outputs.comment-id != '' }}
           PREVIEW_BASE_URL: ${{ needs.deploy-preview.outputs.preview-url }}
         run: |
-          docker run --rm \
+          docker run --pull never --rm \
             -e BRANCH="${PR_BRANCH}" \
             -e RELATIVE_PREFIX \
             -e SOURCE_DIRECTORY \

@@ -387,6 +387,15 @@ jobs:
           URL: ${{ steps.deploy.outputs.url }}
         run: ./deploy-preview-files/deploy-preview/urls
 
+      - name: Generate deploy preview comment metadata
+        id: deploy-preview-comment
+        shell: bash
+        env:
+          SHA: ${{ inputs.sha }}
+        run: |
+          printf 'short_sha=%.7s\n' "${SHA}" >> "${GITHUB_OUTPUT}"
+          printf 'timestamp=%s\n' "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> "${GITHUB_OUTPUT}"
+
       - name: Create comment with available deploy preview
         if: inputs.website_directory && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
@@ -394,6 +403,9 @@ jobs:
           issue-number: ${{ env.EVENT_NUMBER }}
           body: |
             :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
+
+            Questions? Ask in [#docs-platform](https://grafanalabs.enterprise.slack.com/archives/C07R2REUULS). ([`${{ steps.deploy-preview-comment.outputs.short_sha }}`](https://github.com/grafana/${{ inputs.repo }}/commit/${{ inputs.sha }}))
+            Generated at: `${{ steps.deploy-preview-comment.outputs.timestamp }}`.
 
       - name: Create comment with available deploy preview
         if: "!inputs.website_directory && steps.fc.outputs.comment-id == ''"
@@ -403,6 +415,9 @@ jobs:
           body: |
             :computer: Deploy preview available (${{ inputs.title }}):
             ${{ steps.urls.outputs.urls }}
+
+            Questions? Ask in [#docs-platform](https://grafanalabs.enterprise.slack.com/archives/C07R2REUULS). ([`${{ steps.deploy-preview-comment.outputs.short_sha }}`](https://github.com/grafana/${{ inputs.repo }}/commit/${{ inputs.sha }}))
+            Generated at: `${{ steps.deploy-preview-comment.outputs.timestamp }}`.
 
       - name: Update comment with available deploy preview
         if: inputs.website_directory && steps.fc.outputs.comment-id != ''
@@ -414,6 +429,9 @@ jobs:
           body: |
             :computer: Deploy preview available (${{ inputs.title }}): ${{ steps.deploy.outputs.url }}${{ env.RELATIVE_PREFIX }}
 
+            Questions? Ask in [#docs-platform](https://grafanalabs.enterprise.slack.com/archives/C07R2REUULS). ([`${{ steps.deploy-preview-comment.outputs.short_sha }}`](https://github.com/grafana/${{ inputs.repo }}/commit/${{ inputs.sha }}))
+            Generated at: `${{ steps.deploy-preview-comment.outputs.timestamp }}`.
+
       - name: Update comment with available deploy preview
         if: "!inputs.website_directory && steps.fc.outputs.comment-id != ''"
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
@@ -424,6 +442,9 @@ jobs:
           body: |
             :computer: Deploy preview available (${{ inputs.title }}):
             ${{ steps.urls.outputs.urls }}
+
+            Questions? Ask in [#docs-platform](https://grafanalabs.enterprise.slack.com/archives/C07R2REUULS). ([`${{ steps.deploy-preview-comment.outputs.short_sha }}`](https://github.com/grafana/${{ inputs.repo }}/commit/${{ inputs.sha }}))
+            Generated at: `${{ steps.deploy-preview-comment.outputs.timestamp }}`.
 
   check-links:
     permissions:

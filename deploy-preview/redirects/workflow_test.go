@@ -77,6 +77,15 @@ func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testi
 	if strings.Contains(workflow, "gh api --paginate") || strings.Contains(workflow, "name: Determine changed files\n") {
 		t.Error("the workflow must leave pull request file collection to the changes command")
 	}
+	if got := strings.Count(workflow, "Questions? Ask in [#docs-platform]"); got != 4 {
+		t.Errorf("deploy-preview comment footer count = %d, want 4 create/update variants", got)
+	}
+	if got := strings.Count(workflow, "Generated at: `${{ steps.deploy-preview-comment.outputs.timestamp }}`."); got != 4 {
+		t.Errorf("deploy-preview UTC timestamp count = %d, want 4 create/update variants", got)
+	}
+	if !strings.Contains(workflow, "date -u '+%Y-%m-%d %H:%M:%S UTC'") {
+		t.Error("deploy-preview comment timestamp must be generated explicitly in UTC")
+	}
 }
 
 func TestCheckLinksRunsPublishedCheckerBesidePreview(t *testing.T) {

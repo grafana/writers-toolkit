@@ -2,7 +2,7 @@ module github.com/grafana/writers-toolkit/tools
 
 go 1.26.0
 
-toolchain go1.26.6
+toolchain go1.27.0
 
 require (
 	github.com/BurntSushi/toml v1.6.0

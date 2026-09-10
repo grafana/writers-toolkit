@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+: "${PREVIEW_IMAGE:?PREVIEW_IMAGE must name the immutable deploy preview image}"
+: "${LINK_CHECKER_IMAGE:?LINK_CHECKER_IMAGE must name the published link checker image}"
+: "${GITHUB_WORKSPACE:?GITHUB_WORKSPACE must name the workflow workspace}"
+
+suffix="${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT:-0}-$$"
+preview_container="docs-preview-link-checker-${suffix}"
+preview_volume="docs-preview-link-checker-${suffix}"
+
+cleanup() {
+  docker rm --force "${preview_container}" >/dev/null 2>&1 || true
+  docker volume rm --force "${preview_volume}" >/dev/null 2>&1 || true
+}
+trap cleanup EXIT
+
+# Mounting an empty named volume over /usr/share/nginx initializes it from the
+# immutable preview image. Both containers then read the exact artifact that is
+# deployed to Cloud Run, without putting the checker binary in that image.
+docker volume create "${preview_volume}" >/dev/null
+docker run --pull never --detach --name "${preview_container}" \
+  --mount "type=volume,source=${preview_volume},target=/usr/share/nginx" \
+  "${PREVIEW_IMAGE}" >/dev/null
+
+if ! docker run --pull never --rm \
+  --network "container:${preview_container}" \
+  -e RELATIVE_PREFIX \
+  -e SOURCE_DIRECTORY \
+  -e SOURCES \
+  --mount "type=volume,source=${preview_volume},target=/usr/share/nginx,readonly" \
+  --mount "type=bind,source=${GITHUB_WORKSPACE},target=/work" \
+  --workdir /work \
+  "${LINK_CHECKER_IMAGE}" \
+  check \
+  -existing-server \
+  -nginx-port 80 \
+  -dist-root /usr/share/nginx/dist \
+  -changed-files-json /work/changed-files.json \
+  -output /work/links.json; then
+  docker logs "${preview_container}" || true
+  exit 1
+fi

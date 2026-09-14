@@ -9,6 +9,7 @@ local word = import './word.jsonnet';
   word.new('CLA', '', 'noun') { abbreviation: true, elaboration: 'Contributor License Agreement' },
   word.new('clear', 'S', 'verb') { swaps: { 'un(?:check|select)': 'clear' } },
   word.new('CLI', '', 'noun') { abbreviation: true, established_abbreviation: true },
+  word.new('Clickhouse', '', 'noun') { product: true, description: 'https://clickhouse.com/' },
   word.new('clickjack', 'DSG', 'noun') { description: 'A type of attack where a malicious website tricks a user into clicking on a hidden element on another website' },
   word.new('CloudWatch', '', 'noun') { Amazon: true, product: true },
   word.new('CLS', '', 'noun') { abbreviation: true, elaboration: 'Cumulative Layout Shift' },

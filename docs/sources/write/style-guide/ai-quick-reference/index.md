@@ -82,7 +82,9 @@ If you can't verify a claim, mark it `[UNVERIFIED]` rather than guessing.
 
 <!-- vale Grafana.WordList = NO -->
 <!-- vale Grafana.SelfManaged = NO -->
+<!-- vale Grafana.Spelling = NO -->
 - Follow Grafana preferred terms. For example, use "data source" (not "datasource"), "self-managed" (not "self-hosted"), and "allowlist"/"blocklist" (not "whitelist"/"blacklist"). For the full list, refer to [Word list](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/).
+<!-- vale Grafana.Spelling = YES -->
 <!-- vale Grafana.SelfManaged = YES -->
 <!-- vale Grafana.WordList = YES -->
 - Use `<VARIABLE_NAME>` in code blocks and _VARIABLE_NAME_ in prose.

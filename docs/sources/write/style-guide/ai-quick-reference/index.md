@@ -5,7 +5,11 @@ description: Concise style rules for AI agents and LLM-powered documentation ski
 weight: 700
 ---
 
+<!-- vale Grafana.Headings = NO -->
+
 # AI quick reference
+
+<!-- vale Grafana.Headings = YES -->
 
 This page is a concise reference for AI agents writing or reviewing Grafana documentation.
 It summarizes the [style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/) and the [Google developer documentation style guide](https://developers.google.com/style).
@@ -32,7 +36,9 @@ If you can't verify a claim, mark it `[UNVERIFIED]` rather than guessing.
 
 - Write in second person, active voice, and present tense.
 - Use contractions: "isn't", "don't", "you're."
+<!-- vale Grafana.Simple = NO -->
 - Be confident, not boastful. Avoid "easy", "simple", "just", and marketing clichés.
+<!-- vale Grafana.Simple = YES -->
 - Prefer positive framing over negative.
 - Follow "Every Page is Page One": each page stands on its own.
 - Define or plainly describe a term before you use it; don't assume the reader knows Grafana jargon.
@@ -40,7 +46,9 @@ If you can't verify a claim, mark it `[UNVERIFIED]` rather than guessing.
 ## Sentences and paragraphs
 
 - Prefer short sentences and paragraphs.
+<!-- vale Grafana.WordList = NO -->
 - Cut filler: "there is", "there are", "in order to", "it is important to."
+<!-- vale Grafana.WordList = YES -->
 - Don't use lists as a substitute for paragraphs.
 
 ## Capitalization and punctuation
@@ -62,17 +70,21 @@ If you can't verify a claim, mark it `[UNVERIFIED]` rather than guessing.
 - Match UI casing exactly.
 - Write navigation paths with `>`: "Go to **Alerting** > **Notification policies**."
 - Capitalize roles as adjectives; don't bold them.
-- Use code formatting for file names, config options, CLI commands, and status codes.
+- Use code formatting for filenames, configuration options, CLI commands, and status codes.
 
 ## Links
 
-- Use the exact title of the linked page as link text — not "click here" or "this file."
+- Use the exact title of the linked page as link text, not "click here" or "this file."
 - Use "refer to," not "see," "check out," or "consult."
 - Use relative links for internal pages. End links in `/`, not `.md`.
 
 ## Word list and conventions
 
-- Follow Grafana's preferred terms — for example, "data source" (not "datasource"), "self-managed" (not "self-hosted"), and "allowlist"/"blocklist" (not "whitelist"/"blacklist"). For the full list, refer to [Word list](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/).
+<!-- vale Grafana.WordList = NO -->
+<!-- vale Grafana.SelfManaged = NO -->
+- Follow Grafana preferred terms. For example, use "data source" (not "datasource"), "self-managed" (not "self-hosted"), and "allowlist"/"blocklist" (not "whitelist"/"blacklist"). For the full list, refer to [Word list](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/).
+<!-- vale Grafana.SelfManaged = YES -->
+<!-- vale Grafana.WordList = YES -->
 - Use `<VARIABLE_NAME>` in code blocks and _VARIABLE_NAME_ in prose.
 - Write for an international audience: avoid idioms and directional language such as "on the left."
 

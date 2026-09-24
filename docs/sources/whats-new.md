@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## September 2026
+
+| New guidance or change | Page |
+| ---------------------- | ---- |
+| Added AI quick reference for LLM-powered documentation skills | [AI quick reference](/docs/writers-toolkit/write/style-guide/ai-quick-reference/) |
+
 ## April 2026
 
 | New guidance or change                | Page                                                                   |

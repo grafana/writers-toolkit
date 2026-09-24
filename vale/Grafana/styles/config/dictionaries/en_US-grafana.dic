@@ -1,4 +1,4 @@
-415
+416
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -53,6 +53,7 @@ checkbox/S po:noun
 CLA/ po:noun
 clear/S po:verb
 CLI/ po:noun
+ClickHouse/ po:noun
 clickjack/DSG po:noun
 CloudWatch/ po:noun
 CLS/ po:noun

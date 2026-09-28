@@ -18,7 +18,7 @@ require (
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/goccy/go-yaml v1.19.2 // indirect
-	github.com/gohugoio/hashstructure v1.0.0 // indirect
+	github.com/gohugoio/hashstructure v1.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/niklasfasching/go-org v1.9.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.4.3 // indirect

@@ -10,7 +10,7 @@ RUN GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" go build -o filter-sarif ./cmd/fil
 RUN mv filter-sarif /out
 
 ################################################################################
-FROM jdkato/vale:v3.8.0@sha256:a744bc4f8164bceab6bda0fad6253dcd9cdab2365b437aa5e08fe4f07d6e3357
+FROM jdkato/vale:v3.23.0@sha256:d87d6355dc8992f92ec39c4c862a388e56e30302a771fd4512c02660fb25cdf3
 
 COPY --from=filter-sarif /out/filter-sarif /bin
 

@@ -122,6 +122,31 @@ func TestCheckLinksRunsPublishedCheckerBesidePreview(t *testing.T) {
 	}
 }
 
+func TestBuildScriptMergesMountedSourcesIntoDocsBaseTree(t *testing.T) {
+	content, err := os.ReadFile("../build")
+	if err != nil {
+		t.Fatal(err)
+	}
+	build := string(content)
+
+	required := []string{
+		"source_mount_pairs=()",
+		"source_mount_pairs+=(\"/overlay-sources/${source_index}:",
+		"for pair in ${source_mount_pairs[@]}; do",
+		`cp -a "\${source_mount}/." "\${dst}/"`,
+		"--volume=${PWD}/${directory}/${resolved_source_directory}:/overlay-sources/${source_index}:z",
+	}
+	for _, fragment := range required {
+		if !strings.Contains(build, fragment) {
+			t.Errorf("build script missing source overlay contract fragment %q", fragment)
+		}
+	}
+
+	if strings.Contains(build, "--volume=${PWD}/${directory}/${resolved_source_directory}:/hugo/${website_directory}:z") {
+		t.Error("build script must not mount source directories directly over /hugo destinations")
+	}
+}
+
 func TestDeployPreviewImageContainsGeneratedRedirects(t *testing.T) {
 	dockerfile, err := os.ReadFile("../Dockerfile")
 	if err != nil {

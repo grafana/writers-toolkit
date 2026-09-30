@@ -26,6 +26,7 @@
   - "ClickHouse"
   - "CloudWatch"
   - "Codespaces"
+  - "containerd"
   - "CPython"
   - "Data Firehose"
   - "Databricks"
@@ -358,4 +359,4 @@
 
   If your heading contains capitalized words that represent product names, you need to add those words to the Grafana dictionary or the list of static exceptions in https://github.com/grafana/writers-toolkit/blob/main/vale/Headings.jsonnet for them to be considered correctly cased.
 "scope": "heading"
-"threshold": 0.3
+"threshold": 0.29999999999999999

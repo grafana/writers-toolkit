@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2026-09-16"
+review_date: "2026-09-30"
 title: Vale rules
 ---
 
@@ -818,6 +818,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `ClickHouse's`
 - `CloudWatch's`
 - `Codespaces'`
+- `containerd's`
 - `CPython's`
 - `Data Firehose's`
 - `Databricks'`
@@ -1125,6 +1126,8 @@ Use _`<REPLACEMENT TEXT>`_ instead of _`<CURRENT TEXT>`_.
 | `content type`                                                    | `media type`               |
 | `data-?source`                                                    | `data source`              |
 | `data-?sources`                                                   | `data sources`             |
+| `data-?store`                                                     | `data store`               |
+| `data-?stores`                                                    | `data stores`              |
 | `data[- ]?set`                                                    | `dataset`                  |
 | `data[- ]?sets`                                                   | `datasets`                 |
 | `datacenter`                                                      | `data center`              |

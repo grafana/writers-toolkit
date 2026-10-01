@@ -1,2 +1,5 @@
 packages:
   - vale-action
+
+overrides:
+  undici: 6.28.1

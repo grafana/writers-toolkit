@@ -7,7 +7,7 @@
     "@octokit/plugin-rest-endpoint-methods": "18.0.0",
     "@types/node": "24.19.0",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "typescript": "7.0.2"
   },
   "engines": {
     "node": ">=22",

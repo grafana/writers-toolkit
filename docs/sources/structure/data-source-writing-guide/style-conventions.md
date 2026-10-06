@@ -46,7 +46,32 @@ For more guidance, refer to [Heading don'ts](https://grafana.com/docs/writers-to
 - Use uppercase with angle brackets for placeholders, such as `<YOUR_ENDPOINT_URL>`, and explain them after the code block.
 - Use dashes (`-`) for unordered lists and `1.` for every item in an ordered list.
 - Use tables for settings and options. Bold the setting name in the first column and include defaults when applicable.
-- Use admonitions sparingly, only for exceptional information. The available types are `note`, `caution`, and `warning`.
+
+## Admonitions
+
+Use the `admonition` shortcode to call out exceptional information, such as a prerequisite, a side effect, or a risk of data loss.
+Use admonitions sparingly.
+If every paragraph is an admonition, none of them stand out.
+
+Place the type in quotes and put the content between the opening and closing tags:
+
+```markdown
+{{</* admonition type="note" */>}}
+Not every data source supports every feature.
+Confirm which features a data source supports by checking `plugin.json`.
+{{</* /admonition */>}}
+```
+
+Choose the type that matches the information:
+
+| Type      | Use for                                                                                   |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `note`    | Supplementary information the reader shouldn't miss, such as a prerequisite or a default. |
+| `tip`     | Optional, helpful advice that isn't essential to the task.                                |
+| `caution` | An action that can have unintended consequences, such as changing a shared setting.       |
+| `warning` | An action that can cause data loss, downtime, or a security risk.                         |
+
+For the full syntax and parameters, refer to [Admonition](https://grafana.com/docs/writers-toolkit/write/shortcodes/#admonition).
 
 ## Preferred spellings
 

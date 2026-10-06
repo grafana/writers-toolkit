@@ -17,6 +17,8 @@ Data source documentation follows the same conventions as the rest of Grafana do
 This page summarizes the conventions you use most often and adds notes specific to data sources.
 For complete guidance, refer to the [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/).
 
+If you use an AI assistant to draft or review documentation, refer to the [AI quick reference](https://grafana.com/docs/writers-toolkit/write/style-guide/ai-quick-reference/) for a concise set of style rules written for AI agents and documentation skills.
+
 ## Headings
 
 - Use sentence case. Capitalize only the first word and proper nouns. Write "Configure authentication settings", not "Configure Authentication Settings".

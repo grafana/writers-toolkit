@@ -6,7 +6,7 @@ keywords:
   - plugin
   - maintenance
 menuTitle: Maintain and update
-review_date: "2027-09-04"
+review_date: "2027-10-06"
 title: Maintain and update data source documentation
 weight: 400
 ---

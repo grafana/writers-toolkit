@@ -6,7 +6,7 @@ keywords:
   - plugin
   - checklist
 menuTitle: Checklists
-review_date: "2027-09-04"
+review_date: "2027-10-06"
 title: Data source documentation checklists
 weight: 500
 ---

@@ -6,7 +6,7 @@ keywords:
   - plugin
   - documentation structure
 menuTitle: Data sources writing guide
-review_date: "2027-09-04"
+review_date: "2027-10-06"
 title: Data sources writing guide
 weight: 500
 ---

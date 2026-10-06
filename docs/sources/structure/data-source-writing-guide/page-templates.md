@@ -6,7 +6,7 @@ keywords:
   - plugin
   - templates
 menuTitle: Page templates
-review_date: "2027-09-04"
+review_date: "2027-10-06"
 title: Data source page templates
 weight: 200
 ---

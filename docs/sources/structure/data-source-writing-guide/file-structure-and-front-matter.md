@@ -7,7 +7,7 @@ keywords:
   - front matter
   - links
 menuTitle: File structure and front matter
-review_date: "2027-09-04"
+review_date: "2027-10-06"
 title: File structure and front matter
 weight: 100
 ---

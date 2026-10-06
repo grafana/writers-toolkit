@@ -52,7 +52,7 @@ if [[ -n "${sources}" ]]; then
                 "ref": "main",
                 "source_directory": "docs/sources",
                 "website_directory": $gcx_website_directory,
-                "relative_prefix": "/docs/grafana/" + $target + "/as-code/observability-as-code/grafana-cli/gcx/"
+                "relative_prefix": ("/docs/grafana/" + $target + "/as-code/observability-as-code/grafana-cli/gcx/")
               }
             ]
           end

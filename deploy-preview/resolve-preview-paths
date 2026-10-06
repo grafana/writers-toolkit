@@ -28,38 +28,14 @@ fi
 sources="${BASE_SOURCES}"
 
 if [[ -n "${sources}" ]]; then
-  sources="$(jq -c --arg target "${target}" '
-    def rewrite_trailing_target:
-      if (((.website_directory // "") | sub("/$"; "")) | test("(^|/)(next|latest)$")) then
-        .website_directory |= ((. // "") | sub("/$"; "") | sub("/(next|latest)$"; "/" + $target))
-        | .relative_prefix |= if . == null or . == "" then . else ((. | sub("/$"; "") | sub("/(next|latest)$"; "/" + $target)) + "/") end
-      else
-        .
-      end;
-
-    (map(rewrite_trailing_target)) as $mapped
-    | if any($mapped[]; (.repo // "") == "grafana"
-        and (.source_directory // "") == "docs/sources"
-        and (((.website_directory // "") | sub("/$"; "")) | test("^content/docs/grafana/(next|latest)$"))) then
-        ("content/docs/grafana/" + $target + "/as-code/observability-as-code/grafana-cli/gcx") as $gcx_website_directory
-        | if any($mapped[]; (.repo // "") == "gcx"
-            and ((.website_directory // "") | sub("/$"; "")) == $gcx_website_directory) then
-            $mapped
-          else
-            $mapped + [
-              {
-                "repo": "gcx",
-                "ref": "main",
-                "source_directory": "docs/sources",
-                "website_directory": $gcx_website_directory,
-                "relative_prefix": ("/docs/grafana/" + $target + "/as-code/observability-as-code/grafana-cli/gcx/")
-              }
-            ]
-          end
-      else
-        $mapped
-      end
-  ' <<<"${sources}")"
+  sources="$(jq -c --arg target "${target}" 'map(
+    if (((.website_directory // "") | sub("/$"; "")) | test("(^|/)(next|latest)$")) then
+      .website_directory |= ((. // "") | sub("/$"; "") | sub("/(next|latest)$"; "/" + $target))
+      | .relative_prefix |= if . == null or . == "" then . else ((. | sub("/$"; "") | sub("/(next|latest)$"; "/" + $target)) + "/") end
+    else
+      .
+    end
+  )' <<<"${sources}")"
 fi
 
 echo "sources=${sources}" >> "${GITHUB_OUTPUT}"

@@ -120,6 +120,7 @@ For more detailed guidance from the Grafana [Style guide](https://grafana.com/do
 
 - [Write for developers](https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/): How to write for software developers and engineers, the primary audience for data source documentation.
 - [UI elements list](https://grafana.com/docs/writers-toolkit/write/style-guide/ui-elements/): How to refer to UI elements, which configure and query editor pages use often.
+- [UX writing](https://grafana.com/docs/writers-toolkit/write/style-guide/ux-writing/): How to write UI text, such as tooltips and other microcopy.
 - [Security](https://grafana.com/docs/writers-toolkit/write/style-guide/security/): How to write about credentials, secrets, and authentication.
 - [Voice and tone guidelines](https://grafana.com/docs/writers-toolkit/write/style-guide/voice-tone-guidelines/): How to apply a consistent voice and tone.
 - [Capitalization and punctuation](https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/): Capitalization and punctuation rules.

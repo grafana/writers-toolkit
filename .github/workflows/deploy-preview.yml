@@ -9,6 +9,10 @@ on:
         default: grafana/docs-base:latest
         description: Container image to use for building the website.
         type: string
+      frontmatter_image:
+        default: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/frontmatter-validator:nightly
+        description: Frontmatter linter image. Override to test an image published from a website branch.
+        type: string
       # Legacy inputs
       # Don't forget to make `sources` required when you remove these.
       source_directory:
@@ -113,7 +117,7 @@ env:
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
   LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:nightly
-  FRONTMATTER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/frontmatter-validator:nightly
+  FRONTMATTER_IMAGE: ${{ inputs.frontmatter_image }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
@@ -712,7 +716,7 @@ jobs:
           fi
 
       - name: Log in to production GAR for the frontmatter linter
-        if: steps.sources.outputs.sources != '[]'
+        if: steps.sources.outputs.sources != '[]' && contains(env.FRONTMATTER_IMAGE, 'grafanalabs-global')
         uses: grafana/shared-workflows/actions/login-to-gar@974c33049d0967c5c9cfc249fe675daf341dc78f # v0.4.0
         with:
           registry: us-docker.pkg.dev

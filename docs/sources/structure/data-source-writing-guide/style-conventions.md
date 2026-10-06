@@ -24,6 +24,12 @@ If you use an AI assistant to draft or review documentation, refer to the [AI qu
 - Use sentence case. Capitalize only the first word and proper nouns. Write "Configure authentication settings", not "Configure Authentication Settings".
 - Don't use gerunds (-ing verbs). Use imperative verbs instead: "Configure authentication", not "Configuring authentication".
 - Don't place a heading directly after another heading. Always include at least one sentence of introductory content between a section heading and its first subheading.
+- Don't skip heading levels. After a `#` heading, use `##`, not `###`.
+- Don't use hyphens in headings.
+- Don't add parenthesized qualifiers such as (Important) to headings. The exception is (Optional).
+- Don't duplicate headings on a page. If you must reuse a heading, keep its meaning consistent.
+
+For more guidance, refer to [Heading don'ts](https://grafana.com/docs/writers-toolkit/write/markdown-guide/#heading-donts).
 
 ## Voice and word choice
 

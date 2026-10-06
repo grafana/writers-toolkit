@@ -19,9 +19,9 @@ Replace placeholders such as `<Data Source Name>`, `<plugin-id>`, and `<GRAFANA_
 
 Every example link uses the fully qualified form described in [File structure and front matter](https://grafana.com/docs/writers-toolkit/structure/data-source-writing-guide/file-structure-and-front-matter/).
 
-## Overview page (`_index.md`)
+## Overview page
 
-The overview page is the landing page users encounter first.
+The overview page, `_index.md`, is the landing page users encounter first.
 Keep it concise and focused on helping users get started.
 Go directly from supported features to "Get started" and "Additional features".
 Don't include marketing-style sections that list benefits.
@@ -88,9 +88,9 @@ On Grafana Cloud, the <Data Source Name> plugin is managed by Grafana and update
 - [Grafana community forum](https://community.grafana.com/)
 ```
 
-## Install and upgrade page (`install.md`)
+## Install and upgrade page
 
-Include a dedicated install and upgrade page for Enterprise data sources.
+Include a dedicated install and upgrade page, `install.md`, for Enterprise data sources.
 It covers activation, installation across deployment environments, verification, upgrade, rollback, and uninstall.
 Set `menuTitle: Installation` and a low `weight` so it sorts near the top.
 
@@ -112,9 +112,9 @@ Cover these sections on the install page:
 - **Uninstall the plugin:** Removal steps, and a note that existing configurations are preserved but become non-functional.
 - **Troubleshoot installation issues:** Activation, role, license, and unsigned-plugin errors.
 
-## Configure page (`configure.md`)
+## Configure page
 
-The Configure page is a comprehensive setup guide.
+The Configure page, `configure.md`, is a comprehensive setup guide.
 Use the following template:
 
 ````markdown
@@ -180,9 +180,9 @@ Refer to [Private data source connect (PDC)](https://grafana.com/docs/grafana-cl
 
 For a major data source, also include a Terraform example that references the Grafana Terraform Provider.
 
-## Query editor page (`query-editor.md`)
+## Query editor page
 
-The query editor page explains how to build and run queries.
+The query editor page, `query-editor.md`, explains how to build and run queries.
 Use the following template:
 
 ````markdown
@@ -241,9 +241,9 @@ Include both query examples and use cases.
 Query examples show how to configure fields step by step.
 Use cases show why and when to use a query, with real-world scenarios such as "Monitor DNS performance" that give users starting points for their own dashboards.
 
-## Template variables page (`template-variables.md`)
+## Template variables page
 
-The template variables page explains how to create dynamic, reusable dashboards.
+The template variables page, `template-variables.md`, explains how to create dynamic, reusable dashboards.
 Use the following template:
 
 ```markdown
@@ -283,9 +283,9 @@ To create a query variable:
 <Explain how to reference variables in data source queries.>
 ```
 
-## Annotations page (`annotations.md`)
+## Annotations page
 
-The annotations page describes how annotations work with the data source.
+The annotations page, `annotations.md`, describes how annotations work with the data source.
 Annotations are visual markers that provide context about specific events or time periods.
 They appear as vertical lines or regions on time-series charts.
 
@@ -299,11 +299,11 @@ Cover these sections:
 
 <!-- vale Grafana.Gerunds = NO -->
 
-## Alerting page (`alerting.md`)
+## Alerting page
 
 <!-- vale Grafana.Gerunds = YES -->
 
-The alerting page explains how to use the data source with Grafana Alerting.
+The alerting page, `alerting.md`, explains how to use the data source with Grafana Alerting.
 Cover these sections:
 
 - **Overview:** What Grafana Alerting is. Link to [Grafana Alerting](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/alerting/).
@@ -314,11 +314,11 @@ Cover these sections:
 
 <!-- vale Grafana.Gerunds = NO -->
 
-## Troubleshooting page (`troubleshooting.md`)
+## Troubleshooting page
 
 <!-- vale Grafana.Gerunds = YES -->
 
-The troubleshooting page helps users resolve issues before opening a support case.
+The troubleshooting page, `troubleshooting.md`, helps users resolve issues before opening a support case.
 Organize issues into logical categories.
 Common categories include:
 

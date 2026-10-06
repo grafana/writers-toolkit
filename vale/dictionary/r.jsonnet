@@ -24,4 +24,5 @@ local word = import './word.jsonnet';
   word.new('RSA', '', 'noun') { abbreviation: true, elaboration: 'Rivest–Shamir–Adleman', established_abbreviation: true },
   word.new('RudderStack', '', 'noun') { description: 'https://www.rudderstack.com/', product: true, swaps: { rudderstack: 'RudderStack', Rudderstack: 'RudderStack' } },
   word.new('runbook', 'S', 'noun'),
+  word.new('runtime', 'S', 'noun') { description: 'The environment that runs a program, for example, a container runtime' },
 ]

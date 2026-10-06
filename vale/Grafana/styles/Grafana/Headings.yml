@@ -23,6 +23,7 @@
   - "BoringCrypto"
   - "Catchpoint"
   - "CentOS"
+  - "ClickHouse"
   - "CloudWatch"
   - "Codespaces"
   - "CPython"

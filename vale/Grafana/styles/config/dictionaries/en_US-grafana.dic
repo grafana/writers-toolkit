@@ -1,4 +1,4 @@
-415
+421
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -53,6 +53,7 @@ checkbox/S po:noun
 CLA/ po:noun
 clear/S po:verb
 CLI/ po:noun
+ClickHouse/ po:noun
 clickjack/DSG po:noun
 CloudWatch/ po:noun
 CLS/ po:noun
@@ -63,6 +64,7 @@ comment/S po:noun
 comment/uDG po:verb
 composable/ po:adjective
 configure/mpDS po:verb
+containerd/ po:noun
 contentful/ po:adjective
 CORS/ po:noun
 Couchbase/M po:noun
@@ -75,6 +77,7 @@ CSV/S po:noun
 CVE/S po:noun
 data center/S po:noun
 data source/S po:noun
+data store/S po:noun
 datagram/S po:noun
 datagrid/S po:noun
 dataset/S po:noun
@@ -204,7 +207,7 @@ Lucene/ po:noun
 manage/uD po:verb
 Markdown/ po:noun
 Mapbox/ po:noun
-marshal/u po:verb
+marshal/uDG po:verb
 matcher/S po:noun
 media type/S po:noun
 memberlist/ po:noun
@@ -298,6 +301,7 @@ RPM/ po:noun
 RSA/ po:noun
 RudderStack/ po:noun
 runbook/S po:noun
+runtime/S po:noun
 sandbox/DG po:verb
 scattergram/MS po:noun
 scheduler/MS po:noun
@@ -331,6 +335,8 @@ SSH/ po:noun
 SSL/ po:noun
 SSO/ po:noun
 Statuspage/ po:noun
+stderr/ po:noun
+stdout/ po:noun
 stylesheet/S po:noun
 subchart/S po:noun
 subfolder/S po:noun

@@ -4,8 +4,8 @@
   "devDependencies": {
     "@actions/core": "3.0.1",
     "@actions/github": "9.1.1",
-    "@octokit/plugin-rest-endpoint-methods": "17.0.0",
-    "@types/node": "24.13.3",
+    "@octokit/plugin-rest-endpoint-methods": "18.0.0",
+    "@types/node": "24.19.1",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   },
@@ -21,5 +21,5 @@
     "test": "node --require ts-node/register --test suggestion.test.ts"
   },
   "version": "1.0.0",
-  "packageManager": "pnpm@11.24.0"
+  "packageManager": "pnpm@12.9.0"
 }

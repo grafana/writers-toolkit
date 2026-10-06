@@ -113,3 +113,16 @@ When you document permissions, authentication, or platform-specific concepts:
 - Use the exact terminology from the external platform's UI. Users look at both docs at the same time.
 - Include the navigation path users follow in the external platform, such as "In the Cloudflare dashboard, navigate to **My Profile** > **API Tokens**".
 - Format permissions as users see them in the external platform.
+
+## Related resources
+
+For more detailed guidance from the Grafana [Style guide](https://grafana.com/docs/writers-toolkit/write/style-guide/), refer to the following pages:
+
+- [Write for developers](https://grafana.com/docs/writers-toolkit/write/style-guide/write-for-developers/): How to write for software developers and engineers, the primary audience for data source documentation.
+- [UI elements list](https://grafana.com/docs/writers-toolkit/write/style-guide/ui-elements/): How to refer to UI elements, which configure and query editor pages use often.
+- [Security](https://grafana.com/docs/writers-toolkit/write/style-guide/security/): How to write about credentials, secrets, and authentication.
+- [Voice and tone guidelines](https://grafana.com/docs/writers-toolkit/write/style-guide/voice-tone-guidelines/): How to apply a consistent voice and tone.
+- [Capitalization and punctuation](https://grafana.com/docs/writers-toolkit/write/style-guide/capitalization-punctuation/): Capitalization and punctuation rules.
+- [Inclusive writing](https://grafana.com/docs/writers-toolkit/write/style-guide/inclusive-writing/): How to write inclusively.
+- [Word list](https://grafana.com/docs/writers-toolkit/write/style-guide/word-list/): Preferred terms and spellings.
+- [AI quick reference](https://grafana.com/docs/writers-toolkit/write/style-guide/ai-quick-reference/): Concise style rules for AI agents and documentation skills.

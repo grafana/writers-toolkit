@@ -203,26 +203,13 @@ else
     tempfile="$(mktemp -t deploy-preview.XXX)"
     # Pull out the relevant fields from the JSON because the grafana/docs-base image doesn't have jq.
     index_files=()
-    source_mount_pairs=()
-    source_index=0
-    while IFS='|' read -r index_file relative_prefix website_directory; do
+    while read -r index_file relative_prefix; do
       if [[ "${index_file}" != 'null' ]]; then
         index_files+=("${index_file}:${relative_prefix}")
       fi
-      source_mount_pairs+=("/overlay-sources/${source_index}:${website_directory}")
-      ((source_index += 1))
-    done < <(jq -r '.[] | [(.index_file // ""), (.relative_prefix // ""), (.website_directory // "")] | join("|")' <<<"${SOURCES}")
+    done < <(jq -r '.[] | "\(.index_file) \(.relative_prefix)"' <<<"${SOURCES}")
     cat <<EOSCRIPT >"${tempfile}"
 #!/usr/bin/env bash
-
-# Merge sources into docs-base content so source mounts do not hide mounted
-# directories that already exist in the image.
-for pair in ${source_mount_pairs[@]}; do
-  IFS=':' read -r source_mount website_directory <<<"\${pair}"
-  dst="/hugo/\${website_directory}"
-  mkdir -p "\${dst}"
-  cp -a "\${source_mount}/." "\${dst}/"
-done
 
 # Create an index file to redirect a project root to the correct versioned URL.
 for pair in ${index_files[@]}; do
@@ -269,16 +256,15 @@ EOSCRIPT
       "--volume=${tempfile}:/entrypoint:z"
       "--volume=${WHATS_NEW_DIR}:/hugo/content/whats-new:z"
     )
-    source_index=0
     # Fields are joined with '|' rather than a tab because bash treats tab as
     # IFS whitespace and collapses empty fields, which shifts subsequent
     # variables when .ref is absent from a source entry.
-    while IFS='|' read -r repo ref source_directory; do
+    while IFS='|' read -r repo ref source_directory website_directory; do
       directory="$(checkout_directory "${repo}" "${ref}")"
+      # Resolve <LATEST> placeholder in source_directory
       resolved_source_directory=$(resolve_latest_placeholder "${source_directory}" "${PWD}/${directory}")
-      volumes+=("--volume=${PWD}/${directory}/${resolved_source_directory}:/overlay-sources/${source_index}:z")
-      ((source_index += 1))
-    done < <(jq -r '.[] | [(.repo // ""), (.ref // ""), (.source_directory // "")] | join("|")' <<<"${SOURCES}")
+      volumes+=("--volume=${PWD}/${directory}/${resolved_source_directory}:/hugo/${website_directory}:z")
+    done < <(jq -r '.[] | [(.repo // ""), (.ref // ""), (.source_directory // ""), (.website_directory // "")] | join("|")' <<<"${SOURCES}")
   }
 
   # Prepare the command to run the container.

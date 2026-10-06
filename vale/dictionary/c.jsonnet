@@ -20,6 +20,7 @@ local word = import './word.jsonnet';
   word.new('comment', 'uDG', 'verb'),
   word.new('composable', '', 'adjective'),
   word.new('configure', 'mpDS', 'verb'),
+  word.new('containerd', '', 'noun') { description: 'https://containerd.io/', product: true },
   word.new('contentful', '', 'adjective') { description: 'Having content. Used in Web Vital metrics, such as Largest Contentful Paint: https://web.dev/articles/lcp' },
   word.new('CORS', '', 'noun') { abbreviation: true, established_abbreviation: true, description: 'Cross-origin resource sharing. Allows a web page to access restricted resources from a server on a domain different than the domain that served the web page.' },
   word.new('Couchbase', 'M', 'noun'),

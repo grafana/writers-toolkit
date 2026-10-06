@@ -20,6 +20,9 @@ Grafana offers hundreds of data sources.
 Some are maintained by Grafana Labs, and others are maintained by Grafana Champions, partners, or community contributors.
 This guide gives you a consistent structure and set of conventions so that every data source's documentation feels cohesive, no matter who writes it.
 
+This guide covers what's specific to data sources.
+For everything else, such as voice and tone, Markdown, shortcodes, front matter, media, and the review process, refer to the rest of the [Writers' Toolkit](https://grafana.com/docs/writers-toolkit/).
+
 ## Document every data source as a standalone plugin
 
 Grafana data sources are moving to standalone plugin repositories, and core data sources are following the same path.

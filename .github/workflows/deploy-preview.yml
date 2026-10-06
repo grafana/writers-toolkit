@@ -569,6 +569,26 @@ jobs:
         run: |
           ./deploy-preview-files/deploy-preview/check-links
 
+      - name: Normalize next links for attribution parity
+        shell: bash
+        run: |
+          jq '
+            map(
+              .links |= map(
+                if ((.url // "") | test("/docs/grafana/next/")) then
+                  .raw = (
+                    (.url
+                      | sub("^http://127\\.0\\.0\\.1:[0-9]+"; "https://grafana.com")
+                      | sub("^http://localhost:[0-9]+"; "https://grafana.com")
+                      | sub("/docs/grafana/next/"; "/docs/grafana/<GRAFANA_VERSION>/"))
+                  )
+                else
+                  .
+                end
+              )
+            )
+          ' links.json > links-for-comment.json
+
       # Find any existing broken-links comment before generating the body so the
       # generator knows whether to emit a "resolved" body once all broken links
       # are fixed, and so the create/update steps can target the comment. This
@@ -606,7 +626,7 @@ jobs:
             -w /work \
             "${LINK_CHECKER_IMAGE}" \
             comment \
-            -links links.json \
+            -links links-for-comment.json \
             -changed-files-json changed-files.json \
             -output broken-links-comment.md \
             -repo "${PR_REPO}" \

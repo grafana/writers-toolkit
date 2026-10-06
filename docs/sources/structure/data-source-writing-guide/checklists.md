@@ -32,8 +32,9 @@ Use these checklists when you create or review data source documentation.
 - [ ] Aliases added for any renamed or moved pages.
 - [ ] Plugin version in the documentation matches the current version in `CHANGELOG.md`.
 - [ ] Links use the fully qualified form. No `refs:` section, relative links, or `.md` links.
-- [ ] No gerunds in headings.
+- [ ] Headings use sentence case and no gerunds.
 - [ ] Intro content between all headings.
+- [ ] Preferred spellings used consistently, such as `data source`, `time series`, and `drop-down`.
 - [ ] Key concepts table on the Configure page for platform-specific authentication terminology.
 - [ ] Key concepts table on the Query editor page for platform-specific query terminology.
 - [ ] Enterprise plugin note included for Enterprise data sources, specifying "Pro or Advanced" and not the free tier.
@@ -46,6 +47,7 @@ Use these checklists when you create or review data source documentation.
 - [ ] Terraform example included, for major data sources.
 - [ ] Screenshots added with the figure shortcode and captions.
 - [ ] Query examples with realistic use cases.
+- [ ] Query code blocks use the correct language tag, such as `promql`, `logql`, or `sql`.
 - [ ] Use cases section for real-world scenarios.
 - [ ] Macros documented, if applicable.
 

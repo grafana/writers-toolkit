@@ -113,6 +113,7 @@ env:
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
   LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:nightly
+  FRONTMATTER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/frontmatter-validator:nightly
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
@@ -656,6 +657,128 @@ jobs:
         shell: bash
         run: |
           echo "Broken links were introduced by this PR." >&2
+          exit 1
+
+  check-frontmatter:
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    # Run independently of Hugo so invalid frontmatter can still be reported.
+    # Interactive tutorials generate their Markdown from JSON and YAML.
+    if: (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled') && inputs.build_script != 'build-interactive-tutorials'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source files
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ inputs.sha }}
+          path: source-files
+          persist-credentials: false
+
+      - name: Check out deploy preview helpers
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: grafana/writers-toolkit
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          path: deploy-preview-files
+          persist-credentials: false
+          sparse-checkout: deploy-preview
+
+      - name: Resolve frontmatter sources
+        id: sources
+        shell: bash
+        env:
+          TARGET_REF_NAME: ${{ github.event.pull_request.base.ref }}
+        run: |
+          if [[ -n "${WEBSITE_DIRECTORY}" ]]; then
+            BASE_SOURCES="$(jq -cn --arg source "${SOURCE_DIRECTORY}" --arg target "${WEBSITE_DIRECTORY}" \
+              '[{source_directory: $source, website_directory: $target}]')"
+            echo "sources=${BASE_SOURCES}" >> "${GITHUB_OUTPUT}"
+          else
+            # Only the caller's PR sources are present in this checkout. Explicit
+            # refs and other repositories are separate preview dependencies.
+            BASE_SOURCES="$(jq -c --arg repo "${REPO}" --arg sha "${SHA}" \
+              'map(select((.repo == null or .repo == $repo) and ((.ref // "") == "" or .ref == $sha)))' \
+              <<< "${SOURCES:-[]}")"
+            export BASE_SOURCES
+            ./deploy-preview-files/deploy-preview/resolve-preview-paths
+          fi
+          printf 'artifact-id=%s\n' "$(printf '%s' "${BASE_SOURCES}" | sha256sum | cut -c1-12)" >> "${GITHUB_OUTPUT}"
+          if [[ "${BASE_SOURCES}" == '[]' ]]; then
+            echo "No Markdown sources from this PR are mounted in the preview."
+          fi
+
+      - name: Log in to production GAR for the frontmatter linter
+        if: steps.sources.outputs.sources != '[]'
+        uses: grafana/shared-workflows/actions/login-to-gar@974c33049d0967c5c9cfc249fe675daf341dc78f # v0.4.0
+        with:
+          registry: us-docker.pkg.dev
+          environment: prod
+
+      - name: Pull the frontmatter image
+        if: steps.sources.outputs.sources != '[]'
+        run: docker pull "${FRONTMATTER_IMAGE}"
+
+      - name: Collect changed files
+        if: steps.sources.outputs.sources != '[]'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.event_number }}
+          PR_SHA: ${{ inputs.sha }}
+        run: |
+          mkdir -p lint-reports
+          docker run --pull never --rm --read-only --user "$(id -u):$(id -g)" \
+            -e GH_TOKEN -e GITHUB_REPOSITORY -e GITHUB_API_URL -e PR_NUMBER -e PR_SHA \
+            -v "${PWD}/lint-reports:/reports" \
+            "${FRONTMATTER_IMAGE}" changes \
+            -output /reports/changed-files.json -report-dir /reports
+
+      - name: Lint changed files against all source pages
+        id: lint
+        if: steps.sources.outputs.sources != '[]'
+        continue-on-error: true
+        env:
+          LINT_SOURCES: ${{ steps.sources.outputs.sources }}
+        run: |
+          docker run --pull never --rm --network none --read-only --user "$(id -u):$(id -g)" \
+            -v "${PWD}/source-files:/source:ro" \
+            -v "${PWD}/lint-reports:/reports" \
+            "${FRONTMATTER_IMAGE}" \
+            -root /source -sources-json "${LINT_SOURCES}" -environment docs \
+            -changed-files-json /reports/changed-files.json \
+            -sha "${SHA}" -output-dir /reports -fail
+
+      - name: Save frontmatter reports
+        if: ${{ !cancelled() && (steps.lint.outcome == 'success' || steps.lint.outcome == 'failure') }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: frontmatter-${{ inputs.repo }}-${{ steps.sources.outputs.artifact-id }}-${{ inputs.sha }}
+          path: |
+            lint-reports/lint.json
+            lint-reports/lint.txt
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Create or update the frontmatter comment
+        if: ${{ !cancelled() && (steps.lint.outcome == 'success' || steps.lint.outcome == 'failure') }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.event_number }}
+          PR_SHA: ${{ inputs.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          docker run --pull never --rm --read-only --user "$(id -u):$(id -g)" \
+            -e GH_TOKEN -e GITHUB_REPOSITORY -e GITHUB_API_URL -e PR_NUMBER -e PR_SHA -e RUN_URL \
+            -v "${PWD}/lint-reports:/reports:ro" \
+            "${FRONTMATTER_IMAGE}" comment -report-dir /reports
+
+      - name: Fail when frontmatter validation fails
+        if: ${{ !cancelled() && steps.lint.outcome == 'failure' }}
+        run: |
+          echo "Frontmatter validation failed. See the lint output and reports for details." >&2
           exit 1
 
   cleanup-preview:

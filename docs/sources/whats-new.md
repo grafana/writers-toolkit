@@ -18,19 +18,24 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## October 2026
+
+| New guidance or change             | Page                                                                                     |
+| ---------------------------------- | ---------------------------------------------------------------------------------------- |
+| Added a data sources writing guide | [Data sources writing guide](/docs/writers-toolkit/structure/data-source-writing-guide/) |
+
 ## September 2026
 
-| New guidance or change | Page |
-| ---------------------- | ---- |
+| New guidance or change                                        | Page                                                                              |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | Added AI quick reference for LLM-powered documentation skills | [AI quick reference](/docs/writers-toolkit/write/style-guide/ai-quick-reference/) |
 
 ## April 2026
 
-| New guidance or change                | Page                                                                   |
-| ------------------------------------- | ---------------------------------------------------------------------- |
-| Added alias example for Grafana Cloud | [Alias](/docs/writers-toolkit/write/front-matter/#aliases)             |
-| Added documentation for `_build`      | [_build](/docs/writers-toolkit/write/front-matter/#_build)             |
-
+| New guidance or change                | Page                                                       |
+| ------------------------------------- | ---------------------------------------------------------- |
+| Added alias example for Grafana Cloud | [Alias](/docs/writers-toolkit/write/front-matter/#aliases) |
+| Added documentation for `_build`      | [_build](/docs/writers-toolkit/write/front-matter/#_build) |
 
 ## March 2026
 

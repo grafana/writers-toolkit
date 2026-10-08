@@ -24,6 +24,27 @@ docker run --pull never --detach --name "${preview_container}" \
   --mount "type=volume,source=${preview_volume},target=/usr/share/nginx" \
   "${PREVIEW_IMAGE}" >/dev/null
 
+docker run --pull never --rm \
+  --mount "type=volume,source=${preview_volume},target=/usr/share/nginx,readonly" \
+  "${PREVIEW_IMAGE}" \
+  sh -euc '
+for route in \
+  /usr/share/nginx/dist/docs/grafana/latest/as-code/observability-as-code/grafana-cli/gcx/index.html \
+  /usr/share/nginx/dist/docs/grafana/next/as-code/observability-as-code/grafana-cli/gcx/index.html; do
+  if [ -f "${route}" ]; then
+    echo "present: ${route}"
+  else
+    echo "missing: ${route}"
+  fi
+done
+for redirects_file in /usr/share/nginx/dist/redirects.txt /usr/share/nginx/dist/redirects.conf; do
+  if [ -f "${redirects_file}" ]; then
+    echo "checking ${redirects_file} for gcx entries"
+    grep -n "grafana-cli/gcx" "${redirects_file}" || true
+  fi
+done
+'
+
 if ! docker run --pull never --rm \
   --network "container:${preview_container}" \
   -e RELATIVE_PREFIX \

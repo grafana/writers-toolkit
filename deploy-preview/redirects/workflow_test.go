@@ -54,7 +54,8 @@ func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testi
 	if strings.Contains(workflow, "name: dist") || strings.Contains(workflow, "path: dist") {
 		t.Error("deploy-preview workflow must not upload the Hugo dist artifact")
 	}
-	if strings.Contains(workflow, "actions/upload-artifact@") || strings.Contains(workflow, "name: Upload links report") {
+	linkJob := strings.Split(strings.Split(workflow, "\n  check-links:")[1], "\n  check-frontmatter:")[0]
+	if strings.Contains(linkJob, "actions/upload-artifact@") || strings.Contains(linkJob, "name: Upload links report") {
 		t.Error("deploy-preview workflow must not upload a link report artifact")
 	}
 	if strings.Contains(workflow, "repository: grafana/website") || strings.Contains(workflow, "scripts/docs/link-checker") {

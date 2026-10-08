@@ -10,10 +10,12 @@ on:
       - closed
     paths:
       - "docs/sources/**"
+      - ".github/workflows/deploy-pr-preview.yml"
+      - ".github/workflows/deploy-preview.yml"
 
 jobs:
   deploy-pr-preview:
-    uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@main # zizmor: ignore[unpinned-uses] It's a protected branch in the same repository.
+    uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@robbymilo/frontmatter-deploy-preview # zizmor: ignore[unpinned-uses] It's a protected branch in the same repository.
     if: "!github.event.pull_request.head.repo.fork"
     permissions:
       contents: read # Clone repository.
@@ -24,6 +26,7 @@ jobs:
       branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
       image: grafana/docs-base:nightly
+      frontmatter_image: us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/frontmatter-validator:sha-33b68dcdcfd359f7063d619379981adea5009b66
       repo: writers-toolkit
       sha: ${{ github.event.pull_request.head.sha }}
       sources: |

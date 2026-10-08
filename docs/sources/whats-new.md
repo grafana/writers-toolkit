@@ -18,6 +18,12 @@ weight: 175
 
 This page provides a summary of notable changes to Writers' Toolkit guidance.
 
+## October 2026
+
+| New guidance or change | Page |
+| ---------------------- | ---- |
+| Added the `image-comparison` shortcode. | [Image comparison](/docs/writers-toolkit/write/shortcodes/#image-comparison) |
+
 ## September 2026
 
 | New guidance or change | Page |

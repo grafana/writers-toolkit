@@ -1727,11 +1727,6 @@ Produces:
 
 ![Comparison of Grafana Traces Drilldown views with a draggable divider between root spans and all spans.](https://github.com/user-attachments/assets/4d1926b9-4a8a-47bb-9f49-7ef6de21a403)
 
-### Use in the CMS
-
-In **What's new** or **What's next**, choose **Image comparison** from the **+** menu in **Body** or **Internal information**.
-If the image dimensions differ or can't be checked, choose **Continue** to save or publish anyway, or **Cancel** to keep editing.
-
 ## Image-map
 
 The `image-map` shortcode creates an interactive image with clickable hotspots.

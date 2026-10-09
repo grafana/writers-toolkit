@@ -1688,6 +1688,54 @@ Insert a simple hero using shortcode arguments:
 
 <!-- vale Grafana.Spelling = NO -->
 
+## Image comparison
+
+The `image-comparison` shortcode lets readers slide between two images to compare changes or views.
+Readers can drag the divider or select the slider with the Tab key and use the arrow keys.
+Use images with the same dimensions and framing so their content lines up.
+
+| Parameter      | Description                                                                                           | Required |
+| -------------- | ----------------------------------------------------------------------------------------------------- | -------- |
+| `first-src`    | Path or URL of the first image.                                                                       | yes      |
+| `first-alt`    | Alt text that describes the first image.                                                              | yes      |
+| `second-src`   | Path or URL of the second image.                                                                      | yes      |
+| `second-alt`   | Alt text that describes the second image.                                                             | yes      |
+| `first-label`  | Label on the first image. Default: `First image`.                                                     | no       |
+| `second-label` | Label on the second image. Default: `Second image`.                                                   | no       |
+| `label`        | Slider name for screen readers. Default: `Image comparison`. Use a distinct name for each comparison. | no       |
+| `caption`      | Plain-text caption below the images.                                                                  | no       |
+| `position`     | Percentage of the first image shown at the start, from `0` to `100`. Default: `50`.                   | no       |
+
+### Example
+
+This example compares two Grafana Traces Drilldown views:
+
+```markdown
+{{</* image-comparison
+  first-src="/media/docs/website/components/image-comparison/play.grafana.org-a-grafana-exploretraces-app-explore.png"
+  first-alt="Grafana Traces Drilldown showing root spans over the last 30 minutes."
+  second-src="/media/docs/website/components/image-comparison/play.grafana.org-a-grafana-exploretraces-app-explore2.png"
+  second-alt="Grafana Traces Drilldown showing all spans over the last 24 hours."
+  first-label="Root spans"
+  second-label="All spans"
+  label="Compare Grafana Traces Drilldown views"
+  caption="Drag the divider to compare the trace views."
+*/>}}
+```
+
+Produces:
+
+{{< image-comparison
+  first-src="/media/docs/website/components/image-comparison/play.grafana.org-a-grafana-exploretraces-app-explore.png"
+  first-alt="Grafana Traces Drilldown showing root spans over the last 30 minutes."
+  second-src="/media/docs/website/components/image-comparison/play.grafana.org-a-grafana-exploretraces-app-explore2.png"
+  second-alt="Grafana Traces Drilldown showing all spans over the last 24 hours."
+  first-label="Root spans"
+  second-label="All spans"
+  label="Compare Grafana Traces Drilldown views"
+  caption="Drag the divider to compare the trace views."
+>}}
+
 ## Image-map
 
 The `image-map` shortcode creates an interactive image with clickable hotspots.

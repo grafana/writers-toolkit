@@ -1725,7 +1725,16 @@ This example compares two Grafana Traces Drilldown views:
 
 Produces:
 
-![Comparison of Grafana Traces Drilldown views with a draggable divider between root spans and all spans.](https://github.com/user-attachments/assets/4d1926b9-4a8a-47bb-9f49-7ef6de21a403)
+{{< image-comparison
+  first-src="/media/docs/website/components/image-comparison/play.grafana.org-a-grafana-exploretraces-app-explore.png"
+  first-alt="Grafana Traces Drilldown showing root spans over the last 30 minutes."
+  second-src="/media/docs/website/components/image-comparison/play.grafana.org-a-grafana-exploretraces-app-explore2.png"
+  second-alt="Grafana Traces Drilldown showing all spans over the last 24 hours."
+  first-label="Root spans"
+  second-label="All spans"
+  label="Compare Grafana Traces Drilldown views"
+  caption="Drag the divider to compare the trace views."
+>}}
 
 ## Image-map
 

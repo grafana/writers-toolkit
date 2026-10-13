@@ -1,4 +1,4 @@
-421
+422
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -72,6 +72,7 @@ CPU/S po:noun
 CPython/ po:noun
 CRD/S po:noun
 cron/ po:noun
+Crossplane/ po:noun
 CSS/ po:noun
 CSV/S po:noun
 CVE/S po:noun

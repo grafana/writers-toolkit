@@ -307,7 +307,7 @@ jobs:
 
       - name: Update comment with in-progress deploy preview
         if: steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ inputs.event_number }}
@@ -398,7 +398,7 @@ jobs:
 
       - name: Create comment with available deploy preview
         if: inputs.website_directory && steps.fc.outputs.comment-id == ''
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           issue-number: ${{ env.EVENT_NUMBER }}
           body: |
@@ -409,7 +409,7 @@ jobs:
 
       - name: Create comment with available deploy preview
         if: "!inputs.website_directory && steps.fc.outputs.comment-id == ''"
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           issue-number: ${{ inputs.event_number }}
           body: |
@@ -421,7 +421,7 @@ jobs:
 
       - name: Update comment with available deploy preview
         if: inputs.website_directory && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ env.EVENT_NUMBER }}
@@ -434,7 +434,7 @@ jobs:
 
       - name: Update comment with available deploy preview
         if: "!inputs.website_directory && steps.fc.outputs.comment-id != ''"
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ env.EVENT_NUMBER }}
@@ -637,14 +637,14 @@ jobs:
 
       - name: Create broken links comment
         if: steps.broken-links-comment-body.outputs.has-content == 'true' && steps.broken-links-comment.outputs.comment-id == ''
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           issue-number: ${{ inputs.event_number }}
           body-path: broken-links-comment.md
 
       - name: Update broken links comment
         if: steps.broken-links-comment-body.outputs.has-content == 'true' && steps.broken-links-comment.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           comment-id: ${{ steps.broken-links-comment.outputs.comment-id }}
           issue-number: ${{ inputs.event_number }}
@@ -698,7 +698,7 @@ jobs:
 
       - name: Update comment with deleted deploy preview
         if: steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           issue-number: ${{ env.EVENT_NUMBER }}
           comment-id: ${{ steps.fc.outputs.comment-id }}

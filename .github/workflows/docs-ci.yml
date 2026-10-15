@@ -123,7 +123,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     container:
-      image: grafana/vale:latest # zizmor: ignore[unpinned-images] We control this image and use :latest tag, so we don't need to pin the SHA.
+      image: grafana/vale:latest@sha256:1a2099aca27c49e00c9f23a357032c4b9600fcd1d6efe2357d18e1cb950f60f3 # zizmor: ignore[unpinned-images] We control this image and use :latest tag, so we don't need to pin the SHA.
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
@@ -147,7 +147,7 @@ jobs:
       contents: read
       pull-requests: write
     container:
-      image: grafana/vale:latest # zizmor: ignore[unpinned-images] We control this image and use :latest tag, so we don't need to pin the SHA.
+      image: grafana/vale:latest@sha256:1a2099aca27c49e00c9f23a357032c4b9600fcd1d6efe2357d18e1cb950f60f3 # zizmor: ignore[unpinned-images] We control this image and use :latest tag, so we don't need to pin the SHA.
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository with history

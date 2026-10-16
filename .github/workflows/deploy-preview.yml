@@ -569,6 +569,18 @@ jobs:
         run: |
           ./deploy-preview-files/deploy-preview/check-links
 
+      - name: Summarize links report
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f links.json ]]; then
+            echo "links.json entries: $(jq 'length' links.json)"
+            echo "broken links: $(jq '[ .[].links[]? | select(.error != "") ] | length' links.json)"
+            echo "unique source pages: $(jq '[ .[].source_path ] | map(select(. != "")) | unique | length' links.json)"
+          else
+            echo "links.json is missing"
+          fi
+
       # Find any existing broken-links comment before generating the body so the
       # generator knows whether to emit a "resolved" body once all broken links
       # are fixed, and so the create/update steps can target the comment. This
@@ -657,6 +669,18 @@ jobs:
         run: |
           echo "Broken links were introduced by this PR." >&2
           exit 1
+
+      - name: Upload link checker diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: link-checker-diagnostics-${{ inputs.repo }}-${{ inputs.event_number }}-${{ inputs.sha }}
+          path: |
+            changed-files.json
+            links.json
+            broken-links-comment.md
+          if-no-files-found: warn
+          retention-days: 7
 
   cleanup-preview:
     permissions:

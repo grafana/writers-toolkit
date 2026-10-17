@@ -6,7 +6,7 @@ toolchain go1.27.1
 
 require (
 	github.com/BurntSushi/toml v1.6.0
-	github.com/gohugoio/hugo v0.167.0
+	github.com/gohugoio/hugo v0.168.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -27,9 +27,9 @@ require (
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/tdewolff/parse/v2 v2.8.16 // indirect
 	github.com/yuin/goldmark v1.8.6 // indirect
-	golang.org/x/net v0.59.0 // indirect
-	golang.org/x/sys v0.48.0 // indirect
-	golang.org/x/text v0.42.0 // indirect
+	golang.org/x/net v0.61.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/text v0.43.0 // indirect
 	google.golang.org/protobuf v1.36.12 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )

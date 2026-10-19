@@ -54,7 +54,11 @@ func main() {
 
 	token := os.Getenv("GITHUB_TOKEN")
 	ctx := context.Background()
-	client := github.NewClient(nil).WithAuthToken(token)
+	client, err := github.NewClient(github.WithAuthToken(token))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error creating GitHub client: %v\n", err)
+		os.Exit(exit.RuntimeError)
+	}
 
 	filtered, hasResults, err := filterSARIFByPR(ctx, client, sarifFile, args.owner, args.repo, args.prNumber)
 	if err != nil {

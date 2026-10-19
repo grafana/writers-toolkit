@@ -76,7 +76,7 @@ If you can't verify a claim, mark it `[UNVERIFIED]` rather than guessing.
 
 - Use the exact title of the linked page as link text, not "click here" or "this file."
 - Use "refer to," not "see," "check out," or "consult."
-- Use relative links for internal pages. End links in `/`, not `.md`.
+- Link to Grafana documentation with a full URL (`https://grafana.com/docs/...`) or a path that starts with `/docs/`. Don't use relative paths such as `../page/` or links to `.md` files. End these links in `/`. For details, refer to [Links](https://grafana.com/docs/writers-toolkit/write/links/).
 
 ## Word list and conventions
 

@@ -14,6 +14,8 @@ require_env() {
 	fi
 }
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+
 require_env BRANCH
 require_env GH_TOKEN
 
@@ -63,12 +65,19 @@ write_page() {
 
 mkdir -p "${CONTENT_DIR}"
 
-index_body=""
+# docs-base excludes this section index. Keep its inherited layout and navigation
+# settings in the preview instead of replacing them with a plain docs index.
+cp "${SCRIPT_DIR}/learning-paths-index.md" "${CONTENT_DIR}/_index.md"
 
-for lj_dir in src/interactive-tutorials/*-lj; do
+for lj_dir in src/interactive-tutorials/*-lj src/interactive-tutorials/*-lp; do
 	[[ -d "${lj_dir}" ]] || continue
 	lj_name=$(basename "${lj_dir}")
-	slug="${lj_name%-lj}"
+	slug="${lj_name%-l[jp]}"
+	[[ -f "${lj_dir}/content.json" && -f "${lj_dir}/website.yaml" ]] || continue
+	if [[ -e "${CONTENT_DIR}/${slug}/_index.md" ]]; then
+		echo "Error: multiple learning path packages use the slug '${slug}'." >&2
+		exit 1
+	fi
 
 	write_page \
 		"${CONTENT_DIR}/${slug}/_index.md" \
@@ -76,13 +85,9 @@ for lj_dir in src/interactive-tutorials/*-lj; do
 		"${lj_dir}/content.json" \
 		"${lj_dir}/manifest.json" \
 		"${lj_name}"
-
-	path_title=$(jq -r '.title // .id // ""' "${lj_dir}/content.json" 2>/dev/null || echo "${slug}")
-	index_body+="- [${path_title}](/docs/learning-paths/${slug}/)"$'\n'
-
 	for milestone_dir in "${lj_dir}"/*/; do
 		[[ -d "${milestone_dir}" ]] || continue
-		[[ -f "${milestone_dir}/content.json" ]] || continue
+		[[ -f "${milestone_dir}/content.json" && -f "${milestone_dir}/website.yaml" ]] || continue
 		milestone_name=$(basename "${milestone_dir}")
 
 		write_page \
@@ -93,16 +98,6 @@ for lj_dir in src/interactive-tutorials/*-lj; do
 			"${lj_name}/${milestone_name}"
 	done
 done
-
-cat > "${CONTENT_DIR}/_index.md" <<EOMD
----
-title: Learning paths preview
-menuTitle: Learning paths
-weight: 100
----
-
-${index_body}
-EOMD
 
 echo "content.json files found in checkout:"
 git -C src/interactive-tutorials ls-files '**/content.json' | head -5 || echo "git ls-files failed"

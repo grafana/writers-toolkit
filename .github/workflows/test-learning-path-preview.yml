@@ -1,0 +1,26 @@
+name: Test learning path preview
+
+permissions: {}
+
+on:
+  pull_request:
+    paths:
+      - deploy-preview/build-interactive-tutorials
+      - deploy-preview/learning-paths-index.md
+      - deploy-preview/test_build_interactive_tutorials.py
+      - .github/workflows/test-learning-path-preview.yml
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check shell script
+        run: shellcheck deploy-preview/build-interactive-tutorials
+      - name: Test preview generation
+        run: python3 deploy-preview/test_build_interactive_tutorials.py

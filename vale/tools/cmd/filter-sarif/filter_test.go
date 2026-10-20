@@ -34,7 +34,8 @@ func TestFilterSARIFByPR(t *testing.T) {
 	want, err := sarif.NewFromFile("testdata/102941-filtered.sarif")
 	require.NoError(t, err)
 
-	client := github.NewClient(nil)
+	client, err := github.NewClient()
+	require.NoError(t, err)
 	ctx := context.Background()
 
 	filtered, hasRelevantErrors, err := filterSARIFByPR(ctx, client, unfiltered, "grafana", "grafana", 102941)

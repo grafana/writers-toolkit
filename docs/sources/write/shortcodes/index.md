@@ -1179,24 +1179,38 @@ This isn't rendered.
 
 This is rendered after the ignore.
 
-## Docs/learning-journeys
+## Docs/learning-cta
 
-The `docs/learning-journeys` shortcode produces a call to action (CTA) that links to a Grafana Learning Journey.
+The `docs/learning-cta` shortcode adds a call to action (CTA) that links to a learning journey or path on Grafana Learn.
+It replaces the deprecated `docs/learning-journeys` and `docs/learning-paths` shortcodes.
 
-| Parameter | Description                                | Required |
-| --------- | ------------------------------------------ | -------- |
-| `title`   | The title of the Grafana Learning Journey. | yes      |
-| `url`     | The URL of the Grafana Learning Journey.   | yes      |
+| Parameter      | Description                                                                    | Required |
+| -------------- | ------------------------------------------------------------------------------ | -------- |
+| `url`          | The URL of the learning journey or path.                                       | yes      |
+| `title`        | Overrides the linked page's title.                                             | no       |
+| `presentation` | Use `condensed` for a compact CTA. Omit this parameter to use the full layout. | no       |
 
-### Example
+### Full example
 
 ```markdown
-{{</* docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" */>}}
+{{</* docs/learning-cta title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" */>}}
 ```
 
 Produces:
 
-{{< docs/learning-journeys title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+{{< docs/learning-cta title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" >}}
+
+### Condensed example
+
+Add `presentation="condensed"` to show the same CTA in a compact layout.
+
+```markdown
+{{</* docs/learning-cta title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" presentation="condensed" */>}}
+```
+
+Produces:
+
+{{< docs/learning-cta title="Explore data using Metrics Drilldown" url="https://grafana.com/docs/learning-journeys/drilldown-metrics/" presentation="condensed" >}}
 
 ## Docs/list
 

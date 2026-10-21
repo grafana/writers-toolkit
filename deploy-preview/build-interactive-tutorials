@@ -65,22 +65,33 @@ mkdir -p "${CONTENT_DIR}"
 
 index_body=""
 
-for lj_dir in src/interactive-tutorials/*-lj; do
-	[[ -d "${lj_dir}" ]] || continue
-	lj_name=$(basename "${lj_dir}")
-	slug="${lj_name%-lj}"
+declare -A seen_slugs=()
+
+# -lj is the legacy learning journey suffix, kept during the rollout of the
+# -lp rename in grafana/interactive-tutorials.
+for path_dir in src/interactive-tutorials/*-lj src/interactive-tutorials/*-lp; do
+	[[ -d "${path_dir}" ]] || continue
+	path_name=$(basename "${path_dir}")
+	slug="${path_name%-lj}"
+	slug="${slug%-lp}"
+
+	if [[ -n "${seen_slugs[${slug}]+x}" ]]; then
+		echo "Error: duplicate slug '${slug}' from ${seen_slugs[${slug}]} and ${path_name}" >&2
+		exit 1
+	fi
+	seen_slugs[${slug}]="${path_name}"
 
 	write_page \
 		"${CONTENT_DIR}/${slug}/_index.md" \
-		"${lj_dir}/website.yaml" \
-		"${lj_dir}/content.json" \
-		"${lj_dir}/manifest.json" \
-		"${lj_name}"
+		"${path_dir}/website.yaml" \
+		"${path_dir}/content.json" \
+		"${path_dir}/manifest.json" \
+		"${path_name}"
 
-	path_title=$(jq -r '.title // .id // ""' "${lj_dir}/content.json" 2>/dev/null || echo "${slug}")
+	path_title=$(jq -r '.title // .id // ""' "${path_dir}/content.json" 2>/dev/null || echo "${slug}")
 	index_body+="- [${path_title}](/docs/learning-paths/${slug}/)"$'\n'
 
-	for milestone_dir in "${lj_dir}"/*/; do
+	for milestone_dir in "${path_dir}"/*/; do
 		[[ -d "${milestone_dir}" ]] || continue
 		[[ -f "${milestone_dir}/content.json" ]] || continue
 		milestone_name=$(basename "${milestone_dir}")
@@ -90,7 +101,7 @@ for lj_dir in src/interactive-tutorials/*-lj; do
 			"${milestone_dir}/website.yaml" \
 			"${milestone_dir}/content.json" \
 			"${milestone_dir}/manifest.json" \
-			"${lj_name}/${milestone_name}"
+			"${path_name}/${milestone_name}"
 	done
 done
 

@@ -2,6 +2,8 @@ module github.com/grafana/writers-toolkit/vale/tools
 
 go 1.26.0
 
+toolchain go1.27.3
+
 require (
 	github.com/google/go-github/v92 v92.0.0
 	github.com/grafana/writers-toolkit/tools v1.0.0

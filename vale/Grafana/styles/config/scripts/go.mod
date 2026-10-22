@@ -2,6 +2,8 @@ module github.com/grafana/writers-toolkit/vale/config/tests
 
 go 1.22.0
 
+toolchain go1.27.3
+
 require (
 	github.com/d5/tengo/v2 v2.17.0
 	github.com/stretchr/testify v1.12.1

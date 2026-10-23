@@ -15,6 +15,7 @@ local word = import './word.jsonnet';
   word.new('Podman', '', 'noun') { product: true },
   word.new('Postgres', '', 'noun') { product: true, swaps: { postgres: 'Postgres' } },
   word.new('PostgreSQL', '', 'noun') { product: true, swaps: { postgresql: 'PostgreSQL' } },
+  word.new('postgres_exporter', '', 'noun') { product: true },
   word.new('pprof', '', 'noun') { description: 'A tool for visualization and analysis of profiling data.', product: true },
   word.new('profile', 'DGRS', 'verb'),
   word.new('Profiles Drilldown', '', 'noun') { product: true },

@@ -6,8 +6,6 @@ if [[ -n "${RUNNER_DEBUG+x}" ]]; then
 	set -x
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 require_env() {
 	local name="${1}"
 	if [[ -z "${!name:-}" ]]; then
@@ -127,6 +125,5 @@ docker run \
 	--volume "${DATA_DIR}:/hugo/data/docs/interactive-learning" \
 	--volume "${CONTENT_DIR}:/hugo/content/docs/learning-paths" \
 	--volume "${WHATS_NEW_DIR}:/hugo/content/whats-new" \
-	--volume "${SCRIPT_DIR}/patch-docs-base-styles.bash:/patch-docs-base-styles.bash" \
 	--rm "${IMAGE:-grafana/docs-base:latest}" \
-	  /bin/bash -c 'set -o pipefail; bash /patch-docs-base-styles.bash /hugo; echo "Data dir:"; ls /hugo/data/docs/interactive-learning/ | head -5; echo "Content dir:"; ls /hugo/content/docs/learning-paths/ | head -5; HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify 2>&1 | tail -5'
+	  /bin/bash -c 'set -o pipefail; echo "Data dir:"; ls /hugo/data/docs/interactive-learning/ | head -5; echo "Content dir:"; ls /hugo/content/docs/learning-paths/ | head -5; HUGO_SSI=false hugo --environment=docs --destination=dist/ --baseURL= --minify 2>&1 | tail -5'

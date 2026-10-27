@@ -25,7 +25,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.4.3 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
-	github.com/tdewolff/parse/v2 v2.8.16 // indirect
+	github.com/tdewolff/parse/v2 v2.8.20 // indirect
 	github.com/yuin/goldmark v1.8.6 // indirect
 	golang.org/x/net v0.59.0 // indirect
 	golang.org/x/sys v0.48.0 // indirect

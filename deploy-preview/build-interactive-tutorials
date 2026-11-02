@@ -34,25 +34,23 @@ write_page() {
   local out="${1}"
   local website_yaml="${2}"
   local content_json="${3}"
-  local manifest_json="${4}"
-  local pathfinder_data="${5}"
-  local title description
+  local pathfinder_data="${4}"
+  local title
 
   title=$(jq '.title // .id // ""' "${content_json}" 2>/dev/null) || title='""'
-  description=$(jq '.description // ""' "${manifest_json}" 2>/dev/null) || description='""'
 
   mkdir -p "$(dirname "${out}")"
   {
     echo "---"
-    # Guarantee a newline after cat so a missing EOF newline doesn't break Hugo builds when the delimiter isn't on its own line.
-    # An extra blank line is harmless when the file already ends in one.
     if [[ -f "${website_yaml}" ]]; then
-      cat "${website_yaml}"
+      # Drop top-level title and pathfinder_data so the canonical values below
+      # don't produce duplicate YAML keys, which Hugo rejects. These keys are
+      # never nested in the learning-path website.yaml files, so a column-0
+      # anchor is safe.
+      grep -vE '^(title|pathfinder_data):' "${website_yaml}"
       echo
     fi
-    echo "type: docs"
     echo "title: ${title}"
-    echo "description: ${description}"
     echo "pathfinder_data: ${pathfinder_data}"
     echo "---"
     echo ""
@@ -85,7 +83,6 @@ for path_dir in src/interactive-tutorials/*-lj src/interactive-tutorials/*-lp; d
 		"${CONTENT_DIR}/${slug}/_index.md" \
 		"${path_dir}/website.yaml" \
 		"${path_dir}/content.json" \
-		"${path_dir}/manifest.json" \
 		"${path_name}"
 
 	path_title=$(jq -r '.title // .id // ""' "${path_dir}/content.json" 2>/dev/null || echo "${slug}")
@@ -100,7 +97,6 @@ for path_dir in src/interactive-tutorials/*-lj src/interactive-tutorials/*-lp; d
 			"${CONTENT_DIR}/${slug}/${milestone_name}/index.md" \
 			"${milestone_dir}/website.yaml" \
 			"${milestone_dir}/content.json" \
-			"${milestone_dir}/manifest.json" \
 			"${path_name}/${milestone_name}"
 	done
 done

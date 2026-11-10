@@ -147,7 +147,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'robbymilo/deploy-preview') }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
@@ -324,7 +324,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'robbymilo/deploy-preview') }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
@@ -472,7 +472,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'robbymilo/deploy-preview') }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |

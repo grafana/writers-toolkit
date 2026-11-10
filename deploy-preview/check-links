@@ -3,7 +3,13 @@
 set -euo pipefail
 
 : "${PREVIEW_IMAGE:?PREVIEW_IMAGE must name the immutable deploy preview image}"
-: "${LINK_CHECKER_IMAGE:?LINK_CHECKER_IMAGE must name the published link checker image}"
+# Older pinned workflows still pass LINK_CHECKER_IMAGE to this helper.
+checker_command=links
+if [[ -z "${DOCS_CHECKER_IMAGE:-}" ]]; then
+  DOCS_CHECKER_IMAGE="${LINK_CHECKER_IMAGE:-}"
+  checker_command=check
+fi
+: "${DOCS_CHECKER_IMAGE:?DOCS_CHECKER_IMAGE must name the published documentation checker image}"
 : "${GITHUB_WORKSPACE:?GITHUB_WORKSPACE must name the workflow workspace}"
 
 suffix="${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT:-0}-$$"
@@ -32,8 +38,8 @@ if ! docker run --pull never --rm \
   --mount "type=volume,source=${preview_volume},target=/usr/share/nginx,readonly" \
   --mount "type=bind,source=${GITHUB_WORKSPACE},target=/work" \
   --workdir /work \
-  "${LINK_CHECKER_IMAGE}" \
-  check \
+  "${DOCS_CHECKER_IMAGE}" \
+  "${checker_command}" \
   -existing-server \
   -nginx-port 80 \
   -dist-root /usr/share/nginx/dist \

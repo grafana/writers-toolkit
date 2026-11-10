@@ -26,18 +26,19 @@ func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testi
 		`run: echo "image=${IMAGE}@${DIGEST}" >> "$GITHUB_OUTPUT"`,
 		"image: ${{ needs.build-website.outputs.preview_image }}",
 		"PREVIEW_IMAGE: ${{ needs.build-website.outputs.preview_image }}",
-		"LINK_CHECKER_IMAGE: us-docker.pkg.dev/",
+		"DOCS_CHECKER_IMAGE: ${{ inputs.checker_image }}",
+		"default: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/docs-checker:nightly",
 		"Check links in the preview image",
 		"Authenticate to GAR for the preview image",
 		"Pull the immutable preview image",
-		"Pull the link checker image",
+		"Pull the documentation checker image",
 		"Check out deploy preview helpers",
 		"repository: grafana/writers-toolkit",
 		"./deploy-preview-files/deploy-preview/check-links",
-		`"${LINK_CHECKER_IMAGE}"`,
+		`"${DOCS_CHECKER_IMAGE}"`,
 		"docker run --pull never --rm",
 		"changes",
-		"comment",
+		"links report",
 		"-changed-files-json changed-files.json",
 		`-repo "$PR_REPO"`,
 		`-pr-number "$PR_NUMBER"`,
@@ -57,10 +58,10 @@ func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testi
 	if strings.Contains(workflow, "actions/upload-artifact@") || strings.Contains(workflow, "name: Upload links report") {
 		t.Error("deploy-preview workflow must not upload a link report artifact")
 	}
-	if strings.Contains(workflow, "repository: grafana/website") || strings.Contains(workflow, "scripts/docs/link-checker") {
+	if strings.Contains(workflow, "repository: grafana/website") || strings.Contains(workflow, "scripts/docs/checker") {
 		t.Error("deploy-preview workflow must use the published checker image because grafana/website is private")
 	}
-	if strings.Contains(workflow, "./link-checker") {
+	if strings.Contains(workflow, "./docs-checker") {
 		t.Error("deploy-preview workflow must not build or run a checker binary from private website source")
 	}
 	if strings.Contains(workflow, "PREVIEW_IMAGE: ${{ needs.deploy-preview.outputs.preview-image }}") {
@@ -97,12 +98,13 @@ func TestCheckLinksRunsPublishedCheckerBesidePreview(t *testing.T) {
 
 	required := []string{
 		`"${PREVIEW_IMAGE}"`,
-		`"${LINK_CHECKER_IMAGE}"`,
+		`"${DOCS_CHECKER_IMAGE}"`,
 		"docker volume create",
 		"docker run --pull never --detach",
 		`--network "container:${preview_container}"`,
 		"target=/usr/share/nginx,readonly",
-		"check",
+		`"${checker_command}"`,
+		"checker_command=links",
 		"-existing-server",
 		"-nginx-port 80",
 		"-dist-root /usr/share/nginx/dist",
@@ -138,7 +140,7 @@ func TestDeployPreviewImageContainsGeneratedRedirects(t *testing.T) {
 	if !strings.Contains(string(dockerfile), "COPY ./dist /usr/share/nginx/dist") {
 		t.Error("deploy-preview image does not preserve its existing document root")
 	}
-	if strings.Contains(string(dockerfile), "LINK_CHECKER_IMAGE") || strings.Contains(string(dockerfile), "broken-links") {
+	if strings.Contains(string(dockerfile), "DOCS_CHECKER_IMAGE") || strings.Contains(string(dockerfile), "broken-links") {
 		t.Error("deploy-preview image must not contain the link checker")
 	}
 	if !strings.Contains(string(nginxConfig), "include /etc/nginx/redirects.conf;") {

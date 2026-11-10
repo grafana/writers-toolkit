@@ -9,6 +9,10 @@ on:
         default: grafana/docs-base:latest
         description: Container image to use for building the website.
         type: string
+      checker_image:
+        default: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/docs-checker:nightly
+        description: Documentation checker image. Override to test a companion website branch image.
+        type: string
       # Legacy inputs
       # Don't forget to make `sources` required when you remove these.
       source_directory:
@@ -112,7 +116,7 @@ env:
   IMAGE: ${{ inputs.image }}
   SOURCES: ${{ inputs.sources }}
   BUILD_SCRIPT: ${{ inputs.build_script }}
-  LINK_CHECKER_IMAGE: us-docker.pkg.dev/grafanalabs-global/docker-website-public-prod/link-checker:nightly
+  DOCS_CHECKER_IMAGE: ${{ inputs.checker_image }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ inputs.repo }}-${{ inputs.title }}-${{ github.event.pull_request.number || github.ref }}
@@ -143,7 +147,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'robbymilo/deploy-preview') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
@@ -320,7 +324,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'robbymilo/deploy-preview') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
@@ -468,7 +472,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: grafana/writers-toolkit
-          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'robbymilo/deploy-preview') }}
           path: deploy-preview-files
           persist-credentials: false
           sparse-checkout: |
@@ -528,15 +532,15 @@ jobs:
           PREVIEW_IMAGE: ${{ needs.build-website.outputs.preview_image }}
         run: docker pull "${PREVIEW_IMAGE}"
 
-      - name: Log in to production GAR for the link checker
-        if: contains(env.LINK_CHECKER_IMAGE, 'grafanalabs-global')
+      - name: Log in to production GAR for the documentation checker
+        if: contains(env.DOCS_CHECKER_IMAGE, 'grafanalabs-global')
         uses: grafana/shared-workflows/actions/login-to-gar@974c33049d0967c5c9cfc249fe675daf341dc78f # v0.4.0
         with:
           registry: us-docker.pkg.dev
           environment: prod
 
-      - name: Pull the link checker image
-        run: docker pull "${LINK_CHECKER_IMAGE}"
+      - name: Pull the documentation checker image
+        run: docker pull "${DOCS_CHECKER_IMAGE}"
 
       - name: Determine changed files and compare complete front matter
         shell: bash
@@ -554,7 +558,7 @@ jobs:
             -e GIT_CONFIG_VALUE_0=/work/source-files \
             -v "${PWD}:/work" \
             -w /work \
-            "${LINK_CHECKER_IMAGE}" \
+            "${DOCS_CHECKER_IMAGE}" \
             changes \
             -repo "$PR_REPO" \
             -pr-number "$PR_NUMBER" \
@@ -604,8 +608,8 @@ jobs:
             -e BROKEN_LINKS_COMMENT_EXISTS \
             -v "${PWD}:/work" \
             -w /work \
-            "${LINK_CHECKER_IMAGE}" \
-            comment \
+            "${DOCS_CHECKER_IMAGE}" \
+            links report \
             -links links.json \
             -changed-files-json changed-files.json \
             -output broken-links-comment.md \

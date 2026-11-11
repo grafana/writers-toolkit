@@ -10,6 +10,9 @@ on:
       - closed
     paths:
       - "docs/sources/**"
+      - ".github/workflows/deploy-pr-preview.yml"
+      - ".github/workflows/deploy-preview.yml"
+      - "deploy-preview/**"
 
 jobs:
   deploy-pr-preview:

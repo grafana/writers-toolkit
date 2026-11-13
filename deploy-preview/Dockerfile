@@ -1,4 +1,6 @@
-FROM nginx:1.31.6-alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2
+FROM nginx:1.31.6-alpine-slim@sha256:f761b94f2cb9e8e05e2943d5f773609596113ef69b54e2433a996d109a8f78b7
+
+RUN apk upgrade --no-cache
 
 COPY ./dist /usr/share/nginx/dist
 

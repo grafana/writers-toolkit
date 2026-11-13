@@ -639,6 +639,16 @@ jobs:
             echo "has-broken-links=false" >> "${GITHUB_OUTPUT}"
           fi
 
+      - name: Annotate broken links breakglass in comment
+        if: steps.broken-links-comment-body.outputs.has-broken-links == 'true' && contains(github.event.pull_request.labels.*.name, 'docs/ignore-broken-links')
+        shell: bash
+        run: |
+          {
+            echo
+            echo "> [!NOTE]"
+            echo "> The \`docs/ignore-broken-links\` label is set, so these broken links do not block merging this PR."
+          } >> broken-links-comment.md
+
       - name: Create broken links comment
         if: steps.broken-links-comment-body.outputs.has-content == 'true' && steps.broken-links-comment.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
@@ -656,7 +666,7 @@ jobs:
           body-path: broken-links-comment.md
 
       - name: Fail when broken links are found
-        if: steps.broken-links-comment-body.outputs.has-broken-links == 'true'
+        if: steps.broken-links-comment-body.outputs.has-broken-links == 'true' && !contains(github.event.pull_request.labels.*.name, 'docs/ignore-broken-links')
         shell: bash
         run: |
           echo "Broken links were introduced by this PR." >&2

@@ -41,6 +41,7 @@ local word = import './word.jsonnet';
   word.new('submenu', 'S', 'noun'),
   word.new('subnet', 'S', 'noun'),
   word.new('subquery', 'S', 'noun'),
+  word.new('subresource', 'S', 'noun') { description: 'A Kubernetes API resource that is nested under another resource, such as status or scale' },
   word.new('subtask', 'S', 'noun'),
   word.new('SUSE', '', 'noun') { abbreviation: true, description: 'SUSE Linux', established_abbreviation: true, product: true },
   word.new('SUT', '', 'noun') { abbreviation: true, elaboration: 'System Under Test' },

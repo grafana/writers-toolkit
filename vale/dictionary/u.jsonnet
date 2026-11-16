@@ -8,6 +8,7 @@ local word = import './word.jsonnet';
   word.new('undock', 'DGS', 'verb') { description: 'To change the behavior of a Grafana dashboard sidebar so that it sits next to other dashboard elements instead of floating over them.' },
   word.new('ungroup', 'DGS', 'verb') { description: 'To remove Grafana dashboard panels from a row or tab.' },
   word.new('Unicon', '', 'noun') { description: 'Programming language that extends Icon with object-oriented, concurrent, and networking features while specializing in text processing, pattern matching, and rapid application development.' },
+  word.new('unstar', 'DGS', 'verb') { description: 'To remove a star from a Grafana resource, such as a dashboard, so that it no longer appears in your starred items.' },
   word.new('URI', 'S', 'noun') { abbreviation: true, elaboration: 'Uniform Resource Identifier', established_abbreviation: true },
   word.new('URL', 'S', 'noun') { abbreviation: true, elaboration: 'Uniform Resource Locator', established_abbreviation: true, swaps: { url: 'URL', urls: 'URLs' } },
   word.new('USB', '', 'noun') { abbreviation: true, elaboration: 'Universal Serial Bus', established_abbreviation: true },

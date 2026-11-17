@@ -2,4 +2,4 @@ packages:
   - vale-action
 
 overrides:
-  undici: 6.29.0
+  undici: 6.29.1

@@ -47,6 +47,10 @@ For the title of the page, use one `#`. For each child heading, use two `##` sym
 Each heading has an auto-generated identifier that you can use to link to the heading within the page.
 To derive the generated identifier from a heading, refer to [Link to page headings](https://grafana.com/docs/writers-toolkit/write/links/#link-to-page-headings).
 
+If a heading contains a `param` shortcode, use `%` delimiters, including when the call appears after other text.
+This lets Hugo expand the parameter before generating the heading identifier.
+For examples and details, refer to [the `param` shortcode](https://grafana.com/docs/writers-toolkit/write/shortcodes/#param).
+
 You can also explicitly set the heading identifier.
 The following Markdown example sets the heading identifier to be `alternative-heading-id`:
 

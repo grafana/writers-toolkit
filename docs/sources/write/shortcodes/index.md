@@ -1872,12 +1872,25 @@ To add a new variable definition:
 1. Define a [`cascade` variable](https://grafana.com/docs/writers-toolkit/write/front-matter/#cascade) in the parent topic.
 1. Insert the `param` variable where it's required in the parent and child topics.
 
-If you use the `param` shortcode in headings, you must use `%` in place of `<` and `>`.
+Use `%` delimiters for every `param` call in a heading, including calls after other text.
 For example:
 
 ```markdown
-# Heading {{%/* param VARIABLE */%}}
+# {{%/* param "FULL_PRODUCT_NAME" */%}}
+
+## Configure {{%/* param "PRODUCT_NAME" */%}} for clustering
+
+### {{%/* param "FULL_PRODUCT_NAME" */%}} vs customer responsibilities
 ```
+
+Hugo expands `{{%/* param "PRODUCT_NAME" */%}}` before rendering Markdown, so the heading identifier uses the parameter's value.
+With `{{</* param "PRODUCT_NAME" */>}}`, Hugo generates the identifier before expanding the shortcode.
+This can leave an internal placeholder such as `hahahugoshortcode5962s5hbhb` in the heading identifier and table of contents links.
+The placeholder can change between builds even when the heading text hasn't changed, making links unstable and causing unnecessary changes in exported documentation.
+
+Changing the shortcode template doesn't change this rendering order.
+Use `%` delimiters in the heading's source text.
+The angle-bracket syntax remains suitable for the body text example below.
 
 ### Example
 

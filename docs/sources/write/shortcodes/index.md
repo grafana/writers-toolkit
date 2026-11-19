@@ -281,9 +281,11 @@ The `code` shortcode provides the ability to show multiple snippets of code in d
 When a user selects a language, the website sets other code blocks on the page to that language.
 The website saves the selected language to browser storage and persists it across navigation.
 
-| Parameter   | Description                                                                          | Required |
-| ----------- | ------------------------------------------------------------------------------------ | -------- |
-| `annotated` | Render the code block in a two-column layout with comments to the right of the code. | no       |
+| Parameter   | Description                                                                                                                                                                                                                                               | Required |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `annotated` | Render the code block in a two-column layout with comments to the right of the code.                                                                                                                                                                      | no       |
+| `copy`      | Set to `false` to hide the **Copy** button. Defaults to `true`. Use it for example output, error messages, or directory trees.                                                                                                                            | no       |
+| `header`    | Set to `false` to hide the header with the language label, like a fenced code block without a language. The **Copy** button stays unless `copy` is `false`. Defaults to `true`. Ignored for multi-language and `annotated` blocks, which need the header. | no       |
 
 ### Example
 

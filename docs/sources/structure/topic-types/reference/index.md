@@ -3,7 +3,6 @@ aliases:
   - /docs/writers-toolkit/structure/topic-types/reference/
   - /docs/writers-toolkit/writing-guide/documentation-structure/topic-types/reference
 date: "2022-10-27T16:43:50-04:00"
-description: Learn how to write a reference topic.
 keywords:
   - topic types
   - template

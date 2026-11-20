@@ -10,7 +10,6 @@ keywords:
   - scenario
 menuTitle: Scenario
 review_date: "2025-11-01"
-title: Scenario topic
 ---
 
 # Scenario topic

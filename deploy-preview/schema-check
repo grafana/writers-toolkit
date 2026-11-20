@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+: "${DOCS_CHECKER_IMAGE:?DOCS_CHECKER_IMAGE must name the published documentation checker image}"
+: "${GITHUB_WORKSPACE:?GITHUB_WORKSPACE must name the workflow workspace}"
+: "${SHA:?SHA must name the checked PR commit}"
+
+sources="${SOURCES:-}"
+if [[ -n "${WEBSITE_DIRECTORY:-}" ]]; then
+  sources="$(jq -cn --arg source "${SOURCE_DIRECTORY:-docs/sources}" --arg target "$WEBSITE_DIRECTORY" \
+    '[{source_directory: $source, website_directory: $target}]')"
+else
+  # Only these sources come from the PR checkout. Other repositories and pinned
+  # refs are built separately and must not be read from this checkout.
+  sources="$(jq -c --arg repo "$REPO" --arg branch "${BRANCH:-}" --arg sha "$SHA" \
+    'map(select((.repo // $repo) == $repo and
+      ((.ref // "") == "" or .ref == $branch or .ref == $sha)))' <<<"$sources")"
+fi
+
+docker run --pull never --rm \
+  --mount "type=bind,source=${GITHUB_WORKSPACE},target=/work" \
+  --workdir /work/source-files \
+  "$DOCS_CHECKER_IMAGE" schema-check \
+  -mode changes \
+  -sources-json "$sources" \
+  -changed-files-json /work/changed-files.json \
+  -sha "$SHA" \
+  -output-dir /work/lint-reports \
+  -fail

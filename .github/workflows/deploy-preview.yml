@@ -123,6 +123,157 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  schema-check:
+    name: Schema check
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'labeled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ inputs.sha }}
+          path: source-files
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Check out deploy preview helpers
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: grafana/writers-toolkit
+          ref: ${{ inputs.toolkit_ref != '' && inputs.toolkit_ref || (github.repository == 'grafana/writers-toolkit' && inputs.sha || 'main') }}
+          path: deploy-preview-files
+          persist-credentials: false
+          sparse-checkout: |
+            deploy-preview
+
+      - name: Resolve content paths
+        id: content-paths
+        shell: bash
+        env:
+          BASE_SOURCES: ${{ inputs.sources }}
+          TARGET_REF_NAME: ${{ github.event.pull_request.base.ref }}
+        run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
+
+      - name: Log in to production GAR for the documentation checker
+        if: contains(env.DOCS_CHECKER_IMAGE, 'grafanalabs-global')
+        uses: grafana/shared-workflows/actions/login-to-gar@974c33049d0967c5c9cfc249fe675daf341dc78f # v0.4.0
+        with:
+          registry: us-docker.pkg.dev
+          environment: prod
+
+      - name: Authenticate to dev GAR for a companion checker image
+        if: contains(env.DOCS_CHECKER_IMAGE, 'grafanalabs-dev')
+        id: gcloud-auth-content
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          token_format: access_token
+          workload_identity_provider: projects/304398677251/locations/global/workloadIdentityPools/github/providers/github-provider
+          service_account: github-docs-deploy-previews@grafanalabs-workload-identity.iam.gserviceaccount.com
+          create_credentials_file: false
+
+      - name: Log in to dev GAR for a companion checker image
+        if: contains(env.DOCS_CHECKER_IMAGE, 'grafanalabs-dev')
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: us-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.gcloud-auth-content.outputs.access_token }}
+
+      - name: Pull the documentation checker image
+        run: docker pull "${DOCS_CHECKER_IMAGE}"
+
+      - name: Collect changed files for schema checks
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ inputs.event_number }}
+        run: |
+          docker run --pull never --rm \
+            -e GH_TOKEN \
+            -e SOURCE_DIRECTORY \
+            -e SOURCES \
+            -e GIT_CONFIG_COUNT=1 \
+            -e GIT_CONFIG_KEY_0=safe.directory \
+            -e GIT_CONFIG_VALUE_0=/work/source-files \
+            -v "${PWD}:/work" \
+            -w /work \
+            "${DOCS_CHECKER_IMAGE}" changes \
+            -repo "$PR_REPO" \
+            -pr-number "$PR_NUMBER" \
+            -github-api-url "$GITHUB_API_URL" \
+            -output changed-files.json \
+            -repository-directory /work/source-files
+
+      - name: Run schema check
+        id: schema-check
+        continue-on-error: true
+        shell: bash
+        env:
+          SOURCES: ${{ steps.content-paths.outputs.sources != '' && steps.content-paths.outputs.sources || inputs.sources }}
+        run: ./deploy-preview-files/deploy-preview/schema-check
+
+      - name: Print schema check findings
+        run: cat lint-reports/lint.txt
+
+      - name: Find schema check comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
+        id: schema-check-comment
+        with:
+          issue-number: ${{ inputs.event_number }}
+          comment-author: github-actions[bot]
+          body-includes: <!-- schema-check-report:${{ github.repository }} -->
+
+      - name: Generate schema check comment
+        shell: bash
+        env:
+          PR_REPO: ${{ github.repository }}
+          PR_SHA: ${{ inputs.sha }}
+          COMMENT_EXISTS: ${{ steps.schema-check-comment.outputs.comment-id != '' }}
+        run: |
+          docker run --pull never --rm \
+            -v "${PWD}:/work" \
+            -w /work \
+            "${DOCS_CHECKER_IMAGE}" schema-check report \
+            -report lint-reports/lint.json \
+            -output schema-check-comment.md \
+            -repo "$PR_REPO" \
+            -sha "$PR_SHA" \
+            -comment-exists="$COMMENT_EXISTS"
+
+      - name: Check for schema check comment
+        id: schema-check-comment-body
+        run: |
+          if [ -s schema-check-comment.md ]; then
+            echo "has-content=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create schema check comment
+        if: steps.schema-check-comment-body.outputs.has-content == 'true' && steps.schema-check-comment.outputs.comment-id == ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          issue-number: ${{ inputs.event_number }}
+          body-path: schema-check-comment.md
+
+      - name: Update schema check comment
+        if: steps.schema-check-comment-body.outputs.has-content == 'true' && steps.schema-check-comment.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+        with:
+          comment-id: ${{ steps.schema-check-comment.outputs.comment-id }}
+          issue-number: ${{ inputs.event_number }}
+          edit-mode: replace
+          body-path: schema-check-comment.md
+
+      - name: Fail when the schema check fails
+        if: ${{ !cancelled() && steps.schema-check.outcome == 'failure' }}
+        run: exit 1
+
   build-website:
     outputs:
       preview_image: ${{ steps.preview-image.outputs.image }}

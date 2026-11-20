@@ -16,7 +16,7 @@ on:
 
 jobs:
   deploy-pr-preview:
-    uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@main # zizmor: ignore[unpinned-uses] It's a protected branch in the same repository.
+    uses: grafana/writers-toolkit/.github/workflows/deploy-preview.yml@robbymilo/deploy-preview # zizmor: ignore[unpinned-uses] It's a protected branch in the same repository.
     if: "!github.event.pull_request.head.repo.fork"
     permissions:
       contents: read # Clone repository.
@@ -27,6 +27,7 @@ jobs:
       branch: ${{ github.head_ref }}
       event_number: ${{ github.event.number }}
       image: grafana/docs-base:nightly
+      checker_image: us-docker.pkg.dev/grafanalabs-dev/docker-website-public-dev/docs-checker:sha-48fa5c450c32be29dc073f3fbc1ae6388a1b056d
       repo: writers-toolkit
       sha: ${{ github.event.pull_request.head.sha }}
       sources: |

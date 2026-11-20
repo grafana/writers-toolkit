@@ -2,9 +2,45 @@ package main
 
 import (
 	"os"
+	"regexp"
 	"strings"
 	"testing"
 )
+
+func TestSchemaChecksRunWithoutBuildOrDeployDependencies(t *testing.T) {
+	data, err := os.ReadFile("../../.github/workflows/deploy-preview.yml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	workflow := string(data)
+	block := func(name string) string {
+		t.Helper()
+		pattern := regexp.MustCompile(`(?ms)^  ` + regexp.QuoteMeta(name) + `:\n(.*?)(?:^  [a-zA-Z0-9_-]+:\n|\z)`)
+		match := pattern.FindStringSubmatch(workflow)
+		if len(match) != 2 {
+			t.Fatalf("missing job %s", name)
+		}
+		return match[1]
+	}
+	content := block("schema-check")
+	if regexp.MustCompile(`(?m)^    needs:`).MatchString(content) || strings.Contains(content, "needs.") {
+		t.Fatal("schema checks must not wait for or consume outputs from another job")
+	}
+	for _, forbidden := range []string{"PREVIEW_IMAGE", "links.json", "check-links", "hugo --"} {
+		if strings.Contains(content, forbidden) {
+			t.Errorf("schema check job depends on preview/link results: %s", forbidden)
+		}
+	}
+	for _, required := range []string{"resolve-preview-paths", "steps.content-paths.outputs.sources", "schema-check report", "<!-- schema-check-report:", "continue-on-error: true", "steps.schema-check.outcome == 'failure'"} {
+		if !strings.Contains(content, required) {
+			t.Errorf("schema check job missing independent check/report/failure handling: %s", required)
+		}
+	}
+	links := block("check-links")
+	if !strings.Contains(links, "needs: [build-website, deploy-preview]") || strings.Contains(links, "lint-reports") || strings.Contains(links, "schema-check report") {
+		t.Fatal("link checks must keep their existing preview dependency and separate findings")
+	}
+}
 
 func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testing.T) {
 	content, err := os.ReadFile("../../.github/workflows/deploy-preview.yml")
@@ -39,6 +75,10 @@ func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testi
 		"docker run --pull never --rm",
 		"changes",
 		"links report",
+		"Run schema check",
+		"./deploy-preview-files/deploy-preview/schema-check",
+		"schema-check report",
+		"steps.schema-check.outcome == 'failure'",
 		"-changed-files-json changed-files.json",
 		`-repo "$PR_REPO"`,
 		`-pr-number "$PR_NUMBER"`,

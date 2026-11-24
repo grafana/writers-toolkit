@@ -110,75 +110,8 @@ else
     fi
   }
 
-  # Find the highest semantic version directory in a given path
-  function find_latest_version {
-    local base_path=$1
-    local highest_version=""
-
-    # Look for directories matching semantic version pattern (vX.Y.Z or vX.Y.x)
-    while IFS= read -r dir; do
-      if [[ -z "${highest_version}" ]]; then
-        highest_version="${dir}"
-      else
-        # Compare versions - extract major, minor, patch
-        local current_major current_minor current_patch
-        local highest_major highest_minor highest_patch
-
-        # Extract version numbers from current directory
-        if [[ "${dir}" =~ ^v([0-9]+)\.([0-9]+)\.(x|[0-9]+)$ ]]; then
-          current_major="${BASH_REMATCH[1]}"
-          current_minor="${BASH_REMATCH[2]}"
-          current_patch="${BASH_REMATCH[3]}"
-          [[ "${current_patch}" == "x" ]] && current_patch="9999"
-        else
-          continue
-        fi
-
-        # Extract version numbers from highest so far
-        if [[ "${highest_version}" =~ ^v([0-9]+)\.([0-9]+)\.(x|[0-9]+)$ ]]; then
-          highest_major="${BASH_REMATCH[1]}"
-          highest_minor="${BASH_REMATCH[2]}"
-          highest_patch="${BASH_REMATCH[3]}"
-          [[ "${highest_patch}" == "x" ]] && highest_patch="9999"
-        fi
-
-        # Compare versions
-        if (( current_major > highest_major )) || \
-           (( current_major == highest_major && current_minor > highest_minor )) || \
-           (( current_major == highest_major && current_minor == highest_minor && current_patch > highest_patch )); then
-          highest_version="${dir}"
-        fi
-      fi
-    done < <(find "${base_path}" -maxdepth 1 -type d -name 'v*' -printf '%f\n' 2>/dev/null | sort)
-
-    echo "${highest_version}"
-  }
-
-  # Replace <LATEST> placeholder with the actual latest version
-  function resolve_latest_placeholder {
-    local path=$1
-    local repo_base=$2
-
-    if [[ "${path}" == *"<LATEST>"* ]]; then
-      # Extract the parent directory path before <LATEST>
-      local parent_path="${path%/<LATEST>*}"
-      local remaining_path="${path#*<LATEST>}"
-
-      # Find the latest version in the parent directory
-      local full_parent_path="${repo_base}/${parent_path}"
-      local latest_version
-      latest_version="$(find_latest_version "${full_parent_path}")"
-
-      if [[ -n "${latest_version}" ]]; then
-        echo "${parent_path}/${latest_version}${remaining_path}"
-      else
-        echo "Warning: No version directories found in ${full_parent_path}, using path as-is" >&2
-        echo "${path}"
-      fi
-    else
-      echo "${path}"
-    fi
-  }
+  # shellcheck source=deploy-preview/resolve-latest-source.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/resolve-latest-source.sh"
 
   # Check out all the source repositories defined in SOURCES.
   function check_out_sources {
@@ -251,6 +184,7 @@ EOSCRIPT
 
   # Add mounts to the volumes variable.
   function configure_volumes {
+    local resolved_sources=$SOURCES index resolved_source_directory
     volumes=(
       "--volume=${PWD}/dist:/hugo/dist"
       "--volume=${tempfile}:/entrypoint:z"
@@ -259,12 +193,21 @@ EOSCRIPT
     # Fields are joined with '|' rather than a tab because bash treats tab as
     # IFS whitespace and collapses empty fields, which shifts subsequent
     # variables when .ref is absent from a source entry.
-    while IFS='|' read -r repo ref source_directory website_directory; do
+    while IFS='|' read -r index repo ref source_directory website_directory; do
       directory="$(checkout_directory "${repo}" "${ref}")"
       # Resolve <LATEST> placeholder in source_directory
       resolved_source_directory=$(resolve_latest_placeholder "${source_directory}" "${PWD}/${directory}")
       volumes+=("--volume=${PWD}/${directory}/${resolved_source_directory}:/hugo/${website_directory}:z")
-    done < <(jq -r '.[] | [(.repo // ""), (.ref // ""), (.source_directory // ""), (.website_directory // "")] | join("|")' <<<"${SOURCES}")
+      if [[ "$resolved_source_directory" != "$source_directory" ]]; then
+        resolved_sources="$(jq -c --argjson index "$index" --arg path "$resolved_source_directory" \
+          '.[$index].source_directory = $path' <<<"$resolved_sources")"
+      fi
+    done < <(jq -r 'to_entries[] | [.key, .value.repo, .value.ref, .value.source_directory, .value.website_directory] | join("|")' <<<"${SOURCES}")
+
+    # Give downstream link checks the same physical paths as the build mounts.
+    if [[ -n "${GITHUB_OUTPUT:-}" && "$resolved_sources" != "$SOURCES" ]]; then
+      printf 'sources=%s\n' "$resolved_sources" >> "$GITHUB_OUTPUT"
+    fi
   }
 
   # Prepare the command to run the container.

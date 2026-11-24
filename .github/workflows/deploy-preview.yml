@@ -158,7 +158,7 @@ jobs:
         env:
           BASE_SOURCES: ${{ inputs.sources }}
           TARGET_REF_NAME: ${{ github.event.pull_request.base.ref }}
-        run: ./deploy-preview-files/deploy-preview/resolve-preview-paths
+        run: ./deploy-preview-files/deploy-preview/resolve-preview-paths --schema
 
       - name: Log in to production GAR for the documentation checker
         if: contains(env.DOCS_CHECKER_IMAGE, 'grafanalabs-global')
@@ -191,13 +191,17 @@ jobs:
       - name: Collect changed files for schema checks
         shell: bash
         env:
+          SOURCES: ${{ steps.content-paths.outputs.sources }}
           GH_TOKEN: ${{ github.token }}
           PR_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ inputs.event_number }}
         run: |
+          if [[ "$SOURCES" == '[]' ]]; then
+            echo '[]' > changed-files.json
+            exit 0
+          fi
           docker run --pull never --rm \
             -e GH_TOKEN \
-            -e SOURCE_DIRECTORY \
             -e SOURCES \
             -e GIT_CONFIG_COUNT=1 \
             -e GIT_CONFIG_KEY_0=safe.directory \
@@ -216,7 +220,7 @@ jobs:
         continue-on-error: true
         shell: bash
         env:
-          SOURCES: ${{ steps.content-paths.outputs.sources != '' && steps.content-paths.outputs.sources || inputs.sources }}
+          SOURCES: ${{ steps.content-paths.outputs.sources }}
         run: ./deploy-preview-files/deploy-preview/schema-check
 
       - name: Print schema check findings
@@ -278,7 +282,7 @@ jobs:
     outputs:
       preview_image: ${{ steps.preview-image.outputs.image }}
       relative_prefix: ${{ steps.preview-paths.outputs.relative_prefix != '' && steps.preview-paths.outputs.relative_prefix || env.RELATIVE_PREFIX }}
-      sources: ${{ steps.preview-paths.outputs.sources != '' && steps.preview-paths.outputs.sources || env.SOURCES }}
+      sources: ${{ steps.build.outputs.sources || steps.preview-paths.outputs.sources || env.SOURCES }}
       website_directory: ${{ steps.preview-paths.outputs.website_directory != '' && steps.preview-paths.outputs.website_directory || env.WEBSITE_DIRECTORY }}
     permissions:
       contents: read # Clone repositories.
@@ -345,6 +349,7 @@ jobs:
           ls -al deploy-preview-files
 
       - name: Build website
+        id: build
         shell: bash
         env:
           # Legacy input.

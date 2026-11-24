@@ -49,12 +49,16 @@ func TestSchemaChecksRunWithoutBuildOrDeployDependencies(t *testing.T) {
 		steps[s.Name] = s
 	}
 	resolve := steps["Resolve content paths"]
-	if resolve.ID != "content-paths" || !strings.Contains(resolve.Run, "resolve-preview-paths") {
-		t.Error("schema job must resolve source paths")
+	if resolve.ID != "content-paths" || !strings.Contains(resolve.Run, "resolve-preview-paths --schema") {
+		t.Error("schema job must resolve source paths from the PR checkout")
 	}
-	scan := steps["Run schema check"]
-	if !strings.Contains(scan.Env["SOURCES"], "steps.content-paths.outputs.sources") || !strings.Contains(scan.Run, "/deploy-preview/schema-check") {
-		t.Error("schema check must use the resolved sources")
+	collect, scan := steps["Collect changed files for schema checks"], steps["Run schema check"]
+	const sources = "${{ steps.content-paths.outputs.sources }}"
+	if collect.Env["SOURCES"] != sources || scan.Env["SOURCES"] != sources {
+		t.Error("change collection and schema checking must use the same resolved sources")
+	}
+	if !strings.Contains(collect.Run, "-e SOURCES") || !strings.Contains(scan.Run, "/deploy-preview/schema-check") {
+		t.Error("resolved sources must reach both checker commands")
 	}
 	if scan.ID != "schema-check" || !scan.ContinueOnError ||
 		!strings.Contains(steps["Fail when the schema check fails"].If, "steps.schema-check.outcome == 'failure'") {

@@ -2,9 +2,78 @@ package main
 
 import (
 	"os"
+	"slices"
 	"strings"
 	"testing"
+
+	"go.yaml.in/yaml/v3"
 )
+
+func TestSchemaChecksRunWithoutBuildOrDeployDependencies(t *testing.T) {
+	data, err := os.ReadFile("../../.github/workflows/deploy-preview.yml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	type step struct {
+		Name            string
+		ID              string
+		Run             string
+		If              string
+		Env             map[string]string
+		With            map[string]string
+		ContinueOnError bool `yaml:"continue-on-error"`
+	}
+	type job struct {
+		Needs []string
+		Steps []step
+	}
+	var workflow struct {
+		Jobs struct {
+			Schema job `yaml:"schema-check"`
+			Links  job `yaml:"check-links"`
+		}
+	}
+	if err := yaml.Unmarshal(data, &workflow); err != nil {
+		t.Fatal(err)
+	}
+
+	if len(workflow.Jobs.Schema.Needs) != 0 {
+		t.Errorf("schema check must run independently, got needs %v", workflow.Jobs.Schema.Needs)
+	}
+	slices.Sort(workflow.Jobs.Links.Needs)
+	if !slices.Equal(workflow.Jobs.Links.Needs, []string{"build-website", "deploy-preview"}) {
+		t.Errorf("unexpected link check dependencies: %v", workflow.Jobs.Links.Needs)
+	}
+	steps := make(map[string]step)
+	for _, s := range workflow.Jobs.Schema.Steps {
+		steps[s.Name] = s
+	}
+	resolve := steps["Resolve content paths"]
+	if resolve.ID != "content-paths" || !strings.Contains(resolve.Run, "resolve-preview-paths --schema") {
+		t.Error("schema job must resolve source paths from the PR checkout")
+	}
+	collect, scan := steps["Collect changed files for schema checks"], steps["Run schema check"]
+	const sources = "${{ steps.content-paths.outputs.sources }}"
+	if collect.Env["SOURCES"] != sources || scan.Env["SOURCES"] != sources {
+		t.Error("change collection and schema checking must use the same resolved sources")
+	}
+	if !strings.Contains(collect.Run, "-e SOURCES") || !strings.Contains(scan.Run, "/deploy-preview/schema-check") {
+		t.Error("resolved sources must reach both checker commands")
+	}
+	if scan.ID != "schema-check" || !scan.ContinueOnError ||
+		!strings.Contains(steps["Fail when the schema check fails"].If, "steps.schema-check.outcome == 'failure'") {
+		t.Error("schema failures must allow reporting and then fail the job")
+	}
+	if !strings.Contains(steps["Generate schema check comment"].Run, "schema-check report") ||
+		!strings.HasPrefix(steps["Find schema check comment"].With["body-includes"], "<!-- schema-check-report:") {
+		t.Error("schema check must publish its own report")
+	}
+	for _, s := range workflow.Jobs.Links.Steps {
+		if strings.Contains(s.Run, "lint-reports") || strings.Contains(s.Run, "schema-check report") {
+			t.Errorf("link check step %q consumes schema findings", s.Name)
+		}
+	}
+}
 
 func TestDeployPreviewWorkflowUsesOneImmutableGARImageForDeployAndCheck(t *testing.T) {
 	content, err := os.ReadFile("../../.github/workflows/deploy-preview.yml")

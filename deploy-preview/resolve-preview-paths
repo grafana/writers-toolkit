@@ -8,6 +8,8 @@
 #
 #   main           -> next
 #   anything else  -> latest
+#
+# --schema emits only mounts from the PR checkout, with physical source paths.
 
 set -euf -o pipefail
 
@@ -36,6 +38,31 @@ if [[ -n "${sources}" ]]; then
       .
     end
   )' <<<"${sources}")"
+fi
+
+if [[ "${1:-}" == --schema ]]; then
+  if [[ -n "${WEBSITE_DIRECTORY:-}" ]]; then
+    sources="$(jq -cn --arg source "${SOURCE_DIRECTORY:-docs/sources}" --arg target "$WEBSITE_DIRECTORY" \
+      '[{source_directory: $source, website_directory: $target}]')"
+  else
+    # Other repositories and pinned refs are built from separate checkouts.
+    sources="$(jq -c --arg repo "$REPO" --arg branch "${BRANCH:-}" --arg sha "$SHA" \
+      'map(select((.repo // $repo) == $repo and
+        ((.ref // "") == "" or .ref == $branch or .ref == $sha)))' <<<"${sources:-[]}")"
+  fi
+
+  # Change collection needs physical directories to read the base front matter.
+  # shellcheck source=deploy-preview/resolve-latest-source.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/resolve-latest-source.sh"
+  while IFS= read -r source_dir; do
+    resolved="$(resolve_latest_placeholder "$source_dir" "$GITHUB_WORKSPACE/source-files")"
+    if [[ "$resolved" == *'<LATEST>'* ]]; then
+      echo "Could not resolve schema source directory: $source_dir" >&2
+      exit 1
+    fi
+    sources="$(jq -c --arg from "$source_dir" --arg to "$resolved" \
+      '(.[] | select(.source_directory == $from) | .source_directory) = $to' <<<"$sources")"
+  done < <(jq -r '[.[].source_directory | strings | select(split("/") | index("<LATEST>"))] | unique[]' <<<"$sources")
 fi
 
 echo "sources=${sources}" >> "${GITHUB_OUTPUT}"

@@ -58,6 +58,7 @@
   - "Jira"
   - "JMESPath"
   - "journald"
+  - "JSONPath"
   - "Jsonnet"
   - "Kerberos"
   - "Keycloak"

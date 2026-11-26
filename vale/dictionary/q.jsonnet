@@ -6,4 +6,5 @@ local word = import './word.jsonnet';
   word.new('query', 'DGS', 'verb'),
   word.new('queryable', '', 'adjective'),
   word.new('queryless', '', 'adjective') { description: 'In contrast to using a query language like PromQL or SQL' },
+  word.new('Quickwit', '', 'noun') { description: 'Quickwit is a search engine for logs and traces. https://quickwit.io/', product: true },
 ]

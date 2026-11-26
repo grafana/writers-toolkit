@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2026-10-13"
+review_date: "2026-11-26"
 title: Vale rules
 ---
 
@@ -850,6 +850,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Jira's`
 - `JMESPath's`
 - `journald's`
+- `JSONPath's`
 - `Jsonnet's`
 - `Kerberos'`
 - `Keycloak's`
@@ -897,6 +898,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Prometheus'`
 - `Promtail's`
 - `Pyroscope's`
+- `Quickwit's`
 - `RCA workbench's`
 - `RDS's`
 - `Relational Database Service's`

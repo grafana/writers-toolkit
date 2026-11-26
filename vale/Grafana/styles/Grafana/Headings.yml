@@ -106,6 +106,7 @@
   - "Prometheus"
   - "Promtail"
   - "Pyroscope"
+  - "Quickwit"
   - "RCA workbench"
   - "RDS"
   - "Relational Database Service"

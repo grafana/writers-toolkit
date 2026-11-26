@@ -1,4 +1,4 @@
-425
+426
 ACL/S po:noun
 actionability/ po:noun
 ADOT/ po:noun
@@ -279,6 +279,7 @@ query/ po:noun
 query/DGS po:verb
 queryable/ po:adjective
 queryless/ po:adjective
+Quickwit/ po:noun
 RAM/ po:noun
 RBAC/ po:noun
 RCA workbench/ po:noun

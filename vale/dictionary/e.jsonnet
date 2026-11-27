@@ -10,4 +10,6 @@ local word = import './word.jsonnet';
   word.new('Entra', '', 'noun') { Azure: true, product: true },
   word.new('ESLint', 'M', 'noun'),
   word.new('etcd', '', 'noun'),
+  word.new('exfiltrate', 'DGS', 'verb') { description: 'To transfer data out of a system without authorization.' },
+  word.new('exfiltration', '', 'noun') { description: 'The transfer of data out of a system without authorization.' },
 ]

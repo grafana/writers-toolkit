@@ -2,7 +2,7 @@
 date: "2024-06-25"
 description: A description of every Grafana Labs prose linting rule.
 menuTitle: Rules
-review_date: "2026-11-26"
+review_date: "2026-11-27"
 title: Vale rules
 ---
 
@@ -857,6 +857,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Kibana's`
 - `Killercoda's`
 - `Kinesis'`
+- `Kiro's`
 - `Kotlin's`
 - `KQL's`
 - `Kubernetes'`
@@ -877,6 +878,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `MySQL's`
 - `Netlify's`
 - `Netlink's`
+- `npm's`
 - `Okta's`
 - `OnCall's`
 - `OpenAI's`
@@ -897,6 +899,7 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Profiles Drilldown's`
 - `Prometheus'`
 - `Promtail's`
+- `Pydantic's`
 - `Pyroscope's`
 - `Quickwit's`
 - `RCA workbench's`
@@ -920,6 +923,8 @@ _`<CURRENT TEXT>`_ was matched by one or more of the following regular expressio
 - `Threema's`
 - `Timestream's`
 - `Traces Drilldown's`
+- `Twilio's`
+- `uv's`
 - `Velero's`
 - `Vercel's`
 - `Vite's`

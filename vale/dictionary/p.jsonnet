@@ -13,6 +13,7 @@ local word = import './word.jsonnet';
   word.new('PLZ', 'S', 'noun') { abbreviation: true, elaboration: 'Private Load Zone' },
   word.new('PNG', 'S', 'noun') { abbreviation: true, elaboration: 'Portable Network Graphics', established_abbreviation: true },
   word.new('Podman', '', 'noun') { product: true },
+  word.new('postflight', '', 'adjective') { description: 'Describes a check that runs after a request completes. The opposite of preflight.' },
   word.new('Postgres', '', 'noun') { product: true, swaps: { postgres: 'Postgres' } },
   word.new('PostgreSQL', '', 'noun') { product: true, swaps: { postgresql: 'PostgreSQL' } },
   word.new('pprof', '', 'noun') { description: 'A tool for visualization and analysis of profiling data.', product: true },
@@ -25,5 +26,6 @@ local word = import './word.jsonnet';
   word.new('proxy', 'DG', 'verb'),
   word.new('Puppetfile', 'S', 'noun'),
   word.new('PVC', 'S', 'noun') { abbreviation: true, elaboration: 'Persistent Volume Claim' },
+  word.new('Pydantic', '', 'noun') { description: 'A data validation library for Python: https://docs.pydantic.dev/', product: true },
   word.new('Pyroscope', '', 'noun') { product: true },
 ]

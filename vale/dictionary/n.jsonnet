@@ -6,4 +6,5 @@ local word = import './word.jsonnet';
   word.new('nginx', '', 'noun'),
   word.new('Netlify', '', 'noun') { product: true },
   word.new('Netlink', '', 'noun') { product: true, description: 'Netlink is a socket family used for inter-process communication (IPC) between both the kernel and userspace processes: https://en.wikipedia.org/wiki/Netlink' },
+  word.new('npm', '', 'noun') { description: 'The package manager for Node.js: https://docs.npmjs.com/', product: true },
 ]

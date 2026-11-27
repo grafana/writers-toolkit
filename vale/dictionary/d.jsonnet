@@ -19,6 +19,8 @@ local word = import './word.jsonnet';
   word.new('DNS', '', 'noun') { abbreviation: true, description: 'Domain Name System', established_abbreviation: true },
   word.new('DOM', '', 'noun') { abbreviation: true, elaboration: 'Document Object Model', established_abbreviation: true },
   word.new("don'ts", '', 'noun'),
+  word.new('donut', 'S', 'noun') { description: 'A pie chart with a hole in the center. The Grafana pie chart visualization has a donut type.' },
+  word.new('dotfile', 'S', 'noun') { description: 'A configuration file whose name starts with a dot, for example, `.bashrc`.' },
   word.new('downsample', 'DG', 'verb'),
   word.new('drilldown', '', 'noun'),
   word.new('drill down', '', 'verb'),

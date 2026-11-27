@@ -1,6 +1,7 @@
 local word = import './word.jsonnet';
 [
   word.new('sandbox', 'DG', 'verb'),
+  word.new('sanitization', '', 'noun') { description: 'The removal of sensitive or unsafe content from data.' },
   word.new('scattergram', 'MS', 'noun') { description: 'A chart that uses Cartesian coordinates to depict a value for two variables; also known as a scatter, scatter graph, or scatter plot' },
   word.new('scheduler', 'MS', 'noun') { description: 'A Kubernetes component that schedules workloads' },
   word.new('SCM', '', 'noun') { abbreviation: true, elaboration: 'source code management', established_abbreviation: true },
@@ -36,10 +37,12 @@ local word = import './word.jsonnet';
   word.new('stderr', '', 'noun') { description: 'Standard error stream' },
   word.new('stdout', '', 'noun') { description: 'Standard output stream' },
   word.new('stylesheet', 'S', 'noun') { swaps: { 'style sheet': 'stylesheet', 'style sheets': 'stylesheet' } },
+  word.new('subagent', 'S', 'noun') { description: 'An AI agent that another agent starts to handle part of a task.' },
   word.new('subchart', 'S', 'noun') { description: 'A Helm chart that is included in another chart' },
   word.new('subfolder', 'S', 'noun'),
   word.new('submenu', 'S', 'noun'),
   word.new('subnet', 'S', 'noun'),
+  word.new('subpath', 'S', 'noun') { description: 'A path below a base URL or package name, for example, a Grafana instance served from `/grafana`.' },
   word.new('subquery', 'S', 'noun'),
   word.new('subresource', 'S', 'noun') { description: 'A Kubernetes API resource that is nested under another resource, such as status or scale' },
   word.new('subtask', 'S', 'noun'),

@@ -22,4 +22,5 @@ local word = import './word.jsonnet';
   word.new('triage', 'D', 'verb'),
   word.new('TSDB', 'S', 'noun') { abbreviation: true, elaboration: 'time-series database', established_abbreviation: true },
   word.new('TTL', 'S', 'noun') { abbreviation: true, elaboration: 'time to live' },
+  word.new('Twilio', '', 'noun') { description: 'A cloud communications platform: https://www.twilio.com/docs', product: true },
 ]

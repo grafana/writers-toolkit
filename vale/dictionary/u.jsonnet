@@ -2,6 +2,8 @@ local word = import './word.jsonnet';
 [
   word.new('UI', 'S', 'noun') { abbreviation: true, elaboration: 'user interface', established_abbreviation: true },
   word.new('UID', 'S', 'noun') { abbreviation: true, elaboration: 'unique identifier', established_abbreviation: true },
+  word.new('unredacted', '', 'adjective'),
+  word.new('untrusted', '', 'adjective'),
   word.new('uprobe', 'S', 'noun'),
   word.new('unary', '', 'adjective'),
   word.new('underprovision', 'DG', 'verb'),
@@ -15,5 +17,6 @@ local word = import './word.jsonnet';
   word.new('UTC', '', 'noun') { abbreviation: true, elaboration: 'Coordinated Universal Time', established_abbreviation: true },
   word.new('UTF', '', 'noun') { abbreviation: true, elaboration: 'Unicode Transformation Format', established_abbreviation: true },
   word.new('UUID', 'S', 'noun') { abbreviation: true, elaboration: 'universally unique identifier', established_abbreviation: true },
+  word.new('uv', '', 'noun') { description: 'A Python package and project manager: https://docs.astral.sh/uv/', product: true },
   word.new('UX', '', 'noun') { abbreviation: true, elaboration: 'user experience', established_abbreviation: true },
 ]

@@ -2,7 +2,7 @@ module github.com/grafana/writers-toolkit/vale/config/tests
 
 go 1.22.0
 
-toolchain go1.27.3
+toolchain go1.27.4
 
 require (
 	github.com/d5/tengo/v2 v2.17.0
